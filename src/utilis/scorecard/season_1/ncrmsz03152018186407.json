@@ -1,1 +1,1046 @@
-{"Matchdetail":{"Team_Home": "1630","Team_Away": "1634","Match":{"Livecoverage": "yes","Id": "186407","Code": "ncrmsz03152018186407","Number": "Match 8","Type": "Exhibition Twenty20","Date": "3/15/2018","Time": "15:30","Offset": "+05:30","Daynight": "yes"},"Series":{"Id": "2957","Name": "T20 Mumbai, 2018","Status": "","Tour": "876","Tour_Name": "T20 Mumbai, 2018"},"Venue":{"Id": "168","Name": "Wankhede Stadium, Mumbai"},"Officials":{"Umpires": "Avdhoot Gokhale (IND),Rohan Pandit (IND) and Vaibhav Dhokre (IND)","Referee": "Arati Vaidya (IND)"},"Weather": "Clear","Tosswonby": "1630","Status": "Match Ended","Status_Id": "114","Player_Match": "Prasad Pawar","Result": "SoBo SuperSonics beat NaMo Bandra Blasters by 50 runs","Winningteam": "1634","Winmargin": "50 runs","Equation": "SoBo SuperSonics beat NaMo Bandra Blasters by 50 runs"},"Nuggets":[],"Innings":[{"Number": "First","Battingteam": "1634","Total": "149","Wickets": "6","Overs": "18.0","Runrate": "8.27","Byes": "0","Legbyes": "0","Wides": "0","Noballs": "0","Penalty": "0","AllottedOvers": "18","Batsmen":[{"Batsman": "65390","Runs": "15","Balls": "10","Fours": "2","Sixes": "0","Dots": "5","Strikerate": "150","Dismissal": "stumped","Howout": "st Eknath Kerkar b Pravin Tambe","Bowler": "63735","Fielder": "64715"},{"Batsman": "68299","Runs": "31","Balls": "22","Fours": "1","Sixes": "2","Dots": "4","Strikerate": "140.90","Dismissal": "caught","Howout": "c Shreyas Iyer b Shashikant Kadam","Bowler": "69036","Fielder": "63961"},{"Batsman": "4003","Runs": "8","Balls": "7","Fours": "1","Sixes": "0","Dots": "2","Strikerate": "114.28","Dismissal": "caught","Howout": "c Shreyas Iyer b Prashant Bhoir","Bowler": "32421","Fielder": "63961"},{"Batsman": "68876","Runs": "83","Balls": "53","Fours": "6","Sixes": "3","Dots": "11","Strikerate": "156.60","Dismissal": "caught","Howout": "c Aishwary Surve b Azhar Ansari","Bowler": "68659","Fielder": "68567"},{"Batsman": "63635","Runs": "10","Balls": "13","Fours": "0","Sixes": "1","Dots": "8","Strikerate": "76.92","Dismissal": "not out","Howout": "not out","Bowler": "","Fielder": ""},{"Batsman": "5434","Runs": "0","Balls": "1","Fours": "0","Sixes": "0","Dots": "1","Strikerate": "0","Dismissal": "bowled","Howout": "b Azhar Ansari","Bowler": "68659","Fielder": ""},{"Batsman": "4600","Runs": "0","Balls": "1","Fours": "0","Sixes": "0","Dots": "1","Strikerate": "0","Dismissal": "bowled","Howout": "b Azhar Ansari","Bowler": "68659","Fielder": ""},{"Batsman": "9710","Runs": "2","Balls": "1","Fours": "0","Sixes": "0","Dots": "0","Strikerate": "200","Dismissal": "not out","Howout": "not out","Bowler": "","Fielder": ""},{"Batsman": "68356","Runs": "","Balls": "","Fours": "","Sixes": "","Dots": "","Strikerate": "","Dismissal": "","Howout": "","Bowler": "","Fielder": ""},{"Batsman": "68529","Runs": "","Balls": "","Fours": "","Sixes": "","Dots": "","Strikerate": "","Dismissal": "","Howout": "","Bowler": "","Fielder": ""},{"Batsman": "65159","Runs": "","Balls": "","Fours": "","Sixes": "","Dots": "","Strikerate": "","Dismissal": "","Howout": "","Bowler": "","Fielder": ""}],"Partnership_Current":{"Runs": "2","Balls": "1","Batsmen":[{"Batsman": "9710","Runs": "2","Balls": "1"},{"Batsman": "63635","Runs": "0","Balls": "0"}]},"Bowlers":[{"Bowler": "32421","Overs": "4","Maidens": "0","Runs": "46","Wickets": "1","Economyrate": "11.5","Noballs": "0","Wides": "0","Dots": "8"},{"Bowler": "68567","Overs": "4","Maidens": "0","Runs": "41","Wickets": "0","Economyrate": "10.25","Noballs": "0","Wides": "0","Dots": "6"},{"Bowler": "63735","Overs": "3","Maidens": "0","Runs": "20","Wickets": "1","Economyrate": "6.66","Noballs": "0","Wides": "0","Dots": "3"},{"Bowler": "68308","Overs": "2","Maidens": "0","Runs": "19","Wickets": "0","Economyrate": "9.5","Noballs": "0","Wides": "0","Dots": "3"},{"Bowler": "68659","Overs": "4","Maidens": "0","Runs": "21","Wickets": "3","Economyrate": "5.25","Noballs": "0","Wides": "0","Dots": "8"},{"Bowler": "69036","Overs": "1","Maidens": "0","Runs": "2","Wickets": "1","Economyrate": "2","Noballs": "0","Wides": "0","Dots": "4"}],"FallofWickets":[{"Batsman": "65390","Score": "20","Overs": "2.1"},{"Batsman": "4003","Score": "38","Overs": "4.2"},{"Batsman": "68299","Score": "79","Overs": "10.2"},{"Batsman": "68876","Score": "146","Overs": "17.2"},{"Batsman": "5434","Score": "147","Overs": "17.4"},{"Batsman": "4600","Score": "147","Overs": "17.5"}],"PowerPlay":{"PP1": "1-5","PP2": ""}},{"Number": "Second","Battingteam": "1630","Total": "99","Wickets": "9","Overs": "18.0","Runrate": "5.5","Byes": "0","Legbyes": "1","Wides": "4","Noballs": "0","Penalty": "0","AllottedOvers": "18","Target": "150","Batsmen":[{"Batsman": "63505","Runs": "0","Balls": "5","Fours": "0","Sixes": "0","Dots": "5","Strikerate": "0","Dismissal": "caught","Howout": "c Prasad Pawar b Rohan Raje","Bowler": "4600","Fielder": "68876"},{"Batsman": "63961","Runs": "25","Balls": "19","Fours": "4","Sixes": "0","Dots": "7","Strikerate": "131.57","Dismissal": "caught","Howout": "c Prasad Pawar b Abhishek Nayar","Bowler": "4003","Fielder": "68876"},{"Batsman": "63343","Runs": "1","Balls": "4","Fours": "0","Sixes": "0","Dots": "3","Strikerate": "25","Dismissal": "caught","Howout": "c Dhrumil Matkar b Rohan Raje","Bowler": "4600","Fielder": "68356"},{"Batsman": "64715","Runs": "1","Balls": "4","Fours": "0","Sixes": "0","Dots": "3","Strikerate": "25","Dismissal": "caught","Howout": "c Aakarshit Gomel b Badre Alam","Bowler": "65159","Fielder": "68299"},{"Batsman": "69300","Runs": "4","Balls": "6","Fours": "1","Sixes": "0","Dots": "5","Strikerate": "66.66","Dismissal": "caught","Howout": "c Gaurav Jathar b Abhishek Nayar","Bowler": "4003","Fielder": "9710"},{"Batsman": "68659","Runs": "17","Balls": "23","Fours": "0","Sixes": "1","Dots": "13","Strikerate": "73.91","Dismissal": "caught","Howout": "c Gaurav Jathar b Jay Bista","Bowler": "65390","Fielder": "9710"},{"Batsman": "69036","Runs": "1","Balls": "4","Fours": "0","Sixes": "0","Dots": "3","Strikerate": "25","Dismissal": "caught","Howout": "c Sujit Nayak b Jay Bista","Bowler": "65390","Fielder": "63635"},{"Batsman": "68308","Runs": "8","Balls": "8","Fours": "0","Sixes": "1","Dots": "5","Strikerate": "100","Dismissal": "caught","Howout": "c Jay Bista b Abhishek Nayar","Bowler": "4003","Fielder": "65390"},{"Batsman": "68567","Isonstrike": true,"Runs": "21","Balls": "20","Fours": "3","Sixes": "0","Dots": "10","Strikerate": "105","Dismissal": "not out","Howout": "not out","Bowler": "","Fielder": ""},{"Batsman": "63735","Runs": "16","Balls": "15","Fours": "1","Sixes": "1","Dots": "7","Strikerate": "106.66","Dismissal": "caught","Howout": "c Prasad Pawar b Rohan Raje","Bowler": "4600","Fielder": "68876"},{"Batsman": "32421","Runs": "","Balls": "","Fours": "","Sixes": "","Dots": "","Strikerate": "","Dismissal": "","Howout": "","Bowler": "","Fielder": ""}],"Partnership_Current":{"Runs": "40","Balls": "33","Batsmen":[{"Batsman": "63735","Runs": "16","Balls": "15"},{"Batsman": "68567","Runs": "20","Balls": "18"}]},"Bowlers":[{"Bowler": "4600","Isbowlingtandem": true,"Isbowlingnow": true,"ThisOver":[{"T": "","B": "4"},{"T": "","B": "1"},{"T": "","B": "1"},{"T": "","B": "0"},{"T": "wd","B": "1"},{"T": "","B": "6"},{"T": "W","B": "0"}],"Overs": "4","Maidens": "0","Runs": "24","Wickets": "3","Economyrate": "6","Noballs": "0","Wides": "2","Dots": "16"},{"Bowler": "65159","Overs": "2","Maidens": "0","Runs": "9","Wickets": "1","Economyrate": "4.5","Noballs": "0","Wides": "0","Dots": "6"},{"Bowler": "4003","Overs": "4","Maidens": "0","Runs": "17","Wickets": "3","Economyrate": "4.25","Noballs": "0","Wides": "0","Dots": "14"},{"Bowler": "68529","Isbowlingtandem": true,"Overs": "2","Maidens": "0","Runs": "20","Wickets": "0","Economyrate": "10","Noballs": "0","Wides": "2","Dots": "4"},{"Bowler": "65390","Overs": "3","Maidens": "0","Runs": "13","Wickets": "2","Economyrate": "4.33","Noballs": "0","Wides": "0","Dots": "10"},{"Bowler": "68356","Overs": "2","Maidens": "0","Runs": "10","Wickets": "0","Economyrate": "5","Noballs": "0","Wides": "0","Dots": "8"},{"Bowler": "63635","Overs": "1","Maidens": "0","Runs": "5","Wickets": "0","Economyrate": "5","Noballs": "0","Wides": "0","Dots": "3"}],"FallofWickets":[{"Batsman": "63505","Score": "1","Overs": "0.5"},{"Batsman": "63343","Score": "13","Overs": "2.5"},{"Batsman": "64715","Score": "15","Overs": "4"},{"Batsman": "69300","Score": "21","Overs": "5.3"},{"Batsman": "63961","Score": "34","Overs": "7.1"},{"Batsman": "69036","Score": "37","Overs": "8.4"},{"Batsman": "68308","Score": "52","Overs": "11.3"},{"Batsman": "68659","Score": "59","Overs": "12.3"},{"Batsman": "63735","Score": "99","Overs": "18"}],"PowerPlay":{"PP1": "1-5","PP2": ""}}],"Teams":{"1634":{"Name_Full": "SoBo SuperSonics","Name_Short": "SS","Players":{"4003":{"Position": "1","Name_Full": "Abhishek Nayar","Iscaptain": true,"Batting":{"Style": "LHB","Average": "8","Strikerate": "57.14","Runs": "8"},"Bowling":{"Style": "RM","Average": "11.33","Economyrate": "4.85","Wickets": "3"}},"65390":{"Position": "2","Name_Full": "Jay Bista","Batting":{"Style": "RHB","Average": "15","Strikerate": "150","Runs": "15"},"Bowling":{"Style": "OB","Average": "6.5","Economyrate": "4.33","Wickets": "2"}},"68299":{"Position": "3","Name_Full": "Aakarshit Gomel","Batting":{"Style": "RHB","Average": "31","Strikerate": "140.9","Runs": "31"},"Bowling":{"Style": "SLO","Average": "0","Economyrate": "0","Wickets": "0"}},"68876":{"Position": "4","Name_Full": "Prasad Pawar","Iskeeper": true,"Batting":{"Style": "RHB","Average": "83","Strikerate": "156.6","Runs": "83"},"Bowling":{"Style": "","Average": "0","Economyrate": "0","Wickets": "0"}},"63635":{"Position": "5","Name_Full": "Sujit Nayak","Batting":{"Style": "RHB","Average": "10","Strikerate": "76.92","Runs": "10"},"Bowling":{"Style": "SLO","Average": "0","Economyrate": "5","Wickets": "0"}},"68356":{"Position": "6","Name_Full": "Dhrumil Matkar","Batting":{"Style": "LHB","Average": "","Strikerate": "0","Runs": "0"},"Bowling":{"Style": "SLO","Average": "0","Economyrate": "5","Wickets": "0"}},"5434":{"Position": "7","Name_Full": "Prashant Naik","Batting":{"Style": "RHB","Average": "0","Strikerate": "0","Runs": "0"},"Bowling":{"Style": "LBG","Average": "0","Economyrate": "0","Wickets": "0"}},"9710":{"Position": "8","Name_Full": "Gaurav Jathar","Batting":{"Style": "RHB","Average": "2","Strikerate": "200","Runs": "2"},"Bowling":{"Style": "SLO","Average": "0","Economyrate": "0","Wickets": "0"}},"4600":{"Position": "9","Name_Full": "Rohan Raje","Batting":{"Style": "RHB","Average": "0","Strikerate": "0","Runs": "0"},"Bowling":{"Style": "RFM","Average": "8","Economyrate": "6","Wickets": "3"}},"68529":{"Position": "10","Name_Full": "Ankur Singh","Batting":{"Style": "RHB","Average": "","Strikerate": "0","Runs": "0"},"Bowling":{"Style": "LF","Average": "0","Economyrate": "10","Wickets": "0"}},"65159":{"Position": "11","Name_Full": "Badre Alam","Batting":{"Style": "RHB","Average": "","Strikerate": "0","Runs": "0"},"Bowling":{"Style": "RM","Average": "9","Economyrate": "4.5","Wickets": "1"}}}},"1630":{"Name_Full": "NaMo Bandra Blasters","Name_Short": "NBB","Players":{"63505":{"Position": "1","Name_Full": "Kevin Almeida","Batting":{"Style": "LHB","Average": "0","Strikerate": "0","Runs": "0"},"Bowling":{"Style": "RMF","Average": "0","Economyrate": "0","Wickets": "0"}},"63961":{"Position": "2","Name_Full": "Shreyas Iyer","Iscaptain": true,"Batting":{"Style": "RHB","Average": "39.16","Strikerate": "99.15","Runs": "235"},"Bowling":{"Style": "LBG","Average": "0","Economyrate": "2","Wickets": "0"}},"63343":{"Position": "3","Name_Full": "Nikhil Patil","Batting":{"Style": "RHB","Average": "1","Strikerate": "25","Runs": "1"},"Bowling":{"Style": "OB","Average": "0","Economyrate": "0","Wickets": "0"}},"69300":{"Position": "4","Name_Full": "Aman Hakim Khan","Batting":{"Style": "RHB","Average": "4","Strikerate": "66.66","Runs": "4"},"Bowling":{"Style": "OB","Average": "0","Economyrate": "0","Wickets": "0"}},"64715":{"Position": "5","Name_Full": "Eknath Kerkar","Iskeeper": true,"Batting":{"Style": "RHB","Average": "1","Strikerate": "25","Runs": "1"},"Bowling":{"Style": "","Average": "0","Economyrate": "0","Wickets": "0"}},"68659":{"Position": "6","Name_Full": "Azhar Ansari","Batting":{"Style": "LHB","Average": "17","Strikerate": "73.91","Runs": "17"},"Bowling":{"Style": "RF","Average": "7","Economyrate": "5.25","Wickets": "3"}},"69036":{"Position": "7","Name_Full": "Shashikant Kadam","Batting":{"Style": "RHB","Average": "1","Strikerate": "25","Runs": "1"},"Bowling":{"Style": "SLO","Average": "2","Economyrate": "2","Wickets": "1"}},"68567":{"Position": "8","Name_Full": "Aishwary Surve","Batting":{"Style": "RHB","Average": "21","Strikerate": "105","Runs": "21"},"Bowling":{"Style": "RF","Average": "0","Economyrate": "10.25","Wickets": "0"}},"68308":{"Position": "9","Name_Full": "Aniket Redkar","Batting":{"Style": "RHB","Average": "8","Strikerate": "100","Runs": "8"},"Bowling":{"Style": "OB","Average": "0","Economyrate": "9.5","Wickets": "0"}},"63735":{"Position": "10","Name_Full": "Pravin Tambe","Batting":{"Style": "RHB","Average": "16","Strikerate": "106.66","Runs": "16"},"Bowling":{"Style": "LB","Average": "20","Economyrate": "6.66","Wickets": "1"}},"32421":{"Position": "11","Name_Full": "Prashant Bhoir","Batting":{"Style": "RHB","Average": "","Strikerate": "0","Runs": "0"},"Bowling":{"Style": "RMF","Average": "46","Economyrate": "11.5","Wickets": "1"}}}}},"Notes":{"1":["Mandatory Power play (1-5): SoBo SuperSonics 45/2","SoBo SuperSonics 50/2 in 5.5 overs","Strategic Time-out: SoBo SuperSonics 66/2 in 8.0 overs","SoBo SuperSonics 102/3 in 13.2 overs","Strategic Time-out: SoBo SuperSonics 118/3 in 15.0 overs","Innings Break: SoBo SuperSonics 149/6 in 18.0 overs"],"2":["Mandatory Power play (1-5): NaMo Bandra Blasters 45/2"]}}
+{
+  "Matchdetail": {
+    "Team_Home": "1630",
+    "Team_Away": "1634",
+    "Match": {
+      "Livecoverage": "yes",
+      "Id": "186407",
+      "Code": "ncrmsz03152018186407",
+      "Number": "Match 8",
+      "Type": "Exhibition Twenty20",
+      "Date": "3/15/2018",
+      "Time": "15:30",
+      "Offset": "+05:30",
+      "Daynight": "yes"
+    },
+    "Series": {
+      "Id": "2957",
+      "Name": "T20 Mumbai, 2018",
+      "Status": "",
+      "Tour": "876",
+      "Tour_Name": "T20 Mumbai, 2018"
+    },
+    "Venue": {
+      "Id": "168",
+      "Name": "Wankhede Stadium, Mumbai"
+    },
+    "Officials": {
+      "Umpires": "Avdhoot Gokhale (IND),Rohan Pandit (IND) and Vaibhav Dhokre (IND)",
+      "Referee": "Arati Vaidya (IND)"
+    },
+    "Weather": "Clear",
+    "Tosswonby": "1630",
+    "Status": "Match Ended",
+    "Status_Id": "114",
+    "Player_Match": "Prasad Pawar",
+    "Result": "SoBo SuperSonics beat NaMo Bandra Blasters by 50 runs",
+    "Winningteam": "1634",
+    "Winmargin": "50 runs",
+    "Equation": "SoBo SuperSonics beat NaMo Bandra Blasters by 50 runs"
+  },
+  "Nuggets": [],
+  "Innings": [
+    {
+      "Number": "First",
+      "Battingteam": "1634",
+      "Total": "149",
+      "Wickets": "6",
+      "Overs": "18.0",
+      "Runrate": "8.27",
+      "Byes": "0",
+      "Legbyes": "0",
+      "Wides": "0",
+      "Noballs": "0",
+      "Penalty": "0",
+      "AllottedOvers": "18",
+      "Batsmen": [
+        {
+          "Batsman": "65390",
+          "Runs": "15",
+          "Balls": "10",
+          "Fours": "2",
+          "Sixes": "0",
+          "Dots": "5",
+          "Strikerate": "150",
+          "Dismissal": "stumped",
+          "Howout": "st Eknath Kerkar b Pravin Tambe",
+          "Bowler": "63735",
+          "Fielder": "64715"
+        },
+        {
+          "Batsman": "68299",
+          "Runs": "31",
+          "Balls": "22",
+          "Fours": "1",
+          "Sixes": "2",
+          "Dots": "4",
+          "Strikerate": "140.90",
+          "Dismissal": "caught",
+          "Howout": "c Shreyas Iyer b Shashikant Kadam",
+          "Bowler": "69036",
+          "Fielder": "63961"
+        },
+        {
+          "Batsman": "4003",
+          "Runs": "8",
+          "Balls": "7",
+          "Fours": "1",
+          "Sixes": "0",
+          "Dots": "2",
+          "Strikerate": "114.28",
+          "Dismissal": "caught",
+          "Howout": "c Shreyas Iyer b Prashant Bhoir",
+          "Bowler": "32421",
+          "Fielder": "63961"
+        },
+        {
+          "Batsman": "68876",
+          "Runs": "83",
+          "Balls": "53",
+          "Fours": "6",
+          "Sixes": "3",
+          "Dots": "11",
+          "Strikerate": "156.60",
+          "Dismissal": "caught",
+          "Howout": "c Aishwary Surve b Azhar Ansari",
+          "Bowler": "68659",
+          "Fielder": "68567"
+        },
+        {
+          "Batsman": "63635",
+          "Runs": "10",
+          "Balls": "13",
+          "Fours": "0",
+          "Sixes": "1",
+          "Dots": "8",
+          "Strikerate": "76.92",
+          "Dismissal": "not out",
+          "Howout": "not out",
+          "Bowler": "",
+          "Fielder": ""
+        },
+        {
+          "Batsman": "5434",
+          "Runs": "0",
+          "Balls": "1",
+          "Fours": "0",
+          "Sixes": "0",
+          "Dots": "1",
+          "Strikerate": "0",
+          "Dismissal": "bowled",
+          "Howout": "b Azhar Ansari",
+          "Bowler": "68659",
+          "Fielder": ""
+        },
+        {
+          "Batsman": "4600",
+          "Runs": "0",
+          "Balls": "1",
+          "Fours": "0",
+          "Sixes": "0",
+          "Dots": "1",
+          "Strikerate": "0",
+          "Dismissal": "bowled",
+          "Howout": "b Azhar Ansari",
+          "Bowler": "68659",
+          "Fielder": ""
+        },
+        {
+          "Batsman": "9710",
+          "Runs": "2",
+          "Balls": "1",
+          "Fours": "0",
+          "Sixes": "0",
+          "Dots": "0",
+          "Strikerate": "200",
+          "Dismissal": "not out",
+          "Howout": "not out",
+          "Bowler": "",
+          "Fielder": ""
+        },
+        {
+          "Batsman": "68356",
+          "Runs": "",
+          "Balls": "",
+          "Fours": "",
+          "Sixes": "",
+          "Dots": "",
+          "Strikerate": "",
+          "Dismissal": "",
+          "Howout": "",
+          "Bowler": "",
+          "Fielder": ""
+        },
+        {
+          "Batsman": "68529",
+          "Runs": "",
+          "Balls": "",
+          "Fours": "",
+          "Sixes": "",
+          "Dots": "",
+          "Strikerate": "",
+          "Dismissal": "",
+          "Howout": "",
+          "Bowler": "",
+          "Fielder": ""
+        },
+        {
+          "Batsman": "65159",
+          "Runs": "",
+          "Balls": "",
+          "Fours": "",
+          "Sixes": "",
+          "Dots": "",
+          "Strikerate": "",
+          "Dismissal": "",
+          "Howout": "",
+          "Bowler": "",
+          "Fielder": ""
+        }
+      ],
+      "Partnership_Current": {
+        "Runs": "2",
+        "Balls": "1",
+        "Batsmen": [
+          {
+            "Batsman": "9710",
+            "Runs": "2",
+            "Balls": "1"
+          },
+          {
+            "Batsman": "63635",
+            "Runs": "0",
+            "Balls": "0"
+          }
+        ]
+      },
+      "Bowlers": [
+        {
+          "Bowler": "32421",
+          "Overs": "4",
+          "Maidens": "0",
+          "Runs": "46",
+          "Wickets": "1",
+          "Economyrate": "11.5",
+          "Noballs": "0",
+          "Wides": "0",
+          "Dots": "8"
+        },
+        {
+          "Bowler": "68567",
+          "Overs": "4",
+          "Maidens": "0",
+          "Runs": "41",
+          "Wickets": "0",
+          "Economyrate": "10.25",
+          "Noballs": "0",
+          "Wides": "0",
+          "Dots": "6"
+        },
+        {
+          "Bowler": "63735",
+          "Overs": "3",
+          "Maidens": "0",
+          "Runs": "20",
+          "Wickets": "1",
+          "Economyrate": "6.66",
+          "Noballs": "0",
+          "Wides": "0",
+          "Dots": "3"
+        },
+        {
+          "Bowler": "68308",
+          "Overs": "2",
+          "Maidens": "0",
+          "Runs": "19",
+          "Wickets": "0",
+          "Economyrate": "9.5",
+          "Noballs": "0",
+          "Wides": "0",
+          "Dots": "3"
+        },
+        {
+          "Bowler": "68659",
+          "Overs": "4",
+          "Maidens": "0",
+          "Runs": "21",
+          "Wickets": "3",
+          "Economyrate": "5.25",
+          "Noballs": "0",
+          "Wides": "0",
+          "Dots": "8"
+        },
+        {
+          "Bowler": "69036",
+          "Overs": "1",
+          "Maidens": "0",
+          "Runs": "2",
+          "Wickets": "1",
+          "Economyrate": "2",
+          "Noballs": "0",
+          "Wides": "0",
+          "Dots": "4"
+        }
+      ],
+      "FallofWickets": [
+        {
+          "Batsman": "65390",
+          "Score": "20",
+          "Overs": "2.1"
+        },
+        {
+          "Batsman": "4003",
+          "Score": "38",
+          "Overs": "4.2"
+        },
+        {
+          "Batsman": "68299",
+          "Score": "79",
+          "Overs": "10.2"
+        },
+        {
+          "Batsman": "68876",
+          "Score": "146",
+          "Overs": "17.2"
+        },
+        {
+          "Batsman": "5434",
+          "Score": "147",
+          "Overs": "17.4"
+        },
+        {
+          "Batsman": "4600",
+          "Score": "147",
+          "Overs": "17.5"
+        }
+      ],
+      "PowerPlay": {
+        "PP1": "1-5",
+        "PP2": ""
+      }
+    },
+    {
+      "Number": "Second",
+      "Battingteam": "1630",
+      "Total": "99",
+      "Wickets": "9",
+      "Overs": "18.0",
+      "Runrate": "5.5",
+      "Byes": "0",
+      "Legbyes": "1",
+      "Wides": "4",
+      "Noballs": "0",
+      "Penalty": "0",
+      "AllottedOvers": "18",
+      "Target": "150",
+      "Batsmen": [
+        {
+          "Batsman": "63505",
+          "Runs": "0",
+          "Balls": "5",
+          "Fours": "0",
+          "Sixes": "0",
+          "Dots": "5",
+          "Strikerate": "0",
+          "Dismissal": "caught",
+          "Howout": "c Prasad Pawar b Rohan Raje",
+          "Bowler": "4600",
+          "Fielder": "68876"
+        },
+        {
+          "Batsman": "63961",
+          "Runs": "25",
+          "Balls": "19",
+          "Fours": "4",
+          "Sixes": "0",
+          "Dots": "7",
+          "Strikerate": "131.57",
+          "Dismissal": "caught",
+          "Howout": "c Prasad Pawar b Abhishek Nayar",
+          "Bowler": "4003",
+          "Fielder": "68876"
+        },
+        {
+          "Batsman": "63343",
+          "Runs": "1",
+          "Balls": "4",
+          "Fours": "0",
+          "Sixes": "0",
+          "Dots": "3",
+          "Strikerate": "25",
+          "Dismissal": "caught",
+          "Howout": "c Dhrumil Matkar b Rohan Raje",
+          "Bowler": "4600",
+          "Fielder": "68356"
+        },
+        {
+          "Batsman": "64715",
+          "Runs": "1",
+          "Balls": "4",
+          "Fours": "0",
+          "Sixes": "0",
+          "Dots": "3",
+          "Strikerate": "25",
+          "Dismissal": "caught",
+          "Howout": "c Aakarshit Gomel b Badre Alam",
+          "Bowler": "65159",
+          "Fielder": "68299"
+        },
+        {
+          "Batsman": "69300",
+          "Runs": "4",
+          "Balls": "6",
+          "Fours": "1",
+          "Sixes": "0",
+          "Dots": "5",
+          "Strikerate": "66.66",
+          "Dismissal": "caught",
+          "Howout": "c Gaurav Jathar b Abhishek Nayar",
+          "Bowler": "4003",
+          "Fielder": "9710"
+        },
+        {
+          "Batsman": "68659",
+          "Runs": "17",
+          "Balls": "23",
+          "Fours": "0",
+          "Sixes": "1",
+          "Dots": "13",
+          "Strikerate": "73.91",
+          "Dismissal": "caught",
+          "Howout": "c Gaurav Jathar b Jay Bista",
+          "Bowler": "65390",
+          "Fielder": "9710"
+        },
+        {
+          "Batsman": "69036",
+          "Runs": "1",
+          "Balls": "4",
+          "Fours": "0",
+          "Sixes": "0",
+          "Dots": "3",
+          "Strikerate": "25",
+          "Dismissal": "caught",
+          "Howout": "c Sujit Nayak b Jay Bista",
+          "Bowler": "65390",
+          "Fielder": "63635"
+        },
+        {
+          "Batsman": "68308",
+          "Runs": "8",
+          "Balls": "8",
+          "Fours": "0",
+          "Sixes": "1",
+          "Dots": "5",
+          "Strikerate": "100",
+          "Dismissal": "caught",
+          "Howout": "c Jay Bista b Abhishek Nayar",
+          "Bowler": "4003",
+          "Fielder": "65390"
+        },
+        {
+          "Batsman": "68567",
+          "Isonstrike": true,
+          "Runs": "21",
+          "Balls": "20",
+          "Fours": "3",
+          "Sixes": "0",
+          "Dots": "10",
+          "Strikerate": "105",
+          "Dismissal": "not out",
+          "Howout": "not out",
+          "Bowler": "",
+          "Fielder": ""
+        },
+        {
+          "Batsman": "63735",
+          "Runs": "16",
+          "Balls": "15",
+          "Fours": "1",
+          "Sixes": "1",
+          "Dots": "7",
+          "Strikerate": "106.66",
+          "Dismissal": "caught",
+          "Howout": "c Prasad Pawar b Rohan Raje",
+          "Bowler": "4600",
+          "Fielder": "68876"
+        },
+        {
+          "Batsman": "32421",
+          "Runs": "",
+          "Balls": "",
+          "Fours": "",
+          "Sixes": "",
+          "Dots": "",
+          "Strikerate": "",
+          "Dismissal": "",
+          "Howout": "",
+          "Bowler": "",
+          "Fielder": ""
+        }
+      ],
+      "Partnership_Current": {
+        "Runs": "40",
+        "Balls": "33",
+        "Batsmen": [
+          {
+            "Batsman": "63735",
+            "Runs": "16",
+            "Balls": "15"
+          },
+          {
+            "Batsman": "68567",
+            "Runs": "20",
+            "Balls": "18"
+          }
+        ]
+      },
+      "Bowlers": [
+        {
+          "Bowler": "4600",
+          "Isbowlingtandem": true,
+          "Isbowlingnow": true,
+          "ThisOver": [
+            {
+              "T": "",
+              "B": "4"
+            },
+            {
+              "T": "",
+              "B": "1"
+            },
+            {
+              "T": "",
+              "B": "1"
+            },
+            {
+              "T": "",
+              "B": "0"
+            },
+            {
+              "T": "wd",
+              "B": "1"
+            },
+            {
+              "T": "",
+              "B": "6"
+            },
+            {
+              "T": "W",
+              "B": "0"
+            }
+          ],
+          "Overs": "4",
+          "Maidens": "0",
+          "Runs": "24",
+          "Wickets": "3",
+          "Economyrate": "6",
+          "Noballs": "0",
+          "Wides": "2",
+          "Dots": "16"
+        },
+        {
+          "Bowler": "65159",
+          "Overs": "2",
+          "Maidens": "0",
+          "Runs": "9",
+          "Wickets": "1",
+          "Economyrate": "4.5",
+          "Noballs": "0",
+          "Wides": "0",
+          "Dots": "6"
+        },
+        {
+          "Bowler": "4003",
+          "Overs": "4",
+          "Maidens": "0",
+          "Runs": "17",
+          "Wickets": "3",
+          "Economyrate": "4.25",
+          "Noballs": "0",
+          "Wides": "0",
+          "Dots": "14"
+        },
+        {
+          "Bowler": "68529",
+          "Isbowlingtandem": true,
+          "Overs": "2",
+          "Maidens": "0",
+          "Runs": "20",
+          "Wickets": "0",
+          "Economyrate": "10",
+          "Noballs": "0",
+          "Wides": "2",
+          "Dots": "4"
+        },
+        {
+          "Bowler": "65390",
+          "Overs": "3",
+          "Maidens": "0",
+          "Runs": "13",
+          "Wickets": "2",
+          "Economyrate": "4.33",
+          "Noballs": "0",
+          "Wides": "0",
+          "Dots": "10"
+        },
+        {
+          "Bowler": "68356",
+          "Overs": "2",
+          "Maidens": "0",
+          "Runs": "10",
+          "Wickets": "0",
+          "Economyrate": "5",
+          "Noballs": "0",
+          "Wides": "0",
+          "Dots": "8"
+        },
+        {
+          "Bowler": "63635",
+          "Overs": "1",
+          "Maidens": "0",
+          "Runs": "5",
+          "Wickets": "0",
+          "Economyrate": "5",
+          "Noballs": "0",
+          "Wides": "0",
+          "Dots": "3"
+        }
+      ],
+      "FallofWickets": [
+        {
+          "Batsman": "63505",
+          "Score": "1",
+          "Overs": "0.5"
+        },
+        {
+          "Batsman": "63343",
+          "Score": "13",
+          "Overs": "2.5"
+        },
+        {
+          "Batsman": "64715",
+          "Score": "15",
+          "Overs": "4"
+        },
+        {
+          "Batsman": "69300",
+          "Score": "21",
+          "Overs": "5.3"
+        },
+        {
+          "Batsman": "63961",
+          "Score": "34",
+          "Overs": "7.1"
+        },
+        {
+          "Batsman": "69036",
+          "Score": "37",
+          "Overs": "8.4"
+        },
+        {
+          "Batsman": "68308",
+          "Score": "52",
+          "Overs": "11.3"
+        },
+        {
+          "Batsman": "68659",
+          "Score": "59",
+          "Overs": "12.3"
+        },
+        {
+          "Batsman": "63735",
+          "Score": "99",
+          "Overs": "18"
+        }
+      ],
+      "PowerPlay": {
+        "PP1": "1-5",
+        "PP2": ""
+      }
+    }
+  ],
+  "Teams": {
+    "1630": {
+      "Name_Full": "NaMo Bandra Blasters",
+      "Name_Short": "NBB",
+      "Players": {
+        "32421": {
+          "Position": "11",
+          "Name_Full": "Prashant Bhoir",
+          "Batting": {
+            "Style": "RHB",
+            "Average": "",
+            "Strikerate": "0",
+            "Runs": "0"
+          },
+          "Bowling": {
+            "Style": "RMF",
+            "Average": "46",
+            "Economyrate": "11.5",
+            "Wickets": "1"
+          }
+        },
+        "63343": {
+          "Position": "3",
+          "Name_Full": "Nikhil Patil",
+          "Batting": {
+            "Style": "RHB",
+            "Average": "1",
+            "Strikerate": "25",
+            "Runs": "1"
+          },
+          "Bowling": {
+            "Style": "OB",
+            "Average": "0",
+            "Economyrate": "0",
+            "Wickets": "0"
+          }
+        },
+        "63505": {
+          "Position": "1",
+          "Name_Full": "Kevin Almeida",
+          "Batting": {
+            "Style": "LHB",
+            "Average": "0",
+            "Strikerate": "0",
+            "Runs": "0"
+          },
+          "Bowling": {
+            "Style": "RMF",
+            "Average": "0",
+            "Economyrate": "0",
+            "Wickets": "0"
+          }
+        },
+        "63735": {
+          "Position": "10",
+          "Name_Full": "Pravin Tambe",
+          "Batting": {
+            "Style": "RHB",
+            "Average": "16",
+            "Strikerate": "106.66",
+            "Runs": "16"
+          },
+          "Bowling": {
+            "Style": "LB",
+            "Average": "20",
+            "Economyrate": "6.66",
+            "Wickets": "1"
+          }
+        },
+        "63961": {
+          "Position": "2",
+          "Name_Full": "Shreyas Iyer",
+          "Iscaptain": true,
+          "Batting": {
+            "Style": "RHB",
+            "Average": "39.16",
+            "Strikerate": "99.15",
+            "Runs": "235"
+          },
+          "Bowling": {
+            "Style": "LBG",
+            "Average": "0",
+            "Economyrate": "2",
+            "Wickets": "0"
+          }
+        },
+        "64715": {
+          "Position": "5",
+          "Name_Full": "Eknath Kerkar",
+          "Iskeeper": true,
+          "Batting": {
+            "Style": "RHB",
+            "Average": "1",
+            "Strikerate": "25",
+            "Runs": "1"
+          },
+          "Bowling": {
+            "Style": "",
+            "Average": "0",
+            "Economyrate": "0",
+            "Wickets": "0"
+          }
+        },
+        "68308": {
+          "Position": "9",
+          "Name_Full": "Aniket Redkar",
+          "Batting": {
+            "Style": "RHB",
+            "Average": "8",
+            "Strikerate": "100",
+            "Runs": "8"
+          },
+          "Bowling": {
+            "Style": "OB",
+            "Average": "0",
+            "Economyrate": "9.5",
+            "Wickets": "0"
+          }
+        },
+        "68567": {
+          "Position": "8",
+          "Name_Full": "Aishwary Surve",
+          "Batting": {
+            "Style": "RHB",
+            "Average": "21",
+            "Strikerate": "105",
+            "Runs": "21"
+          },
+          "Bowling": {
+            "Style": "RF",
+            "Average": "0",
+            "Economyrate": "10.25",
+            "Wickets": "0"
+          }
+        },
+        "68659": {
+          "Position": "6",
+          "Name_Full": "Azhar Ansari",
+          "Batting": {
+            "Style": "LHB",
+            "Average": "17",
+            "Strikerate": "73.91",
+            "Runs": "17"
+          },
+          "Bowling": {
+            "Style": "RF",
+            "Average": "7",
+            "Economyrate": "5.25",
+            "Wickets": "3"
+          }
+        },
+        "69036": {
+          "Position": "7",
+          "Name_Full": "Shashikant Kadam",
+          "Batting": {
+            "Style": "RHB",
+            "Average": "1",
+            "Strikerate": "25",
+            "Runs": "1"
+          },
+          "Bowling": {
+            "Style": "SLO",
+            "Average": "2",
+            "Economyrate": "2",
+            "Wickets": "1"
+          }
+        },
+        "69300": {
+          "Position": "4",
+          "Name_Full": "Aman Hakim Khan",
+          "Batting": {
+            "Style": "RHB",
+            "Average": "4",
+            "Strikerate": "66.66",
+            "Runs": "4"
+          },
+          "Bowling": {
+            "Style": "OB",
+            "Average": "0",
+            "Economyrate": "0",
+            "Wickets": "0"
+          }
+        }
+      }
+    },
+    "1634": {
+      "Name_Full": "SoBo SuperSonics",
+      "Name_Short": "SS",
+      "Players": {
+        "4003": {
+          "Position": "1",
+          "Name_Full": "Abhishek Nayar",
+          "Iscaptain": true,
+          "Batting": {
+            "Style": "LHB",
+            "Average": "8",
+            "Strikerate": "57.14",
+            "Runs": "8"
+          },
+          "Bowling": {
+            "Style": "RM",
+            "Average": "11.33",
+            "Economyrate": "4.85",
+            "Wickets": "3"
+          }
+        },
+        "4600": {
+          "Position": "9",
+          "Name_Full": "Rohan Raje",
+          "Batting": {
+            "Style": "RHB",
+            "Average": "0",
+            "Strikerate": "0",
+            "Runs": "0"
+          },
+          "Bowling": {
+            "Style": "RFM",
+            "Average": "8",
+            "Economyrate": "6",
+            "Wickets": "3"
+          }
+        },
+        "5434": {
+          "Position": "7",
+          "Name_Full": "Prashant Naik",
+          "Batting": {
+            "Style": "RHB",
+            "Average": "0",
+            "Strikerate": "0",
+            "Runs": "0"
+          },
+          "Bowling": {
+            "Style": "LBG",
+            "Average": "0",
+            "Economyrate": "0",
+            "Wickets": "0"
+          }
+        },
+        "9710": {
+          "Position": "8",
+          "Name_Full": "Gaurav Jathar",
+          "Batting": {
+            "Style": "RHB",
+            "Average": "2",
+            "Strikerate": "200",
+            "Runs": "2"
+          },
+          "Bowling": {
+            "Style": "SLO",
+            "Average": "0",
+            "Economyrate": "0",
+            "Wickets": "0"
+          }
+        },
+        "63635": {
+          "Position": "5",
+          "Name_Full": "Sujit Nayak",
+          "Batting": {
+            "Style": "RHB",
+            "Average": "10",
+            "Strikerate": "76.92",
+            "Runs": "10"
+          },
+          "Bowling": {
+            "Style": "SLO",
+            "Average": "0",
+            "Economyrate": "5",
+            "Wickets": "0"
+          }
+        },
+        "65159": {
+          "Position": "11",
+          "Name_Full": "Badre Alam",
+          "Batting": {
+            "Style": "RHB",
+            "Average": "",
+            "Strikerate": "0",
+            "Runs": "0"
+          },
+          "Bowling": {
+            "Style": "RM",
+            "Average": "9",
+            "Economyrate": "4.5",
+            "Wickets": "1"
+          }
+        },
+        "65390": {
+          "Position": "2",
+          "Name_Full": "Jay Bista",
+          "Batting": {
+            "Style": "RHB",
+            "Average": "15",
+            "Strikerate": "150",
+            "Runs": "15"
+          },
+          "Bowling": {
+            "Style": "OB",
+            "Average": "6.5",
+            "Economyrate": "4.33",
+            "Wickets": "2"
+          }
+        },
+        "68299": {
+          "Position": "3",
+          "Name_Full": "Aakarshit Gomel",
+          "Batting": {
+            "Style": "RHB",
+            "Average": "31",
+            "Strikerate": "140.9",
+            "Runs": "31"
+          },
+          "Bowling": {
+            "Style": "SLO",
+            "Average": "0",
+            "Economyrate": "0",
+            "Wickets": "0"
+          }
+        },
+        "68356": {
+          "Position": "6",
+          "Name_Full": "Dhrumil Matkar",
+          "Batting": {
+            "Style": "LHB",
+            "Average": "",
+            "Strikerate": "0",
+            "Runs": "0"
+          },
+          "Bowling": {
+            "Style": "SLO",
+            "Average": "0",
+            "Economyrate": "5",
+            "Wickets": "0"
+          }
+        },
+        "68529": {
+          "Position": "10",
+          "Name_Full": "Ankur Singh",
+          "Batting": {
+            "Style": "RHB",
+            "Average": "",
+            "Strikerate": "0",
+            "Runs": "0"
+          },
+          "Bowling": {
+            "Style": "LF",
+            "Average": "0",
+            "Economyrate": "10",
+            "Wickets": "0"
+          }
+        },
+        "68876": {
+          "Position": "4",
+          "Name_Full": "Prasad Pawar",
+          "Iskeeper": true,
+          "Batting": {
+            "Style": "RHB",
+            "Average": "83",
+            "Strikerate": "156.6",
+            "Runs": "83"
+          },
+          "Bowling": {
+            "Style": "",
+            "Average": "0",
+            "Economyrate": "0",
+            "Wickets": "0"
+          }
+        }
+      }
+    }
+  },
+  "Notes": {
+    "1": [
+      "Mandatory Power play (1-5): SoBo SuperSonics 45/2",
+      "SoBo SuperSonics 50/2 in 5.5 overs",
+      "Strategic Time-out: SoBo SuperSonics 66/2 in 8.0 overs",
+      "SoBo SuperSonics 102/3 in 13.2 overs",
+      "Strategic Time-out: SoBo SuperSonics 118/3 in 15.0 overs",
+      "Innings Break: SoBo SuperSonics 149/6 in 18.0 overs"
+    ],
+    "2": [
+      "Mandatory Power play (1-5): NaMo Bandra Blasters 45/2"
+    ]
+  }
+}
