@@ -11,7 +11,7 @@ const CustomTable = ({
   tBodyStyles = {},
 }) => {
   return (
-    <div className="w-full">
+    <div className="w-full overflow-auto">
       <table className="w-full table-auto bg-black border-collapse text-sm">
         <thead className="text-black">
           <tr>
