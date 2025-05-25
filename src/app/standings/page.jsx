@@ -1,8 +1,65 @@
+"use client"
+import React, { useState, useMemo } from "react";
+import Image from "next/image";
+import standingsData from "@/constant/oldSeason/standings/standings_data_v3.json"
+import CustomTable from "@/components/common/CustomTable";
 import Hero from "@/components/hero/Hero";
-import StandingTable from "@/components/standings/StandingTable";
-import React from "react";
+import { teamLogoStats } from "@/utilis/helper";
 
-const page = () => {
+const headers = ["RANK", "TEAM", "MP","WON", 'LOST',"TIED","N/R","NET RR", "PTS"];
+
+const headerStyles = {
+  className: "bg-[#E07E27] text-black text-center",
+};
+const tBodyStyles = {
+  className: "bg-[#0F1A2D] text-white",
+};
+const rowStyles = {
+  className: "p-5",
+};
+
+const TableTabComponent = () => {
+  const [activeSeason, setActiveSeason] = useState("season_1");
+  const [activeTeam, setActiveTeam] = useState("All Teams");
+
+  const teamsInSeason = useMemo(() => {
+    const currentSeasonData = standingsData[activeSeason] || [];
+    const teamNames = currentSeasonData.map((team) => team.team_name);
+    return ["All Teams", ...teamNames];
+  }, [activeSeason]);
+
+  const filteredData = useMemo(() => {
+    const seasonData = standingsData[activeSeason] || [];
+    return activeTeam === "All Teams"
+      ? seasonData
+      : seasonData.filter((team) => team.team_name === activeTeam);
+  }, [activeSeason, activeTeam]);
+
+  const tableData = filteredData.map((team, index) => ({
+    RANK: index + 1,
+    TEAM: (
+      <div className="flex items-center gap-2">
+        <div className="w-6 h-6 flex justify-center items-center"
+        
+        >
+          <img
+            src={teamLogoStats[team?.team_name]}
+            alt="logo"
+            className="object-contain w-full h-full"
+          />
+        </div>
+        {team.team_name}
+      </div>
+    ),
+    MP: team.played,
+    WON:team.won,
+    LOST:team.lost,
+    TIED: team.tied,
+    "N/R": team.no_result,
+    "NET RR": team.net_run_rate,
+    PTS: team.points,
+  }));
+
   return (
     <div className="w-full bg-white">
       <Hero
@@ -10,12 +67,87 @@ const page = () => {
         heading="Standings"
         subheading="Player Profile"
       />
-      <div className="section-width section-padding flex flex-col gap-20">
-        <StandingTable heading="gROUP a STANDINGS" showSelect={true} />
-        <StandingTable heading="gROUP b STANDINGS" showSelect={false} />
+
+      <div className="section-width section-padding">
+        <div className="flex justify-between items-center pb-6 ">
+          <p className="text-4xl font-bold uppercase text-black">GROUP STANDINGS</p>
+          <div className="w-1/2 flex items-center justify-end gap-8">
+            <DropDown
+              label="Season"
+              options={Object.keys(standingsData)}
+              value={activeSeason}
+              onChange={(e) => {
+                setActiveSeason(e.target.value);
+                setActiveTeam("All Teams");
+              }}
+              bg="white"
+            />
+            <DropDown
+              label="Team"
+              options={teamsInSeason}
+              value={activeTeam}
+              onChange={(e) => setActiveTeam(e.target.value)}
+              bg="#E07E27"
+            />
+          </div>
+        </div>
+        {tableData.length > 0 ? (
+          <CustomTable
+            headers={headers}
+            data={tableData}
+            customRenderers={{}}
+                        headerStyles={headerStyles}
+                        tBodyStyles={tBodyStyles}
+                        rowStyles={rowStyles}
+          />
+        ) : (
+          <div className="text-center py-10 text-gray-400">
+            No data available for this team in the selected season.
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
-export default page;
+const DropDown = ({ label, options, value, onChange, bg }) => {
+  const bgColor = bg === "white" ? "bg-white" : "bg-[#E07E27]";
+  const textColor = bg === "white" ? "text-[#E07E27]" : "text-white";
+
+  return (
+    <div className="flex items-center gap-6 relative w-48">
+      <div className={`relative w-full`}>
+        <select
+          value={value}
+          onChange={onChange}
+          className={`appearance-none ${bgColor} ${textColor} px-4 py-4 w-full border border-[#E07E27] text-base rounded`}
+        >
+          {options.map((item, index) => (
+            <option key={index} value={item}>
+              {item.replace("season_", "Season ")}
+            </option>
+          ))}
+        </select>
+        <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center">
+          {bg === "white" ? (
+            <Image
+              src="/images/standings/dropdown.svg"
+              width={10}
+              height={10}
+              alt="dropdown"
+            />
+          ) : (
+            <Image
+              src="/images/standings/dropdownwhite.svg"
+              width={10}
+              height={10}
+              alt="dropdown"
+            />
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default TableTabComponent;

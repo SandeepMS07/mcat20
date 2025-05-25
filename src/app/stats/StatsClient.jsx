@@ -114,7 +114,7 @@ const PlayerTable = ({ selected, onPlayerSelect, selectedPlayer, data }) => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full overflow-auto">
       <div className="min-w-[1000px]">
         <table className="w-full table-auto bg-black border-collapse text-sm">
           <thead className="text-black">
@@ -177,6 +177,8 @@ const makeCategoryData = (category, season) => {
       const s = p.seasons[season]?.[category] || {};
       const teamLogo = teamLogoStats[t.team_name] || "";
 
+        if (s.matches_played === 0 || !t.team_name) return null;
+
 
       if (category === "batting") {
         return {
@@ -198,10 +200,13 @@ const makeCategoryData = (category, season) => {
         };
       }
       if (category === "bowling") {
+        const overs = (s.balls_bowled || 0) / 6;
+
+  if (!t.team_name || overs < 1) return null;
         return {
           player: p.name_full,
-          team: "",
-          teamLogo: "",
+          team: t.team_name,
+          teamLogo: teamLogo,
           playerImg: "",
           mat: s.matches_played || 0,
           overs: +((s.balls_bowled || 0) / 6).toFixed(1),
@@ -217,12 +222,14 @@ const makeCategoryData = (category, season) => {
         };
       }
       if (category === "fielding") {
+      if(s.matches_played === 0 || !t.team_name) return null;
+
         const runOuts = (s.run_outs_direct || 0) + (s.run_outs_assisted || 0);
         const dismissals = (s.catches || 0) + (s.stumpings || 0) + runOuts;
         return {
           player: p.name_full,
-          team: "",
-          teamLogo: "",
+                   team: t.team_name,
+          teamLogo: teamLogo,
           playerImg: "",
           mat: s.matches_played || 0,
           catches: s.catches || 0,
@@ -239,7 +246,6 @@ const makeCategoryData = (category, season) => {
 
 const sortData = (data, category, sortBy) => {
   const sorted = [...data];
-console.log(sorted,"sorted data")
 
   if (category === "batting") {
     switch (sortBy) {
@@ -312,6 +318,8 @@ console.log(sorted,"sorted data")
     }
   } else {
     switch (sortBy) {
+
+
       case "Most Catches":
         sorted.sort((a, b) => b.catches - a.catches);
         break;
@@ -327,11 +335,48 @@ console.log(sorted,"sorted data")
   return sorted.map((row, i) => ({ pos: i + 1, ...row }));
 };
 
+  const defaultSortOptions = {
+  batting: "Most Runs",
+  bowling: "Most Wickets",
+  fielding: "Most Run Outs",
+};
+
+
   const [selected, setSelected] = useState("batting");
   const [season, setSeason] = useState(seasons[0]);
-  const [sortBy, setSortBy] = useState("Most Runs");
+const [sortBy, setSortBy] = useState(defaultSortOptions["batting"]);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(15);
+  const [selectedTeam, setSelectedTeam] = useState("All Teams");
+
+
+
+// const teams = useMemo(() => {
+//   const allTeams = new Set();
+//   Object.values(statsData).forEach((player) => {
+//     Object.values(player.seasons).forEach((season) => {
+//       if (season.team_name) {
+//         allTeams.add(season.team_name);
+//       }
+//     });
+//   });
+//   return ["All Teams", ...Array.from(allTeams)];
+// }, [statsData]);
+
+const teams = useMemo(() => {
+  const seasonTeams = new Set();
+
+  Object.values(statsData).forEach((player) => {
+    const seasonData = player.seasons[season];
+    if (seasonData && seasonData.team_name) {
+      seasonTeams.add(seasonData.team_name);
+    }
+  });
+
+  return ["All Teams", ...Array.from(seasonTeams)];
+}, [statsData, season]);
+
+
 
   const rawData = useMemo(
     () => makeCategoryData(selected, season),
@@ -342,10 +387,33 @@ console.log(sorted,"sorted data")
     [rawData, selected, sortBy]
   );
 
-  const displayedData = useMemo(
-    () => data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage),
-    [data, page, rowsPerPage]
+  // const displayedData = useMemo(
+  //   () => data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage),
+  //   [data, page, rowsPerPage]
+  // );
+  const filteredByTeam =
+  selectedTeam === "All Teams"
+    ? data
+    : data.filter((player) => player.team === selectedTeam);
+
+    const displayedData = useMemo(() => {
+  return filteredByTeam.slice(
+    page * rowsPerPage,
+    page * rowsPerPage + rowsPerPage
   );
+}, [filteredByTeam, page, rowsPerPage]);
+
+
+// const displayedData = useMemo(() => {
+//   const filteredByTeam =
+//     selectedTeam === "All Teams"
+//       ? data
+//       : data.filter((player) => player.team === selectedTeam);
+
+
+//   return filteredByTeam.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
+// }, [data, page, rowsPerPage, selectedTeam]);
+
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -357,6 +425,21 @@ console.log(sorted,"sorted data")
   };
 
   const [selectedPlayer, setSelectedPlayer] = useState(displayedData[0] || {});
+
+  useEffect(() => {
+  setSortBy(defaultSortOptions[selected]);
+}, [selected]);
+
+
+useEffect(() => {
+  setPage(0);
+
+  // if (filteredByTeam.length < rowsPerPage) {
+  //   setRowsPerPage(Math.max(filteredByTeam.length, 5));  
+  // }
+}, [selected, season, sortBy, selectedTeam]);
+
+
   useEffect(() => {
     setSelectedPlayer(displayedData[0] || {});
   }, [displayedData]);
@@ -365,14 +448,14 @@ console.log(sorted,"sorted data")
     <div className="w-full overflow-x-auto pb-12">
       <div className="w-full">
         <PlayerDetailsHero player={selectedPlayer} selectedTab={selected} />
-        <div className="section-width pt-12 flex flex-col gap-10 bg-white text-black min-w-[1000px]">
-          <div className=" flex flex-col md:flex-row items-start md:items-center justify-between gap-4 w-full">
+        <div className="section-width pt-12 flex flex-col gap-10 bg-white text-black ">
+          <div className=" flex flex-col lg:flex-row items-start md:items-center justify-between gap-4 w-full">
             <div className="flex items-center gap-4">
               {["batting", "bowling", "fielding"].map((tab) => (
                 <p
                   key={tab}
                   onClick={() => setSelected(tab)}
-                  className={`font-semibold xl:text-lg text-base uppercase pb-2 whitespace-nowrap cursor-pointer ${
+                  className={`font-semibold xl:text-base text-sm uppercase pb-2 whitespace-nowrap cursor-pointer ${
                     selected === tab
                       ? "border-b-4 border-[#E07E27]"
                       : "text-[#6A6A6A]"
@@ -383,7 +466,7 @@ console.log(sorted,"sorted data")
               ))}
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex  flex-wrap items-center gap-4">
               <DropDown
                 label="Season"
                 options={seasons}
@@ -406,16 +489,16 @@ console.log(sorted,"sorted data")
                         // "Most Fours (Innings)",
                         "Most Fifties",
                         "Most Centuries",
-                        "Fastest Fifties",
-                        "Fastest Centuries",
+                        // "Fastest Fifties",
+                        // "Fastest Centuries",
                       ]
                     : selected === "bowling"
                     ? [
                         "Most Wickets",
-                        // "Best Economy",
+                        "Best Economy",
                         // "Best Economy (Innings)",
-                        // "Best Average",
-                        // "Best Strike Rate",
+                        "Best Average",
+                        "Best Strike Rate",
                         // "Best Strike Rate (Innings)",
                         "Most Runs Conceded (Innings)",
                         // "Most Dot Balls Bowled",
@@ -423,13 +506,20 @@ console.log(sorted,"sorted data")
                         "Most Maiden Overs Bowled",
                       ]
                     : [
-                        // "Most Catches",
+                        "Most Catches",
                         "Most Run Outs",
                         "Most Stumpings",
                       ]
                 }
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
+                bg="white"
+              />
+              <DropDown
+                label="Team"
+                options={teams}
+                value={selectedTeam}
+                onChange={(e) => setSelectedTeam(e.target.value)}
                 bg="white"
               />
             </div>
@@ -446,14 +536,15 @@ console.log(sorted,"sorted data")
       </div>
       <div className="section-width">
         <PaginationControls
-          count={data.length}
+          count={filteredByTeam.length}
           page={page}
           rowsPerPage={rowsPerPage}
           onPageChange={(newPage) => setPage(newPage)}
           onRowsPerPageChange={(newRPP) => {
             setRowsPerPage(newRPP);
           }}
-          rowsPerPageOptions={[15, 30, 50]}
+          rowsPerPageOptions={[5, 10, 15, 30, 50]}
+
         />
       </div>
     </div>
@@ -463,15 +554,15 @@ console.log(sorted,"sorted data")
 
 
 const DropDown = ({ label, options, value, onChange, bg = "white" }) => (
-  <div className="flex flex-col md:flex-row md:items-center gap-2 w-full md:w-72 relative">
-    <label className="text-sm font-semibold uppercase text-[#6A6A6A] mb-1 md:mb-2 w-full md:w-[50%]">
+  <div className="flex flex-col md:flex-row md:items-center gap-2   relative">
+    <label className="xl:text-sm text-xs font-semibold uppercase text-[#6A6A6A] mb-1  flex-shrink-0">
       {label}
     </label>
     <div className="relative w-full">
       <select
         value={value}
         onChange={onChange}
-        className={`appearance-none bg-${bg} text-[#E07E27] px-4 py-2 w-full border border-[#E07E27] text-base rounded`}
+        className={`appearance-none bg-${bg} text-[#E07E27] px-4 py-2  border border-[#E07E27] xl:text-base text-sm rounded xl:w-40 w-32 `}
       >
         {options.map((opt) => (
           <option key={opt} value={opt}>
