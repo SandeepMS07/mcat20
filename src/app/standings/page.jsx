@@ -5,6 +5,8 @@ import standingsData from "@/constant/oldSeason/standings/standings_data_v3.json
 import CustomTable from "@/components/common/CustomTable";
 import Hero from "@/components/hero/Hero";
 import { teamLogoStats } from "@/utilis/helper";
+import TitleComponent from "@/components/common/TitleComponent";
+import { DropDown } from "@/components/common/DropDown";
 
 const headers = ["RANK", "TEAM", "MP","WON", 'LOST',"TIED","N/R","NET RR", "PTS"];
 
@@ -12,7 +14,7 @@ const headerStyles = {
   className: "bg-[#E07E27] text-black text-center",
 };
 const tBodyStyles = {
-  className: "bg-[#0F1A2D] text-white",
+  className: "bg-[#0F1A2D] text-white text-left",
 };
 const rowStyles = {
   className: "p-5",
@@ -38,7 +40,7 @@ const TableTabComponent = () => {
   const tableData = filteredData.map((team, index) => ({
     RANK: index + 1,
     TEAM: (
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 min-w-40 text-left">
         <div className="w-6 h-6 flex justify-center items-center"
         
         >
@@ -69,19 +71,18 @@ const TableTabComponent = () => {
       />
 
       <div className="section-width section-padding">
-        <div className="flex justify-between items-center pb-6 ">
-          <p className="text-4xl font-bold uppercase text-black">GROUP STANDINGS</p>
-          <div className="w-1/2 flex items-center justify-end gap-8">
-            <DropDown
-              label="Season"
-              options={Object.keys(standingsData)}
-              value={activeSeason}
-              onChange={(e) => {
-                setActiveSeason(e.target.value);
-                setActiveTeam("All Teams");
-              }}
-              bg="white"
-            />
+        <div className="flex lg:flex-row flex-col justify-between lg:items-center pb-6 ">
+          <TitleComponent title={"GROUP STANDINGS"}/>
+          <div className="w-1/2 flex items-center lg:justify-end gap-8 lg:mb-12">
+           
+                         <DropDown
+                           label="Season"
+                           options={Object.keys(standingsData)}
+                           value={activeSeason}
+                           onChange={(e) => setActiveSeason(e.target.value)}
+                           bg="white"
+                         />
+ 
             <DropDown
               label="Team"
               options={teamsInSeason}
@@ -110,44 +111,44 @@ const TableTabComponent = () => {
   );
 };
 
-const DropDown = ({ label, options, value, onChange, bg }) => {
-  const bgColor = bg === "white" ? "bg-white" : "bg-[#E07E27]";
-  const textColor = bg === "white" ? "text-[#E07E27]" : "text-white";
+// const DropDown = ({ label, options, value, onChange, bg }) => {
+//   const bgColor = bg === "white" ? "bg-white" : "bg-[#E07E27]";
+//   const textColor = bg === "white" ? "text-[#E07E27]" : "text-white";
 
-  return (
-    <div className="flex items-center gap-6 relative w-48">
-      <div className={`relative w-full`}>
-        <select
-          value={value}
-          onChange={onChange}
-          className={`appearance-none ${bgColor} ${textColor} px-4 py-4 w-full border border-[#E07E27] text-base rounded`}
-        >
-          {options.map((item, index) => (
-            <option key={index} value={item}>
-              {item.replace("season_", "Season ")}
-            </option>
-          ))}
-        </select>
-        <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center">
-          {bg === "white" ? (
-            <Image
-              src="/images/standings/dropdown.svg"
-              width={10}
-              height={10}
-              alt="dropdown"
-            />
-          ) : (
-            <Image
-              src="/images/standings/dropdownwhite.svg"
-              width={10}
-              height={10}
-              alt="dropdown"
-            />
-          )}
-        </div>
-      </div>
-    </div>
-  );
-};
+//   return (
+//     <div className="flex items-center gap-6 relative w-48">
+//       <div className={`relative w-full`}>
+//         <select
+//           value={value}
+//           onChange={onChange}
+//           className={`appearance-none ${bgColor} ${textColor} px-4 py-4 w-full border border-[#E07E27] text-base rounded`}
+//         >
+//           {options.map((item, index) => (
+//             <option key={index} value={item}>
+//               {item.replace("season_", "Season ")}
+//             </option>
+//           ))}
+//         </select>
+//         <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center">
+//           {bg === "white" ? (
+//             <Image
+//               src="/images/standings/dropdown.svg"
+//               width={10}
+//               height={10}
+//               alt="dropdown"
+//             />
+//           ) : (
+//             <Image
+//               src="/images/standings/dropdownwhite.svg"
+//               width={10}
+//               height={10}
+//               alt="dropdown"
+//             />
+//           )}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
 
 export default TableTabComponent;
