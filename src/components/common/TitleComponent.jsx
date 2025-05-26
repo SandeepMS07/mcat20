@@ -14,7 +14,7 @@ const TitleComponent = ({ title, orange = false, button, buttonLink }) => {
             className="w-auto absolute h-full top-0 -left-0 rounded-l-md"
             alt="Logo"
           />
-          <h2 className="text-white capitalize">{title}</h2>
+          <h3 className="text-white capitalize">{title}</h3>
         </div>
       ) : (
         <div className="flex items-center justify-between">
@@ -26,20 +26,22 @@ const TitleComponent = ({ title, orange = false, button, buttonLink }) => {
               className="w-auto absolute h-full top-0 -left-0 rounded-l-md"
               alt="Logo"
             />
-            <h2 className="text-white capitalize">{title}</h2>
+            <h3 className="text-white capitalize">{title}</h3>
           </div>
-          {button && (
-            <Link href={buttonLink || "#"} className="btn-blue">
-              View All
-              <Image
-                src="/images/home/hero/buttonIcon.svg"
-                alt="button-icon"
-                width={24}
-                height={24}
-                className="w-5 h-5"
-              />
-            </Link>
-          )}
+          <div className="md:flex hidden">
+            {button && (
+              <Link href={buttonLink || "#"} className="btn-blue ">
+                View All
+                <Image
+                  src="/images/home/hero/buttonIcon.svg"
+                  alt="button-icon"
+                  width={24}
+                  height={24}
+                  className="w-5 h-5"
+                />
+              </Link>
+            )}
+          </div>
         </div>
       )}
     </>

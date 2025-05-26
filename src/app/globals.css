@@ -82,13 +82,16 @@ body {
     @apply mb-14 md:mb-20 lg:mb-24;
   }
   .btn-primary {
-    @apply px-4 py-2 md:px-6 md:py-3 rounded-lg bg-[#E07E27]   text-white text-sm md:text-base text-center cursor-pointer;
+    @apply px-4 py-2 lg:px-6 lg:py-3 rounded-lg bg-[#E07E27]   text-white text-sm md:text-base text-center cursor-pointer;
   }
   .btn-secondary {
     @apply px-6 py-3 rounded-full border-2 border-white bg-white text-blue-600 font-medium text-base;
   }
   .btn-blue {
-    @apply flex items-center justify-between py-3 px-6 gap-4  text-sm md:text-base bg-gradient-to-b rounded-none from-[#142a7c] via-[#344ca2] to-[#243fa3];
+    @apply flex items-center justify-between px-4 py-2 lg:px-6 lg:py-3 gap-4  text-sm md:text-base bg-gradient-to-b rounded-none from-[#142a7c] via-[#344ca2] to-[#243fa3];
+  }
+  .btn-black {
+    @apply flex items-center justify-between px-4 py-2 lg:px-4 lg:py-3 gap-2  text-sm md:text-sm bg-gradient-to-r rounded-none from-[#000] via-[#000] to-[#203376] text-white rounded-md;
   }
   .sub-heading {
     @apply text-red-600 text-sm lg:text-base xl:text-lg font-normal;
@@ -136,4 +139,8 @@ body {
   aspect-ratio: 5/2;
   clip-path: polygon(0 0, calc(100% - var(--p)) 0, 100% 100%, var(--p) 100%);
   background: #d95b43;
+}
+
+.oswald-font {
+  font-family: "Oswald", sans-serif;
 }

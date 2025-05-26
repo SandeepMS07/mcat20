@@ -21,6 +21,10 @@ const routes = {
   contact: "#",
   howToUse: "#",
   roadmap: "#",
+
+  // ticket
+  wankhedeTicket: "https://link.district.in/DSTRKT/MumbaiT20Match1",
+  DYPatilTicket: "https://link.district.in/DSTRKT/MumbaiT20LeagueMatch2",
 };
 
 export default routes;

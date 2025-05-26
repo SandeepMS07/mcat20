@@ -18,7 +18,7 @@ const TeamSection = () => {
     <div className="w-full">
       {/* Background & Header */}
       <div
-        className="w-full bg-cover bg-center pt-24 pb-40 overflow-x-auto md:overflow-visible md:pt-40 md:pb-40 flex flex-col gap-8 relative px-4 md:px-32 scrollbar-hide"
+        className="w-full bg-cover bg-center pt-24 pb-40 overflow-x-auto md:overflow-visible md:pt-40 md:pb-40 flex flex-col gap-8 relative scrollbar-hide"
         style={{ backgroundImage: "url('/images/teams/hero/teamsBg.svg')" }}
       >
         <div className="section-width">
@@ -87,7 +87,7 @@ const TeamSection = () => {
 
       {/* Match Cards Section */}
       <div className="relative w-full bg-white pt-32 pb-16">
-        <div className="flex flex-col items-center gap-8 section-width w-[90%] md:w-[70%] -mt-[286px]">
+        <div className="flex flex-col items-center gap-8 section-width -mt-[286px]">
           {/* Mobile View - Carousel */}
           <div className="block 2xl:hidden w-full">
             <Swiper

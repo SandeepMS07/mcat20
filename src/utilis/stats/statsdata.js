@@ -3,6 +3,8 @@ export const stats = {
     name_full: "Akhil Herwadkar",
     seasons: {
       season_1: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -26,6 +28,24 @@ export const stats = {
           boundary_percentage: 75.47,
           dot_ball_percentage: 50.0,
           balls_per_boundary: 3.78,
+          highest_strike_rate_innings: {
+            value: 192.86,
+            balls_faced: 14,
+            runs_scored: 27,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -46,6 +66,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 9.0,
+            overs_bowled: 1.0,
+            runs_conceded: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -58,6 +98,8 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       season_2: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 6,
           innings_batted: 6,
@@ -83,6 +125,25 @@ export const stats = {
           boundary_percentage: 55.41,
           dot_ball_percentage: 33.71,
           balls_per_boundary: 6.36,
+          highest_strike_rate_innings: {
+            value: 146.81,
+            balls_faced: 47,
+            runs_scored: 69,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 46,
+            runs: 56,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -103,6 +164,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 37.5,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 5.75,
+            overs_bowled: 4.0,
+            runs_conceded: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -115,6 +196,7 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       overall: {
+        played_for_teams: ["ARCS Andheri"],
         batting: {
           matches_played: 11,
           innings_batted: 11,
@@ -140,6 +222,25 @@ export const stats = {
           boundary_percentage: 59.15,
           dot_ball_percentage: 36.32,
           balls_per_boundary: 5.73,
+          highest_strike_rate_innings: {
+            value: 192.86,
+            balls_faced: 14,
+            runs_scored: 27,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 46,
+            match_id: "UNKNOWN_MATCH",
+            runs: 56,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -160,6 +261,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 30.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 5.75,
+            overs_bowled: 4.0,
+            runs_conceded: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 6,
@@ -177,6 +298,8 @@ export const stats = {
     name_full: "Doraiswamy Subramanian",
     seasons: {
       season_1: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -201,6 +324,24 @@ export const stats = {
           boundary_percentage: 69.77,
           dot_ball_percentage: 39.68,
           balls_per_boundary: 4.5,
+          highest_strike_rate_innings: {
+            value: 169.23,
+            balls_faced: 13,
+            runs_scored: 22,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -221,6 +362,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -233,6 +394,8 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       season_2: {
+        team_name: "Aakash Tigers MWS",
+        played_for_teams: [],
         batting: {
           matches_played: 6,
           innings_batted: 6,
@@ -256,6 +419,24 @@ export const stats = {
           boundary_percentage: 49.46,
           dot_ball_percentage: 34.21,
           balls_per_boundary: 8.44,
+          highest_strike_rate_innings: {
+            value: 141.67,
+            balls_faced: 24,
+            runs_scored: 34,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -276,6 +457,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 5,
@@ -288,6 +489,7 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       overall: {
+        played_for_teams: ["ARCS Andheri", "Aakash Tigers MWS"],
         batting: {
           matches_played: 11,
           innings_batted: 11,
@@ -312,6 +514,24 @@ export const stats = {
           boundary_percentage: 59.22,
           dot_ball_percentage: 36.69,
           balls_per_boundary: 6.04,
+          highest_strike_rate_innings: {
+            value: 169.23,
+            balls_faced: 13,
+            runs_scored: 22,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -332,6 +552,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 8,
@@ -349,6 +589,8 @@ export const stats = {
     name_full: "Tanmay Mishra",
     seasons: {
       season_1: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -373,6 +615,24 @@ export const stats = {
           boundary_percentage: 61.11,
           dot_ball_percentage: 53.85,
           balls_per_boundary: 7.8,
+          highest_strike_rate_innings: {
+            value: 106.67,
+            balls_faced: 15,
+            runs_scored: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -393,6 +653,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -405,6 +685,8 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       season_2: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -425,6 +707,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -445,6 +745,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -457,6 +777,7 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       overall: {
+        played_for_teams: ["ARCS Andheri"],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -481,6 +802,24 @@ export const stats = {
           boundary_percentage: 61.11,
           dot_ball_percentage: 53.85,
           balls_per_boundary: 7.8,
+          highest_strike_rate_innings: {
+            value: 106.67,
+            balls_faced: 15,
+            runs_scored: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -501,6 +840,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -518,6 +877,8 @@ export const stats = {
     name_full: "Parag Khanapurkar",
     seasons: {
       season_1: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -543,6 +904,25 @@ export const stats = {
           boundary_percentage: 42.22,
           dot_ball_percentage: 29.17,
           balls_per_boundary: 9.0,
+          highest_strike_rate_innings: {
+            value: 160.53,
+            balls_faced: 38,
+            runs_scored: 61,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 38,
+            runs: 61,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -563,6 +943,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 39.47,
           extras_per_over: 0.16,
+          best_economy_innings: {
+            value: 7.29,
+            overs_bowled: 2.2,
+            runs_conceded: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 1,
+            balls_bowled: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 7,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -575,6 +975,8 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       season_2: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 6,
           innings_batted: 6,
@@ -598,6 +1000,25 @@ export const stats = {
           boundary_percentage: 54.15,
           dot_ball_percentage: 35.67,
           balls_per_boundary: 6.33,
+          highest_strike_rate_innings: {
+            value: 195.92,
+            balls_faced: 49,
+            runs_scored: 96,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 49,
+            runs: 96,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -618,6 +1039,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 30.3,
           extras_per_over: 0.36,
+          best_economy_innings: {
+            value: 3.75,
+            overs_bowled: 4.0,
+            runs_conceded: 15,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 3.0,
+            wickets_taken: 2,
+            balls_bowled: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 22,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 5,
@@ -630,6 +1071,7 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       overall: {
+        played_for_teams: ["ARCS Andheri", "SoBo SuperSonics"],
         batting: {
           matches_played: 11,
           innings_batted: 11,
@@ -655,6 +1097,25 @@ export const stats = {
           boundary_percentage: 50.78,
           dot_ball_percentage: 33.74,
           balls_per_boundary: 6.94,
+          highest_strike_rate_innings: {
+            value: 195.92,
+            balls_faced: 49,
+            runs_scored: 96,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 38,
+            match_id: "UNKNOWN_MATCH",
+            runs: 61,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 8,
@@ -675,6 +1136,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 33.65,
           extras_per_over: 0.29,
+          best_economy_innings: {
+            value: 3.75,
+            overs_bowled: 4.0,
+            runs_conceded: 15,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 3.0,
+            wickets_taken: 2,
+            balls_bowled: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 22,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 6,
@@ -692,6 +1173,8 @@ export const stats = {
     name_full: "Shubham Ranjane",
     seasons: {
       season_1: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -714,6 +1197,25 @@ export const stats = {
           boundary_percentage: 45.86,
           dot_ball_percentage: 29.92,
           balls_per_boundary: 7.94,
+          highest_strike_rate_innings: {
+            value: 161.11,
+            balls_faced: 36,
+            runs_scored: 58,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 36,
+            runs: 58,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -734,6 +1236,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 29.63,
           extras_per_over: 0.22,
+          best_economy_innings: {
+            value: 6.0,
+            overs_bowled: 3.0,
+            runs_conceded: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 9.0,
+            wickets_taken: 2,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 45,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 8,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -746,6 +1268,8 @@ export const stats = {
         total_matches_in_squad: 4,
       },
       season_2: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 6,
           innings_batted: 6,
@@ -769,6 +1293,25 @@ export const stats = {
           boundary_percentage: 45.69,
           dot_ball_percentage: 19.42,
           balls_per_boundary: 7.32,
+          highest_strike_rate_innings: {
+            value: 169.05,
+            balls_faced: 42,
+            runs_scored: 71,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 34,
+            runs: 51,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -789,6 +1332,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 19.05,
           extras_per_over: 0.43,
+          best_economy_innings: {
+            value: 9.0,
+            overs_bowled: 2.0,
+            runs_conceded: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 2,
+            balls_bowled: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 35,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -801,6 +1364,7 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       overall: {
+        played_for_teams: ["ARCS Andheri"],
         batting: {
           matches_played: 10,
           innings_batted: 10,
@@ -824,6 +1388,25 @@ export const stats = {
           boundary_percentage: 45.76,
           dot_ball_percentage: 24.44,
           balls_per_boundary: 7.6,
+          highest_strike_rate_innings: {
+            value: 169.05,
+            balls_faced: 42,
+            runs_scored: 71,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 34,
+            match_id: "UNKNOWN_MATCH",
+            runs: 51,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 7,
@@ -844,6 +1427,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 25.0,
           extras_per_over: 0.31,
+          best_economy_innings: {
+            value: 6.0,
+            overs_bowled: 3.0,
+            runs_conceded: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 2,
+            balls_bowled: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 45,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 8,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 6,
@@ -861,6 +1464,8 @@ export const stats = {
     name_full: "Siddharth Chitnis",
     seasons: {
       season_1: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -884,6 +1489,24 @@ export const stats = {
           boundary_percentage: 32.26,
           dot_ball_percentage: 28.85,
           balls_per_boundary: 13.0,
+          highest_strike_rate_innings: {
+            value: 164.29,
+            balls_faced: 14,
+            runs_scored: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -904,6 +1527,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.17,
+          best_economy_innings: {
+            value: 7.0,
+            overs_bowled: 1.0,
+            runs_conceded: 7,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 1,
+            balls_bowled: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 36,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -916,6 +1559,8 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       season_2: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -938,6 +1583,25 @@ export const stats = {
           boundary_percentage: 54.24,
           dot_ball_percentage: 31.11,
           balls_per_boundary: 6.43,
+          highest_strike_rate_innings: {
+            value: 125.0,
+            balls_faced: 40,
+            runs_scored: 50,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 40,
+            runs: 50,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -958,6 +1622,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 28.57,
           extras_per_over: 0.14,
+          best_economy_innings: {
+            value: 8.25,
+            overs_bowled: 4.0,
+            runs_conceded: 33,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 33,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -970,6 +1654,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["ARCS Andheri", "NaMo Bandra Blasters"],
         batting: {
           matches_played: 8,
           innings_batted: 8,
@@ -993,6 +1678,25 @@ export const stats = {
           boundary_percentage: 42.98,
           dot_ball_percentage: 29.9,
           balls_per_boundary: 8.82,
+          highest_strike_rate_innings: {
+            value: 164.29,
+            balls_faced: 14,
+            runs_scored: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 40,
+            match_id: "UNKNOWN_MATCH",
+            runs: 50,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -1013,6 +1717,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 30.77,
           extras_per_over: 0.15,
+          best_economy_innings: {
+            value: 7.0,
+            overs_bowled: 1.0,
+            runs_conceded: 7,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 1,
+            balls_bowled: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 36,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -1030,6 +1754,8 @@ export const stats = {
     name_full: "Iqbal Abdulla",
     seasons: {
       season_1: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -1054,6 +1780,25 @@ export const stats = {
           boundary_percentage: 54.21,
           dot_ball_percentage: 39.77,
           balls_per_boundary: 6.77,
+          highest_strike_rate_innings: {
+            value: 142.5,
+            balls_faced: 40,
+            runs_scored: 57,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 40,
+            runs: 57,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -1074,6 +1819,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 34.38,
           extras_per_over: 0.06,
+          best_economy_innings: {
+            value: 5.67,
+            overs_bowled: 3.0,
+            runs_conceded: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 35,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -1086,6 +1851,8 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       season_2: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -1109,6 +1876,25 @@ export const stats = {
           boundary_percentage: 44.9,
           dot_ball_percentage: 26.92,
           balls_per_boundary: 7.8,
+          highest_strike_rate_innings: {
+            value: 125.58,
+            balls_faced: 43,
+            runs_scored: 54,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 43,
+            runs: 54,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -1129,6 +1915,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 37.5,
           extras_per_over: 0.33,
+          best_economy_innings: {
+            value: 4.0,
+            overs_bowled: 4.0,
+            runs_conceded: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 47,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -1141,6 +1947,7 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       overall: {
+        played_for_teams: ["ARCS Andheri"],
         batting: {
           matches_played: 9,
           innings_batted: 9,
@@ -1166,6 +1973,25 @@ export const stats = {
           boundary_percentage: 49.76,
           dot_ball_percentage: 33.73,
           balls_per_boundary: 7.22,
+          highest_strike_rate_innings: {
+            value: 142.5,
+            balls_faced: 40,
+            runs_scored: 57,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 40,
+            match_id: "UNKNOWN_MATCH",
+            runs: 57,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 11,
@@ -1186,6 +2012,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 36.25,
           extras_per_over: 0.23,
+          best_economy_innings: {
+            value: 4.0,
+            overs_bowled: 4.0,
+            runs_conceded: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 47,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -1203,6 +2049,8 @@ export const stats = {
     name_full: "Arun Yadav",
     seasons: {
       season_1: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -1226,6 +2074,24 @@ export const stats = {
           boundary_percentage: 54.17,
           dot_ball_percentage: 50.98,
           balls_per_boundary: 8.5,
+          highest_strike_rate_innings: {
+            value: 88.46,
+            balls_faced: 26,
+            runs_scored: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -1246,6 +2112,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -1258,6 +2144,8 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       season_2: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -1278,6 +2166,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -1298,6 +2204,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 11.33,
+            overs_bowled: 1.3,
+            runs_conceded: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -1310,6 +2236,7 @@ export const stats = {
         total_matches_in_squad: 1,
       },
       overall: {
+        played_for_teams: ["ARCS Andheri", "Shivaji Park Lions"],
         batting: {
           matches_played: 6,
           innings_batted: 6,
@@ -1333,6 +2260,24 @@ export const stats = {
           boundary_percentage: 54.17,
           dot_ball_percentage: 50.98,
           balls_per_boundary: 8.5,
+          highest_strike_rate_innings: {
+            value: 88.46,
+            balls_faced: 26,
+            runs_scored: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -1353,6 +2298,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 11.33,
+            overs_bowled: 1.3,
+            runs_conceded: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -1370,6 +2335,8 @@ export const stats = {
     name_full: "Pardeep Sahu",
     seasons: {
       season_1: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -1392,6 +2359,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 52.17,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 50.0,
+            balls_faced: 12,
+            runs_scored: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -1412,6 +2397,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 30.95,
           extras_per_over: 0.21,
+          best_economy_innings: {
+            value: 7.33,
+            overs_bowled: 3.0,
+            runs_conceded: 22,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 24.0,
+            wickets_taken: 1,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 53,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -1424,6 +2429,8 @@ export const stats = {
         total_matches_in_squad: 4,
       },
       season_2: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -1444,6 +2451,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -1464,6 +2489,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -1476,6 +2521,7 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       overall: {
+        played_for_teams: ["ARCS Andheri"],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -1498,6 +2544,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 52.17,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 50.0,
+            balls_faced: 12,
+            runs_scored: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -1518,6 +2582,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 30.95,
           extras_per_over: 0.21,
+          best_economy_innings: {
+            value: 7.33,
+            overs_bowled: 3.0,
+            runs_conceded: 22,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 24.0,
+            wickets_taken: 1,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 53,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -1535,6 +2619,8 @@ export const stats = {
     name_full: "Vineet Sinha",
     seasons: {
       season_1: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -1558,6 +2644,24 @@ export const stats = {
           boundary_percentage: 36.36,
           dot_ball_percentage: 36.36,
           balls_per_boundary: 11.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -1578,6 +2682,26 @@ export const stats = {
           wickets_in_do: 3,
           dot_ball_percentage: 44.33,
           extras_per_over: 0.37,
+          best_economy_innings: {
+            value: 6.63,
+            overs_bowled: 3.1,
+            runs_conceded: 21,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 9.5,
+            wickets_taken: 2,
+            balls_bowled: 19,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 37,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -1590,6 +2714,8 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       season_2: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -1610,6 +2736,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -1630,6 +2774,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 39.29,
           extras_per_over: 0.5,
+          best_economy_innings: {
+            value: 6.75,
+            overs_bowled: 4.0,
+            runs_conceded: 27,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 40,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -1642,6 +2806,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["ARCS Andheri"],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -1665,6 +2830,24 @@ export const stats = {
           boundary_percentage: 36.36,
           dot_ball_percentage: 36.36,
           balls_per_boundary: 11.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 10,
@@ -1685,6 +2868,26 @@ export const stats = {
           wickets_in_do: 3,
           dot_ball_percentage: 41.99,
           extras_per_over: 0.43,
+          best_economy_innings: {
+            value: 6.63,
+            overs_bowled: 3.1,
+            runs_conceded: 21,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 9.5,
+            wickets_taken: 2,
+            balls_bowled: 19,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 40,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -1702,6 +2905,8 @@ export const stats = {
     name_full: "Tushar Deshpande",
     seasons: {
       season_1: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -1724,6 +2929,24 @@ export const stats = {
           boundary_percentage: 50.0,
           dot_ball_percentage: 55.56,
           balls_per_boundary: 9.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -1744,6 +2967,26 @@ export const stats = {
           wickets_in_do: 3,
           dot_ball_percentage: 38.95,
           extras_per_over: 0.57,
+          best_economy_innings: {
+            value: 5.2,
+            overs_bowled: 2.3,
+            runs_conceded: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 69,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -1756,6 +2999,8 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       season_2: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -1778,6 +3023,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 33.33,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -1798,6 +3061,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 44.93,
           extras_per_over: 0.22,
+          best_economy_innings: {
+            value: 5.0,
+            overs_bowled: 4.0,
+            runs_conceded: 20,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 48,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 15,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -1810,6 +3093,7 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       overall: {
+        played_for_teams: ["ARCS Andheri"],
         batting: {
           matches_played: 6,
           innings_batted: 6,
@@ -1833,6 +3117,24 @@ export const stats = {
           boundary_percentage: 33.33,
           dot_ball_percentage: 46.67,
           balls_per_boundary: 15.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 11,
@@ -1853,6 +3155,26 @@ export const stats = {
           wickets_in_do: 4,
           dot_ball_percentage: 42.49,
           extras_per_over: 0.36,
+          best_economy_innings: {
+            value: 5.0,
+            overs_bowled: 4.0,
+            runs_conceded: 20,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 69,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 15,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -1870,6 +3192,8 @@ export const stats = {
     name_full: "Praful Waghela",
     seasons: {
       season_1: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -1892,6 +3216,24 @@ export const stats = {
           boundary_percentage: 35.96,
           dot_ball_percentage: 36.56,
           balls_per_boundary: 11.62,
+          highest_strike_rate_innings: {
+            value: 105.0,
+            balls_faced: 40,
+            runs_scored: 42,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -1912,6 +3254,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -1924,6 +3286,8 @@ export const stats = {
         total_matches_in_squad: 4,
       },
       season_2: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -1947,6 +3311,24 @@ export const stats = {
           boundary_percentage: 41.94,
           dot_ball_percentage: 11.9,
           balls_per_boundary: 7.0,
+          highest_strike_rate_innings: {
+            value: 145.16,
+            balls_faced: 31,
+            runs_scored: 45,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -1967,6 +3349,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -1979,6 +3381,7 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       overall: {
+        played_for_teams: ["ARCS Andheri", "Triumph Knights Mumbai North East"],
         batting: {
           matches_played: 7,
           innings_batted: 7,
@@ -2003,6 +3406,24 @@ export const stats = {
           boundary_percentage: 38.41,
           dot_ball_percentage: 28.89,
           balls_per_boundary: 9.64,
+          highest_strike_rate_innings: {
+            value: 145.16,
+            balls_faced: 31,
+            runs_scored: 45,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -2023,6 +3444,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -2040,6 +3481,8 @@ export const stats = {
     name_full: "Sumit Ghadigaonkar",
     seasons: {
       season_1: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 7,
           innings_batted: 7,
@@ -2064,6 +3507,24 @@ export const stats = {
           boundary_percentage: 66.18,
           dot_ball_percentage: 31.76,
           balls_per_boundary: 4.25,
+          highest_strike_rate_innings: {
+            value: 315.38,
+            balls_faced: 13,
+            runs_scored: 41,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -2084,6 +3545,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 5,
@@ -2096,6 +3577,8 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       season_2: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -2120,6 +3603,24 @@ export const stats = {
           boundary_percentage: 47.06,
           dot_ball_percentage: 32.73,
           balls_per_boundary: 7.86,
+          highest_strike_rate_innings: {
+            value: 140.0,
+            balls_faced: 10,
+            runs_scored: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -2140,6 +3641,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -2152,6 +3673,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["Triumph Knights Mumbai North East"],
         batting: {
           matches_played: 12,
           innings_batted: 12,
@@ -2177,6 +3699,24 @@ export const stats = {
           boundary_percentage: 59.8,
           dot_ball_percentage: 32.14,
           balls_per_boundary: 5.19,
+          highest_strike_rate_innings: {
+            value: 315.38,
+            balls_faced: 13,
+            runs_scored: 41,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -2197,6 +3737,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 8,
@@ -2214,6 +3774,8 @@ export const stats = {
     name_full: "Suryakumar Yadav",
     seasons: {
       season_1: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 7,
           innings_batted: 7,
@@ -2238,6 +3800,25 @@ export const stats = {
           boundary_percentage: 72.95,
           dot_ball_percentage: 30.6,
           balls_per_boundary: 3.62,
+          highest_strike_rate_innings: {
+            value: 233.33,
+            balls_faced: 15,
+            runs_scored: 35,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 7,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 35,
+            runs: 63,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -2258,6 +3839,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -2270,6 +3871,8 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       season_2: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -2293,6 +3896,25 @@ export const stats = {
           boundary_percentage: 52.48,
           dot_ball_percentage: 32.69,
           balls_per_boundary: 7.09,
+          highest_strike_rate_innings: {
+            value: 160.71,
+            balls_faced: 56,
+            runs_scored: 90,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 7,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 35,
+            runs: 56,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -2313,6 +3935,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -2325,6 +3967,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["Triumph Knights Mumbai North East"],
         batting: {
           matches_played: 12,
           innings_batted: 12,
@@ -2349,6 +3992,25 @@ export const stats = {
           boundary_percentage: 63.68,
           dot_ball_percentage: 31.72,
           balls_per_boundary: 4.92,
+          highest_strike_rate_innings: {
+            value: 233.33,
+            balls_faced: 15,
+            runs_scored: 35,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 7,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 35,
+            match_id: "UNKNOWN_MATCH",
+            runs: 63,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -2369,6 +4031,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 7,
@@ -2386,6 +4068,8 @@ export const stats = {
     name_full: "Akash Parkar",
     seasons: {
       season_1: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -2408,6 +4092,25 @@ export const stats = {
           boundary_percentage: 66.21,
           dot_ball_percentage: 16.44,
           balls_per_boundary: 3.84,
+          highest_strike_rate_innings: {
+            value: 221.62,
+            balls_faced: 37,
+            runs_scored: 82,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 37,
+            runs: 82,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -2428,6 +4131,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 29.17,
           extras_per_over: 0.38,
+          best_economy_innings: {
+            value: 7.5,
+            overs_bowled: 4.0,
+            runs_conceded: 30,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 52,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -2440,6 +4163,8 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       season_2: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -2463,6 +4188,24 @@ export const stats = {
           boundary_percentage: 38.24,
           dot_ball_percentage: 28.57,
           balls_per_boundary: 12.6,
+          highest_strike_rate_innings: {
+            value: 170.0,
+            balls_faced: 20,
+            runs_scored: 34,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -2483,6 +4226,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 43.37,
           extras_per_over: 0.14,
+          best_economy_innings: {
+            value: 4.5,
+            overs_bowled: 4.0,
+            runs_conceded: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 9.0,
+            wickets_taken: 2,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 34,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -2495,6 +4258,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["Triumph Knights Mumbai North East"],
         batting: {
           matches_played: 8,
           innings_batted: 8,
@@ -2518,6 +4282,25 @@ export const stats = {
           boundary_percentage: 57.28,
           dot_ball_percentage: 22.06,
           balls_per_boundary: 5.67,
+          highest_strike_rate_innings: {
+            value: 221.62,
+            balls_faced: 37,
+            runs_scored: 82,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 37,
+            match_id: "UNKNOWN_MATCH",
+            runs: 82,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 7,
@@ -2538,6 +4321,26 @@ export const stats = {
           wickets_in_do: 3,
           dot_ball_percentage: 38.17,
           extras_per_over: 0.23,
+          best_economy_innings: {
+            value: 4.5,
+            overs_bowled: 4.0,
+            runs_conceded: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 52,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 5,
@@ -2555,6 +4358,8 @@ export const stats = {
     name_full: "Shashank Singh",
     seasons: {
       season_1: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 7,
           innings_batted: 7,
@@ -2580,6 +4385,25 @@ export const stats = {
           boundary_percentage: 49.1,
           dot_ball_percentage: 37.86,
           balls_per_boundary: 8.24,
+          highest_strike_rate_innings: {
+            value: 150.0,
+            balls_faced: 28,
+            runs_scored: 42,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 50,
+            runs: 63,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -2600,6 +4424,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 13.89,
           extras_per_over: 0.17,
+          best_economy_innings: {
+            value: 11.75,
+            overs_bowled: 4.0,
+            runs_conceded: 47,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 47,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -2612,6 +4456,8 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       season_2: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -2632,6 +4478,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -2652,6 +4516,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -2664,6 +4548,7 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       overall: {
+        played_for_teams: ["Triumph Knights Mumbai North East"],
         batting: {
           matches_played: 7,
           innings_batted: 7,
@@ -2689,6 +4574,25 @@ export const stats = {
           boundary_percentage: 49.1,
           dot_ball_percentage: 37.86,
           balls_per_boundary: 8.24,
+          highest_strike_rate_innings: {
+            value: 150.0,
+            balls_faced: 28,
+            runs_scored: 42,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 50,
+            match_id: "UNKNOWN_MATCH",
+            runs: 63,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -2709,6 +4613,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 13.89,
           extras_per_over: 0.17,
+          best_economy_innings: {
+            value: 11.75,
+            overs_bowled: 4.0,
+            runs_conceded: 47,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 47,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -2726,6 +4650,8 @@ export const stats = {
     name_full: "Vinayak Bhoir",
     seasons: {
       season_1: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 7,
           innings_batted: 7,
@@ -2749,6 +4675,24 @@ export const stats = {
           boundary_percentage: 42.55,
           dot_ball_percentage: 47.73,
           balls_per_boundary: 11.0,
+          highest_strike_rate_innings: {
+            value: 90.91,
+            balls_faced: 11,
+            runs_scored: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -2769,6 +4713,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 43.86,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 3.5,
+            overs_bowled: 4.0,
+            runs_conceded: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 1,
+            balls_bowled: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 31,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -2781,6 +4745,8 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       season_2: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -2803,6 +4769,24 @@ export const stats = {
           boundary_percentage: 12.9,
           dot_ball_percentage: 45.0,
           balls_per_boundary: 40.0,
+          highest_strike_rate_innings: {
+            value: 81.25,
+            balls_faced: 16,
+            runs_scored: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -2823,6 +4807,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 39.58,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 7.0,
+            overs_bowled: 4.0,
+            runs_conceded: 28,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 28,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -2835,6 +4839,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["Triumph Knights Mumbai North East"],
         batting: {
           matches_played: 11,
           innings_batted: 11,
@@ -2858,6 +4863,24 @@ export const stats = {
           boundary_percentage: 30.77,
           dot_ball_percentage: 46.43,
           balls_per_boundary: 16.8,
+          highest_strike_rate_innings: {
+            value: 90.91,
+            balls_faced: 11,
+            runs_scored: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 9,
@@ -2878,6 +4901,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 42.59,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 3.5,
+            overs_bowled: 4.0,
+            runs_conceded: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 1,
+            balls_bowled: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 31,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 7,
@@ -2895,6 +4938,8 @@ export const stats = {
     name_full: "Aditya Dhumal",
     seasons: {
       season_1: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -2917,6 +4962,25 @@ export const stats = {
           boundary_percentage: 47.5,
           dot_ball_percentage: 37.88,
           balls_per_boundary: 9.43,
+          highest_strike_rate_innings: {
+            value: 147.06,
+            balls_faced: 34,
+            runs_scored: 50,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 4,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 34,
+            runs: 50,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 7,
@@ -2937,6 +5001,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 43.33,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 5.5,
+            overs_bowled: 2.0,
+            runs_conceded: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 2,
+            balls_bowled: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 29,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -2949,6 +5033,8 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       season_2: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -2972,6 +5058,24 @@ export const stats = {
           boundary_percentage: 56.52,
           dot_ball_percentage: 37.14,
           balls_per_boundary: 5.83,
+          highest_strike_rate_innings: {
+            value: 180.95,
+            balls_faced: 21,
+            runs_scored: 38,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -2992,6 +5096,26 @@ export const stats = {
           wickets_in_do: 4,
           dot_ball_percentage: 40.74,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 1.33,
+            overs_bowled: 3.0,
+            runs_conceded: 4,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 9.0,
+            wickets_taken: 2,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 29,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -3004,6 +5128,10 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: [
+          "NaMo Bandra Blasters",
+          "Triumph Knights Mumbai North East",
+        ],
         batting: {
           matches_played: 8,
           innings_batted: 8,
@@ -3027,6 +5155,25 @@ export const stats = {
           boundary_percentage: 50.79,
           dot_ball_percentage: 37.62,
           balls_per_boundary: 7.77,
+          highest_strike_rate_innings: {
+            value: 180.95,
+            balls_faced: 21,
+            runs_scored: 38,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 4,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 34,
+            match_id: "UNKNOWN_MATCH",
+            runs: 50,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 12,
@@ -3047,6 +5194,26 @@ export const stats = {
           wickets_in_do: 6,
           dot_ball_percentage: 42.11,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 1.33,
+            overs_bowled: 3.0,
+            runs_conceded: 4,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 2,
+            balls_bowled: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 29,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 6,
@@ -3064,6 +5231,8 @@ export const stats = {
     name_full: "Parikshit Valsangkar",
     seasons: {
       season_1: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -3087,6 +5256,25 @@ export const stats = {
           boundary_percentage: 55.05,
           dot_ball_percentage: 40.86,
           balls_per_boundary: 7.15,
+          highest_strike_rate_innings: {
+            value: 120.41,
+            balls_faced: 49,
+            runs_scored: 59,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 49,
+            runs: 59,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 7,
@@ -3107,6 +5295,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 36.0,
           extras_per_over: 0.28,
+          best_economy_innings: {
+            value: 4.75,
+            overs_bowled: 4.0,
+            runs_conceded: 19,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 45,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 5,
@@ -3119,6 +5327,8 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       season_2: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -3143,6 +5353,25 @@ export const stats = {
           boundary_percentage: 58.82,
           dot_ball_percentage: 43.14,
           balls_per_boundary: 6.38,
+          highest_strike_rate_innings: {
+            value: 162.5,
+            balls_faced: 24,
+            runs_scored: 39,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 48,
+            runs: 52,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -3163,6 +5392,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 42.98,
           extras_per_over: 0.11,
+          best_economy_innings: {
+            value: 4.0,
+            overs_bowled: 4.0,
+            runs_conceded: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 24.0,
+            wickets_taken: 1,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 32,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -3175,6 +5424,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["Triumph Knights Mumbai North East"],
         batting: {
           matches_played: 10,
           innings_batted: 10,
@@ -3200,6 +5450,25 @@ export const stats = {
           boundary_percentage: 57.02,
           dot_ball_percentage: 42.05,
           balls_per_boundary: 6.72,
+          highest_strike_rate_innings: {
+            value: 162.5,
+            balls_faced: 24,
+            runs_scored: 39,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 48,
+            match_id: "UNKNOWN_MATCH",
+            runs: 52,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 12,
@@ -3220,6 +5489,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 39.02,
           extras_per_over: 0.2,
+          best_economy_innings: {
+            value: 4.0,
+            overs_bowled: 4.0,
+            runs_conceded: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 45,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 7,
@@ -3237,6 +5526,8 @@ export const stats = {
     name_full: "Atif Attarwala",
     seasons: {
       season_1: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -3259,6 +5550,24 @@ export const stats = {
           boundary_percentage: 50.0,
           dot_ball_percentage: 33.33,
           balls_per_boundary: 6.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -3279,6 +5588,26 @@ export const stats = {
           wickets_in_do: 4,
           dot_ball_percentage: 37.84,
           extras_per_over: 0.24,
+          best_economy_innings: {
+            value: 5.75,
+            overs_bowled: 4.0,
+            runs_conceded: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 1.0,
+            wickets_taken: 1,
+            balls_bowled: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 41,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -3291,6 +5620,8 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       season_2: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 7,
           innings_batted: 7,
@@ -3314,6 +5645,24 @@ export const stats = {
           boundary_percentage: 58.82,
           dot_ball_percentage: 20.93,
           balls_per_boundary: 5.38,
+          highest_strike_rate_innings: {
+            value: 260.0,
+            balls_faced: 10,
+            runs_scored: 26,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 7,
@@ -3334,6 +5683,26 @@ export const stats = {
           wickets_in_do: 5,
           dot_ball_percentage: 29.01,
           extras_per_over: 0.22,
+          best_economy_innings: {
+            value: 5.0,
+            overs_bowled: 4.0,
+            runs_conceded: 20,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 40,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -3346,6 +5715,10 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       overall: {
+        played_for_teams: [
+          "North Mumbai Panthers",
+          "Triumph Knights Mumbai North East",
+        ],
         batting: {
           matches_played: 9,
           innings_batted: 9,
@@ -3369,6 +5742,24 @@ export const stats = {
           boundary_percentage: 57.89,
           dot_ball_percentage: 22.45,
           balls_per_boundary: 5.44,
+          highest_strike_rate_innings: {
+            value: 260.0,
+            balls_faced: 10,
+            runs_scored: 26,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 12,
@@ -3389,6 +5780,26 @@ export const stats = {
           wickets_in_do: 9,
           dot_ball_percentage: 31.78,
           extras_per_over: 0.23,
+          best_economy_innings: {
+            value: 5.0,
+            overs_bowled: 4.0,
+            runs_conceded: 20,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 1.0,
+            wickets_taken: 1,
+            balls_bowled: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 41,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -3406,6 +5817,8 @@ export const stats = {
     name_full: "Kalpesh Sawant",
     seasons: {
       season_1: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -3428,6 +5841,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 66.67,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -3448,6 +5879,26 @@ export const stats = {
           wickets_in_do: 5,
           dot_ball_percentage: 46.6,
           extras_per_over: 0.23,
+          best_economy_innings: {
+            value: 3.0,
+            overs_bowled: 1.0,
+            runs_conceded: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 3.0,
+            wickets_taken: 2,
+            balls_bowled: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 35,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -3460,6 +5911,8 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       season_2: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -3480,6 +5933,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -3500,6 +5971,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 26.67,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 7.5,
+            overs_bowled: 4.0,
+            runs_conceded: 30,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 30,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 7,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -3512,6 +6003,7 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       overall: {
+        played_for_teams: ["Triumph Knights Mumbai North East"],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -3534,6 +6026,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 50.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 8,
@@ -3554,6 +6064,26 @@ export const stats = {
           wickets_in_do: 6,
           dot_ball_percentage: 42.11,
           extras_per_over: 0.18,
+          best_economy_innings: {
+            value: 3.0,
+            overs_bowled: 1.0,
+            runs_conceded: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 3.0,
+            wickets_taken: 2,
+            balls_bowled: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 35,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -3571,6 +6101,8 @@ export const stats = {
     name_full: "Prateek Dabholkar",
     seasons: {
       season_1: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -3593,6 +6125,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 50.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -3613,6 +6163,26 @@ export const stats = {
           wickets_in_do: 3,
           dot_ball_percentage: 44.05,
           extras_per_over: 0.21,
+          best_economy_innings: {
+            value: 5.5,
+            overs_bowled: 4.0,
+            runs_conceded: 22,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 47,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -3625,6 +6195,8 @@ export const stats = {
         total_matches_in_squad: 4,
       },
       season_2: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -3645,6 +6217,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -3665,6 +6255,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -3677,6 +6287,7 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       overall: {
+        played_for_teams: ["Triumph Knights Mumbai North East"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -3699,6 +6310,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 50.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -3719,6 +6348,26 @@ export const stats = {
           wickets_in_do: 3,
           dot_ball_percentage: 44.05,
           extras_per_over: 0.21,
+          best_economy_innings: {
+            value: 5.5,
+            overs_bowled: 4.0,
+            runs_conceded: 22,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 47,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -3736,6 +6385,8 @@ export const stats = {
     name_full: "Jay Bista",
     seasons: {
       season_1: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 7,
           innings_batted: 7,
@@ -3761,6 +6412,25 @@ export const stats = {
           boundary_percentage: 62.94,
           dot_ball_percentage: 36.5,
           balls_per_boundary: 5.07,
+          highest_strike_rate_innings: {
+            value: 161.9,
+            balls_faced: 21,
+            runs_scored: 34,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 38,
+            runs: 52,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -3781,6 +6451,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 38.89,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 4.33,
+            overs_bowled: 3.0,
+            runs_conceded: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 9.0,
+            wickets_taken: 2,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 26,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -3793,6 +6483,8 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       season_2: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 7,
           innings_batted: 7,
@@ -3816,6 +6508,26 @@ export const stats = {
           boundary_percentage: 57.02,
           dot_ball_percentage: 32.97,
           balls_per_boundary: 5.69,
+          highest_strike_rate_innings: {
+            value: 183.33,
+            balls_faced: 60,
+            runs_scored: 110,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 60,
+            runs: 110,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: 60,
+            runs: 110,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -3836,6 +6548,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 29.17,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 8.75,
+            overs_bowled: 4.0,
+            runs_conceded: 35,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 24.0,
+            wickets_taken: 1,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 35,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 7,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 6,
@@ -3848,6 +6580,7 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       overall: {
+        played_for_teams: ["SoBo SuperSonics"],
         batting: {
           matches_played: 14,
           innings_batted: 14,
@@ -3873,6 +6606,26 @@ export const stats = {
           boundary_percentage: 59.68,
           dot_ball_percentage: 34.48,
           balls_per_boundary: 5.41,
+          highest_strike_rate_innings: {
+            value: 183.33,
+            balls_faced: 60,
+            runs_scored: 110,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 38,
+            match_id: "UNKNOWN_MATCH",
+            runs: 52,
+          },
+          fastest_hundred_balls: {
+            balls: 60,
+            match_id: "UNKNOWN_MATCH",
+            runs: 110,
+          },
         },
         bowling: {
           matches_played: 4,
@@ -3893,6 +6646,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 35.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 4.33,
+            overs_bowled: 3.0,
+            runs_conceded: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 9.0,
+            wickets_taken: 2,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 35,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 9,
@@ -3910,6 +6683,8 @@ export const stats = {
     name_full: "Abhishek Nayar",
     seasons: {
       season_1: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -3933,6 +6708,25 @@ export const stats = {
           boundary_percentage: 56.84,
           dot_ball_percentage: 29.85,
           balls_per_boundary: 5.15,
+          highest_strike_rate_innings: {
+            value: 154.55,
+            balls_faced: 33,
+            runs_scored: 51,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 33,
+            runs: 51,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -3953,6 +6747,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 39.47,
           extras_per_over: 0.11,
+          best_economy_innings: {
+            value: 4.25,
+            overs_bowled: 4.0,
+            runs_conceded: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 34,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -3965,6 +6779,8 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       season_2: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -3985,6 +6801,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -4005,6 +6839,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -4017,6 +6871,7 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       overall: {
+        played_for_teams: ["SoBo SuperSonics"],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -4040,6 +6895,25 @@ export const stats = {
           boundary_percentage: 56.84,
           dot_ball_percentage: 29.85,
           balls_per_boundary: 5.15,
+          highest_strike_rate_innings: {
+            value: 154.55,
+            balls_faced: 33,
+            runs_scored: 51,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 33,
+            match_id: "UNKNOWN_MATCH",
+            runs: 51,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -4060,6 +6934,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 39.47,
           extras_per_over: 0.11,
+          best_economy_innings: {
+            value: 4.25,
+            overs_bowled: 4.0,
+            runs_conceded: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 34,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -4077,6 +6971,8 @@ export const stats = {
     name_full: "Aakarshit Gomel",
     seasons: {
       season_1: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -4100,6 +6996,25 @@ export const stats = {
           boundary_percentage: 56.59,
           dot_ball_percentage: 27.52,
           balls_per_boundary: 5.73,
+          highest_strike_rate_innings: {
+            value: 170.0,
+            balls_faced: 30,
+            runs_scored: 51,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 30,
+            runs: 51,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -4120,6 +7035,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -4132,6 +7067,8 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       season_2: {
+        team_name: "Aakash Tigers MWS",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -4155,6 +7092,24 @@ export const stats = {
           boundary_percentage: 54.64,
           dot_ball_percentage: 34.72,
           balls_per_boundary: 6.55,
+          highest_strike_rate_innings: {
+            value: 165.38,
+            balls_faced: 26,
+            runs_scored: 43,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -4175,6 +7130,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 5.56,
           extras_per_over: 0.33,
+          best_economy_innings: {
+            value: 6.0,
+            overs_bowled: 1.0,
+            runs_conceded: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 21,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -4187,6 +7162,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["Aakash Tigers MWS", "SoBo SuperSonics"],
         batting: {
           matches_played: 10,
           innings_batted: 10,
@@ -4211,6 +7187,25 @@ export const stats = {
           boundary_percentage: 55.67,
           dot_ball_percentage: 31.06,
           balls_per_boundary: 6.1,
+          highest_strike_rate_innings: {
+            value: 170.0,
+            balls_faced: 30,
+            runs_scored: 51,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 30,
+            match_id: "UNKNOWN_MATCH",
+            runs: 51,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -4231,6 +7226,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 5.56,
           extras_per_over: 0.33,
+          best_economy_innings: {
+            value: 6.0,
+            overs_bowled: 1.0,
+            runs_conceded: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 21,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -4248,6 +7263,8 @@ export const stats = {
     name_full: "Prasad Pawar",
     seasons: {
       season_1: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -4270,6 +7287,25 @@ export const stats = {
           boundary_percentage: 56.67,
           dot_ball_percentage: 29.92,
           balls_per_boundary: 5.52,
+          highest_strike_rate_innings: {
+            value: 205.88,
+            balls_faced: 17,
+            runs_scored: 35,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 53,
+            runs: 83,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -4290,6 +7326,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 5,
@@ -4302,6 +7358,8 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       season_2: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -4325,6 +7383,24 @@ export const stats = {
           boundary_percentage: 49.21,
           dot_ball_percentage: 30.93,
           balls_per_boundary: 7.46,
+          highest_strike_rate_innings: {
+            value: 193.75,
+            balls_faced: 16,
+            runs_scored: 31,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -4345,6 +7421,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -4357,6 +7453,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["NaMo Bandra Blasters", "SoBo SuperSonics"],
         batting: {
           matches_played: 10,
           innings_batted: 10,
@@ -4380,6 +7477,25 @@ export const stats = {
           boundary_percentage: 53.59,
           dot_ball_percentage: 30.36,
           balls_per_boundary: 6.22,
+          highest_strike_rate_innings: {
+            value: 205.88,
+            balls_faced: 17,
+            runs_scored: 35,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 53,
+            match_id: "UNKNOWN_MATCH",
+            runs: 83,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -4400,6 +7516,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 7,
@@ -4417,6 +7553,8 @@ export const stats = {
     name_full: "Sujit Nayak",
     seasons: {
       season_1: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 7,
           innings_batted: 7,
@@ -4440,6 +7578,25 @@ export const stats = {
           boundary_percentage: 70.97,
           dot_ball_percentage: 36.75,
           balls_per_boundary: 4.5,
+          highest_strike_rate_innings: {
+            value: 235.71,
+            balls_faced: 42,
+            runs_scored: 99,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 42,
+            runs: 99,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -4460,6 +7617,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 22.22,
           extras_per_over: 0.17,
+          best_economy_innings: {
+            value: 5.0,
+            overs_bowled: 1.0,
+            runs_conceded: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 25,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -4472,6 +7649,8 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       season_2: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -4494,6 +7673,25 @@ export const stats = {
           boundary_percentage: 50.3,
           dot_ball_percentage: 28.83,
           balls_per_boundary: 6.94,
+          highest_strike_rate_innings: {
+            value: 247.62,
+            balls_faced: 21,
+            runs_scored: 52,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 21,
+            runs: 52,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -4514,6 +7712,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 37.5,
           extras_per_over: 0.17,
+          best_economy_innings: {
+            value: 5.75,
+            overs_bowled: 4.0,
+            runs_conceded: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 9.0,
+            wickets_taken: 2,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 30,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -4526,6 +7744,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["NaMo Bandra Blasters", "SoBo SuperSonics"],
         batting: {
           matches_played: 12,
           innings_batted: 12,
@@ -4549,6 +7768,25 @@ export const stats = {
           boundary_percentage: 61.19,
           dot_ball_percentage: 32.89,
           balls_per_boundary: 5.43,
+          highest_strike_rate_innings: {
+            value: 247.62,
+            balls_faced: 21,
+            runs_scored: 52,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 21,
+            match_id: "UNKNOWN_MATCH",
+            runs: 52,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 8,
@@ -4569,6 +7807,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 32.41,
           extras_per_over: 0.17,
+          best_economy_innings: {
+            value: 5.0,
+            overs_bowled: 1.0,
+            runs_conceded: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 9.0,
+            wickets_taken: 2,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 30,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -4586,6 +7844,8 @@ export const stats = {
     name_full: "Rohan Raje",
     seasons: {
       season_1: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 7,
           innings_batted: 7,
@@ -4611,6 +7871,24 @@ export const stats = {
           boundary_percentage: 82.35,
           dot_ball_percentage: 34.38,
           balls_per_boundary: 2.91,
+          highest_strike_rate_innings: {
+            value: 236.36,
+            balls_faced: 11,
+            runs_scored: 26,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 7,
@@ -4631,6 +7909,26 @@ export const stats = {
           wickets_in_do: 3,
           dot_ball_percentage: 44.0,
           extras_per_over: 0.52,
+          best_economy_innings: {
+            value: 6.0,
+            overs_bowled: 4.0,
+            runs_conceded: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 47,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -4643,6 +7941,8 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       season_2: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 7,
           innings_batted: 7,
@@ -4666,6 +7966,24 @@ export const stats = {
           boundary_percentage: 59.7,
           dot_ball_percentage: 20.59,
           balls_per_boundary: 4.25,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 7,
@@ -4686,6 +8004,26 @@ export const stats = {
           wickets_in_do: 7,
           dot_ball_percentage: 44.17,
           extras_per_over: 0.35,
+          best_economy_innings: {
+            value: 2.67,
+            overs_bowled: 3.0,
+            runs_conceded: 8,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 9.0,
+            wickets_taken: 2,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 34,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -4698,6 +8036,7 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       overall: {
+        played_for_teams: ["SoBo SuperSonics"],
         batting: {
           matches_played: 14,
           innings_batted: 14,
@@ -4723,6 +8062,24 @@ export const stats = {
           boundary_percentage: 71.11,
           dot_ball_percentage: 27.27,
           balls_per_boundary: 3.47,
+          highest_strike_rate_innings: {
+            value: 236.36,
+            balls_faced: 11,
+            runs_scored: 26,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 14,
@@ -4743,6 +8100,26 @@ export const stats = {
           wickets_in_do: 10,
           dot_ball_percentage: 44.07,
           extras_per_over: 0.44,
+          best_economy_innings: {
+            value: 2.67,
+            overs_bowled: 3.0,
+            runs_conceded: 8,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 47,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -4760,6 +8137,8 @@ export const stats = {
     name_full: "Gaurav Jathar",
     seasons: {
       season_1: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 6,
           innings_batted: 6,
@@ -4782,6 +8161,24 @@ export const stats = {
           boundary_percentage: 55.0,
           dot_ball_percentage: 16.28,
           balls_per_boundary: 4.78,
+          highest_strike_rate_innings: {
+            value: 200.0,
+            balls_faced: 11,
+            runs_scored: 22,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -4802,6 +8199,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -4814,6 +8231,8 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       season_2: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 6,
           innings_batted: 6,
@@ -4837,6 +8256,24 @@ export const stats = {
           boundary_percentage: 29.27,
           dot_ball_percentage: 34.21,
           balls_per_boundary: 12.67,
+          highest_strike_rate_innings: {
+            value: 142.11,
+            balls_faced: 19,
+            runs_scored: 27,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -4857,6 +8294,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 27.78,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 3.0,
+            overs_bowled: 2.0,
+            runs_conceded: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 2,
+            balls_bowled: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -4869,6 +8326,7 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       overall: {
+        played_for_teams: ["ARCS Andheri", "SoBo SuperSonics"],
         batting: {
           matches_played: 12,
           innings_batted: 12,
@@ -4892,6 +8350,24 @@ export const stats = {
           boundary_percentage: 46.28,
           dot_ball_percentage: 24.69,
           balls_per_boundary: 6.75,
+          highest_strike_rate_innings: {
+            value: 200.0,
+            balls_faced: 11,
+            runs_scored: 22,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -4912,6 +8388,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 27.78,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 3.0,
+            overs_bowled: 2.0,
+            runs_conceded: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 2,
+            balls_bowled: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 6,
@@ -4929,6 +8425,8 @@ export const stats = {
     name_full: "Harmeet Singh",
     seasons: {
       season_1: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -4951,6 +8449,24 @@ export const stats = {
           boundary_percentage: 40.0,
           dot_ball_percentage: 56.25,
           balls_per_boundary: 16.0,
+          highest_strike_rate_innings: {
+            value: 66.67,
+            balls_faced: 15,
+            runs_scored: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -4971,6 +8487,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 30.3,
           extras_per_over: 0.18,
+          best_economy_innings: {
+            value: 5.5,
+            overs_bowled: 4.0,
+            runs_conceded: 22,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 41,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 8,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -4983,6 +8519,8 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       season_2: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -5003,6 +8541,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -5023,6 +8579,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -5035,6 +8611,7 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       overall: {
+        played_for_teams: ["SoBo SuperSonics"],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -5057,6 +8634,24 @@ export const stats = {
           boundary_percentage: 40.0,
           dot_ball_percentage: 56.25,
           balls_per_boundary: 16.0,
+          highest_strike_rate_innings: {
+            value: 66.67,
+            balls_faced: 15,
+            runs_scored: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -5077,6 +8672,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 30.3,
           extras_per_over: 0.18,
+          best_economy_innings: {
+            value: 5.5,
+            overs_bowled: 4.0,
+            runs_conceded: 22,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 41,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 8,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -5094,6 +8709,8 @@ export const stats = {
     name_full: "Dhrumil Matkar",
     seasons: {
       season_1: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -5116,6 +8733,24 @@ export const stats = {
           boundary_percentage: 51.16,
           dot_ball_percentage: 32.26,
           balls_per_boundary: 7.75,
+          highest_strike_rate_innings: {
+            value: 147.06,
+            balls_faced: 17,
+            runs_scored: 25,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 7,
@@ -5136,6 +8771,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 41.73,
           extras_per_over: 0.09,
+          best_economy_innings: {
+            value: 5.0,
+            overs_bowled: 4.0,
+            runs_conceded: 20,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 31,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -5148,6 +8803,8 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       season_2: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -5170,6 +8827,24 @@ export const stats = {
           boundary_percentage: 50.0,
           dot_ball_percentage: 30.0,
           balls_per_boundary: 7.5,
+          highest_strike_rate_innings: {
+            value: 69.23,
+            balls_faced: 13,
+            runs_scored: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 7,
@@ -5190,6 +8865,26 @@ export const stats = {
           wickets_in_do: 7,
           dot_ball_percentage: 40.12,
           extras_per_over: 0.19,
+          best_economy_innings: {
+            value: 5.0,
+            overs_bowled: 3.0,
+            runs_conceded: 15,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 4.8,
+            wickets_taken: 5,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 32,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -5202,6 +8897,7 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       overall: {
+        played_for_teams: ["SoBo SuperSonics"],
         batting: {
           matches_played: 10,
           innings_batted: 10,
@@ -5224,6 +8920,24 @@ export const stats = {
           boundary_percentage: 50.63,
           dot_ball_percentage: 31.15,
           balls_per_boundary: 7.62,
+          highest_strike_rate_innings: {
+            value: 147.06,
+            balls_faced: 17,
+            runs_scored: 25,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 14,
@@ -5244,6 +8958,26 @@ export const stats = {
           wickets_in_do: 9,
           dot_ball_percentage: 40.83,
           extras_per_over: 0.15,
+          best_economy_innings: {
+            value: 5.0,
+            overs_bowled: 4.0,
+            runs_conceded: 20,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 4.8,
+            wickets_taken: 5,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 32,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 5,
@@ -5261,6 +8995,8 @@ export const stats = {
     name_full: "Ankur Singh",
     seasons: {
       season_1: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -5283,6 +9019,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 25.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -5303,6 +9057,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 32.63,
           extras_per_over: 0.32,
+          best_economy_innings: {
+            value: 6.0,
+            overs_bowled: 4.0,
+            runs_conceded: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 1,
+            balls_bowled: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 41,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -5315,6 +9089,8 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       season_2: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -5335,6 +9111,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -5355,6 +9149,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.2,
+          best_economy_innings: {
+            value: 5.25,
+            overs_bowled: 4.0,
+            runs_conceded: 21,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 42,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -5367,6 +9181,7 @@ export const stats = {
         total_matches_in_squad: 4,
       },
       overall: {
+        played_for_teams: ["ARCS Andheri", "SoBo SuperSonics"],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -5389,6 +9204,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 20.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 9,
@@ -5409,6 +9242,26 @@ export const stats = {
           wickets_in_do: 3,
           dot_ball_percentage: 32.97,
           extras_per_over: 0.26,
+          best_economy_innings: {
+            value: 5.25,
+            overs_bowled: 4.0,
+            runs_conceded: 21,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 1,
+            balls_bowled: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 42,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -5426,6 +9279,8 @@ export const stats = {
     name_full: "Badre Alam",
     seasons: {
       season_1: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -5446,6 +9301,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 7,
@@ -5466,6 +9339,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 46.67,
           extras_per_over: 0.36,
+          best_economy_innings: {
+            value: 4.5,
+            overs_bowled: 2.0,
+            runs_conceded: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 4.8,
+            wickets_taken: 5,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 42,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -5478,6 +9371,8 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       season_2: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -5500,6 +9395,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 100.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -5520,6 +9433,26 @@ export const stats = {
           wickets_in_do: 3,
           dot_ball_percentage: 36.56,
           extras_per_over: 0.71,
+          best_economy_innings: {
+            value: 5.33,
+            overs_bowled: 1.3,
+            runs_conceded: 8,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 9.0,
+            wickets_taken: 1,
+            balls_bowled: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 42,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -5532,6 +9465,7 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       overall: {
+        played_for_teams: ["SoBo SuperSonics"],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -5554,6 +9488,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 100.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 13,
@@ -5574,6 +9526,26 @@ export const stats = {
           wickets_in_do: 4,
           dot_ball_percentage: 42.8,
           extras_per_over: 0.49,
+          best_economy_innings: {
+            value: 4.5,
+            overs_bowled: 2.0,
+            runs_conceded: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 4.8,
+            wickets_taken: 5,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 42,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -5591,6 +9563,8 @@ export const stats = {
     name_full: "Shikhar Thakur",
     seasons: {
       season_1: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -5614,6 +9588,24 @@ export const stats = {
           boundary_percentage: 79.41,
           dot_ball_percentage: 53.45,
           balls_per_boundary: 4.46,
+          highest_strike_rate_innings: {
+            value: 151.85,
+            balls_faced: 27,
+            runs_scored: 41,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -5634,6 +9626,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -5646,6 +9658,8 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       season_2: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -5669,6 +9683,24 @@ export const stats = {
           boundary_percentage: 40.0,
           dot_ball_percentage: 53.33,
           balls_per_boundary: 15.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -5689,6 +9721,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -5701,6 +9753,7 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       overall: {
+        played_for_teams: ["Triumph Knights Mumbai North East"],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -5725,6 +9778,24 @@ export const stats = {
           boundary_percentage: 74.36,
           dot_ball_percentage: 53.42,
           balls_per_boundary: 5.21,
+          highest_strike_rate_innings: {
+            value: 151.85,
+            balls_faced: 27,
+            runs_scored: 41,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -5745,6 +9816,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -5762,6 +9853,8 @@ export const stats = {
     name_full: "Vaibhav Singh",
     seasons: {
       season_1: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -5782,6 +9875,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -5802,6 +9913,26 @@ export const stats = {
           wickets_in_do: 3,
           dot_ball_percentage: 41.67,
           extras_per_over: 0.36,
+          best_economy_innings: {
+            value: 5.25,
+            overs_bowled: 4.0,
+            runs_conceded: 21,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 38,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -5814,6 +9945,8 @@ export const stats = {
         total_matches_in_squad: 4,
       },
       season_2: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -5834,6 +9967,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -5854,6 +10005,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 20.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 12.8,
+            overs_bowled: 2.3,
+            runs_conceded: 32,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 15.0,
+            wickets_taken: 1,
+            balls_bowled: 15,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 32,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -5866,6 +10037,7 @@ export const stats = {
         total_matches_in_squad: 1,
       },
       overall: {
+        played_for_teams: ["Triumph Knights Mumbai North East"],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -5886,6 +10058,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -5906,6 +10096,26 @@ export const stats = {
           wickets_in_do: 4,
           dot_ball_percentage: 38.38,
           extras_per_over: 0.3,
+          best_economy_innings: {
+            value: 5.25,
+            overs_bowled: 4.0,
+            runs_conceded: 21,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 38,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -5923,6 +10133,8 @@ export const stats = {
     name_full: "Prashant Naik",
     seasons: {
       season_1: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 6,
           innings_batted: 6,
@@ -5946,6 +10158,24 @@ export const stats = {
           boundary_percentage: 56.82,
           dot_ball_percentage: 36.23,
           balls_per_boundary: 5.75,
+          highest_strike_rate_innings: {
+            value: 214.29,
+            balls_faced: 14,
+            runs_scored: 30,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -5966,6 +10196,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -5978,6 +10228,8 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       season_2: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -5998,6 +10250,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -6018,6 +10288,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -6030,6 +10320,7 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       overall: {
+        played_for_teams: ["SoBo SuperSonics"],
         batting: {
           matches_played: 6,
           innings_batted: 6,
@@ -6053,6 +10344,24 @@ export const stats = {
           boundary_percentage: 56.82,
           dot_ball_percentage: 36.23,
           balls_per_boundary: 5.75,
+          highest_strike_rate_innings: {
+            value: 214.29,
+            balls_faced: 14,
+            runs_scored: 30,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -6073,6 +10382,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -6090,6 +10419,8 @@ export const stats = {
     name_full: "Chinmay Sutar",
     seasons: {
       season_1: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -6113,6 +10444,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 62.5,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -6133,6 +10482,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -6145,6 +10514,8 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       season_2: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -6165,6 +10536,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -6185,6 +10574,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -6197,6 +10606,7 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       overall: {
+        played_for_teams: ["ARCS Andheri"],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -6220,6 +10630,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 62.5,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -6240,6 +10668,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -6257,6 +10705,8 @@ export const stats = {
     name_full: "Shahid Shaikh",
     seasons: {
       season_1: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -6279,6 +10729,24 @@ export const stats = {
           boundary_percentage: 52.63,
           dot_ball_percentage: 35.71,
           balls_per_boundary: 7.0,
+          highest_strike_rate_innings: {
+            value: 135.71,
+            balls_faced: 14,
+            runs_scored: 19,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -6299,6 +10767,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -6311,6 +10799,8 @@ export const stats = {
         total_matches_in_squad: 1,
       },
       season_2: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -6331,6 +10821,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -6351,6 +10859,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -6363,6 +10891,7 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       overall: {
+        played_for_teams: ["Triumph Knights Mumbai North East"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -6385,6 +10914,24 @@ export const stats = {
           boundary_percentage: 52.63,
           dot_ball_percentage: 35.71,
           balls_per_boundary: 7.0,
+          highest_strike_rate_innings: {
+            value: 135.71,
+            balls_faced: 14,
+            runs_scored: 19,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -6405,6 +10952,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -6422,6 +10989,8 @@ export const stats = {
     name_full: "Hersh Tank",
     seasons: {
       season_1: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -6446,6 +11015,24 @@ export const stats = {
           boundary_percentage: 57.14,
           dot_ball_percentage: 50.0,
           balls_per_boundary: 6.25,
+          highest_strike_rate_innings: {
+            value: 136.0,
+            balls_faced: 25,
+            runs_scored: 34,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -6466,6 +11053,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -6478,6 +11085,8 @@ export const stats = {
         total_matches_in_squad: 4,
       },
       season_2: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 7,
           innings_batted: 7,
@@ -6502,6 +11111,25 @@ export const stats = {
           boundary_percentage: 62.83,
           dot_ball_percentage: 30.41,
           balls_per_boundary: 4.77,
+          highest_strike_rate_innings: {
+            value: 200.0,
+            balls_faced: 10,
+            runs_scored: 20,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 51,
+            runs: 93,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -6522,6 +11150,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -6534,6 +11182,7 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       overall: {
+        played_for_teams: ["North Mumbai Panthers", "SoBo SuperSonics"],
         batting: {
           matches_played: 11,
           innings_batted: 11,
@@ -6558,6 +11207,25 @@ export const stats = {
           boundary_percentage: 61.7,
           dot_ball_percentage: 35.35,
           balls_per_boundary: 5.08,
+          highest_strike_rate_innings: {
+            value: 200.0,
+            balls_faced: 10,
+            runs_scored: 20,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 51,
+            match_id: "UNKNOWN_MATCH",
+            runs: 93,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -6578,6 +11246,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 6,
@@ -6595,6 +11283,8 @@ export const stats = {
     name_full: "Salman Ahmed",
     seasons: {
       season_1: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -6617,6 +11307,25 @@ export const stats = {
           boundary_percentage: 69.33,
           dot_ball_percentage: 50.0,
           balls_per_boundary: 5.82,
+          highest_strike_rate_innings: {
+            value: 142.31,
+            balls_faced: 52,
+            runs_scored: 74,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 4,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 52,
+            runs: 74,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -6637,6 +11346,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 11.0,
+            overs_bowled: 1.0,
+            runs_conceded: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -6649,6 +11378,8 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       season_2: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -6669,6 +11400,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -6689,6 +11438,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -6701,6 +11470,7 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       overall: {
+        played_for_teams: ["North Mumbai Panthers"],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -6723,6 +11493,25 @@ export const stats = {
           boundary_percentage: 69.33,
           dot_ball_percentage: 50.0,
           balls_per_boundary: 5.82,
+          highest_strike_rate_innings: {
+            value: 142.31,
+            balls_faced: 52,
+            runs_scored: 74,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 4,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 52,
+            match_id: "UNKNOWN_MATCH",
+            runs: 74,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -6743,6 +11532,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 11.0,
+            overs_bowled: 1.0,
+            runs_conceded: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -6760,6 +11569,8 @@ export const stats = {
     name_full: "Sumeet Dhekale",
     seasons: {
       season_1: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -6782,6 +11593,24 @@ export const stats = {
           boundary_percentage: 55.17,
           dot_ball_percentage: 38.46,
           balls_per_boundary: 8.67,
+          highest_strike_rate_innings: {
+            value: 126.32,
+            balls_faced: 19,
+            runs_scored: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -6802,6 +11631,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -6814,6 +11663,8 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       season_2: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -6836,6 +11687,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 80.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -6856,6 +11725,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -6868,6 +11757,7 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       overall: {
+        played_for_teams: ["North Mumbai Panthers"],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -6890,6 +11780,24 @@ export const stats = {
           boundary_percentage: 51.61,
           dot_ball_percentage: 50.0,
           balls_per_boundary: 12.0,
+          highest_strike_rate_innings: {
+            value: 126.32,
+            balls_faced: 19,
+            runs_scored: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -6910,6 +11818,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -6927,6 +11855,8 @@ export const stats = {
     name_full: "Yashasvi Jaiswal",
     seasons: {
       season_1: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -6950,6 +11880,25 @@ export const stats = {
           boundary_percentage: 51.8,
           dot_ball_percentage: 30.3,
           balls_per_boundary: 6.19,
+          highest_strike_rate_innings: {
+            value: 160.87,
+            balls_faced: 23,
+            runs_scored: 37,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 43,
+            runs: 69,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -6970,6 +11919,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 34.62,
           extras_per_over: 0.69,
+          best_economy_innings: {
+            value: 5.75,
+            overs_bowled: 4.0,
+            runs_conceded: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 30,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -6982,6 +11951,8 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       season_2: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -7002,6 +11973,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -7022,6 +12011,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -7034,6 +12043,7 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       overall: {
+        played_for_teams: ["North Mumbai Panthers"],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -7057,6 +12067,25 @@ export const stats = {
           boundary_percentage: 51.8,
           dot_ball_percentage: 30.3,
           balls_per_boundary: 6.19,
+          highest_strike_rate_innings: {
+            value: 160.87,
+            balls_faced: 23,
+            runs_scored: 37,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 43,
+            match_id: "UNKNOWN_MATCH",
+            runs: 69,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -7077,6 +12106,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 34.62,
           extras_per_over: 0.69,
+          best_economy_innings: {
+            value: 5.75,
+            overs_bowled: 4.0,
+            runs_conceded: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 30,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -7094,6 +12143,8 @@ export const stats = {
     name_full: "Yogesh Takawale",
     seasons: {
       season_1: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -7119,6 +12170,24 @@ export const stats = {
           boundary_percentage: 45.33,
           dot_ball_percentage: 48.78,
           balls_per_boundary: 10.25,
+          highest_strike_rate_innings: {
+            value: 133.33,
+            balls_faced: 12,
+            runs_scored: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -7139,6 +12208,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -7151,6 +12240,8 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       season_2: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 6,
           innings_batted: 6,
@@ -7175,6 +12266,24 @@ export const stats = {
           boundary_percentage: 41.07,
           dot_ball_percentage: 35.0,
           balls_per_boundary: 11.11,
+          highest_strike_rate_innings: {
+            value: 160.0,
+            balls_faced: 20,
+            runs_scored: 32,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -7195,6 +12304,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 5,
@@ -7207,6 +12336,7 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       overall: {
+        played_for_teams: ["North Mumbai Panthers", "SoBo SuperSonics"],
         batting: {
           matches_played: 10,
           innings_batted: 10,
@@ -7232,6 +12362,24 @@ export const stats = {
           boundary_percentage: 42.78,
           dot_ball_percentage: 41.21,
           balls_per_boundary: 10.71,
+          highest_strike_rate_innings: {
+            value: 160.0,
+            balls_faced: 20,
+            runs_scored: 32,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -7252,6 +12400,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 6,
@@ -7269,6 +12437,8 @@ export const stats = {
     name_full: "Sairaj Patil",
     seasons: {
       season_1: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -7292,6 +12462,25 @@ export const stats = {
           boundary_percentage: 72.73,
           dot_ball_percentage: 41.1,
           balls_per_boundary: 4.29,
+          highest_strike_rate_innings: {
+            value: 207.69,
+            balls_faced: 26,
+            runs_scored: 54,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 26,
+            runs: 54,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -7312,6 +12501,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.33,
+          best_economy_innings: {
+            value: 11.5,
+            overs_bowled: 2.0,
+            runs_conceded: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -7324,6 +12533,8 @@ export const stats = {
         total_matches_in_squad: 4,
       },
       season_2: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 7,
           innings_batted: 7,
@@ -7347,6 +12558,25 @@ export const stats = {
           boundary_percentage: 64.47,
           dot_ball_percentage: 34.95,
           balls_per_boundary: 5.42,
+          highest_strike_rate_innings: {
+            value: 255.56,
+            balls_faced: 18,
+            runs_scored: 46,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 4,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 39,
+            runs: 59,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -7367,6 +12597,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 19.57,
           extras_per_over: 0.65,
+          best_economy_innings: {
+            value: 7.0,
+            overs_bowled: 3.0,
+            runs_conceded: 21,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 25,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -7379,6 +12629,7 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       overall: {
+        played_for_teams: ["North Mumbai Panthers"],
         batting: {
           matches_played: 11,
           innings_batted: 11,
@@ -7403,6 +12654,25 @@ export const stats = {
           boundary_percentage: 68.13,
           dot_ball_percentage: 37.5,
           balls_per_boundary: 4.89,
+          highest_strike_rate_innings: {
+            value: 255.56,
+            balls_faced: 18,
+            runs_scored: 46,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 26,
+            match_id: "UNKNOWN_MATCH",
+            runs: 54,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -7423,6 +12693,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 23.44,
           extras_per_over: 0.56,
+          best_economy_innings: {
+            value: 7.0,
+            overs_bowled: 3.0,
+            runs_conceded: 21,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 25,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -7440,6 +12730,8 @@ export const stats = {
     name_full: "Yogesh Pawar",
     seasons: {
       season_1: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -7462,6 +12754,24 @@ export const stats = {
           boundary_percentage: 61.54,
           dot_ball_percentage: 53.85,
           balls_per_boundary: 8.67,
+          highest_strike_rate_innings: {
+            value: 81.82,
+            balls_faced: 11,
+            runs_scored: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -7482,6 +12792,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -7494,6 +12824,8 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       season_2: {
+        team_name: "Aakash Tigers MWS",
+        played_for_teams: [],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -7517,6 +12849,24 @@ export const stats = {
           boundary_percentage: 48.0,
           dot_ball_percentage: 33.33,
           balls_per_boundary: 9.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -7537,6 +12887,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -7549,6 +12919,7 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       overall: {
+        played_for_teams: ["Aakash Tigers MWS", "North Mumbai Panthers"],
         batting: {
           matches_played: 8,
           innings_batted: 8,
@@ -7572,6 +12943,24 @@ export const stats = {
           boundary_percentage: 54.9,
           dot_ball_percentage: 45.45,
           balls_per_boundary: 8.8,
+          highest_strike_rate_innings: {
+            value: 81.82,
+            balls_faced: 11,
+            runs_scored: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -7592,6 +12981,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -7609,6 +13018,8 @@ export const stats = {
     name_full: "Rakesh Prabhu",
     seasons: {
       season_1: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -7632,6 +13043,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 31.25,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -7652,6 +13081,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 41.76,
           extras_per_over: 0.53,
+          best_economy_innings: {
+            value: 4.75,
+            overs_bowled: 4.0,
+            runs_conceded: 19,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 62,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 15,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -7664,6 +13113,8 @@ export const stats = {
         total_matches_in_squad: 4,
       },
       season_2: {
+        team_name: "Eagle Thane Strikers",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -7686,6 +13137,25 @@ export const stats = {
           boundary_percentage: 79.52,
           dot_ball_percentage: 21.21,
           balls_per_boundary: 2.75,
+          highest_strike_rate_innings: {
+            value: 304.76,
+            balls_faced: 21,
+            runs_scored: 64,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 8,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 21,
+            runs: 64,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -7706,6 +13176,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 16.67,
           extras_per_over: 0.25,
+          best_economy_innings: {
+            value: 6.5,
+            overs_bowled: 2.0,
+            runs_conceded: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -7718,6 +13208,7 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       overall: {
+        played_for_teams: ["Eagle Thane Strikers", "North Mumbai Panthers"],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -7741,6 +13232,25 @@ export const stats = {
           boundary_percentage: 69.47,
           dot_ball_percentage: 24.49,
           balls_per_boundary: 4.08,
+          highest_strike_rate_innings: {
+            value: 304.76,
+            balls_faced: 21,
+            runs_scored: 64,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 8,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 21,
+            match_id: "UNKNOWN_MATCH",
+            runs: 64,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -7761,6 +13271,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 36.52,
           extras_per_over: 0.47,
+          best_economy_innings: {
+            value: 4.75,
+            overs_bowled: 4.0,
+            runs_conceded: 19,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 62,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 15,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -7778,6 +13308,8 @@ export const stats = {
     name_full: "Saeed Shaikh",
     seasons: {
       season_1: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -7800,6 +13332,24 @@ export const stats = {
           boundary_percentage: 40.0,
           dot_ball_percentage: 33.33,
           balls_per_boundary: 10.5,
+          highest_strike_rate_innings: {
+            value: 127.27,
+            balls_faced: 22,
+            runs_scored: 28,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -7820,6 +13370,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 45.83,
           extras_per_over: 0.25,
+          best_economy_innings: {
+            value: 4.5,
+            overs_bowled: 4.0,
+            runs_conceded: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 4,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 37,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -7832,6 +13402,8 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       season_2: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -7852,6 +13424,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -7872,6 +13462,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -7884,6 +13494,7 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       overall: {
+        played_for_teams: ["North Mumbai Panthers"],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -7906,6 +13517,24 @@ export const stats = {
           boundary_percentage: 40.0,
           dot_ball_percentage: 33.33,
           balls_per_boundary: 10.5,
+          highest_strike_rate_innings: {
+            value: 127.27,
+            balls_faced: 22,
+            runs_scored: 28,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -7926,6 +13555,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 45.83,
           extras_per_over: 0.25,
+          best_economy_innings: {
+            value: 4.5,
+            overs_bowled: 4.0,
+            runs_conceded: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 4,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 37,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -7943,6 +13592,8 @@ export const stats = {
     name_full: "Vijay Gohil",
     seasons: {
       season_1: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -7965,6 +13616,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 50.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -7985,6 +13654,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 25.0,
           extras_per_over: 0.17,
+          best_economy_innings: {
+            value: 5.67,
+            overs_bowled: 3.0,
+            runs_conceded: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 24.0,
+            wickets_taken: 1,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 34,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 7,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -7997,6 +13686,8 @@ export const stats = {
         total_matches_in_squad: 4,
       },
       season_2: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -8019,6 +13710,24 @@ export const stats = {
           boundary_percentage: 44.44,
           dot_ball_percentage: 33.33,
           balls_per_boundary: 9.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -8039,6 +13748,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 42.16,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 2.75,
+            overs_bowled: 4.0,
+            runs_conceded: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 29,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -8051,6 +13780,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["North Mumbai Panthers", "Shivaji Park Lions"],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -8073,6 +13803,24 @@ export const stats = {
           boundary_percentage: 36.36,
           dot_ball_percentage: 38.46,
           balls_per_boundary: 13.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 9,
@@ -8093,6 +13841,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 35.06,
           extras_per_over: 0.07,
+          best_economy_innings: {
+            value: 2.75,
+            overs_bowled: 4.0,
+            runs_conceded: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 34,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -8110,6 +13878,8 @@ export const stats = {
     name_full: "Shivam Malhotra",
     seasons: {
       season_1: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -8132,6 +13902,24 @@ export const stats = {
           boundary_percentage: 75.0,
           dot_ball_percentage: 33.33,
           balls_per_boundary: 3.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -8152,6 +13940,26 @@ export const stats = {
           wickets_in_do: 5,
           dot_ball_percentage: 43.81,
           extras_per_over: 0.11,
+          best_economy_innings: {
+            value: 3.5,
+            overs_bowled: 4.0,
+            runs_conceded: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 46,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -8164,6 +13972,8 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       season_2: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -8184,6 +13994,24 @@ export const stats = {
           boundary_percentage: 85.71,
           dot_ball_percentage: 33.33,
           balls_per_boundary: 3.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -8204,6 +14032,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 28.79,
           extras_per_over: 0.09,
+          best_economy_innings: {
+            value: 6.0,
+            overs_bowled: 2.0,
+            runs_conceded: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 24.0,
+            wickets_taken: 1,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 38,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 8,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -8216,6 +14064,7 @@ export const stats = {
         total_matches_in_squad: 4,
       },
       overall: {
+        played_for_teams: ["North Mumbai Panthers", "Shivaji Park Lions"],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -8238,6 +14087,24 @@ export const stats = {
           boundary_percentage: 80.0,
           dot_ball_percentage: 33.33,
           balls_per_boundary: 3.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 9,
@@ -8258,6 +14125,26 @@ export const stats = {
           wickets_in_do: 5,
           dot_ball_percentage: 38.01,
           extras_per_over: 0.11,
+          best_economy_innings: {
+            value: 3.5,
+            overs_bowled: 4.0,
+            runs_conceded: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 46,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -8275,6 +14162,8 @@ export const stats = {
     name_full: "Bravish Shetty",
     seasons: {
       season_1: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 8,
           innings_batted: 8,
@@ -8297,6 +14186,25 @@ export const stats = {
           boundary_percentage: 63.98,
           dot_ball_percentage: 29.95,
           balls_per_boundary: 4.93,
+          highest_strike_rate_innings: {
+            value: 200.0,
+            balls_faced: 17,
+            runs_scored: 34,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 4,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 30,
+            runs: 57,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -8317,6 +14225,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -8329,6 +14257,8 @@ export const stats = {
         total_matches_in_squad: 8,
       },
       season_2: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -8349,6 +14279,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -8369,6 +14317,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -8381,6 +14349,7 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       overall: {
+        played_for_teams: ["Shivaji Park Lions"],
         batting: {
           matches_played: 8,
           innings_batted: 8,
@@ -8403,6 +14372,25 @@ export const stats = {
           boundary_percentage: 63.98,
           dot_ball_percentage: 29.95,
           balls_per_boundary: 4.93,
+          highest_strike_rate_innings: {
+            value: 200.0,
+            balls_faced: 17,
+            runs_scored: 34,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 4,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 30,
+            match_id: "UNKNOWN_MATCH",
+            runs: 57,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -8423,6 +14411,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -8440,6 +14448,8 @@ export const stats = {
     name_full: "Sufiyan Shaikh",
     seasons: {
       season_1: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -8462,6 +14472,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 66.67,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -8482,6 +14510,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -8494,6 +14542,8 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       season_2: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 6,
           innings_batted: 6,
@@ -8518,6 +14568,24 @@ export const stats = {
           boundary_percentage: 55.42,
           dot_ball_percentage: 46.67,
           balls_per_boundary: 7.5,
+          highest_strike_rate_innings: {
+            value: 156.25,
+            balls_faced: 16,
+            runs_scored: 25,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -8538,6 +14606,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -8550,6 +14638,7 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       overall: {
+        played_for_teams: ["ARCS Andheri", "Shivaji Park Lions"],
         batting: {
           matches_played: 8,
           innings_batted: 8,
@@ -8574,6 +14663,24 @@ export const stats = {
           boundary_percentage: 54.12,
           dot_ball_percentage: 48.15,
           balls_per_boundary: 8.1,
+          highest_strike_rate_innings: {
+            value: 156.25,
+            balls_faced: 16,
+            runs_scored: 25,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -8594,6 +14701,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 6,
@@ -8611,6 +14738,8 @@ export const stats = {
     name_full: "Hardik Tamore",
     seasons: {
       season_1: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 8,
           innings_batted: 8,
@@ -8634,6 +14763,24 @@ export const stats = {
           boundary_percentage: 58.97,
           dot_ball_percentage: 42.54,
           balls_per_boundary: 7.05,
+          highest_strike_rate_innings: {
+            value: 177.78,
+            balls_faced: 18,
+            runs_scored: 32,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -8654,6 +14801,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 5,
@@ -8666,6 +14833,8 @@ export const stats = {
         total_matches_in_squad: 8,
       },
       season_2: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -8688,6 +14857,24 @@ export const stats = {
           boundary_percentage: 28.95,
           dot_ball_percentage: 34.18,
           balls_per_boundary: 19.75,
+          highest_strike_rate_innings: {
+            value: 137.93,
+            balls_faced: 29,
+            runs_scored: 40,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -8708,6 +14895,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -8720,6 +14927,7 @@ export const stats = {
         total_matches_in_squad: 4,
       },
       overall: {
+        played_for_teams: ["Shivaji Park Lions"],
         batting: {
           matches_played: 12,
           innings_batted: 12,
@@ -8743,6 +14951,24 @@ export const stats = {
           boundary_percentage: 49.14,
           dot_ball_percentage: 39.44,
           balls_per_boundary: 9.26,
+          highest_strike_rate_innings: {
+            value: 177.78,
+            balls_faced: 18,
+            runs_scored: 32,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -8763,6 +14989,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 5,
@@ -8780,6 +15026,8 @@ export const stats = {
     name_full: "Siddharth Akre",
     seasons: {
       season_1: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -8804,6 +15052,24 @@ export const stats = {
           boundary_percentage: 63.01,
           dot_ball_percentage: 46.67,
           balls_per_boundary: 5.45,
+          highest_strike_rate_innings: {
+            value: 121.88,
+            balls_faced: 32,
+            runs_scored: 39,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -8824,6 +15090,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -8836,6 +15122,8 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       season_2: {
+        team_name: "Aakash Tigers MWS",
+        played_for_teams: [],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -8859,6 +15147,24 @@ export const stats = {
           boundary_percentage: 36.36,
           dot_ball_percentage: 41.3,
           balls_per_boundary: 15.33,
+          highest_strike_rate_innings: {
+            value: 115.38,
+            balls_faced: 13,
+            runs_scored: 15,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -8879,6 +15185,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -8891,6 +15217,7 @@ export const stats = {
         total_matches_in_squad: 4,
       },
       overall: {
+        played_for_teams: ["Aakash Tigers MWS", "Shivaji Park Lions"],
         batting: {
           matches_played: 9,
           innings_batted: 9,
@@ -8916,6 +15243,24 @@ export const stats = {
           boundary_percentage: 52.99,
           dot_ball_percentage: 44.34,
           balls_per_boundary: 7.57,
+          highest_strike_rate_innings: {
+            value: 121.88,
+            balls_faced: 32,
+            runs_scored: 39,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -8936,6 +15281,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 5,
@@ -8953,6 +15318,8 @@ export const stats = {
     name_full: "Shivam Dubey",
     seasons: {
       season_1: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 8,
           innings_batted: 8,
@@ -8975,6 +15342,25 @@ export const stats = {
           boundary_percentage: 61.97,
           dot_ball_percentage: 22.69,
           balls_per_boundary: 4.76,
+          highest_strike_rate_innings: {
+            value: 275.0,
+            balls_faced: 12,
+            runs_scored: 33,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 23,
+            runs: 54,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 8,
@@ -8995,6 +15381,26 @@ export const stats = {
           wickets_in_do: 6,
           dot_ball_percentage: 23.12,
           extras_per_over: 0.19,
+          best_economy_innings: {
+            value: 6.0,
+            overs_bowled: 4.0,
+            runs_conceded: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 4.8,
+            wickets_taken: 5,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 43,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -9007,6 +15413,8 @@ export const stats = {
         total_matches_in_squad: 8,
       },
       season_2: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -9030,6 +15438,25 @@ export const stats = {
           boundary_percentage: 63.92,
           dot_ball_percentage: 33.9,
           balls_per_boundary: 4.92,
+          highest_strike_rate_innings: {
+            value: 189.13,
+            balls_faced: 46,
+            runs_scored: 87,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 7,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 46,
+            runs: 87,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -9050,6 +15477,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 36.17,
           extras_per_over: 0.26,
+          best_economy_innings: {
+            value: 9.0,
+            overs_bowled: 3.0,
+            runs_conceded: 27,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 9.0,
+            wickets_taken: 2,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 41,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -9062,6 +15509,7 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       overall: {
+        played_for_teams: ["Shivaji Park Lions"],
         batting: {
           matches_played: 11,
           innings_batted: 11,
@@ -9085,6 +15533,25 @@ export const stats = {
           boundary_percentage: 62.58,
           dot_ball_percentage: 26.4,
           balls_per_boundary: 4.81,
+          highest_strike_rate_innings: {
+            value: 275.0,
+            balls_faced: 12,
+            runs_scored: 33,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 7,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 23,
+            match_id: "UNKNOWN_MATCH",
+            runs: 54,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 11,
@@ -9105,6 +15572,26 @@ export const stats = {
           wickets_in_do: 8,
           dot_ball_percentage: 26.09,
           extras_per_over: 0.2,
+          best_economy_innings: {
+            value: 6.0,
+            overs_bowled: 4.0,
+            runs_conceded: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 4.8,
+            wickets_taken: 5,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 43,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -9122,6 +15609,8 @@ export const stats = {
     name_full: "Swapnil Salvi",
     seasons: {
       season_1: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -9145,6 +15634,24 @@ export const stats = {
           boundary_percentage: 52.0,
           dot_ball_percentage: 52.94,
           balls_per_boundary: 10.2,
+          highest_strike_rate_innings: {
+            value: 130.77,
+            balls_faced: 26,
+            runs_scored: 34,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -9165,6 +15672,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -9177,6 +15704,8 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       season_2: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 6,
           innings_batted: 6,
@@ -9199,6 +15728,25 @@ export const stats = {
           boundary_percentage: 51.16,
           dot_ball_percentage: 32.35,
           balls_per_boundary: 7.85,
+          highest_strike_rate_innings: {
+            value: 190.0,
+            balls_faced: 10,
+            runs_scored: 19,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 38,
+            runs: 62,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -9219,6 +15767,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -9231,6 +15799,7 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       overall: {
+        played_for_teams: ["North Mumbai Panthers", "Shivaji Park Lions"],
         batting: {
           matches_played: 8,
           innings_batted: 8,
@@ -9254,6 +15823,25 @@ export const stats = {
           boundary_percentage: 51.4,
           dot_ball_percentage: 39.22,
           balls_per_boundary: 8.5,
+          highest_strike_rate_innings: {
+            value: 190.0,
+            balls_faced: 10,
+            runs_scored: 19,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 38,
+            match_id: "UNKNOWN_MATCH",
+            runs: 62,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -9274,6 +15862,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 5,
@@ -9291,6 +15899,8 @@ export const stats = {
     name_full: "Raunaq Sharma",
     seasons: {
       season_1: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -9315,6 +15925,24 @@ export const stats = {
           boundary_percentage: 55.17,
           dot_ball_percentage: 40.43,
           balls_per_boundary: 6.71,
+          highest_strike_rate_innings: {
+            value: 175.0,
+            balls_faced: 16,
+            runs_scored: 28,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 8,
@@ -9335,6 +15963,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 37.25,
           extras_per_over: 0.24,
+          best_economy_innings: {
+            value: 5.75,
+            overs_bowled: 4.0,
+            runs_conceded: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 6,
@@ -9347,6 +15995,8 @@ export const stats = {
         total_matches_in_squad: 8,
       },
       season_2: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -9371,6 +16021,25 @@ export const stats = {
           boundary_percentage: 61.95,
           dot_ball_percentage: 36.9,
           balls_per_boundary: 6.46,
+          highest_strike_rate_innings: {
+            value: 180.0,
+            balls_faced: 10,
+            runs_scored: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 4,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 30,
+            runs: 51,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -9391,6 +16060,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 27.78,
           extras_per_over: 0.08,
+          best_economy_innings: {
+            value: 5.25,
+            overs_bowled: 4.0,
+            runs_conceded: 21,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 24.0,
+            wickets_taken: 1,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 25,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -9403,6 +16092,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["Shivaji Park Lions"],
         batting: {
           matches_played: 10,
           innings_batted: 10,
@@ -9428,6 +16118,25 @@ export const stats = {
           boundary_percentage: 59.65,
           dot_ball_percentage: 38.17,
           balls_per_boundary: 6.55,
+          highest_strike_rate_innings: {
+            value: 180.0,
+            balls_faced: 10,
+            runs_scored: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 4,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 30,
+            match_id: "UNKNOWN_MATCH",
+            runs: 51,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 13,
@@ -9448,6 +16157,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.17,
+          best_economy_innings: {
+            value: 5.25,
+            overs_bowled: 4.0,
+            runs_conceded: 21,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 25,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 7,
@@ -9465,6 +16194,8 @@ export const stats = {
     name_full: "Sagar Trivedi",
     seasons: {
       season_1: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -9487,6 +16218,24 @@ export const stats = {
           boundary_percentage: 50.0,
           dot_ball_percentage: 37.5,
           balls_per_boundary: 8.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -9507,6 +16256,26 @@ export const stats = {
           wickets_in_do: 6,
           dot_ball_percentage: 42.7,
           extras_per_over: 0.13,
+          best_economy_innings: {
+            value: 6.5,
+            overs_bowled: 4.0,
+            runs_conceded: 26,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 37,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 15,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -9519,6 +16288,8 @@ export const stats = {
         total_matches_in_squad: 4,
       },
       season_2: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -9539,6 +16310,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -9559,6 +16348,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -9571,6 +16380,7 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       overall: {
+        played_for_teams: ["Shivaji Park Lions"],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -9593,6 +16403,24 @@ export const stats = {
           boundary_percentage: 50.0,
           dot_ball_percentage: 37.5,
           balls_per_boundary: 8.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -9613,6 +16441,26 @@ export const stats = {
           wickets_in_do: 6,
           dot_ball_percentage: 42.7,
           extras_per_over: 0.13,
+          best_economy_innings: {
+            value: 6.5,
+            overs_bowled: 4.0,
+            runs_conceded: 26,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 37,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 15,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -9630,6 +16478,8 @@ export const stats = {
     name_full: "Siddharth Raut",
     seasons: {
       season_1: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -9650,6 +16500,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 50.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 7,
@@ -9670,6 +16538,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 51.33,
           extras_per_over: 0.28,
+          best_economy_innings: {
+            value: 2.75,
+            overs_bowled: 4.0,
+            runs_conceded: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 42,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 19,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -9682,6 +16570,8 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       season_2: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -9704,6 +16594,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 66.67,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -9724,6 +16632,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 47.22,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 5.0,
+            overs_bowled: 1.0,
+            runs_conceded: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 24.0,
+            wickets_taken: 1,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 28,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -9736,6 +16664,7 @@ export const stats = {
         total_matches_in_squad: 4,
       },
       overall: {
+        played_for_teams: ["Shivaji Park Lions"],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -9758,6 +16687,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 57.14,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 11,
@@ -9778,6 +16725,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 50.0,
           extras_per_over: 0.19,
+          best_economy_innings: {
+            value: 2.75,
+            overs_bowled: 4.0,
+            runs_conceded: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 42,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 19,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -9795,6 +16762,8 @@ export const stats = {
     name_full: "Royston Dias",
     seasons: {
       season_1: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -9815,6 +16784,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 8,
@@ -9835,6 +16822,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 39.74,
           extras_per_over: 0.19,
+          best_economy_innings: {
+            value: 6.75,
+            overs_bowled: 4.0,
+            runs_conceded: 27,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 53,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -9847,6 +16854,8 @@ export const stats = {
         total_matches_in_squad: 8,
       },
       season_2: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -9867,6 +16876,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -9887,6 +16914,26 @@ export const stats = {
           wickets_in_do: 8,
           dot_ball_percentage: 37.04,
           extras_per_over: 0.28,
+          best_economy_innings: {
+            value: 6.5,
+            overs_bowled: 4.0,
+            runs_conceded: 26,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 4,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 36,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -9899,6 +16946,10 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: [
+          "Shivaji Park Lions",
+          "Triumph Knights Mumbai North East",
+        ],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -9919,6 +16970,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 13,
@@ -9939,6 +17008,26 @@ export const stats = {
           wickets_in_do: 10,
           dot_ball_percentage: 38.64,
           extras_per_over: 0.23,
+          best_economy_innings: {
+            value: 6.5,
+            overs_bowled: 4.0,
+            runs_conceded: 26,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 4,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 53,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -9956,6 +17045,8 @@ export const stats = {
     name_full: "Shams Mulani",
     seasons: {
       season_1: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -9980,6 +17071,24 @@ export const stats = {
           boundary_percentage: 30.51,
           dot_ball_percentage: 30.36,
           balls_per_boundary: 14.0,
+          highest_strike_rate_innings: {
+            value: 138.46,
+            balls_faced: 13,
+            runs_scored: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 8,
@@ -10000,6 +17109,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 31.55,
           extras_per_over: 0.14,
+          best_economy_innings: {
+            value: 4.67,
+            overs_bowled: 3.0,
+            runs_conceded: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 9.0,
+            wickets_taken: 2,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 41,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -10012,6 +17141,8 @@ export const stats = {
         total_matches_in_squad: 8,
       },
       season_2: {
+        team_name: "Aakash Tigers MWS",
+        played_for_teams: [],
         batting: {
           matches_played: 6,
           innings_batted: 6,
@@ -10034,6 +17165,25 @@ export const stats = {
           boundary_percentage: 50.0,
           dot_ball_percentage: 23.85,
           balls_per_boundary: 6.81,
+          highest_strike_rate_innings: {
+            value: 193.55,
+            balls_faced: 31,
+            runs_scored: 60,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 4,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 31,
+            runs: 60,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -10054,6 +17204,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 38.64,
           extras_per_over: 0.14,
+          best_economy_innings: {
+            value: 3.33,
+            overs_bowled: 3.0,
+            runs_conceded: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 45,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -10066,6 +17236,7 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       overall: {
+        played_for_teams: ["Aakash Tigers MWS", "Shivaji Park Lions"],
         batting: {
           matches_played: 10,
           innings_batted: 10,
@@ -10090,6 +17261,25 @@ export const stats = {
           boundary_percentage: 44.75,
           dot_ball_percentage: 26.06,
           balls_per_boundary: 8.25,
+          highest_strike_rate_innings: {
+            value: 193.55,
+            balls_faced: 31,
+            runs_scored: 60,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 4,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 31,
+            match_id: "UNKNOWN_MATCH",
+            runs: 60,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 14,
@@ -10110,6 +17300,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 34.67,
           extras_per_over: 0.14,
+          best_economy_innings: {
+            value: 3.33,
+            overs_bowled: 3.0,
+            runs_conceded: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 9.0,
+            wickets_taken: 2,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 45,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 5,
@@ -10127,6 +17337,8 @@ export const stats = {
     name_full: "Shrideep Mangela",
     seasons: {
       season_1: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -10150,6 +17362,24 @@ export const stats = {
           boundary_percentage: 53.33,
           dot_ball_percentage: 47.06,
           balls_per_boundary: 8.5,
+          highest_strike_rate_innings: {
+            value: 116.67,
+            balls_faced: 12,
+            runs_scored: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -10170,6 +17400,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -10182,6 +17432,8 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       season_2: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -10204,6 +17456,24 @@ export const stats = {
           boundary_percentage: 44.74,
           dot_ball_percentage: 42.31,
           balls_per_boundary: 9.75,
+          highest_strike_rate_innings: {
+            value: 123.53,
+            balls_faced: 34,
+            runs_scored: 42,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -10224,6 +17494,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -10236,6 +17526,7 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       overall: {
+        played_for_teams: ["NaMo Bandra Blasters", "North Mumbai Panthers"],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -10259,6 +17550,24 @@ export const stats = {
           boundary_percentage: 46.15,
           dot_ball_percentage: 43.16,
           balls_per_boundary: 9.5,
+          highest_strike_rate_innings: {
+            value: 123.53,
+            balls_faced: 34,
+            runs_scored: 42,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -10279,6 +17588,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -10296,6 +17625,8 @@ export const stats = {
     name_full: "Kevin Almeida",
     seasons: {
       season_1: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -10318,6 +17649,24 @@ export const stats = {
           boundary_percentage: 50.0,
           dot_ball_percentage: 63.41,
           balls_per_boundary: 13.67,
+          highest_strike_rate_innings: {
+            value: 81.82,
+            balls_faced: 11,
+            runs_scored: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -10338,6 +17687,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -10350,6 +17719,8 @@ export const stats = {
         total_matches_in_squad: 4,
       },
       season_2: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 6,
           innings_batted: 6,
@@ -10375,6 +17746,25 @@ export const stats = {
           boundary_percentage: 54.1,
           dot_ball_percentage: 39.22,
           balls_per_boundary: 6.8,
+          highest_strike_rate_innings: {
+            value: 170.0,
+            balls_faced: 10,
+            runs_scored: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 40,
+            runs: 59,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -10395,6 +17785,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 25.0,
           extras_per_over: 0.75,
+          best_economy_innings: {
+            value: 7.0,
+            overs_bowled: 1.0,
+            runs_conceded: 7,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 1,
+            balls_bowled: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -10407,6 +17817,7 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       overall: {
+        played_for_teams: ["ARCS Andheri", "NaMo Bandra Blasters"],
         batting: {
           matches_played: 10,
           innings_batted: 10,
@@ -10432,6 +17843,25 @@ export const stats = {
           boundary_percentage: 53.33,
           dot_ball_percentage: 46.15,
           balls_per_boundary: 7.94,
+          highest_strike_rate_innings: {
+            value: 170.0,
+            balls_faced: 10,
+            runs_scored: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 40,
+            match_id: "UNKNOWN_MATCH",
+            runs: 59,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -10452,6 +17882,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 25.0,
           extras_per_over: 0.75,
+          best_economy_innings: {
+            value: 7.0,
+            overs_bowled: 1.0,
+            runs_conceded: 7,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 1,
+            balls_bowled: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 5,
@@ -10469,6 +17919,8 @@ export const stats = {
     name_full: "Shreyas Iyer",
     seasons: {
       season_1: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 6,
           innings_batted: 6,
@@ -10492,6 +17944,25 @@ export const stats = {
           boundary_percentage: 61.71,
           dot_ball_percentage: 29.66,
           balls_per_boundary: 5.02,
+          highest_strike_rate_innings: {
+            value: 208.82,
+            balls_faced: 34,
+            runs_scored: 71,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 7,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 33,
+            runs: 51,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -10512,6 +17983,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 16.67,
           extras_per_over: 0.5,
+          best_economy_innings: {
+            value: 12.0,
+            overs_bowled: 2.0,
+            runs_conceded: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -10524,6 +18015,8 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       season_2: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -10546,6 +18039,24 @@ export const stats = {
           boundary_percentage: 47.37,
           dot_ball_percentage: 34.78,
           balls_per_boundary: 8.62,
+          highest_strike_rate_innings: {
+            value: 119.23,
+            balls_faced: 26,
+            runs_scored: 31,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -10566,6 +18077,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 22.92,
           extras_per_over: 0.75,
+          best_economy_innings: {
+            value: 6.0,
+            overs_bowled: 2.0,
+            runs_conceded: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 32,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -10578,6 +18109,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["NaMo Bandra Blasters"],
         batting: {
           matches_played: 11,
           innings_batted: 11,
@@ -10601,6 +18133,25 @@ export const stats = {
           boundary_percentage: 59.23,
           dot_ball_percentage: 30.82,
           balls_per_boundary: 5.55,
+          highest_strike_rate_innings: {
+            value: 208.82,
+            balls_faced: 34,
+            runs_scored: 71,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 7,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 33,
+            match_id: "UNKNOWN_MATCH",
+            runs: 51,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -10621,6 +18172,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 21.67,
           extras_per_over: 0.7,
+          best_economy_innings: {
+            value: 6.0,
+            overs_bowled: 2.0,
+            runs_conceded: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 32,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 6,
@@ -10638,6 +18209,8 @@ export const stats = {
     name_full: "Nikhil Patil",
     seasons: {
       season_1: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -10662,6 +18235,24 @@ export const stats = {
           boundary_percentage: 57.89,
           dot_ball_percentage: 40.0,
           balls_per_boundary: 6.5,
+          highest_strike_rate_innings: {
+            value: 122.73,
+            balls_faced: 22,
+            runs_scored: 27,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -10682,6 +18273,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -10694,6 +18305,8 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       season_2: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -10717,6 +18330,25 @@ export const stats = {
           boundary_percentage: 53.49,
           dot_ball_percentage: 26.15,
           balls_per_boundary: 6.5,
+          highest_strike_rate_innings: {
+            value: 190.91,
+            balls_faced: 11,
+            runs_scored: 21,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 42,
+            runs: 55,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -10737,6 +18369,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -10749,6 +18401,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["NaMo Bandra Blasters"],
         batting: {
           matches_played: 9,
           innings_batted: 9,
@@ -10774,6 +18427,25 @@ export const stats = {
           boundary_percentage: 55.56,
           dot_ball_percentage: 33.08,
           balls_per_boundary: 6.5,
+          highest_strike_rate_innings: {
+            value: 190.91,
+            balls_faced: 11,
+            runs_scored: 21,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 42,
+            match_id: "UNKNOWN_MATCH",
+            runs: 55,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -10794,6 +18466,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -10811,6 +18503,8 @@ export const stats = {
     name_full: "Eknath Kerkar",
     seasons: {
       season_1: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -10833,6 +18527,25 @@ export const stats = {
           boundary_percentage: 65.79,
           dot_ball_percentage: 46.77,
           balls_per_boundary: 5.64,
+          highest_strike_rate_innings: {
+            value: 138.89,
+            balls_faced: 36,
+            runs_scored: 50,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 36,
+            runs: 50,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -10853,6 +18566,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -10865,6 +18598,8 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       season_2: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -10888,6 +18623,25 @@ export const stats = {
           boundary_percentage: 50.47,
           dot_ball_percentage: 34.78,
           balls_per_boundary: 7.08,
+          highest_strike_rate_innings: {
+            value: 137.25,
+            balls_faced: 51,
+            runs_scored: 70,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 51,
+            runs: 70,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -10908,6 +18662,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -10920,6 +18694,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["NaMo Bandra Blasters"],
         batting: {
           matches_played: 10,
           innings_batted: 10,
@@ -10943,6 +18718,25 @@ export const stats = {
           boundary_percentage: 56.83,
           dot_ball_percentage: 39.61,
           balls_per_boundary: 6.42,
+          highest_strike_rate_innings: {
+            value: 138.89,
+            balls_faced: 36,
+            runs_scored: 50,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 36,
+            match_id: "UNKNOWN_MATCH",
+            runs: 50,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -10963,6 +18757,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 6,
@@ -10980,6 +18794,8 @@ export const stats = {
     name_full: "Aman Hakim Khan",
     seasons: {
       season_1: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -11002,6 +18818,25 @@ export const stats = {
           boundary_percentage: 72.73,
           dot_ball_percentage: 34.86,
           balls_per_boundary: 3.89,
+          highest_strike_rate_innings: {
+            value: 221.43,
+            balls_faced: 28,
+            runs_scored: 62,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 28,
+            runs: 62,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -11022,6 +18857,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 16.67,
           extras_per_over: 1.0,
+          best_economy_innings: {
+            value: 12.0,
+            overs_bowled: 1.0,
+            runs_conceded: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -11034,6 +18889,8 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       season_2: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -11054,6 +18911,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -11074,6 +18949,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -11086,6 +18981,7 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       overall: {
+        played_for_teams: ["NaMo Bandra Blasters"],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -11108,6 +19004,25 @@ export const stats = {
           boundary_percentage: 72.73,
           dot_ball_percentage: 34.86,
           balls_per_boundary: 3.89,
+          highest_strike_rate_innings: {
+            value: 221.43,
+            balls_faced: 28,
+            runs_scored: 62,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 28,
+            match_id: "UNKNOWN_MATCH",
+            runs: 62,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -11128,6 +19043,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 16.67,
           extras_per_over: 1.0,
+          best_economy_innings: {
+            value: 12.0,
+            overs_bowled: 1.0,
+            runs_conceded: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -11145,6 +19080,8 @@ export const stats = {
     name_full: "Azhar Ansari",
     seasons: {
       season_1: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -11167,6 +19104,24 @@ export const stats = {
           boundary_percentage: 35.29,
           dot_ball_percentage: 58.33,
           balls_per_boundary: 24.0,
+          highest_strike_rate_innings: {
+            value: 73.91,
+            balls_faced: 23,
+            runs_scored: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -11187,6 +19142,26 @@ export const stats = {
           wickets_in_do: 5,
           dot_ball_percentage: 34.09,
           extras_per_over: 0.09,
+          best_economy_innings: {
+            value: 5.25,
+            overs_bowled: 4.0,
+            runs_conceded: 21,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 58,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -11199,6 +19174,8 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       season_2: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -11222,6 +19199,24 @@ export const stats = {
           boundary_percentage: 78.05,
           dot_ball_percentage: 17.65,
           balls_per_boundary: 2.43,
+          highest_strike_rate_innings: {
+            value: 218.18,
+            balls_faced: 11,
+            runs_scored: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -11242,6 +19237,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 25.0,
           extras_per_over: 0.2,
+          best_economy_innings: {
+            value: 6.67,
+            overs_bowled: 3.0,
+            runs_conceded: 20,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 42,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 7,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -11254,6 +19269,7 @@ export const stats = {
         total_matches_in_squad: 4,
       },
       overall: {
+        played_for_teams: ["ARCS Andheri", "NaMo Bandra Blasters"],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -11278,6 +19294,24 @@ export const stats = {
           boundary_percentage: 65.52,
           dot_ball_percentage: 41.46,
           balls_per_boundary: 5.12,
+          highest_strike_rate_innings: {
+            value: 218.18,
+            balls_faced: 11,
+            runs_scored: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 9,
@@ -11298,6 +19332,26 @@ export const stats = {
           wickets_in_do: 7,
           dot_ball_percentage: 31.25,
           extras_per_over: 0.12,
+          best_economy_innings: {
+            value: 5.25,
+            overs_bowled: 4.0,
+            runs_conceded: 21,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 58,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -11315,6 +19369,8 @@ export const stats = {
     name_full: "Shashikant Kadam",
     seasons: {
       season_1: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -11337,6 +19393,24 @@ export const stats = {
           boundary_percentage: 57.89,
           dot_ball_percentage: 45.45,
           balls_per_boundary: 8.25,
+          highest_strike_rate_innings: {
+            value: 85.0,
+            balls_faced: 20,
+            runs_scored: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -11357,6 +19431,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 34.72,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 2.0,
+            overs_bowled: 1.0,
+            runs_conceded: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 1,
+            balls_bowled: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 31,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 8,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -11369,6 +19463,8 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       season_2: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 7,
           innings_batted: 7,
@@ -11393,6 +19489,24 @@ export const stats = {
           boundary_percentage: 40.96,
           dot_ball_percentage: 41.38,
           balls_per_boundary: 12.43,
+          highest_strike_rate_innings: {
+            value: 109.09,
+            balls_faced: 11,
+            runs_scored: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -11413,6 +19527,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 23.96,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 5.0,
+            overs_bowled: 3.0,
+            runs_conceded: 15,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 1,
+            balls_bowled: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 32,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -11425,6 +19559,7 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       overall: {
+        played_for_teams: ["NaMo Bandra Blasters", "North Mumbai Panthers"],
         batting: {
           matches_played: 11,
           innings_batted: 11,
@@ -11449,6 +19584,24 @@ export const stats = {
           boundary_percentage: 46.28,
           dot_ball_percentage: 42.5,
           balls_per_boundary: 10.91,
+          highest_strike_rate_innings: {
+            value: 109.09,
+            balls_faced: 11,
+            runs_scored: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 12,
@@ -11469,6 +19622,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 28.57,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 2.0,
+            overs_bowled: 1.0,
+            runs_conceded: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 1,
+            balls_bowled: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 32,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 8,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -11486,6 +19659,8 @@ export const stats = {
     name_full: "Karsh Kothari",
     seasons: {
       season_1: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -11506,6 +19681,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -11526,6 +19719,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 29.63,
           extras_per_over: 0.33,
+          best_economy_innings: {
+            value: 4.0,
+            overs_bowled: 1.0,
+            runs_conceded: 4,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 1,
+            balls_bowled: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 35,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -11538,6 +19751,8 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       season_2: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -11558,6 +19773,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -11578,6 +19811,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 41.94,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 4.75,
+            overs_bowled: 4.0,
+            runs_conceded: 19,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 4,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 26,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -11590,6 +19843,7 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       overall: {
+        played_for_teams: ["NaMo Bandra Blasters"],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -11610,6 +19864,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -11630,6 +19902,26 @@ export const stats = {
           wickets_in_do: 3,
           dot_ball_percentage: 36.21,
           extras_per_over: 0.16,
+          best_economy_innings: {
+            value: 4.0,
+            overs_bowled: 1.0,
+            runs_conceded: 4,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 1,
+            balls_bowled: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 35,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -11647,6 +19939,8 @@ export const stats = {
     name_full: "Aishwary Surve",
     seasons: {
       season_1: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -11667,6 +19961,24 @@ export const stats = {
           boundary_percentage: 54.55,
           dot_ball_percentage: 47.62,
           balls_per_boundary: 7.0,
+          highest_strike_rate_innings: {
+            value: 105.0,
+            balls_faced: 20,
+            runs_scored: 21,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -11687,6 +19999,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 41.23,
           extras_per_over: 0.26,
+          best_economy_innings: {
+            value: 5.33,
+            overs_bowled: 3.0,
+            runs_conceded: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 41,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -11699,6 +20031,8 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       season_2: {
+        team_name: "Eagle Thane Strikers",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -11722,6 +20056,24 @@ export const stats = {
           boundary_percentage: 50.0,
           dot_ball_percentage: 28.57,
           balls_per_boundary: 7.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -11742,6 +20094,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.07,
+          best_economy_innings: {
+            value: 8.0,
+            overs_bowled: 3.0,
+            runs_conceded: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 30,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 8,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -11754,6 +20126,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["Eagle Thane Strikers", "NaMo Bandra Blasters"],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -11777,6 +20150,24 @@ export const stats = {
           boundary_percentage: 53.33,
           dot_ball_percentage: 42.86,
           balls_per_boundary: 7.0,
+          highest_strike_rate_innings: {
+            value: 105.0,
+            balls_faced: 20,
+            runs_scored: 21,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 11,
@@ -11797,6 +20188,26 @@ export const stats = {
           wickets_in_do: 3,
           dot_ball_percentage: 37.88,
           extras_per_over: 0.18,
+          best_economy_innings: {
+            value: 5.33,
+            overs_bowled: 3.0,
+            runs_conceded: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 41,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 8,
@@ -11814,6 +20225,8 @@ export const stats = {
     name_full: "Pravin Tambe",
     seasons: {
       season_1: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -11836,6 +20249,24 @@ export const stats = {
           boundary_percentage: 62.5,
           dot_ball_percentage: 46.67,
           balls_per_boundary: 7.5,
+          highest_strike_rate_innings: {
+            value: 106.67,
+            balls_faced: 15,
+            runs_scored: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -11856,6 +20287,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 40.91,
           extras_per_over: 0.09,
+          best_economy_innings: {
+            value: 2.0,
+            overs_bowled: 4.0,
+            runs_conceded: 8,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 47,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -11868,6 +20319,8 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       season_2: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -11888,6 +20341,24 @@ export const stats = {
           boundary_percentage: 80.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 2.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 7,
@@ -11908,6 +20379,26 @@ export const stats = {
           wickets_in_do: 3,
           dot_ball_percentage: 31.88,
           extras_per_over: 0.13,
+          best_economy_innings: {
+            value: 4.25,
+            overs_bowled: 4.0,
+            runs_conceded: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 11.0,
+            wickets_taken: 2,
+            balls_bowled: 22,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 38,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -11920,6 +20411,7 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       overall: {
+        played_for_teams: ["NaMo Bandra Blasters", "North Mumbai Panthers"],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -11942,6 +20434,24 @@ export const stats = {
           boundary_percentage: 66.67,
           dot_ball_percentage: 41.18,
           balls_per_boundary: 5.67,
+          highest_strike_rate_innings: {
+            value: 106.67,
+            balls_faced: 15,
+            runs_scored: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 13,
@@ -11962,6 +20472,26 @@ export const stats = {
           wickets_in_do: 3,
           dot_ball_percentage: 36.3,
           extras_per_over: 0.11,
+          best_economy_innings: {
+            value: 2.0,
+            overs_bowled: 4.0,
+            runs_conceded: 8,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 47,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -11979,6 +20509,8 @@ export const stats = {
     name_full: "Prashant Bhoir",
     seasons: {
       season_1: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -11999,6 +20531,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -12019,6 +20569,26 @@ export const stats = {
           wickets_in_do: 3,
           dot_ball_percentage: 36.9,
           extras_per_over: 0.21,
+          best_economy_innings: {
+            value: 7.0,
+            overs_bowled: 4.0,
+            runs_conceded: 28,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 47,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -12031,6 +20601,8 @@ export const stats = {
         total_matches_in_squad: 4,
       },
       season_2: {
+        team_name: "Eagle Thane Strikers",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -12051,6 +20623,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -12071,6 +20661,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 33.33,
           extras_per_over: 1.0,
+          best_economy_innings: {
+            value: 12.0,
+            overs_bowled: 3.0,
+            runs_conceded: 36,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 36,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -12083,6 +20693,7 @@ export const stats = {
         total_matches_in_squad: 1,
       },
       overall: {
+        played_for_teams: ["Eagle Thane Strikers", "NaMo Bandra Blasters"],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -12103,6 +20714,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -12123,6 +20752,26 @@ export const stats = {
           wickets_in_do: 3,
           dot_ball_percentage: 36.27,
           extras_per_over: 0.35,
+          best_economy_innings: {
+            value: 7.0,
+            overs_bowled: 4.0,
+            runs_conceded: 28,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 47,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -12140,6 +20789,8 @@ export const stats = {
     name_full: "Sachin Yadav",
     seasons: {
       season_1: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -12162,6 +20813,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 14.29,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -12182,6 +20851,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -12194,6 +20883,8 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       season_2: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -12216,6 +20907,24 @@ export const stats = {
           boundary_percentage: 28.0,
           dot_ball_percentage: 44.25,
           balls_per_boundary: 18.83,
+          highest_strike_rate_innings: {
+            value: 96.3,
+            balls_faced: 27,
+            runs_scored: 26,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -12236,6 +20945,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -12248,6 +20977,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["NaMo Bandra Blasters", "Shivaji Park Lions"],
         batting: {
           matches_played: 6,
           innings_batted: 6,
@@ -12271,6 +21001,24 @@ export const stats = {
           boundary_percentage: 26.17,
           dot_ball_percentage: 42.5,
           balls_per_boundary: 20.0,
+          highest_strike_rate_innings: {
+            value: 96.3,
+            balls_faced: 27,
+            runs_scored: 26,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -12291,6 +21039,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -12308,6 +21076,8 @@ export const stats = {
     name_full: "Atul Singh",
     seasons: {
       season_1: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -12328,6 +21098,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -12348,6 +21136,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 50.0,
           extras_per_over: 0.52,
+          best_economy_innings: {
+            value: 5.0,
+            overs_bowled: 4.0,
+            runs_conceded: 20,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 32,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -12360,6 +21168,8 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       season_2: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -12380,6 +21190,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -12400,6 +21228,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 11.11,
           extras_per_over: 0.67,
+          best_economy_innings: {
+            value: 11.33,
+            overs_bowled: 3.0,
+            runs_conceded: 34,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 39,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -12412,6 +21260,7 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       overall: {
+        played_for_teams: ["NaMo Bandra Blasters"],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -12432,6 +21281,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -12452,6 +21319,26 @@ export const stats = {
           wickets_in_do: 3,
           dot_ball_percentage: 32.93,
           extras_per_over: 0.59,
+          best_economy_innings: {
+            value: 5.0,
+            overs_bowled: 4.0,
+            runs_conceded: 20,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 39,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -12469,6 +21356,8 @@ export const stats = {
     name_full: "Dinesh Salunkhe",
     seasons: {
       season_1: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -12491,6 +21380,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 52.63,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 68.42,
+            balls_faced: 19,
+            runs_scored: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -12511,6 +21418,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 10.67,
+            overs_bowled: 3.0,
+            runs_conceded: 32,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 32,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -12523,6 +21450,8 @@ export const stats = {
         total_matches_in_squad: 1,
       },
       season_2: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -12543,6 +21472,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -12563,6 +21510,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -12575,6 +21542,7 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       overall: {
+        played_for_teams: ["North Mumbai Panthers"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -12597,6 +21565,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 52.63,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 68.42,
+            balls_faced: 19,
+            runs_scored: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -12617,6 +21603,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 10.67,
+            overs_bowled: 3.0,
+            runs_conceded: 32,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 32,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -12634,6 +21640,8 @@ export const stats = {
     name_full: "Sagar Jadhav",
     seasons: {
       season_1: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -12654,6 +21662,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 50.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -12674,6 +21700,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 33.33,
           extras_per_over: 1.33,
+          best_economy_innings: {
+            value: 14.0,
+            overs_bowled: 3.0,
+            runs_conceded: 42,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 42,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -12686,6 +21732,8 @@ export const stats = {
         total_matches_in_squad: 1,
       },
       season_2: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -12706,6 +21754,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -12726,6 +21792,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -12738,6 +21824,7 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       overall: {
+        played_for_teams: ["North Mumbai Panthers"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -12758,6 +21845,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 50.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -12778,6 +21883,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 33.33,
           extras_per_over: 1.33,
+          best_economy_innings: {
+            value: 14.0,
+            overs_bowled: 3.0,
+            runs_conceded: 42,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 42,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -12795,6 +21920,8 @@ export const stats = {
     name_full: "Paul Valthaty",
     seasons: {
       season_1: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 6,
           innings_batted: 6,
@@ -12818,6 +21945,24 @@ export const stats = {
           boundary_percentage: 78.72,
           dot_ball_percentage: 52.7,
           balls_per_boundary: 4.35,
+          highest_strike_rate_innings: {
+            value: 141.38,
+            balls_faced: 29,
+            runs_scored: 41,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -12838,6 +21983,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -12850,6 +22015,8 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       season_2: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -12870,6 +22037,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -12890,6 +22075,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -12902,6 +22107,7 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       overall: {
+        played_for_teams: ["Shivaji Park Lions"],
         batting: {
           matches_played: 6,
           innings_batted: 6,
@@ -12925,6 +22131,24 @@ export const stats = {
           boundary_percentage: 78.72,
           dot_ball_percentage: 52.7,
           balls_per_boundary: 4.35,
+          highest_strike_rate_innings: {
+            value: 141.38,
+            balls_faced: 29,
+            runs_scored: 41,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -12945,6 +22169,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -12962,6 +22206,8 @@ export const stats = {
     name_full: "Alpesh Ramjani",
     seasons: {
       season_1: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -12985,6 +22231,25 @@ export const stats = {
           boundary_percentage: 71.01,
           dot_ball_percentage: 40.71,
           balls_per_boundary: 4.35,
+          highest_strike_rate_innings: {
+            value: 188.24,
+            balls_faced: 34,
+            runs_scored: 64,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 34,
+            runs: 64,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -13005,6 +22270,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 39.58,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 4.75,
+            overs_bowled: 4.0,
+            runs_conceded: 19,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -13017,6 +22302,8 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       season_2: {
+        team_name: "Eagle Thane Strikers",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -13040,6 +22327,25 @@ export const stats = {
           boundary_percentage: 64.75,
           dot_ball_percentage: 28.24,
           balls_per_boundary: 4.25,
+          highest_strike_rate_innings: {
+            value: 170.59,
+            balls_faced: 17,
+            runs_scored: 29,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 30,
+            runs: 50,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -13060,6 +22366,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 25.93,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 5.0,
+            overs_bowled: 1.0,
+            runs_conceded: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 24.0,
+            wickets_taken: 1,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 7,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -13072,6 +22398,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["Eagle Thane Strikers", "Shivaji Park Lions"],
         batting: {
           matches_played: 10,
           innings_batted: 10,
@@ -13096,6 +22423,25 @@ export const stats = {
           boundary_percentage: 68.18,
           dot_ball_percentage: 35.35,
           balls_per_boundary: 4.3,
+          highest_strike_rate_innings: {
+            value: 188.24,
+            balls_faced: 34,
+            runs_scored: 64,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 30,
+            match_id: "UNKNOWN_MATCH",
+            runs: 50,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -13116,6 +22462,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 32.35,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 4.75,
+            overs_bowled: 4.0,
+            runs_conceded: 19,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 24.0,
+            wickets_taken: 1,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 6,
@@ -13133,6 +22499,8 @@ export const stats = {
     name_full: "Tanush Kotian",
     seasons: {
       season_1: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -13155,6 +22523,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 40.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -13175,6 +22561,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 34.52,
           extras_per_over: 0.14,
+          best_economy_innings: {
+            value: 5.0,
+            overs_bowled: 4.0,
+            runs_conceded: 20,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 24.0,
+            wickets_taken: 1,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 35,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -13187,6 +22593,8 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       season_2: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -13207,6 +22615,24 @@ export const stats = {
           boundary_percentage: 66.67,
           dot_ball_percentage: 33.33,
           balls_per_boundary: 6.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -13227,6 +22653,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 39.58,
           extras_per_over: 0.25,
+          best_economy_innings: {
+            value: 6.0,
+            overs_bowled: 4.0,
+            runs_conceded: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 24.0,
+            wickets_taken: 1,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 27,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -13239,6 +22685,7 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       overall: {
+        played_for_teams: ["Shivaji Park Lions"],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -13261,6 +22708,24 @@ export const stats = {
           boundary_percentage: 50.0,
           dot_ball_percentage: 36.36,
           balls_per_boundary: 11.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 7,
@@ -13281,6 +22746,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 36.36,
           extras_per_over: 0.18,
+          best_economy_innings: {
+            value: 5.0,
+            overs_bowled: 4.0,
+            runs_conceded: 20,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 24.0,
+            wickets_taken: 1,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 35,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -13298,6 +22783,8 @@ export const stats = {
     name_full: "Siddhesh Lad",
     seasons: {
       season_1: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -13320,6 +22807,24 @@ export const stats = {
           boundary_percentage: 77.42,
           dot_ball_percentage: 53.85,
           balls_per_boundary: 5.2,
+          highest_strike_rate_innings: {
+            value: 136.36,
+            balls_faced: 22,
+            runs_scored: 30,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -13340,6 +22845,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -13352,6 +22877,8 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       season_2: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -13375,6 +22902,24 @@ export const stats = {
           boundary_percentage: 40.0,
           dot_ball_percentage: 40.62,
           balls_per_boundary: 10.67,
+          highest_strike_rate_innings: {
+            value: 115.0,
+            balls_faced: 20,
+            runs_scored: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -13395,6 +22940,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 36.36,
           extras_per_over: 0.55,
+          best_economy_innings: {
+            value: 5.0,
+            overs_bowled: 1.0,
+            runs_conceded: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 16.0,
+            wickets_taken: 1,
+            balls_bowled: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 26,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -13407,6 +22972,7 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       overall: {
+        played_for_teams: ["Shivaji Park Lions"],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -13430,6 +22996,24 @@ export const stats = {
           boundary_percentage: 52.75,
           dot_ball_percentage: 44.44,
           balls_per_boundary: 8.18,
+          highest_strike_rate_innings: {
+            value: 136.36,
+            balls_faced: 22,
+            runs_scored: 30,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -13450,6 +23034,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 36.36,
           extras_per_over: 0.55,
+          best_economy_innings: {
+            value: 5.0,
+            overs_bowled: 1.0,
+            runs_conceded: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 16.0,
+            wickets_taken: 1,
+            balls_bowled: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 26,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -13467,6 +23071,8 @@ export const stats = {
     name_full: "Ajinkya Rahane",
     seasons: {
       season_1: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -13490,6 +23096,24 @@ export const stats = {
           boundary_percentage: 73.91,
           dot_ball_percentage: 45.95,
           balls_per_boundary: 4.62,
+          highest_strike_rate_innings: {
+            value: 127.27,
+            balls_faced: 22,
+            runs_scored: 28,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -13510,6 +23134,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -13522,6 +23166,8 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       season_2: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -13542,6 +23188,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -13562,6 +23226,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -13574,6 +23258,7 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       overall: {
+        played_for_teams: ["North Mumbai Panthers"],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -13597,6 +23282,24 @@ export const stats = {
           boundary_percentage: 73.91,
           dot_ball_percentage: 45.95,
           balls_per_boundary: 4.62,
+          highest_strike_rate_innings: {
+            value: 127.27,
+            balls_faced: 22,
+            runs_scored: 28,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -13617,6 +23320,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -13634,6 +23357,8 @@ export const stats = {
     name_full: "Akhtar Shaikh",
     seasons: {
       season_1: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -13656,6 +23381,24 @@ export const stats = {
           boundary_percentage: 22.22,
           dot_ball_percentage: 37.5,
           balls_per_boundary: 16.0,
+          highest_strike_rate_innings: {
+            value: 112.5,
+            balls_faced: 16,
+            runs_scored: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -13676,6 +23419,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 19.05,
           extras_per_over: 0.14,
+          best_economy_innings: {
+            value: 8.25,
+            overs_bowled: 4.0,
+            runs_conceded: 33,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 38,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 4,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -13688,6 +23451,8 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       season_2: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -13708,6 +23473,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -13728,6 +23511,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -13740,6 +23543,7 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       overall: {
+        played_for_teams: ["North Mumbai Panthers"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -13762,6 +23566,24 @@ export const stats = {
           boundary_percentage: 22.22,
           dot_ball_percentage: 37.5,
           balls_per_boundary: 16.0,
+          highest_strike_rate_innings: {
+            value: 112.5,
+            balls_faced: 16,
+            runs_scored: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -13782,6 +23604,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 19.05,
           extras_per_over: 0.14,
+          best_economy_innings: {
+            value: 8.25,
+            overs_bowled: 4.0,
+            runs_conceded: 33,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 38,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 4,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -13799,6 +23641,8 @@ export const stats = {
     name_full: "Rajesh Pawar",
     seasons: {
       season_1: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -13821,6 +23665,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 50.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -13841,6 +23703,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 22.92,
           extras_per_over: 0.12,
+          best_economy_innings: {
+            value: 7.5,
+            overs_bowled: 4.0,
+            runs_conceded: 30,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 36,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -13853,6 +23735,8 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       season_2: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -13873,6 +23757,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -13893,6 +23795,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -13905,6 +23827,7 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       overall: {
+        played_for_teams: ["North Mumbai Panthers"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -13927,6 +23850,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 50.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -13947,6 +23888,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 22.92,
           extras_per_over: 0.12,
+          best_economy_innings: {
+            value: 7.5,
+            overs_bowled: 4.0,
+            runs_conceded: 30,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 36,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -13964,6 +23925,8 @@ export const stats = {
     name_full: "Bhavin Thakkar",
     seasons: {
       season_1: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -13986,6 +23949,24 @@ export const stats = {
           boundary_percentage: 37.5,
           dot_ball_percentage: 35.71,
           balls_per_boundary: 9.33,
+          highest_strike_rate_innings: {
+            value: 105.0,
+            balls_faced: 20,
+            runs_scored: 21,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -14006,6 +23987,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 16.67,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 8.5,
+            overs_bowled: 2.0,
+            runs_conceded: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -14018,6 +24019,8 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       season_2: {
+        team_name: "Aakash Tigers MWS",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -14040,6 +24043,25 @@ export const stats = {
           boundary_percentage: 58.46,
           dot_ball_percentage: 37.25,
           balls_per_boundary: 5.67,
+          highest_strike_rate_innings: {
+            value: 132.65,
+            balls_faced: 49,
+            runs_scored: 65,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 49,
+            runs: 65,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -14060,6 +24082,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 16.67,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 6.0,
+            overs_bowled: 1.0,
+            runs_conceded: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -14072,6 +24114,7 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       overall: {
+        played_for_teams: ["Aakash Tigers MWS", "SoBo SuperSonics"],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -14095,6 +24138,25 @@ export const stats = {
           boundary_percentage: 51.55,
           dot_ball_percentage: 36.71,
           balls_per_boundary: 6.58,
+          highest_strike_rate_innings: {
+            value: 132.65,
+            balls_faced: 49,
+            runs_scored: 65,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 49,
+            match_id: "UNKNOWN_MATCH",
+            runs: 65,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -14115,6 +24177,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 16.67,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 6.0,
+            overs_bowled: 1.0,
+            runs_conceded: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -14132,6 +24214,8 @@ export const stats = {
     name_full: "Deepak Shetty",
     seasons: {
       season_1: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -14152,6 +24236,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -14172,6 +24274,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 44.44,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 11.33,
+            overs_bowled: 3.0,
+            runs_conceded: 34,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 34,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 8,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -14184,6 +24306,8 @@ export const stats = {
         total_matches_in_squad: 1,
       },
       season_2: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -14206,6 +24330,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 100.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 7,
@@ -14226,6 +24368,26 @@ export const stats = {
           wickets_in_do: 7,
           dot_ball_percentage: 31.15,
           extras_per_over: 0.05,
+          best_economy_innings: {
+            value: 5.33,
+            overs_bowled: 3.0,
+            runs_conceded: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 3,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 31,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -14238,6 +24400,7 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       overall: {
+        played_for_teams: ["SoBo SuperSonics"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -14260,6 +24423,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 100.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 8,
@@ -14280,6 +24461,26 @@ export const stats = {
           wickets_in_do: 7,
           dot_ball_percentage: 32.86,
           extras_per_over: 0.04,
+          best_economy_innings: {
+            value: 5.33,
+            overs_bowled: 3.0,
+            runs_conceded: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 3,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 34,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -14297,6 +24498,8 @@ export const stats = {
     name_full: "Anup Revandkar",
     seasons: {
       season_1: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -14319,6 +24522,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 100.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -14339,6 +24560,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -14351,6 +24592,8 @@ export const stats = {
         total_matches_in_squad: 1,
       },
       season_2: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -14371,6 +24614,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -14391,6 +24652,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -14403,6 +24684,7 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       overall: {
+        played_for_teams: ["ARCS Andheri"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -14425,6 +24707,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 100.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -14445,6 +24745,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -14462,6 +24782,8 @@ export const stats = {
     name_full: "Prithvi Shaw",
     seasons: {
       season_1: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -14484,6 +24806,24 @@ export const stats = {
           boundary_percentage: 85.71,
           dot_ball_percentage: 63.64,
           balls_per_boundary: 3.67,
+          highest_strike_rate_innings: {
+            value: 127.27,
+            balls_faced: 11,
+            runs_scored: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -14504,6 +24844,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -14516,6 +24876,8 @@ export const stats = {
         total_matches_in_squad: 1,
       },
       season_2: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 6,
           innings_batted: 6,
@@ -14541,6 +24903,25 @@ export const stats = {
           boundary_percentage: 61.85,
           dot_ball_percentage: 29.94,
           balls_per_boundary: 4.91,
+          highest_strike_rate_innings: {
+            value: 209.09,
+            balls_faced: 11,
+            runs_scored: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 31,
+            runs: 53,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -14561,6 +24942,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -14573,6 +24974,7 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       overall: {
+        played_for_teams: ["North Mumbai Panthers"],
         batting: {
           matches_played: 7,
           innings_batted: 7,
@@ -14598,6 +25000,25 @@ export const stats = {
           boundary_percentage: 63.12,
           dot_ball_percentage: 32.02,
           balls_per_boundary: 4.81,
+          highest_strike_rate_innings: {
+            value: 209.09,
+            balls_faced: 11,
+            runs_scored: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 31,
+            match_id: "UNKNOWN_MATCH",
+            runs: 53,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -14618,6 +25039,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -14635,6 +25076,8 @@ export const stats = {
     name_full: "Aniket Redkar",
     seasons: {
       season_1: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -14657,6 +25100,24 @@ export const stats = {
           boundary_percentage: 75.0,
           dot_ball_percentage: 62.5,
           balls_per_boundary: 8.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -14677,6 +25138,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 36.11,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 3.0,
+            overs_bowled: 3.0,
+            runs_conceded: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 1,
+            balls_bowled: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 19,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -14689,6 +25170,8 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       season_2: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -14709,6 +25192,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -14729,6 +25230,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -14741,6 +25262,7 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       overall: {
+        played_for_teams: ["NaMo Bandra Blasters"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -14763,6 +25285,24 @@ export const stats = {
           boundary_percentage: 75.0,
           dot_ball_percentage: 62.5,
           balls_per_boundary: 8.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -14783,6 +25323,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 36.11,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 3.0,
+            overs_bowled: 3.0,
+            runs_conceded: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 1,
+            balls_bowled: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 19,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -14800,6 +25360,8 @@ export const stats = {
     name_full: "Mohammed Akbar Khan",
     seasons: {
       season_1: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -14820,6 +25382,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -14840,6 +25420,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 25.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 9.0,
+            overs_bowled: 2.0,
+            runs_conceded: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -14852,6 +25452,8 @@ export const stats = {
         total_matches_in_squad: 1,
       },
       season_2: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -14872,6 +25474,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -14892,6 +25512,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -14904,6 +25544,7 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       overall: {
+        played_for_teams: ["Triumph Knights Mumbai North East"],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -14924,6 +25565,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -14944,6 +25603,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 25.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 9.0,
+            overs_bowled: 2.0,
+            runs_conceded: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -14961,6 +25640,8 @@ export const stats = {
     name_full: "Vaibhav Mali",
     seasons: {
       season_1: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -14983,6 +25664,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -15003,6 +25702,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 7.0,
+            overs_bowled: 2.0,
+            runs_conceded: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 1,
+            balls_bowled: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 4,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -15015,6 +25734,8 @@ export const stats = {
         total_matches_in_squad: 1,
       },
       season_2: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -15037,6 +25758,24 @@ export const stats = {
           boundary_percentage: 38.1,
           dot_ball_percentage: 40.0,
           balls_per_boundary: 10.0,
+          highest_strike_rate_innings: {
+            value: 63.64,
+            balls_faced: 11,
+            runs_scored: 7,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -15057,6 +25796,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 37.78,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 4.25,
+            overs_bowled: 4.0,
+            runs_conceded: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 34,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -15069,6 +25828,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["ARCS Andheri", "SoBo SuperSonics"],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -15092,6 +25852,24 @@ export const stats = {
           boundary_percentage: 36.36,
           dot_ball_percentage: 38.1,
           balls_per_boundary: 10.5,
+          highest_strike_rate_innings: {
+            value: 63.64,
+            balls_faced: 11,
+            runs_scored: 7,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -15112,6 +25890,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 37.25,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 4.25,
+            overs_bowled: 4.0,
+            runs_conceded: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 1,
+            balls_bowled: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 34,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -15129,6 +25927,8 @@ export const stats = {
     name_full: "Kaustubh Pawar",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -15149,6 +25949,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -15169,6 +25987,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -15181,6 +26019,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Aakash Tigers MWS",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -15204,6 +26044,24 @@ export const stats = {
           boundary_percentage: 69.23,
           dot_ball_percentage: 48.61,
           balls_per_boundary: 5.54,
+          highest_strike_rate_innings: {
+            value: 113.33,
+            balls_faced: 30,
+            runs_scored: 34,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -15224,6 +26082,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -15236,6 +26114,7 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       overall: {
+        played_for_teams: ["Aakash Tigers MWS"],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -15259,6 +26138,24 @@ export const stats = {
           boundary_percentage: 69.23,
           dot_ball_percentage: 48.61,
           balls_per_boundary: 5.54,
+          highest_strike_rate_innings: {
+            value: 113.33,
+            balls_faced: 30,
+            runs_scored: 34,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -15279,6 +26176,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -15296,6 +26213,8 @@ export const stats = {
     name_full: "Arjun Tendulkar",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -15316,6 +26235,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -15336,6 +26273,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -15348,6 +26305,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Aakash Tigers MWS",
+        played_for_teams: [],
         batting: {
           matches_played: 6,
           innings_batted: 6,
@@ -15371,6 +26330,24 @@ export const stats = {
           boundary_percentage: 59.62,
           dot_ball_percentage: 41.67,
           balls_per_boundary: 6.46,
+          highest_strike_rate_innings: {
+            value: 127.78,
+            balls_faced: 18,
+            runs_scored: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -15391,6 +26368,26 @@ export const stats = {
           wickets_in_do: 3,
           dot_ball_percentage: 23.3,
           extras_per_over: 0.23,
+          best_economy_innings: {
+            value: 5.75,
+            overs_bowled: 4.0,
+            runs_conceded: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 3,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 37,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 7,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -15403,6 +26400,7 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       overall: {
+        played_for_teams: ["Aakash Tigers MWS"],
         batting: {
           matches_played: 6,
           innings_batted: 6,
@@ -15426,6 +26424,24 @@ export const stats = {
           boundary_percentage: 59.62,
           dot_ball_percentage: 41.67,
           balls_per_boundary: 6.46,
+          highest_strike_rate_innings: {
+            value: 127.78,
+            balls_faced: 18,
+            runs_scored: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -15446,6 +26462,26 @@ export const stats = {
           wickets_in_do: 3,
           dot_ball_percentage: 23.3,
           extras_per_over: 0.23,
+          best_economy_innings: {
+            value: 5.75,
+            overs_bowled: 4.0,
+            runs_conceded: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 3,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 37,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 7,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -15463,6 +26499,8 @@ export const stats = {
     name_full: "Nehal Katakdhond",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -15483,6 +26521,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -15503,6 +26559,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -15515,6 +26591,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Aakash Tigers MWS",
+        played_for_teams: [],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -15537,6 +26615,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 61.11,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -15557,6 +26653,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 35.51,
           extras_per_over: 0.09,
+          best_economy_innings: {
+            value: 3.75,
+            overs_bowled: 4.0,
+            runs_conceded: 15,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 35,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -15569,6 +26685,7 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       overall: {
+        played_for_teams: ["Aakash Tigers MWS"],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -15591,6 +26708,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 61.11,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -15611,6 +26746,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 35.51,
           extras_per_over: 0.09,
+          best_economy_innings: {
+            value: 3.75,
+            overs_bowled: 4.0,
+            runs_conceded: 15,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 35,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -15628,6 +26783,8 @@ export const stats = {
     name_full: "Dhawal Kulkarni",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -15648,6 +26805,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -15668,6 +26843,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -15680,6 +26875,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Aakash Tigers MWS",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -15702,6 +26899,25 @@ export const stats = {
           boundary_percentage: 55.0,
           dot_ball_percentage: 20.0,
           balls_per_boundary: 5.0,
+          highest_strike_rate_innings: {
+            value: 183.78,
+            balls_faced: 37,
+            runs_scored: 68,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 37,
+            runs: 68,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -15722,6 +26938,26 @@ export const stats = {
           wickets_in_do: 4,
           dot_ball_percentage: 41.67,
           extras_per_over: 0.29,
+          best_economy_innings: {
+            value: 5.5,
+            overs_bowled: 4.0,
+            runs_conceded: 22,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 24.0,
+            wickets_taken: 1,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 39,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -15734,6 +26970,7 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       overall: {
+        played_for_teams: ["Aakash Tigers MWS"],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -15756,6 +26993,25 @@ export const stats = {
           boundary_percentage: 55.0,
           dot_ball_percentage: 20.0,
           balls_per_boundary: 5.0,
+          highest_strike_rate_innings: {
+            value: 183.78,
+            balls_faced: 37,
+            runs_scored: 68,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 37,
+            match_id: "UNKNOWN_MATCH",
+            runs: 68,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -15776,6 +27032,26 @@ export const stats = {
           wickets_in_do: 4,
           dot_ball_percentage: 41.67,
           extras_per_over: 0.29,
+          best_economy_innings: {
+            value: 5.5,
+            overs_bowled: 4.0,
+            runs_conceded: 22,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 24.0,
+            wickets_taken: 1,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 39,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -15793,6 +27069,8 @@ export const stats = {
     name_full: "Salman Khan",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -15813,6 +27091,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -15833,6 +27129,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -15845,6 +27161,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Aakash Tigers MWS",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -15867,6 +27185,24 @@ export const stats = {
           boundary_percentage: 80.0,
           dot_ball_percentage: 66.67,
           balls_per_boundary: 6.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -15887,6 +27223,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 6.67,
+            overs_bowled: 3.0,
+            runs_conceded: 20,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 36,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -15899,6 +27255,7 @@ export const stats = {
         total_matches_in_squad: 4,
       },
       overall: {
+        played_for_teams: ["Aakash Tigers MWS"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -15921,6 +27278,24 @@ export const stats = {
           boundary_percentage: 80.0,
           dot_ball_percentage: 66.67,
           balls_per_boundary: 6.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -15941,6 +27316,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 6.67,
+            overs_bowled: 3.0,
+            runs_conceded: 20,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 36,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -15958,6 +27353,8 @@ export const stats = {
     name_full: "Sylvester Dsouza",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -15978,6 +27375,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -15998,6 +27413,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -16010,6 +27445,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Aakash Tigers MWS",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -16030,6 +27467,24 @@ export const stats = {
           boundary_percentage: 80.0,
           dot_ball_percentage: 60.0,
           balls_per_boundary: 5.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -16050,6 +27505,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 20.83,
           extras_per_over: 0.12,
+          best_economy_innings: {
+            value: 7.67,
+            overs_bowled: 3.0,
+            runs_conceded: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 9.0,
+            wickets_taken: 2,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 30,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -16062,6 +27537,7 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       overall: {
+        played_for_teams: ["Aakash Tigers MWS"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -16082,6 +27558,24 @@ export const stats = {
           boundary_percentage: 80.0,
           dot_ball_percentage: 60.0,
           balls_per_boundary: 5.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -16102,6 +27596,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 20.83,
           extras_per_over: 0.12,
+          best_economy_innings: {
+            value: 7.67,
+            overs_bowled: 3.0,
+            runs_conceded: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 9.0,
+            wickets_taken: 2,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 30,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -16119,6 +27633,8 @@ export const stats = {
     name_full: "Adeeb Usmani",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -16139,6 +27655,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -16159,6 +27693,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -16171,6 +27725,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -16193,6 +27749,24 @@ export const stats = {
           boundary_percentage: 21.05,
           dot_ball_percentage: 21.05,
           balls_per_boundary: 19.0,
+          highest_strike_rate_innings: {
+            value: 106.67,
+            balls_faced: 15,
+            runs_scored: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -16213,6 +27787,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -16225,6 +27819,7 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       overall: {
+        played_for_teams: ["SoBo SuperSonics"],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -16247,6 +27842,24 @@ export const stats = {
           boundary_percentage: 21.05,
           dot_ball_percentage: 21.05,
           balls_per_boundary: 19.0,
+          highest_strike_rate_innings: {
+            value: 106.67,
+            balls_faced: 15,
+            runs_scored: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -16267,6 +27880,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -16284,6 +27917,8 @@ export const stats = {
     name_full: "Khizer Dafedar",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -16304,6 +27939,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -16324,6 +27977,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -16336,6 +28009,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -16359,6 +28034,24 @@ export const stats = {
           boundary_percentage: 61.02,
           dot_ball_percentage: 38.64,
           balls_per_boundary: 6.29,
+          highest_strike_rate_innings: {
+            value: 183.33,
+            balls_faced: 18,
+            runs_scored: 33,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -16379,6 +28072,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 28.95,
           extras_per_over: 0.16,
+          best_economy_innings: {
+            value: 3.75,
+            overs_bowled: 4.0,
+            runs_conceded: 15,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 40,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -16391,6 +28104,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["SoBo SuperSonics"],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -16414,6 +28128,24 @@ export const stats = {
           boundary_percentage: 61.02,
           dot_ball_percentage: 38.64,
           balls_per_boundary: 6.29,
+          highest_strike_rate_innings: {
+            value: 183.33,
+            balls_faced: 18,
+            runs_scored: 33,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -16434,6 +28166,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 28.95,
           extras_per_over: 0.16,
+          best_economy_innings: {
+            value: 3.75,
+            overs_bowled: 4.0,
+            runs_conceded: 15,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 40,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -16451,6 +28203,8 @@ export const stats = {
     name_full: "Onkar Jadhav",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -16471,6 +28225,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -16491,6 +28263,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -16503,6 +28295,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -16526,6 +28320,24 @@ export const stats = {
           boundary_percentage: 50.0,
           dot_ball_percentage: 52.63,
           balls_per_boundary: 9.5,
+          highest_strike_rate_innings: {
+            value: 100.0,
+            balls_faced: 16,
+            runs_scored: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -16546,6 +28358,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -16558,6 +28390,7 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       overall: {
+        played_for_teams: ["Shivaji Park Lions"],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -16581,6 +28414,24 @@ export const stats = {
           boundary_percentage: 50.0,
           dot_ball_percentage: 52.63,
           balls_per_boundary: 9.5,
+          highest_strike_rate_innings: {
+            value: 100.0,
+            balls_faced: 16,
+            runs_scored: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -16601,6 +28452,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -16618,6 +28489,8 @@ export const stats = {
     name_full: "Nikhil Patil",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -16638,6 +28511,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -16658,6 +28549,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -16670,6 +28581,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -16693,6 +28606,24 @@ export const stats = {
           boundary_percentage: 52.63,
           dot_ball_percentage: 37.25,
           balls_per_boundary: 8.5,
+          highest_strike_rate_innings: {
+            value: 148.0,
+            balls_faced: 25,
+            runs_scored: 37,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -16713,6 +28644,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -16725,6 +28676,7 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       overall: {
+        played_for_teams: ["Shivaji Park Lions"],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -16748,6 +28700,24 @@ export const stats = {
           boundary_percentage: 52.63,
           dot_ball_percentage: 37.25,
           balls_per_boundary: 8.5,
+          highest_strike_rate_innings: {
+            value: 148.0,
+            balls_faced: 25,
+            runs_scored: 37,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -16768,6 +28738,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -16785,6 +28775,8 @@ export const stats = {
     name_full: "Manan Khakhar",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -16805,6 +28797,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -16825,6 +28835,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -16837,6 +28867,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -16859,6 +28891,24 @@ export const stats = {
           boundary_percentage: 55.56,
           dot_ball_percentage: 34.48,
           balls_per_boundary: 7.25,
+          highest_strike_rate_innings: {
+            value: 127.78,
+            balls_faced: 18,
+            runs_scored: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -16879,6 +28929,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 6.5,
+            overs_bowled: 2.0,
+            runs_conceded: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 1,
+            balls_bowled: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -16891,6 +28961,7 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       overall: {
+        played_for_teams: ["Shivaji Park Lions"],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -16913,6 +28984,24 @@ export const stats = {
           boundary_percentage: 55.56,
           dot_ball_percentage: 34.48,
           balls_per_boundary: 7.25,
+          highest_strike_rate_innings: {
+            value: 127.78,
+            balls_faced: 18,
+            runs_scored: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -16933,6 +29022,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 6.5,
+            overs_bowled: 2.0,
+            runs_conceded: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 1,
+            balls_bowled: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -16950,6 +29059,8 @@ export const stats = {
     name_full: "Jai Kothari",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -16970,6 +29081,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -16990,6 +29119,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -17002,6 +29151,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -17022,6 +29173,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -17042,6 +29211,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 44.44,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 7.0,
+            overs_bowled: 3.0,
+            runs_conceded: 21,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 21,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 8,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -17054,6 +29243,7 @@ export const stats = {
         total_matches_in_squad: 1,
       },
       overall: {
+        played_for_teams: ["Shivaji Park Lions"],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -17074,6 +29264,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -17094,6 +29302,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 44.44,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 7.0,
+            overs_bowled: 3.0,
+            runs_conceded: 21,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 21,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 8,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -17111,6 +29339,8 @@ export const stats = {
     name_full: "Suryansh Shedge",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -17131,6 +29361,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -17151,6 +29399,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -17163,6 +29431,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Aakash Tigers MWS",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -17185,6 +29455,24 @@ export const stats = {
           boundary_percentage: 43.24,
           dot_ball_percentage: 26.67,
           balls_per_boundary: 7.5,
+          highest_strike_rate_innings: {
+            value: 112.5,
+            balls_faced: 24,
+            runs_scored: 27,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -17205,6 +29493,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -17217,6 +29525,7 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       overall: {
+        played_for_teams: ["Aakash Tigers MWS"],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -17239,6 +29548,24 @@ export const stats = {
           boundary_percentage: 43.24,
           dot_ball_percentage: 26.67,
           balls_per_boundary: 7.5,
+          highest_strike_rate_innings: {
+            value: 112.5,
+            balls_faced: 24,
+            runs_scored: 27,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -17259,6 +29586,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -17276,6 +29623,8 @@ export const stats = {
     name_full: "Ajay Pandey",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -17296,6 +29645,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -17316,6 +29683,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -17328,6 +29715,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Aakash Tigers MWS",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -17348,6 +29737,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -17368,6 +29775,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -17380,6 +29807,7 @@ export const stats = {
         total_matches_in_squad: 1,
       },
       overall: {
+        played_for_teams: ["Aakash Tigers MWS"],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -17400,6 +29828,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -17420,6 +29866,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -17437,6 +29903,8 @@ export const stats = {
     name_full: "Yash Malap",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -17457,6 +29925,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -17477,6 +29963,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -17489,6 +29995,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -17509,6 +30017,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -17529,6 +30055,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 36.11,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 7.25,
+            overs_bowled: 4.0,
+            runs_conceded: 29,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 1,
+            balls_bowled: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 29,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -17541,6 +30087,7 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       overall: {
+        played_for_teams: ["NaMo Bandra Blasters"],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -17561,6 +30108,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -17581,6 +30146,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 36.11,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 7.25,
+            overs_bowled: 4.0,
+            runs_conceded: 29,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 1,
+            balls_bowled: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 29,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -17598,6 +30183,8 @@ export const stats = {
     name_full: "Nikhil Date",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -17618,6 +30205,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -17638,6 +30243,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -17650,6 +30275,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -17670,6 +30297,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -17690,6 +30335,26 @@ export const stats = {
           wickets_in_do: 3,
           dot_ball_percentage: 29.41,
           extras_per_over: 0.29,
+          best_economy_innings: {
+            value: 7.25,
+            overs_bowled: 4.0,
+            runs_conceded: 29,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 50,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -17702,6 +30367,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["NaMo Bandra Blasters"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -17722,6 +30388,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -17742,6 +30426,26 @@ export const stats = {
           wickets_in_do: 3,
           dot_ball_percentage: 29.41,
           extras_per_over: 0.29,
+          best_economy_innings: {
+            value: 7.25,
+            overs_bowled: 4.0,
+            runs_conceded: 29,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 50,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -17759,6 +30463,8 @@ export const stats = {
     name_full: "Rudra Dhanday",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -17779,6 +30485,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -17799,6 +30523,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -17811,6 +30555,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -17835,6 +30581,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 43.75,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -17855,6 +30619,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -17867,6 +30651,7 @@ export const stats = {
         total_matches_in_squad: 4,
       },
       overall: {
+        played_for_teams: ["Shivaji Park Lions"],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -17891,6 +30676,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 43.75,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -17911,6 +30714,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -17928,6 +30751,8 @@ export const stats = {
     name_full: "Swapnil Pradhan",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -17948,6 +30773,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -17968,6 +30811,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -17980,6 +30843,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -18003,6 +30868,24 @@ export const stats = {
           boundary_percentage: 64.15,
           dot_ball_percentage: 56.86,
           balls_per_boundary: 6.38,
+          highest_strike_rate_innings: {
+            value: 133.33,
+            balls_faced: 33,
+            runs_scored: 44,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -18023,6 +30906,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -18035,6 +30938,7 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       overall: {
+        played_for_teams: ["Shivaji Park Lions"],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -18058,6 +30962,24 @@ export const stats = {
           boundary_percentage: 64.15,
           dot_ball_percentage: 56.86,
           balls_per_boundary: 6.38,
+          highest_strike_rate_innings: {
+            value: 133.33,
+            balls_faced: 33,
+            runs_scored: 44,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -18078,6 +31000,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -18095,6 +31037,8 @@ export const stats = {
     name_full: "Vikrant Auti",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -18115,6 +31059,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -18135,6 +31097,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -18147,6 +31129,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 7,
           innings_batted: 7,
@@ -18171,6 +31155,25 @@ export const stats = {
           boundary_percentage: 52.83,
           dot_ball_percentage: 33.83,
           balls_per_boundary: 6.65,
+          highest_strike_rate_innings: {
+            value: 140.54,
+            balls_faced: 37,
+            runs_scored: 52,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 37,
+            runs: 52,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -18191,6 +31194,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 27.78,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 6.0,
+            overs_bowled: 3.0,
+            runs_conceded: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -18203,6 +31226,7 @@ export const stats = {
         total_matches_in_squad: 7,
       },
       overall: {
+        played_for_teams: ["North Mumbai Panthers"],
         batting: {
           matches_played: 7,
           innings_batted: 7,
@@ -18227,6 +31251,25 @@ export const stats = {
           boundary_percentage: 52.83,
           dot_ball_percentage: 33.83,
           balls_per_boundary: 6.65,
+          highest_strike_rate_innings: {
+            value: 140.54,
+            balls_faced: 37,
+            runs_scored: 52,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 37,
+            match_id: "UNKNOWN_MATCH",
+            runs: 52,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -18247,6 +31290,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 27.78,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 6.0,
+            overs_bowled: 3.0,
+            runs_conceded: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -18264,6 +31327,8 @@ export const stats = {
     name_full: "Karan Nande",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -18284,6 +31349,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -18304,6 +31387,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -18316,6 +31419,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 6,
           innings_batted: 6,
@@ -18340,6 +31445,25 @@ export const stats = {
           boundary_percentage: 45.67,
           dot_ball_percentage: 22.22,
           balls_per_boundary: 6.43,
+          highest_strike_rate_innings: {
+            value: 217.39,
+            balls_faced: 23,
+            runs_scored: 50,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 23,
+            runs: 50,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -18360,6 +31484,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 16.67,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 13.0,
+            overs_bowled: 1.0,
+            runs_conceded: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -18372,6 +31516,7 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       overall: {
+        played_for_teams: ["North Mumbai Panthers"],
         batting: {
           matches_played: 6,
           innings_batted: 6,
@@ -18396,6 +31541,25 @@ export const stats = {
           boundary_percentage: 45.67,
           dot_ball_percentage: 22.22,
           balls_per_boundary: 6.43,
+          highest_strike_rate_innings: {
+            value: 217.39,
+            balls_faced: 23,
+            runs_scored: 50,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 23,
+            match_id: "UNKNOWN_MATCH",
+            runs: 50,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -18416,6 +31580,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 16.67,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 13.0,
+            overs_bowled: 1.0,
+            runs_conceded: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -18433,6 +31617,8 @@ export const stats = {
     name_full: "Prathamesh Dake",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -18453,6 +31639,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -18473,6 +31677,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -18485,6 +31709,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -18505,6 +31731,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 66.67,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -18525,6 +31769,26 @@ export const stats = {
           wickets_in_do: 4,
           dot_ball_percentage: 38.89,
           extras_per_over: 0.46,
+          best_economy_innings: {
+            value: 4.25,
+            overs_bowled: 4.0,
+            runs_conceded: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 41,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -18537,6 +31801,7 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       overall: {
+        played_for_teams: ["North Mumbai Panthers"],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -18557,6 +31822,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 66.67,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -18577,6 +31860,26 @@ export const stats = {
           wickets_in_do: 4,
           dot_ball_percentage: 38.89,
           extras_per_over: 0.46,
+          best_economy_innings: {
+            value: 4.25,
+            overs_bowled: 4.0,
+            runs_conceded: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 41,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -18594,6 +31897,8 @@ export const stats = {
     name_full: "Moondeep Mangela",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -18614,6 +31919,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -18634,6 +31957,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -18646,6 +31989,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -18668,6 +32013,24 @@ export const stats = {
           boundary_percentage: 70.59,
           dot_ball_percentage: 11.11,
           balls_per_boundary: 3.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -18688,6 +32051,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 28.57,
           extras_per_over: 0.29,
+          best_economy_innings: {
+            value: 7.75,
+            overs_bowled: 4.0,
+            runs_conceded: 31,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 31,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 8,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -18700,6 +32083,7 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       overall: {
+        played_for_teams: ["North Mumbai Panthers"],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -18722,6 +32106,24 @@ export const stats = {
           boundary_percentage: 70.59,
           dot_ball_percentage: 11.11,
           balls_per_boundary: 3.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -18742,6 +32144,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 28.57,
           extras_per_over: 0.29,
+          best_economy_innings: {
+            value: 7.75,
+            overs_bowled: 4.0,
+            runs_conceded: 31,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 31,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 8,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -18759,6 +32181,8 @@ export const stats = {
     name_full: "Rahul Sawant",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -18779,6 +32203,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -18799,6 +32241,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -18811,6 +32273,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -18833,6 +32297,24 @@ export const stats = {
           boundary_percentage: 50.0,
           dot_ball_percentage: 42.86,
           balls_per_boundary: 7.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -18853,6 +32335,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 43.48,
           extras_per_over: 0.22,
+          best_economy_innings: {
+            value: 3.75,
+            overs_bowled: 4.0,
+            runs_conceded: 15,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 15,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -18865,6 +32367,7 @@ export const stats = {
         total_matches_in_squad: 6,
       },
       overall: {
+        played_for_teams: ["North Mumbai Panthers"],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -18887,6 +32390,24 @@ export const stats = {
           boundary_percentage: 50.0,
           dot_ball_percentage: 42.86,
           balls_per_boundary: 7.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 6,
@@ -18907,6 +32428,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 43.48,
           extras_per_over: 0.22,
+          best_economy_innings: {
+            value: 3.75,
+            overs_bowled: 4.0,
+            runs_conceded: 15,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 15,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -18924,6 +32465,8 @@ export const stats = {
     name_full: "Sagar Chhabria",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -18944,6 +32487,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -18964,6 +32525,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -18976,6 +32557,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -18998,6 +32581,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 75.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -19018,6 +32619,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 14.0,
+            overs_bowled: 1.0,
+            runs_conceded: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -19030,6 +32651,7 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       overall: {
+        played_for_teams: ["NaMo Bandra Blasters"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -19052,6 +32674,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 75.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -19072,6 +32712,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 14.0,
+            overs_bowled: 1.0,
+            runs_conceded: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -19089,6 +32749,8 @@ export const stats = {
     name_full: "Saksham Jha",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -19109,6 +32771,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -19129,6 +32809,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -19141,6 +32841,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -19161,6 +32863,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 100.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -19181,6 +32901,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 30.0,
           extras_per_over: 0.4,
+          best_economy_innings: {
+            value: 7.33,
+            overs_bowled: 3.0,
+            runs_conceded: 22,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 27,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -19193,6 +32933,7 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       overall: {
+        played_for_teams: ["NaMo Bandra Blasters"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -19213,6 +32954,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 100.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -19233,6 +32992,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 30.0,
           extras_per_over: 0.4,
+          best_economy_innings: {
+            value: 7.33,
+            overs_bowled: 3.0,
+            runs_conceded: 22,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 27,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -19250,6 +33029,8 @@ export const stats = {
     name_full: "Uzair Khan",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -19270,6 +33051,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -19290,6 +33089,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -19302,6 +33121,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "NaMo Bandra Blasters",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -19322,6 +33143,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -19342,6 +33181,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 16.67,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 14.0,
+            overs_bowled: 1.0,
+            runs_conceded: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -19354,6 +33213,7 @@ export const stats = {
         total_matches_in_squad: 1,
       },
       overall: {
+        played_for_teams: ["NaMo Bandra Blasters"],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -19374,6 +33234,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -19394,6 +33272,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 16.67,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 14.0,
+            overs_bowled: 1.0,
+            runs_conceded: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -19411,6 +33309,8 @@ export const stats = {
     name_full: "Aditya Tare",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -19431,6 +33331,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -19451,6 +33369,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -19463,6 +33401,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Eagle Thane Strikers",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -19487,6 +33427,25 @@ export const stats = {
           boundary_percentage: 58.2,
           dot_ball_percentage: 31.25,
           balls_per_boundary: 5.18,
+          highest_strike_rate_innings: {
+            value: 185.19,
+            balls_faced: 27,
+            runs_scored: 50,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 27,
+            runs: 50,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -19507,6 +33466,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -19519,6 +33498,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["Eagle Thane Strikers"],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -19543,6 +33523,25 @@ export const stats = {
           boundary_percentage: 58.2,
           dot_ball_percentage: 31.25,
           balls_per_boundary: 5.18,
+          highest_strike_rate_innings: {
+            value: 185.19,
+            balls_faced: 27,
+            runs_scored: 50,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 27,
+            match_id: "UNKNOWN_MATCH",
+            runs: 50,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -19563,6 +33562,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 4,
@@ -19580,6 +33599,8 @@ export const stats = {
     name_full: "Jaideep Pardeshi",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -19600,6 +33621,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -19620,6 +33659,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -19632,6 +33691,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Eagle Thane Strikers",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -19654,6 +33715,24 @@ export const stats = {
           boundary_percentage: 57.14,
           dot_ball_percentage: 60.0,
           balls_per_boundary: 10.0,
+          highest_strike_rate_innings: {
+            value: 72.22,
+            balls_faced: 18,
+            runs_scored: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -19674,6 +33753,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -19686,6 +33785,7 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       overall: {
+        played_for_teams: ["Eagle Thane Strikers"],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -19708,6 +33808,24 @@ export const stats = {
           boundary_percentage: 57.14,
           dot_ball_percentage: 60.0,
           balls_per_boundary: 10.0,
+          highest_strike_rate_innings: {
+            value: 72.22,
+            balls_faced: 18,
+            runs_scored: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -19728,6 +33846,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -19745,6 +33883,8 @@ export const stats = {
     name_full: "Sachin Wagh",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -19765,6 +33905,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -19785,6 +33943,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -19797,6 +33975,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Eagle Thane Strikers",
+        played_for_teams: [],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -19819,6 +33999,24 @@ export const stats = {
           boundary_percentage: 44.44,
           dot_ball_percentage: 70.0,
           balls_per_boundary: 20.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -19839,6 +34037,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -19851,6 +34069,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["Eagle Thane Strikers"],
         batting: {
           matches_played: 5,
           innings_batted: 5,
@@ -19873,6 +34092,24 @@ export const stats = {
           boundary_percentage: 44.44,
           dot_ball_percentage: 70.0,
           balls_per_boundary: 20.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -19893,6 +34130,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -19910,6 +34167,8 @@ export const stats = {
     name_full: "Shrikant Limbole",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -19930,6 +34189,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -19950,6 +34227,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -19962,6 +34259,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Eagle Thane Strikers",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -19984,6 +34283,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 66.67,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -20004,6 +34321,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -20016,6 +34353,7 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       overall: {
+        played_for_teams: ["Eagle Thane Strikers"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -20038,6 +34376,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 66.67,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -20058,6 +34414,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -20075,6 +34451,8 @@ export const stats = {
     name_full: "Sagar Mishra",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -20095,6 +34473,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -20115,6 +34511,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -20127,6 +34543,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Eagle Thane Strikers",
+        played_for_teams: [],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -20151,6 +34569,24 @@ export const stats = {
           boundary_percentage: 56.67,
           dot_ball_percentage: 50.0,
           balls_per_boundary: 8.0,
+          highest_strike_rate_innings: {
+            value: 146.67,
+            balls_faced: 15,
+            runs_scored: 22,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -20171,6 +34607,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 32.46,
           extras_per_over: 0.05,
+          best_economy_innings: {
+            value: 6.0,
+            overs_bowled: 4.0,
+            runs_conceded: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 26,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -20183,6 +34639,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["Eagle Thane Strikers"],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -20207,6 +34664,24 @@ export const stats = {
           boundary_percentage: 56.67,
           dot_ball_percentage: 50.0,
           balls_per_boundary: 8.0,
+          highest_strike_rate_innings: {
+            value: 146.67,
+            balls_faced: 15,
+            runs_scored: 22,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -20227,6 +34702,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 32.46,
           extras_per_over: 0.05,
+          best_economy_innings: {
+            value: 6.0,
+            overs_bowled: 4.0,
+            runs_conceded: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 26,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -20244,6 +34739,8 @@ export const stats = {
     name_full: "Ankush Jaiswal",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -20264,6 +34761,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -20284,6 +34799,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -20296,6 +34831,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Eagle Thane Strikers",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -20318,6 +34855,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 60.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -20338,6 +34893,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 27.78,
           extras_per_over: 0.11,
+          best_economy_innings: {
+            value: 4.75,
+            overs_bowled: 4.0,
+            runs_conceded: 19,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 38,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -20350,6 +34925,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["Eagle Thane Strikers"],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -20372,6 +34948,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 60.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -20392,6 +34986,26 @@ export const stats = {
           wickets_in_do: 2,
           dot_ball_percentage: 27.78,
           extras_per_over: 0.11,
+          best_economy_innings: {
+            value: 4.75,
+            overs_bowled: 4.0,
+            runs_conceded: 19,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 38,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 3,
@@ -20409,6 +35023,8 @@ export const stats = {
     name_full: "Prashant Solanki",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -20429,6 +35045,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -20449,6 +35083,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -20461,6 +35115,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Eagle Thane Strikers",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -20481,6 +35137,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 66.67,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -20501,6 +35175,26 @@ export const stats = {
           wickets_in_do: 3,
           dot_ball_percentage: 30.95,
           extras_per_over: 0.14,
+          best_economy_innings: {
+            value: 6.33,
+            overs_bowled: 3.0,
+            runs_conceded: 19,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 4,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 31,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 7,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -20513,6 +35207,7 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       overall: {
+        played_for_teams: ["Eagle Thane Strikers"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -20533,6 +35228,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 66.67,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -20553,6 +35266,26 @@ export const stats = {
           wickets_in_do: 3,
           dot_ball_percentage: 30.95,
           extras_per_over: 0.14,
+          best_economy_innings: {
+            value: 6.33,
+            overs_bowled: 3.0,
+            runs_conceded: 19,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 4,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 31,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 7,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -20570,6 +35303,8 @@ export const stats = {
     name_full: "Kruthik Hanagavadi",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -20590,6 +35325,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -20610,6 +35363,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -20622,6 +35395,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Eagle Thane Strikers",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -20642,6 +35417,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -20662,6 +35455,26 @@ export const stats = {
           wickets_in_do: 5,
           dot_ball_percentage: 41.23,
           extras_per_over: 0.26,
+          best_economy_innings: {
+            value: 4.25,
+            overs_bowled: 4.0,
+            runs_conceded: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 41,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -20674,6 +35487,7 @@ export const stats = {
         total_matches_in_squad: 5,
       },
       overall: {
+        played_for_teams: ["Eagle Thane Strikers"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -20694,6 +35508,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 5,
@@ -20714,6 +35546,26 @@ export const stats = {
           wickets_in_do: 5,
           dot_ball_percentage: 41.23,
           extras_per_over: 0.26,
+          best_economy_innings: {
+            value: 4.25,
+            overs_bowled: 4.0,
+            runs_conceded: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 41,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -20731,6 +35583,8 @@ export const stats = {
     name_full: "Japjeet Randhawa",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -20751,6 +35605,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -20771,6 +35643,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -20783,6 +35675,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -20805,6 +35699,24 @@ export const stats = {
           boundary_percentage: 51.85,
           dot_ball_percentage: 42.31,
           balls_per_boundary: 8.67,
+          highest_strike_rate_innings: {
+            value: 108.0,
+            balls_faced: 25,
+            runs_scored: 27,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -20825,6 +35737,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -20837,6 +35769,7 @@ export const stats = {
         total_matches_in_squad: 4,
       },
       overall: {
+        played_for_teams: ["SoBo SuperSonics"],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -20859,6 +35792,24 @@ export const stats = {
           boundary_percentage: 51.85,
           dot_ball_percentage: 42.31,
           balls_per_boundary: 8.67,
+          highest_strike_rate_innings: {
+            value: 108.0,
+            balls_faced: 25,
+            runs_scored: 27,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -20879,6 +35830,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -20896,6 +35867,8 @@ export const stats = {
     name_full: "Salil Agharkar",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -20916,6 +35889,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -20936,6 +35927,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -20948,6 +35959,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -20970,6 +35983,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 66.67,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -20990,6 +36021,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 38.46,
           extras_per_over: 0.08,
+          best_economy_innings: {
+            value: 6.0,
+            overs_bowled: 4.0,
+            runs_conceded: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 27,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -21002,6 +36053,7 @@ export const stats = {
         total_matches_in_squad: 4,
       },
       overall: {
+        played_for_teams: ["ARCS Andheri"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -21024,6 +36076,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 66.67,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 4,
@@ -21044,6 +36114,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 38.46,
           extras_per_over: 0.08,
+          best_economy_innings: {
+            value: 6.0,
+            overs_bowled: 4.0,
+            runs_conceded: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 27,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -21061,6 +36151,8 @@ export const stats = {
     name_full: "Karan Shah",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -21081,6 +36173,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -21101,6 +36211,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -21113,6 +36243,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -21137,6 +36269,24 @@ export const stats = {
           boundary_percentage: 64.71,
           dot_ball_percentage: 53.12,
           balls_per_boundary: 6.4,
+          highest_strike_rate_innings: {
+            value: 123.08,
+            balls_faced: 13,
+            runs_scored: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -21157,6 +36307,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -21169,6 +36339,7 @@ export const stats = {
         total_matches_in_squad: 4,
       },
       overall: {
+        played_for_teams: ["Triumph Knights Mumbai North East"],
         batting: {
           matches_played: 4,
           innings_batted: 4,
@@ -21193,6 +36364,24 @@ export const stats = {
           boundary_percentage: 64.71,
           dot_ball_percentage: 53.12,
           balls_per_boundary: 6.4,
+          highest_strike_rate_innings: {
+            value: 123.08,
+            balls_faced: 13,
+            runs_scored: 16,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -21213,6 +36402,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -21230,6 +36439,8 @@ export const stats = {
     name_full: "Puneet Tripathi",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -21250,6 +36461,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -21270,6 +36499,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -21282,6 +36531,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -21305,6 +36556,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 25.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -21325,6 +36594,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 50.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 3.0,
+            overs_bowled: 1.0,
+            runs_conceded: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -21337,6 +36626,7 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       overall: {
+        played_for_teams: ["Triumph Knights Mumbai North East"],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -21360,6 +36650,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 25.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -21380,6 +36688,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 50.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 3.0,
+            overs_bowled: 1.0,
+            runs_conceded: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -21397,6 +36725,8 @@ export const stats = {
     name_full: "Karan More",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -21417,6 +36747,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -21437,6 +36785,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -21449,6 +36817,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -21472,6 +36842,25 @@ export const stats = {
           boundary_percentage: 46.6,
           dot_ball_percentage: 21.79,
           balls_per_boundary: 6.5,
+          highest_strike_rate_innings: {
+            value: 157.14,
+            balls_faced: 35,
+            runs_scored: 55,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: 35,
+            runs: 55,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -21492,6 +36881,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -21504,6 +36913,7 @@ export const stats = {
         total_matches_in_squad: 4,
       },
       overall: {
+        played_for_teams: ["Triumph Knights Mumbai North East"],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -21527,6 +36937,25 @@ export const stats = {
           boundary_percentage: 46.6,
           dot_ball_percentage: 21.79,
           balls_per_boundary: 6.5,
+          highest_strike_rate_innings: {
+            value: 157.14,
+            balls_faced: 35,
+            runs_scored: 55,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: 35,
+            match_id: "UNKNOWN_MATCH",
+            runs: 55,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -21547,6 +36976,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -21564,6 +37013,8 @@ export const stats = {
     name_full: "Yash Dicholkar",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -21584,6 +37035,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -21604,6 +37073,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -21616,6 +37105,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -21636,6 +37127,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -21656,6 +37165,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 48.61,
           extras_per_over: 0.17,
+          best_economy_innings: {
+            value: 6.25,
+            overs_bowled: 4.0,
+            runs_conceded: 25,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 25,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -21668,6 +37197,7 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       overall: {
+        played_for_teams: ["Triumph Knights Mumbai North East"],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -21688,6 +37218,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -21708,6 +37256,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 48.61,
           extras_per_over: 0.17,
+          best_economy_innings: {
+            value: 6.25,
+            overs_bowled: 4.0,
+            runs_conceded: 25,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 25,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -21725,6 +37293,8 @@ export const stats = {
     name_full: "Mohit Avasthi",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -21745,6 +37315,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -21765,6 +37353,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -21777,6 +37385,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -21797,6 +37407,24 @@ export const stats = {
           boundary_percentage: 61.54,
           dot_ball_percentage: 30.0,
           balls_per_boundary: 5.0,
+          highest_strike_rate_innings: {
+            value: 130.0,
+            balls_faced: 10,
+            runs_scored: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -21817,6 +37445,26 @@ export const stats = {
           wickets_in_do: 3,
           dot_ball_percentage: 44.44,
           extras_per_over: 0.25,
+          best_economy_innings: {
+            value: 4.25,
+            overs_bowled: 4.0,
+            runs_conceded: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 39,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 15,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -21829,6 +37477,7 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       overall: {
+        played_for_teams: ["Triumph Knights Mumbai North East"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -21849,6 +37498,24 @@ export const stats = {
           boundary_percentage: 61.54,
           dot_ball_percentage: 30.0,
           balls_per_boundary: 5.0,
+          highest_strike_rate_innings: {
+            value: 130.0,
+            balls_faced: 10,
+            runs_scored: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -21869,6 +37536,26 @@ export const stats = {
           wickets_in_do: 3,
           dot_ball_percentage: 44.44,
           extras_per_over: 0.25,
+          best_economy_innings: {
+            value: 4.25,
+            overs_bowled: 4.0,
+            runs_conceded: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 8.0,
+            wickets_taken: 3,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 39,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 15,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -21886,6 +37573,8 @@ export const stats = {
     name_full: "Kaushik Chikhalikar",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -21906,6 +37595,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -21926,6 +37633,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -21938,6 +37665,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Eagle Thane Strikers",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -21961,6 +37690,25 @@ export const stats = {
           boundary_percentage: 58.06,
           dot_ball_percentage: 42.59,
           balls_per_boundary: 6.75,
+          highest_strike_rate_innings: {
+            value: 136.59,
+            balls_faced: 41,
+            runs_scored: 56,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 41,
+            runs: 56,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -21981,6 +37729,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -21993,6 +37761,7 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       overall: {
+        played_for_teams: ["Eagle Thane Strikers"],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -22016,6 +37785,25 @@ export const stats = {
           boundary_percentage: 58.06,
           dot_ball_percentage: 42.59,
           balls_per_boundary: 6.75,
+          highest_strike_rate_innings: {
+            value: 136.59,
+            balls_faced: 41,
+            runs_scored: 56,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 41,
+            match_id: "UNKNOWN_MATCH",
+            runs: 56,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -22036,6 +37824,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -22053,6 +37861,8 @@ export const stats = {
     name_full: "Sarfaraz Khan",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -22073,6 +37883,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -22093,6 +37921,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -22105,6 +37953,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Eagle Thane Strikers",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -22128,6 +37978,25 @@ export const stats = {
           boundary_percentage: 53.33,
           dot_ball_percentage: 30.51,
           balls_per_boundary: 6.56,
+          highest_strike_rate_innings: {
+            value: 116.33,
+            balls_faced: 49,
+            runs_scored: 57,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 49,
+            runs: 57,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -22148,6 +38017,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 16.67,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 11.0,
+            overs_bowled: 1.0,
+            runs_conceded: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 1,
+            balls_bowled: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -22160,6 +38049,7 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       overall: {
+        played_for_teams: ["Eagle Thane Strikers"],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -22183,6 +38073,25 @@ export const stats = {
           boundary_percentage: 53.33,
           dot_ball_percentage: 30.51,
           balls_per_boundary: 6.56,
+          highest_strike_rate_innings: {
+            value: 116.33,
+            balls_faced: 49,
+            runs_scored: 57,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: 49,
+            match_id: "UNKNOWN_MATCH",
+            runs: 57,
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -22203,6 +38112,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 16.67,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 11.0,
+            overs_bowled: 1.0,
+            runs_conceded: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 1,
+            balls_bowled: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -22220,6 +38149,8 @@ export const stats = {
     name_full: "Siddhant Singh",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -22240,6 +38171,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -22260,6 +38209,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -22272,6 +38241,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Eagle Thane Strikers",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -22294,6 +38265,24 @@ export const stats = {
           boundary_percentage: 40.0,
           dot_ball_percentage: 60.0,
           balls_per_boundary: 15.0,
+          highest_strike_rate_innings: {
+            value: 66.67,
+            balls_faced: 15,
+            runs_scored: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -22314,6 +38303,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 4.0,
+            overs_bowled: 1.0,
+            runs_conceded: 4,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 4,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -22326,6 +38335,7 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       overall: {
+        played_for_teams: ["Eagle Thane Strikers"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -22348,6 +38358,24 @@ export const stats = {
           boundary_percentage: 40.0,
           dot_ball_percentage: 60.0,
           balls_per_boundary: 15.0,
+          highest_strike_rate_innings: {
+            value: 66.67,
+            balls_faced: 15,
+            runs_scored: 10,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -22368,6 +38396,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 4.0,
+            overs_bowled: 1.0,
+            runs_conceded: 4,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 4,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -22385,6 +38433,8 @@ export const stats = {
     name_full: "Shashank Attarde",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -22405,6 +38455,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -22425,6 +38493,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -22437,6 +38525,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -22457,6 +38547,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 25.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -22477,6 +38585,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.14,
+          best_economy_innings: {
+            value: 5.5,
+            overs_bowled: 2.0,
+            runs_conceded: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 1,
+            balls_bowled: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 7,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -22489,6 +38617,7 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       overall: {
+        played_for_teams: ["SoBo SuperSonics"],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -22509,6 +38638,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 25.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 3,
@@ -22529,6 +38676,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.14,
+          best_economy_innings: {
+            value: 5.5,
+            overs_bowled: 2.0,
+            runs_conceded: 11,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 1,
+            balls_bowled: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 23,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 7,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -22546,6 +38713,8 @@ export const stats = {
     name_full: "Ajinkya Patil",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -22566,6 +38735,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -22586,6 +38773,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -22598,6 +38805,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -22620,6 +38829,24 @@ export const stats = {
           boundary_percentage: 46.15,
           dot_ball_percentage: 48.28,
           balls_per_boundary: 9.67,
+          highest_strike_rate_innings: {
+            value: 88.89,
+            balls_faced: 27,
+            runs_scored: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -22640,6 +38867,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -22652,6 +38899,7 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       overall: {
+        played_for_teams: ["North Mumbai Panthers"],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -22674,6 +38922,24 @@ export const stats = {
           boundary_percentage: 46.15,
           dot_ball_percentage: 48.28,
           balls_per_boundary: 9.67,
+          highest_strike_rate_innings: {
+            value: 88.89,
+            balls_faced: 27,
+            runs_scored: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -22694,6 +38960,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -22711,6 +38997,8 @@ export const stats = {
     name_full: "Vishal Dhagaonkar",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -22731,6 +39019,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -22751,6 +39057,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -22763,6 +39089,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -22786,6 +39114,24 @@ export const stats = {
           boundary_percentage: 68.0,
           dot_ball_percentage: 38.24,
           balls_per_boundary: 4.86,
+          highest_strike_rate_innings: {
+            value: 176.92,
+            balls_faced: 26,
+            runs_scored: 46,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -22806,6 +39152,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -22818,6 +39184,7 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       overall: {
+        played_for_teams: ["North Mumbai Panthers"],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -22841,6 +39208,24 @@ export const stats = {
           boundary_percentage: 68.0,
           dot_ball_percentage: 38.24,
           balls_per_boundary: 4.86,
+          highest_strike_rate_innings: {
+            value: 176.92,
+            balls_faced: 26,
+            runs_scored: 46,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 3,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -22861,6 +39246,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -22878,6 +39283,8 @@ export const stats = {
     name_full: "Prasad Patil",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -22898,6 +39305,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -22918,6 +39343,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -22930,6 +39375,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -22950,6 +39397,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 25.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -22970,6 +39435,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 50.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 6.0,
+            overs_bowled: 4.0,
+            runs_conceded: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 27,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -22982,6 +39467,7 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       overall: {
+        played_for_teams: ["Triumph Knights Mumbai North East"],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -23002,6 +39488,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 25.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -23022,6 +39526,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 50.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 6.0,
+            overs_bowled: 4.0,
+            runs_conceded: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 12.0,
+            wickets_taken: 2,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 27,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 14,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -23039,6 +39563,8 @@ export const stats = {
     name_full: "Anjdeep Lad",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -23059,6 +39585,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -23079,6 +39623,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -23091,6 +39655,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Aakash Tigers MWS",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -23111,6 +39677,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -23131,6 +39715,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.67,
+          best_economy_innings: {
+            value: 6.0,
+            overs_bowled: 2.0,
+            runs_conceded: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 2,
+            balls_bowled: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -23143,6 +39747,7 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       overall: {
+        played_for_teams: ["Aakash Tigers MWS"],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -23163,6 +39768,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -23183,6 +39806,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.67,
+          best_economy_innings: {
+            value: 6.0,
+            overs_bowled: 2.0,
+            runs_conceded: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 6.0,
+            wickets_taken: 2,
+            balls_bowled: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -23200,6 +39843,8 @@ export const stats = {
     name_full: "Minad Manjrekar",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -23220,6 +39865,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -23240,6 +39903,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -23252,6 +39935,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Aakash Tigers MWS",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -23272,6 +39957,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -23292,6 +39995,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 30.56,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 10.0,
+            overs_bowled: 2.0,
+            runs_conceded: 20,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 24.0,
+            wickets_taken: 1,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 48,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -23304,6 +40027,7 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       overall: {
+        played_for_teams: ["Aakash Tigers MWS"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -23324,6 +40048,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -23344,6 +40086,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 30.56,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 10.0,
+            overs_bowled: 2.0,
+            runs_conceded: 20,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 24.0,
+            wickets_taken: 1,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 48,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -23361,6 +40123,8 @@ export const stats = {
     name_full: "Pankaj Jaiswal",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -23381,6 +40145,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -23401,6 +40183,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -23413,6 +40215,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -23435,6 +40239,24 @@ export const stats = {
           boundary_percentage: 66.67,
           dot_ball_percentage: 40.0,
           balls_per_boundary: 5.0,
+          highest_strike_rate_innings: {
+            value: 192.31,
+            balls_faced: 13,
+            runs_scored: 25,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -23455,6 +40277,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -23467,6 +40309,7 @@ export const stats = {
         total_matches_in_squad: 3,
       },
       overall: {
+        played_for_teams: ["ARCS Andheri"],
         batting: {
           matches_played: 3,
           innings_batted: 3,
@@ -23489,6 +40332,24 @@ export const stats = {
           boundary_percentage: 66.67,
           dot_ball_percentage: 40.0,
           balls_per_boundary: 5.0,
+          highest_strike_rate_innings: {
+            value: 192.31,
+            balls_faced: 13,
+            runs_scored: 25,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 2,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -23509,6 +40370,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -23526,6 +40407,8 @@ export const stats = {
     name_full: "Mansingh Nigade",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -23546,6 +40429,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -23566,6 +40467,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -23578,6 +40499,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "SoBo SuperSonics",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -23601,6 +40524,24 @@ export const stats = {
           boundary_percentage: 36.0,
           dot_ball_percentage: 48.21,
           balls_per_boundary: 14.0,
+          highest_strike_rate_innings: {
+            value: 113.33,
+            balls_faced: 15,
+            runs_scored: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -23621,6 +40562,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -23633,6 +40594,7 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       overall: {
+        played_for_teams: ["SoBo SuperSonics"],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -23656,6 +40618,24 @@ export const stats = {
           boundary_percentage: 36.0,
           dot_ball_percentage: 48.21,
           balls_per_boundary: 14.0,
+          highest_strike_rate_innings: {
+            value: 113.33,
+            balls_faced: 15,
+            runs_scored: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 1,
+            match_id: "UNKNOWN_MATCH",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -23676,6 +40656,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 2,
@@ -23693,6 +40693,8 @@ export const stats = {
     name_full: "Neil Narvekar",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -23713,6 +40715,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -23733,6 +40753,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -23745,6 +40785,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -23767,6 +40809,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 20.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -23787,6 +40847,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 37.5,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 6.75,
+            overs_bowled: 4.0,
+            runs_conceded: 27,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 27,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -23799,6 +40879,7 @@ export const stats = {
         total_matches_in_squad: 1,
       },
       overall: {
+        played_for_teams: ["North Mumbai Panthers"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -23821,6 +40902,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 20.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -23841,6 +40940,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 37.5,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 6.75,
+            overs_bowled: 4.0,
+            runs_conceded: 27,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 27,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 9,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -23858,6 +40977,8 @@ export const stats = {
     name_full: "Asif Shaikh",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -23878,6 +40999,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -23898,6 +41037,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -23910,6 +41069,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Eagle Thane Strikers",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -23930,6 +41091,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -23950,6 +41129,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.33,
+          best_economy_innings: {
+            value: 12.0,
+            overs_bowled: 3.0,
+            runs_conceded: 36,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 36,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -23962,6 +41161,7 @@ export const stats = {
         total_matches_in_squad: 1,
       },
       overall: {
+        played_for_teams: ["Eagle Thane Strikers"],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -23982,6 +41182,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -24002,6 +41220,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.33,
+          best_economy_innings: {
+            value: 12.0,
+            overs_bowled: 3.0,
+            runs_conceded: 36,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 36,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -24019,6 +41257,8 @@ export const stats = {
     name_full: "Balwinder Sandhu",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -24039,6 +41279,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -24059,6 +41317,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -24071,6 +41349,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Eagle Thane Strikers",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -24091,6 +41371,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -24111,6 +41409,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 33.33,
           extras_per_over: 1.5,
+          best_economy_innings: {
+            value: 13.0,
+            overs_bowled: 2.0,
+            runs_conceded: 26,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 26,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 4,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -24123,6 +41441,7 @@ export const stats = {
         total_matches_in_squad: 1,
       },
       overall: {
+        played_for_teams: ["Eagle Thane Strikers"],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -24143,6 +41462,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -24163,6 +41500,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 33.33,
           extras_per_over: 1.5,
+          best_economy_innings: {
+            value: 13.0,
+            overs_bowled: 2.0,
+            runs_conceded: 26,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 26,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 4,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -24180,6 +41537,8 @@ export const stats = {
     name_full: "Varun Joijode",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -24200,6 +41559,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -24220,6 +41597,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -24232,6 +41629,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -24254,6 +41653,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 100.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -24274,6 +41691,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 43.75,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 7.75,
+            overs_bowled: 4.0,
+            runs_conceded: 31,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 24.0,
+            wickets_taken: 1,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 31,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -24286,6 +41723,7 @@ export const stats = {
         total_matches_in_squad: 2,
       },
       overall: {
+        played_for_teams: ["Shivaji Park Lions"],
         batting: {
           matches_played: 2,
           innings_batted: 2,
@@ -24308,6 +41746,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 100.0,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 2,
@@ -24328,6 +41784,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 43.75,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: 7.75,
+            overs_bowled: 4.0,
+            runs_conceded: 31,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 24.0,
+            wickets_taken: 1,
+            balls_bowled: 24,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 31,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 12,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -24345,6 +41821,8 @@ export const stats = {
     name_full: "Gaurav Bengre",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -24365,6 +41843,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -24385,6 +41881,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -24397,6 +41913,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -24419,6 +41937,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 16.67,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -24439,6 +41975,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.33,
+          best_economy_innings: {
+            value: 12.0,
+            overs_bowled: 3.0,
+            runs_conceded: 36,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 9.0,
+            wickets_taken: 2,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 36,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -24451,6 +42007,7 @@ export const stats = {
         total_matches_in_squad: 1,
       },
       overall: {
+        played_for_teams: ["Shivaji Park Lions"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -24473,6 +42030,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 16.67,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -24493,6 +42068,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 33.33,
           extras_per_over: 0.33,
+          best_economy_innings: {
+            value: 12.0,
+            overs_bowled: 3.0,
+            runs_conceded: 36,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 9.0,
+            wickets_taken: 2,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 36,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 6,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -24510,6 +42105,8 @@ export const stats = {
     name_full: "Atish Gawand",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -24530,6 +42127,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -24550,6 +42165,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -24562,6 +42197,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Shivaji Park Lions",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -24582,6 +42219,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 33.33,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -24602,6 +42257,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 27.78,
           extras_per_over: 0.33,
+          best_economy_innings: {
+            value: 12.0,
+            overs_bowled: 3.0,
+            runs_conceded: 36,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 36,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -24614,6 +42289,7 @@ export const stats = {
         total_matches_in_squad: 1,
       },
       overall: {
+        played_for_teams: ["Shivaji Park Lions"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -24634,6 +42310,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 33.33,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 1,
@@ -24654,6 +42348,26 @@ export const stats = {
           wickets_in_do: 1,
           dot_ball_percentage: 27.78,
           extras_per_over: 0.33,
+          best_economy_innings: {
+            value: 12.0,
+            overs_bowled: 3.0,
+            runs_conceded: 36,
+            match_id: "UNKNOWN_MATCH",
+          },
+          best_strike_rate_innings: {
+            value: 18.0,
+            wickets_taken: 1,
+            balls_bowled: 18,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_runs_conceded_innings: {
+            value: 36,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_dots_bowled_innings: {
+            value: 5,
+            match_id: "UNKNOWN_MATCH",
+          },
         },
         fielding: {
           matches_played: 1,
@@ -24671,6 +42385,8 @@ export const stats = {
     name_full: "Jude Singh",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -24691,6 +42407,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -24711,6 +42445,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -24723,6 +42477,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "North Mumbai Panthers",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -24745,6 +42501,24 @@ export const stats = {
           boundary_percentage: 70.59,
           dot_ball_percentage: 57.89,
           balls_per_boundary: 6.33,
+          highest_strike_rate_innings: {
+            value: 89.47,
+            balls_faced: 19,
+            runs_scored: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -24765,6 +42539,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -24777,6 +42571,7 @@ export const stats = {
         total_matches_in_squad: 1,
       },
       overall: {
+        played_for_teams: ["North Mumbai Panthers"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -24799,6 +42594,24 @@ export const stats = {
           boundary_percentage: 70.59,
           dot_ball_percentage: 57.89,
           balls_per_boundary: 6.33,
+          highest_strike_rate_innings: {
+            value: 89.47,
+            balls_faced: 19,
+            runs_scored: 17,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -24819,6 +42632,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -24836,6 +42669,8 @@ export const stats = {
     name_full: "Siddhant Adhatrao",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -24856,6 +42691,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -24876,6 +42729,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -24888,6 +42761,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "Triumph Knights Mumbai North East",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -24910,6 +42785,24 @@ export const stats = {
           boundary_percentage: 61.54,
           dot_ball_percentage: 66.67,
           balls_per_boundary: 7.5,
+          highest_strike_rate_innings: {
+            value: 86.67,
+            balls_faced: 15,
+            runs_scored: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -24930,6 +42823,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -24942,6 +42855,7 @@ export const stats = {
         total_matches_in_squad: 1,
       },
       overall: {
+        played_for_teams: ["Triumph Knights Mumbai North East"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -24964,6 +42878,24 @@ export const stats = {
           boundary_percentage: 61.54,
           dot_ball_percentage: 66.67,
           balls_per_boundary: 7.5,
+          highest_strike_rate_innings: {
+            value: 86.67,
+            balls_faced: 15,
+            runs_scored: 13,
+            match_id: "UNKNOWN_MATCH",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -24984,6 +42916,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -25001,6 +42953,8 @@ export const stats = {
     name_full: "Kadir Patel",
     seasons: {
       season_1: {
+        team_name: "",
+        played_for_teams: [],
         batting: {
           matches_played: 0,
           innings_batted: 0,
@@ -25021,6 +42975,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 0.0,
           balls_per_boundary: 0.0,
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -25041,6 +43013,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -25053,6 +43045,8 @@ export const stats = {
         total_matches_in_squad: 0,
       },
       season_2: {
+        team_name: "ARCS Andheri",
+        played_for_teams: [],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -25075,6 +43069,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 44.44,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -25095,6 +43107,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,
@@ -25107,6 +43139,7 @@ export const stats = {
         total_matches_in_squad: 1,
       },
       overall: {
+        played_for_teams: ["ARCS Andheri"],
         batting: {
           matches_played: 1,
           innings_batted: 1,
@@ -25129,6 +43162,24 @@ export const stats = {
           boundary_percentage: 0.0,
           dot_ball_percentage: 44.44,
           balls_per_boundary: "inf",
+          highest_strike_rate_innings: {
+            value: 0.0,
+            balls_faced: 0,
+            runs_scored: 0,
+            match_id: "",
+          },
+          most_sixes_innings: {
+            count: 0,
+            match_id: "",
+          },
+          fastest_fifty_balls: {
+            balls: "inf",
+            match_id: "",
+          },
+          fastest_hundred_balls: {
+            balls: "inf",
+            match_id: "",
+          },
         },
         bowling: {
           matches_played: 0,
@@ -25149,6 +43200,26 @@ export const stats = {
           wickets_in_do: 0,
           dot_ball_percentage: 0.0,
           extras_per_over: 0.0,
+          best_economy_innings: {
+            value: "inf",
+            overs_bowled: 0.0,
+            runs_conceded: 0,
+            match_id: "",
+          },
+          best_strike_rate_innings: {
+            value: "inf",
+            wickets_taken: 0,
+            balls_bowled: 0,
+            match_id: "",
+          },
+          most_runs_conceded_innings: {
+            value: 0,
+            match_id: "",
+          },
+          most_dots_bowled_innings: {
+            value: 0,
+            match_id: "",
+          },
         },
         fielding: {
           matches_played: 0,

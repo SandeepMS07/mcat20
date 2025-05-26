@@ -7,9 +7,11 @@ const CustomTable = ({
   rowKeys,
   customRenderers,
   headerStyles = {},
+  rowStyles = {},
+  tBodyStyles = {},
 }) => {
   return (
-    <div className="w-full">
+    <div className="w-full overflow-auto">
       <table className="w-full table-auto bg-black border-collapse text-sm">
         <thead className="text-black">
           <tr>
@@ -28,9 +30,9 @@ const CustomTable = ({
           </tr>
         </thead>
 
-        <tbody className="text-[#D8D8D8]">
+        <tbody className={`${tBodyStyles?.className|| ""} text-[#D8D8D8]`}>
           {data.map((row, rowIndex) => (
-            <tr key={rowIndex} className="border-b border-[#222222]">
+            <tr key={rowIndex} className={`${rowStyles.className||""}border-b border-[#222222]`}>
               {/* {rowKeys.map((key, colIndex) => (
                   <td
                     key={colIndex}
@@ -47,7 +49,7 @@ const CustomTable = ({
                 return (
                   <td
                     key={colIndex}
-                    className="py-2 px-4 border-r text-center border-[#222222]"
+                    className="p-4 border-r text-center border-[#222222]"
                   >
                     {customRenderers?.[header]
                       ? customRenderers[header](row[header], row)

@@ -7,47 +7,47 @@ const topPlayersData = {
     rank: 1,
     playerImage: "/images/playerProfile/prithvi.svg",
     teamLogo: "/images/teams/hero/teamLogo/northmumbai.svg",
-    playerName: "Prithvi Shaw",
-    runs: 249,
-    strikeRate: 149.1,
-    matchesPlayed: 25,
-    fours: 25,
-    sixes: 9,
+    playerName: "Shreyas Iyer",
+    runs: 363,
+    strikeRate: 153.81,
+    matchesPlayed: 6,
+    fours: 29,
+    sixes: 18,
     leaderboard: [
       {
-        name: "Aditya Tare",
-        matches: 5,
-        runs: 244,
-        sr: 138.63,
-        fours: 31,
-        sixes: 3,
+        name: "Bravish Shetty",
+        matches: 8,
+        runs: 322,
+        sr: 148.39,
+        fours: 29,
+        sixes: 15,
         logo: "/images/teams/hero/teamLogo/thane.svg",
       },
       {
-        name: "Jay Bista",
+        name: "Prithvi Shaw",
         matches: 6,
-        runs: 242,
-        sr: 139.27,
-        fours: 27,
-        sixes: 5,
+        runs: 249,
+        sr: 149.1,
+        fours: 25,
+        sixes: 9,
         logo: "/images/teams/hero/teamLogo/sobo.svg",
       },
       {
-        name: "Akhil H",
+        name: "Suryakumar Yadav",
         matches: 7,
-        runs: 231,
-        sr: 129.77,
-        fours: 20,
-        sixes: 8,
+        runs: 244,
+        sr: 182.09,
+        fours: 22,
+        sixes: 15,
         logo: "/images/teams/hero/teamLogo/arcs.svg",
       },
       {
-        name: "Parag K",
+        name: "Jay Bista",
         matches: 7,
-        runs: 229,
-        sr: 122.77,
-        fours: 19,
-        sixes: 8,
+        runs: 242,
+        sr: 132.97,
+        fours: 27,
+        sixes: 5,
         logo: "/images/teams/hero/teamLogo/sobo.svg",
       },
     ],
@@ -57,10 +57,10 @@ const topPlayersData = {
     playerImage: "/images/playerProfile/dhurmil.svg",
     teamLogo: "/images/teams/hero/teamLogo/sobo.svg",
     playerName: "Dhrumil Matkar",
-    runs: 15,
+    wickets: 15,
     strikeRate: 10.8,
     matchesPlayed: 7,
-    ecoRate: 66.6,
+    ecoRate: 6.67,
     maidens: 1,
     leaderboard: [
       {
@@ -68,34 +68,34 @@ const topPlayersData = {
         matches: 7,
         wickets: 12,
         sr: 13.5,
-        eco: 6.66,
+        eco: 9.41,
         maidens: 0,
         logo: "/images/teams/hero/teamLogo/northmumbai.svg",
       },
       {
-        name: "Prathamesh D",
-        matches: 6,
-        wickets: 10,
-        sr: 14.4,
-        eco: 8.03,
-        maidens: 0,
-        logo: "/images/teams/hero/teamLogo/northmumbai.svg",
-      },
-      {
-        name: "Deepak S",
+        name: "Badre Alam",
         matches: 7,
-        wickets: 10,
-        sr: 12.2,
-        eco: 7.5,
+        wickets: 12,
+        sr: 12.5,
+        eco: 8.2,
+        maidens: 0,
+        logo: "/images/teams/hero/teamLogo/northmumbai.svg",
+      },
+      {
+        name: "Shivam Dubey",
+        matches: 8,
+        wickets: 12,
+        sr: 13.33,
+        eco: 10.01,
         maidens: 0,
         logo: "/images/teams/hero/teamLogo/arcs.svg",
       },
       {
-        name: "Royston D",
-        matches: 5,
-        wickets: 10,
-        sr: 10.8,
-        eco: 7.94,
+        name: "Azhar Ansari",
+        matches: 6,
+        wickets: 11,
+        sr: 12,
+        eco: 8.5,
         maidens: 0,
         logo: "/images/teams/hero/teamLogo/sobo.svg",
       },
@@ -107,7 +107,6 @@ const TopPlayers = () => {
   return (
     <div className="section-width section-padding">
       <TitleComponent title="Top Players" />
-      {/* <TitleComponent title="Top Players" button buttonLink={routes.stats} /> */}
       <div className="flex flex-col lg:flex-row justify-center gap-6 sm:gap-10">
         <TopPlayerCard
           type="batsman"
@@ -128,7 +127,7 @@ const TopPlayers = () => {
           playerImage={topPlayersData.bowler.playerImage}
           teamLogo={topPlayersData.bowler.teamLogo}
           playerName={topPlayersData.bowler.playerName}
-          runs={topPlayersData.bowler.runs}
+          wickets={topPlayersData.bowler.wickets}
           strikeRate={topPlayersData.bowler.strikeRate}
           matchesPlayed={topPlayersData.bowler.matchesPlayed}
           ecoRate={topPlayersData.bowler.ecoRate}
@@ -147,6 +146,7 @@ const TopPlayerCard = ({
   teamLogo,
   playerName,
   runs,
+  wickets,
   strikeRate,
   matchesPlayed,
   fours,
@@ -157,14 +157,12 @@ const TopPlayerCard = ({
 }) => {
   return (
     <div className="bg-white overflow-hidden shadow-lg w-full max-w-3xl">
-      {/* Top Section */}
       <div className="bg-black text-white px-6 py-4">
         <div className="text-xl font-semibold">
           {type === "batsman" ? "TOP BATSMAN" : "TOP BOWLER"}
         </div>
       </div>
 
-      {/* Player Highlight Section */}
       <div
         className="relative bg-gradient-to-r from-[rgb(10,31,49)] to-[rgb(34,98,150)] bg-cover bg-center text-white px-4 sm:px-6 flex flex-col 2xl:flex-row items-center gap-4"
         style={{
@@ -172,17 +170,6 @@ const TopPlayerCard = ({
           backgroundBlendMode: "normal",
         }}
       >
-        {/* #1 in top-left of this section */}
-        <div className="absolute top-4 left-4 text-5xl font-bold italic">
-          <Image
-            width={50}
-            height={50}
-            src="/images/playerProfile/1.svg"
-            alt="rank"
-          />
-        </div>
-
-        {/* logo in right-left of this section */}
         <div className="absolute top-4 right-4 text-5xl font-bold italic">
           <Image
             width={50}
@@ -192,35 +179,44 @@ const TopPlayerCard = ({
           />
         </div>
 
-        <Image
-          src={playerImage}
-          alt="Player"
-          width={128}
-          height={128}
-          className="object-contain w-48 h-auto "
-        />
-        <div className="flex-1">
-          <div className="text-3xl font-semibold mb-8 text-center 2xl:text-start">
-            {playerName}
+        <div className="flex-1 ">
+          <div className="text-5xl font-bold italic mt-8">
+            <Image
+              width={50}
+              height={50}
+              src="/images/playerProfile/1.svg"
+              alt="rank"
+            />
+            <div className="text-3xl font-semibold mb-8 text-center mt-7 2xl:text-start">
+              {playerName}
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 justify-center sm:flex sm:flex-wrap gap-6 mt-4 text-center bg-[rgb(20,59,94)] p-4 mb-4 rounded-md">
+          <div className="grid grid-cols-2 justify-center sm:flex sm:flex-wrap gap-6 mt-2 text-center bg-[rgb(20,59,94)] p-4 mb-4 rounded-md">
+            {/* Display runs for batsman or wickets for bowler */}
             <div className="flex justify-center items-end gap-2">
-              <div className="text-4xl font-bold">{runs}</div>
-              <div className="text-[10px] ">RUNS</div>
+              <div className="text-4xl font-bold">
+                {type === "batsman" ? runs : wickets}
+              </div>
+              <div className="text-[10px] ">
+                {type === "batsman" ? "RUNS" : "WICKETS"}
+              </div>
             </div>
+
             <div className="flex justify-center items-end gap-2">
               <div className="text-4xl font-bold">{strikeRate}</div>
               <div className="text-[10px] ">
                 STRIKE <br /> RATE
               </div>
             </div>
+
             <div className="flex justify-center items-end gap-2">
               <div className="text-4xl font-bold">{matchesPlayed}</div>
               <div className="text-[10px] ">
                 MATCHES <br /> PLAYED
               </div>
             </div>
+
             {type === "batsman" ? (
               <>
                 <div className="flex justify-center items-end gap-2">
@@ -242,7 +238,7 @@ const TopPlayerCard = ({
                 </div>
                 <div className="flex justify-center items-end gap-2">
                   <div className="text-4xl font-bold">{maidens}</div>
-                  <div className="text-[10px]">MAIDEN</div>
+                  <div className="text-[10px]">MAIDENS</div>
                 </div>
               </>
             )}
