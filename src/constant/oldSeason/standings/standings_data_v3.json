@@ -1,0 +1,942 @@
+{
+    "season_1": [
+        {
+            "team_id": "1632",
+            "team_name": "Triumph Knights Mumbai North East",
+            "played": 6,
+            "won": 5,
+            "lost": 1,
+            "tied": 0,
+            "no_result": 0,
+            "points": 10,
+            "total_runs_scored": 980,
+            "total_balls_faced_for_nrr": 691,
+            "total_runs_conceded": 907,
+            "total_balls_bowled_for_nrr": 715,
+            "net_run_rate": 0.898,
+            "form": "LWWWW",
+            "match_history": [
+                {
+                    "match_id": "186404",
+                    "opponent_id": "1633",
+                    "opponent_name": "Shivaji Park Lions",
+                    "result_description": "Lost by 7 wickets",
+                    "match_nrr": -0.5913,
+                    "team1_score": "152/10 (19.5)",
+                    "team2_score": "157/3 (19.1)"
+                },
+                {
+                    "match_id": "186409",
+                    "opponent_id": "1630",
+                    "opponent_name": "NaMo Bandra Blasters",
+                    "result_description": "Won by 5 wickets",
+                    "match_nrr": 0.05,
+                    "team1_score": "183/5 (20.0)",
+                    "team2_score": "184/5 (20.0)"
+                },
+                {
+                    "match_id": "186406",
+                    "opponent_id": "1631",
+                    "opponent_name": "ARCS Andheri",
+                    "result_description": "Won by 7 wickets",
+                    "match_nrr": 1.7484,
+                    "team1_score": "116/10 (19.1)",
+                    "team2_score": "117/3 (15.3)"
+                },
+                {
+                    "match_id": "186415",
+                    "opponent_id": "1634",
+                    "opponent_name": "SoBo SuperSonics",
+                    "result_description": "Won by 40 runs",
+                    "match_nrr": 2.0,
+                    "team1_score": "162/6 (20.0)",
+                    "team2_score": "122/10 (19.1)"
+                },
+                {
+                    "match_id": "186401",
+                    "opponent_id": "1634",
+                    "opponent_name": "SoBo SuperSonics",
+                    "result_description": "Won by 4 wickets",
+                    "match_nrr": 0.2576,
+                    "team1_score": "184/7 (20.0)",
+                    "team2_score": "186/6 (19.4)"
+                },
+                {
+                    "match_id": "186411",
+                    "opponent_id": "1629",
+                    "opponent_name": "North Mumbai Panthers",
+                    "result_description": "Won by 34 runs",
+                    "match_nrr": 1.7,
+                    "team1_score": "179/8 (20.0)",
+                    "team2_score": "145/8 (20.0)"
+                }
+            ]
+        },
+        {
+            "team_id": "1634",
+            "team_name": "SoBo SuperSonics",
+            "played": 7,
+            "won": 4,
+            "lost": 3,
+            "tied": 0,
+            "no_result": 0,
+            "points": 8,
+            "total_runs_scored": 1237,
+            "total_balls_faced_for_nrr": 823,
+            "total_runs_conceded": 1142,
+            "total_balls_bowled_for_nrr": 813,
+            "net_run_rate": 0.59,
+            "form": "WLWLL",
+            "match_history": [
+                {
+                    "match_id": "186407",
+                    "opponent_id": "1630",
+                    "opponent_name": "NaMo Bandra Blasters",
+                    "result_description": "Won by 50 runs",
+                    "match_nrr": 2.7778,
+                    "team1_score": "149/6 (18.0)",
+                    "team2_score": "99/9 (18.0)"
+                },
+                {
+                    "match_id": "186417",
+                    "opponent_id": "1633",
+                    "opponent_name": "Shivaji Park Lions",
+                    "result_description": "Lost by 6 wickets",
+                    "match_nrr": -1.2346,
+                    "team1_score": "194/7 (20.0)",
+                    "team2_score": "195/4 (17.5)"
+                },
+                {
+                    "match_id": "186414",
+                    "opponent_id": "1633",
+                    "opponent_name": "Shivaji Park Lions",
+                    "result_description": "Won by 3 wickets",
+                    "match_nrr": 0.2,
+                    "team1_score": "150/7 (20.0)",
+                    "team2_score": "154/7 (20.0)"
+                },
+                {
+                    "match_id": "186415",
+                    "opponent_id": "1632",
+                    "opponent_name": "Triumph Knights Mumbai North East",
+                    "result_description": "Lost by 40 runs",
+                    "match_nrr": -2.0,
+                    "team1_score": "162/6 (20.0)",
+                    "team2_score": "122/10 (19.1)"
+                },
+                {
+                    "match_id": "186401",
+                    "opponent_id": "1632",
+                    "opponent_name": "Triumph Knights Mumbai North East",
+                    "result_description": "Lost by 4 wickets",
+                    "match_nrr": -0.2576,
+                    "team1_score": "184/7 (20.0)",
+                    "team2_score": "186/6 (19.4)"
+                },
+                {
+                    "match_id": "186403",
+                    "opponent_id": "1629",
+                    "opponent_name": "North Mumbai Panthers",
+                    "result_description": "Won by 3 wickets",
+                    "match_nrr": 0.7304,
+                    "team1_score": "192/4 (20.0)",
+                    "team2_score": "198/7 (19.1)"
+                },
+                {
+                    "match_id": "186412",
+                    "opponent_id": "1631",
+                    "opponent_name": "ARCS Andheri",
+                    "result_description": "Won by 78 runs",
+                    "match_nrr": 3.9,
+                    "team1_score": "236/3 (20.0)",
+                    "team2_score": "158/10 (18.3)"
+                }
+            ]
+        },
+        {
+            "team_id": "1633",
+            "team_name": "Shivaji Park Lions",
+            "played": 7,
+            "won": 4,
+            "lost": 3,
+            "tied": 0,
+            "no_result": 0,
+            "points": 8,
+            "total_runs_scored": 1129,
+            "total_balls_faced_for_nrr": 798,
+            "total_runs_conceded": 1138,
+            "total_balls_bowled_for_nrr": 838,
+            "net_run_rate": 0.341,
+            "form": "WLWWW",
+            "match_history": [
+                {
+                    "match_id": "186404",
+                    "opponent_id": "1632",
+                    "opponent_name": "Triumph Knights Mumbai North East",
+                    "result_description": "Won by 7 wickets",
+                    "match_nrr": 0.5913,
+                    "team1_score": "152/10 (19.5)",
+                    "team2_score": "157/3 (19.1)"
+                },
+                {
+                    "match_id": "186402",
+                    "opponent_id": "1630",
+                    "opponent_name": "NaMo Bandra Blasters",
+                    "result_description": "Lost by 12 runs",
+                    "match_nrr": -0.6,
+                    "team1_score": "182/5 (20.0)",
+                    "team2_score": "170/9 (20.0)"
+                },
+                {
+                    "match_id": "186410",
+                    "opponent_id": "1631",
+                    "opponent_name": "ARCS Andheri",
+                    "result_description": "Won by 6 wickets",
+                    "match_nrr": 0.7318,
+                    "team1_score": "149/8 (20.0)",
+                    "team2_score": "150/4 (18.2)"
+                },
+                {
+                    "match_id": "186416",
+                    "opponent_id": "1630",
+                    "opponent_name": "NaMo Bandra Blasters",
+                    "result_description": "Won by 6 wickets",
+                    "match_nrr": 1.2858,
+                    "team1_score": "169/4 (20.0)",
+                    "team2_score": "172/4 (17.4)"
+                },
+                {
+                    "match_id": "186417",
+                    "opponent_id": "1634",
+                    "opponent_name": "SoBo SuperSonics",
+                    "result_description": "Won by 6 wickets",
+                    "match_nrr": 1.2346,
+                    "team1_score": "194/7 (20.0)",
+                    "team2_score": "195/4 (17.5)"
+                },
+                {
+                    "match_id": "186414",
+                    "opponent_id": "1634",
+                    "opponent_name": "SoBo SuperSonics",
+                    "result_description": "Lost by 3 wickets",
+                    "match_nrr": -0.2,
+                    "team1_score": "150/7 (20.0)",
+                    "team2_score": "154/7 (20.0)"
+                },
+                {
+                    "match_id": "186408",
+                    "opponent_id": "1629",
+                    "opponent_name": "North Mumbai Panthers",
+                    "result_description": "Lost by 5 wickets",
+                    "match_nrr": -0.2669,
+                    "team1_score": "135/9 (20.0)",
+                    "team2_score": "138/5 (19.4)"
+                }
+            ]
+        },
+        {
+            "team_id": "1630",
+            "team_name": "NaMo Bandra Blasters",
+            "played": 6,
+            "won": 3,
+            "lost": 3,
+            "tied": 0,
+            "no_result": 0,
+            "points": 6,
+            "total_runs_scored": 867,
+            "total_balls_faced_for_nrr": 617,
+            "total_runs_conceded": 907,
+            "total_balls_bowled_for_nrr": 694,
+            "net_run_rate": 0.59,
+            "form": "WLLLW",
+            "match_history": [
+                {
+                    "match_id": "186402",
+                    "opponent_id": "1633",
+                    "opponent_name": "Shivaji Park Lions",
+                    "result_description": "Won by 12 runs",
+                    "match_nrr": 0.6,
+                    "team1_score": "182/5 (20.0)",
+                    "team2_score": "170/9 (20.0)"
+                },
+                {
+                    "match_id": "186409",
+                    "opponent_id": "1632",
+                    "opponent_name": "Triumph Knights Mumbai North East",
+                    "result_description": "Lost by 5 wickets",
+                    "match_nrr": -0.05,
+                    "team1_score": "183/5 (20.0)",
+                    "team2_score": "184/5 (20.0)"
+                },
+                {
+                    "match_id": "186416",
+                    "opponent_id": "1633",
+                    "opponent_name": "Shivaji Park Lions",
+                    "result_description": "Lost by 6 wickets",
+                    "match_nrr": -1.2858,
+                    "team1_score": "169/4 (20.0)",
+                    "team2_score": "172/4 (17.4)"
+                },
+                {
+                    "match_id": "186407",
+                    "opponent_id": "1634",
+                    "opponent_name": "SoBo SuperSonics",
+                    "result_description": "Lost by 50 runs",
+                    "match_nrr": -2.7778,
+                    "team1_score": "149/6 (18.0)",
+                    "team2_score": "99/9 (18.0)"
+                },
+                {
+                    "match_id": "186413",
+                    "opponent_id": "1629",
+                    "opponent_name": "North Mumbai Panthers",
+                    "result_description": "Won by 10 wickets",
+                    "match_nrr": 4.7065,
+                    "team1_score": "125/9 (20.0)",
+                    "team2_score": "126/0 (11.3)"
+                },
+                {
+                    "match_id": "186405",
+                    "opponent_id": "1631",
+                    "opponent_name": "ARCS Andheri",
+                    "result_description": "Won by 9 wickets",
+                    "match_nrr": 2.75,
+                    "team1_score": "107/10 (19.0)",
+                    "team2_score": "108/1 (13.2)"
+                }
+            ]
+        },
+        {
+            "team_id": "1629",
+            "team_name": "North Mumbai Panthers",
+            "played": 5,
+            "won": 1,
+            "lost": 4,
+            "tied": 0,
+            "no_result": 0,
+            "points": 2,
+            "total_runs_scored": 741,
+            "total_balls_faced_for_nrr": 598,
+            "total_runs_conceded": 802,
+            "total_balls_bowled_for_nrr": 544,
+            "net_run_rate": -1.411,
+            "form": "LLWLL",
+            "match_history": [
+                {
+                    "match_id": "186413",
+                    "opponent_id": "1630",
+                    "opponent_name": "NaMo Bandra Blasters",
+                    "result_description": "Lost by 10 wickets",
+                    "match_nrr": -4.7065,
+                    "team1_score": "125/9 (20.0)",
+                    "team2_score": "126/0 (11.3)"
+                },
+                {
+                    "match_id": "186403",
+                    "opponent_id": "1634",
+                    "opponent_name": "SoBo SuperSonics",
+                    "result_description": "Lost by 3 wickets",
+                    "match_nrr": -0.7304,
+                    "team1_score": "192/4 (20.0)",
+                    "team2_score": "198/7 (19.1)"
+                },
+                {
+                    "match_id": "186408",
+                    "opponent_id": "1633",
+                    "opponent_name": "Shivaji Park Lions",
+                    "result_description": "Won by 5 wickets",
+                    "match_nrr": 0.2669,
+                    "team1_score": "135/9 (20.0)",
+                    "team2_score": "138/5 (19.4)"
+                },
+                {
+                    "match_id": "186411",
+                    "opponent_id": "1632",
+                    "opponent_name": "Triumph Knights Mumbai North East",
+                    "result_description": "Lost by 34 runs",
+                    "match_nrr": -1.7,
+                    "team1_score": "179/8 (20.0)",
+                    "team2_score": "145/8 (20.0)"
+                },
+                {
+                    "match_id": "186400",
+                    "opponent_id": "1631",
+                    "opponent_name": "ARCS Andheri",
+                    "result_description": "Lost by 23 runs",
+                    "match_nrr": -1.15,
+                    "team1_score": "164/7 (20.0)",
+                    "team2_score": "141/10 (19.1)"
+                }
+            ]
+        },
+        {
+            "team_id": "1631",
+            "team_name": "ARCS Andheri",
+            "played": 5,
+            "won": 1,
+            "lost": 4,
+            "tied": 0,
+            "no_result": 0,
+            "points": 2,
+            "total_runs_scored": 694,
+            "total_balls_faced_for_nrr": 600,
+            "total_runs_conceded": 752,
+            "total_balls_bowled_for_nrr": 523,
+            "net_run_rate": -1.687,
+            "form": "LLWLL",
+            "match_history": [
+                {
+                    "match_id": "186410",
+                    "opponent_id": "1633",
+                    "opponent_name": "Shivaji Park Lions",
+                    "result_description": "Lost by 6 wickets",
+                    "match_nrr": -0.7318,
+                    "team1_score": "149/8 (20.0)",
+                    "team2_score": "150/4 (18.2)"
+                },
+                {
+                    "match_id": "186406",
+                    "opponent_id": "1632",
+                    "opponent_name": "Triumph Knights Mumbai North East",
+                    "result_description": "Lost by 7 wickets",
+                    "match_nrr": -1.7484,
+                    "team1_score": "116/10 (19.1)",
+                    "team2_score": "117/3 (15.3)"
+                },
+                {
+                    "match_id": "186400",
+                    "opponent_id": "1629",
+                    "opponent_name": "North Mumbai Panthers",
+                    "result_description": "Won by 23 runs",
+                    "match_nrr": 1.15,
+                    "team1_score": "164/7 (20.0)",
+                    "team2_score": "141/10 (19.1)"
+                },
+                {
+                    "match_id": "186405",
+                    "opponent_id": "1630",
+                    "opponent_name": "NaMo Bandra Blasters",
+                    "result_description": "Lost by 9 wickets",
+                    "match_nrr": -2.75,
+                    "team1_score": "107/10 (19.0)",
+                    "team2_score": "108/1 (13.2)"
+                },
+                {
+                    "match_id": "186412",
+                    "opponent_id": "1634",
+                    "opponent_name": "SoBo SuperSonics",
+                    "result_description": "Lost by 78 runs",
+                    "match_nrr": -3.9,
+                    "team1_score": "236/3 (20.0)",
+                    "team2_score": "158/10 (18.3)"
+                }
+            ]
+        }
+    ],
+    "season_2": [
+        {
+            "team_id": "1634",
+            "team_name": "SoBo SuperSonics",
+            "played": 5,
+            "won": 4,
+            "lost": 1,
+            "tied": 0,
+            "no_result": 0,
+            "points": 8,
+            "total_runs_scored": 776,
+            "total_balls_faced_for_nrr": 599,
+            "total_runs_conceded": 683,
+            "total_balls_bowled_for_nrr": 596,
+            "net_run_rate": 0.897,
+            "form": "WWLWW",
+            "match_history": [
+                {
+                    "match_id": "190656",
+                    "opponent_id": "1632",
+                    "opponent_name": "Triumph Knights Mumbai North East",
+                    "result_description": "Won by 4 wickets",
+                    "match_nrr": 0.1105,
+                    "team1_score": "143/8 (20.0)",
+                    "team2_score": "144/6 (19.5)"
+                },
+                {
+                    "match_id": "190668",
+                    "opponent_id": "1633",
+                    "opponent_name": "Shivaji Park Lions",
+                    "result_description": "Won by 35 runs",
+                    "match_nrr": 1.75,
+                    "team1_score": "150/6 (20.0)",
+                    "team2_score": "115/10 (19.3)"
+                },
+                {
+                    "match_id": "190666",
+                    "opponent_id": "1630",
+                    "opponent_name": "NaMo Bandra Blasters",
+                    "result_description": "Lost by 4 wickets",
+                    "match_nrr": -0.3121,
+                    "team1_score": "151/8 (20.0)",
+                    "team2_score": "152/6 (19.2)"
+                },
+                {
+                    "match_id": "190661",
+                    "opponent_id": "1912",
+                    "opponent_name": "Aakash Tigers MWS",
+                    "result_description": "Won by 10 runs",
+                    "match_nrr": 0.5,
+                    "team1_score": "143/6 (20.0)",
+                    "team2_score": "133/7 (20.0)"
+                },
+                {
+                    "match_id": "190653",
+                    "opponent_id": "1631",
+                    "opponent_name": "ARCS Andheri",
+                    "result_description": "Won by 48 runs",
+                    "match_nrr": 2.4,
+                    "team1_score": "188/5 (20.0)",
+                    "team2_score": "140/9 (20.0)"
+                }
+            ]
+        },
+        {
+            "team_id": "1631",
+            "team_name": "ARCS Andheri",
+            "played": 5,
+            "won": 4,
+            "lost": 1,
+            "tied": 0,
+            "no_result": 0,
+            "points": 8,
+            "total_runs_scored": 798,
+            "total_balls_faced_for_nrr": 597,
+            "total_runs_conceded": 825,
+            "total_balls_bowled_for_nrr": 600,
+            "net_run_rate": -0.23,
+            "form": "WWWLW",
+            "match_history": [
+                {
+                    "match_id": "190658",
+                    "opponent_id": "1633",
+                    "opponent_name": "Shivaji Park Lions",
+                    "result_description": "Won by 4 wickets",
+                    "match_nrr": 0.2685,
+                    "team1_score": "159/6 (20.0)",
+                    "team2_score": "163/6 (19.5)"
+                },
+                {
+                    "match_id": "190655",
+                    "opponent_id": "1630",
+                    "opponent_name": "NaMo Bandra Blasters",
+                    "result_description": "Won by 5 wickets",
+                    "match_nrr": 0.2,
+                    "team1_score": "176/3 (20.0)",
+                    "team2_score": "180/5 (20.0)"
+                },
+                {
+                    "match_id": "190662",
+                    "opponent_id": "1629",
+                    "opponent_name": "North Mumbai Panthers",
+                    "result_description": "Won by 6 wickets",
+                    "match_nrr": 0.1864,
+                    "team1_score": "160/7 (20.0)",
+                    "team2_score": "161/4 (19.4)"
+                },
+                {
+                    "match_id": "190653",
+                    "opponent_id": "1634",
+                    "opponent_name": "SoBo SuperSonics",
+                    "result_description": "Lost by 48 runs",
+                    "match_nrr": -2.4,
+                    "team1_score": "188/5 (20.0)",
+                    "team2_score": "140/9 (20.0)"
+                },
+                {
+                    "match_id": "190667",
+                    "opponent_id": "1913",
+                    "opponent_name": "Eagle Thane Strikers",
+                    "result_description": "Won by 12 runs",
+                    "match_nrr": 0.6,
+                    "team1_score": "154/8 (20.0)",
+                    "team2_score": "142/8 (20.0)"
+                }
+            ]
+        },
+        {
+            "team_id": "1629",
+            "team_name": "North Mumbai Panthers",
+            "played": 5,
+            "won": 3,
+            "lost": 2,
+            "tied": 0,
+            "no_result": 0,
+            "points": 6,
+            "total_runs_scored": 847,
+            "total_balls_faced_for_nrr": 600,
+            "total_runs_conceded": 773,
+            "total_balls_bowled_for_nrr": 594,
+            "net_run_rate": 0.662,
+            "form": "WWLWL",
+            "match_history": [
+                {
+                    "match_id": "190669",
+                    "opponent_id": "1632",
+                    "opponent_name": "Triumph Knights Mumbai North East",
+                    "result_description": "Won by 44 runs",
+                    "match_nrr": 2.2,
+                    "team1_score": "153/6 (20.0)",
+                    "team2_score": "109/7 (20.0)"
+                },
+                {
+                    "match_id": "190659",
+                    "opponent_id": "1630",
+                    "opponent_name": "NaMo Bandra Blasters",
+                    "result_description": "Won by 27 runs",
+                    "match_nrr": 1.35,
+                    "team1_score": "175/8 (20.0)",
+                    "team2_score": "148/7 (20.0)"
+                },
+                {
+                    "match_id": "190662",
+                    "opponent_id": "1631",
+                    "opponent_name": "ARCS Andheri",
+                    "result_description": "Lost by 6 wickets",
+                    "match_nrr": -0.1864,
+                    "team1_score": "160/7 (20.0)",
+                    "team2_score": "161/4 (19.4)"
+                },
+                {
+                    "match_id": "190654",
+                    "opponent_id": "1913",
+                    "opponent_name": "Eagle Thane Strikers",
+                    "result_description": "Won by 6 runs",
+                    "match_nrr": 0.3,
+                    "team1_score": "190/8 (20.0)",
+                    "team2_score": "184/5 (20.0)"
+                },
+                {
+                    "match_id": "190664",
+                    "opponent_id": "1912",
+                    "opponent_name": "Aakash Tigers MWS",
+                    "result_description": "Lost by 6 wickets",
+                    "match_nrr": -0.3948,
+                    "team1_score": "169/6 (20.0)",
+                    "team2_score": "171/4 (19.2)"
+                }
+            ]
+        },
+        {
+            "team_id": "1912",
+            "team_name": "Aakash Tigers MWS",
+            "played": 5,
+            "won": 3,
+            "lost": 2,
+            "tied": 0,
+            "no_result": 0,
+            "points": 6,
+            "total_runs_scored": 719,
+            "total_balls_faced_for_nrr": 578,
+            "total_runs_conceded": 726,
+            "total_balls_bowled_for_nrr": 595,
+            "net_run_rate": 0.143,
+            "form": "LLWWW",
+            "match_history": [
+                {
+                    "match_id": "190661",
+                    "opponent_id": "1634",
+                    "opponent_name": "SoBo SuperSonics",
+                    "result_description": "Lost by 10 runs",
+                    "match_nrr": -0.5,
+                    "team1_score": "143/6 (20.0)",
+                    "team2_score": "133/7 (20.0)"
+                },
+                {
+                    "match_id": "190657",
+                    "opponent_id": "1913",
+                    "opponent_name": "Eagle Thane Strikers",
+                    "result_description": "Lost by 6 wickets",
+                    "match_nrr": -0.5043,
+                    "team1_score": "136/8 (20.0)",
+                    "team2_score": "140/4 (19.1)"
+                },
+                {
+                    "match_id": "190671",
+                    "opponent_id": "1633",
+                    "opponent_name": "Shivaji Park Lions",
+                    "result_description": "Won by 7 wickets",
+                    "match_nrr": 1.1357,
+                    "team1_score": "127/6 (20.0)",
+                    "team2_score": "131/3 (17.3)"
+                },
+                {
+                    "match_id": "190652",
+                    "opponent_id": "1632",
+                    "opponent_name": "Triumph Knights Mumbai North East",
+                    "result_description": "Won by 5 wickets",
+                    "match_nrr": 0.2397,
+                    "team1_score": "147/6 (20.0)",
+                    "team2_score": "148/5 (19.3)"
+                },
+                {
+                    "match_id": "190664",
+                    "opponent_id": "1629",
+                    "opponent_name": "North Mumbai Panthers",
+                    "result_description": "Won by 6 wickets",
+                    "match_nrr": 0.3948,
+                    "team1_score": "169/6 (20.0)",
+                    "team2_score": "171/4 (19.2)"
+                }
+            ]
+        },
+        {
+            "team_id": "1913",
+            "team_name": "Eagle Thane Strikers",
+            "played": 5,
+            "won": 2,
+            "lost": 3,
+            "tied": 0,
+            "no_result": 0,
+            "points": 4,
+            "total_runs_scored": 740,
+            "total_balls_faced_for_nrr": 543,
+            "total_runs_conceded": 790,
+            "total_balls_bowled_for_nrr": 600,
+            "net_run_rate": 0.277,
+            "form": "LWLLW",
+            "match_history": [
+                {
+                    "match_id": "190660",
+                    "opponent_id": "1632",
+                    "opponent_name": "Triumph Knights Mumbai North East",
+                    "result_description": "Lost by 38 runs",
+                    "match_nrr": -1.9,
+                    "team1_score": "162/7 (20.0)",
+                    "team2_score": "124/9 (20.0)"
+                },
+                {
+                    "match_id": "190670",
+                    "opponent_id": "1630",
+                    "opponent_name": "NaMo Bandra Blasters",
+                    "result_description": "Won by 7 wickets",
+                    "match_nrr": 5.8353,
+                    "team1_score": "148/7 (20.0)",
+                    "team2_score": "150/3 (11.2)"
+                },
+                {
+                    "match_id": "190667",
+                    "opponent_id": "1631",
+                    "opponent_name": "ARCS Andheri",
+                    "result_description": "Lost by 12 runs",
+                    "match_nrr": -0.6,
+                    "team1_score": "154/8 (20.0)",
+                    "team2_score": "142/8 (20.0)"
+                },
+                {
+                    "match_id": "190654",
+                    "opponent_id": "1629",
+                    "opponent_name": "North Mumbai Panthers",
+                    "result_description": "Lost by 6 runs",
+                    "match_nrr": -0.3,
+                    "team1_score": "190/8 (20.0)",
+                    "team2_score": "184/5 (20.0)"
+                },
+                {
+                    "match_id": "190657",
+                    "opponent_id": "1912",
+                    "opponent_name": "Aakash Tigers MWS",
+                    "result_description": "Won by 6 wickets",
+                    "match_nrr": 0.5043,
+                    "team1_score": "136/8 (20.0)",
+                    "team2_score": "140/4 (19.1)"
+                }
+            ]
+        },
+        {
+            "team_id": "1632",
+            "team_name": "Triumph Knights Mumbai North East",
+            "played": 5,
+            "won": 2,
+            "lost": 3,
+            "tied": 0,
+            "no_result": 0,
+            "points": 4,
+            "total_runs_scored": 687,
+            "total_balls_faced_for_nrr": 574,
+            "total_runs_conceded": 694,
+            "total_balls_bowled_for_nrr": 596,
+            "net_run_rate": 0.195,
+            "form": "WLLWL",
+            "match_history": [
+                {
+                    "match_id": "190665",
+                    "opponent_id": "1633",
+                    "opponent_name": "Shivaji Park Lions",
+                    "result_description": "Won by 8 wickets",
+                    "match_nrr": 1.7926,
+                    "team1_score": "125/9 (20.0)",
+                    "team2_score": "126/2 (15.4)"
+                },
+                {
+                    "match_id": "190656",
+                    "opponent_id": "1634",
+                    "opponent_name": "SoBo SuperSonics",
+                    "result_description": "Lost by 4 wickets",
+                    "match_nrr": -0.1105,
+                    "team1_score": "143/8 (20.0)",
+                    "team2_score": "144/6 (19.5)"
+                },
+                {
+                    "match_id": "190669",
+                    "opponent_id": "1629",
+                    "opponent_name": "North Mumbai Panthers",
+                    "result_description": "Lost by 44 runs",
+                    "match_nrr": -2.2,
+                    "team1_score": "153/6 (20.0)",
+                    "team2_score": "109/7 (20.0)"
+                },
+                {
+                    "match_id": "190660",
+                    "opponent_id": "1913",
+                    "opponent_name": "Eagle Thane Strikers",
+                    "result_description": "Won by 38 runs",
+                    "match_nrr": 1.9,
+                    "team1_score": "162/7 (20.0)",
+                    "team2_score": "124/9 (20.0)"
+                },
+                {
+                    "match_id": "190652",
+                    "opponent_id": "1912",
+                    "opponent_name": "Aakash Tigers MWS",
+                    "result_description": "Lost by 5 wickets",
+                    "match_nrr": -0.2397,
+                    "team1_score": "147/6 (20.0)",
+                    "team2_score": "148/5 (19.3)"
+                }
+            ]
+        },
+        {
+            "team_id": "1630",
+            "team_name": "NaMo Bandra Blasters",
+            "played": 5,
+            "won": 2,
+            "lost": 3,
+            "tied": 0,
+            "no_result": 0,
+            "points": 4,
+            "total_runs_scored": 776,
+            "total_balls_faced_for_nrr": 596,
+            "total_runs_conceded": 805,
+            "total_balls_bowled_for_nrr": 548,
+            "net_run_rate": -1.002,
+            "form": "WLLWL",
+            "match_history": [
+                {
+                    "match_id": "190663",
+                    "opponent_id": "1633",
+                    "opponent_name": "Shivaji Park Lions",
+                    "result_description": "Won by 3 runs",
+                    "match_nrr": 0.15,
+                    "team1_score": "152/4 (20.0)",
+                    "team2_score": "149/6 (20.0)"
+                },
+                {
+                    "match_id": "190655",
+                    "opponent_id": "1631",
+                    "opponent_name": "ARCS Andheri",
+                    "result_description": "Lost by 5 wickets",
+                    "match_nrr": -0.2,
+                    "team1_score": "176/3 (20.0)",
+                    "team2_score": "180/5 (20.0)"
+                },
+                {
+                    "match_id": "190670",
+                    "opponent_id": "1913",
+                    "opponent_name": "Eagle Thane Strikers",
+                    "result_description": "Lost by 7 wickets",
+                    "match_nrr": -5.8353,
+                    "team1_score": "148/7 (20.0)",
+                    "team2_score": "150/3 (11.2)"
+                },
+                {
+                    "match_id": "190666",
+                    "opponent_id": "1634",
+                    "opponent_name": "SoBo SuperSonics",
+                    "result_description": "Won by 4 wickets",
+                    "match_nrr": 0.3121,
+                    "team1_score": "151/8 (20.0)",
+                    "team2_score": "152/6 (19.2)"
+                },
+                {
+                    "match_id": "190659",
+                    "opponent_id": "1629",
+                    "opponent_name": "North Mumbai Panthers",
+                    "result_description": "Lost by 27 runs",
+                    "match_nrr": -1.35,
+                    "team1_score": "175/8 (20.0)",
+                    "team2_score": "148/7 (20.0)"
+                }
+            ]
+        },
+        {
+            "team_id": "1633",
+            "team_name": "Shivaji Park Lions",
+            "played": 5,
+            "won": 0,
+            "lost": 5,
+            "tied": 0,
+            "no_result": 0,
+            "points": 0,
+            "total_runs_scored": 675,
+            "total_balls_faced_for_nrr": 600,
+            "total_runs_conceded": 722,
+            "total_balls_bowled_for_nrr": 558,
+            "net_run_rate": -1.013,
+            "form": "LLLLL",
+            "match_history": [
+                {
+                    "match_id": "190665",
+                    "opponent_id": "1632",
+                    "opponent_name": "Triumph Knights Mumbai North East",
+                    "result_description": "Lost by 8 wickets",
+                    "match_nrr": -1.7926,
+                    "team1_score": "125/9 (20.0)",
+                    "team2_score": "126/2 (15.4)"
+                },
+                {
+                    "match_id": "190663",
+                    "opponent_id": "1630",
+                    "opponent_name": "NaMo Bandra Blasters",
+                    "result_description": "Lost by 3 runs",
+                    "match_nrr": -0.15,
+                    "team1_score": "152/4 (20.0)",
+                    "team2_score": "149/6 (20.0)"
+                },
+                {
+                    "match_id": "190658",
+                    "opponent_id": "1631",
+                    "opponent_name": "ARCS Andheri",
+                    "result_description": "Lost by 4 wickets",
+                    "match_nrr": -0.2685,
+                    "team1_score": "159/6 (20.0)",
+                    "team2_score": "163/6 (19.5)"
+                },
+                {
+                    "match_id": "190668",
+                    "opponent_id": "1634",
+                    "opponent_name": "SoBo SuperSonics",
+                    "result_description": "Lost by 35 runs",
+                    "match_nrr": -1.75,
+                    "team1_score": "150/6 (20.0)",
+                    "team2_score": "115/10 (19.3)"
+                },
+                {
+                    "match_id": "190671",
+                    "opponent_id": "1912",
+                    "opponent_name": "Aakash Tigers MWS",
+                    "result_description": "Lost by 7 wickets",
+                    "match_nrr": -1.1357,
+                    "team1_score": "127/6 (20.0)",
+                    "team2_score": "131/3 (17.3)"
+                }
+            ]
+        }
+    ]
+}

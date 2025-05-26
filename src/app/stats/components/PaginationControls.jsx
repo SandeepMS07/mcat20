@@ -22,14 +22,14 @@ export default function PaginationControls({
   const end = Math.min((page + 1) * rowsPerPage, count);
 
   return (
-    <div className="flex items-center justify-between px-8 py-4 bg-[#0B1220]">
+    <div className="flex items-center justify-between px-4 py-4 bg-[#0B1220]">
       {/* Rows-per-page selector */}
       <div className="flex items-center gap-2">
-        <span className="text-base text-white font-normal">Rows per page:</span>
+        <span className="md:text-sm text-xs text-white font-normal">Per page:</span>
         <select
           value={rowsPerPage}
           onChange={handleRowsPerPage}
-          className="px-2 py-1 border rounded bg-[#0B1220]"
+          className="px-2 py-1 border rounded bg-[#0B1220] md:text-sm text-xs"
         >
           {rowsPerPageOptions.map((opt) => (
             <option key={opt} value={opt}>
@@ -40,12 +40,12 @@ export default function PaginationControls({
       </div>
 
       {/* Page info */}
-      <div className="text-base text-white">
+      <div className="md:text-sm text-xs text-white ">
         {start} – {end} of {count}
       </div>
 
       {/* Prev / Next */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 md:text-sm text-xs">
         <button
           onClick={handlePrev}
           disabled={page === 0}
