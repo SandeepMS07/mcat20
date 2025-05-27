@@ -51,32 +51,66 @@ const MeetMyTeam = () => {
     </div>
   );
 };
- //          style={{
-    //         // backgroundColor: "#003967",
-    // clipPath: "polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%)"
-    //       }}
+
 
 const Table = ({ role, PlayerData }) => {
   return (
     <div className=" overflow-hidden">
-      <h5 className="bg-[#F28C28] px-6 py-3 font-bold mb-3 text-black uppercase">
-        {role}
-      </h5>
+      <div className="relative ">
+        {/* This div goes below (behind) the pink one */}
+        <div
+          className="bg-[#001B31] w-full border-r-[25px] top-1  border-[#F15A22] h-12 right-1 z-10 absolute"
+          style={{
+            clipPath: "polygon(0% 0%, 100% 0%, 98% 100%, 0% 100%)",
+          }}
+        ></div>
+
+        {/* This is the pink/red top div */}
+        <div
+          className="bg-[#001B31] z-50 relative mr-2"
+          style={{
+            clipPath: "polygon(0% 0%, 100% 0%, 97.5% 100%, 0% 100%)",
+          }}
+        >
+          <h5
+            className="px-6 py-3 font-bold mb-3 uppercase text-transparent bg-clip-text"
+            style={{
+              backgroundImage:
+                "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+            }}
+          >
+            {role}
+          </h5>
+        </div>
+      </div>
+
       <div className=" text-white  space-y-3">
         {PlayerData.map((player, index) => (
           <div
             key={index}
-            className="flex items-center justify-between border bg-[rgba(15,26,45,1)]   px-3 xl:px-6"
+            className="flex items-center justify-between  relative   "
           >
             {/* Number in separate div */}
-            <div className="flex  items-center">
+            <div className="flex z-50 pl-2   items-center">
               <span className=" text-white">{player.id}</span>
             </div>
-            
+            <div
+              className="bg-[#001b31] w-full border-r-[20px]  border-[#F15A22] h-10 z-20 absolute"
+              style={{
+                // backgroundColor: "#003967",
+                clipPath: "polygon(0% 0%, 100% 0%, 99% 100%, 0% 100%)",
+              }}
+            ></div>
             {/* All other content in one div */}
-            <div className="flex items-center justify-between bg-[rgba(15,26,45,1)] h-[66px]  flex-1 ml-5 xl:ml-10">
+            <div
+              className="flex items-center justify-between bg-[rgba(15,26,45,1)] border  z-50 px-10 py-2   flex-1  ml-3"
+              style={{
+                // backgroundColor: "#003967",
+                clipPath: "polygon(3% 0%, 100% 0%, 98% 100%, 0% 100%)",
+              }}
+            >
               <div className="flex items-center gap-5 xl:gap-10">
-                <div className="h-16 w-16 rounded-full bg-[#242424] flex items-center justify-center overflow-hidden">
+                <div className="h-11 w-11 rounded-full bg-[#242424]  flex items-center justify-center overflow-hidden">
                   <Image
                     src="/images/teams/meetmyteam/image 117.svg"
                     alt="avatar"
@@ -87,7 +121,7 @@ const Table = ({ role, PlayerData }) => {
                 </div>
               </div>
               <div className=" flex items-center justify-start w-[30%]">
-                <p className="xl:text-xl">{player.name}</p>
+                <p className="text-base font-bold">{player.name}</p>
               </div>
               <div className="w-[40%] flex items-center justify-between">
                 <Image
@@ -105,7 +139,7 @@ const Table = ({ role, PlayerData }) => {
                   height={350}
                   className="mr-2 w-10 h-10"
                 />
-                <span className="xl:text-xl">{player.role}</span>
+                <span className="text-base font-bold">{player.role}</span>
                 <Image
                   src="/images/teams/meetmyteam/uil_arrow.svg"
                   alt="arrow"

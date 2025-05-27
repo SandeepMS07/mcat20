@@ -23,8 +23,8 @@ export default function Home() {
         <IconPlayers />
         <Socials />
         <Gallery />
-        {/* <TopPlayers /> */}
-        {/* <HomeStandingsSection /> */}
+        <TopPlayers />
+        <HomeStandingsSection />
 
         {/* <News /> */}
 

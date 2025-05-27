@@ -70,7 +70,7 @@ const TeamSection = () => {
           <TitleComponent
             title={"Upcoming Matches"}
             button
-            buttonLink={routes.fixtures}
+            buttonLink={routes.teams}
             buttonText="View All"
             hideButtonOnMobile={true}
           />
