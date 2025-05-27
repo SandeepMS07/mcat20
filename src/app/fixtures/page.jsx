@@ -165,7 +165,7 @@ export default function Page() {
             <Image
               src="/images/elements/title-bg.png" // adjust to match your file structure
               alt="background"
-             fill
+              fill
               className="object-contain  z-0"
               priority
             />
