@@ -163,7 +163,7 @@ const PlayerCard = ({ data }) => {
 
 export default function IconPlayers() {
   return (
-    <div className="relative">
+    <div className="relative padding-bottom">
         <img src="/images/elements/section-element.png" className="absolute right-0 top-0" alt="element" />
         <img src="/images/elements/section-element.png" className="absolute left-0 bottom-0 rotate-180" alt="element" />
       <div className="section-width padding-top">
