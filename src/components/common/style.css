@@ -1,0 +1,41 @@
+
+@media (min-width: 300px) {
+    .responsive-top {
+        top: 6vw;
+        
+    }
+}
+
+@media (min-width: 320px) {
+    .responsive-top {
+        top: 5vw;
+        
+    }
+}
+
+@media (min-width: 340px) {
+    .responsive-top {
+        top: 4vw;
+        
+    }
+}
+
+@media (min-width: 420px) {
+    .responsive-top {
+        top: 2vw;
+    }
+}
+
+
+@media (min-width: 460px) {
+    .responsive-top {
+        top: 1vw;
+    }
+}
+
+@media (min-width: 500px) {
+    .responsive-top {
+        top: 0;
+    }
+}
+
