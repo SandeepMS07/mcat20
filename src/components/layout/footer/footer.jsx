@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import "./style.css";
 import { usePathname } from "next/navigation";
+import routes from "@/utilis/route";
 
 const Footer = () => {
   const pathName = usePathname();
@@ -126,7 +127,7 @@ const Footer = () => {
                 <div className="flex gap-4">
                   <a
                     target="_blank"
-                    href={"https://www.facebook.com/T20Mumbai"}
+                    href={routes.instagram}
                   >
                     <Image
                       src="/images/footer/insta.svg"
@@ -137,7 +138,7 @@ const Footer = () => {
                   </a>
                   <a
                     target="_blank"
-                    href={"https://www.facebook.com/T20Mumbai"}
+                    href={routes.twitter}
                   >
                     <Image
                       src="/images/footer/twitter.svg"
@@ -148,10 +149,21 @@ const Footer = () => {
                   </a>
                   <a
                     target="_blank"
-                    href={"https://www.facebook.com/T20Mumbai"}
+                    href={routes.youtube}
                   >
                     <Image
                       src="/images/footer/youtube.svg"
+                      alt="Google"
+                      width={24}
+                      height={24}
+                    />
+                  </a>
+                  <a
+                    target="_blank"
+                    href={routes.facebook}
+                  >
+                    <Image
+                      src="/images/footer/facebook.svg"
                       alt="Google"
                       width={24}
                       height={24}
