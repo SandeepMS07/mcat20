@@ -168,7 +168,7 @@ const MatchCard = ({
         <div
           className="flex flex-col justify-center px-4 text-white w-[55%] h-full z-10 px-6 gap-1"
           style={{
-            backgroundColor: "rgba(0, 0, 0, 1)",
+    background: "linear-gradient(90deg, #000000 0%, #000000 21.84%, #203376 101.04%)",
             clipPath: "polygon(0% 0%, 80% 0%, 100% 100%, 0% 100%)",
           }}
         >
@@ -184,9 +184,9 @@ const MatchCard = ({
         </div>
 
         <div
-          className="absolute top-0 right-0 h-full flex items-center w-[60%] justify-center text-black text-lg font-semibold pl-8"
+          className="absolute top-0 right-0 h-full flex items-center w-[60%] justify-center text-white text-lg font-semibold pl-8"
           style={{
-            backgroundColor: "rgba(224, 126, 39, 1)",
+            backgroundColor: "#003967",
             clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 20% 100%)",
           }}
         >

@@ -3,6 +3,7 @@
 import Hero from "@/components/hero/Hero";
 import React, { useState } from "react";
 import MediaAll from "@/components/media/MediaAll";
+import TitleComponent from "@/components/common/TitleComponent";
 
 const tabs = ["All", "View Videos", "View Images"];
 
@@ -133,29 +134,34 @@ const Page = () => {
 
   return (
     <div className="w-full ">
-      <Hero imgUrl={"/images/stats/bg.svg"} heading="Gallery" subheading="" />
+      <Hero imgUrl={"https://storage.googleapis.com/mca_images/website/banner_img/gallery.jpg"} heading="Gallery" subheading="" />
       {/* <p className="text-4xl py-20 font-bold mb-4 text-black uppercase  section-width ">
         GALLERY
       </p> */}
-      <div className="flex flex-col gap-6 section-width section-padding ">
-        <div className="w-full bg-black">
-          {/* <div className="w-full flex items-center">
-            {tabs.map((tab, index) => (
-              <div
-                key={index}
-                className={`h-full cursor-pointer ${
-                  activeTab === tab
-                    ? "bg-[#E07E27] text-white"
-                    : "text-[#E07E27]"
-                } border-l border-[#E07E27] px-6 m-2 py-1 uppercase`}
-                onClick={() => setActiveTab(tab)}
-              >
-                {tab}
-              </div>
-            ))}
-          </div> */}
-          <div className="w-full flex items-center justify-center">
-            <MediaAll items={filteredItems} />
+      <div className="relative">
+          <img src="/images/elements/section-element.png" className="absolute right-0 top-0" alt="element" />
+        <img src="/images/elements/section-element.png" className="absolute left-0 bottom-0 rotate-180" alt="element" />
+        <div className="gap-6 section-width section-padding ">
+        <TitleComponent title={"Gallery"}/>
+          <div className="w-full bg-black">
+            {/* <div className="w-full flex items-center">
+              {tabs.map((tab, index) => (
+                <div
+                  key={index}
+                  className={`h-full cursor-pointer ${
+                    activeTab === tab
+                      ? "bg-[#E07E27] text-white"
+                      : "text-[#E07E27]"
+                  } border-l border-[#E07E27] px-6 m-2 py-1 uppercase`}
+                  onClick={() => setActiveTab(tab)}
+                >
+                  {tab}
+                </div>
+              ))}
+            </div> */}
+            <div className="w-full flex items-center justify-center">
+              <MediaAll items={filteredItems} />
+            </div>
           </div>
         </div>
       </div>

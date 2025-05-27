@@ -163,33 +163,37 @@ const PlayerCard = ({ data }) => {
 
 export default function IconPlayers() {
   return (
-    <div className="section-width padding-top">
-      <TitleComponent title={"Icon Players"} />
-      <div className="sm:grid  lg:grid-cols-4 xl:gap-x-8 xl:gap-y-16  md:grid-cols-3 gap-x-5 gap-y-10 sm:grid-cols-2 grid-cols-1 hidden  pt-8">
-        {[...players]
-          .sort((a, b) => a.teamName.localeCompare(b.teamName))
-          .map((player) => (
-            <PlayerCard data={player} key={player.id} />
-          ))}
-      </div>
-      <div className="w-full sm:hidden block">
-        <Carousel
-          sectionName="clientLogo"
-          sliderPerView={1}
-          spaceBetween={50}
-          loop={true}
-        >
+    <div className="relative">
+        <img src="/images/elements/section-element.png" className="absolute right-0 top-0" alt="element" />
+        <img src="/images/elements/section-element.png" className="absolute left-0 bottom-0 rotate-180" alt="element" />
+      <div className="section-width padding-top">
+        <TitleComponent title={"Icon Players"} />
+        <div className="sm:grid  lg:grid-cols-4 xl:gap-x-8 xl:gap-y-16  md:grid-cols-3 gap-x-5 gap-y-10 sm:grid-cols-2 grid-cols-1 hidden  pt-8">
           {[...players]
             .sort((a, b) => a.teamName.localeCompare(b.teamName))
-            .map((player, i) => (
-              <SwiperSlide key={i} style={{ paddingTop: "20px" }}>
-                <PlayerCard data={player} key={i} />
-              </SwiperSlide>
+            .map((player) => (
+              <PlayerCard data={player} key={player.id} />
             ))}
-        </Carousel>
-        {/* {teamsDataHomePage.map((item, i) => {
-                return <TeamCard data={item} key={i} />;
-              })} */}
+        </div>
+        <div className="w-full sm:hidden block">
+          <Carousel
+            sectionName="clientLogo"
+            sliderPerView={1}
+            spaceBetween={50}
+            loop={true}
+          >
+            {[...players]
+              .sort((a, b) => a.teamName.localeCompare(b.teamName))
+              .map((player, i) => (
+                <SwiperSlide key={i} style={{ paddingTop: "20px" }}>
+                  <PlayerCard data={player} key={i} />
+                </SwiperSlide>
+              ))}
+          </Carousel>
+          {/* {teamsDataHomePage.map((item, i) => {
+                  return <TeamCard data={item} key={i} />;
+                })} */}
+        </div>
       </div>
     </div>
   );

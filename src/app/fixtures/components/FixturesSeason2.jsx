@@ -1,0 +1,149 @@
+"use client";
+
+import React from "react";
+import fixtures2 from "@/utilis/fixtures/fixtures2.js";
+import Image from "next/image";
+import { teamLogoStats } from "@/utilis/helper";
+
+const FixturesSeason2 = ({ selectedTeam = "" }) => {
+  // Process Season 2 fixtures data
+  function processMatches(jsonData) {
+    if (!jsonData || !jsonData.matches) {
+      return [];
+    }
+
+    return jsonData.matches.map((m) => {
+      const game_id = m.game_id;
+      const [p1 = {}, p2 = {}] = m.participants || [];
+
+      return {
+        game_id,
+        status: m.event_status.toUpperCase(),
+        team1: {
+          name: p1.name || "",
+          score: (p1.value || "").split(" ")[0] || "",
+          overs: p1.value?.match(/\(([^)]+)\)/)?.[1] || "",
+        },
+        team2: {
+          name: p2.name || "",
+          score: (p2.value || "").split(" ")[0] || "",
+          overs: p2.value?.match(/\(([^)]+)\)/)?.[1] || "",
+        },
+        matchInfo: {
+          result: m.event_sub_status,
+          date: new Date(m.start_date).toLocaleDateString("en-GB", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+          }),
+          location: m.venue_name?.toUpperCase() || "",
+        },
+      };
+    });
+  }
+
+  const allMatches = processMatches(fixtures2 || {});
+  
+  const filteredMatches = allMatches.filter((match) => {
+    if (selectedTeam && selectedTeam !== "All Teams") {
+      return match.team1.name === selectedTeam || match.team2.name === selectedTeam;
+    }
+    return true;
+  });
+
+  return (
+    <div className="md:py-8 bg-white flex flex-col gap-6 py-8">
+      {filteredMatches.map((match, idx) => {
+        const teamLogo1 = teamLogoStats[match.team1.name];
+        const teamLogo2 = teamLogoStats[match.team2.name];
+
+        return (
+          <div
+            key={match.game_id || idx}
+            className="rounded-md border overflow-hidden text-black"
+          >
+            {/* Header */}
+            <div className="relative bg-[#001B31] text-white text-sm md:text-base lg:text-lg font-semibold px-4 py-2 flex justify-between items-center">
+              <span>Match {idx + 1}</span>
+              <div
+                className="absolute top-0 right-0 h-full w-[200px] md:w-[250px] bg-gradient-to-r from-[#203376] via-black to-black flex items-center justify-center text-xs md:text-sm lg:text-base font-bold"
+                style={{
+                  clipPath: "polygon(20% 0%,100% 0%,100% 100%,0% 100%)",
+                }}
+              >
+                {match.matchInfo.location}
+              </div>
+            </div>
+            
+            {/* Teams & Scores */}
+            <div className="flex flex-col lg:flex-row w-full">
+              <div className="lg:w-[calc(100%-250px)] flex flex-row items-center justify-between p-3">
+                {/* Team 1 */}
+                <div className="flex max-md:flex-1 lg:flex-row flex-col lg:justify-start justify-center items-center gap-3 md:w-[35%]">
+                  <img
+                    src={teamLogo1 || "/images/fixtures/logoPlaceHolder.png"}
+                    alt={`${match.team1.name} logo`}
+                    width={50}
+                    height={60}
+                    className="object-contain md:h-28 md:w-28 h-16 w-16"
+                  />
+                  <div className="text-[10px] lg:text-left text-center sm:text-base font-semibold uppercase">
+                    {match.team1.name}
+                  </div>
+                  {match.team1.score && (
+                    <div className="text-sm font-bold">
+                      {match.team1.score} {match.team1.overs && `(${match.team1.overs})`}
+                    </div>
+                  )}
+                </div>
+
+                <div className="flex flex-col justify-center items-center">
+                  <div className="text-base sm:text-2xl font-semibold">vs</div>
+                  {match.status && (
+                    <div className="text-xs text-gray-600 mt-1">{match.status}</div>
+                  )}
+                </div>
+
+                {/* Team 2 */}
+                <div className="flex max-md:flex-1 lg:flex-row flex-col lg:justify-start justify-center items-center gap-3 w-full md:w-[40%]">
+                  <img
+                    src={teamLogo2 || "/images/fixtures/logoPlaceHolder.png"}
+                    alt={`${match.team2.name} logo`}
+                    width={50}
+                    height={60}
+                    className="object-contain md:h-28 h-16 w-16 md:w-28"
+                  />
+                  <div className="text-[10px] sm:text-base lg:text-left text-center font-semibold uppercase">
+                    {match.team2.name}
+                  </div>
+                  {match.team2.score && (
+                    <div className="text-sm font-bold">
+                      {match.team2.score} {match.team2.overs && `(${match.team2.overs})`}
+                    </div>
+                  )}
+                </div>
+              </div>
+              
+              {/* Match Info */}
+              <div className="bg-[#F5F5F5] flex lg:flex-col items-center md:items-start text-left lg:px-12 lg:py-8 sm:p-6 p-4 lg:w-[250px] lg:justify-start justify-between">
+                <div className="flex lg:flex-col justify-between w-full">
+                  <div className="text-xs sm:text-base font-bold text-[#E07E27]">
+                    MATCH INFO
+                  </div>
+                  <div className="text-base font-semibold leading-tight mb-1 lg:pt-2 flex lg:flex-col flex-row gap-2">
+                    <p>{match.matchInfo.date}</p>
+                    {match.matchInfo.result && (
+                      <p className="text-sm text-gray-600">{match.matchInfo.result}</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+export default FixturesSeason2;
