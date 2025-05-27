@@ -71,6 +71,8 @@ const TeamSection = () => {
             title={"Upcoming Matches"}
             button
             buttonLink={routes.fixtures}
+            buttonText="View All"
+            hideButtonOnMobile={true}
           />
           <div className="flex flex-col items-center gap-8">
             <div className="block xl:hidden w-full h-full">
@@ -110,9 +112,18 @@ const TeamSection = () => {
               })}
             </div>
           </div>
+          
+          {/* Mobile button - show only on mobile, hide on larger screens */}
           <Link
             href={routes.fixtures || "#"}
-            className="btn-blue md:hidden flex w-fit mx-auto mt-6"
+            className="md:hidden flex items-center gap-2 w-fit mx-auto mt-6"
+            style={{
+              background: "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              color: "transparent",
+            }}
           >
             View All
             <Image

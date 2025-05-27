@@ -2,49 +2,59 @@ import routes from "@/utilis/route";
 import Image from "next/image";
 import Link from "next/link";
 
-const TitleComponent = ({ title, orange = false, button, buttonLink }) => {
+const TitleComponent = ({
+  title,
+  orange = false,
+  button,
+  buttonLink,
+  buttonText = "View All",
+  hideButtonOnMobile = false,
+}) => {
   return (
-    <>
-      {orange ? (
-        <div className="relative h-fit px-8 py-2 bg-[#DE6927]   xl:w-[480px] lg:w-[320px] rounded-md mb-12">
-          <Image
-            src={"/images/elements/header-element.png"}
-            width={50}
-            height={50}
-            className="w-auto absolute h-full top-0 -left-0 rounded-l-md"
-            alt="Logo"
-          />
-          <h3 className="text-white capitalize">{title}</h3>
-        </div>
-      ) : (
-        <div className="flex items-center justify-between">
-          <div className="relative h-fit px-8 py-2 bg-gradient-to-r from-black to-[#213375] xl:w-[480px] lg:w-[320px] rounded-md mb-12">
+    <div
+      className="w-full bg-cover bg-center mb-12"
+      style={{ backgroundImage: "url('/images/elements/title-bg.png')" }}
+    >
+      <div className="flex items-center justify-between px-8 py-6">
+        <h3
+          className="capitalize text-xl xl:text-3xl ml-20 italic"
+          style={{
+            background: "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text", // fallback
+            color: "transparent", // ensure text color is transparent
+          }}
+        >
+          {title}
+        </h3>
+
+        {button && (
+          <Link
+            href={buttonLink || "#"}
+            className={`flex items-center gap-2 mr-12 ${
+              hideButtonOnMobile ? "hidden md:flex" : "flex"
+            }`}
+            style={{
+              background: "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text", // fallback
+              color: "transparent", // ensure text color is transparent
+            }}
+          >
+            {buttonText}
             <Image
-              src={"/images/elements/header-element.png"}
-              width={50}
-              height={50}
-              className="w-auto absolute h-full top-0 -left-0 rounded-l-md"
-              alt="Logo"
+              src="/images/home/hero/buttonIcon.svg"
+              alt="button-icon"
+              width={24}
+              height={24}
+              className="w-5 h-5"
             />
-            <h3 className="text-white capitalize">{title}</h3>
-          </div>
-          <div className="md:flex hidden">
-            {button && (
-              <Link href={buttonLink || "#"} className="btn-blue ">
-                View All
-                <Image
-                  src="/images/home/hero/buttonIcon.svg"
-                  alt="button-icon"
-                  width={24}
-                  height={24}
-                  className="w-5 h-5"
-                />
-              </Link>
-            )}
-          </div>
-        </div>
-      )}
-    </>
+          </Link>
+        )}
+      </div>
+    </div>
   );
 };
 
