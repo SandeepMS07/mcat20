@@ -63,65 +63,78 @@ const TeamSection = () => {
   ];
 
   return (
-    <div className="section-width  padding-top">
-      <div className="relative w-full bg-white pt-3 pb-2">
-        <TitleComponent
-          title={"Upcoming Matches"}
-          button
-          buttonLink={routes.fixtures}
-        />
-        <div className="flex flex-col items-center gap-8">
-          <div className="block xl:hidden w-full h-full">
-            <Swiper
-              modules={[Autoplay]}
-              spaceBetween={20}
-              // slidesPerView={2}
-              breakpoints={{
-                640: {
-                  slidesPerView: 1,
-                },
-                768: {
-                  slidesPerView: 2,
-                  spaceBetween: 20,
-                },
-                1024: {
-                  slidesPerView: 2,
-                  spaceBetween: 20,
-                },
-              }}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-              }}
-              loop={true}
-            >
-              {fixtures3.slice(0, 3).map((match, index) => (
-                <SwiperSlide key={index} className="h-full">
-                  <MatchCard {...match} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-
-          <div className="hidden xl:grid grid-cols-1 xl:grid-cols-3 gap-6 sm:gap-8 2xl:gap-12 w-full">
-            {fixtures3.slice(0, 3).map((match, index) => {
-              return <MatchCard key={index} {...match} />;
-            })}
-          </div>
-        </div>
-        <Link
-          href={routes.fixtures || "#"}
-          className="btn-blue md:hidden flex w-fit mx-auto mt-6"
-        >
-          View All
-          <Image
-            src="/images/home/hero/buttonIcon.svg"
-            alt="button-icon"
-            width={24}
-            height={24}
-            className="w-5 h-5"
+    <div className="relative">
+      <img src="/images/elements/section-element.png" className="absolute right-0 top-0" alt="element" />
+      <div className="section-width  padding-top">
+        <div className="relative w-full bg-white pt-3 pb-2">
+          <TitleComponent
+            title={"Upcoming Matches"}
+            button
+            buttonLink={routes.fixtures}
+            buttonText="View All"
+            hideButtonOnMobile={true}
           />
-        </Link>
+          <div className="flex flex-col items-center gap-8">
+            <div className="block xl:hidden w-full h-full">
+              <Swiper
+                modules={[Autoplay]}
+                spaceBetween={20}
+                // slidesPerView={2}
+                breakpoints={{
+                  640: {
+                    slidesPerView: 1,
+                  },
+                  768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                  },
+                  1024: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                  },
+                }}
+                autoplay={{
+                  delay: 3000,
+                  disableOnInteraction: false,
+                }}
+                loop={true}
+              >
+                {fixtures3.slice(0, 3).map((match, index) => (
+                  <SwiperSlide key={index} className="h-full">
+                    <MatchCard {...match} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+            <div className="hidden xl:grid grid-cols-1 xl:grid-cols-3 gap-6 sm:gap-8 2xl:gap-12 w-full">
+              {fixtures3.slice(0, 3).map((match, index) => {
+                return <MatchCard key={index} {...match} />;
+              })}
+            </div>
+          </div>
+          
+          {/* Mobile button - show only on mobile, hide on larger screens */}
+          <Link
+            href={routes.fixtures || "#"}
+            className="md:hidden flex items-center gap-2 w-fit mx-auto mt-6"
+            style={{
+              background: "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              color: "transparent",
+            }}
+          >
+            View All
+            <Image
+              src="/images/home/hero/buttonIcon.svg"
+              alt="button-icon"
+              width={24}
+              height={24}
+              className="w-5 h-5"
+            />
+          </Link>
+        </div>
       </div>
     </div>
   );
