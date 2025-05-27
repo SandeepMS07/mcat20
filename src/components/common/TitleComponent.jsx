@@ -32,14 +32,14 @@ const TitleComponent = ({
     <Image
       src="/images/elements/title-bg.png"
       alt="Desktop Title"
-      className="hidden md:block lg:block absolute z-0 top-3 w-full "
+      className="hidden md:block lg:block absolute z-0  w-full "
       width={700}
       height={200}
       priority
     />
 
 </div>
-      <div className="flex items-center justify-between px-8 py-6 relative z-10">
+      <div className="flex items-center justify-between  px-8 py-6 relative z-10">
         <h3
           className="capitalize text-xl xl:text-3xl ml-20 italic"
           style={{
