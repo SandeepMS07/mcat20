@@ -149,12 +149,12 @@ export default function Page() {
       <div className="relative">
         <img
           src="/images/elements/section-element.png"
-          className="absolute right-0 top-0"
+          className="absolute right-0 top-0 md:block hidden"
           alt="element"
         />
         <img
           src="/images/elements/section-element.png"
-          className="absolute left-0 bottom-0 rotate-180"
+          className="absolute left-0 bottom-0 rotate-180 md:block hidden"
           alt="element"
         />
 
@@ -195,7 +195,7 @@ export default function Page() {
                 {season} Fixtures
               </h2>
 
-              <div className="hidden md:flex-row xl:mr-14 mr-8   flex-col lg:gap-4 gap-2 max-md:mt-4 w-fit md:flex ">
+              {/* <div className="hidden md:flex-row xl:mr-14 mr-8   flex-col lg:gap-4 gap-2 max-md:mt-4 w-fit md:flex ">
                 <div className="flex flex-row gap-2 items-center">
                   <p className="text-white font-semibold xl:text-lg lg:text-base text-sm  mr-2">
                     Filter By:
@@ -226,8 +226,26 @@ export default function Page() {
                     ))}
                   </select>
                 </div>
+              </div> */}
+              <div className="hidden md:flex xl:mr-14 mr-8 max-md:mt-4 w-fit">
+                <FixtureFilter
+                  season={season}
+                  team={team}
+                  teamOptions={teamOptions}
+                  onSeasonChange={setSeason}
+                  onTeamChange={setTeam}
+                />
               </div>
             </div>
+          </div>
+          <div className="flex md:hidden  mr-8 max-md:mt-4 w-fit">
+            <FixtureFilter
+              season={season}
+              team={team}
+              teamOptions={teamOptions}
+              onSeasonChange={setSeason}
+              onTeamChange={setTeam}
+            />
           </div>
 
           {/* Render the appropriate fixtures component */}
@@ -237,3 +255,60 @@ export default function Page() {
     </div>
   );
 }
+
+const FixtureFilter = ({
+  season,
+  team,
+  teamOptions,
+  onSeasonChange,
+  onTeamChange,
+  isMobile = false,
+}) => {
+  return (
+    <div
+      className={`${
+        isMobile ? "flex-col gap-3 mt-4 w-full" : "flex-row gap-4"
+      } flex items-center`}
+    >
+      <div className="flex flex-row gap-2 items-center">
+        <p className="md:text-white md:block hidden font-semibold xl:text-lg lg:text-base text-sm mr-2">
+          Filter By:
+        </p>
+
+        <select
+          name="season"
+          value={season}
+          onChange={(e) => onSeasonChange(e.target.value)}
+          className={`px-4 ${
+            isMobile ? "py-2" : "xl:py-2 py-1"
+          } border border-[#E07E27] uppercase bg-transparent text-[#E07E27] xl:text-sm text-xs ${
+            isMobile ? "w-full" : "lg:w-40 w-28"
+          }`}
+        >
+          <option value="Season 1">Season 1</option>
+          <option value="Season 2">Season 2</option>
+          <option value="Season 3">Season 3</option>
+        </select>
+      </div>
+
+      <div className="flex flex-row gap-2 items-center">
+        <select
+          name="team"
+          value={team}
+          onChange={(e) => onTeamChange(e.target.value)}
+          className={`px-4 ${
+            isMobile ? "py-2" : "xl:py-2 py-1"
+          } bg-[#E07E27] uppercase text-white xl:text-sm text-xs ${
+            isMobile ? "w-full" : "lg:w-40 w-28"
+          }`}
+        >
+          {teamOptions.map((t) => (
+            <option key={t} value={t}>
+              {t}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
+  );
+};

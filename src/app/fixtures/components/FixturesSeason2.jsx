@@ -4,6 +4,7 @@ import React from "react";
 import fixtures2 from "@/utilis/fixtures/fixtures2.js";
 import Image from "next/image";
 import { teamLogoStats } from "@/utilis/helper";
+import Link from "next/link";
 
 const FixturesSeason2 = ({ selectedTeam = "" }) => {
   // Process Season 2 fixtures data
@@ -43,10 +44,12 @@ const FixturesSeason2 = ({ selectedTeam = "" }) => {
   }
 
   const allMatches = processMatches(fixtures2 || {});
-  
+
   const filteredMatches = allMatches.filter((match) => {
     if (selectedTeam && selectedTeam !== "All Teams") {
-      return match.team1.name === selectedTeam || match.team2.name === selectedTeam;
+      return (
+        match.team1.name === selectedTeam || match.team2.name === selectedTeam
+      );
     }
     return true;
   });
@@ -71,10 +74,18 @@ const FixturesSeason2 = ({ selectedTeam = "" }) => {
                   clipPath: "polygon(20% 0%,100% 0%,100% 100%,0% 100%)",
                 }}
               >
-                {match.matchInfo.location}
+                {/* {match.matchInfo.location} */}
+                {match.matchInfo.location
+                  .toLowerCase()
+                  .replace(/mumbai/i, "")
+                  .replace(/,/g, "")
+                  .trim()
+                  .split(" ")
+                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                  .join(" ")}
               </div>
             </div>
-            
+
             {/* Teams & Scores */}
             <div className="flex flex-col lg:flex-row w-full">
               <div className="lg:w-[calc(100%-250px)] flex flex-row items-center justify-between p-3">
@@ -92,7 +103,8 @@ const FixturesSeason2 = ({ selectedTeam = "" }) => {
                   </div>
                   {match.team1.score && (
                     <div className="text-sm font-bold">
-                      {match.team1.score} {match.team1.overs && `(${match.team1.overs})`}
+                      {match.team1.score}{" "}
+                      {match.team1.overs && `(${match.team1.overs})`}
                     </div>
                   )}
                 </div>
@@ -100,7 +112,9 @@ const FixturesSeason2 = ({ selectedTeam = "" }) => {
                 <div className="flex flex-col justify-center items-center">
                   <div className="text-base sm:text-2xl font-semibold">vs</div>
                   {match.status && (
-                    <div className="text-xs text-gray-600 mt-1">{match.status}</div>
+                    <div className="text-xs text-gray-600 mt-1">
+                      {match.status}
+                    </div>
                   )}
                 </div>
 
@@ -118,25 +132,61 @@ const FixturesSeason2 = ({ selectedTeam = "" }) => {
                   </div>
                   {match.team2.score && (
                     <div className="text-sm font-bold">
-                      {match.team2.score} {match.team2.overs && `(${match.team2.overs})`}
+                      {match.team2.score}{" "}
+                      {match.team2.overs && `(${match.team2.overs})`}
                     </div>
                   )}
                 </div>
               </div>
-              
+
               {/* Match Info */}
               <div className="bg-[#F5F5F5] flex lg:flex-col items-center md:items-start text-left lg:px-12 lg:py-8 sm:p-6 p-4 lg:w-[250px] lg:justify-start justify-between">
                 <div className="flex lg:flex-col justify-between w-full">
-                  <div className="text-xs sm:text-base font-bold text-[#E07E27]">
-                    MATCH INFO
+                  <div className="">
+                    <p className="text-xs sm:text-base font-bold text-[#E07E27]">
+                      MATCH INFO
+                    </p>
+                    <p className="lg:hidden block">{match.matchInfo.date}</p>
                   </div>
                   <div className="text-base font-semibold leading-tight mb-1 lg:pt-2 flex lg:flex-col flex-row gap-2">
-                    <p>{match.matchInfo.date}</p>
-                    {match.matchInfo.result && (
-                      <p className="text-sm text-gray-600">{match.matchInfo.result}</p>
-                    )}
+                    <div className="lg:block hidden">
+                      <p>{match.matchInfo.date}</p>
+                      {match.matchInfo.result && (
+                        <p className="text-sm text-gray-600">
+                          {match.matchInfo.result}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  <div className="mt-4 lg:mt-auto">
+                    <Link href={`/scores/${match.game_id}`}>
+                      <span className="inline-flex items-center gap-2 bg-black text-white px-4 py-2 rounded-lg font-semibold cursor-pointer hover:bg-gray-800 transition-colors text-sm">
+                        Match center
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                        >
+                          <path
+                            d="M9.33333 3.33333L13.3333 7.33333M13.3333 7.33333L9.33333 11.3333M13.3333 7.33333H2.66667"
+                            stroke="white"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </span>
+                    </Link>
                   </div>
                 </div>
+              </div>
+              <div className="lg:hidden block text-center">
+                {match.matchInfo.result && (
+                  <p className="text-sm text-gray-600">
+                    {match.matchInfo.result}
+                  </p>
+                )}
               </div>
             </div>
           </div>

@@ -66,7 +66,7 @@ const TeamSection = () => {
     <div className="relative">
       <img
         src="/images/elements/section-element.png"
-        className="absolute right-0 top-0"
+        className="absolute right-0 top-0 md:block hidden"
         alt="element"
       />
       <div className="section-width  padding-top">
@@ -117,10 +117,9 @@ const TeamSection = () => {
             </div>
           </div>
 
-          {/* Mobile button - show only on mobile, hide on larger screens */}
           <Link
             href={routes.fixtures || "#"}
-            className="md:hidden flex items-center gap-2 w-fit mx-auto mt-6"
+            className="md:hidden flex items-center gap-2 w-fit mx-auto mt-6 btn-primary"
             style={{
               background:
                 "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",

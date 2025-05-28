@@ -78,18 +78,24 @@ const FixturesSeason1 = ({ selectedTeam = "" }) => {
                 {match.matchInfo.location}
               </div> */}
 
-
               <div
                 className="absolute top-0 right-0 h-full w-[200px] md:w-[250px] bg-gradient-to-r from-[#203376] via-black to-black flex items-center justify-center text-xs md:text-sm lg:text-base font-bold"
                 style={{
                   clipPath: "polygon(20% 0%,100% 0%,100% 100%,0% 100%)",
                 }}
               >
-                {match.matchInfo.location}
+                {/* {match.matchInfo.location} */}
+                {match.matchInfo.location
+                  .toLowerCase()
+                  .replace(/mumbai/i, "")
+                  .replace(/,/g, "")
+                  .trim()
+                  .split(" ")
+                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                  .join(" ")}
               </div>
             </div>
 
-            {/* Teams & Scores */}
             <div className="flex flex-col lg:flex-row w-full">
               <div className="lg:w-[calc(100%-250px)] flex flex-row items-center justify-between p-3">
                 {/* Team 1 */}
@@ -106,7 +112,8 @@ const FixturesSeason1 = ({ selectedTeam = "" }) => {
                   </div>
                   {match.team1.score && (
                     <div className="text-sm font-bold">
-                      {match.team1.score} {match.team1.overs && `(${match.team1.overs})`}
+                      {match.team1.score}{" "}
+                      {match.team1.overs && `(${match.team1.overs})`}
                     </div>
                   )}
                 </div>
@@ -120,7 +127,6 @@ const FixturesSeason1 = ({ selectedTeam = "" }) => {
                   )}
                 </div>
 
-                {/* Team 2 */}
                 <div className="flex max-md:flex-1 lg:flex-row flex-col lg:justify-start justify-center items-center gap-3 w-full md:w-[40%]">
                   <img
                     src={teamLogo2 || "/images/fixtures/logoPlaceHolder.png"}
@@ -134,29 +140,33 @@ const FixturesSeason1 = ({ selectedTeam = "" }) => {
                   </div>
                   {match.team2.score && (
                     <div className="text-sm font-bold">
-                      {match.team2.score} {match.team2.overs && `(${match.team2.overs})`}
+                      {match.team2.score}{" "}
+                      {match.team2.overs && `(${match.team2.overs})`}
                     </div>
                   )}
                 </div>
               </div>
 
-              {/* Match Info */}
               <div className="bg-[#F5F5F5] flex lg:flex-col items-center md:items-start text-left lg:px-12 lg:py-8 sm:p-6 p-4 lg:w-[250px] lg:justify-start justify-between">
                 <div className="flex lg:flex-col justify-between w-full h-full">
-                  <div className="text-xs sm:text-base font-bold text-[#E07E27]">
-                    MATCH INFO 
+                  <div className="">
+                    <p className="text-xs sm:text-base font-bold text-[#E07E27]">
+                      MATCH INFO
+                    </p>
+                    <p className="lg:hidden block">{match.matchInfo.date}</p>
                   </div>
                   <div className="text-base font-semibold leading-tight lg:pt-2 flex lg:flex-col flex-row gap-2">
-                    <p>{match.matchInfo.date}</p>
-                    {match.matchInfo.result && (
-                      <p className="text-sm text-gray-600">
-                        {match.matchInfo.result}
-                      </p>
-                    )}
+                    <div className="lg:block hidden">
+                      <p>{match.matchInfo.date}</p>
+                      {match.matchInfo.result && (
+                        <p className="text-sm text-gray-600">
+                          {match.matchInfo.result}
+                        </p>
+                      )}
+                    </div>
                   </div>
 
-                  {/* Match Center Button */}
-                  <div className="mt-4 lg:mt-auto">
+                  <div className=" lg:mt-2">
                     <Link href={`/scores/${match.game_id}`}>
                       <span className="inline-flex items-center gap-2 bg-black text-white px-4 py-2 rounded-lg font-semibold cursor-pointer hover:bg-gray-800 transition-colors text-sm">
                         Match center
@@ -178,6 +188,13 @@ const FixturesSeason1 = ({ selectedTeam = "" }) => {
                     </Link>
                   </div>
                 </div>
+              </div>
+              <div className="lg:hidden block text-center">
+                {match.matchInfo.result && (
+                  <p className="text-sm text-gray-600">
+                    {match.matchInfo.result}
+                  </p>
+                )}
               </div>
             </div>
           </div>
