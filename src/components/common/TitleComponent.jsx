@@ -1,6 +1,7 @@
 import routes from "@/utilis/route";
 import Image from "next/image";
 import Link from "next/link";
+import "./style.css";
 
 const TitleComponent = ({
   title,
@@ -11,11 +12,34 @@ const TitleComponent = ({
   hideButtonOnMobile = false,
 }) => {
   return (
-    <div
-      className="w-full bg-cover bg-center mb-12"
-      style={{ backgroundImage: "url('/images/elements/title-bg.png')" }}
-    >
-      <div className="flex items-center justify-between px-8 py-6">
+    <div className="w-full bg-cover bg-center mb-12 ">
+      <div className="relative w-full">
+      <Image
+      src="/images/elements/small-title-bg.png"
+      alt="Mobile Title"
+      className="block md:hidden lg:hidden absolute z-0  w-full responsive-top"
+      width={200}
+      height={0}
+      priority
+      // style={{
+      //   @media (min-width: 400px) {
+      //       top: "3.5vw";
+      //   }
+      // }}
+    />
+
+    {/* Show on screens ≥ 1024px (laptop and up) */}
+    <Image
+      src="/images/elements/title-bg.png"
+      alt="Desktop Title"
+      className="hidden md:block lg:block absolute z-0  w-full "
+      width={700}
+      height={200}
+      priority
+    />
+
+</div>
+      <div className="flex items-center justify-between  px-8 py-6 relative z-10">
         <h3
           className="capitalize text-xl xl:text-3xl ml-20 italic"
           style={{
