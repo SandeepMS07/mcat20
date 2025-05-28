@@ -1,14 +1,24 @@
-"use client"
+"use client";
 import React, { useState, useMemo } from "react";
 import Image from "next/image";
-import standingsData from "@/constant/oldSeason/standings/standings_data_v3.json"
+import standingsData from "@/constant/oldSeason/standings/standings_data_v3.json";
 import CustomTable from "@/components/common/CustomTable";
 import Hero from "@/components/hero/Hero";
 import { teamLogoStats } from "@/utilis/helper";
 import TitleComponent from "@/components/common/TitleComponent";
 import { DropDown } from "@/components/common/DropDown";
 
-const headers = ["RANK", "TEAM", "MP","WON", 'LOST',"TIED","N/R","NET RR", "PTS"];
+const headers = [
+  "RANK",
+  "TEAM",
+  "MP",
+  "WON",
+  "LOST",
+  "TIED",
+  "N/R",
+  "NET RR",
+  "PTS",
+];
 
 const headerStyles = {
   className: "bg-[#E07E27] text-black text-center",
@@ -41,9 +51,7 @@ const TableTabComponent = () => {
     RANK: index + 1,
     TEAM: (
       <div className="flex items-center gap-2 min-w-40 text-left">
-        <div className="w-6 h-6 flex justify-center items-center"
-        
-        >
+        <div className="w-6 h-6 flex justify-center items-center">
           <img
             src={teamLogoStats[team?.team_name]}
             alt="logo"
@@ -54,8 +62,8 @@ const TableTabComponent = () => {
       </div>
     ),
     MP: team.played,
-    WON:team.won,
-    LOST:team.lost,
+    WON: team.won,
+    LOST: team.lost,
     TIED: team.tied,
     "N/R": team.no_result,
     "NET RR": team.net_run_rate,
@@ -72,24 +80,59 @@ const TableTabComponent = () => {
 
       <div className="section-width section-padding">
         <div className="flex lg:flex-row flex-col justify-between lg:items-center pb-6 ">
-          <TitleComponent title={"GROUP STANDINGS"}/>
-          <div className="w-1/2 flex items-center lg:justify-end gap-8 lg:mb-12">
-           
-                         <DropDown
-                           label="Season"
-                           options={Object.keys(standingsData)}
-                           value={activeSeason}
-                           onChange={(e) => setActiveSeason(e.target.value)}
-                           bg="white"
-                         />
- 
-            <DropDown
-              label="Team"
-              options={teamsInSeason}
-              value={activeTeam}
-              onChange={(e) => setActiveTeam(e.target.value)}
-              bg="#E07E27"
-            />
+          <div className="w-full bg-cover bg-center mb-12 ">
+            <div className="relative">
+              <div className=" w-full h-full justify-center">
+                <Image
+                  src="/images/elements/small-title-bg.png"
+                  alt="Mobile Title"
+                  className="block md:hidden    w-full"
+                  width={200}
+                  height={0}
+                  priority
+                />
+                <Image
+                  src="/images/elements/title-bg.png"
+                  alt="Desktop Title"
+                  className="hidden md:block lg:block   w-full "
+                  width={700}
+                  height={200}
+                  priority
+                />
+              </div>
+              <div className="flex items-center justify-between     z-10 absolute h-full top-0 left-0 right-0">
+                <h3
+                  className="capitalize  md:text-lg lg:text-xl xl:text-2xl md:ml-16 ml-12 italic"
+                  style={{
+                    background:
+                      "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text", // fallback
+                    color: "transparent", // ensure text color is transparent
+                  }}
+                >
+                  GROUP STANDINGS
+                </h3>
+                <div className="w-1/2 flex items-center lg:justify-end gap-8 lg:mb-12">
+                  <DropDown
+                    label="Season"
+                    options={Object.keys(standingsData)}
+                    value={activeSeason}
+                    onChange={(e) => setActiveSeason(e.target.value)}
+                    bg="white"
+                  />
+
+                  <DropDown
+                    label="Team"
+                    options={teamsInSeason}
+                    value={activeTeam}
+                    onChange={(e) => setActiveTeam(e.target.value)}
+                    bg="#E07E27"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         {tableData.length > 0 ? (
@@ -97,9 +140,9 @@ const TableTabComponent = () => {
             headers={headers}
             data={tableData}
             customRenderers={{}}
-                        headerStyles={headerStyles}
-                        tBodyStyles={tBodyStyles}
-                        rowStyles={rowStyles}
+            headerStyles={headerStyles}
+            tBodyStyles={tBodyStyles}
+            rowStyles={rowStyles}
           />
         ) : (
           <div className="text-center py-10 text-gray-400">

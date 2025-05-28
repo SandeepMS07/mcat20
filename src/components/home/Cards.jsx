@@ -64,9 +64,13 @@ const TeamSection = () => {
 
   return (
     <div className="relative">
-      <img src="/images/elements/section-element.png" className="absolute right-0 top-0" alt="element" />
+      <img
+        src="/images/elements/section-element.png"
+        className="absolute right-0 top-0"
+        alt="element"
+      />
       <div className="section-width  padding-top">
-        <div className="relative w-full bg-white pt-3 pb-2">
+        <div className="relative w-full   pt-3 pb-2">
           <TitleComponent
             title={"Upcoming Matches"}
             button
@@ -112,13 +116,14 @@ const TeamSection = () => {
               })}
             </div>
           </div>
-          
+
           {/* Mobile button - show only on mobile, hide on larger screens */}
           <Link
             href={routes.fixtures || "#"}
             className="md:hidden flex items-center gap-2 w-fit mx-auto mt-6"
             style={{
-              background: "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
+              background:
+                "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
