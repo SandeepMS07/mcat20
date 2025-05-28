@@ -163,7 +163,7 @@ const TopPlayerCard = ({
         {/* Updated Hero Section to match Figma */}
 
         <div
-          className="relative  text-white overflow-hidden"
+          className="relative  text-white overflow-hidden rounded-t-xl"
           style={{
             backgroundImage: `url('/images/playerProfile/bgVector.svg'), linear-gradient(227.41deg, #010F54 -28.03%, #000827 48.51%, #010F54 125.04%)`,
             backgroundBlendMode: "overlay",
@@ -368,7 +368,7 @@ const TopPlayerCard = ({
 
         {/* Leaderboard with new design matching HomeStandingsSection */}
         <div
-          className="w-full overflow-hidden py-4 px-3"
+          className="w-full overflow-hidden py-4 px-3 rounded-b-xl"
           style={{
             background:
               "linear-gradient(227.41deg, #010F54 -28.03%, #000827 48.51%, #010F54 125.04%)",
