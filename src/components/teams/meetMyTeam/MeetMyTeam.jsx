@@ -109,7 +109,7 @@ const Table = ({ role, PlayerData }) => {
           >
             {/* Number in separate div */}
             <div className="flex z-50 pl-2   items-center">
-              <span className=" text-white">{index+1}</span>
+              <span className=" text-white">{index+1}.</span>
             </div>
             <div
               className="w-full border-r-[50px]  border-[#F15A22] h-10 z-20 absolute"

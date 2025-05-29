@@ -5,7 +5,7 @@ import { navLinks } from "./data";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 import { useState } from "react";
 import routes from "@/utilis/route";
-import { usePathname } from "next/navigation";
+import { redirect, usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,15 +16,16 @@ const Navbar = () => {
     <div className=" z-50 absolute top-[20px] w-full  flex justify-center">
       <div className="relative w-[90%]">
        {/* Logo Section */}
-        <div className="flex-shrink-0  absolute left-[5%] lg:left-[10%] -top-[50%] md:-top-[40%]">
+        <div className="flex-shrink-0  absolute left-[5%] lg:left-[10%] -top-[50%] md:-top-[40%]" style={{zIndex:9999}}>
           {!menuOpen && (
             <Link href="/">
               <Image
                 src={"/images/home/logo.svg"}
                 alt="logo"
-                className="h-16 w-16 md:h-28 md:w-28 "
+                className="h-16 w-16 md:h-28 md:w-28 cursor-pointer "
                 width={100}
                 height={100}
+                onClick={() => redirect("/")} 
               />
             </Link>
           )}
