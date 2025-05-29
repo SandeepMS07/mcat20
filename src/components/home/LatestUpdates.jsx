@@ -81,8 +81,8 @@ const LatestUpdates = () => {
                   {updateItems.map((item, index) => (
                     <div
                       key={index}
-                      className={`flex-1 flex justify-between items-center bg-[#BB4B24] hover:bg-[#E07E27] cursor-pointer ${
-                        item.bordered ? "border-b border-[#E07E27]" : ""
+                      className={`flex-1 flex justify-between items-center bg-[#E07E27] hover:bg-[#D3731E] cursor-pointer ${
+                        item.bordered ? "border-b border-[#D3731E]" : ""
                       }`}
                       onClick={() => {
                         router.push(item.path);
@@ -116,7 +116,8 @@ const LatestUpdates = () => {
           href={routes.latestUpdates || "#"}
           className="md:hidden flex items-center gap-2 w-fit mx-auto mt-6"
           style={{
-            background: "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
+            background:
+              "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",

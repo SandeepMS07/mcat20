@@ -149,31 +149,40 @@ export default function Page() {
       <div className="relative">
         <img
           src="/images/elements/section-element.png"
-          className="absolute right-0 top-0"
+          className="absolute right-0 top-0 md:block hidden"
           alt="element"
         />
         <img
           src="/images/elements/section-element.png"
-          className="absolute left-0 bottom-0 rotate-180"
+          className="absolute left-0 bottom-0 rotate-180 md:block hidden"
           alt="element"
         />
 
-        <div className="section-width mt-10">
+        <div className="section-width pt-10">
           {/* Season and Team Selection Header */}
-          <div className="relative">
+          <div className="relative  mb-6">
             {/* Background image */}
             <Image
-              src="/images/elements/title-bg.png" // adjust to match your file structure
-              alt="background"
-             fill
-              className="object-contain  z-0"
+              src="/images/elements/small-title-bg.png"
+              alt="Mobile Title"
+              className="block md:hidden    w-full"
+              width={200}
+              height={0}
+              priority
+            />
+            <Image
+              src="/images/elements/title-bg.png"
+              alt="Desktop Title"
+              className="hidden md:block lg:block   w-full "
+              width={700}
+              height={200}
               priority
             />
 
             {/* Foreground content */}
-            <div className="relative z-10 flex flex-col md:flex-row items-center md:justify-between justify-center pt-8 pb-4 px-4 md:px-0">
+            <div className="absolute top-0 left-0 h-full z-10 flex flex-col md:flex-row md:items-center md:justify-between justify-center   w-full">
               <h2
-                className="uppercase text-xl xl:text-3xl  ml-20 italic text-black"
+                className="uppercase max-sm:text-base md:text-lg lg:text-xl xl:text-2xl  xl:ml-16 ml-12 italic text-black"
                 style={{
                   background:
                     "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
@@ -186,16 +195,16 @@ export default function Page() {
                 {season} Fixtures
               </h2>
 
-              <div className="flex md:flex-row mr-14 mb-2 flex-col lg:gap-4 gap-2 max-md:mt-4">
-                {/* Season Selector */}
-
+              {/* <div className="hidden md:flex-row xl:mr-14 mr-8   flex-col lg:gap-4 gap-2 max-md:mt-4 w-fit md:flex ">
                 <div className="flex flex-row gap-2 items-center">
-                  <p className="text-white font-semibold text-lg w-20 mr-2">Filter By:</p>
+                  <p className="text-white font-semibold xl:text-lg lg:text-base text-sm  mr-2">
+                    Filter By:
+                  </p>
                   <select
                     name="season"
                     value={season}
                     onChange={(e) => setSeason(e.target.value)}
-                    className="px-4 py-2 border border-[#E07E27] uppercase bg-transparent text-[#E07E27]  text-sm min-w-[120px]"
+                    className="px-4 xl:py-2 py-1 border border-[#E07E27] uppercase bg-transparent text-[#E07E27]  xl:text-sm text-xs lg:w-40 w-28"
                   >
                     <option value="Season 1">Season 1</option>
                     <option value="Season 2">Season 2</option>
@@ -203,13 +212,12 @@ export default function Page() {
                   </select>
                 </div>
 
-                {/* Team Selector */}
                 <div className="flex flex-row gap-2 items-center">
                   <select
                     name="team"
                     value={team}
                     onChange={(e) => setTeam(e.target.value)}
-                    className="px-4 py-2 bg-[#E07E27] uppercase text-white  text-sm min-w-[140px]"
+                    className="px-4  xl:py-2 py-1 bg-[#E07E27] uppercase text-white  xl:text-sm text-xs   lg:w-40 w-28"
                   >
                     {teamOptions.map((t) => (
                       <option key={t} value={t}>
@@ -218,8 +226,26 @@ export default function Page() {
                     ))}
                   </select>
                 </div>
+              </div> */}
+              <div className="hidden md:flex xl:mr-14 mr-8 max-md:mt-4 w-fit">
+                <FixtureFilter
+                  season={season}
+                  team={team}
+                  teamOptions={teamOptions}
+                  onSeasonChange={setSeason}
+                  onTeamChange={setTeam}
+                />
               </div>
             </div>
+          </div>
+          <div className="flex md:hidden  mr-8 max-md:mt-4 w-fit">
+            <FixtureFilter
+              season={season}
+              team={team}
+              teamOptions={teamOptions}
+              onSeasonChange={setSeason}
+              onTeamChange={setTeam}
+            />
           </div>
 
           {/* Render the appropriate fixtures component */}
@@ -229,3 +255,60 @@ export default function Page() {
     </div>
   );
 }
+
+const FixtureFilter = ({
+  season,
+  team,
+  teamOptions,
+  onSeasonChange,
+  onTeamChange,
+  isMobile = false,
+}) => {
+  return (
+    <div
+      className={`${
+        isMobile ? "flex-col gap-3 mt-4 w-full" : "flex-row gap-4"
+      } flex items-center`}
+    >
+      <div className="flex flex-row gap-2 items-center">
+        <p className="md:text-white md:block hidden font-semibold xl:text-lg lg:text-base text-sm mr-2">
+          Filter By:
+        </p>
+
+        <select
+          name="season"
+          value={season}
+          onChange={(e) => onSeasonChange(e.target.value)}
+          className={`px-4 ${
+            isMobile ? "py-2" : "xl:py-2 py-1"
+          } border border-[#E07E27] uppercase bg-transparent text-[#E07E27] xl:text-sm text-xs ${
+            isMobile ? "w-full" : "lg:w-40 w-28"
+          }`}
+        >
+          <option value="Season 1">Season 1</option>
+          <option value="Season 2">Season 2</option>
+          <option value="Season 3">Season 3</option>
+        </select>
+      </div>
+
+      <div className="flex flex-row gap-2 items-center">
+        <select
+          name="team"
+          value={team}
+          onChange={(e) => onTeamChange(e.target.value)}
+          className={`px-4 ${
+            isMobile ? "py-2" : "xl:py-2 py-1"
+          } bg-[#E07E27] uppercase text-white xl:text-sm text-xs ${
+            isMobile ? "w-full" : "lg:w-40 w-28"
+          }`}
+        >
+          {teamOptions.map((t) => (
+            <option key={t} value={t}>
+              {t}
+            </option>
+          ))}
+        </select>
+      </div>
+    </div>
+  );
+};
