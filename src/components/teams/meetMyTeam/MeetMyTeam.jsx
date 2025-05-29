@@ -125,13 +125,10 @@ const Table = ({ role, PlayerData }) => {
               <div className="w-[40%] flex items-center justify-between">
                 <Image
                   src={
-                    role == "batsman"
-                      ? "/images/teams/meetmyteam/Layer_1 (1).svg"
-                      : role == "bowlers"
-                      ? "/images/teams/meetmyteam/svg8.svg"
-                      : role == "all rounders"
-                      ? "/images/teams/meetmyteam/Layer_1 (3).svg"
-                      : "/images/teams/meetmyteam/Layer_1 (4).svg"
+                    role == "batsman"? "/images/teams/meetmyteam/Layer_1 (1).svg"
+                  : role == "bowlers" ? "/images/teams/meetmyteam/svg8.svg"
+                  : role == "All Rounder" ? "/images/teams/meetmyteam/Layer_1 (3).svg"
+                  : "/images/teams/meetmyteam/Layer_1 (4).svg"
                   }
                   alt="bat"
                   width={350}

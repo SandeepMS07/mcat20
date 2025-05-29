@@ -162,7 +162,7 @@ const TeamSection = ({data,fixtures,onTeamSelect, LogoDetails}) => {
 
           {/* Team Details */}
           <div className="w-full flex flex-col lg:flex-row justify-between gap-6 my-6 p-4 bg-black bg-opacity-[0.6] rounded-md">
-            <div className="flex flex-col sm:flex-row justify-center items-center sm:items-center">
+            <div className="flex flex-col sm:flex-row justify-center items-center sm:items-center w-full lg:w-1/3">
               <TeamDetailLogo image={data[selectedTeamIndex].Logo_URL__c} />
               <div className="hidden sm:block w-px h-12 sm:h-16 m-2 bg-gray-500"></div>
               <div className="text-white sm:ml-4 mt-4 sm:mt-0">
@@ -190,14 +190,15 @@ const TeamSection = ({data,fixtures,onTeamSelect, LogoDetails}) => {
             </div>
 
             {/* Right side: Details Section */}
-            <div className="flex  justify-center gap-4 mt-6 lg:mt-0 items-center">
+            <div className="flex  flex-col lg:flex-row justify-center gap-4 mt-6 lg:mt-0 items-center w-full lg:w-2/3">
 
-              <div className="basis-1/5 p-4  flex items-center flex-col justify-center my-6 text-center pr-10">
-                <h3 className=" font-medium mb-2 text-[#E07E27]">Total Players</h3>
-                <h3 className=" font-bold text-white">{totalPlayers}/18</h3>
+              <div className=" w-full lg:w-[50%] gap-4  flex items-center flex-row justify-center my-6 text-center ">
+                <h3 className=" font-medium mb-2 text-[#E07E27]">Total Players </h3>
+                <h3 className="font-bold text-white">-</h3>
+                <h3 className=" font-bold text-white"> {totalPlayers}</h3>
               </div>
               
-              <div className="flex flex-col w-full items-center p-4">
+              <div className="w-full flex flex-col lg:w-[50%] items-center p-4">
                 {[              
                   {
                     label: "Icon",
@@ -275,13 +276,16 @@ const TeamSection = ({data,fixtures,onTeamSelect, LogoDetails}) => {
 
         <SwiperSlide key={match.match_no}>
           <MatchCard
-            headerText={`Match ${match.match_no}`}
-            time={match.time}
-            date={match.date}
-            homeTeam={CurrentTeam}
-            awayTeam={CurrentTeam == match.home_team ? match.away_team : match.home_team}
-            venue={match.venue}
-            ticketLink={match.ticketLink}
+              key={match.match_no}
+              headerText={`Match ${match.match_no}`}
+              time={match.time}
+              date={match.date}
+              homeTeam={match.home_team}
+              awayTeam={match.away_team}
+              venue={match.venue}
+              ticketLink={match.ticketLink}
+              CurrentTeam={CurrentTeam}
+              LogoDetails={LogoDetails}
           />
         </SwiperSlide>
       ))}
@@ -321,7 +325,7 @@ const TeamLogo = ({ image, onClick, isSelected }) => {
       <img
         src={image}
         alt="team-logo"
-        className={`w-full h-full rounded-[5.5px] object-contain cursor-pointer transition-all duration-300 z-30 `}
+        className={`w-[80%] h-[80%] rounded-[5.5px] object-contain cursor-pointer transition-all duration-300 z-30 p-5`}
       />
       </div>
     
@@ -348,24 +352,45 @@ const MatchCard = ({ headerText, time, date, homeTeam, awayTeam, venue, ticketLi
   let opponentTeam = homeTeam === CurrentTeam ? awayTeam : homeTeam;
   const awayTeamLogo = LogoDetails?.find(team => team.name === opponentTeam) || { logo: "" };
   
+  const isAfter5PM = (() => {
+    if (!time) return false;
+    const match = time.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+    if (!match) return false;
+
+    let [_, hours, minutes, meridiem] = match;
+    hours = parseInt(hours, 10);
+    minutes = parseInt(minutes, 10);
+    meridiem = meridiem.toUpperCase();
+
+    if (meridiem === "PM" && hours < 12) hours += 12;
+    if (meridiem === "AM" && hours === 12) hours = 0;
+
+    // Check if the match is scheduled after 5 PM (17:00)
+    return hours > 17 || (hours === 17 && minutes > 0);
+  })();
+
 
   return (
-    <div className="bg-white shadow-lg  justify-between border-[rgba(194,194,194,1)] border-[2px] rounded-lg h-80 flex flex-col">
+    <div className="bg-white shadow-lg  justify-between border-[rgba(194,194,194,1)] border-[2px] rounded-[10px] h-80 flex flex-col overflow-hidden">
       {/* Header */}
-      <div className="relative h-1/4 w-full rounded-t-xl flex overflow-hidden">
+      <div className="relative h-1/4 w-full flex overflow-hidden ">
         <div
           className="flex flex-col justify-center  text-white w-[55%] h-full z-10 px-6 gap-1"
           style={{
-    background: "linear-gradient(90deg, #000000 0%, #000000 21.84%, #203376 101.04%)",
-            clipPath: "polygon(0% 0%, 80% 0%, 100% 100%, 0% 100%)",
+          background: "linear-gradient(90deg, #000000 0%, #000000 21.84%, #203376 101.04%)",
+          clipPath: "polygon(0% 0%, 80% 0%, 100% 100%, 0% 100%)",
           }}
         >
           <span className="text-lg font-semibold">{date}</span>
           <div className="flex flex-row gap-2">
-            <img
-              src="/images/elements/moon.svg"
-              alt="moon"
-              style={{ height: "15px", marginTop: "1.5px" }}
+           <img
+              src={
+                isAfter5PM
+                  ? "/images/elements/moon.svg"
+                  : "/images/elements/sun.svg"
+              }
+              alt={isAfter5PM ? "moon" : "sun"}
+              style={{ height: "15px" }}
             />
             <span className="text-sm">{time}</span>
           </div>
