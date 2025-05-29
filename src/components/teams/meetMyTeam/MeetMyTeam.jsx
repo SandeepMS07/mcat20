@@ -2,6 +2,15 @@ import TitleComponent from "@/components/common/TitleComponent";
 import Image from "next/image";
 import React from "react";
 
+// To title case for player names
+const toTitleCase = (str) => {
+  if (!str) return "";
+  return str
+    .toLowerCase()
+    .split(" ")
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+};
 
 const MeetMyTeam = ({data}) => {
 
@@ -13,7 +22,7 @@ const MeetMyTeam = ({data}) => {
   PlayerRecords.forEach(player => {
     const role = player.Primary_Role__c;
     const id = player.Id;
-    const name = player.Player__r?.Name || "Unknown";
+    const name = toTitleCase(player.Player__r?.Name) || "Unknown";
     const rawImg = player.Player__r?.Photo_URL_1__c;
     const img = rawImg && rawImg.trim() !== "" ? rawImg : "/images/teams/meetmyteam/image 117.svg";
 

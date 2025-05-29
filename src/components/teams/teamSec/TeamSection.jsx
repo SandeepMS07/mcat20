@@ -153,6 +153,7 @@ const TeamSection = ({data,fixtures,onTeamSelect, LogoDetails}) => {
                         <TeamLogo
                           image={team.Logo_URL__c}
                           isSelected={index === selectedTeamIndex}
+                          name={team.Name}
                         />
                       </div>
                     </div>
@@ -316,7 +317,7 @@ const TeamSection = ({data,fixtures,onTeamSelect, LogoDetails}) => {
   );
 };
 
-const TeamLogo = ({ image, onClick, isSelected }) => {
+const TeamLogo = ({ image, onClick, name}) => {
   return (
     <div
       onClick={onClick}
@@ -325,7 +326,9 @@ const TeamLogo = ({ image, onClick, isSelected }) => {
       <img
         src={image}
         alt="team-logo"
-        className={`w-[80%] h-[80%] rounded-[5.5px] object-contain cursor-pointer transition-all duration-300 z-30 p-5`}
+        className={`
+          ${["MSC Maratha Royals", "Aakash Tigers MWS", "SoBo Mumbai Falcons"].some(team => name.includes(team)) ? "p-2" : "p-5"}
+          w-[80%] h-[80%] rounded-[5.5px] object-contain cursor-pointer transition-all duration-300 z-30`}
       />
       </div>
     
