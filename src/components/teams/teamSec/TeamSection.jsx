@@ -1,18 +1,95 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { teamDetails, teamsLogo } from "./teamLogo";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 
-const TeamSection = () => {
+
+const teamsDataHomePage = [
+  {
+    team: "Aakash Tigers MWS",
+    gradient: {
+      from: "#FD7E00",
+      to: "#0244AA",
+    },
+  },
+  {
+    team: "Arcs Andheri",
+    gradient: {
+      from: "#263C90",
+      to: "#8C2B8E",
+    },
+  },
+  {
+    team: "Eagle Thane Strikers",
+    gradient: {
+      from: "#FBC92E",
+      to: "#262262",
+    },
+  },
+  {
+    team: "Bandra Blasters",
+    gradient: {
+      from: "#4B1C86",
+      to: "#E51C21",
+    },
+  },
+  {
+    team: "North Mumbai Panthers",
+    gradient: {
+      from: "#FEB713",
+      to: "#845C00",
+    },
+  },
+  {
+    team: "MSC Maratha Royals",
+    gradient: {
+      from: "#1000A1",
+      to: "#B84124",
+    },
+  },
+  {
+    team: "SoBo Mumbai Falcons",
+    gradient: {
+      from: "#FFF4E9",
+      to: "#882626",
+    },
+  },
+  {
+    team: "Triumph Knights Mumbai North East",
+    gradient: {
+      from: "#E8D273",
+      to: "#9E7437",
+    },
+  },
+];
+
+const TeamSection = ({data,onTeamSelect}) => {
   const [selectedTeamIndex, setSelectedTeamIndex] = useState(0);
+  const [teamDetails,setTeamDetails] = useState(data[selectedTeamIndex]);
+  const [players,setPlayers] = useState(teamDetails?.Player_Registrations__r?.records || []);
+  const [totalPlayers,setTotalPlayers] = useState(teamDetails?.Player_Registrations__r?.totalSize || 0);
 
   const handleLogoClick = (index) => {
     setSelectedTeamIndex(index);
+    if (onTeamSelect) {
+      onTeamSelect(index); 
+    }
   };
+
+  useEffect(() => {
+    setTeamDetails(data[selectedTeamIndex]);
+    setPlayers(teamDetails?.Player_Registrations__r?.records || []);
+    setTotalPlayers(teamDetails?.Player_Registrations__r?.totalSize || 0);
+  }, [selectedTeamIndex]);
+  
+  // Used to calculate the category count
+  const getCategoryCount = (level) => players.filter((p) => p.Recent_Competitive_Level__c === level).length;
+
+  console.log(data);
 
   return (
     <div className="w-full">
@@ -24,57 +101,117 @@ const TeamSection = () => {
         <div className="section-width">
           {/* Team Carousel */}
           <div className="w-full h-full grid grid-cols-4 gap-4 xl:flex xl:flex-row xl:gap-6 justify-center xl:justify-between my-6 p-2 xl:p-8 bg-black bg-opacity-[0.6] rounded-md">
-            {teamsLogo.map((logo, index) => (
-              <TeamLogo
-                key={index}
-                image={logo.carouselLogo}
-                onClick={() => handleLogoClick(index)}
-                isSelected={index === selectedTeamIndex}
-              />
-            ))}
+          
+             {data.map((team, index) => {
+                  const gradientMatch = teamsDataHomePage.find(t => t.team === team.Name);
+
+                  const gradientStyle = gradientMatch
+                    ? {
+                        backgroundImage: `linear-gradient(to bottom, ${gradientMatch.gradient.from}, ${gradientMatch.gradient.to})`,
+                      }
+                   : {};
+                    
+                 return (
+                   <div
+                     key={index}
+                     onClick={() => handleLogoClick(index)}
+                     className={`w-16 md:w-full flex items-center justify-center rounded-[5.5px] p-1 cursor-pointer ${
+                       index === selectedTeamIndex ? "scale-[1.1]" : "hover:scale-[1.1]"
+                     } transition-transform duration-300`}
+                     style={gradientStyle}
+                    >
+                      <TeamLogo
+                        image={team.Logo_URL__c}
+                        isSelected={index === selectedTeamIndex}
+                      />
+                    </div>
+                  );
+                })}
           </div>
 
           {/* Team Details */}
           <div className="w-full flex flex-col lg:flex-row justify-between gap-6 my-6 p-4 bg-black bg-opacity-[0.6] rounded-md">
             <div className="flex flex-col sm:flex-row justify-center items-center sm:items-center">
-              <TeamDetailLogo image={teamsLogo[selectedTeamIndex].teamLogo} />
+              <TeamDetailLogo image={data[selectedTeamIndex].Logo_URL__c} />
               <div className="hidden sm:block w-px h-12 sm:h-16 m-2 bg-gray-500"></div>
               <div className="text-white sm:ml-4 mt-4 sm:mt-0">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center md:text-start">
-                  {teamDetails[selectedTeamIndex].name
-                    .split("\n")
-                    .map((line, index) => (
-                      <span key={index}>
-                        {line}
-                        <br />
-                      </span>
-                    ))}
+
+                  {/* Break the team to two lines */}
+                  {data[selectedTeamIndex].Name.split(" ").length > 4 ? (
+                      (() => {
+                        const words = data[selectedTeamIndex].Name.split(" ");
+                        const firstLine = words.slice(0, 2).join(" ");
+                        const secondLine = words.slice(2).join(" ");
+                        return (
+                          <>
+                            <span>{firstLine}</span>
+                            <br />
+                            <span className="inline-block">{secondLine}</span>
+                          </>
+                        );
+                     })()
+                    ) : (
+                        <span>{data[selectedTeamIndex].Name}</span>
+                    )}
                 </h2>
               </div>
             </div>
 
             {/* Right side: Captain / Coach / Owner */}
-            <div className="flex flex-col justify-center gap-4 mt-6 lg:mt-0">
-              {["Captain", "Coach", "Owner"].map((label, idx) => (
-                <div key={label} className="flex flex-col w-full">
-                  <div className="flex flex-row items-center justify-around gap-4 px-2 sm:px-6">
-                    <span className="w-[33%] text-sm sm:text-md font-semibold text-[#E07E27]">
-                      {label}
-                    </span>
-                    <span className="w-[23%] text-sm sm:text-md text-white pr-2">
-                      -
-                    </span>
-                    <span className="w-[43%] text-sm sm:text-md text-white">
-                      {teamDetails[selectedTeamIndex][label.toLowerCase()]}
-                    </span>
-                  </div>
+            <div className="flex  justify-center gap-4 mt-6 lg:mt-0 items-center">
 
-                  {/* Divider (but NOT after the last item) */}
-                  {idx < 2 && (
-                    <div className="w-full border-t border-gray-700 my-2" />
-                  )}
-                </div>
-              ))}
+              <div className="basis-1/5 p-4  flex items-center flex-col justify-center my-6 text-center">
+                <h3 className=" font-medium mb-2 text-[#E07E27]">Total Players</h3>
+                <h3 className=" font-bold text-white">{totalPlayers}/18</h3>
+              </div>
+              
+              <div className="flex flex-col w-full items-center p-4">
+                {[              
+                  {
+                    label: "Icon",
+                    key: "indian senior team",
+                    minPlayerCount: 1,
+                  },
+                 {
+                    label: "Senior",
+                    key: "First class, list A, BCCI Senior Men T20",
+                    minPlayerCount: 4,
+                 },
+                 {
+                   label: "Emerging",
+                    key: "Mumbai age group team (under 23 or under 19)",
+                    minPlayerCount: 5,
+                 },
+                 {
+                   label: "Development",
+                   key: "Local club team",
+                   minPlayerCount: 5,
+                  },
+                  ].map((level, idx) => {
+                  const count = getCategoryCount(level.key);
+                  const label = level.label;
+
+                  return (
+                    <div key={label} className="flex flex-col w-full justify-center">
+                      <div className="flex flex-row items-center justify-around gap-4 px-2 sm:px-6">
+                        <span className="w-[33%] text-sm sm:text-md font-semibold text-[#E07E27]">
+                          {label}
+                        </span>
+                        <span className="w-[23%] text-sm sm:text-md text-white pr-2">-</span>
+                        <span className="w-[43%] text-sm sm:text-md text-white">
+                          {count}/{level.minPlayerCount}
+                        </span>
+                      </div>
+                  
+                     {idx < 3 && (
+                        <div className="w-full border-t border-gray-700 my-2" />
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+           
             </div>
           </div>
 

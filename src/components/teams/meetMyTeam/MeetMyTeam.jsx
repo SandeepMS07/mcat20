@@ -2,50 +2,49 @@ import TitleComponent from "@/components/common/TitleComponent";
 import Image from "next/image";
 import React from "react";
 
-const batsmen = [
-  { id: "01", name: "Ajay Pandey", role: "Batsman" },
-  { id: "02", name: "Kunalbhai Parmar", role: "Batsman" },
-  { id: "03", name: "TP Patel", role: "Batsman" },
-  { id: "04", name: "Devkumar S", role: "Batsman" },
-  { id: "05", name: "Suryadevi Shinde", role: "Batsman" },
-];
 
-const bowlers = [
-  { id: "06", name: "Dhawal Kulkarni", role: "Bowler" },
-  { id: "07", name: "Bohara Lalit", role: "Bowler" },
-  { id: "08", name: "Anjibhai Lal", role: "Bowler" },
-  { id: "09", name: "Het Patel", role: "Bowler" },
-  { id: "10", name: "Syedwar Osman", role: "Bowler" },
-];
+const MeetMyTeam = ({data}) => {
 
-const allRounders = [
-  { id: "11", name: "Arjun Tendulkar", role: "All Rounder" },
-  { id: "12", name: "Sanjana Khan", role: "All Rounder" },
-  { id: "13", name: "Mehul Lakhanbhai", role: "All Rounder" },
-  { id: "14", name: "Siddarth Akre", role: "All Rounder" },
-  { id: "15", name: "Akash Rohit Sonaw", role: "All Rounder" },
-  { id: "16", name: "Bhavesh Thakkar", role: "All Rounder" },
-  { id: "17", name: "Tushar N Patel", role: "All Rounder" },
-  { id: "18", name: "Tushar N Patel", role: "All Rounder" },
-];
+  const PlayerRecords = data.Player_Registrations__r.records;
+  
+  // Group based on the role
+  const groupedByRole = {};
 
-const wicketKeepers = [
-  { id: "19", name: "Prakock S S", role: "Wicket Keeper" },
-  { id: "20", name: "Ankit Anand", role: "Wicket Keeper" },
-];
+  PlayerRecords.forEach(player => {
+    const role = player.Primary_Role__c;
+    const id = player.Id;
+    const name = player.Player__r?.Name || "Unknown";
+    const rawImg = player.Player__r?.Photo_URL_1__c;
+    const img = rawImg && rawImg.trim() !== "" ? rawImg : "/images/teams/meetmyteam/image 117.svg";
 
-const MeetMyTeam = () => {
+
+    const playerObj = {
+      id,
+      name,
+      img,
+      role,
+    };
+
+    if (!groupedByRole[role]) {
+      groupedByRole[role] = [];
+    }
+
+    groupedByRole[role].push(playerObj);
+  });
+
+  console.log(groupedByRole)
+
   return (
     <div className="bg-white  pt-4 pb-10 section-width">
       <TitleComponent title="Meet the Team" />
       <div className="w-full flex flex-col md:flex-row justify-between">
         <div className=" w-full md:w-[48%] lg:w-[48%] flex flex-col gap-10 mt-6">
-          <Table role="batsman" PlayerData={batsmen} />
-          <Table role="bowlers" PlayerData={bowlers} />
+          <Table role="batsman" PlayerData={groupedByRole["Batsman"] || []} />
+          <Table role="bowlers" PlayerData={groupedByRole["Bowler"] || []} />
         </div>
         <div className=" w-full md:w-[48%] lg:w-[48%] flex flex-col gap-10 mt-6">
-          <Table role="all rounders" PlayerData={allRounders} />
-          <Table role="Wicket Keeper" PlayerData={wicketKeepers} />
+          <Table role="All Rounder" PlayerData={groupedByRole["All - rounder"] || []} />
+          <Table role="Wicket Keeper" PlayerData={groupedByRole["Wicketkeeper"] || []} />
         </div>
       </div>
     </div>
@@ -85,14 +84,14 @@ const Table = ({ role, PlayerData }) => {
       </div>
 
       <div className=" text-white  space-y-3">
-        {PlayerData.map((player, index) => (
+       {(PlayerData || []).map((player, index) => (
           <div
             key={index}
             className="flex items-center justify-between  relative   "
           >
             {/* Number in separate div */}
             <div className="flex z-50 pl-2   items-center">
-              <span className=" text-white">{player.id}</span>
+              <span className=" text-white">{index+1}</span>
             </div>
             <div
               className="bg-[#001b31] w-full border-r-[20px]  border-[#F15A22] h-10 z-20 absolute"
@@ -112,7 +111,7 @@ const Table = ({ role, PlayerData }) => {
               <div className="flex items-center gap-5 xl:gap-10">
                 <div className="h-11 w-11 rounded-full bg-[#242424]  flex items-center justify-center overflow-hidden">
                   <Image
-                    src="/images/teams/meetmyteam/image 117.svg"
+                    src={player.img}
                     alt="avatar"
                     width={50}
                     height={50}
