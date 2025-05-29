@@ -13,27 +13,30 @@ const Navbar = () => {
 
   if (pathName === "/auction-info") return;
   return (
-    <div className="bg-transparent z-50 absolute top-[20px] w-full">
-      <nav className="flex justify-between items-center  section-width">
-        {/* Logo Section */}
-        <div className="flex-shrink-0">
+    <div className=" z-50 absolute top-[20px] w-full  flex justify-center">
+      <div className="relative w-[90%]">
+       {/* Logo Section */}
+        <div className="flex-shrink-0  absolute left-[5%] lg:left-[10%] -top-[50%] md:-top-[40%]">
           {!menuOpen && (
             <Link href="/">
               <Image
                 src={"/images/home/logo.svg"}
                 alt="logo"
-                className="h-16 w-16 md:h-28 md:w-28"
-                width={50}
-                height={50}
+                className="h-16 w-16 md:h-28 md:w-28 "
+                width={100}
+                height={100}
               />
             </Link>
           )}
         </div>
+     
+      <nav className="flex justify-end items-center  section-width bg-[#ffffff1f] rounded-full relative overflow-visible w-full">
+       
 
         {/* Navigation Links */}
         <div className="items-center md:flex hidden">
           <div className="flex justify-center">
-            <ul className="flex items-center justify-between gap-5 lg:gap-10 bg-[#ffffff1f] px-5 xl:pl-10 py-4 rounded-full">
+            <ul className="flex items-center justify-between gap-5 lg:gap-10 bg-transparent  xl:pl-10 py-2 rounded-full">
               {navLinks.map((item, i) => (
                 <li key={i}>
                   <Link
@@ -76,7 +79,9 @@ const Navbar = () => {
             onClick={() => setMenuOpen(true)}
           />
         </div>
+        
       </nav>
+       </div>
       <div
         className={`fixed top-0 right-0 h-full w-[75%] bg-[#0F0F0F] z-50 transform transition-transform duration-300 ${
           menuOpen ? "translate-x-0" : "translate-x-full"
@@ -139,6 +144,7 @@ const Navbar = () => {
         />
       )}
     </div>
+    
   );
 };
 
