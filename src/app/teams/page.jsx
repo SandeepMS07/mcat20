@@ -5,7 +5,7 @@ import MeetMyTeam from '@/components/teams/meetMyTeam/MeetMyTeam'
 import TeamSection from '@/components/teams/teamSec/TeamSection'
 import React, { useEffect, useState } from 'react'
 import TeamDetailsSeason3 from "@/constant/team/teamDetailsDataSeason3.json";
-import { useSearchParams } from 'next/navigation'
+import fixtures3 from '@/utilis/fixtures/fixtures3'
 
 const Teams = () => {
   const [season, setSeason] = useState("Season 3");
@@ -20,7 +20,7 @@ const Teams = () => {
 
   const teams = TeamDetailsSeason3.data;
 
-  const teamSectionDetails = teams.map(team => ({
+  const LogoDetails = teams.map(team => ({
     name: team.Name,
     logo: team.Logo_URL__c,
   }));
@@ -34,7 +34,7 @@ const Teams = () => {
 
   return (
     <div>
-      <TeamSection data = {teams} onTeamSelect={handleTeamSelect}/>
+      <TeamSection data = {teams}  fixtures = {fixtures3} onTeamSelect={handleTeamSelect} LogoDetails = {LogoDetails}/>
       <MeetMyTeam  data = {teamDetails}/>
     </div>
   )

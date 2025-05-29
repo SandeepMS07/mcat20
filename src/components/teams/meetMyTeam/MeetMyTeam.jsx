@@ -115,7 +115,7 @@ const Table = ({ role, PlayerData }) => {
                     alt="avatar"
                     width={50}
                     height={50}
-                    className="w-full h-full"
+                    className="w-full "
                   />
                 </div>
               </div>

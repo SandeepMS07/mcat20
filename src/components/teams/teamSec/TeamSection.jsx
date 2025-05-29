@@ -4,8 +4,13 @@ import React, { useEffect, useState } from "react";
 import { teamDetails, teamsLogo } from "./teamLogo";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import Image from "next/image";
 import "swiper/css";
 import "swiper/css/autoplay";
+import Home from "@/app/page";
+import HomeTeamSection from "@/components/home/HomeTeamSection";
+import teampattern1 from "../../../../public/images/elements/teamCardElement.png";
+import teampattern2 from "../../../../public/images/elements/teamCardRoundElement.png";
 
 
 const teamsDataHomePage = [
@@ -67,11 +72,16 @@ const teamsDataHomePage = [
   },
 ];
 
-const TeamSection = ({data,onTeamSelect}) => {
+const TeamSection = ({data,fixtures,onTeamSelect, LogoDetails}) => {
   const [selectedTeamIndex, setSelectedTeamIndex] = useState(0);
   const [teamDetails,setTeamDetails] = useState(data[selectedTeamIndex]);
   const [players,setPlayers] = useState(teamDetails?.Player_Registrations__r?.records || []);
   const [totalPlayers,setTotalPlayers] = useState(teamDetails?.Player_Registrations__r?.totalSize || 0);
+  const [CurrentTeam, setCurrentTeam] = useState(data[selectedTeamIndex].Name);
+
+  const Matches = fixtures.sort((a, b) => a.match_no - b.match_no).filter((match) => match.home_team === CurrentTeam || match.away_team === CurrentTeam).slice(0, 3);
+
+  const [upcomingMatches,setUpcomingMatches] = useState(Matches);
 
   const handleLogoClick = (index) => {
     setSelectedTeamIndex(index);
@@ -84,12 +94,16 @@ const TeamSection = ({data,onTeamSelect}) => {
     setTeamDetails(data[selectedTeamIndex]);
     setPlayers(teamDetails?.Player_Registrations__r?.records || []);
     setTotalPlayers(teamDetails?.Player_Registrations__r?.totalSize || 0);
+    setCurrentTeam(data[selectedTeamIndex].Name);
+    setUpcomingMatches(fixtures.sort((a, b) => a.match_no - b.match_no).filter((match) => match.home_team === CurrentTeam || match.away_team === CurrentTeam).slice(0, 3));
   }, [selectedTeamIndex]);
+
+  
   
   // Used to calculate the category count
   const getCategoryCount = (level) => players.filter((p) => p.Recent_Competitive_Level__c === level).length;
 
-  console.log(data);
+  console.log(CurrentTeam);
 
   return (
     <div className="w-full">
@@ -115,15 +129,32 @@ const TeamSection = ({data,onTeamSelect}) => {
                    <div
                      key={index}
                      onClick={() => handleLogoClick(index)}
-                     className={`w-16 md:w-full flex items-center justify-center rounded-[5.5px] p-1 cursor-pointer ${
-                       index === selectedTeamIndex ? "scale-[1.1]" : "hover:scale-[1.1]"
-                     } transition-transform duration-300`}
+                     className={`relative w-16 md:w-full flex items-center justify-center rounded-[5.5px] p-1 cursor-pointer border border-white transition-transform duration-300
+                       ${
+                        index === selectedTeamIndex
+                            ? "border-gray-700 shadow-[0_2px_10px_rgba(224,126,39,0.6)] scale-[1.1]"
+                            : "border-none hover:border-none hover:shadow-[0_2px_10px_rgba(224,126,39,0.6)] hover:scale-[1.1]"
+                        }`}
                      style={gradientStyle}
                     >
-                      <TeamLogo
-                        image={team.Logo_URL__c}
-                        isSelected={index === selectedTeamIndex}
-                      />
+
+                      {/*Background patterns and gradient for the team logo */}
+                            <Image
+                           src={teampattern2}
+                           alt="pattern2"
+                           className="absolute inset-0 w-full h-[80%] z-10 top-0 rounded-md"
+                          />
+                          <Image
+                            src={teampattern1}
+                            alt="pattern1"
+                           className="absolute inset-0 w-full h-full z-20 rounded-md object-cover"
+                          />
+                      <div className="z-30 rounded-[5.5px]">
+                        <TeamLogo
+                          image={team.Logo_URL__c}
+                          isSelected={index === selectedTeamIndex}
+                        />
+                      </div>
                     </div>
                   );
                 })}
@@ -158,10 +189,10 @@ const TeamSection = ({data,onTeamSelect}) => {
               </div>
             </div>
 
-            {/* Right side: Captain / Coach / Owner */}
+            {/* Right side: Details Section */}
             <div className="flex  justify-center gap-4 mt-6 lg:mt-0 items-center">
 
-              <div className="basis-1/5 p-4  flex items-center flex-col justify-center my-6 text-center">
+              <div className="basis-1/5 p-4  flex items-center flex-col justify-center my-6 text-center pr-10">
                 <h3 className=" font-medium mb-2 text-[#E07E27]">Total Players</h3>
                 <h3 className=" font-bold text-white">{totalPlayers}/18</h3>
               </div>
@@ -193,19 +224,19 @@ const TeamSection = ({data,onTeamSelect}) => {
                   const label = level.label;
 
                   return (
-                    <div key={label} className="flex flex-col w-full justify-center">
+                    <div key={label} className="flex flex-col w-full justify-center ">
                       <div className="flex flex-row items-center justify-around gap-4 px-2 sm:px-6">
-                        <span className="w-[33%] text-sm sm:text-md font-semibold text-[#E07E27]">
+                        <span className="w-[40%] text-sm sm:text-md font-semibold text-[#E07E27]">
                           {label}
                         </span>
-                        <span className="w-[23%] text-sm sm:text-md text-white pr-2">-</span>
-                        <span className="w-[43%] text-sm sm:text-md text-white">
+                        <span className="w-[20%] text-sm sm:text-md text-white pr-2">-</span>
+                        <span className="w-[20%] text-sm sm:text-md text-white">
                           {count}/{level.minPlayerCount}
                         </span>
                       </div>
                   
                      {idx < 3 && (
-                        <div className="w-full border-t border-gray-700 my-2" />
+                        <div className="w-[80%] border-t border-gray-700 my-2  ml-4" />
                       )}
                     </div>
                   );
@@ -225,37 +256,57 @@ const TeamSection = ({data,onTeamSelect}) => {
       {/* Match Cards Section */}
       <div className="relative w-full bg-white pt-32 pb-16">
         <div className="flex flex-col items-center gap-8 section-width -mt-[286px]">
-          {/* Mobile View - Carousel */}
-          <div className="block 2xl:hidden w-full">
-            <Swiper
-              modules={[Autoplay]}
-              spaceBetween={20}
-              slidesPerView={1}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-              }}
-              loop={true}
-            >
-              <SwiperSlide>
-                <MatchCard headerText="Match 1" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <MatchCard headerText="Match 2" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <MatchCard headerText="Match 3" />
-              </SwiperSlide>
-            </Swiper>
-          </div>
 
-          {/* Desktop View - Grid */}
-          <div className="hidden 2xl:grid grid-cols-1 2xl:grid-cols-3 gap-6 sm:gap-8 2xl:gap-12 w-full">
-            <MatchCard />
-            <MatchCard />
-            <MatchCard />
-          </div>
-        </div>
+  {/* Mobile View - Carousel */}
+  <div className="block 2xl:hidden w-full">
+    <Swiper
+      modules={[Autoplay]}
+      spaceBetween={20}
+      slidesPerView={1}
+      autoplay={{
+        delay: 3000,
+        disableOnInteraction: false,
+      }}
+      loop={true}
+    > 
+      {
+    
+      upcomingMatches.map((match, index) => (
+
+        <SwiperSlide key={match.match_no}>
+          <MatchCard
+            headerText={`Match ${match.match_no}`}
+            time={match.time}
+            date={match.date}
+            homeTeam={CurrentTeam}
+            awayTeam={CurrentTeam == match.home_team ? match.away_team : match.home_team}
+            venue={match.venue}
+            ticketLink={match.ticketLink}
+          />
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </div>
+
+  {/* Desktop View - Grid */}
+  <div className="hidden 2xl:grid grid-cols-1 2xl:grid-cols-3 gap-6 sm:gap-8 2xl:gap-12 w-full">
+    {upcomingMatches.map((match) => (
+      <MatchCard
+        key={match.match_no}
+        headerText={`Match ${match.match_no}`}
+        time={match.time}
+        date={match.date}
+        homeTeam={match.home_team}
+        awayTeam={match.away_team}
+        venue={match.venue}
+        ticketLink={match.ticketLink}
+        CurrentTeam={CurrentTeam}
+        LogoDetails={LogoDetails}
+      />
+    ))}
+  </div>
+</div>
+
       </div>
     </div>
   );
@@ -265,19 +316,15 @@ const TeamLogo = ({ image, onClick, isSelected }) => {
   return (
     <div
       onClick={onClick}
-      className={`w-16 md:w-full flex items-center justify-center rounded-[5.5px]`}
+      className={`w-16 md:w-full flex items-center justify-center rounded-[5.5px] border-1 border-white relative`}
     >
       <img
         src={image}
         alt="team-logo"
-        className={`w-full h-full rounded-[5.5px] object-contain cursor-pointer transition-all duration-300 border-[1px]
-          ${
-            isSelected
-              ? "border-grey-700 shadow-[0_2px_10px_rgba(224,126,39,0.6)] scale-[1.1]"
-              : "border-none hover:border-none hover:shadow-[0_2px_10px_rgba(224,126,39,0.6)] hover:scale-[1.1]"
-          }`}
+        className={`w-full h-full rounded-[5.5px] object-contain cursor-pointer transition-all duration-300 z-30 `}
       />
-    </div>
+      </div>
+    
   );
 };
 
@@ -293,17 +340,21 @@ const TeamDetailLogo = ({ image }) => {
   );
 };
 
-const MatchCard = ({
-  date = "24 MAR, 2025",
-  time = "7:30 pm IST",
-  status = "UPCOMING",
-}) => {
+const MatchCard = ({ headerText, time, date, homeTeam, awayTeam, venue, ticketLink ,CurrentTeam,LogoDetails}) => {
+
+  // Find the logos for the home and away teams
+  const homeTeamLogo = LogoDetails?.find(team => team.name === CurrentTeam) || { logo: "" };
+
+  let opponentTeam = homeTeam === CurrentTeam ? awayTeam : homeTeam;
+  const awayTeamLogo = LogoDetails?.find(team => team.name === opponentTeam) || { logo: "" };
+  
+
   return (
-    <div className="bg-white shadow-lg rounded-xl justify-between border-[rgba(194,194,194,1)] border-[2px] rounded-lg h-80 flex flex-col">
+    <div className="bg-white shadow-lg  justify-between border-[rgba(194,194,194,1)] border-[2px] rounded-lg h-80 flex flex-col">
       {/* Header */}
       <div className="relative h-1/4 w-full rounded-t-xl flex overflow-hidden">
         <div
-          className="flex flex-col justify-center px-4 text-white w-[55%] h-full z-10 px-6 gap-1"
+          className="flex flex-col justify-center  text-white w-[55%] h-full z-10 px-6 gap-1"
           style={{
     background: "linear-gradient(90deg, #000000 0%, #000000 21.84%, #203376 101.04%)",
             clipPath: "polygon(0% 0%, 80% 0%, 100% 100%, 0% 100%)",
@@ -327,28 +378,29 @@ const MatchCard = ({
             clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 20% 100%)",
           }}
         >
-          {status}
+          Upcoming
         </div>
       </div>
 
       {/* Content */}
       <div className="flex h-3/4 flex-row justify-center gap-10 text-center items-center p-10">
         <div className="w-[33%] flex flex-col justify-center items-center gap-6">
-          <img src="/images/teams/hero/teamLogo/arcs.svg" alt="arcs" />
-          <span className="text-sm font-semibold text-black">ARCS ANDHERI</span>
+          
+          <img src={homeTeamLogo.logo} alt={homeTeam} />
+          <span className="text-sm font-semibold text-black">{CurrentTeam}</span>
         </div>
         <div className="w-[33%] flex flex-col justify-center items-center gap-6">
           <span className="text-[rgba(224,126,39,1)] font-bold italic tracking-widest">
             VS
           </span>
           <span className="text-[rgba(134,134,134,1)] text-xs font-semibold">
-            MATCH 25/74
+            {headerText}
           </span>
         </div>
         <div className="w-[33%] flex flex-col justify-center items-center gap-6">
-          <img src="/images/teams/hero/teamLogo/thane.svg" alt="arcs" />
+          <img src={awayTeamLogo.logo} alt={awayTeam} />
           <span className="text-sm font-semibold text-black">
-            EAGLE THANE STRIKERS
+            {awayTeam == CurrentTeam ? homeTeam : awayTeam}
           </span>
         </div>
       </div>
