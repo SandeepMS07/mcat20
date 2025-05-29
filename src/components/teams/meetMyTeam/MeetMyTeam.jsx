@@ -1,7 +1,7 @@
 import TitleComponent from "@/components/common/TitleComponent";
 import Image from "next/image";
 import React from "react";
-
+import "./styles.css";
 const batsmen = [
   { id: "01", name: "Ajay Pandey", role: "Batsman" },
   { id: "02", name: "Kunalbhai Parmar", role: "Batsman" },
@@ -52,36 +52,21 @@ const MeetMyTeam = () => {
   );
 };
 
-
 const Table = ({ role, PlayerData }) => {
   return (
     <div className=" overflow-hidden">
-      <div className="relative ">
-        {/* This div goes below (behind) the pink one */}
-        <div
-          className="bg-[#001B31] w-full border-r-[25px] top-1  border-[#F15A22] h-12 right-1 z-10 absolute"
+      <div className="relative mb-4 ">
+        <div className=" top-left-triangle2 "></div>
+        <div className="top-left-triangle absolute z-10 top-[1px] left-[1px]"></div>
+        <h5
+          className="px-6 py-3 absolute top-1 z-10 font-bold  uppercase text-transparent bg-clip-text"
           style={{
-            clipPath: "polygon(0% 0%, 100% 0%, 98% 100%, 0% 100%)",
-          }}
-        ></div>
-
-        {/* This is the pink/red top div */}
-        <div
-          className="bg-[#001B31] z-50 relative mr-2"
-          style={{
-            clipPath: "polygon(0% 0%, 100% 0%, 97.5% 100%, 0% 100%)",
+            backgroundImage:
+              "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
           }}
         >
-          <h5
-            className="px-6 py-3 font-bold mb-3 uppercase text-transparent bg-clip-text"
-            style={{
-              backgroundImage:
-                "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
-            }}
-          >
-            {role}
-          </h5>
-        </div>
+          {role}
+        </h5>
       </div>
 
       <div className=" text-white  space-y-3">
@@ -95,20 +80,21 @@ const Table = ({ role, PlayerData }) => {
               <span className=" text-white">{player.id}</span>
             </div>
             <div
-              className="bg-[#001b31] w-full border-r-[20px]  border-[#F15A22] h-10 z-20 absolute"
+              className="bg-[#001b31] w-full border-r-[20px]  border-[#F15A22] h-10 z-10 absolute"
               style={{
                 // backgroundColor: "#003967",
                 clipPath: "polygon(0% 0%, 100% 0%, 99% 100%, 0% 100%)",
               }}
             ></div>
             {/* All other content in one div */}
+
             <div
-              className="flex items-center justify-between bg-[rgba(15,26,45,1)] border  z-50 px-10 py-2   flex-1  ml-3"
-              style={{
-                // backgroundColor: "#003967",
-                clipPath: "polygon(3% 0%, 100% 0%, 98% 100%, 0% 100%)",
-              }}
+              className="flex items-center  justify-between relative border  z-50 px-10 py-2  flex-1  ml-3"
+             
             >
+              <div className=" top-left-triangle2  absolute z-20 "></div>
+              <div className="top-left-triangle absolute z-30 top-[1px] left-[1px]"></div>
+
               <div className="flex items-center gap-5 xl:gap-10">
                 <div className="h-11 w-11 rounded-full bg-[#242424]  flex items-center justify-center overflow-hidden">
                   <Image
@@ -120,10 +106,10 @@ const Table = ({ role, PlayerData }) => {
                   />
                 </div>
               </div>
-              <div className=" flex items-center justify-start w-[30%]">
+              <div className=" flex items-center justify-start w-[30%] z-40 relative">
                 <p className="text-base font-bold">{player.name}</p>
               </div>
-              <div className="w-[40%] flex items-center justify-between">
+              <div className="w-[40%] flex items-center justify-between z-40 relative">
                 <Image
                   src={
                     role == "batsman"
