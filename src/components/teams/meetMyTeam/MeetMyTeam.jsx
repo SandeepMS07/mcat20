@@ -78,7 +78,7 @@ const Table = ({ role, PlayerData }) => {
         <div
           className="bg-[#001B31] w-full border-r-[25px] top-1  border-[#F15A22] h-12 right-1 z-10 absolute"
           style={{
-            clipPath: "polygon(0% 0%, 100% 0%, 98% 100%, 0% 100%)",
+            clipPath: "polygon(0% 0%, 100% 0%, 97.8% 100%, 0% 100%)",
           }}
         ></div>
 
