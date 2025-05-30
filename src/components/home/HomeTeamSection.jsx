@@ -81,7 +81,11 @@ const HomeTeamSection = () => {
 
   return (
     <div className="relative">
-    <img src="/images/elements/section-element.png" className="absolute left-0 bottom-0 rotate-180" alt="element" /> 
+      <img
+        src="/images/elements/section-element.png"
+        className="absolute left-0 bottom-0 rotate-180 md:block hidden"
+        alt="element"
+      />
       <div className="section-width padding-top padding-bottom">
         <TitleComponent title={"Teams"} />
         <div className="w-full flex flex-col gap-7 relative">

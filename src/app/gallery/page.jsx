@@ -134,15 +134,29 @@ const Page = () => {
 
   return (
     <div className="w-full ">
-      <Hero imgUrl={"https://storage.googleapis.com/mca_images/website/banner_img/gallery.jpg"} heading="Gallery" subheading="" />
+      <Hero
+        imgUrl={
+          "https://storage.googleapis.com/mca_images/website/banner_img/gallery.jpg"
+        }
+        heading="Gallery"
+        subheading=""
+      />
       {/* <p className="text-4xl py-20 font-bold mb-4 text-black uppercase  section-width ">
         GALLERY
       </p> */}
       <div className="relative">
-          <img src="/images/elements/section-element.png" className="absolute right-0 top-0" alt="element" />
-        <img src="/images/elements/section-element.png" className="absolute left-0 bottom-0 rotate-180" alt="element" />
+        <img
+          src="/images/elements/section-element.png"
+          className="absolute right-0 top-0 md:block hidden"
+          alt="element"
+        />
+        <img
+          src="/images/elements/section-element.png"
+          className="absolute left-0 bottom-0 rotate-180 md:block hidden"
+          alt="element"
+        />
         <div className="gap-6 section-width section-padding ">
-        <TitleComponent title={"Gallery"}/>
+          <TitleComponent title={"Gallery"} />
           <div className="w-full bg-black">
             {/* <div className="w-full flex items-center">
               {tabs.map((tab, index) => (

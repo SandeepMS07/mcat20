@@ -16,7 +16,8 @@ const T20Mumbai = () => {
             <h2
               className="capitalize text-xl xl:text-3xl ml-20 italic"
               style={{
-                background: "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
+                background:
+                  "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -37,7 +38,7 @@ const T20Mumbai = () => {
       </div>
       <div className="w-full lg:w-[55%] pt-14 lg:pt-0">
         <Image
-          src={"/images/aboutUs/T20Mumbai/image1.jpg"}
+          src={"/images/about/view-cricket-game-field.png"}
           width={1000}
           height={500}
           className="object-cover h-[319px] w-full rounded-lg"
