@@ -4,8 +4,8 @@ import React from "react";
 const AboutMCA = () => {
   return (
     <div className="section-width">
-      <div className="w-full bg-[#0A1342] lg:flex margin-bottom min-h-[600px]">
-        <div className="lg:w-2/5 bg-red-500 w-full relative h-64 lg:h-full min-h-[690px]">
+      <div className="w-full bg-[#0A1342] flex flex-col lg:flex-row margin-bottom min-h-[600px]">
+        <div className="lg:w-2/5  bg-cover w-full relative min-h-[300px] lg:min-h-0">
           <Image
             src="/images/aboutUs/aboutMCA/field.png"
             fill
@@ -13,7 +13,7 @@ const AboutMCA = () => {
             className="object-cover"
           />
         </div>
-        <div className="lg:w-3/5 flex flex-col w-full p-8 gap-6 ">
+        <div className="lg:w-3/5 flex flex-col w-full p-8 gap-6">
           <div className="w-full relative h-[100px]">
             <Image
               src="/images/elements/small-title-bg.png"

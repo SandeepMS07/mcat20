@@ -105,7 +105,9 @@ const topPlayersData = {
 
 const TopPlayers = () => {
   return (
-    // <div className="bg-[url('/images/home/latestUpdateBg.png')] bg-cover bg-center bg-no-repeat py-20">
+    <div className="relative">
+       <img src="/images/elements/section-element.png" className="absolute right-0 top-0" alt="element" />
+        <img src="/images/elements/section-element.png" className="absolute left-0 bottom-0 rotate-180" alt="element" />
     <div className="section-width section-padding">
       <TitleComponent title="Top Players" />
       <div className="flex flex-col lg:flex-row justify-center gap-6 sm:gap-10">
@@ -137,7 +139,7 @@ const TopPlayers = () => {
         />
       </div>
     </div>
-    // </div>
+   </div>
   );
 };
 
@@ -163,8 +165,8 @@ const TopPlayerCard = ({
     <div className="w-full max-w-3xl overflow-hidden  ">
       {/* Updated Hero Section to match Figma */}
       
-      <div
-        className="relative  text-white overflow-hidden"
+     <div
+        className="relative text-white overflow-hidden"
         style={{
           backgroundImage: `url('/images/playerProfile/bgVector.svg'), linear-gradient(227.41deg, #010F54 -28.03%, #000827 48.51%, #010F54 125.04%)`,
           backgroundBlendMode: "overlay",
@@ -174,7 +176,7 @@ const TopPlayerCard = ({
         }}
       >
         <div
-          className=" border-b border-white border-opacity-30 w-[40%] mb-10 px-6 py-2"
+          className="border-b border-white border-opacity-30 w-[40%] mb-6 md:mb-8 lg:mb-10 px-3 md:px-4 lg:px-6 py-1 md:py-1.5 lg:py-2"
           style={{
             clipPath: "polygon(0% 0%, 100% 0%, 97.5% 100%, 0% 100%)",
             background:
@@ -182,7 +184,7 @@ const TopPlayerCard = ({
           }}
         >
           <div
-            className="text-3xl font-bold text-transparent bg-clip-text "
+            className="text-lg md:text-2xl lg:text-3xl font-bold text-transparent bg-clip-text"
             style={{
               backgroundImage:
                 "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
@@ -192,7 +194,7 @@ const TopPlayerCard = ({
           </div>
         </div>
 
-        <div className="flex items-end px-6  min-h-[280px]">
+        <div className="flex items-end px-3 md:px-4 lg:px-6 sm:min-h-[280px]">
           {/* Player Image Section - Touching bottom */}
           <div className="flex-shrink-0 w-1/3 flex justify-center items-end h-full">
             <div className="relative h-full flex items-end">
@@ -207,10 +209,10 @@ const TopPlayerCard = ({
           </div>
 
           {/* Player Info and Stats Section */}
-          <div className="flex-1 pl-8 pb-8">
+          <div className="flex-1 pl-4 md:pl-6 lg:pl-8 pb-4 md:pb-6 lg:pb-8">
             {/* Player Name - Top Right */}
-            <div className="mb-6 flex justify-start items-center">
-              <div className="z-20 mr-3">
+            <div className="mb-3 md:mb-4 lg:mb-6 flex justify-start items-center">
+              <div className="z-20 mr-2 md:mr-2.5 lg:mr-3">
                 <Image
                   width={50}
                   height={50}
@@ -219,7 +221,7 @@ const TopPlayerCard = ({
                   className="opacity-90"
                 />
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text uppercase tracking-wide italic"
+              <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-transparent bg-clip-text uppercase tracking-wide italic"
               style={{
               backgroundImage:
                 "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
@@ -229,29 +231,29 @@ const TopPlayerCard = ({
             </div>
 
             {/* Stats Container with Border */}
-            <div className="border border-white border-opacity-30 rounded-lg p-6 bg-black bg-opacity-20">
+            <div className="border border-white border-opacity-30 rounded-lg p-3 md:p-4 lg:p-6 bg-black bg-opacity-20">
               {/* Stats Grid - Different layouts for batsman vs bowler */}
               {type === "batsman" ? (
                 // Batsman: 2x2 grid (4 stats)
-                <div className="grid gap-6">
+                <div className="grid gap-3 md:gap-4 lg:gap-6">
                   {/* Top Row: 2 columns */}
-                  <div className="grid grid-cols-3 gap-6">
+                  <div className="grid grid-cols-3 gap-3 md:gap-4 lg:gap-6">
                     {/* Runs */}
                     <div className="text-left flex justify-start items-end">
-                      <div className="text-4xl font-bold text-white mb-1">
+                      <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1">
                         {runs}
                       </div>
-                      <div className="text-sm text-blue-300 pb-1 pl-2 font-medium uppercase leading-4 tracking-wider">
+                      <div className="text-xs md:text-sm text-blue-300 pb-1 pl-1 md:pl-2 font-medium uppercase leading-3 md:leading-4 tracking-wider">
                         RUNS
                       </div>
                     </div>
 
                     {/* Strike Rate */}
                     <div className="text-left flex justify-start items-end">
-                      <div className="text-4xl font-bold text-white">
+                      <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
                         {strikeRate}
                       </div>
-                      <div className="text-sm text-blue-300 pb-1 pl-2 font-medium uppercase leading-4 tracking-wider">
+                      <div className="text-xs md:text-sm text-blue-300 pb-1 pl-1 md:pl-2 font-medium uppercase leading-3 md:leading-4 tracking-wider">
                         STRIKE
                         <br />
                         RATE
@@ -260,13 +262,13 @@ const TopPlayerCard = ({
                   </div>
 
                   {/* Bottom Row: 3 columns */}
-                  <div className="grid grid-cols-3 gap-6">
+                  <div className="grid grid-cols-3 gap-3 md:gap-4 lg:gap-6">
                     {/* Matches Played */}
                     <div className="text-left flex justify-start items-end">
-                      <div className="text-4xl font-bold text-white mb-1">
+                      <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1">
                         {matchesPlayed}
                       </div>
-                      <div className="text-sm text-blue-300 pb-1 pl-2 font-medium uppercase leading-4 tracking-wider">
+                      <div className="text-xs md:text-sm text-blue-300 pb-1 pl-1 md:pl-2 font-medium uppercase leading-3 md:leading-4 tracking-wider">
                         MATCHES
                         <br />
                         PLAYED
@@ -275,20 +277,20 @@ const TopPlayerCard = ({
 
                     {/* Fours */}
                     <div className="text-left flex justify-start items-end">
-                      <div className="text-4xl font-bold text-white mb-1">
+                      <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1">
                         {fours}
                       </div>
-                      <div className="text-sm text-blue-300 pb-1 pl-2 font-medium uppercase leading-4 tracking-wider">
+                      <div className="text-xs md:text-sm text-blue-300 pb-1 pl-1 md:pl-2 font-medium uppercase leading-3 md:leading-4 tracking-wider">
                         4s
                       </div>
                     </div>
 
                     {/* Sixes */}
                     <div className="text-left flex justify-start items-end">
-                      <div className="text-4xl font-bold text-white mb-1">
+                      <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1">
                         {sixes}
                       </div>
-                      <div className="text-sm text-blue-300 pb-1 pl-2 font-medium uppercase leading-4 tracking-wider">
+                      <div className="text-xs md:text-sm text-blue-300 pb-1 pl-1 md:pl-2 font-medium uppercase leading-3 md:leading-4 tracking-wider">
                         6s
                       </div>
                     </div>
@@ -296,25 +298,25 @@ const TopPlayerCard = ({
                 </div>
               ) : (
                 // Bowler: 3x2 grid (5 stats total - wickets spans 2 columns)
-                <div className="grid gap-4">
+                <div className="grid gap-3 md:gap-4">
                   {/* Top row: 2 items */}
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid grid-cols-3 gap-3 md:gap-4">
                     {/* Wickets */}
                     <div className="text-left flex justify-start items-end">
-                      <div className="text-4xl font-bold text-white mb-1">
+                      <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1">
                         {wickets}
                       </div>
-                      <div className="text-sm text-blue-300 pb-1 pl-2 font-medium uppercase leading-4 tracking-wider">
+                      <div className="text-xs md:text-sm text-blue-300 pb-1 pl-1 md:pl-2 font-medium uppercase leading-3 md:leading-4 tracking-wider">
                         WICKETS
                       </div>
                     </div>
 
                     {/* Strike Rate */}
                     <div className="text-left flex justify-start items-end">
-                      <div className="text-4xl font-bold text-white">
+                      <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
                         {strikeRate}
                       </div>
-                      <div className="text-sm text-blue-300 pb-1 pl-2 font-medium uppercase leading-4 tracking-wider">
+                      <div className="text-xs md:text-sm text-blue-300 pb-1 pl-1 md:pl-2 font-medium uppercase leading-3 md:leading-4 tracking-wider">
                         STRIKE
                         <br />
                         RATE
@@ -323,13 +325,13 @@ const TopPlayerCard = ({
                   </div>
 
                   {/* Bottom row: 3 items */}
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid grid-cols-3 gap-3 md:gap-4">
                     {/* Matches Played */}
                     <div className="text-left flex justify-start items-end">
-                      <div className="text-4xl font-bold text-white">
+                      <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
                         {matchesPlayed}
                       </div>
-                      <div className="text-xs text-blue-300 pb-1 pl-2 font-medium uppercase leading-3 tracking-wider">
+                      <div className="text-xs md:text-sm text-blue-300 pb-1 pl-1 md:pl-2 font-medium uppercase leading-3 tracking-wider">
                         MATCHES
                         <br />
                         PLAYED
@@ -338,10 +340,10 @@ const TopPlayerCard = ({
 
                     {/* Eco Rate */}
                     <div className="text-left flex justify-start items-end">
-                      <div className="text-4xl font-bold text-white">
+                      <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
                         {ecoRate}
                       </div>
-                      <div className="text-xs text-blue-300 pb-1 pl-2 font-medium uppercase leading-3 tracking-wider">
+                      <div className="text-xs md:text-sm text-blue-300 pb-1 pl-1 md:pl-2 font-medium uppercase leading-3 tracking-wider">
                         ECO
                         <br />
                         RATE
@@ -350,10 +352,10 @@ const TopPlayerCard = ({
 
                     {/* Maiden */}
                     <div className="text-left flex justify-start items-end">
-                      <div className="text-4xl font-bold text-white">
+                      <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
                         {maidens}
                       </div>
-                      <div className="text-xs text-blue-300 pb-1 pl-2 font-medium uppercase leading-3 tracking-wider">
+                      <div className="text-xs md:text-sm text-blue-300 pb-1 pl-1 md:pl-2 font-medium uppercase leading-3 tracking-wider">
                         MAIDEN
                       </div>
                     </div>
