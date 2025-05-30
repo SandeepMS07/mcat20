@@ -13,7 +13,7 @@ const CustomTable = ({
 }) => {
   return (
     <div className="w-full overflow-auto">
-      <table className="w-full table-auto  border-collapse text-sm relative">
+      <table className="w-full table-auto  border-collapse text-sm relative min-w-[1450px]">
          <div
               className="bg-[#001B31] w-[100%] border-r-[50px] top-2 border-[#F15A22] h-10 z-10 absolute"
               style={{
