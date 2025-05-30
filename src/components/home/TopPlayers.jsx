@@ -1,6 +1,7 @@
 import Image from "next/image";
 import TitleComponent from "../common/TitleComponent";
 import routes from "@/utilis/route";
+import "./style.css";
 
 const topPlayersData = {
   batsman: {
@@ -378,15 +379,15 @@ const TopPlayerCard = ({
           <div className="relative">
             {/* Background layer */}
             <div
-              className="bg-[#001B31] w-[95%] right-1 border-r-[25px] top-2 border-[#F15A22] h-10  z-10 absolute"
+              className="bg-[#001B31] w-full border-r-[25px] top-1  border-[#F15A22] h-12 right-1 z-10 absolute"
               style={{
-                clipPath: "polygon(0% 0%, 100% 0%, 98% 100%, 0% 100%)",
+                clipPath: "polygon(0% 0%, 100% 0%, 97.8% 100%, 0% 100%)",
               }}
             ></div>
 
             {/* Header Row */}
             <div
-              className="bg-[#001B31] italic z-50 relative mb-4 mr-2  border-white border-[0.5px] border-opacity-10"
+              className="bg-[#001B31] z-50 relative mr-2 mb-4"
               style={{
                 clipPath: "polygon(0% 0%, 100% 0%, 97.5% 100%, 0% 100%)",
               }}
@@ -544,18 +545,29 @@ const TopPlayerCard = ({
                 <div className="flex z-50 pl-2 items-center">
                   <span className="text-white">{index + 1}.</span>
                 </div>
-                <div
-                  className="bg-[#001B31] w-[100%]  right-1 border-r-[25px] border-t-[0.42px] border-l-[0.42px] border-b-[0.42px] border-gray-800   border-r-[#F15A22] h-8 mr-2 z-10 absolute"
-                  style={{
-                    clipPath: "polygon(0% 0%, 100% 0%, 99% 100%, 0% 100%)",
-                  }}
-                ></div>
-                <div
-                  className="flex items-center justify-between bg-[rgba(15,26,45,1)] border-white border-[0.5px] border-opacity-10 z-50 px-10 py-1 flex-1 ml-3"
-                  style={{
-                    clipPath: "polygon(3% 0%, 100% 0%, 98% 100%, 0% 100%)",
-                  }}
-                >
+              <div
+              className="w-[98.5%] border-r-[50px]  border-[#F15A22] h-10 z-20 absolute"
+              style={{
+                // backgroundColor: "#003967",
+                clipPath: "polygon(0% 0%, 100% 0%, 97.7% 100%, 0% 100%)",
+                background:"linear-gradient(to right, #E07E27 60%, #FFFFFF 71%, #E07E27 100%)"
+              }}
+            >
+              {/* Yellow border in separate div */}
+              <div className="custom-yellow-border"></div>
+
+              <div className="custom-black-gradient "></div>
+              
+            </div>
+            {/* All other content in one div */}
+            <div
+              className="flex items-center justify-between bg-[#999FA4]  z-50 px-10 py-2  relative w-[90%] custom-border-bg"
+              style={{
+                // backgroundColor: "#003967",
+                
+                clipPath: "polygon(3% 0%, 100% 0%, 96% 100%, 0% 100%)",
+              }}
+            >
                   <div className="flex items-center gap-5 xl:gap-10">
                     <div className="h-11 w-11 rounded-full bg-[#242424] flex items-center justify-center overflow-hidden">
                       <img
