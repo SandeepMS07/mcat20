@@ -34,10 +34,10 @@ export default function PaginationControls({
 
       {/* Foreground content */}
       <div
-        className="relative z-50 w-[99%] flex justify-between items-center gap-2 bg-[#999FA4] italic custom-heading-border p-4 -mt-5"
-        style={{
-          clipPath: "polygon(0% 0%, 100% 0%, 97% 100%, 0% 100%)",
-        }}
+        className="relative z-50 w-[99%] flex flex-col md:flex-row justify-between items-center gap-4  md:gap-2 bg-[#001B31] md:bg-[#999FA4] italic md:custom-heading-border p-4 -mt-5 md:clip-path-[polygon(0%_0%,_100%_0%,_97%_100%,_0%_100%)] "
+        // style={{
+        //   clipPath: "polygon(0% 0%, 100% 0%, 97% 100%, 0% 100%)",
+        // }}
       >   
        <div>
         <span className="md:text-sm text-xs text-white font-normal">Per page:</span>
@@ -61,7 +61,7 @@ export default function PaginationControls({
       </div>
 
       {/* Prev / Next */}
-      <div className="flex items-center gap-2 md:text-sm text-xs mr-[3rem]">
+      <div className="flex items-center gap-2 md:text-sm text-xs md:mr-[3rem]">
         <button
           onClick={handlePrev}
           disabled={page === 0}

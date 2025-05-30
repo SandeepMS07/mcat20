@@ -125,7 +125,7 @@ const PlayerTable = ({ selected, onPlayerSelect, selectedPlayer, data }) => {
 
   return (
     <div className="w-full overflow-auto">
-      <div className="min-w-[1300px] relative">
+      <div className="min-w-[1250px] relative">
         {/* orange heading gradient */}
         <div
           className="bg-[#001B31] w-[100%] border-r-[50px] top-2 border-[#F15A22] h-10 z-10 absolute"
