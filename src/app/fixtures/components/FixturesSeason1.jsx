@@ -69,14 +69,7 @@ const FixturesSeason1 = ({ selectedTeam = "" }) => {
             {/* Header */}
             <div className="relative bg-[#001B31] text-white text-sm md:text-base lg:text-lg font-semibold px-4 py-2 flex justify-between items-center">
               <span>{match.matchInfo.matchNumber}</span>
-              {/* <div
-                className="absolute top-0 right-0 h-full w-[200px] md:w-[250px] bg-gradient-to-r from-[#203376] via-black to-black flex items-center justify-center text-xs md:text-sm lg:text-base font-bold"
-                style={{
-                  clipPath: "polygon(20% 0%,100% 0%,100% 100%,0% 100%)",
-                }}
-              >
-                {match.matchInfo.location}
-              </div> */}
+            
 
               <div
                 className="absolute top-0 right-0 h-full w-[200px] md:w-[250px] bg-gradient-to-r from-[#203376] via-black to-black flex items-center justify-center text-xs md:text-sm lg:text-base font-bold"
@@ -84,7 +77,6 @@ const FixturesSeason1 = ({ selectedTeam = "" }) => {
                   clipPath: "polygon(20% 0%,100% 0%,100% 100%,0% 100%)",
                 }}
               >
-                {/* {match.matchInfo.location} */}
                 {match.matchInfo.location
                   .toLowerCase()
                   .replace(/mumbai/i, "")
