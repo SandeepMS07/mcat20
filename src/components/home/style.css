@@ -41,6 +41,7 @@
   margin: .5px;
   z-index: -1;
   left: 1px;
+  top: 1px;
   clip-path: polygon(0% 0%, 100% 0%, 97% 100%, 0% 100%)
 }
 
