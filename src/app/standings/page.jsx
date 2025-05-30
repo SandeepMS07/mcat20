@@ -51,7 +51,7 @@ const TableTabComponent = () => {
     RANK: index + 1,
     TEAM: (
       <div className="flex items-center gap-2 min-w-40 text-left">
-        <div className="w-6 h-6 flex justify-center items-center">
+        <div className="w-6 h-6 flex justify-center items-center mr-2">
           <img
             src={teamLogoStats[team?.team_name]}
             alt="logo"

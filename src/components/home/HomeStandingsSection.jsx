@@ -153,7 +153,7 @@ const HomeStandingsSection = () => {
                       className="font-bold text-transparent bg-clip-text"
                       style={{
                         backgroundImage:
-                          "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                       "linear-gradient(to bottom, #333333 10%, #FFFFFF 50%, #333333 90%)"
                       }}
                     >
                       SI.NO
