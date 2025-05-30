@@ -16,6 +16,10 @@ const Socials = () => {
   }, []);
 
   return (
+
+    <div className="relative">
+       <img src="/images/elements/section-element.png" className="absolute right-0 top-0" alt="element" />
+        <img src="/images/elements/section-element.png" className="absolute left-0 bottom-0 rotate-180" alt="element" />
     <div className="section-width section-padding">
       <TitleComponent title={"Socials"} />
       {/* <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 max-sm:w-fit mx-auto"> */}
@@ -57,6 +61,7 @@ const Socials = () => {
           </div>
         </div> */}
       </div>
+    </div>
     </div>
   );
 };
