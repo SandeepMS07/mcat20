@@ -69,7 +69,6 @@ const MeetMyTeam = ({data}) => {
   );
 };
 
-
 const Table = ({ role, PlayerData }) => {
   return (
     <div className=" overflow-hidden">
@@ -126,6 +125,7 @@ const Table = ({ role, PlayerData }) => {
               
             </div>
             {/* All other content in one div */}
+
             <div
               className="flex items-center justify-between bg-[#999FA4] border  z-50 px-10 py-2  relative w-[90%] custom-border-bg"
               style={{

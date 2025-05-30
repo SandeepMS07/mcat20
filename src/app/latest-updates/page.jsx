@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { formatTitleForURL } from "@/utilis/helper";
 import routes from "@/utilis/route";
 import TitleComponent from "@/components/common/TitleComponent";
-
+import latestUpdatesBg from "../../../public/images/latestUpdates/latest-updates-bg.png"
 const page = () => {
   const router = useRouter();
 
@@ -15,7 +15,7 @@ const page = () => {
   };
   return (
     <div className="w-full h-auto">
-      <Hero imgUrl={"https://storage.googleapis.com/mca_images/website/banner_img/latestUpdates.jpg"} heading="Latest Updates" />
+      <Hero imgUrl={latestUpdatesBg} heading="Latest Updates" />
       <div className="relative">
           <img src="/images/elements/section-element.png" className="absolute right-0 top-0" alt="element" />
         <img src="/images/elements/section-element.png" className="absolute left-0 bottom-0 rotate-180" alt="element" />

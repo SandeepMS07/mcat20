@@ -106,39 +106,41 @@ const topPlayersData = {
 
 const TopPlayers = () => {
   return (
-    // <div className="bg-[url('/images/home/latestUpdateBg.png')] bg-cover bg-center bg-no-repeat py-20">
-    <div className="section-width section-padding">
-      <TitleComponent title="Top Players Season 2" />
-      <div className="flex flex-col lg:flex-row justify-center gap-6 sm:gap-10">
-        <TopPlayerCard
-          type="batsman"
-          rank={topPlayersData.batsman.rank}
-          playerImage={topPlayersData.batsman.playerImage}
-          teamLogo={topPlayersData.batsman.teamLogo}
-          playerName={topPlayersData.batsman.playerName}
-          runs={topPlayersData.batsman.runs}
-          strikeRate={topPlayersData.batsman.strikeRate}
-          matchesPlayed={topPlayersData.batsman.matchesPlayed}
-          fours={topPlayersData.batsman.fours}
-          sixes={topPlayersData.batsman.sixes}
-          leaderboard={topPlayersData.batsman.leaderboard}
-        />
-        <TopPlayerCard
-          type="bowler"
-          rank={topPlayersData.bowler.rank}
-          playerImage={topPlayersData.bowler.playerImage}
-          teamLogo={topPlayersData.bowler.teamLogo}
-          playerName={topPlayersData.bowler.playerName}
-          wickets={topPlayersData.bowler.wickets}
-          strikeRate={topPlayersData.bowler.strikeRate}
-          matchesPlayed={topPlayersData.bowler.matchesPlayed}
-          ecoRate={topPlayersData.bowler.ecoRate}
-          maidens={topPlayersData.bowler.maidens}
-          leaderboard={topPlayersData.bowler.leaderboard}
-        />
+    <div className="relative">
+      <img src="/images/elements/section-element.png" className="absolute right-0 top-0" alt="element" />
+      <img src="/images/elements/section-element.png" className="absolute left-0 bottom-0 rotate-180" alt="element" />
+      <div className="section-width section-padding">
+        <TitleComponent title="Top Players Season 2" />
+        <div className="flex flex-col lg:flex-row justify-center gap-6 sm:gap-10">
+          <TopPlayerCard
+            type="batsman"
+            rank={topPlayersData.batsman.rank}
+            playerImage={topPlayersData.batsman.playerImage}
+            teamLogo={topPlayersData.batsman.teamLogo}
+            playerName={topPlayersData.batsman.playerName}
+            runs={topPlayersData.batsman.runs}
+            strikeRate={topPlayersData.batsman.strikeRate}
+            matchesPlayed={topPlayersData.batsman.matchesPlayed}
+            fours={topPlayersData.batsman.fours}
+            sixes={topPlayersData.batsman.sixes}
+            leaderboard={topPlayersData.batsman.leaderboard}
+          />
+          <TopPlayerCard
+            type="bowler"
+            rank={topPlayersData.bowler.rank}
+            playerImage={topPlayersData.bowler.playerImage}
+            teamLogo={topPlayersData.bowler.teamLogo}
+            playerName={topPlayersData.bowler.playerName}
+            wickets={topPlayersData.bowler.wickets}
+            strikeRate={topPlayersData.bowler.strikeRate}
+            matchesPlayed={topPlayersData.bowler.matchesPlayed}
+            ecoRate={topPlayersData.bowler.ecoRate}
+            maidens={topPlayersData.bowler.maidens}
+            leaderboard={topPlayersData.bowler.leaderboard}
+          />
+        </div>
       </div>
     </div>
-    // </div>
   );
 };
 
@@ -160,41 +162,37 @@ const TopPlayerCard = ({
 }) => {
   return (
     <div className="relative flex-1">
-      <div className="w-full max-w-3xl overflow-hidden  ">
-        {/* Updated Hero Section to match Figma */}
-
+      <div className="w-full max-w-3xl overflow-hidden">
+        {/* Hero Section */}
         <div
-          className="relative  text-white overflow-hidden rounded-t-xl"
+          className="relative text-white overflow-hidden rounded-t-xl"
           style={{
             backgroundImage: `url('/images/playerProfile/bgVector.svg'), linear-gradient(227.41deg, #010F54 -28.03%, #000827 48.51%, #010F54 125.04%)`,
             backgroundBlendMode: "overlay",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            // background: "linear-gradient(227.41deg, #010F54 -28.03%, #000827 48.51%, #010F54 125.04%)"
           }}
         >
           <div
-            className=" border-b border-white border-opacity-30  w-fit  mb-10 px-6 py-2"
+            className="border-b border-white border-opacity-30 w-fit mb-10 px-6 py-2"
             style={{
               clipPath: "polygon(0% 0%, 100% 0%, 97.5% 100%, 0% 100%)",
-              background:
-                "linear-gradient(90deg, #000000 -27.21%, #001B31 20.62%, #001527 102.01%)",
+              background: "linear-gradient(90deg, #000000 -27.21%, #001B31 20.62%, #001527 102.01%)",
             }}
           >
             <div
-              className="xl:text-3xl lg:text-2xl text-xl font-bold text-transparent bg-clip-text  "
+              className="xl:text-3xl lg:text-2xl text-xl font-bold text-transparent bg-clip-text"
               style={{
-                backgroundImage:
-                  "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
               }}
             >
               {type === "batsman" ? "TOP BATSMAN" : "TOP BOWLER"}
             </div>
           </div>
 
-          <div className="flex items-end px-6  min-h-[280px]">
-            {/* Player Image Section - Touching bottom */}
-            {/* <div className="flex-shrink-0 w-1/3 flex justify-center items-end h-full">
+          <div className="flex items-end px-3 md:px-4 lg:px-6 sm:min-h-[280px]">
+            {/* Player Image Section */}
+            <div className="flex-shrink-0 w-1/3 flex justify-center items-end h-full">
               <div className="relative h-full flex items-end">
                 <Image
                   width={200}
@@ -204,13 +202,13 @@ const TopPlayerCard = ({
                   className="object-contain object-bottom"
                 />
               </div>
-            </div> */}
+            </div>
 
             {/* Player Info and Stats Section */}
-            <div className="flex-1  pb-8">
-              {/* Player Name - Top Right */}
-              <div className="mb-6 flex justify-start items-center">
-                <div className="z-20 mr-3">
+            <div className="flex-1 pl-4 md:pl-6 lg:pl-8 pb-4 md:pb-6 lg:pb-8">
+              {/* Player Name */}
+              <div className="mb-3 md:mb-4 lg:mb-6 flex justify-start items-center">
+                <div className="z-20 mr-2 md:mr-2.5 lg:mr-3">
                   <Image
                     width={50}
                     height={50}
@@ -220,10 +218,9 @@ const TopPlayerCard = ({
                   />
                 </div>
                 <h2
-                  className="xl:text-3xl lg:text-xl text-lg font-bold text-transparent bg-clip-text uppercase tracking-wide italic"
+                  className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-transparent bg-clip-text uppercase tracking-wide italic"
                   style={{
-                    backgroundImage:
-                      "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                    backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                   }}
                 >
                   {playerName}
@@ -231,29 +228,29 @@ const TopPlayerCard = ({
               </div>
 
               {/* Stats Container with Border */}
-              <div className="border border-white border-opacity-30 rounded-lg p-6 bg-black bg-opacity-20">
+              <div className="border border-white border-opacity-30 rounded-lg p-3 md:p-4 lg:p-6 bg-black bg-opacity-20">
                 {/* Stats Grid - Different layouts for batsman vs bowler */}
                 {type === "batsman" ? (
                   // Batsman: 2x2 grid (4 stats)
-                  <div className="grid gap-6">
+                  <div className="grid gap-3 md:gap-4 lg:gap-6">
                     {/* Top Row: 2 columns */}
-                    <div className="grid grid-cols-3 gap-6">
+                    <div className="grid grid-cols-3 gap-3 md:gap-4 lg:gap-6">
                       {/* Runs */}
                       <div className="text-left flex justify-start items-end">
-                        <div className="text-4xl font-bold text-white mb-1">
+                        <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1">
                           {runs}
                         </div>
-                        <div className="text-sm text-blue-300 pb-1 pl-2 font-medium uppercase leading-4 tracking-wider">
+                        <div className="text-xs md:text-sm text-blue-300 pb-1 pl-1 md:pl-2 font-medium uppercase leading-3 md:leading-4 tracking-wider">
                           RUNS
                         </div>
                       </div>
 
                       {/* Strike Rate */}
                       <div className="text-left flex justify-start items-end">
-                        <div className="text-4xl font-bold text-white">
+                        <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
                           {strikeRate}
                         </div>
-                        <div className="text-sm text-blue-300 pb-1 pl-2 font-medium uppercase leading-4 tracking-wider">
+                        <div className="text-xs md:text-sm text-blue-300 pb-1 pl-1 md:pl-2 font-medium uppercase leading-3 md:leading-4 tracking-wider">
                           STRIKE
                           <br />
                           RATE
@@ -262,13 +259,13 @@ const TopPlayerCard = ({
                     </div>
 
                     {/* Bottom Row: 3 columns */}
-                    <div className="grid grid-cols-3 gap-6">
+                    <div className="grid grid-cols-3 gap-3 md:gap-4 lg:gap-6">
                       {/* Matches Played */}
                       <div className="text-left flex justify-start items-end">
-                        <div className="text-4xl font-bold text-white mb-1">
+                        <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1">
                           {matchesPlayed}
                         </div>
-                        <div className="text-sm text-blue-300 pb-1 pl-2 font-medium uppercase leading-4 tracking-wider">
+                        <div className="text-xs md:text-sm text-blue-300 pb-1 pl-1 md:pl-2 font-medium uppercase leading-3 md:leading-4 tracking-wider">
                           MATCHES
                           <br />
                           PLAYED
@@ -277,46 +274,46 @@ const TopPlayerCard = ({
 
                       {/* Fours */}
                       <div className="text-left flex justify-start items-end">
-                        <div className="text-4xl font-bold text-white mb-1">
+                        <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1">
                           {fours}
                         </div>
-                        <div className="text-sm text-blue-300 pb-1 pl-2 font-medium uppercase leading-4 tracking-wider">
+                        <div className="text-xs md:text-sm text-blue-300 pb-1 pl-1 md:pl-2 font-medium uppercase leading-3 md:leading-4 tracking-wider">
                           4s
                         </div>
                       </div>
 
                       {/* Sixes */}
                       <div className="text-left flex justify-start items-end">
-                        <div className="text-4xl font-bold text-white mb-1">
+                        <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1">
                           {sixes}
                         </div>
-                        <div className="text-sm text-blue-300 pb-1 pl-2 font-medium uppercase leading-4 tracking-wider">
+                        <div className="text-xs md:text-sm text-blue-300 pb-1 pl-1 md:pl-2 font-medium uppercase leading-3 md:leading-4 tracking-wider">
                           6s
                         </div>
                       </div>
                     </div>
                   </div>
                 ) : (
-                  // Bowler: 3x2 grid (5 stats total - wickets spans 2 columns)
-                  <div className="grid gap-4">
+                  // Bowler: 3x2 grid (5 stats total)
+                  <div className="grid gap-3 md:gap-4">
                     {/* Top row: 2 items */}
-                    <div className="grid grid-cols-3 gap-4">
+                    <div className="grid grid-cols-3 gap-3 md:gap-4">
                       {/* Wickets */}
                       <div className="text-left flex justify-start items-end">
-                        <div className="text-4xl font-bold text-white mb-1">
+                        <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1">
                           {wickets}
                         </div>
-                        <div className="text-sm text-blue-300 pb-1 pl-2 font-medium uppercase leading-4 tracking-wider">
+                        <div className="text-xs md:text-sm text-blue-300 pb-1 pl-1 md:pl-2 font-medium uppercase leading-3 md:leading-4 tracking-wider">
                           WICKETS
                         </div>
                       </div>
 
                       {/* Strike Rate */}
                       <div className="text-left flex justify-start items-end">
-                        <div className="text-4xl font-bold text-white">
+                        <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
                           {strikeRate}
                         </div>
-                        <div className="text-sm text-blue-300 pb-1 pl-2 font-medium uppercase leading-4 tracking-wider">
+                        <div className="text-xs md:text-sm text-blue-300 pb-1 pl-1 md:pl-2 font-medium uppercase leading-3 md:leading-4 tracking-wider">
                           STRIKE
                           <br />
                           RATE
@@ -325,13 +322,13 @@ const TopPlayerCard = ({
                     </div>
 
                     {/* Bottom row: 3 items */}
-                    <div className="grid grid-cols-3 gap-4">
+                    <div className="grid grid-cols-3 gap-3 md:gap-4">
                       {/* Matches Played */}
                       <div className="text-left flex justify-start items-end">
-                        <div className="text-4xl font-bold text-white">
+                        <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
                           {matchesPlayed}
                         </div>
-                        <div className="text-xs text-blue-300 pb-1 pl-2 font-medium uppercase leading-3 tracking-wider">
+                        <div className="text-xs md:text-sm text-blue-300 pb-1 pl-1 md:pl-2 font-medium uppercase leading-3 tracking-wider">
                           MATCHES
                           <br />
                           PLAYED
@@ -340,10 +337,10 @@ const TopPlayerCard = ({
 
                       {/* Eco Rate */}
                       <div className="text-left flex justify-start items-end">
-                        <div className="text-4xl font-bold text-white">
+                        <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
                           {ecoRate}
                         </div>
-                        <div className="text-xs text-blue-300 pb-1 pl-2 font-medium uppercase leading-3 tracking-wider">
+                        <div className="text-xs md:text-sm text-blue-300 pb-1 pl-1 md:pl-2 font-medium uppercase leading-3 tracking-wider">
                           ECO
                           <br />
                           RATE
@@ -352,10 +349,10 @@ const TopPlayerCard = ({
 
                       {/* Maiden */}
                       <div className="text-left flex justify-start items-end">
-                        <div className="text-4xl font-bold text-white">
+                        <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
                           {maidens}
                         </div>
-                        <div className="text-xs text-blue-300 pb-1 pl-2 font-medium uppercase leading-3 tracking-wider">
+                        <div className="text-xs md:text-sm text-blue-300 pb-1 pl-1 md:pl-2 font-medium uppercase leading-3 tracking-wider">
                           MAIDEN
                         </div>
                       </div>
@@ -371,15 +368,14 @@ const TopPlayerCard = ({
         <div
           className="w-full overflow-hidden py-4 px-3 rounded-b-xl"
           style={{
-            background:
-              "linear-gradient(227.41deg, #010F54 -28.03%, #000827 48.51%, #010F54 125.04%)",
+            background: "linear-gradient(227.41deg, #010F54 -28.03%, #000827 48.51%, #010F54 125.04%)",
           }}
         >
           {/* Column Headers */}
           <div className="relative">
             {/* Background layer */}
             <div
-              className="bg-[#001B31] w-full border-r-[25px] top-1  border-[#F15A22] h-12 right-1 z-10 absolute"
+              className="bg-[#001B31] w-[95%] right-1 border-r-[25px] top-2 border-[#F15A22] h-10 z-10 absolute"
               style={{
                 clipPath: "polygon(0% 0%, 100% 0%, 97.8% 100%, 0% 100%)",
               }}
@@ -387,7 +383,7 @@ const TopPlayerCard = ({
 
             {/* Header Row */}
             <div
-              className="bg-[#001B31] z-50 relative mr-2 mb-4"
+              className="bg-[#001B31] italic z-50 relative mb-4 mr-2 border-white border-[0.5px] border-opacity-10"
               style={{
                 clipPath: "polygon(0% 0%, 100% 0%, 97.5% 100%, 0% 100%)",
               }}
@@ -397,8 +393,7 @@ const TopPlayerCard = ({
                   <span
                     className="font-bold text-transparent bg-clip-text text-base"
                     style={{
-                      backgroundImage:
-                        "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                      backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                     }}
                   >
                     POS
@@ -408,8 +403,7 @@ const TopPlayerCard = ({
                   <span
                     className="font-bold text-transparent bg-clip-text text-base"
                     style={{
-                      backgroundImage:
-                        "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                      backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                     }}
                   >
                     TEAM
@@ -419,8 +413,7 @@ const TopPlayerCard = ({
                   <span
                     className="font-bold text-transparent bg-clip-text text-base"
                     style={{
-                      backgroundImage:
-                        "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                      backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                     }}
                   >
                     PLAYER
@@ -430,8 +423,7 @@ const TopPlayerCard = ({
                   <span
                     className="font-bold text-transparent bg-clip-text text-base"
                     style={{
-                      backgroundImage:
-                        "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                      backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                     }}
                   >
                     MP
@@ -439,12 +431,11 @@ const TopPlayerCard = ({
                 </div>
                 {type === "batsman" ? (
                   <>
-                    <div className="w-[11%] flex items-center justify-center ">
+                    <div className="w-[11%] flex items-center justify-center">
                       <span
                         className="font-bold text-transparent bg-clip-text text-base"
                         style={{
-                          backgroundImage:
-                            "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                          backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                         }}
                       >
                         RUNS
@@ -454,8 +445,7 @@ const TopPlayerCard = ({
                       <span
                         className="font-bold text-transparent bg-clip-text text-base"
                         style={{
-                          backgroundImage:
-                            "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                          backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                         }}
                       >
                         SR
@@ -465,8 +455,7 @@ const TopPlayerCard = ({
                       <span
                         className="font-bold text-transparent bg-clip-text text-base"
                         style={{
-                          backgroundImage:
-                            "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                          backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                         }}
                       >
                         4s
@@ -476,8 +465,7 @@ const TopPlayerCard = ({
                       <span
                         className="font-bold text-transparent bg-clip-text text-base"
                         style={{
-                          backgroundImage:
-                            "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                          backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                         }}
                       >
                         6s
@@ -490,8 +478,7 @@ const TopPlayerCard = ({
                       <span
                         className="font-bold text-transparent bg-clip-text text-base"
                         style={{
-                          backgroundImage:
-                            "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                          backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                         }}
                       >
                         WICKETS
@@ -501,8 +488,7 @@ const TopPlayerCard = ({
                       <span
                         className="font-bold text-transparent bg-clip-text text-base"
                         style={{
-                          backgroundImage:
-                            "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                          backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                         }}
                       >
                         SR
@@ -512,8 +498,7 @@ const TopPlayerCard = ({
                       <span
                         className="font-bold text-transparent bg-clip-text text-base"
                         style={{
-                          backgroundImage:
-                            "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                          backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                         }}
                       >
                         ECO
@@ -523,8 +508,7 @@ const TopPlayerCard = ({
                       <span
                         className="font-bold text-transparent bg-clip-text text-base"
                         style={{
-                          backgroundImage:
-                            "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                          backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                         }}
                       >
                         MAIDEN
@@ -536,38 +520,27 @@ const TopPlayerCard = ({
             </div>
           </div>
 
-          <div className="text-white space-y-3 ">
+          <div className="text-white space-y-3">
             {leaderboard.map((player, index) => (
               <div
                 key={index}
-                className="flex items-center justify-between relative pr-3 mx-3 "
+                className="flex items-center justify-between relative pr-3 mx-3"
               >
                 <div className="flex z-50 pl-2 items-center">
                   <span className="text-white">{index + 1}.</span>
                 </div>
-              <div
-              className="w-[98.5%] border-r-[50px]  border-[#F15A22] h-10 z-20 absolute"
-              style={{
-                // backgroundColor: "#003967",
-                clipPath: "polygon(0% 0%, 100% 0%, 97.7% 100%, 0% 100%)",
-                background:"linear-gradient(to right, #E07E27 60%, #FFFFFF 71%, #E07E27 100%)"
-              }}
-            >
-              {/* Yellow border in separate div */}
-              <div className="custom-yellow-border"></div>
-
-              <div className="custom-black-gradient "></div>
-              
-            </div>
-            {/* All other content in one div */}
-            <div
-              className="flex items-center justify-between bg-[#999FA4]  z-50 px-10 py-2  relative w-[90%] custom-border-bg"
-              style={{
-                // backgroundColor: "#003967",
-                
-                clipPath: "polygon(3% 0%, 100% 0%, 96% 100%, 0% 100%)",
-              }}
-            >
+                <div
+                  className="bg-[#001B31] w-[100%] right-1 border-r-[25px] border-t-[0.42px] border-l-[0.42px] border-b-[0.42px] border-gray-800 border-r-[#F15A22] h-8 mr-2 z-10 absolute"
+                  style={{
+                    clipPath: "polygon(0% 0%, 100% 0%, 99% 100%, 0% 100%)",
+                  }}
+                ></div>
+                <div
+                  className="flex items-center justify-between bg-[rgba(15,26,45,1)] border-white border-[0.5px] border-opacity-10 z-50 px-10 py-1 flex-1 ml-3"
+                  style={{
+                    clipPath: "polygon(3% 0%, 100% 0%, 98% 100%, 0% 100%)",
+                  }}
+                >
                   <div className="flex items-center gap-5 xl:gap-10">
                     <div className="h-11 w-11 rounded-full bg-[#242424] flex items-center justify-center overflow-hidden">
                       <img
