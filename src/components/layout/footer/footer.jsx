@@ -105,12 +105,12 @@ const Footer = () => {
                 Terms and Conditions
               </a>
               <span>|</span>
-              <a
-                href="#"
+              <Link
+                href={routes.privacyPolicy}
                 className="hover:text-white font-inter font-bold text-[12px] leading-[18px] tracking-normal align-middle"
               >
                 Privacy Policy
-              </a>
+              </Link>
               <span>|</span>
               <a
                 href="#"
@@ -125,10 +125,7 @@ const Footer = () => {
                   Connect with us:
                 </div>
                 <div className="flex gap-4">
-                  <a
-                    target="_blank"
-                    href={routes.instagram}
-                  >
+                  <a target="_blank" href={routes.instagram}>
                     <Image
                       src="/images/footer/insta.svg"
                       alt="Google"
@@ -136,10 +133,7 @@ const Footer = () => {
                       height={24}
                     />
                   </a>
-                  <a
-                    target="_blank"
-                    href={routes.twitter}
-                  >
+                  <a target="_blank" href={routes.twitter}>
                     <Image
                       src="/images/footer/twitter.svg"
                       alt="Google"
@@ -147,10 +141,7 @@ const Footer = () => {
                       height={24}
                     />
                   </a>
-                  <a
-                    target="_blank"
-                    href={routes.youtube}
-                  >
+                  <a target="_blank" href={routes.youtube}>
                     <Image
                       src="/images/footer/youtube.svg"
                       alt="Google"
@@ -158,10 +149,7 @@ const Footer = () => {
                       height={24}
                     />
                   </a>
-                  <a
-                    target="_blank"
-                    href={routes.facebook}
-                  >
+                  <a target="_blank" href={routes.facebook}>
                     <Image
                       src="/images/footer/facebook.svg"
                       alt="Google"
