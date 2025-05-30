@@ -552,7 +552,7 @@ const TopPlayerCard = ({
                   className="w-[98.5%] border-r-[50px]  border-[#F15A22] h-10 z-20 absolute"
                   style={{
                     clipPath: "polygon(0% 0%, 100% 0%, 97.7% 100%, 0% 100%)",
-                    background:"linear-gradient(to right, #E07E27 60%, #FFFFFF 71%, #E07E27 100%)"
+                    background: "linear-gradient(to right, rgba(224, 126, 39, 0.2) 60%, rgba(255, 255, 255, 0.2) 71%, rgba(224, 126, 39, 0.2) 100% );"
                   }}
                 >
 

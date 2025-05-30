@@ -4,6 +4,7 @@ import CustomTable from "../common/CustomTable";
 import Link from "next/link";
 import routes from "@/utilis/route";
 import { teamLogoStats } from "@/utilis/helper";
+import "./style.css";
 
 const headers = ["RANK", "TEAM", "MP", "NET RR", "PTS"];
 const data = [
@@ -132,19 +133,20 @@ const HomeStandingsSection = () => {
             </div> */}
 
             <div className="relative">
-              <div
-                className="bg-[#001B31] w-[95%] right-1 border-r-[25px] top-2 border-[#F15A22] h-10  z-10 absolute"
-                style={{
-                  clipPath: "polygon(0% 0%, 100% 0%, 98% 100%, 0% 100%)",
-                }}
-              ></div>
+             <div
+              className="bg-[#001B31] w-[99.5%] border-r-[50px] top-2 border-[#F15A22] h-10 z-10 absolute"
+              style={{
+                clipPath: "polygon(0% 0%, 100% 0%, 97.8% 100%, 0% 100%)",
+              }}
+            ></div>
 
-              <div
-                className="bg-[#001B31] italic z-50 relative mb-4 mr-2  border-white border-[0.5px] border-opacity-20"
-                style={{
-                  clipPath: "polygon(0% 0%, 100% 0%, 97.5% 100%, 0% 100%)",
-                }}
-              >
+            {/* Header Row */}
+            <div
+              className="bg-[#999FA4] italic z-50 relative mb-4 mr-2 custom-heading-border"
+              style={{
+                clipPath: "polygon(0% 0%, 100% 0%, 97% 100%, 0% 100%)",
+              }}
+            >
                 <div className="flex items-center justify-between px-6 py-4">
                   <div className="w-[5%] flex items-center justify-start">
                     <span
@@ -157,7 +159,7 @@ const HomeStandingsSection = () => {
                       SI.NO
                     </span>
                   </div>
-                  <div className="w-[40%] flex items-center justify-start pl-8">
+                  <div className="w-[35%] flex items-center justify-start pl-8">
                     <span
                       className="font-bold text-transparent bg-clip-text"
                       style={{
@@ -217,19 +219,27 @@ const HomeStandingsSection = () => {
                       <span className="text-white">{index + 1}.</span>
                     </div>
                     <div
-                      className="bg-[#001B31] w-[100%]  right-1 border-r-[25px] border-t-[0.42px] border-l-[0.42px] border-b-[0.42px] border-gray-800   border-r-[#F15A22] h-8 mr-2 z-10 absolute"
+                      className="w-[99%] border-r-[50px]  border-[#F15A22] h-10 z-20 absolute"
                       style={{
-                        clipPath: "polygon(0% 0%, 100% 0%, 99% 100%, 0% 100%)",
-                      }}
-                    ></div>
-                    <div
-                      className="flex items-center justify-between bg-[rgba(15,26,45,1)]  border-white border-[0.5px] border-opacity-20 z-50 px-10 py-1 flex-1 ml-3"
-                      style={{
-                        clipPath: "polygon(3% 0%, 100% 0%, 98% 100%, 0% 100%)",
+                        clipPath: "polygon(0% 0%, 100% 0%, 97.5% 100%, 0% 100%)",
+                       background: "linear-gradient(to right, rgba(224, 126, 39, 0.2) 60%, rgba(255, 255, 255, 0.2) 71%, rgba(224, 126, 39, 0.2) 100% );"
                       }}
                     >
+
+                    {/* Yellow border and black gradient for the backside carrd */}
+                    <div className="custom-yellow-border"></div>
+                    <div className="custom-black-gradient "></div>
+
+                  </div>
+                  <div
+                    className="flex items-center justify-between bg-[#999FA4]  z-50 px-4 md:px-10 py-2  relative w-[94%] custom-border-bg"
+                    style={{
+                      // backgroundColor: "#003967",
+                      clipPath: "polygon(3% 0%, 100% 0%, 96% 100%, 0% 100%)",
+                    }}
+                  >     
                       <div className="flex items-center gap-5 xl:gap-10">
-                        <div className="h-11 w-11 rounded-full bg-[#242424] flex items-center justify-center overflow-hidden p-0.5">
+                        <div className="h-11 w-11 rounded-full  flex items-center justify-center overflow-hidden p-0.5">
                           <img
                             src={teamLogo}
                             alt={team.TEAM.name}
