@@ -116,18 +116,17 @@ const TeamSection = () => {
               })}
             </div>
           </div>
-
           <Link
-            href={routes.fixtures || "#"}
+            href={routes.teams || "#"}
             className="md:hidden flex items-center gap-2 w-fit mx-auto mt-6 btn-primary"
-            style={{
-              background:
-                "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-              color: "transparent",
-            }}
+            // style={{
+            //   background:
+            //     "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
+            //   WebkitBackgroundClip: "text",
+            //   WebkitTextFillColor: "transparent",
+            //   backgroundClip: "text",
+            //   color: "transparent",
+            // }}
           >
             View All
             <Image

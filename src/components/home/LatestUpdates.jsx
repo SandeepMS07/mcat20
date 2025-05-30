@@ -114,15 +114,15 @@ const LatestUpdates = () => {
         {/* Mobile button - show only on mobile, hide on larger screens */}
         <Link
           href={routes.latestUpdates || "#"}
-          className="md:hidden flex items-center gap-2 w-fit mx-auto mt-6"
-          style={{
-            background:
-              "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-            color: "transparent",
-          }}
+          className="md:hidden flex items-center gap-2 w-fit mx-auto btn-primary mt-6"
+          // style={{
+          //   background:
+          //     "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
+          //   WebkitBackgroundClip: "text",
+          //   WebkitTextFillColor: "transparent",
+          //   backgroundClip: "text",
+          //   color: "transparent",
+          // }}
         >
           View All Updates
           <Image
