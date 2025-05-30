@@ -125,7 +125,7 @@ const PlayerTable = ({ selected, onPlayerSelect, selectedPlayer, data }) => {
 
   return (
     <div className="w-full overflow-auto">
-      <div className="min-w-[1450px] relative">
+      <div className="min-w-[1300px] relative">
         {/* orange heading gradient */}
         <div
           className="bg-[#001B31] w-[100%] border-r-[50px] top-2 border-[#F15A22] h-10 z-10 absolute"
@@ -141,14 +141,22 @@ const PlayerTable = ({ selected, onPlayerSelect, selectedPlayer, data }) => {
               clipPath: "polygon(0% 0%, 100% 0%, 97% 100%, 0% 100%)",
             }}
           >
-            <tr>
-              {headers.map((h) => (
-                <HeaderCell key={h} className={h === "PLAYER" ? "w-64" : ""}>
+            <div
+              className="grid pr-[3rem]"
+              style={{
+                gridTemplateColumns: `1fr 3.5fr repeat(${
+                  headers.length - 2
+                }, 1fr)`, // Second column will be larger
+              }}
+            >
+              {headers.map((h, index) => (
+                <HeaderCell key={h} className={h === "PLAYER" ? "" : ""}>
                   {h}
                 </HeaderCell>
               ))}
-            </tr>
+            </div>
           </thead>
+
           <tbody className="text-[#D8D8D8]">
             {data.map((player) => {
               const isSelected = player.player === selectedPlayer?.player;
@@ -162,7 +170,7 @@ const PlayerTable = ({ selected, onPlayerSelect, selectedPlayer, data }) => {
                   <td className="relative p-0" colSpan={headers.length}>
                     {/* Main row backside card style*/}
                     <div
-                      className="absolute w-[99.8%] h-10 z-10 mt-4 border-r-[50px] border-[#F15A22]"
+                      className="absolute w-full h-10 z-10 mt-4 border-r-[50px] border-[#F15A22]"
                       style={{
                         clipPath:
                           "polygon(0% 0%, 100% 0%, 98.2% 100%, 0% 100%)",
@@ -186,14 +194,19 @@ const PlayerTable = ({ selected, onPlayerSelect, selectedPlayer, data }) => {
                           "polygon(3% 0%, 100% 0%, 97.5% 100%, 0% 100%)",
                       }}
                     >
-                      <div className="grid grid-cols-[3fr_repeat(11,1fr)] border-[#222222] px-4">
+                      <div
+                        className="grid px-4"
+                        style={{
+                          gridTemplateColumns: `1.5fr repeat(${headers.length}, 1fr)`,
+                        }}
+                      >
                         {headers.slice(1).map((key, index) => (
                           <Cell
                             key={key}
                             style={{ padding: "10px" }}
                             className={[
                               key === "PLAYER" ? "text-left" : "",
-                              "",
+                              index === 0 ? "col-span-3" : "", // Apply larger space to the second column
                               index !== headers.length - 2 ? "border-r" : "",
                             ].join(" ")}
                           >
@@ -617,8 +630,8 @@ export default function StatsClient({ statsData }) {
                   }
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                 bg="[#E07E27]"
-                 labelVisible={false}
+                  bg="[#E07E27]"
+                  labelVisible={false}
                 />
                 <DropDown
                   label="Team"
@@ -638,9 +651,7 @@ export default function StatsClient({ statsData }) {
                   key={tab}
                   onClick={() => setSelected(tab)}
                   className={`font-semibold xl:text-base text-sm uppercase p-2 whitespace-nowrap cursor-pointer rounded-lg ${
-                    selected === tab
-                      ? "bg-[#E07E27]"
-                      : "text-[#6A6A6A]"
+                    selected === tab ? "bg-[#E07E27]" : "text-[#6A6A6A]"
                   }`}
                 >
                   {tab}
