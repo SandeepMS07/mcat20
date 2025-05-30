@@ -15,8 +15,11 @@ const Navbar = () => {
   return (
     <div className=" z-50 absolute top-[20px] w-full  flex justify-center">
       <div className="relative w-[90%]">
-       {/* Logo Section */}
-        <div className="flex-shrink-0  absolute left-[5%] lg:left-[10%] -top-[50%] md:-top-[40%]" style={{zIndex:9999}}>
+        {/* Logo Section */}
+        <div
+          className="flex-shrink-0  absolute left-[5%] lg:left-[10%] -top-[50%] md:-top-[40%]"
+          style={{ zIndex: 9999 }}
+        >
           {!menuOpen && (
             <Link href="/">
               <Image
@@ -25,64 +28,61 @@ const Navbar = () => {
                 className="h-16 w-16 md:h-28 md:w-28 cursor-pointer "
                 width={100}
                 height={100}
-                onClick={() => redirect("/")} 
+                onClick={() => redirect("/")}
               />
             </Link>
           )}
         </div>
-     
-      <nav className="flex justify-end items-center  section-width bg-[#ffffff1f] rounded-full relative overflow-visible w-full">
-       
 
-        {/* Navigation Links */}
-        <div className="items-center md:flex hidden">
-          <div className="flex justify-center">
-            <ul className="flex items-center justify-between gap-5 lg:gap-10 bg-transparent  xl:pl-10 py-2 rounded-full">
-              {navLinks.map((item, i) => (
-                <li key={i}>
-                  <Link
-                    href={item.path}
-                    className="text-white text-sm lg:text-lg"
-                  >
-                    {item.title}
-                  </Link>
-                </li>
-              ))}
+        <nav className="flex justify-end items-center  section-width bg-[#ffffff1f] rounded-full relative overflow-visible w-full">
+          {/* Navigation Links */}
+          <div className="items-center md:flex hidden">
+            <div className="flex justify-center">
+              <ul className="flex items-center justify-between gap-5 lg:gap-10 bg-transparent  xl:pl-10 py-2 rounded-full">
+                {navLinks.map((item, i) => (
+                  <li key={i}>
+                    <Link
+                      href={item.path}
+                      className="text-white text-sm lg:text-lg"
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
 
-              <a
-                href={"/auction-info"}
-                s
-                className="px-4 py-2 md:px-6 md:py-3   rounded-full   text-white text-sm md:text-base text-center cursor-pointer flex gap-4 items-center"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(180deg, #142A7C -11.26%, #344CA2 44.6%, #243FA3 100.45%)",
-                }}
-              >
-                Auction Info
-                <span>
-                  <Image
-                    src="/images/home/hero/buttonIcon.svg"
-                    alt="button-icon"
-                    width={24}
-                    height={24}
-                    className="w-5 h-5"
-                  />
-                </span>
-              </a>
-            </ul>
+                <a
+                  href={"/auction-info"}
+                  s
+                  className="px-4 py-2 md:px-6 md:py-3   rounded-full   text-white text-sm md:text-base text-center cursor-pointer flex gap-4 items-center"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(180deg, #142A7C -11.26%, #344CA2 44.6%, #243FA3 100.45%)",
+                  }}
+                >
+                  Auction Info
+                  <span>
+                    <Image
+                      src="/images/home/hero/buttonIcon.svg"
+                      alt="button-icon"
+                      width={24}
+                      height={24}
+                      className="w-5 h-5"
+                    />
+                  </span>
+                </a>
+              </ul>
+            </div>
           </div>
-        </div>
 
-        {/* Mobile Menu Icon - Only visible on mobile */}
-        <div className="md:hidden">
-          <RxHamburgerMenu
-            className="text-white text-2xl cursor-pointer"
-            onClick={() => setMenuOpen(true)}
-          />
-        </div>
-        
-      </nav>
-       </div>
+          {/* Mobile Menu Icon - Only visible on mobile */}
+          <div className="md:hidden">
+            <RxHamburgerMenu
+              className="text-white text-2xl cursor-pointer"
+              onClick={() => setMenuOpen(true)}
+            />
+          </div>
+        </nav>
+      </div>
       <div
         className={`fixed top-0 right-0 h-full w-[75%] bg-[#0F0F0F] z-50 transform transition-transform duration-300 ${
           menuOpen ? "translate-x-0" : "translate-x-full"
@@ -145,7 +145,6 @@ const Navbar = () => {
         />
       )}
     </div>
-    
   );
 };
 

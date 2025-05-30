@@ -1,9 +1,19 @@
 import Image from "next/image";
 
-
-export const DropDown = ({ label, options, value, onChange, bg = "white",labelVisible = true }) => (
+export const DropDown = ({
+  label,
+  options,
+  value,
+  onChange,
+  bg = "white",
+  labelVisible = true,
+}) => (
   <div className="flex flex-col md:flex-row items-center gap-2  relative w-full mr-2">
-    <label className={`xl:text-sm text-xs font-semibold uppercase text-white mb-1  flex-shrink-0 ${labelVisible?"":"hidden"}`}>
+    <label
+      className={`xl:text-sm text-xs font-semibold uppercase text-white mb-1  flex-shrink-0 ${
+        labelVisible ? "" : "hidden"
+      }`}
+    >
       {label}
     </label>
     <div className="relative w-[90%]">
