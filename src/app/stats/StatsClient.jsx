@@ -5,17 +5,24 @@ import PlayerDetailsHero from "@/components/stats/PlayerDetailsHero";
 import PaginationControls from "./components/PaginationControls";
 import {  teamLogoStats } from "@/utilis/helper";
 import { DropDown } from "@/components/common/DropDown";
+import "./style.css";
 
-const Cell = ({ children, className = "" }) => (
-  <td
-    className={`py-2 px-4 border-r text-center border-[#222222] ${className}`}
-  >
+const Cell = ({ children, className = "", style }) => (
+ <div className={`p-4 text-center whitespace-nowrap ${className}`} style={style}>
     {children}
-  </td>
+  </div>
 );
 
-const HeaderCell = ({ children, className = "" }) => (
-  <th className={`py-4 px-4 text-center bg-[#E07E27] ${className}`}>
+const HeaderCell = ({ children,className =""}) => (
+  <th 
+
+    className={`py-4 pl-[2rem] text-left font-bold text-transparent bg-clip-text ${className}`}
+    style={{
+      backgroundImage: "linear-gradient(180deg, #666666 20.89%, #FFFFFF 48.4%, #666666 80.91%)",
+      WebkitBackgroundClip: "text", // explicitly set for cross-browser support
+      WebkitTextFillColor: "transparent", // required for Safari
+    }}
+  >
     {children}
   </th>
 );
@@ -116,12 +123,27 @@ const PlayerTable = ({ selected, onPlayerSelect, selectedPlayer, data }) => {
 
   return (
     <div className="w-full overflow-auto">
-      <div className="min-w-[1000px]">
-        <table className="w-full table-auto bg-black border-collapse text-sm">
-          <thead className="text-black">
+      <div className="min-w-[1450px] relative">
+
+        {/* orange heading gradient */}
+        <div
+            className="bg-[#001B31] w-[100%] border-r-[50px] top-2 border-[#F15A22] h-10 z-10 absolute"
+            style={{
+              clipPath: "polygon(0% 0%, 100% 0%, 97.8% 100%, 0% 100%)",
+            }}
+        >
+        </div>
+
+        <table className="w-full table-auto border-collapse text-sm">
+          <thead 
+            className="bg-[#999FA4] m-1 italic z-50 relative mb-4 mr-2 custom-heading-border"
+            style={{
+                clipPath: "polygon(0% 0%, 100% 0%, 97% 100%, 0% 100%)",
+            }}
+          >
             <tr>
               {headers.map((h) => (
-                <HeaderCell key={h} className={h === "PLAYER" ? "w-80" : ""}>
+                <HeaderCell key={h} className={h === "PLAYER" ? "w-64" : ""}>
                   {h}
                 </HeaderCell>
               ))}
@@ -130,33 +152,59 @@ const PlayerTable = ({ selected, onPlayerSelect, selectedPlayer, data }) => {
           <tbody className="text-[#D8D8D8]">
             {data.map((player) => {
               const isSelected = player.player === selectedPlayer?.player;
-              const rowClass = isSelected
-                ? "border-b bg-[#15243A] border-[#222222] cursor-pointer"
-                : "border-b bg-[#0F1A2D] border-[#222222] hover:bg-[#15243A] cursor-pointer";
+          
               return (
                 <tr
                   key={player.pos}
-                  className={rowClass}
+                  className="cursor-pointer mb-4"
                   onClick={() => onPlayerSelect(player)}
                 >
-                  {headers.map((key) => (
-                    <Cell
-                      style={{ padding: "10px" }}
-                      key={key}
-                      className={
-                        key === "PLAYER"
-                          ? "text-left"
-                          : key === "RUNS" ||
-                            key === "AVG" ||
-                            key === "DISMISSALS"
-                          ? "bg-[#0B1220]"
-                          : ""
-                      }
+                  <td className="relative p-0" colSpan={headers.length}>
+
+                    {/* Main row backside card style*/}
+                    <div
+                      className="absolute w-[99.8%] h-10 z-10 mt-4 border-r-[50px] border-[#F15A22]"
+                      style={{
+                        clipPath: "polygon(0% 0%, 100% 0%, 98.2% 100%, 0% 100%)",
+                        background:"linear-gradient(to right, rgba(224, 126, 39, 0.2) 60%, rgba(255, 255, 255, 0.2) 71%, rgba(224, 126, 39, 0.2) 100%)",
+                      }}
                     >
-                      {getCellValue(player, key)}
-                    </Cell>
-                  ))}
-                </tr>
+                      <div className="flex z-50 pl-2 items-center relative h-full">
+                        <span className="text-white font-medium ">
+                        {player.pos}
+                        </span>
+                      </div>
+                      <div className="custom-yellow-border"></div>
+                      <div className="custom-black-gradient"></div>
+                    </div>
+
+          
+                    <div
+                      className="relative z-20 bg-[#999FA4] px-4 md:px-10 w-[98%] custom-border-bg left-6 mt-2"
+                      style={{
+                        clipPath: "polygon(3% 0%, 100% 0%, 97.5% 100%, 0% 100%)",
+                      }}
+                    >
+  
+                      <div className="grid grid-cols-[3fr_repeat(11,1fr)] border-[#222222] px-4">
+                        {headers.slice(1).map((key, index) => (
+                          <Cell
+                            key={key}
+                            style={{ padding: "10px" }}
+                            className={
+                              [
+                                key === "PLAYER" ? "text-left" : "","",
+                                index !== headers.length - 2 ? "border-r" : ""
+                              ].join(" ")
+                            }
+                          >
+                            {getCellValue(player, key)}
+                          </Cell>
+                        ))}
+                     </div>
+                  </div>
+                </td>
+              </tr>
               );
             })}
           </tbody>
@@ -535,7 +583,7 @@ useEffect(() => {
           />
         </div>{" "}
       </div>
-      <div className="section-width">
+      <div className="section-width mt-5">
         <PaginationControls
           count={filteredByTeam.length}
           page={page}
