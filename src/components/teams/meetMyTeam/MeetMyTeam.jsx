@@ -6,35 +6,39 @@ import "./style.css";
 // To title case for player names
 const toTitleCaseWithInitials = (str) => {
   if (!str) return "";
-  
+
   const words = str.toLowerCase().split(" ").filter(Boolean);
   if (words.length === 0) return "";
-  
+
   const firstName = words[0].charAt(0).toUpperCase() + words[0].slice(1);
-  
-  const initials = words.slice(1).map((word, index, arr) => {
-    const initial = word.charAt(0).toUpperCase();
-    // Add dot only if it's NOT the last initial
-    return index === arr.length - 1 ? initial : initial + '.';
-  }).join(' ');
-  
+
+  const initials = words
+    .slice(1)
+    .map((word, index, arr) => {
+      const initial = word.charAt(0).toUpperCase();
+      // Add dot only if it's NOT the last initial
+      return index === arr.length - 1 ? initial : initial + ".";
+    })
+    .join(" ");
+
   return initials ? `${firstName} ${initials}` : firstName;
 };
 
-const MeetMyTeam = ({data}) => {
+const MeetMyTeam = ({ data }) => {
+  const PlayerRecords = data?.Player_Registrations__r.records || [];
 
-  const PlayerRecords = data.Player_Registrations__r.records;
-  
   // Group based on the role
   const groupedByRole = {};
 
-  PlayerRecords.forEach(player => {
+  PlayerRecords.forEach((player) => {
     const role = player.Primary_Role__c;
     const id = player.Id;
     const name = toTitleCaseWithInitials(player.Player__r?.Name) || "Unknown";
     const rawImg = player.Player__r?.Photo_URL_1__c;
-    const img = rawImg && rawImg.trim() !== "" ? rawImg : "/images/teams/meetmyteam/image 117.svg";
-
+    const img =
+      rawImg && rawImg.trim() !== ""
+        ? rawImg
+        : "/images/teams/meetmyteam/image 117.svg";
 
     const playerObj = {
       id,
@@ -50,7 +54,7 @@ const MeetMyTeam = ({data}) => {
     groupedByRole[role].push(playerObj);
   });
 
-  console.log(groupedByRole)
+  console.log(groupedByRole);
 
   return (
     <div className="bg-white  pt-4 pb-10 section-width">
@@ -61,8 +65,14 @@ const MeetMyTeam = ({data}) => {
           <Table role="bowlers" PlayerData={groupedByRole["Bowler"] || []} />
         </div>
         <div className=" w-full  lg:w-[48%] flex flex-col gap-10 mt-6">
-          <Table role="All Rounder" PlayerData={groupedByRole["All - rounder"] || []} />
-          <Table role="Wicket Keeper" PlayerData={groupedByRole["Wicketkeeper"] || []} />
+          <Table
+            role="All Rounder"
+            PlayerData={groupedByRole["All - rounder"] || []}
+          />
+          <Table
+            role="Wicket Keeper"
+            PlayerData={groupedByRole["Wicketkeeper"] || []}
+          />
         </div>
       </div>
     </div>
@@ -101,28 +111,28 @@ const Table = ({ role, PlayerData }) => {
       </div>
 
       <div className=" text-white  space-y-3">
-       {(PlayerData || []).map((player, index) => (
+        {(PlayerData || []).map((player, index) => (
           <div
             key={index}
             className="flex items-center justify-between  relative "
           >
             {/* Number in separate div */}
             <div className="flex z-50 pl-2   items-center">
-              <span className=" text-white">{index+1}.</span>
+              <span className=" text-white">{index + 1}.</span>
             </div>
             <div
               className="w-full border-r-[50px]  border-[#F15A22] h-10 z-20 absolute"
               style={{
                 // backgroundColor: "#003967",
                 clipPath: "polygon(0% 0%, 100% 0%, 97.7% 100%, 0% 100%)",
-                background:"linear-gradient(to right, #E07E27 60%, #FFFFFF 71%, #E07E27 100%)"
+                background:
+                  "linear-gradient(to right, #E07E27 60%, #FFFFFF 71%, #E07E27 100%)",
               }}
             >
               {/* Yellow border in separate div */}
               <div className="custom-yellow-border"></div>
 
               <div className="custom-black-gradient "></div>
-              
             </div>
             {/* All other content in one div */}
 
@@ -130,7 +140,7 @@ const Table = ({ role, PlayerData }) => {
               className="flex items-center justify-between bg-[#999FA4] border  z-50 px-10 py-2  relative w-[90%] custom-border-bg"
               style={{
                 // backgroundColor: "#003967",
-                
+
                 clipPath: "polygon(3% 0%, 100% 0%, 96% 100%, 0% 100%)",
               }}
             >
@@ -146,22 +156,29 @@ const Table = ({ role, PlayerData }) => {
                 </div>
               </div>
               <div className=" flex items-center justify-start w-[30%]">
-                <p className="text-[10px] md:text-base font-bold">{player.name}</p>
+                <p className="text-[10px] md:text-base font-bold">
+                  {player.name}
+                </p>
               </div>
               <div className="w-[50%] flex items-center justify-between">
                 <Image
                   src={
-                    role == "batsman"? "/images/teams/meetmyteam/Layer_1 (1).svg"
-                  : role == "bowlers" ? "/images/teams/meetmyteam/svg8.svg"
-                  : role == "All Rounder" ? "/images/teams/meetmyteam/Layer_1 (3).svg"
-                  : "/images/teams/meetmyteam/Layer_1 (4).svg"
+                    role == "batsman"
+                      ? "/images/teams/meetmyteam/Layer_1 (1).svg"
+                      : role == "bowlers"
+                      ? "/images/teams/meetmyteam/svg8.svg"
+                      : role == "All Rounder"
+                      ? "/images/teams/meetmyteam/Layer_1 (3).svg"
+                      : "/images/teams/meetmyteam/Layer_1 (4).svg"
                   }
                   alt="bat"
                   width={350}
                   height={350}
                   className="mr-2 w-10 h-10"
                 />
-                <span className="text-[10px] md:text-base font-bold ">{player.role}</span>
+                <span className="text-[10px] md:text-base font-bold ">
+                  {player.role}
+                </span>
                 <Image
                   src="/images/teams/meetmyteam/uil_arrow.svg"
                   alt="arrow"

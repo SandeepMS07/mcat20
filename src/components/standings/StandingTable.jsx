@@ -1,15 +1,13 @@
 import Image from "next/image";
 import React from "react";
 
-const StandingTable = ({  data  }) => {
+const StandingTable = ({ data }) => {
   return (
     <div className="w-full text-black flex flex-col gap-12">
-      
-        <PlayerTable />
+      <PlayerTable />
     </div>
   );
 };
- 
 
 const PlayerTable = () => {
   return (

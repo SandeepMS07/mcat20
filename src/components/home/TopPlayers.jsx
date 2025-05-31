@@ -107,8 +107,16 @@ const topPlayersData = {
 const TopPlayers = () => {
   return (
     <div className="relative">
-      <img src="/images/elements/section-element.png" className="absolute right-0 top-0" alt="element" />
-      <img src="/images/elements/section-element.png" className="absolute left-0 bottom-0 rotate-180" alt="element" />
+      <img
+        src="/images/elements/section-element.png"
+        className="absolute right-0 top-0"
+        alt="element"
+      />
+      <img
+        src="/images/elements/section-element.png"
+        className="absolute left-0 bottom-0 rotate-180"
+        alt="element"
+      />
       <div className="section-width section-padding">
         <TitleComponent title="Top Players Season 2" />
         <div className="flex flex-col lg:flex-row justify-center gap-6 sm:gap-10">
@@ -166,31 +174,54 @@ const TopPlayerCard = ({
         {/* Hero Section */}
         <div
           className="relative text-white overflow-hidden rounded-t-xl"
-          style={{
-            backgroundImage: `url('/images/playerProfile/bgVector.svg'), linear-gradient(227.41deg, #010F54 -28.03%, #000827 48.51%, #010F54 125.04%)`,
-            backgroundBlendMode: "overlay",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
+          style={
+            {
+              // backgroundImage: `url('/images/playerProfile/bgVector.svg'), linear-gradient(227.41deg, #010F54 -28.03%, #000827 48.51%, #010F54 125.04%)`,
+              // backgroundPosition: "center",
+            }
+          }
         >
+          {/* Gradient Background Layer */}
           <div
-            className="border-b border-white border-opacity-30 w-fit mb-10 px-6 py-2"
+            className="absolute inset-0 z-0"
+            style={{
+              background:
+                "linear-gradient(227.41deg, #010F54 -28.03%, #000827 48.51%, #010F54 125.04%)",
+            }}
+          />
+
+          {/* SVG Image Layer with fade-out effect */}
+          <div
+            className="absolute inset-0 z-10"
+            style={{
+              backgroundImage: "url('/images/playerProfile/bgVector.svg')",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              maskImage: "linear-gradient(to right, black 0%, transparent 90%)",
+              WebkitMaskImage:
+                "linear-gradient(to right, black 0%, transparent 90%)",
+            }}
+          />
+          <div
+            className="bg-[#999FA4]  w-fit mb-10 px-6 py-2 relative custom-title-border"
             style={{
               clipPath: "polygon(0% 0%, 100% 0%, 97.5% 100%, 0% 100%)",
-              background: "linear-gradient(90deg, #000000 -27.21%, #001B31 20.62%, #001527 102.01%)",
+              zIndex: 9999,
             }}
           >
             <div
-              className="xl:text-3xl lg:text-2xl text-xl font-bold text-transparent bg-clip-text"
+              className="xl:text-3xl lg:text-2xl text-xl font-bold text-transparent bg-clip-text relative"
               style={{
-                backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                backgroundImage:
+                  "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
               }}
             >
               {type === "batsman" ? "TOP BATSMAN" : "TOP BOWLER"}
             </div>
           </div>
 
-          <div className="flex items-end px-3 md:px-4 lg:px-6 sm:min-h-[280px]">
+          <div className="flex items-end px-3 md:px-4 lg:px-6 sm:min-h-[280px] relative">
             {/* Player Image Section */}
             <div className="flex-shrink-0 w-1/3 flex justify-center items-end h-full">
               <div className="relative h-full flex items-end">
@@ -205,7 +236,7 @@ const TopPlayerCard = ({
             </div>
 
             {/* Player Info and Stats Section */}
-            <div className="flex-1 pl-4 md:pl-6 lg:pl-8 pb-4 md:pb-6 lg:pb-8">
+            <div className="flex-1 pl-4 md:pl-6 lg:pl-8 pb-4 md:pb-6 lg:pb-8 relative">
               {/* Player Name */}
               <div className="mb-3 md:mb-4 lg:mb-6 flex justify-start items-center">
                 <div className="z-20 mr-2 md:mr-2.5 lg:mr-3">
@@ -220,7 +251,8 @@ const TopPlayerCard = ({
                 <h2
                   className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-transparent bg-clip-text uppercase tracking-wide italic"
                   style={{
-                    backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                    backgroundImage:
+                      "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                   }}
                 >
                   {playerName}
@@ -368,7 +400,8 @@ const TopPlayerCard = ({
         <div
           className="w-full overflow-hidden py-4 px-3 rounded-b-xl"
           style={{
-            background: "linear-gradient(227.41deg, #010F54 -28.03%, #000827 48.51%, #010F54 125.04%)",
+            background:
+              "linear-gradient(227.41deg, #010F54 -28.03%, #000827 48.51%, #010F54 125.04%)",
           }}
         >
           {/* Column Headers */}
@@ -383,47 +416,51 @@ const TopPlayerCard = ({
 
             {/* Header Row */}
             <div
-              className="bg-[#001B31] italic z-50 relative mb-4 mr-2 border-white border-[0.5px] border-opacity-10"
+              className="bg-[#999FA4] italic z-50 relative mb-4 mr-2 custom-heading-border"
               style={{
-                clipPath: "polygon(0% 0%, 100% 0%, 97.5% 100%, 0% 100%)",
+                clipPath: "polygon(0% 0%, 100% 0%, 97% 100%, 0% 100%)",
               }}
             >
               <div className="flex items-center justify-between pl-1 pr-6 py-4">
-                <div className="w-[5%] flex items-center justify-start">
+                <div className="w-[5%] flex items-center justify-start ml-5">
                   <span
                     className="font-bold text-transparent bg-clip-text text-base"
                     style={{
-                      backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                      backgroundImage:
+                        "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                     }}
                   >
                     POS
                   </span>
                 </div>
-                <div className="w-[10%] flex items-center justify-center">
+                <div className="w-[5%] flex items-center justify-center">
                   <span
                     className="font-bold text-transparent bg-clip-text text-base"
                     style={{
-                      backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                      backgroundImage:
+                        "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                     }}
                   >
                     TEAM
                   </span>
                 </div>
-                <div className="w-[30%] flex items-center justify-start pl-8">
+                <div className="w-[20%] flex items-center justify-start pl-8">
                   <span
                     className="font-bold text-transparent bg-clip-text text-base"
                     style={{
-                      backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                      backgroundImage:
+                        "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                     }}
                   >
                     PLAYER
                   </span>
                 </div>
-                <div className="w-[11%] flex items-center justify-center">
+                <div className="w-[5%] flex items-center justify-center">
                   <span
                     className="font-bold text-transparent bg-clip-text text-base"
                     style={{
-                      backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                      backgroundImage:
+                        "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                     }}
                   >
                     MP
@@ -431,41 +468,45 @@ const TopPlayerCard = ({
                 </div>
                 {type === "batsman" ? (
                   <>
-                    <div className="w-[11%] flex items-center justify-center">
+                    <div className="w-[5%] flex items-center justify-center">
                       <span
                         className="font-bold text-transparent bg-clip-text text-base"
                         style={{
-                          backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                          backgroundImage:
+                            "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                         }}
                       >
                         RUNS
                       </span>
                     </div>
-                    <div className="w-[11%] flex items-center justify-center">
+                    <div className="w-[5%] flex items-center justify-center">
                       <span
                         className="font-bold text-transparent bg-clip-text text-base"
                         style={{
-                          backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                          backgroundImage:
+                            "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                         }}
                       >
                         SR
                       </span>
                     </div>
-                    <div className="w-[11%] flex items-center justify-center">
+                    <div className="w-[5%] flex items-center justify-center">
                       <span
                         className="font-bold text-transparent bg-clip-text text-base"
                         style={{
-                          backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                          backgroundImage:
+                            "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                         }}
                       >
                         4s
                       </span>
                     </div>
-                    <div className="w-[11%] flex items-center justify-center">
+                    <div className="w-[10%] flex items-center justify-center pr-10">
                       <span
                         className="font-bold text-transparent bg-clip-text text-base"
                         style={{
-                          backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                          backgroundImage:
+                            "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                         }}
                       >
                         6s
@@ -474,41 +515,45 @@ const TopPlayerCard = ({
                   </>
                 ) : (
                   <>
-                    <div className="w-[11%] flex items-center justify-center">
+                    <div className="w-[5%] flex items-center justify-center">
                       <span
                         className="font-bold text-transparent bg-clip-text text-base"
                         style={{
-                          backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                          backgroundImage:
+                            "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                         }}
                       >
                         WICKETS
                       </span>
                     </div>
-                    <div className="w-[11%] flex items-center justify-center">
+                    <div className="w-[5%] flex items-center justify-center">
                       <span
                         className="font-bold text-transparent bg-clip-text text-base"
                         style={{
-                          backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                          backgroundImage:
+                            "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                         }}
                       >
                         SR
                       </span>
                     </div>
-                    <div className="w-[11%] flex items-center justify-center">
+                    <div className="w-[5%] flex items-center justify-center">
                       <span
                         className="font-bold text-transparent bg-clip-text text-base"
                         style={{
-                          backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                          backgroundImage:
+                            "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                         }}
                       >
                         ECO
                       </span>
                     </div>
-                    <div className="w-[11%] flex items-center justify-center">
+                    <div className="w-[10%] flex items-center justify-center pr-5">
                       <span
                         className="font-bold text-transparent bg-clip-text text-base"
                         style={{
-                          backgroundImage: "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                          backgroundImage:
+                            "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
                         }}
                       >
                         MAIDEN
@@ -530,19 +575,27 @@ const TopPlayerCard = ({
                   <span className="text-white">{index + 1}.</span>
                 </div>
                 <div
-                  className="bg-[#001B31] w-[100%] right-1 border-r-[25px] border-t-[0.42px] border-l-[0.42px] border-b-[0.42px] border-gray-800 border-r-[#F15A22] h-8 mr-2 z-10 absolute"
+                  className="w-[98.5%] border-r-[50px]  border-[#F15A22] h-10 z-20 absolute"
                   style={{
-                    clipPath: "polygon(0% 0%, 100% 0%, 99% 100%, 0% 100%)",
+                    clipPath: "polygon(0% 0%, 100% 0%, 97.7% 100%, 0% 100%)",
+                    background:
+                      "linear-gradient(to right, rgba(224, 126, 39, 0.2) 60%, rgba(255, 255, 255, 0.2) 71%, rgba(224, 126, 39, 0.2) 100% );",
                   }}
-                ></div>
+                >
+                  <div className="custom-yellow-border"></div>
+
+                  <div className="custom-black-gradient "></div>
+                </div>
                 <div
-                  className="flex items-center justify-between bg-[rgba(15,26,45,1)] border-white border-[0.5px] border-opacity-10 z-50 px-10 py-1 flex-1 ml-3"
+                  className="flex items-center justify-between bg-[#999FA4]  z-50 px-4 md:px-10 py-2  relative w-[94%] custom-border-bg"
                   style={{
-                    clipPath: "polygon(3% 0%, 100% 0%, 98% 100%, 0% 100%)",
+                    // backgroundColor: "#003967",
+
+                    clipPath: "polygon(3% 0%, 100% 0%, 96% 100%, 0% 100%)",
                   }}
                 >
                   <div className="flex items-center gap-5 xl:gap-10">
-                    <div className="h-11 w-11 rounded-full bg-[#242424] flex items-center justify-center overflow-hidden">
+                    <div className="h-11 w-11 rounded-full flex items-center justify-center overflow-hidden">
                       <img
                         src={player.logo}
                         alt={player.name}
@@ -550,33 +603,33 @@ const TopPlayerCard = ({
                       />
                     </div>
                   </div>
-                  <div className="flex items-center justify-start w-[30%]">
-                    <p className="text-base font-semibold">{player.name}</p>
+                  <div className="flex items-center justify-start w-[30%] ml-2">
+                    <p className="text-[12px] font-semibold">{player.name}</p>
                   </div>
                   <div className="w-[11%] flex items-center justify-center">
-                    <span className="text-base font-semibold">
+                    <span className="text-[12px]font-semibold">
                       {player.matches}
                     </span>
                   </div>
                   {type === "batsman" ? (
                     <>
                       <div className="w-[11%] flex items-center justify-center">
-                        <span className="text-base font-semibold">
+                        <span className="text-[12px] font-semibold">
                           {player.runs}
                         </span>
                       </div>
                       <div className="w-[11%] flex items-center justify-center">
-                        <span className="text-base font-semibold">
+                        <span className="text-[12px] font-semibold">
                           {player.sr}
                         </span>
                       </div>
                       <div className="w-[11%] flex items-center justify-center">
-                        <span className="text-base font-semibold">
+                        <span className="text-[12px] font-semibold">
                           {player.fours}
                         </span>
                       </div>
                       <div className="w-[11%] flex items-center justify-center">
-                        <span className="text-base font-semibold">
+                        <span className="text-[12px] font-semibold">
                           {player.sixes}
                         </span>
                       </div>
