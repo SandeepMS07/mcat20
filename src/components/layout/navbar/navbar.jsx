@@ -16,34 +16,31 @@ const Navbar = () => {
     <div className=" z-50 absolute top-[20px] w-full  flex justify-center">
       <div className="relative w-[90%]">
         {/* Logo Section */}
-        <div
-          className="flex-shrink-0  absolute left-[5%] lg:left-[10%] -top-[50%] md:-top-[40%]"
-          style={{ zIndex: 9999 }}
-        >
-          {!menuOpen && (
-            <Link href="/">
-              <Image
-                src={"/images/home/logo.svg"}
-                alt="logo"
-                className="h-16 w-16 md:h-28 md:w-28 cursor-pointer "
-                width={100}
-                height={100}
-                onClick={() => redirect("/")}
-              />
-            </Link>
-          )}
-        </div>
 
-        <nav className="flex justify-end items-center  section-width bg-[#ffffff1f] rounded-full relative overflow-visible w-full">
+        <nav className="flex justify-between items-center  section-width bg-[#ffffff1f] rounded-full relative overflow-visible w-full py-2 px-4">
+          <div className="-my-24" style={{ zIndex: 9999 }}>
+            {!menuOpen && (
+              <Link href="/">
+                <Image
+                  src={"/images/home/logo.svg"}
+                  alt="logo"
+                  className="h-20 w-auto lg:h-28 cursor-pointer "
+                  width={100}
+                  height={100}
+                  onClick={() => redirect("/")}
+                />
+              </Link>
+            )}
+          </div>
           {/* Navigation Links */}
-          <div className="items-center md:flex hidden">
+          <div className="items-center lg:flex hidden">
             <div className="flex justify-center">
-              <ul className="flex items-center justify-between gap-5 lg:gap-10 bg-transparent  xl:pl-10 py-2 rounded-full">
+              <ul className="flex items-center justify-between gap-8 xl:gap-10 bg-transparent  xl:pl-10 py-2 rounded-full">
                 {navLinks.map((item, i) => (
                   <li key={i}>
                     <Link
                       href={item.path}
-                      className="text-white text-sm lg:text-lg"
+                      className="text-white text-sm md:text-base xl:text-lg"
                     >
                       {item.title}
                     </Link>
@@ -75,7 +72,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Icon - Only visible on mobile */}
-          <div className="md:hidden">
+          <div className="lg:hidden block">
             <RxHamburgerMenu
               className="text-white text-2xl cursor-pointer"
               onClick={() => setMenuOpen(true)}

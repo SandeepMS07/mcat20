@@ -27,9 +27,6 @@ const toTitleCaseWithInitials = (str) => {
 const MeetMyTeam = ({ data }) => {
   const PlayerRecords = data?.Player_Registrations__r.records || [];
 
-
-  const PlayerRecords = data?.Player_Registrations__r.records || [];
-
   // Group based on the role
   const groupedByRole = {};
 

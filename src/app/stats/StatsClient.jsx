@@ -195,7 +195,7 @@ const PlayerTable = ({ selected, onPlayerSelect, selectedPlayer, data }) => {
                       }}
                     >
                       <div
-                        className="grid px-4"
+                        className="grid px-4 items-center"
                         style={{
                           gridTemplateColumns: `1.5fr repeat(${headers.length}, 1fr)`,
                         }}
@@ -207,7 +207,7 @@ const PlayerTable = ({ selected, onPlayerSelect, selectedPlayer, data }) => {
                             className={[
                               key === "PLAYER" ? "text-left" : "",
                               index === 0 ? "col-span-3" : "", // Apply larger space to the second column
-                              index !== headers.length - 2 ? "border-r" : "",
+                              index !== headers.length - 2 ? "" : "",
                             ].join(" ")}
                           >
                             {getCellValue(player, key)}
@@ -516,7 +516,7 @@ export default function StatsClient({ statsData }) {
                 />
               </div>
 
-              <div className="flex items-center justify-between z-10 absolute h-[25%] md:h-[40%] lg:h-full top-0 left-0 right-0">
+              <div className="flex items-center justify-between z-10 absolute h-full lg:h-full top-0 left-0 right-0">
                 <h3
                   className="capitalize  md:text-lg lg:text-xl xl:text-2xl md:ml-16 ml-12 italic"
                   style={{
@@ -585,63 +585,62 @@ export default function StatsClient({ statsData }) {
                   />
                 </div>
               </div>
-
-              <div className="flex flex-col md:flex-row lg:hidden items-center gap-4 w-full">
-                <DropDown
-                  label="Season"
-                  options={seasons}
-                  value={season}
-                  onChange={(e) => setSeason(e.target.value)}
-                  bg="[#E07E27]"
-                  labelVisible={false}
-                />
-                <DropDown
-                  label="Sort by"
-                  options={
-                    selected === "batting"
-                      ? [
-                          "Most Runs",
-                          "Highest Individual Score",
-                          "Highest Strike Rate",
-                          "Highest Averages",
-                          "Most Sixes",
-                          // "Most Sixes (Innings)",
-                          "Most Fours",
-                          // "Most Fours (Innings)",
-                          "Most Fifties",
-                          "Most Centuries",
-                          // "Fastest Fifties",
-                          // "Fastest Centuries",
-                        ]
-                      : selected === "bowling"
-                      ? [
-                          "Most Wickets",
-                          "Best Economy",
-                          // "Best Economy (Innings)",
-                          "Best Average",
-                          "Best Strike Rate",
-                          // "Best Strike Rate (Innings)",
-                          "Most Runs Conceded (Innings)",
-                          // "Most Dot Balls Bowled",
-                          // "Most Dot Balls Bowled (Innings)",
-                          "Most Maiden Overs Bowled",
-                        ]
-                      : ["Most Catches", "Most Run Outs", "Most Stumpings"]
-                  }
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
-                  bg="[#E07E27]"
-                  labelVisible={false}
-                />
-                <DropDown
-                  label="Team"
-                  options={teams}
-                  value={selectedTeam}
-                  onChange={(e) => setSelectedTeam(e.target.value)}
-                  bg="[#E07E27]"
-                  labelVisible={false}
-                />
-              </div>
+            </div>
+            <div className="flex flex-col md:flex-row lg:hidden items-center gap-4 w-full mt-4">
+              <DropDown
+                label="Season"
+                options={seasons}
+                value={season}
+                onChange={(e) => setSeason(e.target.value)}
+                bg="[#E07E27]"
+                labelVisible={false}
+              />
+              <DropDown
+                label="Sort by"
+                options={
+                  selected === "batting"
+                    ? [
+                        "Most Runs",
+                        "Highest Individual Score",
+                        "Highest Strike Rate",
+                        "Highest Averages",
+                        "Most Sixes",
+                        // "Most Sixes (Innings)",
+                        "Most Fours",
+                        // "Most Fours (Innings)",
+                        "Most Fifties",
+                        "Most Centuries",
+                        // "Fastest Fifties",
+                        // "Fastest Centuries",
+                      ]
+                    : selected === "bowling"
+                    ? [
+                        "Most Wickets",
+                        "Best Economy",
+                        // "Best Economy (Innings)",
+                        "Best Average",
+                        "Best Strike Rate",
+                        // "Best Strike Rate (Innings)",
+                        "Most Runs Conceded (Innings)",
+                        // "Most Dot Balls Bowled",
+                        // "Most Dot Balls Bowled (Innings)",
+                        "Most Maiden Overs Bowled",
+                      ]
+                    : ["Most Catches", "Most Run Outs", "Most Stumpings"]
+                }
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                bg="[#E07E27]"
+                labelVisible={false}
+              />
+              <DropDown
+                label="Team"
+                options={teams}
+                value={selectedTeam}
+                onChange={(e) => setSelectedTeam(e.target.value)}
+                bg="[#E07E27]"
+                labelVisible={false}
+              />
             </div>
           </div>
           <div className=" flex flex-col lg:flex-row items-start md:items-center justify-between gap-4 border border-1 rounded-lg ">

@@ -120,12 +120,12 @@ const TopPlayers = () => {
     <div className="relative">
       <img
         src="/images/elements/section-element.png"
-        className="absolute right-0 top-0"
+        className="absolute right-0 top-0  md:block hidden"
         alt="element"
       />
       <img
         src="/images/elements/section-element.png"
-        className="absolute left-0 bottom-0 rotate-180"
+        className="absolute left-0 bottom-0 rotate-180  md:block hidden"
         alt="element"
       />
       <div className="section-width section-padding">
@@ -401,7 +401,7 @@ const TopPlayerCard = ({
         </div>
 
         {/* Leaderboard with new design matching HomeStandingsSection */}
-     <div className="overflow-x-scroll md:overflow-x-hidden">
+        <div className="overflow-x-scroll md:overflow-x-hidden">
           <div
             className="py-4 px-3 rounded-b-xl min-w-[800px] sm:min-w-0"
             style={{
@@ -429,7 +429,7 @@ const TopPlayerCard = ({
                 <div className="flex items-center justify-between pl-1 pr-6 py-4">
                   <div className="w-[5%] flex items-center justify-start ml-5">
                     <span
-                          className="font-bold text-transparent bg-clip-text text-xs sm:text-base"
+                      className="font-bold text-transparent bg-clip-text text-xs sm:text-base"
                       style={{
                         backgroundImage:
                           "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
@@ -440,7 +440,7 @@ const TopPlayerCard = ({
                   </div>
                   <div className="w-[5%] flex items-center justify-center">
                     <span
-                          className="font-bold text-transparent bg-clip-text text-xs sm:text-base"
+                      className="font-bold text-transparent bg-clip-text text-xs sm:text-base"
                       style={{
                         backgroundImage:
                           "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
@@ -451,7 +451,7 @@ const TopPlayerCard = ({
                   </div>
                   <div className="w-[20%] flex items-center justify-start pl-8">
                     <span
-                          className="font-bold text-transparent bg-clip-text text-xs sm:text-base"
+                      className="font-bold text-transparent bg-clip-text text-xs sm:text-base"
                       style={{
                         backgroundImage:
                           "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
@@ -462,7 +462,7 @@ const TopPlayerCard = ({
                   </div>
                   <div className="w-[5%] flex items-center justify-center">
                     <span
-                          className="font-bold text-transparent bg-clip-text text-xs sm:text-base"
+                      className="font-bold text-transparent bg-clip-text text-xs sm:text-base"
                       style={{
                         backgroundImage:
                           "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
@@ -606,7 +606,9 @@ const TopPlayerCard = ({
                       </div>
                     </div>
                     <div className="flex items-center justify-start w-[30%] ml-2">
-                      <p className="text-xs sm:text-base font-semibold">{player.name}</p>
+                      <p className="text-xs sm:text-base font-semibold">
+                        {player.name}
+                      </p>
                     </div>
                     <div className="w-[11%] flex items-center justify-center">
                       <span className="text-xs sm:text-base font-semibold">
@@ -666,8 +668,8 @@ const TopPlayerCard = ({
             </div>
           </div>
         </div>
-        </div>
       </div>
+    </div>
   );
 };
 

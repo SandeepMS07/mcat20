@@ -5,10 +5,10 @@ export const navLinks = [
     title: "Latest Updates",
     path: `${routes.latestUpdates}`,
   },
-  // {
-  //   title: "Teams",
-  //   path: `${routes.teams}`,
-  // },
+  {
+    title: "Teams",
+    path: `${routes.teams}`,
+  },
 
   {
     title: "Gallery",
@@ -18,10 +18,10 @@ export const navLinks = [
     title: "Fixtures",
     path: `${routes.fixtures}`,
   },
-  // {
-  //   title: "Statistics",
-  //   path: `${routes.stats}`,
-  // },
+  {
+    title: "Stats",
+    path: `${routes.stats}`,
+  },
   {
     title: "About Us",
     path: `${routes.aboutUs}`,

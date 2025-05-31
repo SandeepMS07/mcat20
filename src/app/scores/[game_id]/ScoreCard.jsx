@@ -17,11 +17,14 @@ function ScoreCard({ match }) {
     .split(" ")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
-    const matchTime = match.Matchdetail.Match.Time
-    const matchNumber=match.Matchdetail.Match.Number.replace("Match", "").trim()
-    const stauts = match.Matchdetail.Status 
-    const matchDate = match.Matchdetail.Match.Date
-    // console.log(match.Matchdetail.Match.Date)
+  const matchTime = match.Matchdetail.Match.Time;
+  const matchNumber = match.Matchdetail.Match.Number.replace(
+    "Match",
+    ""
+  ).trim();
+  const stauts = match.Matchdetail.Status;
+  const matchDate = match.Matchdetail.Match.Date;
+  // console.log(match.Matchdetail.Match.Date)
 
   const homeTeam = teams[homeId];
   const awayTeam = teams[awayId];
@@ -89,86 +92,111 @@ function ScoreCard({ match }) {
         <div className="mt-12">
           <TitleComponent title={"Upcoming Matches"} />
         </div>
-
-        <div className=" text-white  sm:mt-20 border-[2px] rounded-lg border-[#001B31]">
-          <div className="bg-[#001B31] text-center py-1 ">
-               <div className="relative bg-[#001B31] text-white text-sm md:text-base lg:text-lg font-semibold px-4 py-2 flex justify-between items-center">
-              <span>Match {matchNumber} </span>
-            
-
-              <div
-                className="absolute top-0 right-0 h-full w-[200px] md:w-[250px] bg-gradient-to-r from-[#203376] via-black to-black flex items-center justify-center text-xs md:text-sm lg:text-base font-bold"
-                style={{
-                  clipPath: "polygon(20% 0%,100% 0%,100% 100%,0% 100%)",
-                }}
-              >
-              {venue}
-              </div>
-            </div>
+        <div className="rounded-md border overflow-hidden text-black">
+          {/* Header */}
+          <div className="relative bg-[#001B31] text-white text-sm md:text-base lg:text-lg font-semibold px-4 py-2 flex justify-between items-center">
+            {/* <div
+              className="absolute top-0 right-0 h-full w-[200px] md:w-[250px] bg-gradient-to-r from-[#203376] via-black to-black flex items-center justify-center text-xs md:text-sm lg:text-base font-bold"
+              style={{
+                clipPath: "polygon(20% 0%,100% 0%,100% 100%,0% 100%)",
+              }}
+            >
+              {match.matchInfo.location
+                .toLowerCase()
+                .replace(/mumbai/i, "")
+                .replace(/,/g, "")
+                .trim()
+                .split(" ")
+                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(" ")}
+            </div> */}
           </div>
-          <div className="py-4 flex flex-col sm:flex-row items-center justify-between px-4 sm:px-16">
-            {/* Left Section: Home Team Logo and Score */}
-            <div className="flex items-center space-x-3">
-              <Image
-                src={`/images/scorecard/${homeTeamName}.svg`}
-                alt={homeTeamName}
-                width={100}
-                height={100}
-                className="object-contain"
-              />
-              <div className="font-semibold uppercase text-sm">
-                {homeTeamName}
-              </div>
-            </div>
 
-            {/* Center Section: Match Details */}
-            <div className="py-4 flex flex-col items-center sm:flex-row sm:justify-center px-4 sm:px-16">
-              <div className="flex flex-col items-center sm:flex-row sm:space-x-4">
-                {/* Home score */}
-                <div className="flex items-baseline space-x-1 whitespace-nowrap">
-                  <span className="text-2xl font-bold text-orange-400">
-                    {homeInnings.Total}/{homeInnings.Wickets}
-                  </span>
-                  <span className="text-sm text-black">
-                    ({homeInnings.Overs} Overs)
-                  </span>
+          {/* Teams & Scores */}
+          <div className="flex flex-col lg:flex-row w-full">
+            <div className="lg:w-full  p-3">
+              {/* <div className="lg:w-[calc(100%-250px)]  p-3"> */}
+              {/* Team 1 */}
+              <div className="flex flex-row items-center justify-between">
+                <div className="flex max-md:flex-1 lg:flex-row flex-col lg:justify-start justify-center items-center gap-3 md:w-[35%]">
+                  <img
+                    src={
+                      `/images/scorecard/${homeTeamName}.svg` ||
+                      "/images/fixtures/logoPlaceHolder.png"
+                    }
+                    alt={`${homeTeamName} logo`}
+                    width={50}
+                    height={60}
+                    className="object-contain md:h-28 md:w-28 h-16 w-16"
+                  />
+                  <div className="text-center">
+                    <div className="text-[10px] lg:text-left text-center sm:text-base font-semibold uppercase">
+                      {homeTeamName}
+                    </div>
+                    {homeInnings.Total && (
+                      <div className="text-sm font-bold">
+                        {homeInnings.Total}{" "}
+                        {homeInnings.Total && `(${homeInnings.Overs})`}
+                      </div>
+                    )}
+                  </div>
                 </div>
-
-                {/* VS */}
-                <span className="my-2 sm:my-0 text-xl text-black font-bold">
-                  VS
+                <div className="flex flex-col justify-center items-center">
+                  <div className="text-base sm:text-2xl font-semibold">vs</div>
+                  {match.status && (
+                    <div className="text-xs text-gray-600 mt-1">
+                      {match.status}
+                    </div>
+                  )}
+                </div>
+                {/* Team 2 */}
+                <div className="flex max-md:flex-1 lg:flex-row flex-col lg:justify-start justify-center items-center gap-3 w-full md:w-[40%]">
+                  <img
+                    src={
+                      `/images/scorecard/${awayTeamName}.svg` ||
+                      "/images/fixtures/logoPlaceHolder.png"
+                    }
+                    alt={`${awayTeamName} logo`}
+                    width={50}
+                    height={60}
+                    className="object-contain md:h-28 h-16 w-16 md:w-28"
+                  />
+                  <div className="text-center">
+                    <div className="text-[10px] sm:text-base lg:text-left text-center font-semibold uppercase">
+                      {awayTeamName}
+                    </div>
+                    {awayInnings.Total && (
+                      <div className="text-sm font-bold">
+                        {awayInnings.Total}{" "}
+                        {awayInnings.Overs && `(${awayInnings.Overs})`}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div className="flex justify-center py-4">
+                <span className="md:text-sm text-xs font-medium uppercase bg-[#001B31] text-center py-2 rounded-lg  px-6 text-white">
+                  {match.Matchdetail.Equation}
                 </span>
+              </div>
+            </div>
 
-                {/* Away score */}
-                <div className="flex items-baseline space-x-1 whitespace-nowrap">
-                  <span className="text-2xl font-bold text-orange-400">
-                    {awayInnings.Total}/{awayInnings.Wickets}
-                  </span>
-                  <span className="text-sm text-black">
-                    ({awayInnings.Overs} Overs)
-                  </span>
+            {/* Match Info */}
+            {/* <div className="bg-[#F5F5F5] flex lg:flex-col items-center md:items-start text-left lg:px-12 lg:py-8 sm:p-6 p-4 lg:w-[250px] lg:justify-start justify-between">
+              <div className="flex lg:flex-col justify-between w-full">
+                <div className="">
+                  <p className="text-xs sm:text-base font-bold text-[#E07E27]">
+                    MATCH INFO
+                  </p>
+                  <p className="lg:hidden block">{matchDate}</p>
+                </div>
+                <div className="text-base font-semibold leading-tight mb-1 lg:pt-2 fl ex lg:flex-col flex-row gap-2">
+                  <div className="lg:block hidden">
+                     <p>{match.matchInfo.date}</p> 
+                  </div>
                 </div>
               </div>
-            </div>
-
-            {/* Right Section: Away Team Logo and Score */}
-            <div className="flex items-center space-x-3">
-              <div className="font-semibold uppercase text-sm text-right">
-                {awayTeamName}
-              </div>
-              <Image
-                src={`/images/scorecard/${awayTeamName}.svg`}
-                alt={awayTeamName}
-                width={100}
-                height={100}
-                className="object-contain"
-              />
-            </div>
-          </div>
-          <div className="flex justify-center pb-4">
-            <span className="text-sm font-medium uppercase bg-[#001B31] text-center py-2 rounded-lg px-6">
-              {match.Matchdetail.Equation}
-            </span>
+            </div> */}
           </div>
         </div>
 
