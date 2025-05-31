@@ -133,27 +133,27 @@ const HomeStandingsSection = () => {
             </div> */}
 
             <div className="relative">
-             <div
-              className="bg-[#001B31] w-[99.5%] border-r-[50px] top-2 border-[#F15A22] h-10 z-10 absolute"
-              style={{
-                clipPath: "polygon(0% 0%, 100% 0%, 97.8% 100%, 0% 100%)",
-              }}
-            ></div>
+              <div
+                className="bg-[#001B31] w-[99.5%] border-r-[50px] top-2 border-[#F15A22] h-10 z-10 absolute"
+                style={{
+                  clipPath: "polygon(0% 0%, 100% 0%, 97.8% 100%, 0% 100%)",
+                }}
+              ></div>
 
-            {/* Header Row */}
-            <div
-              className="bg-[#999FA4] italic z-50 relative mb-4 mr-2 custom-heading-border"
-              style={{
-                clipPath: "polygon(0% 0%, 100% 0%, 97% 100%, 0% 100%)",
-              }}
-            >
+              {/* Header Row */}
+              <div
+                className="bg-[#999FA4] italic z-50 relative mb-4 mr-2 custom-heading-border"
+                style={{
+                  clipPath: "polygon(0% 0%, 100% 0%, 97% 100%, 0% 100%)",
+                }}
+              >
                 <div className="flex items-center justify-between px-6 py-4">
                   <div className="w-[5%] flex items-center justify-start">
                     <span
                       className="font-bold text-transparent bg-clip-text"
                       style={{
                         backgroundImage:
-                          "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
+                          "linear-gradient(to bottom, #333333 10%, #FFFFFF 50%, #333333 90%)",
                       }}
                     >
                       SI.NO
@@ -221,23 +221,23 @@ const HomeStandingsSection = () => {
                     <div
                       className="w-[99%] border-r-[50px]  border-[#F15A22] h-10 z-20 absolute"
                       style={{
-                        clipPath: "polygon(0% 0%, 100% 0%, 97.5% 100%, 0% 100%)",
-                       background: "linear-gradient(to right, rgba(224, 126, 39, 0.2) 60%, rgba(255, 255, 255, 0.2) 71%, rgba(224, 126, 39, 0.2) 100% );"
+                        clipPath:
+                          "polygon(0% 0%, 100% 0%, 97.5% 100%, 0% 100%)",
+                        background:
+                          "linear-gradient(to right, rgba(224, 126, 39, 0.2) 60%, rgba(255, 255, 255, 0.2) 71%, rgba(224, 126, 39, 0.2) 100% );",
                       }}
                     >
-
-                    {/* Yellow border and black gradient for the backside carrd */}
-                    <div className="custom-yellow-border"></div>
-                    <div className="custom-black-gradient "></div>
-
-                  </div>
-                  <div
-                    className="flex items-center justify-between bg-[#999FA4]  z-50 px-4 md:px-10 py-2  relative w-[94%] custom-border-bg"
-                    style={{
-                      // backgroundColor: "#003967",
-                      clipPath: "polygon(3% 0%, 100% 0%, 96% 100%, 0% 100%)",
-                    }}
-                  >     
+                      {/* Yellow border and black gradient for the backside carrd */}
+                      <div className="custom-yellow-border"></div>
+                      <div className="custom-black-gradient "></div>
+                    </div>
+                    <div
+                      className="flex items-center justify-between bg-[#999FA4]  z-50 px-4 md:px-10 py-2  relative w-[94%] custom-border-bg"
+                      style={{
+                        // backgroundColor: "#003967",
+                        clipPath: "polygon(3% 0%, 100% 0%, 96% 100%, 0% 100%)",
+                      }}
+                    >
                       <div className="flex items-center gap-5 xl:gap-10">
                         <div className="h-11 w-11 rounded-full  flex items-center justify-center overflow-hidden p-0.5">
                           <img
