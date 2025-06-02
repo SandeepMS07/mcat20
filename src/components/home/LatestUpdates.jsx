@@ -12,27 +12,27 @@ const tabs = ["All", "Latest", "Reviews", "NewSection"];
 const updateItems = [
   {
     title:
-      "T20 Mumbai League 2025 Auction: Atharva Ankolekar emerges costliest player; Musheer Khan, Sairaj Patil, Ayush Mhatre among top buys as teams spend ₹ 7.79 crores in fierce bidding war",
-    date: "Mumbai, May 7, 2025",
-    img: "/images/latestUpdates/latestupdate1.jpg",
+      "From Shivam Dube’s 5 sixes in an over to Suryakumar Yadav’s title-winning knock: Top 5 unforgettable moments of T20 Mumbai League",
+    date: "Mumbai, May 30, 2025",
+    img: "/images/latestUpdates/u2.png",
+    bordered: true,
+    path: "latest-updates/from-shivam-dube-s-5-sixes-in-an-over-to-suryakumar-yadav-s-title-winning-knock-top-5-unforgettable-moments-of-t20-mumbai-league",
+  },
+  {
+    title:
+      "T20 Mumbai League Caravan Ignites Cricket Passion at Mumbai’s Iconic Maidans",
+    date: "Mumbai, May 26, 2025",
+    img: "/images/latestUpdates/u1.png",
+    bordered: true,
+    path: "latest-updates/t20-mumbai-league-caravan-ignites-cricket-passion-at-mumbai-s-iconic-maidans",
+  },
+  {
+    title:
+      "MCA reschedules T20 Mumbai League 2025, Wankhede Stadium and DY Patil Stadium to host 23 exciting matches from June 4 to 12",
+    date: "Mumbai, May 20, 2025",
+    img: "/images/latestUpdates/u3.png",
     bordered: false,
-    path: "/latest-updates/t20-mumbai-league-2025-auction-atharva-ankolekar-emerges-costliest-player-musheer-khan-sairaj-patil-ayush-mhatre-among-top-buys-as-teams-spend-7-79-crores-in-fierce-bidding-war",
-  },
-  {
-    title:
-      "T20 Mumbai League 2025 Auction: Rising stars Ayush Mhatre, Angkrish Raghuvanshi, Tanush Kotian among key attractions as around 280 players to go under hammer on Wednesday",
-    date: "Mumbai, May 6, 2025",
-    img: "/images/latestUpdates/recent-update-7.jpg",
-    bordered: true,
-    path: "latest-updates/t20-mumbai-league-2025-auction-rising-stars-ayush-mhatre-angkrish-raghuvanshi-tanush-kotian-among-key-attractions-as-around-280-players-to-go-under-hammer-on-wednesday",
-  },
-  {
-    title:
-      "Iconic Wankhede Stadium to Host T20 Mumbai League Season 3 from May 26 to June 8",
-    date: "Mumbai, April 22, 2025",
-    img: "/images/home/latestUpdate2.jpg",
-    bordered: true,
-    path: "/latest-updates/iconic-wankhede-stadium-to-host-t20-mumbai-league-season-3-from-may-26-to-june-8",
+    path: "latest-updates/mca-reschedules-t20-mumbai-league-2025-wankhede-stadium-and-dy-patil-stadium-to-host-23-exciting-matches-from-june-4-to-12",
   },
 ];
 
@@ -56,25 +56,28 @@ const LatestUpdates = () => {
             <div className="relative w-full h-fit">
               <div className="w-full top-0 left-0 lg:flex">
                 {/* Left Block */}
-                <div
-                  className="xl:flex-[60%] lg:flex-[55%] flex bg-[url('/images/home/latestUpdateImage.jpg')] bg-cover bg-no-repeat bg-center max-lg:h-[400px] cursor-pointer"
-                  onClick={() => {
-                    router.push(
-                      "/latest-updates/mca-adds-star-power-to-t20-mumbai-league-unveils-rohit-sharma-as-face-of-season-3"
-                    );
-                  }}
-                >
-                  <div className="p-10 bottom-0 max-w-2xl mt-auto">
-                    <h3 className="text-white xl:text-3xl sm:text-2xl text-xl font-semibold">
-                      MCA Adds Star Power to T20 Mumbai League, Unveils Rohit
-                      Sharma as Face of Season 3
-                    </h3>
-                    <ul className="list-disc ml-5 text-[#E07E27] xl:text-base text-sm sm:flex gap-8 md:mt-6 mt-2">
-                      <li>Launch Event Press Conference</li>
-                      <li>Mumbai, April 18, 2025</li>
-                    </ul>
-                  </div>
-                </div>
+               <div
+  className="relative xl:flex-[60%] lg:flex-[55%] flex bg-[url('/images/home/latestUpdateImage.jpg')] bg-cover bg-no-repeat bg-center max-lg:h-[400px] cursor-pointer"
+  onClick={() => {
+    router.push(
+      "/latest-updates/mca-reschedules-t20-mumbai-league-2025-wankhede-stadium-and-dy-patil-stadium-to-host-23-exciting-matches-from-june-4-to-12"
+    );
+  }}
+>
+  {/* Black overlay gradient */}
+  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-0"></div>
+
+  {/* Content on top */}
+  <div className="p-10 bottom-0 max-w-2xl mt-auto relative z-10">
+    <h3 className="text-white xl:text-3xl sm:text-2xl text-xl font-semibold">
+      MCA Adds Star Power to T20 Mumbai League, Unveils Rohit Sharma as Face of Season 3
+    </h3>
+    <ul className="list-disc ml-5 text-[#E07E27] xl:text-base text-sm sm:flex gap-8 md:mt-6 mt-2">
+      <li>T20 Mumbai League 2025 fixtures announced</li>
+      <li>Mumbai, May 20, 2025</li>
+    </ul>
+  </div>
+</div>
 
                 {/* Right Block (Mapped) */}
                 <div className="xl:flex-[40%] lg:flex-[45%] flex flex-col">

@@ -91,7 +91,7 @@ const FixturesSeason1 = ({ selectedTeam = "" }) => {
             <div className="flex flex-col lg:flex-row w-full">
               <div className="lg:w-[calc(100%-250px)] flex flex-row items-center justify-between p-3">
                 {/* Team 1 */}
-                <div className="flex max-md:flex-1 lg:flex-row flex-col lg:justify-start justify-center items-center gap-3 md:w-[35%]">
+                <div className="flex max-md:flex-1 lg:flex-row flex-col lg:justify-between justify-center items-center gap-3 md:w-[35%] text-center">
                   <img
                     src={teamLogo1 || "/images/fixtures/logoPlaceHolder.png"}
                     alt={`${match.team1.name} logo`}
@@ -103,8 +103,9 @@ const FixturesSeason1 = ({ selectedTeam = "" }) => {
                     {match.team1.name}
                   </div>
                   {match.team1.score && (
-                    <div className="text-sm font-bold">
+                    <div className="text-2xl font-bold">
                       {match.team1.score}{" "}
+                      <br />
                       {match.team1.overs && `(${match.team1.overs})`}
                     </div>
                   )}
@@ -119,7 +120,14 @@ const FixturesSeason1 = ({ selectedTeam = "" }) => {
                   )}
                 </div>
 
-                <div className="flex max-md:flex-1 lg:flex-row flex-col lg:justify-start justify-center items-center gap-3 w-full md:w-[40%]">
+                <div className="flex max-md:flex-1 lg:flex-row flex-col lg:justify-between justify-center items-center gap-3 w-full md:w-[40%] text-center">
+                  {match.team2.score && (
+                    <div className="text-2xl font-bold">
+                      {match.team2.score}{" "}
+                      <br />
+                      {match.team2.overs && `(${match.team2.overs})`}
+                    </div>
+                  )}
                   <img
                     src={teamLogo2 || "/images/fixtures/logoPlaceHolder.png"}
                     alt={`${match.team2.name} logo`}
@@ -130,12 +138,7 @@ const FixturesSeason1 = ({ selectedTeam = "" }) => {
                   <div className="text-[10px] sm:text-base lg:text-left text-center font-semibold uppercase">
                     {match.team2.name}
                   </div>
-                  {match.team2.score && (
-                    <div className="text-sm font-bold">
-                      {match.team2.score}{" "}
-                      {match.team2.overs && `(${match.team2.overs})`}
-                    </div>
-                  )}
+                  
                 </div>
               </div>
 

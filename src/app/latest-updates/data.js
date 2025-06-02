@@ -1,3 +1,5 @@
+import schedule from "../../../public/images/latestUpdates/schedule.jpeg";
+import "./styles.css"
 export const CardData = [
   {
     id: 1,
@@ -231,8 +233,7 @@ The base prices are set at ₹5 lakh for Senior Player, ₹3 lakh for Emerging P
 Each team is required to spend a minimum of ₹80 lakh from their purse of ₹1 crore for the season.<br /><br />
 
 Additionally, teams are required to buy at least two players born on or after September 1, 2005 and include at least one of these players in their playing XI.<br /><br />
-
-ENDS`,
+`,
   },
   {
     id: 8,
@@ -286,5 +287,138 @@ Eagle Thane Strikers: Shardul Thakur (Icon Player, 20 lakh), Shashank Attarde (6
 Aakash Tigers Mumbai Western Suburbs: Sarfaraz Khan (Icon Player, 20 lakh), Hardik Tamore (8.50 lakh), Jay Bista (12 lakh), Shams Mulani (14 lakh), Sylvester Dsouza (5 lakh), Ayaz Ahmed (5.25 lakh), Siddharth Akre (4.60 lakh), Arjun Dani (4.20 lakh), M Yaseen Saudagar (3 lakh), Zaid Patankar (3.60 lakh), Karan Shah (2 lakh), Kruthik Hanagavadi (2 lakh), Sufiyan Shaikh (2.60 lakh), Vasim Khan (2 lakh), Yash Dube (2 lakh), S M Hashim (2 lakh), Ayush Jathwa (3 lakh), Salman Khan (2 lakh)
 <br /><br />
 Mumbai South Central Maratha Royals: Tushar Deshpande (Icon Player, 20 lakh), Siddhessh Lad (10.25 lakh), Sachin Yadav (7 lakh), Aditya Dhumal (7.25 lakh), Awais Khan (4.20 lakh), Sahil Jadhav (3 lakh), Naman Jhawar (3 lakh), Maxwell Swaminathan (4.60 lakh), Varun Rao (3 lakh), Rohan Ghag (3 lakh), Ajay Janu (2.20 lakh), Chinmay Sutar (5 lakh), Irfan Umair (9.25 lakh), Parag Khanapurkar (6 lakh), Arman Jaffar (5 lakh), Vaibhav Mali (2 lakh), Yash Gadia (2 lakh), Shashwat Jagtap (3 Lakh).`,
+  },
+  {
+    id: 9,
+    date: "Mumbai, May 20, 2025",
+    imgUrl: "/images/latestUpdates/update9.jpg",
+    title:
+      "MCA reschedules T20 Mumbai League 2025, Wankhede Stadium and DY Patil Stadium to host 23 exciting matches from June 4 to 12",
+    subTitle: "",
+    content: `
+    The Mumbai Cricket Association (MCA) on Tuesday announced the revised fixtures for the T20 Mumbai League 2025 with Wankhede Stadium and DY Patil Stadium as host venues of the nine-day tournament that will get underway from June 4 to June 12. The decision to reschedule the league was taken in view of the extended TATA IPL 2025 season, which was impacted due to scheduling adjustments driven by national interest considerations.
+<br/><br/>
+
+The highly anticipated tournament will witness four matches every day, two at each venue, during the league stage. The Wankhede Stadium will host fixtures at 2.30 PM and 7.30 PM while matches will begin at 10.30 AM and 5.30 PM respectively at the DY Patil Stadium.
+<br/><br/>
+
+<img src="/images/latestUpdates/schedule.jpeg" alt="Dynamic Image" width="800" style="display: block; margin: 0 auto;" /><br/>
+
+
+The T20 Mumbai League, one of India’s leading franchise-based domestic T20 tournaments, will feature 23 high-octane matches with the participation of India’s renowned players alongside Mumbai’s brightest talent. 
+<br/><br/>
+
+The league will kick-off with a high-octane clash between ARCS Andheri, with icon player Shivam Dube, and SoBo Mumbai Falcons, featuring Shreyas Iyer, at the DY Patil Stadium. The venue will also host another fixture on the same day, as Triumph Knights Mumbai North East, spearheaded by Suryakumar Yadav, take on the Eagle Thane Strikers. Meanwhile, at the Wankhede Stadium, fans can look forward to exciting matches featuring Aakash Tigers Mumbai Western Suburbs going up against Mumbai South Central Maratha Royals, followed by a much-anticipated face-off between Bandra Blasters, with Ajinkya Rahane, and North Mumbai Panthers, having Prithvi Shaw as their icon player.
+<br/><br/>
+
+Each team will play five matches in the league stage with the top-4 advancing to the semi-finals, which are scheduled to take place on June 10 at the Wankhede Stadium. The final will also be held at the Wankhede Stadium on June 12. Both, the semi-finals and final, will have reserve days on June 11 and June 13 respectively, ensuring fair play in the event of weather disruptions. 
+<br/><br/>
+
+The T20 Mumbai League makes a much-anticipated return after a six-year break as the Season 3 is set to showcase intense rivalries with North Mumbai Panthers (Horizon Sports India Private Limited), ARCS Andheri (Arcs Sports & Entertainment Private Limited), Triumph Knights Mumbai North East (Transcon Triumph Knights Private Limited), Bandra Blasters (Pk Sports Ventures Private Limited), Eagle Thane Strikers (Eagle Infra India Ltd.), Aakash Tigers Mumbai Western Suburbs (World Star Premier League LLP), SoBo Mumbai Falcons (Roadway Solutions India Infra Ltd.) and Mumbai South Central Maratha Royals (Royal Edge Sports & Entertainment) competing for the coveted title.
+    `,
+  },
+
+  {
+    id: 10,
+    date: "Mumbai, May 26, 2025",
+    imgUrl: "/images/latestUpdates/update10.jpg",
+    title:
+      "T20 Mumbai League Caravan Ignites Cricket Passion at Mumbai’s Iconic Maidans",
+    subTitle: "",
+    content: ` As anticipation builds for the highly anticipated T20 Mumbai League, returning after a six-year hiatus, the Mumbai Cricket Association (MCA) launched a vibrant city-wide campaign — the T20 Mumbai League Caravan – to bring the tournament’s excitement to the city’s iconic maidans and locations.
+    <br/><br/>
+
+The Caravan began its journey on Saturday with stops at Shivaji Park and Worli Sports Club, engaging fans and budding cricketers. On Sunday, it continued with a visit at Azad Maidan and moved through Fashion Street, Hutatma Chowk, Churchgate, Nariman Point, Parsi Gymkhana, Kirti College and Ruia College with some exciting activities for fans like cricket challenges, trivia contests, and exclusive merchandise giveaways at every stop.
+<br/><br/>
+
+ <div class="responsive-image-wrapper">
+    <img src="/images/latestUpdates/i1.jpeg" alt="Image 1" />
+    <img src="/images/latestUpdates/i3.jpeg" alt="Image 2" />
+  </div>
+
+
+<br/>
+
+The campaign is set to unfold every day across Mumbai, taking the excitement of the league to different parts of the city and engaging fans at its most popular maidans and public landmarks.
+<br/><br/>
+
+Season 3 of the T20 Mumbai League 2025, one of India’s leading franchise-based domestic tournaments, is set to take place from June 4 to 12 at the Wankhede Stadium and DY Patil Stadium.`,
+  },
+  {
+    id: 11,
+    date: "Mumbai, May 30, 2025",
+    imgUrl: "/images/latestUpdates/update11.jpg",
+    title:
+      "From Shivam Dube’s 5 sixes in an over to Suryakumar Yadav’s title-winning knock: Top 5 unforgettable moments of T20 Mumbai League",
+    subTitle: "",
+    content: `Cricket fever is set to grip the city as the T20 Mumbai League 2025 kicks off from June 4 to 12, bringing high-voltage action to the Wankhede Stadium and DY Patil Stadium. one of India’s leading franchise-based domestic tournaments will feature eight power-packed teams — North Mumbai Panthers, ARCS Andheri, Triumph Knights Mumbai North East, Bandra Blasters, Eagle Thane Strikers, Aakash Tigers Mumbai Western Suburbs, SoBo Mumbai Falcons, and Mumbai South Central Maratha Royals, battling it out for the coveted title.
+<br /><br />
+
+Fans will have the chance to witness the action live with tickets available online on District by Zomato, priced at just ₹100 (Level 1), ₹300 (Level 2), and ₹400 (Garware Pavilion Level 2).
+<br /><br />
+
+As anticipation builds for the grand return of T20 Mumbai league, below are the top five unforgettable moments that captivated fans and define the spirit of the T20 Mumbai League.
+<br /><br />
+
+<div class="text-black font-bold">1. Skipper Suryakumar Yadav’s sensational title-winning 90 knock in Season 1</div>
+
+The current India T20I captain, Suryakumar Yadav, is set to return for his third appearance in the T20 Mumbai League, bringing with him the same fearless flair that has made him a global star. Since the league’s inception, Suryakumar has led the Triumph Knights Mumbai North East, leaving a mark with both his dynamic leadership and explosive batting. In the inaugural season, he delivered one of the most iconic performances in league history — a scintillating 90 off just 42 balls in the final. Walking in with his team reeling at 34/5, Suryakumar launched a breathtaking counterattack. His unbeaten 148-run partnership with Parikshit Valsangkar powered the Triumph Knights to a formidable 182/5, eventually securing a nail-biting 3-run victory and the first-ever T20 Mumbai League title.
+<br /><br />
+
+Now a household name in international cricket, Suryakumar returns to the league and, with his trademark composure, creativity, and deep-rooted passion for Mumbai cricket, fans can expect fireworks as he looks to inspire yet another title run in Season 3.
+ <br/><br/>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ONN-wXyH_Gw?si=9-rqCAgPgoW2oSJZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<br/>
+<div class="text-black font-bold">2. Shivam Dube’s five towering sixes in an over off Pravin Tambe</div>
+
+Few moments in T20 Mumbai League history have matched the sheer power of Shivam Dube’s five consecutive sixes in a single over — a performance that lit up the Wankhede Stadium and etched his name into T20 Mumbai League’s history. In the 2019 season, representing the Shivaji Park Lions, Dube took on veteran spinner Pravin Tambe of NaMo Bandra Blasters and launched a relentless attack, clearing the ropes five times in a single over. The innings reminded fans of Yuvraj Singh, leaving them in awe and firmly establishing Dube as one of the most exciting prospects in Indian cricket. The knock was a defining moment in his career. He was also part of the Indian squad that won the ICC T20 World Cup in 2024. 
+<br/><br/>
+
+Now returning as the Icon Player for ARCS Andheri in Season 3, the explosive all-rounder brings with him a wealth of experience, power-hitting prowess, and the hunger to dominate once again. Keep an eye on Dube — he’s ready to set the stage ablaze.
+<br/><br/>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sjOfPPgGTRY?si=edMdOXgGWfKS8ZI8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<br/>
+
+<div class="text-black font-bold">3. Jay Bista’s record first-ever century of T20 Mumbai League</div>
+
+
+Jay Bista’s explosive 110 stands as one of the most breathtaking knocks ever witnessed in the T20 Mumbai League — a record-breaking display that redefined batting dominance. In the Season 2 semi-final, Bista, then playing for the SoBo SuperSonics, delivered a remarkable performance, scoring the first-ever century in the tournament’s history. His fearless stroke play not only powered SoBo SuperSonics to a massive 217/4 but also secured a spot in the final by defeating Aakash Tigers Mumbai Western Suburbs.
+<br/><br/>
+
+Bista’s innings earned him the Man of the Match award and he also emerged as the top five run-scorers that season, finishing with 242 runs in seven matches.
+<br/><br/>
+
+
+Now, Bista returns for Season 3 as one of top picks of Aakash Tigers Mumbai Western Suburbs — the same team he knocked out in that unforgettable semi-final. With his proven firepower, experience, and hunger for big-game performances, Bista will be aiming to become the game-changer once again.
+<br/><br/>
+<iframe
+  src="https://www.instagram.com/reel/DJquG8mN7kr/embed"
+  width="560"
+  height="515"
+  frameborder="0"
+  allowfullscreen
+  scrolling="no"
+  allowtransparency="true"
+></iframe>
+
+<br/>
+
+<div class="text-black font-bold">4. Shreyas Iyer’s finishing masterclass in the Season 1 Eliminator</div>
+
+Star India batter Shreyas Iyer, who has been currently leading Punjab Kings in IPL 2025, has always been known for rising to the occasion. His unbeaten 91 in the Season 1 Eliminator of the T20 Mumbai League remains one of the most memorable and defining innings in the tournament’s history. Back in 2018, playing for the NaMo Bandra Blasters, Iyer delivered a true captain’s knock. With the team at 109/3 after 16 overs, and Iyer on a patient 45 off 43 balls, he shifted gears dramatically. He reached his half-century in next three balls — a single followed by back-to-back sixes — and then exploded in the death overs, adding 46 more runs off the final 15 balls he faced. His late attack powered his side to a formidable 169/4, a total that proved decisive.
+<br/><br/>
+
+Iyer later described the innings as one of his finest in the T20 Mumbai League, a perfect blend of composure, strategy, and finishing flair. Now, returning for Season 3 as the captain of the SoBo Mumbai Falcons, he brings with him a wealth of experience, leadership skills and an unrelenting drive to perform under pressure. Expect Shreyas Iyer to once again lead by example when it matters most.
+<br/><br/>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8lkGI_pF24U?si=JbXXWWSEH2UTe82X" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<br/>
+
+<div class="text-black font-bold">5. T20 Mumbai League starts off with a wicket</div>
+When the Mumbai Cricket Association (MCA) launched the T20 Mumbai League, it aimed to create a grand platform for the city’s cricketing talent and it couldn’t have asked for a more electrifying start. In the opening match of Season 1, Shivam Malhotra of the North Mumbai Panthers delivered a moment that instantly etched itself into the league’s history. Bowling the very first ball of the tournament, Malhotra dismissed ARCS Andheri’s opener Akhil Herwadkar, making an immediate impact and sending a wave of excitement through the Wankhede crowd. Malhotra went on to claim four wickets in a match-winning spell that set the tone for the North Mumbai Panthers. That first delivery wasn’t just a wicket — it was the spark that ignited passion among fans.
+<br/><br/>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/C2XHFfjrJKQ?si=tjJKjFn6hAdZ_rGH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+`,
   },
 ];
