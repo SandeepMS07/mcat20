@@ -72,8 +72,8 @@ const teamsDataHomePage = [
   },
 ];
 
-const TeamSection = ({ data, fixtures, onTeamSelect, LogoDetails }) => {
-  const [selectedTeamIndex, setSelectedTeamIndex] = useState(0);
+const TeamSection = ({ data, fixtures, onTeamSelect, LogoDetails ,TeamIndex = 0}) => {
+  const [selectedTeamIndex, setSelectedTeamIndex] = useState(TeamIndex);
   const [teamDetails, setTeamDetails] = useState(data[selectedTeamIndex]);
   const [players, setPlayers] = useState(
     teamDetails?.Player_Registrations__r?.records || []

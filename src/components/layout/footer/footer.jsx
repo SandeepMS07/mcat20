@@ -110,13 +110,13 @@ const Footer = () => {
               >
                 Privacy Policy
               </a>
-              <span>|</span>
-              <a
+              {/* <span>|</span> */}
+              {/* <a
                 href="#"
                 className="hover:text-white font-inter font-bold text-[12px] leading-[18px] tracking-normal align-middle"
               >
                 Contact Us
-              </a>
+              </a> */}
             </div>
             <div className="flex  gap-1 ">
               <div className="flex   gap-5">
@@ -126,7 +126,7 @@ const Footer = () => {
                 <div className="flex gap-4">
                   <a
                     target="_blank"
-                    href={"https://www.facebook.com/T20Mumbai"}
+                    href={"https://www.instagram.com/t20mumbai/"}
                   >
                     <Image
                       src="/images/footer/insta.svg"
@@ -137,7 +137,7 @@ const Footer = () => {
                   </a>
                   <a
                     target="_blank"
-                    href={"https://www.facebook.com/T20Mumbai"}
+                    href={"https://x.com/T20Mumbai"}
                   >
                     <Image
                       src="/images/footer/twitter.svg"
@@ -148,7 +148,7 @@ const Footer = () => {
                   </a>
                   <a
                     target="_blank"
-                    href={"https://www.facebook.com/T20Mumbai"}
+                    href={"https://www.youtube.com/@T20MumbaiLeague"}
                   >
                     <Image
                       src="/images/footer/youtube.svg"

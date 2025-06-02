@@ -40,7 +40,9 @@ const Navbar = () => {
                   <li key={i}>
                     <Link
                       href={item.path}
-                      className="text-white text-sm md:text-base xl:text-lg"
+                      className={`text-sm md:text-base xl:text-lg ${
+                        pathName === item.path ? "text-orange-500" : "text-white"
+                      }`}
                     >
                       {item.title}
                     </Link>

@@ -17,7 +17,7 @@ const UpcomingFixturesSection = () => {
           <TitleComponent
             title={"Upcoming Matches"}
             button
-            buttonLink={routes.teams}
+            buttonLink={routes.fixtures}
             buttonText="View All"
             hideButtonOnMobile={true}
           />
