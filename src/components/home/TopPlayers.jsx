@@ -129,7 +129,7 @@ const TopPlayers = () => {
         alt="element"
       />
       <div className="section-width section-padding">
-        <TitleComponent title="Top Players Season 2" />
+        <TitleComponent title="Top Players Season 2" button={true} buttonLink={routes.stats}/>
         <div className="flex flex-col lg:flex-row justify-center gap-6 sm:gap-10">
           <TopPlayerCard
             type="batsman"
