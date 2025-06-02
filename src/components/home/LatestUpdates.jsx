@@ -60,7 +60,7 @@ const LatestUpdates = () => {
   className="relative xl:flex-[60%] lg:flex-[55%] flex bg-[url('/images/home/latestUpdateImage.jpg')] bg-cover bg-no-repeat bg-center max-lg:h-[400px] cursor-pointer"
   onClick={() => {
     router.push(
-      "/latest-updates/mca-adds-star-power-to-t20-mumbai-league-unveils-rohit-sharma-as-face-of-season-3"
+      "/latest-updates/mca-reschedules-t20-mumbai-league-2025-wankhede-stadium-and-dy-patil-stadium-to-host-23-exciting-matches-from-june-4-to-12"
     );
   }}
 >
@@ -73,8 +73,8 @@ const LatestUpdates = () => {
       MCA Adds Star Power to T20 Mumbai League, Unveils Rohit Sharma as Face of Season 3
     </h3>
     <ul className="list-disc ml-5 text-[#E07E27] xl:text-base text-sm sm:flex gap-8 md:mt-6 mt-2">
-      <li>Launch Event Press Conference</li>
-      <li>Mumbai, April 18, 2025</li>
+      <li>T20 Mumbai League 2025 fixtures announced</li>
+      <li>Mumbai, May 20, 2025</li>
     </ul>
   </div>
 </div>
