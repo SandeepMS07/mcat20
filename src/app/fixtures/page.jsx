@@ -137,6 +137,7 @@ export default function Page() {
   };
 
   return (
+    <>
     <div className="w-full bg-white">
       <div className="w-full relative flex justify-end lg:py-36 py-20 bg-[url('/images/banner/fixture.jpg')] bg-cover bg-center bg-no-repeat">
         <div className="relative z-10 pt-8 h-full flex-col overflow-hidden justify-between text-white flex gap-24 mt-20 section-width">
@@ -248,11 +249,31 @@ export default function Page() {
             />
           </div>
 
+          <div style={{ width: '100%', height: '500px', border: 'none' }}>
+            <iframe
+              srcDoc={`
+                <!DOCTYPE html>
+                <html>
+                  <head>
+                    <script src="https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/app.js"></script>
+                  </head>
+                  <body>
+                    <div class="smmumbaiwidget"></div>
+                  </body>
+                </html>
+              `}
+              style={{ width: '100%', height: '100%', border: 'none' }}
+              title="SMMumbai Widget"
+            />
+          </div>
+
+
           {/* Render the appropriate fixtures component */}
-          {renderFixturesComponent()}
+          {/* {renderFixturesComponent()} */}
         </div>
       </div>
     </div>
+    </>
   );
 }
 
