@@ -112,7 +112,7 @@ const TableTabComponent = () => {
                     color: "transparent", // ensure text color is transparent
                   }}
                 >
-                  GROUP STANDINGS
+                  STANDINGS 
                 </h3>
                 <div className="hidden md:flex xl:mr-14 mr-8 max-md:mt-4 w-fit">
                   <StandingsFilter

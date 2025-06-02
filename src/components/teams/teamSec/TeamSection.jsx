@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import {useLocation} from "react-router-dom";
 import { teamDetails, teamsLogo } from "./teamLogo";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
@@ -72,8 +73,9 @@ const teamsDataHomePage = [
   },
 ];
 
-const TeamSection = ({ data, fixtures, onTeamSelect, LogoDetails }) => {
-  const [selectedTeamIndex, setSelectedTeamIndex] = useState(0);
+const TeamSection = ({ data, fixtures, onTeamSelect, LogoDetails ,TeamIndex = 0}) => {
+  // const location = useLocation();
+  const [selectedTeamIndex, setSelectedTeamIndex] = useState(TeamIndex);
   const [teamDetails, setTeamDetails] = useState(data[selectedTeamIndex]);
   const [players, setPlayers] = useState(
     teamDetails?.Player_Registrations__r?.records || []

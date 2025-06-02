@@ -5,7 +5,7 @@ import TeamCard from "../common/TeamCard";
 import TitleComponent from "../common/TitleComponent";
 import { SwiperSlide } from "swiper/react";
 import { Carousel } from "../Carousel";
-
+import routes from "@/utilis/route";
 import teamDetailsDataSeason3 from "../../constant/team/teamDetailsDataSeason3.json";
 import { teamGradients } from "@/utilis/helper";
 
@@ -87,7 +87,7 @@ const HomeTeamSection = () => {
         alt="element"
       />
       <div className="section-width padding-top padding-bottom">
-        <TitleComponent title={"Teams"} />
+        <TitleComponent title={"Teams"}  button={true} buttonLink={routes.teams} />
         <div className="w-full flex flex-col gap-7 relative">
           <div className="w-full overflow-x-auto  scrollbar-hide">
             <div className="sm:grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 2xl:gap-8 gap-5 hidden">
