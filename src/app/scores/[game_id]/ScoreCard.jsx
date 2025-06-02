@@ -84,13 +84,13 @@ function ScoreCard({ match }) {
   return (
     <>
       <Hero
-        imgUrl="/images/teams/hero/bg.svg"
-        heading="Fixtures"
-        subheading="Player Profile"
+        imgUrl="/images/scorecard/matchCentreBg.png"
+        heading="Match Centre"
+        subheading=""
       />
       <div className=" section-width">
         <div className="mt-12">
-          <TitleComponent title={"Upcoming Matches"} />
+          <TitleComponent title={"Match Centre"} />
         </div>
         <div className="rounded-md border overflow-hidden text-black">
           {/* Header */}
@@ -118,7 +118,7 @@ function ScoreCard({ match }) {
               {/* <div className="lg:w-[calc(100%-250px)]  p-3"> */}
               {/* Team 1 */}
               <div className="flex flex-row items-center justify-between">
-                <div className="flex max-md:flex-1 lg:flex-row flex-col lg:justify-start justify-center items-center gap-3 md:w-[35%]">
+                <div className="flex max-md:flex-1 lg:flex-row flex-col lg:justify-between justify-center items-center gap-3 md:w-[35%] text-center" >
                   <img
                     src={
                       `/images/scorecard/${homeTeamName}.svg` ||
@@ -133,13 +133,15 @@ function ScoreCard({ match }) {
                     <div className="text-[10px] lg:text-left text-center sm:text-base font-semibold uppercase">
                       {homeTeamName}
                     </div>
-                    {homeInnings.Total && (
-                      <div className="text-sm font-bold">
+                  </div>
+
+                   {homeInnings.Total && (
+                      <div className="text-2xl font-bold">
                         {homeInnings.Total}{" "}
+                        <br />
                         {homeInnings.Total && `(${homeInnings.Overs})`}
                       </div>
                     )}
-                  </div>
                 </div>
                 <div className="flex flex-col justify-center items-center">
                   <div className="text-base sm:text-2xl font-semibold">vs</div>
@@ -150,7 +152,16 @@ function ScoreCard({ match }) {
                   )}
                 </div>
                 {/* Team 2 */}
-                <div className="flex max-md:flex-1 lg:flex-row flex-col lg:justify-start justify-center items-center gap-3 w-full md:w-[40%]">
+                <div className="flex max-md:flex-1 lg:flex-row flex-col lg:justify-between justify-center items-center gap-3 w-full md:w-[40%] text-center">
+
+                   {awayInnings.Total && (
+                      <div className="text-2xl font-bold">
+                        {awayInnings.Total}{" "}
+                        <br />
+                        {awayInnings.Overs && `(${awayInnings.Overs})`}
+                      </div>
+                    )}
+
                   <img
                     src={
                       `/images/scorecard/${awayTeamName}.svg` ||
@@ -165,12 +176,7 @@ function ScoreCard({ match }) {
                     <div className="text-[10px] sm:text-base lg:text-left text-center font-semibold uppercase">
                       {awayTeamName}
                     </div>
-                    {awayInnings.Total && (
-                      <div className="text-sm font-bold">
-                        {awayInnings.Total}{" "}
-                        {awayInnings.Overs && `(${awayInnings.Overs})`}
-                      </div>
-                    )}
+                   
                   </div>
                 </div>
               </div>

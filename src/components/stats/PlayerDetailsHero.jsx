@@ -34,7 +34,7 @@ const PlayerDetailsHero = ({ player, selectedTab }) => {
   const stats = getPlayerStats();
 
   return (
-    <div className="relative w-full h-[28rem] bg-[url('/images/stats/bg.svg')] bg-no-repeat bg-center bg-cover flex justify-start items-end overflow-hidden">
+    <div className="relative w-full h-[28rem] bg-[url('/images/stats/statsBg.png')] bg-no-repeat bg-center bg-cover flex justify-start items-end overflow-hidden">
       {/* Heading */}
       <div className="text-white w-full flex justify-start items-center px-20 md:px-60 py-20  ">
         <p className="text-5xl font-extrabold leading-snug uppercase">Stats</p>
