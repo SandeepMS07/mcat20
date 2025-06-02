@@ -18,7 +18,6 @@ const AboutMCA = () => {
             <Image
               src="/images/elements/small-title-bg.png"
               fill
-              className="object-contain"
               alt="Background"
             />
             <div className="relative z-10 px-8 py-6 h-full flex items-center">
