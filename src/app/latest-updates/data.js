@@ -301,9 +301,9 @@ Mumbai South Central Maratha Royals: Tushar Deshpande (Icon Player, 20 lakh), Si
 
 The highly anticipated tournament will witness four matches every day, two at each venue, during the league stage. The Wankhede Stadium will host fixtures at 2.30 PM and 7.30 PM while matches will begin at 10.30 AM and 5.30 PM respectively at the DY Patil Stadium.
 <br/><br/>
- <img src="/images/latestUpdates/schedule.jpeg" alt="Dynamic Image" width="800" /><br/>
-“The decision to revise the schedule of the T20 Mumbai League 2025 was taken unanimously, following careful deliberation with the MCA Apex Council and the League’s Governing Council. In alignment with national interests and to avoid any overlap with the TATA IPL, we felt it was important to create a dedicated window that allows fans in Mumbai to enjoy a complete, immersive experience — celebrating their homegrown heroes in a league that returns after six years. We are confident that this edition of the T20 Mumbai League will unearth new stars who will carry forward Mumbai’s rich cricketing legacy,” said Abhay Hadap, Secretary of MCA.
-<br/><br/>
+
+<img src="/images/latestUpdates/schedule.jpeg" alt="Dynamic Image" width="800" style="display: block; margin: 0 auto;" /><br/>
+
 
 The T20 Mumbai League, one of India’s leading franchise-based domestic T20 tournaments, will feature 23 high-octane matches with the participation of India’s renowned players alongside Mumbai’s brightest talent. 
 <br/><br/>
