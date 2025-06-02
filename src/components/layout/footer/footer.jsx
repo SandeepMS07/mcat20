@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import "./style.css";
 import { usePathname } from "next/navigation";
+import routes from "@/utilis/route";
 
 const Footer = () => {
   const pathName = usePathname();
@@ -104,14 +105,17 @@ const Footer = () => {
                 Terms and Conditions
               </a>
               <span>|</span>
-              <a
-                href="#"
+              <Link
+                href={routes.privacyPolicy}
                 className="hover:text-white font-inter font-bold text-[12px] leading-[18px] tracking-normal align-middle"
               >
                 Privacy Policy
-              </a>
+              </Link>
               {/* <span>|</span> */}
               {/* <a
+              </Link>
+              <span>|</span>
+              <a
                 href="#"
                 className="hover:text-white font-inter font-bold text-[12px] leading-[18px] tracking-normal align-middle"
               >
@@ -124,10 +128,8 @@ const Footer = () => {
                   Connect with us:
                 </div>
                 <div className="flex gap-4">
-                  <a
-                    target="_blank"
-                    href={"https://www.instagram.com/t20mumbai/"}
-                  >
+                 
+                  <a target="_blank" href={routes.instagram}>
                     <Image
                       src="/images/footer/insta.svg"
                       alt="Google"
@@ -135,10 +137,8 @@ const Footer = () => {
                       height={24}
                     />
                   </a>
-                  <a
-                    target="_blank"
-                    href={"https://x.com/T20Mumbai"}
-                  >
+                
+                  <a target="_blank" href={routes.twitter}>
                     <Image
                       src="/images/footer/twitter.svg"
                       alt="Google"
@@ -146,12 +146,18 @@ const Footer = () => {
                       height={24}
                     />
                   </a>
-                  <a
-                    target="_blank"
-                    href={"https://www.youtube.com/@T20MumbaiLeague"}
-                  >
+                 
+                  <a target="_blank" href={routes.youtube}>
                     <Image
                       src="/images/footer/youtube.svg"
+                      alt="Google"
+                      width={24}
+                      height={24}
+                    />
+                  </a>
+                  <a target="_blank" href={routes.facebook}>
+                    <Image
+                      src="/images/footer/facebook.svg"
                       alt="Google"
                       width={24}
                       height={24}

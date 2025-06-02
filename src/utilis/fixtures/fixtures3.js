@@ -8,6 +8,7 @@ const fixtures3 = [
     home_team: "Arcs Andheri",
     away_team: "SoBo Mumbai Falcons",
     venue: "Dr DY Patil Stadium",
+    status:"upcoming",
     ticketLink: routes.DYPatilTicket,
   },
   {
@@ -17,6 +18,7 @@ const fixtures3 = [
     home_team: "Aakash Tigers MWS",
     away_team: "MSC Maratha Royals",
     venue: "Wankhede Stadium",
+    status:"upcoming",
     ticketLink: routes.wankhedeTicket,
   },
   {
@@ -26,6 +28,7 @@ const fixtures3 = [
     home_team: "Eagle Thane Strikers",
     away_team: "Triumph Knights Mumbai North East",
     venue: "Dr DY Patil Stadium",
+    status:"upcoming",
     ticketLink: routes.DYPatilTicket,
   },
   {
@@ -35,6 +38,7 @@ const fixtures3 = [
     home_team: "Bandra Blasters",
     away_team: "North Mumbai Panthers",
     venue: "Wankhede Stadium",
+    status:"upcoming",
     ticketLink: routes.wankhedeTicket,
   },
   {
@@ -44,6 +48,7 @@ const fixtures3 = [
     home_team: "Arcs Andheri",
     away_team: "Aakash Tigers MWS",
     venue: "Dr DY Patil Stadium",
+    status:"upcoming",
   },
   {
     match_no: 6,
@@ -52,6 +57,7 @@ const fixtures3 = [
     home_team: "Bandra Blasters",
     away_team: "Eagle Thane Strikers",
     venue: "Wankhede Stadium",
+    status:"upcoming",
   },
   {
     match_no: 7,
@@ -60,6 +66,7 @@ const fixtures3 = [
     home_team: "SoBo Mumbai Falcons",
     away_team: "North Mumbai Panthers",
     venue: "Dr DY Patil Stadium",
+    status:"upcoming",
   },
   {
     match_no: 8,
@@ -68,6 +75,7 @@ const fixtures3 = [
     home_team: "Triumph Knights Mumbai North East",
     away_team: "MSC Maratha Royals",
     venue: "Wankhede Stadium",
+    status:"upcoming",
   },
   {
     match_no: 9,
@@ -76,6 +84,7 @@ const fixtures3 = [
     home_team: "Aakash Tigers MWS",
     away_team: "Bandra Blasters",
     venue: "Dr DY Patil Stadium",
+    status:"upcoming",
   },
   {
     match_no: 10,
@@ -84,6 +93,7 @@ const fixtures3 = [
     home_team: "SoBo Mumbai Falcons",
     away_team: "Triumph Knights Mumbai North East",
     venue: "Wankhede Stadium",
+    status:"upcoming",
   },
   {
     match_no: 11,
@@ -92,6 +102,7 @@ const fixtures3 = [
     home_team: "Eagle Thane Strikers",
     away_team: "MSC Maratha Royals",
     venue: "Dr DY Patil Stadium",
+    status:"upcoming",
   },
   {
     match_no: 12,
@@ -100,6 +111,7 @@ const fixtures3 = [
     home_team: "Arcs Andheri",
     away_team: "North Mumbai Panthers",
     venue: "Wankhede Stadium",
+    status:"upcoming",
   },
   {
     match_no: 13,
@@ -108,6 +120,7 @@ const fixtures3 = [
     home_team: "Triumph Knights Mumbai North East",
     away_team: "Bandra Blasters",
     venue: "Dr DY Patil Stadium",
+    status:"upcoming",
   },
   {
     match_no: 14,
@@ -116,6 +129,7 @@ const fixtures3 = [
     home_team: "North Mumbai Panthers",
     away_team: "Aakash Tigers MWS",
     venue: "Wankhede Stadium",
+    status:"upcoming",
   },
   {
     match_no: 15,
@@ -124,6 +138,7 @@ const fixtures3 = [
     home_team: "MSC Maratha Royals",
     away_team: "Arcs Andheri",
     venue: "Dr DY Patil Stadium",
+    status:"upcoming",
   },
   {
     match_no: 16,
@@ -132,6 +147,7 @@ const fixtures3 = [
     home_team: "SoBo Mumbai Falcons",
     away_team: "Eagle Thane Strikers",
     venue: "Wankhede Stadium",
+    status:"upcoming",
   },
   {
     match_no: 17,
@@ -140,6 +156,7 @@ const fixtures3 = [
     home_team: "MSC Maratha Royals",
     away_team: "Bandra Blasters",
     venue: "Dr DY Patil Stadium",
+    status:"upcoming",
   },
   {
     match_no: 18,
@@ -148,6 +165,7 @@ const fixtures3 = [
     home_team: "Eagle Thane Strikers",
     away_team: "Arcs Andheri",
     venue: "Wankhede Stadium",
+    status:"upcoming",
   },
   {
     match_no: 19,
@@ -156,6 +174,7 @@ const fixtures3 = [
     home_team: "North Mumbai Panthers",
     away_team: "Triumph Knights Mumbai North East",
     venue: "Dr DY Patil Stadium",
+    status:"upcoming",
   },
   {
     match_no: 20,
@@ -164,6 +183,7 @@ const fixtures3 = [
     home_team: "Aakash Tigers MWS",
     away_team: "SoBo Mumbai Falcons",
     venue: "Wankhede Stadium",
+    status:"upcoming",
   },
 
   {
@@ -173,6 +193,7 @@ const fixtures3 = [
     home_team: "Position - 1 (TBD)",
     away_team: "Position - 4 (TBD)",
     venue: "Wankhede Stadium",
+    status:"upcoming",
   },
   {
     match_no: 22,
@@ -181,6 +202,7 @@ const fixtures3 = [
     home_team: "Position - 2 (TBD)",
     away_team: "Position - 3 (TBD)",
     venue: "Wankhede Stadium",
+    status:"upcoming",
   },
   {
     match_no: 23,
@@ -189,6 +211,7 @@ const fixtures3 = [
     home_team: "SF Winner 1",
     away_team: "SF Winner 2",
     venue: "Wankhede Stadium",
+    status:"upcoming",
   },
 ];
 
