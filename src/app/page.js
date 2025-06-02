@@ -22,9 +22,9 @@ export default function Home() {
         <HomeTeamSection />
         <LatestUpdates />
         <IconPlayers />
-        <HomeStandingsSection />
+        {/* <HomeStandingsSection /> */}
 
-        <TopPlayers />
+        {/* <TopPlayers /> */}
         <Gallery />
 
         <Socials />
