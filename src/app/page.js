@@ -21,7 +21,8 @@ export default function Home() {
         <UpcomingFixturesSection />
         <HomeTeamSection />
         <LatestUpdates />
-        <IconPlayers />
+        {/* <IconPlayers /> */}
+         <Sponsorship />
         {/* <HomeStandingsSection /> */}
 
         {/* <TopPlayers /> */}
@@ -32,7 +33,7 @@ export default function Home() {
 
         {/* <News /> */}
 
-        <Sponsorship />
+       
 
         {/* <Fixtures /> */}
         {/*    <AboutT2C /> */}
