@@ -32,7 +32,7 @@ export default function Home() {
 
         {/* <News /> */}
 
-        {/* <Sponsorship /> */}
+        <Sponsorship />
 
         {/* <Fixtures /> */}
         {/*    <AboutT2C /> */}
