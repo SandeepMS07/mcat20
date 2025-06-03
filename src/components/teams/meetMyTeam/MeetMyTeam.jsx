@@ -57,22 +57,34 @@ const MeetMyTeam = ({ data }) => {
   console.log(groupedByRole);
 
   return (
-    <div className="bg-white  pt-4 pb-10 section-width">
-      <TitleComponent title="Meet the Team" />
-      <div className="w-full flex flex-col lg:flex-row justify-between">
-        <div className=" w-full lg:w-[48%] flex flex-col gap-10 mt-6">
-          <Table role="batsman" PlayerData={groupedByRole["Batsman"] || []} />
-          <Table role="bowlers" PlayerData={groupedByRole["Bowler"] || []} />
-        </div>
-        <div className=" w-full  lg:w-[48%] flex flex-col gap-10 mt-6">
-          <Table
-            role="All Rounder"
-            PlayerData={groupedByRole["All - rounder"] || []}
-          />
-          <Table
-            role="Wicket Keeper"
-            PlayerData={groupedByRole["Wicketkeeper"] || []}
-          />
+    <div className="bg-white relative">
+      <img
+        src="/images/elements/section-element.png"
+        className="absolute right-0 -top-[11.1%] md:block hidden responsive-top"
+        alt="element"
+      />
+      <img
+        src="/images/elements/section-element.png"
+        className="absolute left-0 bottom-0 rotate-180 md:block hidden"
+        alt="element"
+      />
+      <div className="bg-white  pt-4 pb-10 section-width">
+        <TitleComponent title="Meet the Team" />
+        <div className="w-full flex flex-col lg:flex-row justify-between">
+          <div className=" w-full lg:w-[48%] flex flex-col gap-10 mt-6">
+            <Table role="batsman" PlayerData={groupedByRole["Batsman"] || []} />
+            <Table role="bowlers" PlayerData={groupedByRole["Bowler"] || []} />
+          </div>
+          <div className=" w-full  lg:w-[48%] flex flex-col gap-10 mt-6">
+            <Table
+              role="All Rounder"
+              PlayerData={groupedByRole["All - rounder"] || []}
+            />
+            <Table
+              role="Wicket Keeper"
+              PlayerData={groupedByRole["Wicketkeeper"] || []}
+            />
+          </div>
         </div>
       </div>
     </div>

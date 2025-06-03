@@ -491,194 +491,207 @@ export default function StatsClient({ statsData }) {
   }, [displayedData]);
 
   return (
-    <div className="w-full overflow-x-auto pb-12">
+    <div className="w-full overflow-x-auto ">
       <div className="w-full">
         <PlayerDetailsHero player={selectedPlayer} selectedTab={selected} />
-        <div className="section-width pt-12 flex flex-col gap-10 bg-white text-black items-start ">
-          <div className="w-full bg-center bg-cover">
-            <div className=" w-full h-full flex flex-col lg:flex-row gap-4 relative justify-between">
-              <div className="h-full justify-center w-full">
-                <Image
-                  src="/images/elements/small-title-bg.png"
-                  alt="Mobile Title"
-                  className="block md:hidden w-full"
-                  width={200}
-                  height={0}
-                  priority
-                />
-                <Image
-                  src="/images/elements/title-bg.png"
-                  alt="Desktop Title"
-                  className="hidden md:block lg:block w-full "
-                  width={900}
-                  height={200}
-                  priority
-                />
-              </div>
-
-              <div className="flex items-center justify-between z-10 absolute h-full lg:h-full top-0 left-0 right-0">
-                <h3
-                  className="capitalize  md:text-lg lg:text-xl xl:text-2xl md:ml-16 ml-12 italic"
-                  style={{
-                    background:
-                      "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text", // fallback
-                    color: "transparent", // ensure text color is transparent
-                  }}
-                >
-                  STATS
-                </h3>
-
-                <div className="hidden flex-col md:flex-row lg:flex xl:mr-14 mr-8 max-md:mt-4 w-fit">
-                  <DropDown
-                    label="Season"
-                    options={seasons}
-                    value={season}
-                    onChange={(e) => setSeason(e.target.value)}
-                    bg="[#E07E27]"
+        <div className="relative">
+          <img
+            src="/images/elements/section-element.png"
+            className="absolute right-0 top-0 md:block hidden"
+            alt="element"
+          />
+          <img
+            src="/images/elements/section-element.png"
+            className="absolute left-0 bottom-0 rotate-180 md:block hidden"
+            alt="element"
+          />
+          <div className="section-width flex flex-col gap-10 bg-white text-black items-start pt-12">
+            <div className="w-full bg-center bg-cover">
+              <div className=" w-full h-full flex flex-col lg:flex-row gap-4 relative justify-between">
+                <div className="h-full justify-center w-full">
+                  <Image
+                    src="/images/elements/small-title-bg.png"
+                    alt="Mobile Title"
+                    className="block md:hidden w-full"
+                    width={200}
+                    height={0}
+                    priority
                   />
-                  <DropDown
-                    label="Sort by"
-                    options={
-                      selected === "batting"
-                        ? [
-                            "Most Runs",
-                            "Highest Individual Score",
-                            "Highest Strike Rate",
-                            "Highest Averages",
-                            "Most Sixes",
-                            // "Most Sixes (Innings)",
-                            "Most Fours",
-                            // "Most Fours (Innings)",
-                            "Most Fifties",
-                            "Most Centuries",
-                            // "Fastest Fifties",
-                            // "Fastest Centuries",
-                          ]
-                        : selected === "bowling"
-                        ? [
-                            "Most Wickets",
-                            "Best Economy",
-                            // "Best Economy (Innings)",
-                            "Best Average",
-                            "Best Strike Rate",
-                            // "Best Strike Rate (Innings)",
-                            "Most Runs Conceded (Innings)",
-                            // "Most Dot Balls Bowled",
-                            // "Most Dot Balls Bowled (Innings)",
-                            "Most Maiden Overs Bowled",
-                          ]
-                        : ["Most Catches", "Most Run Outs", "Most Stumpings"]
-                    }
-                    value={sortBy}
-                    onChange={(e) => setSortBy(e.target.value)}
-                    bg="[#E07E27]"
-                  />
-                  <DropDown
-                    label="Team"
-                    options={teams}
-                    value={selectedTeam}
-                    onChange={(e) => setSelectedTeam(e.target.value)}
-                    bg="[#E07E27]"
+                  <Image
+                    src="/images/elements/title-bg.png"
+                    alt="Desktop Title"
+                    className="hidden md:block lg:block w-full "
+                    width={900}
+                    height={200}
+                    priority
                   />
                 </div>
+
+                <div className="flex items-center justify-between z-10 absolute h-full lg:h-full top-0 left-0 right-0">
+                  <h3
+                    className="capitalize  md:text-lg lg:text-xl xl:text-2xl md:ml-16 ml-12 italic"
+                    style={{
+                      background:
+                        "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text", // fallback
+                      color: "transparent", // ensure text color is transparent
+                    }}
+                  >
+                    STATS
+                  </h3>
+
+                  <div className="hidden flex-col md:flex-row lg:flex xl:mr-14 mr-8 max-md:mt-4 w-fit">
+                    <DropDown
+                      label="Season"
+                      options={seasons}
+                      value={season}
+                      onChange={(e) => setSeason(e.target.value)}
+                      bg="[#E07E27]"
+                    />
+                    <DropDown
+                      label="Sort by"
+                      options={
+                        selected === "batting"
+                          ? [
+                              "Most Runs",
+                              "Highest Individual Score",
+                              "Highest Strike Rate",
+                              "Highest Averages",
+                              "Most Sixes",
+                              // "Most Sixes (Innings)",
+                              "Most Fours",
+                              // "Most Fours (Innings)",
+                              "Most Fifties",
+                              "Most Centuries",
+                              // "Fastest Fifties",
+                              // "Fastest Centuries",
+                            ]
+                          : selected === "bowling"
+                          ? [
+                              "Most Wickets",
+                              "Best Economy",
+                              // "Best Economy (Innings)",
+                              "Best Average",
+                              "Best Strike Rate",
+                              // "Best Strike Rate (Innings)",
+                              "Most Runs Conceded (Innings)",
+                              // "Most Dot Balls Bowled",
+                              // "Most Dot Balls Bowled (Innings)",
+                              "Most Maiden Overs Bowled",
+                            ]
+                          : ["Most Catches", "Most Run Outs", "Most Stumpings"]
+                      }
+                      value={sortBy}
+                      onChange={(e) => setSortBy(e.target.value)}
+                      bg="[#E07E27]"
+                    />
+                    <DropDown
+                      label="Team"
+                      options={teams}
+                      value={selectedTeam}
+                      onChange={(e) => setSelectedTeam(e.target.value)}
+                      bg="[#E07E27]"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col md:flex-row lg:hidden items-center gap-4 w-full mt-4">
+                <DropDown
+                  label="Season"
+                  options={seasons}
+                  value={season}
+                  onChange={(e) => setSeason(e.target.value)}
+                  bg="[#E07E27]"
+                  labelVisible={false}
+                />
+                <DropDown
+                  label="Sort by"
+                  options={
+                    selected === "batting"
+                      ? [
+                          "Most Runs",
+                          "Highest Individual Score",
+                          "Highest Strike Rate",
+                          "Highest Averages",
+                          "Most Sixes",
+                          // "Most Sixes (Innings)",
+                          "Most Fours",
+                          // "Most Fours (Innings)",
+                          "Most Fifties",
+                          "Most Centuries",
+                          // "Fastest Fifties",
+                          // "Fastest Centuries",
+                        ]
+                      : selected === "bowling"
+                      ? [
+                          "Most Wickets",
+                          "Best Economy",
+                          // "Best Economy (Innings)",
+                          "Best Average",
+                          "Best Strike Rate",
+                          // "Best Strike Rate (Innings)",
+                          "Most Runs Conceded (Innings)",
+                          // "Most Dot Balls Bowled",
+                          // "Most Dot Balls Bowled (Innings)",
+                          "Most Maiden Overs Bowled",
+                        ]
+                      : ["Most Catches", "Most Run Outs", "Most Stumpings"]
+                  }
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  bg="[#E07E27]"
+                  labelVisible={false}
+                />
+                <DropDown
+                  label="Team"
+                  options={teams}
+                  value={selectedTeam}
+                  onChange={(e) => setSelectedTeam(e.target.value)}
+                  bg="[#E07E27]"
+                  labelVisible={false}
+                />
               </div>
             </div>
-            <div className="flex flex-col md:flex-row lg:hidden items-center gap-4 w-full mt-4">
-              <DropDown
-                label="Season"
-                options={seasons}
-                value={season}
-                onChange={(e) => setSeason(e.target.value)}
-                bg="[#E07E27]"
-                labelVisible={false}
-              />
-              <DropDown
-                label="Sort by"
-                options={
-                  selected === "batting"
-                    ? [
-                        "Most Runs",
-                        "Highest Individual Score",
-                        "Highest Strike Rate",
-                        "Highest Averages",
-                        "Most Sixes",
-                        // "Most Sixes (Innings)",
-                        "Most Fours",
-                        // "Most Fours (Innings)",
-                        "Most Fifties",
-                        "Most Centuries",
-                        // "Fastest Fifties",
-                        // "Fastest Centuries",
-                      ]
-                    : selected === "bowling"
-                    ? [
-                        "Most Wickets",
-                        "Best Economy",
-                        // "Best Economy (Innings)",
-                        "Best Average",
-                        "Best Strike Rate",
-                        // "Best Strike Rate (Innings)",
-                        "Most Runs Conceded (Innings)",
-                        // "Most Dot Balls Bowled",
-                        // "Most Dot Balls Bowled (Innings)",
-                        "Most Maiden Overs Bowled",
-                      ]
-                    : ["Most Catches", "Most Run Outs", "Most Stumpings"]
-                }
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                bg="[#E07E27]"
-                labelVisible={false}
-              />
-              <DropDown
-                label="Team"
-                options={teams}
-                value={selectedTeam}
-                onChange={(e) => setSelectedTeam(e.target.value)}
-                bg="[#E07E27]"
-                labelVisible={false}
-              />
+            <div className=" flex flex-col lg:flex-row items-start md:items-center justify-between gap-4 border border-1 rounded-lg ">
+              <div className="flex items-center gap-4">
+                {["batting", "bowling", "fielding"].map((tab) => (
+                  <p
+                    key={tab}
+                    onClick={() => setSelected(tab)}
+                    className={`font-semibold xl:text-base text-sm uppercase p-2 whitespace-nowrap cursor-pointer rounded-lg ${
+                      selected === tab ? "bg-[#E07E27]" : "text-[#6A6A6A]"
+                    }`}
+                  >
+                    {tab}
+                  </p>
+                ))}
+              </div>
             </div>
-          </div>
-          <div className=" flex flex-col lg:flex-row items-start md:items-center justify-between gap-4 border border-1 rounded-lg ">
-            <div className="flex items-center gap-4">
-              {["batting", "bowling", "fielding"].map((tab) => (
-                <p
-                  key={tab}
-                  onClick={() => setSelected(tab)}
-                  className={`font-semibold xl:text-base text-sm uppercase p-2 whitespace-nowrap cursor-pointer rounded-lg ${
-                    selected === tab ? "bg-[#E07E27]" : "text-[#6A6A6A]"
-                  }`}
-                >
-                  {tab}
-                </p>
-              ))}
-            </div>
-          </div>
 
-          {/* Stats Table */}
-          <PlayerTable
-            selected={selected}
-            onPlayerSelect={setSelectedPlayer}
-            selectedPlayer={selectedPlayer}
-            data={displayedData}
-          />
-        </div>{" "}
-      </div>
-      <div className="section-width mt-5">
-        <PaginationControls
-          count={filteredByTeam.length}
-          page={page}
-          rowsPerPage={rowsPerPage}
-          onPageChange={(newPage) => setPage(newPage)}
-          onRowsPerPageChange={(newRPP) => {
-            setRowsPerPage(newRPP);
-          }}
-          rowsPerPageOptions={[5, 10, 15, 30, 50]}
-        />
+            {/* Stats Table */}
+            <PlayerTable
+              selected={selected}
+              onPlayerSelect={setSelectedPlayer}
+              selectedPlayer={selectedPlayer}
+              data={displayedData}
+            />
+
+            <div className="w-full">
+              <PaginationControls
+                count={filteredByTeam.length}
+                page={page}
+                rowsPerPage={rowsPerPage}
+                onPageChange={(newPage) => setPage(newPage)}
+                onRowsPerPageChange={(newRPP) => {
+                  setRowsPerPage(newRPP);
+                }}
+                rowsPerPageOptions={[5, 10, 15, 30, 50]}
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

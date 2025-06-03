@@ -165,8 +165,7 @@ const Hero = () => {
                       </p>
                     </div>
                   </div>
-
-                  <CountdownTimer targetDate="2025-06-04T00:00:00+05:30" />
+                  <CountdownTimer targetDate="2025-06-04T10:30:00+05:30" />
                 </div>
               </div>
             </div>
@@ -218,7 +217,7 @@ const Hero = () => {
                       </p>
                     </div>
                   </div>
-                  <CountdownTimer targetDate="2025-06-04T00:00:00+05:30" />
+                  <CountdownTimer targetDate="2025-06-04T10:30:00+05:30" />
                 </div>
               </div>
             </div>
