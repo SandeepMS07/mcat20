@@ -121,6 +121,42 @@ const items = [
     date: "27 May, 2025",
     img: "/images/gallery/img11.jpg",
   },
+  {
+    type: "",
+    title: "Dreams do come true:",
+    date: "27 May, 2025",
+    img: "/images/gallery/new7.jpeg",
+  },
+  {
+    type: "",
+    title: "Dreams do come true:",
+    date: "27 May, 2025",
+    img: "/images/gallery/new8.jpeg",
+  },
+  {
+    type: "",
+    title: "Dreams do come true:",
+    date: "27 May, 2025",
+    img: "/images/gallery/new9.jpeg",
+  },
+  {
+    type: "",
+    title: "Dreams do come true:",
+    date: "27 May, 2025",
+    img: "/images/gallery/new10.jpeg",
+  },
+  {
+    type: "",
+    title: "Dreams do come true:",
+    date: "27 May, 2025",
+    img: "/images/gallery/new11.jpeg",
+  },
+  {
+    type: "",
+    title: "Dreams do come true:",
+    date: "27 May, 2025",
+    img: "/images/gallery/new12.jpeg",
+  },
 ];
 
 const Page = () => {

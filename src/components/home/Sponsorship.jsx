@@ -39,7 +39,7 @@ const Sponsorship = () => {
     },
     {
       img: "/images/home/sponsorship/starsports.png",
-      title: "Official Bordcaster",
+      title: "Official Broadcaster",
     },
   ];
 
