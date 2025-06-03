@@ -33,3 +33,38 @@
   margin: 1px;
   background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 }
+
+/* 765px to 1005px: Small tablets */
+@media (min-width: 765px) and (max-width: 1005px) {
+  .responsive-top {
+    top: -8.3%;
+  }
+}
+
+/* 1006px to 1235px: Medium screens */
+@media (min-width: 1006px) and (max-width: 1235px) {
+  .responsive-top {
+    top: -11%;
+  }
+}
+
+/* 1236px to 1279px: Medium-large screens */
+@media (min-width: 1236px) and (max-width: 1279px) {
+  .responsive-top {
+    top: -11.3%;
+  }
+}
+
+/* 1280px to 1569px: Large screens */
+@media (min-width: 1280px) and (max-width: 1569px) {
+  .responsive-top {
+    top: -13%;
+  }
+}
+
+/* 1570px and above: Extra large screens */
+@media (min-width: 1570px) {
+  .responsive-top {
+    top: -11.15%;
+  }
+}

@@ -22,11 +22,11 @@ export default function PaginationControls({
   const end = Math.min((page + 1) * rowsPerPage, count);
 
   return (
-    <div className="relative py-4">
+    <div className="relative py-4 text-white">
   
       { /* Background gradient */}
       <div
-        className="bg-[#001B31] w-[99%] border-r-[50px] top-2 border-[#F15A22] h-10 z-10 absolute"
+        className="bg-[#001B31] w-[100%] border-r-[50px] top-2 border-[#F15A22] h-10 z-10 absolute"
         style={{
           clipPath: "polygon(0% 0%, 100% 0%, 98% 100%, 0% 100%)",
         }}
@@ -34,7 +34,7 @@ export default function PaginationControls({
 
       {/* Foreground content */}
       <div
-        className="relative z-50 w-[100%] md:w-[99%] flex flex-col md:flex-row justify-between items-center gap-4  md:gap-2 bg-[#999FA4] italic custom-heading-border p-4 -mt-5  "
+        className="relative z-50 w-[100%] md:w-[100%] flex flex-col md:flex-row justify-between items-center gap-4  md:gap-2 bg-[#999FA4] italic custom-heading-border p-4 -mt-5  "
         style={{
           clipPath: "polygon(0% 0%, 100% 0%, 97% 100%, 0% 100%)",
         }}

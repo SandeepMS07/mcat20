@@ -17,7 +17,7 @@ const AboutHero = () => {
       </div>
 
       {/* SECTION 1 */}
-      <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-10 px-6 lg:px-[150px] py-[60px] min-h-[600px]">
+      <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-10 px-6 lg:px-[150px] py-[60px] min-h-[600px] relative">
         {/* Text */}
         <div className="flex flex-col gap-5 w-full lg:w-1/2">
           <h2 className="text-black font-bold text-[44.22px] leading-[60px] uppercase font-[Plus Jakarta Sans]">
