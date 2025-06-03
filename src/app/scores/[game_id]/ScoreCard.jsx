@@ -83,11 +83,11 @@ function ScoreCard({ match }) {
 
   return (
     <>
-      <Hero
+      {/* <Hero
         imgUrl="/images/scorecard/matchCentreBg.png"
         heading="Match Centre"
         subheading=""
-      />
+      /> */}
       <div className="relative">
         <img
           src="/images/elements/section-element.png"
