@@ -402,7 +402,7 @@ function ScoreCard({ match }) {
                                   }}
                                 >
                                   <div className="grid grid-cols-[3fr_2.5fr_1fr_1fr_1fr_1fr_1fr] w-full">
-                                    <div className="py-4 pl-[2rem] text-left font-medium text-white whitespace-nowrap overflow-hidden text-ellipsis">
+                                    <div className="py-4 pl-[2rem] text-left text-lg text-white whitespace-nowrap overflow-hidden text-ellipsis">
                                       {
                                         teams[
                                           activeInnings === "home"
@@ -411,22 +411,22 @@ function ScoreCard({ match }) {
                                         ].Players[p.Batsman]?.Name_Full
                                       }
                                     </div>
-                                    <div className="py-4 text-left font-medium text-white whitespace-nowrap overflow-hidden text-ellipsis">
+                                    <div className="py-4 text-left text-lg text-white whitespace-nowrap overflow-hidden text-ellipsis">
                                       {p.Howout}
                                     </div>
-                                    <div className="py-4 text-center font-medium text-white">
+                                    <div className="py-4 text-center text-lg text-white">
                                       {p.Runs}
                                     </div>
-                                    <div className="py-4 text-center font-medium text-white">
+                                    <div className="py-4 text-center text-lg text-white">
                                       {p.Balls}
                                     </div>
-                                    <div className="py-4 text-center font-medium text-white">
+                                    <div className="py-4 text-center text-lg text-white">
                                       {p.Fours}
                                     </div>
-                                    <div className="py-4 text-center font-medium text-white">
+                                    <div className="py-4 text-center text-lg text-white">
                                       {p.Sixes}
                                     </div>
-                                    <div className="py-4 pr-[13px] text-center font-medium text-white">
+                                    <div className="py-4 pr-[13px] text-center text-lg text-white">
                                       {p.Strikerate}
                                     </div>
                                   </div>
@@ -447,7 +447,7 @@ function ScoreCard({ match }) {
                     </div>
                     <ul className="text-sm px-6">
                       {didNotBat.map((p, i) => (
-                        <li key={i} className="py-2">
+                        <li key={i} className="py-2 text-lg">
                           {
                             teams[activeInnings === "home" ? homeId : awayId]
                               .Players[p.Batsman]?.Name_Full
@@ -656,32 +656,32 @@ function ScoreCard({ match }) {
                               }}
                             >
                               <div className="grid grid-cols-[3fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr] w-full">
-                                <div className="py-4 pl-[2rem] text-left font-medium text-white whitespace-nowrap overflow-hidden text-ellipsis">
+                                <div className="py-4 pl-[2rem] text-left text-lg text-white whitespace-nowrap overflow-hidden text-ellipsis">
                                   {
                                     teams[
                                       activeInnings === "home" ? awayId : homeId
                                     ].Players[bowler.Bowler]?.Name_Full
                                   }
                                 </div>
-                                <div className="py-4 text-center font-medium text-white">
+                                <div className="py-4 text-center text-lg text-white">
                                   {bowler.Overs}
                                 </div>
-                                <div className="py-4 text-center font-medium text-white">
+                                <div className="py-4 text-center text-lg text-white">
                                   {bowler.Maidens}
                                 </div>
-                                <div className="py-4 text-center font-medium text-white">
+                                <div className="py-4 text-center text-lg text-white">
                                   {bowler.Runs}
                                 </div>
-                                <div className="py-4 text-center font-medium text-white">
+                                <div className="py-4 text-center text-lg text-white">
                                   {bowler.Wickets}
                                 </div>
-                                <div className="py-4 text-center font-medium text-white">
+                                <div className="py-4 text-center text-lg text-white">
                                   {bowler.Noballs}
                                 </div>
-                                <div className="py-4 text-center font-medium text-white">
+                                <div className="py-4 text-center text-lg text-white">
                                   {bowler.Wides}
                                 </div>
-                                <div className="py-4 pr-[13px] text-center font-medium text-white">
+                                <div className="py-4 pr-[13px] text-center text-lg text-white">
                                   {bowler.Economyrate}
                                 </div>
                               </div>
