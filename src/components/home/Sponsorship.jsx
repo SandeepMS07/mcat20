@@ -59,15 +59,17 @@ const Sponsorship = () => {
       <div className="section-width section-padding">
         <TitleComponent title={"Sponsors"} />
 
-        <div className="grid gap-6 grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(260px,1fr))] bg-[#000B3D] p-4 rounded-xl w-full">
+        <div className="flex flex-wrap gap-8 bg-[#000B3D] p-4 rounded-xl w-full justify-center">
           {sponsorData.map((item, index) => {
-            const isLast = index === sponsorData.length - 1;
+            const isLast = index === sponsorData.length - 1 ;
 
             return (
               <div
                 key={index}
-                className={`rounded-xl relative text-white p-4 border border-[#4c5271] w-full ${
-                  isLast ? "md:col-span-2" : ""
+                className={`rounded-xl relative text-white p-4 border border-[#4c5271] ${
+                  isLast
+                    ? "last:flex-[1_1_100%] md:last:flex-none "
+                    : " md:min-w-[240px]"
                 }`}
                 style={{
                   background:

@@ -8,6 +8,42 @@ import TitleComponent from "@/components/common/TitleComponent";
 const tabs = ["All", "View Videos", "View Images"];
 
 const items = [
+   {
+    type: "",
+    title: "Dreams do come true:",
+    date: "27 May, 2025",
+    img: "/images/gallery/new7.jpeg",
+  },
+  {
+    type: "",
+    title: "Dreams do come true:",
+    date: "27 May, 2025",
+    img: "/images/gallery/new8.jpeg",
+  },
+  {
+    type: "",
+    title: "Dreams do come true:",
+    date: "27 May, 2025",
+    img: "/images/gallery/new9.jpeg",
+  },
+  {
+    type: "",
+    title: "Dreams do come true:",
+    date: "27 May, 2025",
+    img: "/images/gallery/new10.jpeg",
+  },
+  {
+    type: "",
+    title: "Dreams do come true:",
+    date: "27 May, 2025",
+    img: "/images/gallery/new11.jpeg",
+  },
+  {
+    type: "",
+    title: "Dreams do come true:",
+    date: "27 May, 2025",
+    img: "/images/gallery/new12.jpeg",
+  },
   {
     type: "",
     title: "Final: SS vs NMP",
@@ -121,42 +157,7 @@ const items = [
     date: "27 May, 2025",
     img: "/images/gallery/img11.jpg",
   },
-  {
-    type: "",
-    title: "Dreams do come true:",
-    date: "27 May, 2025",
-    img: "/images/gallery/new7.jpeg",
-  },
-  {
-    type: "",
-    title: "Dreams do come true:",
-    date: "27 May, 2025",
-    img: "/images/gallery/new8.jpeg",
-  },
-  {
-    type: "",
-    title: "Dreams do come true:",
-    date: "27 May, 2025",
-    img: "/images/gallery/new9.jpeg",
-  },
-  {
-    type: "",
-    title: "Dreams do come true:",
-    date: "27 May, 2025",
-    img: "/images/gallery/new10.jpeg",
-  },
-  {
-    type: "",
-    title: "Dreams do come true:",
-    date: "27 May, 2025",
-    img: "/images/gallery/new11.jpeg",
-  },
-  {
-    type: "",
-    title: "Dreams do come true:",
-    date: "27 May, 2025",
-    img: "/images/gallery/new12.jpeg",
-  },
+ 
 ];
 
 const Page = () => {

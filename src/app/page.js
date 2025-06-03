@@ -22,18 +22,17 @@ export default function Home() {
         <HomeTeamSection />
         <LatestUpdates />
         {/* <IconPlayers /> */}
-         <Sponsorship />
+
         {/* <HomeStandingsSection /> */}
 
         {/* <TopPlayers /> */}
+        <Socials />
         <Gallery />
 
-        <Socials />
+        <Sponsorship />
         {/* <TopPlayers /> */}
 
         {/* <News /> */}
-
-       
 
         {/* <Fixtures /> */}
         {/*    <AboutT2C /> */}
