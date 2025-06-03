@@ -249,7 +249,7 @@ export default function Page() {
               />
             </div>
 
-            <div style={{ width: "100%", height: "950px", border: "none" }}>
+            {/* <div style={{ width: "100%", height: "950px", border: "none" }}>
               <iframe
                 srcDoc={`
                 <!DOCTYPE html>
@@ -265,10 +265,10 @@ export default function Page() {
                 style={{ width: "100%", height: "100%", border: "none" }}
                 title="SMMumbai Widget"
               />
-            </div>
+            </div> */}
 
             {/* Render the appropriate fixtures component */}
-            {/* {renderFixturesComponent()} */}
+            {renderFixturesComponent()}
           </div>
         </div>
       </div>
