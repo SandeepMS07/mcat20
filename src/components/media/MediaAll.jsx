@@ -6,6 +6,8 @@ const MediaAll = ({ items }) => {
   // Check if items is valid and has elements
   const validItems = Array.isArray(items) && items.length > 0 ? items : [];
 
+  console.log(items);
+
   const [showModal, setShowModal] = useState(false);
   const [modalImage, setModalImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
@@ -14,7 +16,6 @@ const MediaAll = ({ items }) => {
     [2, 3, 2],
     [1, 3, 3],
     [1, 3, 1, 2],
-
     [1, 3, 3],
     [1, 3, 1, 2],
   ]);
@@ -24,39 +25,31 @@ const MediaAll = ({ items }) => {
     if (typeof window !== "undefined") {
       if (window.innerWidth < 640) {
         // Mobile layout - single column with all 11 images
-        setLayoutConfig([
-          [7],
-          [7],
-          [7],
-          [7],
-          [7],
-          [7],
-          [7],
-          [7],
-          [7],
-          [7],
-          [7],
-        ]);
+        setLayoutConfig(Array(23).fill([7]));
       } else if (window.innerWidth < 1024) {
-        // Tablet layout - simplified grid with all 11 images
         setLayoutConfig([
-          [3, 4], // 2 images
-          [4, 3], // 2 images
-          [3, 4], // 2 images
-          [4, 3], // 2 images
-          [3, 4], // 2 images
-          [7], // 1 image
+          [3, 4], // 2
+          [4, 3], // 4
+          [3, 4],
+          [4, 3],
+          [3, 4],
+          [4, 3],
+          [3, 4],
+          [4, 3],
+          [3, 4],
+          [4, 3], // = 20
+          [7], // 21
+          [7], // 22
+          [7], // 23
         ]);
       } else {
-        // Desktop layout - original complex grid
         setLayoutConfig([
-          [2, 3, 2], // 4 images
-          [1, 3, 3],
-
-          [1, 3, 1, 2], // 4 images
-
-          [1, 3, 3], // 3 images
-          [1, 3, 1, 2], // 4 images
+          [2, 3, 2], // 3
+          [1, 3, 3], // 3 (6)
+          [1, 3, 1, 2], // 4 (10)
+          [1, 3, 3], // 3 (13)
+          [1, 3, 3], // 4 (17)
+          [2,1,2,2]
         ]);
       }
     }

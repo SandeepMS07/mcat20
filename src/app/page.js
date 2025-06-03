@@ -21,18 +21,18 @@ export default function Home() {
         <UpcomingFixturesSection />
         <HomeTeamSection />
         <LatestUpdates />
-        <IconPlayers />
+        {/* <IconPlayers /> */}
+
         {/* <HomeStandingsSection /> */}
 
         {/* <TopPlayers /> */}
+        <Socials />
         <Gallery />
 
-        <Socials />
+        <Sponsorship />
         {/* <TopPlayers /> */}
 
         {/* <News /> */}
-
-        <Sponsorship />
 
         {/* <Fixtures /> */}
         {/*    <AboutT2C /> */}
