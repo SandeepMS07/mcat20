@@ -386,10 +386,10 @@ function ScoreCard({ match }) {
                               {/* Background orange border div for data row */}
                               <td colSpan="7" className="relative p-0">
                                 <div
-                                  className="bg-[#001B31] w-[100%] border-r-[50px] border-[#F15A22] top-3 h-10 z-10 absolute"
+                                  className="bg-[#001B31] w-[100%] border-r-[50px] border-[#F15A22] top-4 h-10 z-10 absolute"
                                   style={{
                                     clipPath:
-                                      "polygon(0% 0%, 100% 0%, 97.8% 100%, 0% 100%)",
+                                      "polygon(0% 0%, 100% 0%, 98% 100%, 0% 100%)",
                                   }}
                                 />
 
@@ -402,7 +402,7 @@ function ScoreCard({ match }) {
                                   }}
                                 >
                                   <div className="grid grid-cols-[3fr_2.5fr_1fr_1fr_1fr_1fr_1fr] w-full">
-                                    <div className="py-4 pl-[2rem] text-left text-lg text-white whitespace-nowrap overflow-hidden text-ellipsis">
+                                    <div className="py-4 pl-[2rem] text-left text-lg font-medium  text-white whitespace-nowrap overflow-hidden text-ellipsis">
                                       {
                                         teams[
                                           activeInnings === "home"
@@ -411,22 +411,22 @@ function ScoreCard({ match }) {
                                         ].Players[p.Batsman]?.Name_Full
                                       }
                                     </div>
-                                    <div className="py-4 text-left text-lg text-white whitespace-nowrap overflow-hidden text-ellipsis">
+                                    <div className="py-4 text-left text-lg font-medium  text-white whitespace-nowrap overflow-hidden text-ellipsis">
                                       {p.Howout}
                                     </div>
-                                    <div className="py-4 text-center text-lg text-white">
+                                    <div className="py-4 text-center text-lg font-medium text-white">
                                       {p.Runs}
                                     </div>
-                                    <div className="py-4 text-center text-lg text-white">
+                                    <div className="py-4 text-center text-lg font-medium text-white">
                                       {p.Balls}
                                     </div>
-                                    <div className="py-4 text-center text-lg text-white">
+                                    <div className="py-4 text-center text-lg font-medium text-white">
                                       {p.Fours}
                                     </div>
-                                    <div className="py-4 text-center text-lg text-white">
+                                    <div className="py-4 text-center text-lg font-medium text-white">
                                       {p.Sixes}
                                     </div>
-                                    <div className="py-4 pr-[13px] text-center text-lg text-white">
+                                    <div className="py-4 pr-[13px] text-center text-lg font-medium text-white">
                                       {p.Strikerate}
                                     </div>
                                   </div>
@@ -640,10 +640,10 @@ function ScoreCard({ match }) {
                           {/* Background orange border div for data row */}
                           <td colSpan="8" className="relative p-0">
                             <div
-                              className="bg-[#001B31] w-[100%] border-r-[50px] border-[#F15A22] top-3 h-10 z-10 absolute"
+                              className="bg-[#001B31] w-[100%] border-r-[50px] border-[#F15A22] top-4 h-10 z-10 absolute"
                               style={{
                                 clipPath:
-                                  "polygon(0% 0%, 100% 0%, 97.8% 100%, 0% 100%)",
+                                  "polygon(0% 0%, 100% 0%, 98% 100%, 0% 100%)",
                               }}
                             />
 
