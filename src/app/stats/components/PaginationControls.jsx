@@ -22,14 +22,29 @@ export default function PaginationControls({
   const end = Math.min((page + 1) * rowsPerPage, count);
 
   return (
-    <div className="flex items-center justify-between px-8 py-4 bg-[#0B1220]">
-      {/* Rows-per-page selector */}
-      <div className="flex items-center gap-2">
-        <span className="text-base text-white font-normal">Rows per page:</span>
+    <div className="relative py-4 text-white">
+  
+      { /* Background gradient */}
+      <div
+        className="bg-[#001B31] w-[100%] border-r-[50px] top-2 border-[#F15A22] h-10 z-10 absolute"
+        style={{
+          clipPath: "polygon(0% 0%, 100% 0%, 98% 100%, 0% 100%)",
+        }}
+      ></div>
+
+      {/* Foreground content */}
+      <div
+        className="relative z-50 w-[100%] md:w-[100%] flex flex-col md:flex-row justify-between items-center gap-4  md:gap-2 bg-[#999FA4] italic custom-heading-border p-4 -mt-5  "
+        style={{
+          clipPath: "polygon(0% 0%, 100% 0%, 97% 100%, 0% 100%)",
+        }}
+      >   
+       <div>
+        <span className="md:text-sm text-xs text-white font-normal">Per page:</span>
         <select
           value={rowsPerPage}
           onChange={handleRowsPerPage}
-          className="px-2 py-1 border rounded bg-[#0B1220]"
+          className="px-2 py-1 border rounded bg-[#0B1220] md:text-sm text-xs ml-4"
         >
           {rowsPerPageOptions.map((opt) => (
             <option key={opt} value={opt}>
@@ -37,15 +52,16 @@ export default function PaginationControls({
             </option>
           ))}
         </select>
-      </div>
 
-      {/* Page info */}
-      <div className="text-base text-white">
+        </div>
+
+        {/* Page info */}
+      <div className="md:text-sm text-xs text-white ">
         {start} – {end} of {count}
       </div>
 
       {/* Prev / Next */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 md:text-sm text-xs md:mr-[3rem]">
         <button
           onClick={handlePrev}
           disabled={page === 0}
@@ -61,6 +77,9 @@ export default function PaginationControls({
           Next
         </button>
       </div>
+      </div>
+
+      
     </div>
   );
 }

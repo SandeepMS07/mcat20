@@ -7,8 +7,10 @@ import Image from "next/image";
 import Link from "next/link";
 import fixtures1 from "@/utilis/fixtures/fixtures1.js";
 import fixtures2 from "@/utilis/fixtures/fixtures2.js";
-import fixtures3 from "@/utilis/fixtures/fixtures3.js"; // Add Season 3 fixtures
-import FixturesSeason3 from "./components/FixturesSeason3"; // Import FixturesSeason3
+import fixtures3 from "@/utilis/fixtures/fixtures3.js";
+import FixturesSeason1 from "./components/FixturesSeason1";
+import FixturesSeason2 from "./components/FixturesSeason2";
+import FixturesSeason3 from "./components/FixturesSeason3";
 
 function parseStaticDate(dateStr, timeStr = "") {
   const dayOnly = dateStr.replace(/(\d+)(st|nd|rd|th)/, "$1");
@@ -18,11 +20,10 @@ function parseStaticDate(dateStr, timeStr = "") {
 const TOURNAMENT_IDS = {
   "Season 1": fixtures1,
   "Season 2": fixtures2,
-  "Season 3": fixtures3, // Add Season 3
+  "Season 3": fixtures3,
 };
 
 function processMatches(jsonData) {
-  // Ensure jsonData and jsonData.matches are defined
   if (!jsonData || !jsonData.matches) {
     return [];
   }
@@ -57,10 +58,49 @@ function processMatches(jsonData) {
   });
 }
 
+// Helper function to get teams for each season
+function getTeamsForSeason(season) {
+  const blockedPatterns = [
+    "rest",
+    "semi final",
+    "position - 1 (tbd)",
+    "position - 2 (tbd)",
+    "position - 3 (tbd)",
+    "position - 4 (tbd)",
+    "sf winner 1",
+    "sf winner 2",
+  ];
+
+  let teams = [];
+
+  if (season === "Season 1" || season === "Season 2") {
+    // For Season 1 & 2, extract from processed matches
+    const allMatches = processMatches(TOURNAMENT_IDS[season] || {});
+    const names = new Set();
+    allMatches.forEach((m) => {
+      names.add(m.team1.name);
+      names.add(m.team2.name);
+    });
+    teams = Array.from(names).filter(Boolean);
+  } else if (season === "Season 3") {
+    // For Season 3, extract from fixtures3 data
+    teams = Array.from(
+      new Set(fixtures3.flatMap((match) => [match.home_team, match.away_team]))
+    )
+      .filter(Boolean)
+      .filter((team) => {
+        const lower = team.toLowerCase();
+        return !blockedPatterns.some((pattern) => lower.includes(pattern));
+      });
+  }
+
+  return ["All Teams", ...teams.sort()];
+}
+
 export default function Page() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const initialSeason = searchParams.get("season") || "Season 3"; // Default to "Season 3"
+  const initialSeason = searchParams.get("season") || "Season 3";
   const initialTeam = searchParams.get("team") || "All Teams";
 
   const [season, setSeason] = React.useState(initialSeason);
@@ -77,91 +117,218 @@ export default function Page() {
     setTeam("All Teams");
   }, [season]);
 
-  // Ensure safe access to the season data
-  const allMatches = React.useMemo(
-    () => processMatches(TOURNAMENT_IDS[season] || {}),
-    [season]
-  );
-
-  const matches = React.useMemo(
-    () =>
-      allMatches.filter(
-        (m) =>
-          team === "All Teams" || m.team1.name === team || m.team2.name === team
-      ),
-    [allMatches, team]
-  );
-
   const teamOptions = React.useMemo(() => {
-    const names = new Set();
-    allMatches.forEach((m) => {
-      names.add(m.team1.name);
-      names.add(m.team2.name);
-    });
+    return getTeamsForSeason(season);
+  }, [season]);
 
-    // Adding teams for Season 3
-    if (season === "Season 3") {
-      names.add("Arcs Andheri");
-      names.add("Sobo Mumbai Falcons");
-      names.add("Maratha Royals");
-      names.add("Aakash Tigers");
-      names.add("Eagle Thane Strikers");
-      names.add("Triumph Knights");
-      names.add("Bandra Blasters");
-      names.add("North Mumbai Panthers");
+  const renderFixturesComponent = () => {
+    const commonProps = { selectedTeam: team };
+
+    switch (season) {
+      case "Season 1":
+        return <FixturesSeason1 {...commonProps} />;
+      case "Season 2":
+        return <FixturesSeason2 {...commonProps} />;
+      case "Season 3":
+        return <FixturesSeason3 {...commonProps} />;
+      default:
+        return <FixturesSeason3 {...commonProps} />;
     }
-
-    return ["All Teams", ...Array.from(names)];
-  }, [allMatches, season]); // Recalculate when the season or matches change
+  };
 
   return (
-    <div className="w-full bg-white">
-      {/* <Hero
-        imgUrl="/images/banner/fixture.jpg"
-        // heading="Season 3 Fixtures"
-        // subheading="Player Profile"
-      /> */}
-      <div className="w-full relative flex justify-end lg:py-36 py-20 bg-[url('/images/banner/fixture.jpg')] bg-cover  bg-center bg-no-repeat ">
-        {/* <div className="w-full relative flex justify-end lg:py-36 py-20 bg-[url('/images/banner/mobileBgFixture.jpg')]  sm:bg-[url('/images/banner/fixture.jpg')] bg-cover sm:bg-right bg-center bg-no-repeat "> */}
-        <div className="relative z-10  pt-8 h-full  flex-col overflow-hidden justify-between text-white flex gap-24  mt-20 section-width">
-          <div className="w-full flex flex-col items-start justify-between bg-transparent gap-20">
-            <h1>Fixtures</h1>
+    <>
+      <div className="w-full bg-white">
+        <div className="w-full relative flex justify-end lg:py-36 py-20 bg-[url('/images/banner/fixture.jpg')] bg-cover bg-center bg-no-repeat">
+          <div className="relative z-10 pt-8 h-full flex-col overflow-hidden justify-between text-white flex gap-24 mt-20 section-width">
+            <div className="w-full flex flex-col items-start justify-between bg-transparent gap-20">
+              <h1>Fixtures</h1>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative">
+          <img
+            src="/images/elements/section-element.png"
+            className="absolute right-0 top-0 md:block hidden"
+            alt="element"
+          />
+          <img
+            src="/images/elements/section-element.png"
+            className="absolute left-0 bottom-0 rotate-180 md:block hidden"
+            alt="element"
+          />
+
+          <div className="section-width pt-10">
+            {/* Season and Team Selection Header */}
+            <div className="relative  mb-6">
+              {/* Background image */}
+              <Image
+                src="/images/elements/small-title-bg.png"
+                alt="Mobile Title"
+                className="block md:hidden    w-full"
+                width={200}
+                height={0}
+                priority
+              />
+              <Image
+                src="/images/elements/title-bg.png"
+                alt="Desktop Title"
+                className="hidden md:block lg:block   w-full "
+                width={700}
+                height={200}
+                priority
+              />
+
+              {/* Foreground content */}
+              <div className="absolute top-0 left-0 h-full z-10 flex flex-col md:flex-row md:items-center md:justify-between justify-center   w-full">
+                <h2
+                  className="uppercase max-sm:text-base md:text-lg lg:text-xl xl:text-2xl  xl:ml-16 ml-12 italic text-black"
+                  style={{
+                    background:
+                      "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                    color: "transparent",
+                  }}
+                >
+                  {season} Fixtures
+                </h2>
+
+                {/* <div className="hidden md:flex-row xl:mr-14 mr-8   flex-col lg:gap-4 gap-2 max-md:mt-4 w-fit md:flex ">
+                <div className="flex flex-row gap-2 items-center">
+                  <p className="text-white font-semibold xl:text-lg lg:text-base text-sm  mr-2">
+                    Filter By:
+                  </p>
+                  <select
+                    name="season"
+                    value={season}
+                    onChange={(e) => setSeason(e.target.value)}
+                    className="px-4 xl:py-2 py-1 border border-[#E07E27] uppercase bg-transparent text-[#E07E27]  xl:text-sm text-xs lg:w-40 w-28"
+                  >
+                    <option value="Season 1">Season 1</option>
+                    <option value="Season 2">Season 2</option>
+                    <option value="Season 3">Season 3</option>
+                  </select>
+                </div>
+
+                <div className="flex flex-row gap-2 items-center">
+                  <select
+                    name="team"
+                    value={team}
+                    onChange={(e) => setTeam(e.target.value)}
+                    className="px-4  xl:py-2 py-1 bg-[#E07E27] uppercase text-white  xl:text-sm text-xs   lg:w-40 w-28"
+                  >
+                    {teamOptions.map((t) => (
+                      <option key={t} value={t}>
+                        {t}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div> */}
+                <div className="hidden md:flex xl:mr-14 mr-8 max-md:mt-4 w-fit">
+                  <FixtureFilter
+                    season={season}
+                    team={team}
+                    teamOptions={teamOptions}
+                    onSeasonChange={setSeason}
+                    onTeamChange={setTeam}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="flex md:hidden  mr-8 max-md:mt-4 w-fit">
+              <FixtureFilter
+                season={season}
+                team={team}
+                teamOptions={teamOptions}
+                onSeasonChange={setSeason}
+                onTeamChange={setTeam}
+              />
+            </div>
+
+            {/* <div style={{ width: "100%", height: "950px", border: "none" }}>
+              <iframe
+                srcDoc={`
+                <!DOCTYPE html>
+                <html>
+                  <head>
+                    <script src="https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/app.js"></script>
+                  </head>
+                  <body>
+                    <div class="smmumbaiwidget"></div>
+                  </body>
+                </html>
+              `}
+                style={{ width: "100%", height: "100%", border: "none" }}
+                title="SMMumbai Widget"
+              />
+            </div> */}
+
+            {/* Render the appropriate fixtures component */}
+            {renderFixturesComponent()}
           </div>
         </div>
       </div>
-      <div className="section-width">
-        {/* <div className="flex flex-col md:flex-row items-center justify-between pt-8 px-4 md:px-0">
-          <h2 className="uppercase text-black">Season 3 Fixtures</h2>
-          <h2 className="uppercase text-black">{season} Fixtures</h2>  
-          <div className="flex md:flex-row flex-col lg:gap-10 gap-4">
-            <select
-              name="season"
-              value={season}
-              onChange={(e) => setSeason(e.target.value)}
-              className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 md:mt-0 relative"
-            >
-              <option value="Season 1">Season 1</option>
-              <option value="Season 2">Season 2</option>
-              <option value="Season 3">Season 3</option>
-            </select>
-            <select
-              name="team"
-              value={team}
-              onChange={(e) => setTeam(e.target.value)}
-              className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 md:mt-0"
-            >
-              {teamOptions.map((t) => (
-                <option key={t} value={t}>
-                  {t}
-                </option>
-              ))}
-            </select>
-          </div> 
-        </div> */}
+    </>
+  );
+}
 
-        {/* Conditional Rendering based on Season */}
-        <FixturesSeason3 />
+const FixtureFilter = ({
+  season,
+  team,
+  teamOptions,
+  onSeasonChange,
+  onTeamChange,
+  isMobile = false,
+}) => {
+  return (
+    <div
+      className={`${
+        isMobile ? "flex-col gap-3 mt-4 w-full" : "flex-row gap-4"
+      } flex items-center`}
+    >
+      <div className="flex flex-row gap-2 items-center">
+        <p className="md:text-white md:block hidden font-semibold xl:text-lg lg:text-base text-sm mr-2">
+          Filter By:
+        </p>
+
+        <select
+          name="season"
+          value={season}
+          onChange={(e) => onSeasonChange(e.target.value)}
+          className={`px-4 ${
+            isMobile ? "py-2" : "xl:py-2 py-1"
+          } border border-[#E07E27] uppercase bg-transparent text-[#E07E27] xl:text-sm text-xs ${
+            isMobile ? "w-full" : "lg:w-40 w-28"
+          }`}
+        >
+          <option value="Season 1">Season 1</option>
+          <option value="Season 2">Season 2</option>
+          <option value="Season 3">Season 3</option>
+        </select>
+      </div>
+
+      <div className="flex flex-row gap-2 items-center">
+        <select
+          name="team"
+          value={team}
+          onChange={(e) => onTeamChange(e.target.value)}
+          className={`px-4 ${
+            isMobile ? "py-2" : "xl:py-2 py-1"
+          } bg-[#E07E27] uppercase text-white xl:text-sm text-xs ${
+            isMobile ? "w-full" : "lg:w-40 w-28"
+          }`}
+        >
+          {teamOptions.map((t) => (
+            <option key={t} value={t}>
+              {t}
+            </option>
+          ))}
+        </select>
       </div>
     </div>
   );
-}
+};

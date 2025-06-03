@@ -97,7 +97,7 @@ const Footer = () => {
             </div> 
           </div> */}
           <div className="flex-wrap w-full  flex justify-between items-center flex-row gap-[20px] pt-[50px]">
-            <div className="flex   gap-1">
+            {/* <div className="flex   gap-1">
               <a
                 href="#"
                 className="hover:text-white font-inter font-bold text-[12px] leading-[18px] tracking-normal align-middle"
@@ -110,6 +110,9 @@ const Footer = () => {
                 className="hover:text-white font-inter font-bold text-[12px] leading-[18px] tracking-normal align-middle"
               >
                 Privacy Policy
+              </Link> */}
+              {/* <span>|</span> */}
+              {/* <a
               </Link>
               <span>|</span>
               <a
@@ -117,14 +120,15 @@ const Footer = () => {
                 className="hover:text-white font-inter font-bold text-[12px] leading-[18px] tracking-normal align-middle"
               >
                 Contact Us
-              </a>
-            </div>
+              </a> */}
+            {/* </div> */}
             <div className="flex  gap-1 ">
               <div className="flex   gap-5">
                 <div className="font-inter font-bold text-[12px] leading-[18px] tracking-normal align-middle">
                   Connect with us:
                 </div>
                 <div className="flex gap-4">
+                 
                   <a target="_blank" href={routes.instagram}>
                     <Image
                       src="/images/footer/insta.svg"
@@ -133,6 +137,7 @@ const Footer = () => {
                       height={24}
                     />
                   </a>
+                
                   <a target="_blank" href={routes.twitter}>
                     <Image
                       src="/images/footer/twitter.svg"
@@ -141,6 +146,7 @@ const Footer = () => {
                       height={24}
                     />
                   </a>
+                 
                   <a target="_blank" href={routes.youtube}>
                     <Image
                       src="/images/footer/youtube.svg"

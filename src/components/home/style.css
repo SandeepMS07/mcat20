@@ -1,0 +1,58 @@
+.custom-border-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(15,26,45,1);
+  margin: 1px .5px;
+  z-index: -1;
+  clip-path: polygon(3% 0%, 100% 0%, 96% 100%, 0% 100%)
+}
+
+.custom-yellow-border{
+  content: "";
+  position: absolute;
+  inset: 0;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 96%;
+  margin: .8px;
+  background:rgba(15,26,45,1);
+  clip-path: polygon(0% 0%, 100% 0%, 97.7% 100%, 0% 100%);
+  z-index: -1;
+}
+
+.custom-black-gradient{
+  content: "";
+  position: absolute;
+  inset: 0;
+  top: 0;
+  left: 0;
+  width:10%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.custom-heading-border::before{
+    content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(15,26,45,1);
+  margin: .5px;
+  z-index: -1;
+  left: 1px;
+  top: 1px;
+  clip-path: polygon(0% 0%, 100% 0%, 97% 100%, 0% 100%)
+}
+
+.custom-title-border::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(15,26,45,1);
+  height: 98%;
+  width: 99.5%;
+  margin: .5px .5px .5px 0;
+  z-index: -1;
+  clip-path: polygon(0% 0%, 100% 0%, 97.5% 100%, 0% 100%)
+}

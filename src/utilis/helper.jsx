@@ -1,4 +1,6 @@
 // truncateTextWords
+
+// import shivaji from "../../public/images/logo/shivajiParkLions.png"
 export const truncateTextWords = (text, wordLimit = 2) => {
   if (!text) return "";
   const words = text.split(" ");
@@ -133,6 +135,32 @@ export const teamLogoBN = {
   "Eagle Thane Strikers":
     "https://t20mumbai.com/images/home/team/eagleThaneStrikers.png",
   "Bandra Blasters":
+    "https://turbostart.blob.core.windows.net/turbostart/1044990513729378-LOGO - BANDRA BLASTERS copy.png",
+  "North Mumbai Panthers":
+    "https://turbostart.blob.core.windows.net/turbostart/7886630352212134-northMumbaiPanthers.png",
+  "MSC Maratha Royals":
+    "https://t20mumbai.com/images/home/team/shivajiParkLions.png",
+  "SoBo Mumbai Falcons":
+    "https://t20mumbai.com/images/home/team/soboSuperSonics.png",
+  "Triumph Knights Mumbai North East":
+    "https://mcadirectory.blob.core.windows.net/dev/007792959990218895-triumphKnights.png",
+};
+export const teamLogoStats = {
+  "Aakash Tigers MWS":
+    "https://turbostart.blob.core.windows.net/turbostart/48447191083078844-aakashTigers.png",
+    "Shivaji Park Lions":
+    "/images/logo/shivajiParkLions.png", 
+    "SoBo SuperSonics":
+    "/images/logo/soboSuperSonics.png", 
+    "Aakash Tigers Mumbai Western Suburbs":
+    "https://turbostart.blob.core.windows.net/turbostart/48447191083078844-aakashTigers.png",
+  "ARCS Andheri":
+    "https://turbostart.blob.core.windows.net/turbostart/7423173046036597-arcsAndheri.png",
+  "Eagle Thane Strikers":
+    "https://t20mumbai.com/images/home/team/eagleThaneStrikers.png",
+  "Bandra Blasters":
+    "https://turbostart.blob.core.windows.net/turbostart/1044990513729378-LOGO - BANDRA BLASTERS copy.png",
+  "NaMo Bandra Blasters":
     "https://turbostart.blob.core.windows.net/turbostart/1044990513729378-LOGO - BANDRA BLASTERS copy.png",
   "North Mumbai Panthers":
     "https://turbostart.blob.core.windows.net/turbostart/7886630352212134-northMumbaiPanthers.png",

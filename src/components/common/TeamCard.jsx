@@ -18,7 +18,8 @@ const TeamCard = ({ data }) => {
   // };
 
   const handleClick = () => {
-    router.push(`/auction-info?teamId=${data.Id}&setStepValue=2`);
+    // router.push(`/auction-info?teamId=${data.Id}&setStepValue=2`);
+    router.push(`/teams?team=${encodeURIComponent(data.Name)}`);
   };
 
   return (

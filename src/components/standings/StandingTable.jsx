@@ -1,137 +1,13 @@
 import Image from "next/image";
 import React from "react";
 
-const StandingTable = ({ heading, showSelect }) => {
+const StandingTable = ({ data }) => {
   return (
     <div className="w-full text-black flex flex-col gap-12">
-      <div className="w-full flex justify-between items-center">
-        <p className="text-4xl font-bold uppercase">{heading}</p>
-        {showSelect && (
-          <div className="w-1/2 flex items-center justify-end gap-8">
-            <label
-              htmlFor="dropdown"
-              className="text-sm font-semibold uppercase text-[#6A6A6A] mb-2 "
-            >
-              FIlter By
-            </label>
-            <DropDown
-              options={["Season 1", "Season 2", "Season 3", "Season 4"]}
-              bg="white"
-            />
-            <DropDown
-              options={["All Teams", "Team 1", "Team 2", "Team 3"]}
-              bg="#E07E27"
-            />
-          </div>
-        )}
-      </div>
-      <div>
-        <PlayerTable />
-      </div>
+      <PlayerTable />
     </div>
   );
 };
-
-const DropDown = ({ label, options, bg }) => {
-  const bgColor = bg === "white" ? "bg-white" : "bg-[#E07E27]";
-  const textColor = bg === "white" ? "text-[#E07E27]" : "text-white";
-
-  return (
-    <div className="flex items-center gap-6 relative w-48">
-      <div className={`relative w-full`}>
-        <select
-          id="dropdown"
-          className={`appearance-none ${bgColor} ${textColor} px-4 py-4 w-full border border-[#E07E27] text-base rounded`}
-        >
-          <option value="" disabled>
-            Select a Season
-          </option>
-          {options &&
-            options.map((item, index) => (
-              <option key={index} value={item}>
-                {item}
-              </option>
-            ))}
-        </select>
-        <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center">
-          {bg == "white" ? (
-            <Image
-              src={"/images/standings/dropdown.svg"}
-              width={10}
-              height={10}
-              alt="img"
-            />
-          ) : (
-            <Image
-              src={"/images/standings/dropdownwhite.svg"}
-              width={10}
-              height={10}
-              alt="img"
-            />
-          )}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const playerData = [
-  {
-    Rank: 1,
-    Team: "ARCS Andheri",
-    mat: 5,
-    won: 0,
-    tied: 43,
-    lost: "27 VS SPL",
-    nr: 10.6,
-    netrr: 155.88,
-    pts: 0,
-  },
-  {
-    Rank: 2,
-    Team: "Aditya Tare",
-    mat: 5,
-    won: 0,
-    tied: 43,
-    lost: "27 VS SPL",
-    nr: 10.6,
-    netrr: 155.88,
-    pts: 0,
-  },
-  {
-    Rank: 3,
-    Team: "Jay Bista",
-    mat: 5,
-    won: 0,
-    tied: 43,
-    lost: "27 VS SPL",
-    nr: 10.6,
-    netrr: 155.88,
-    pts: 0,
-  },
-  {
-    Rank: 4,
-    Team: "Akhil Herwadkar",
-    mat: 5,
-    won: 0,
-    tied: 43,
-    lost: "27 VS SPL",
-    nr: 10.6,
-    netrr: 155.88,
-    pts: 0,
-  },
-  {
-    Rank: 5,
-    Team: "Parag Khanapurkar",
-    mat: 5,
-    won: 0,
-    tied: 43,
-    lost: "27 VS SPL",
-    nr: 10.6,
-    netrr: 155.88,
-    pts: 0,
-  },
-];
 
 const PlayerTable = () => {
   return (

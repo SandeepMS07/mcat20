@@ -11,41 +11,41 @@ const items = [
     type: "",
     title: "Final: SS vs NMP",
     date: "27 May, 2025",
-    img: "/images/gallery/new1.jpg",
+    img: "/images/gallery/new7.jpeg",
     views: 1289,
   },
   {
     type: "",
     title: "T20 Mumbai Promo",
     date: "",
-    img: "/images/gallery/new-2.jpg",
+    img: "/images/gallery/new8.jpeg",
     views: 1500,
   },
   {
     type: "",
     title: "Match 19: NBB vs ETS",
     date: "22 May, 2025",
-    img: "/images/gallery/new3.jpg",
+    img: "/images/gallery/new9.jpeg",
   },
   {
     type: "",
     title: "Final: SS vs NMP",
     date: "27 May, 2025",
-    img: "/images/gallery/new-1.jpeg",
+    img: "/images/gallery/new10.jpeg",
     views: 1289,
   },
   {
     type: "",
     title: "T20 Mumbai Promo",
     date: "",
-    img: "/images/gallery/new5.jpg",
+    img: "/images/gallery/new11.jpeg",
     views: 1500,
   },
   {
     type: "",
     title: "Match 19: NBB vs ETS",
     date: "22 May, 2025",
-    img: "/images/gallery/new6.jpg",
+    img: "/images/gallery/new12.jpeg",
   },
 ];
 
@@ -187,55 +187,21 @@ const Gallery = () => {
     );
   };
 
-  const ViewGalleryButton = () => (
-    <Link href={routes.gallery}>
-      <div
-        className="  flex items-center justify-between py-3 px-6 gap-4"
-        style={{
-          backgroundImage:
-            "linear-gradient(180deg, #142A7C -11.26%, #344CA2 44.6%, #243FA3 100.45%)",
-        }}
-      >
-        <p className="text-sm font-bold">View Gallery</p>
-        <Image
-          src="/images/home/hero/buttonIcon.svg"
-          alt="button-icon"
-          width={24}
-          height={24}
-          className="w-5 h-5"
-        />
-      </div>
-    </Link>
-  );
-
   return (
     <div className="bg-[url('/images/home/latestUpdateBg.png')] bg-cover bg-center bg-no-repeat py-20">
-      <div className="section-width sm:flex sm:justify-between sm:items-start">
-        <TitleComponent orange title={"Gallery"} />
-
-        {/* Only show the button on non-mobile screens */}
-        <div className="hidden sm:block">
-          <ViewGalleryButton />
-        </div>
+      <div className="section-width">
+        <TitleComponent 
+          orange 
+          title={"Gallery"} 
+          button
+          buttonLink={routes.gallery}
+          buttonText="View Gallery"
+          hideButtonOnMobile={true}
+        />
       </div>
 
       <div className="flex flex-col gap-6 section-width">
         <div className="w-full bg-black">
-          {/* <div className="w-full flex items-center">
-            {tabs.map((tab, index) => (
-              <div
-                key={index}
-                className={`h-full cursor-pointer ${
-                  activeTab === tab
-                    ? "bg-[#E07E27] text-white"
-                    : "text-[#E07E27]"
-                } border-l border-[#E07E27] px-6 m-2 py-1 uppercase`}
-                onClick={() => setActiveTab(tab)}
-              >
-                {tab}
-              </div>
-            ))}
-          </div> */}
           <div className="w-full flex flex-col gap-3 p-3">
             {layoutConfig.map((row, rowIndex) => {
               // Stop rendering if we've shown all items
@@ -253,15 +219,6 @@ const Gallery = () => {
                       const indexForModal = renderedIndex++;
                       if (!item?.img) return null;
 
-                      // Safety check
-                      // if (!item || !item.img) {
-                      //   console.warn(
-                      //     "Invalid item or missing image at index:",
-                      //     renderedIndex - 1
-                      //   );
-                      //   return null;
-                      // }
-
                       return (
                         <div
                           key={colIndex}
@@ -271,7 +228,6 @@ const Gallery = () => {
                             setShowModal(true);
                           }}
                         >
-                          {/* Use optional chaining and provide fallback for image */}
                           <Image
                             src={item.img}
                             alt={item.title || "Gallery image"}
@@ -279,15 +235,6 @@ const Gallery = () => {
                             className="object-cover "
                             sizes="(max-width: 640px) 95vw, (max-width: 1024px) 45vw, 33vw"
                           />
-
-                          {/* <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent text-white p-2">
-                               <p className="text-sm font-semibold line-clamp-1">
-                                 {item.title || "Untitled"}
-                               </p>
-                               {item.date && (
-                                 <p className="text-xs text-gray-300">{item.date}</p>
-                               )}
-                             </div> */}
 
                           {item.type === "video" && (
                             <div className="absolute inset-0 flex items-center justify-center">
@@ -326,8 +273,6 @@ const Gallery = () => {
               );
             })}
 
-            {/* Hidden utility classes to ensure Tailwind includes them in the build */}
-            {/* <div className="hidden col-span-1 col-span-2 col-span-3 col-span-4 col-span-5 col-span-6 col-span-7" /> */}
             {showModal && (
               <div
                 className="fixed inset-0 z-[9999] bg-black bg-opacity-80 flex items-center justify-center p-4"
@@ -374,12 +319,29 @@ const Gallery = () => {
             )}
           </div>
         </div>
-        <div className="flex justify-center sm:hidden mt-4">
-          <ViewGalleryButton />
-        </div>
-      </div>
 
-      {/* Show the button only on mobile screens below the image section */}
+       {/* Mobile button - show only on mobile, hide on larger screens */}
+<Link
+  href={routes.gallery || "#"}
+  className="md:hidden flex items-center btn-primary gap-2 w-fit mx-auto mt-6"
+  // style={{
+  //   background: "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
+  //   WebkitBackgroundClip: "text",
+  //   WebkitTextFillColor: "transparent",
+  //   backgroundClip: "text",
+  //   color: "transparent",
+  // }}
+>
+  View Gallery
+  <Image
+    src="/images/home/hero/buttonIcon.svg"
+    alt="button-icon"
+    width={24}
+    height={24}
+    className="w-5 h-5"
+  />
+</Link>
+      </div>
     </div>
   );
 };

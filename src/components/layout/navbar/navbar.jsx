@@ -5,7 +5,7 @@ import { navLinks } from "./data";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 import { useState } from "react";
 import routes from "@/utilis/route";
-import { usePathname } from "next/navigation";
+import { redirect, usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,70 +13,75 @@ const Navbar = () => {
 
   if (pathName === "/auction-info") return;
   return (
-    <div className="bg-transparent z-50 absolute top-[20px] w-full">
-      <nav className="flex justify-between items-center  section-width">
+    <div className=" z-50 absolute top-[20px] w-full  flex justify-center">
+      <div className="relative w-[90%]">
         {/* Logo Section */}
-        <div className="flex-shrink-0">
-          {!menuOpen && (
-            <Link href="/">
-              <Image
-                src={"/images/home/logo.svg"}
-                alt="logo"
-                className="h-16 w-16 md:h-28 md:w-28"
-                width={50}
-                height={50}
-              />
-            </Link>
-          )}
-        </div>
 
-        {/* Navigation Links */}
-        <div className="items-center md:flex hidden">
-          <div className="flex justify-center">
-            <ul className="flex items-center justify-between gap-5 lg:gap-10 bg-[#ffffff1f] px-5 xl:pl-10 py-4 rounded-full">
-              {navLinks.map((item, i) => (
-                <li key={i}>
-                  <Link
-                    href={item.path}
-                    className="text-white text-sm lg:text-lg"
-                  >
-                    {item.title}
-                  </Link>
-                </li>
-              ))}
-
-              <a
-                href={"/auction-info"}
-                s
-                className="px-4 py-2 md:px-6 md:py-3   rounded-full   text-white text-sm md:text-base text-center cursor-pointer flex gap-4 items-center"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(180deg, #142A7C -11.26%, #344CA2 44.6%, #243FA3 100.45%)",
-                }}
-              >
-                Auction Info
-                <span>
-                  <Image
-                    src="/images/home/hero/buttonIcon.svg"
-                    alt="button-icon"
-                    width={24}
-                    height={24}
-                    className="w-5 h-5"
-                  />
-                </span>
-              </a>
-            </ul>
+        <nav className="flex justify-between items-center  section-width bg-[#ffffff1f] rounded-full relative overflow-visible w-full py-2 px-4">
+          <div className="-my-24" style={{ zIndex: 9999 }}>
+            {!menuOpen && (
+              <Link href="/">
+                <Image
+                  src={"/images/home/logo.svg"}
+                  alt="logo"
+                  className="h-20 w-auto lg:h-28 cursor-pointer "
+                  width={100}
+                  height={100}
+                  onClick={() => redirect("/")}
+                />
+              </Link>
+            )}
           </div>
-        </div>
+          {/* Navigation Links */}
+          <div className="items-center lg:flex hidden">
+            <div className="flex justify-center">
+              <ul className="flex items-center justify-between gap-8 xl:gap-10 bg-transparent  xl:pl-10 py-2 rounded-full">
+                {navLinks.map((item, i) => (
+                  <li key={i}>
+                    <Link
+                      href={item.path}
+                      className={`text-sm md:text-base xl:text-lg ${
+                        pathName === item.path ? "text-orange-500" : "text-white"
+                      }`}
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
 
-        {/* Mobile Menu Icon - Only visible on mobile */}
-        <div className="md:hidden">
-          <RxHamburgerMenu
-            className="text-white text-2xl cursor-pointer"
-            onClick={() => setMenuOpen(true)}
-          />
-        </div>
-      </nav>
+                <a
+                  href={"/auction-info"}
+                  s
+                  className="px-4 py-2 md:px-6 md:py-3   rounded-full   text-white text-sm md:text-base text-center cursor-pointer flex gap-4 items-center"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(180deg, #142A7C -11.26%, #344CA2 44.6%, #243FA3 100.45%)",
+                  }}
+                >
+                  Auction Info
+                  <span>
+                    <Image
+                      src="/images/home/hero/buttonIcon.svg"
+                      alt="button-icon"
+                      width={24}
+                      height={24}
+                      className="w-5 h-5"
+                    />
+                  </span>
+                </a>
+              </ul>
+            </div>
+          </div>
+
+          {/* Mobile Menu Icon - Only visible on mobile */}
+          <div className="lg:hidden block">
+            <RxHamburgerMenu
+              className="text-white text-2xl cursor-pointer"
+              onClick={() => setMenuOpen(true)}
+            />
+          </div>
+        </nav>
+      </div>
       <div
         className={`fixed top-0 right-0 h-full w-[75%] bg-[#0F0F0F] z-50 transform transition-transform duration-300 ${
           menuOpen ? "translate-x-0" : "translate-x-full"
