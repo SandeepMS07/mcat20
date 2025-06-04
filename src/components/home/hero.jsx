@@ -11,7 +11,6 @@ import routes from "@/utilis/route";
 import fixtures3 from "@/utilis/fixtures/fixtures3";
 import { useRouter } from "next/navigation";
 
-
 const Hero = () => {
   const router = useRouter();
   const [showVideo, setShowVideo] = useState(false);
@@ -42,8 +41,6 @@ const Hero = () => {
 
     return null;
   };
-
-  
 
   const nextMatch = useMemo(getNextMatch, []);
 
@@ -80,12 +77,12 @@ const Hero = () => {
                     </h1>
                     <div className="flex md:flex-row flex-col gap-4 w-[40%]">
                       <a
-                        href={"https://link.district.in/DSTRKT/T20MumbaiLeague2025"}
+                        href={routes.OverallTicket}
                         target="_blank"
                         className="btn-blue rounded-lg flex-1  gap-4 items-center text-md md:flex hidden justify-center text-left py-3 px-0"
                         // onClick={openVideo}
                       >
-                        Buy Tickets 
+                        Buy Tickets
                         <span>
                           <Image
                             src="/images/home/hero/buttonIcon.svg"
