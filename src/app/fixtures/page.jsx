@@ -138,7 +138,7 @@ export default function Page() {
 
   const handleLoad = () => {
     setLoading(false);
-  }; 
+  };
 
   return (
     <>
@@ -163,7 +163,7 @@ export default function Page() {
             alt="element"
           />
 
-          <div className="section-width pt-10">
+          <div className="section-width pt-10 relative z-10">
             {/* Season and Team Selection Header */}
             <div className="relative  mb-6">
               {/* Background image */}
