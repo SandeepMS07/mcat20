@@ -12,48 +12,59 @@ const MediaAll = ({ items }) => {
   const [modalImage, setModalImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
 
-  const [layoutConfig, setLayoutConfig] = useState([
-    [2, 3, 2],
-    [1, 3, 3],
-    [1, 3, 1, 2],
-    [1, 3, 3],
-    [1, 3, 1, 2],
-  ]);
-
+ const [layoutConfig, setLayoutConfig] = useState([
+  [2, 3, 2],       // 3
+  [1, 3, 3],       // 3 (6)
+  [1, 3, 1, 2],    // 4 (10)
+  [1, 3, 3],       // 3 (13)
+  [1, 3, 1, 2],    // 4 (17)
+  [3, 4],          // 2 (19)
+  [2, 2, 3],       // 3 (22)
+  [1, 3, 3],       // 3 (25)
+  [3, 2,1],          // 2 (27)
+              // 1 (28)
+]);
   // Function to determine layout based on screen size
-  const updateLayout = () => {
-    if (typeof window !== "undefined") {
-      if (window.innerWidth < 640) {
-        // Mobile layout - single column with all 11 images
-        setLayoutConfig(Array(23).fill([7]));
-      } else if (window.innerWidth < 1024) {
-        setLayoutConfig([
-          [3, 4], // 2
-          [4, 3], // 4
-          [3, 4],
-          [4, 3],
-          [3, 4],
-          [4, 3],
-          [3, 4],
-          [4, 3],
-          [3, 4],
-          [4, 3], // = 20
-          [7], // 21
-          [7], // 22
-          [7], // 23
-        ]);
-      } else {
-        setLayoutConfig([
-          [2, 3, 2], // 3
-          [1, 3, 3], // 3 (6)
-          [1, 3, 1, 2], // 4 (10)
-          [1, 3, 3], // 3 (13)
-          [1, 3, 3], // 4 (17)
-          [2,1,2,2]
-        ]);
-      }
+const updateLayout = () => {
+  if (typeof window !== "undefined") {
+    if (window.innerWidth < 640) {
+      // Mobile layout - single column
+      setLayoutConfig(Array(28).fill([7]));
+    } else if (window.innerWidth < 1024) {
+      // Tablet layout
+      setLayoutConfig([
+        [3, 4], // 2
+        [4, 3], // 4
+        [3, 4],
+        [4, 3],
+        [3, 4],
+        [4, 3],
+        [3, 4],
+        [4, 3],
+        [3, 4],
+        [4, 3], // = 20
+        [4, 3], // = 22
+        [3, 4], // = 24
+        [4, 3], // = 26
+        [4, 4], // = 28
+      ]);
+    } else {
+      // Desktop layout
+      setLayoutConfig([
+        [2, 2, 3],       // 3
+        [1, 3, 3],       // 3 (6)
+        [1, 3, 1, 2],    // 4 (10)
+        [1, 3, 3],       // 3 (13)
+        [2, 1, 3,1],       // 3 (16)
+        [ 2, 3, 2],    // 4 (20)
+        [1, 3, 2,1],       // 3 (23)
+        [1, 2, 2,2],       // 3 (26)
+        // [1, 1]           // 2 (28)
+      ]);
     }
-  };
+  }
+};
+
 
   // Set up resize listener with SSR safety check
   useEffect(() => {
