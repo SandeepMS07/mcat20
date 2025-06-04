@@ -34,6 +34,8 @@ const ticketLinks = {
 
 
 
+
+
 const Hero = () => {
   const router = useRouter();
   const [showVideo, setShowVideo] = useState(false);
@@ -64,6 +66,30 @@ const Hero = () => {
 
     return null;
   };
+
+  // Next Day's Ticket 
+  const nextTicketInfo = useMemo(() => {
+  const now = new Date();
+
+  // Get all ticket dates sorted chronologically
+  const sortedDates = Object.keys(ticketLinks).sort((a, b) =>
+    new Date(a).getTime() - new Date(b).getTime()
+  );
+
+  // Find the first date after today
+  for (const date of sortedDates) {
+    const matchDate = new Date(date);
+    if (matchDate > now) {
+      return {
+        date,
+        wankhedeUrl: ticketLinks[date]["Wankhede Tickets"],
+        dyPatilUrl: ticketLinks[date]["DY Patil Tickets"],
+      };
+    }
+  }
+
+  return null;
+}, []);
 
   const nextMatch = useMemo(getNextMatch, []);
 
