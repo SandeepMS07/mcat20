@@ -42,7 +42,7 @@ const Hero = () => {
     return null;
   };
 
-  // Next Day's Ticket
+ 
   // const nextTicketInfo = useMemo(() => {
   //   const now = new Date();
 

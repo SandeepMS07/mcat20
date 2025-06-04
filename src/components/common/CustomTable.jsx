@@ -13,48 +13,53 @@ const CustomTable = ({
 }) => {
   return (
     <div className="w-full overflow-auto">
-      <table className="w-full table-auto  border-collapse text-sm relative min-w-[1450px]">
+      <table className="w-full table-auto  border-collapse text-sm relative min-w-[800px]">
         <div
           className="bg-[#001B31] w-[100%] border-r-[50px] top-2 border-[#F15A22] h-10 z-10 absolute"
           style={{
             clipPath: "polygon(0% 0%, 100% 0%, 97.8% 100%, 0% 100%)",
           }}
         ></div>
-        <thead
+        <div
           className="bg-[#999FA4] m-1 italic z-50 relative mb-4 mr-2 custom-heading-border"
           style={{
             clipPath: "polygon(0% 0%, 100% 0%, 97% 100%, 0% 100%)",
+            overflow: "hidden", // Ensure clipping
           }}
         >
-          <tr
-            className="grid pr-[2rem]"
-            style={{
-              gridTemplateColumns: `1fr 2fr repeat(${headers.length - 2}, 1fr)`,
-            }}
-          >
-            {headers.map((header, index) => (
-              <th
-                key={index}
-                className={`
-          ${index === 1 ? "pr-[2rem]" : ""}
-          ${index === headers.length - 1 ? "pr-[13px]" : ""}
-          py-4 pl-[2rem] text-left font-bold text-transparent bg-clip-text`}
-                style={{
-                  backgroundImage:
-                    "linear-gradient(180deg, #666666 20.89%, #FFFFFF 48.4%, #666666 80.91%)",
-                  WebkitBackgroundClip: "text", // explicitly set for cross-browser support
-                  WebkitTextFillColor: "transparent", // required for Safari
-                }}
-              >
-                {header}
-              </th>
-            ))}
-          </tr>
-        </thead>
+          <div className="w-full relative">
+            <tr
+              className="grid pr-[2rem] w-full"
+              style={{
+                gridTemplateColumns: `1fr 2fr repeat(${
+                  headers.length - 2
+                }, 1fr)`,
+              }}
+            >
+              {headers.map((header, index) => (
+                <th
+                  key={index}
+                  className={`
+            ${index === 1 ? "pr-[2rem]" : ""}
+            ${index === headers.length - 1 ? "pr-[13px]" : ""}
+            py-4 pl-[2rem] text-left font-bold text-transparent bg-clip-text`}
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(180deg, #666666 20.89%, #FFFFFF 48.4%, #666666 80.91%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                >
+                  {header}
+                </th>
+              ))}
+            </tr>
+          </div>
+        </div>
 
         <tbody>
           {data.map((row, rowIndex) => (
-            <tr key={rowIndex} className="relative">
+            <tr key={rowIndex} className="relative pr-[2rem]">
               <td colSpan={headers.length} className="relative p-0">
                 {/* Decorative layer */}
                 <div
