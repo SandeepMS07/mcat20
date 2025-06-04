@@ -11,7 +11,6 @@ import routes from "@/utilis/route";
 import fixtures3 from "@/utilis/fixtures/fixtures3";
 import { useRouter } from "next/navigation";
 
- 
 const Hero = () => {
   const router = useRouter();
   const [showVideo, setShowVideo] = useState(false);
@@ -44,28 +43,28 @@ const Hero = () => {
   };
 
   // Next Day's Ticket
-  const nextTicketInfo = useMemo(() => {
-    const now = new Date();
+  // const nextTicketInfo = useMemo(() => {
+  //   const now = new Date();
 
-    // Get all ticket dates sorted chronologically
-    const sortedDates = Object.keys(ticketLinks).sort(
-      (a, b) => new Date(a).getTime() - new Date(b).getTime()
-    );
+  //   // Get all ticket dates sorted chronologically
+  //   const sortedDates = Object.keys(ticketLinks).sort(
+  //     (a, b) => new Date(a).getTime() - new Date(b).getTime()
+  //   );
 
-    // Find the first date after today
-    for (const date of sortedDates) {
-      const matchDate = new Date(date + "T00:00:00");
-      if (matchDate > now) {
-        return {
-          date,
-          wankhedeUrl: ticketLinks[date]["Wankhede Tickets"],
-          dyPatilUrl: ticketLinks[date]["DY Patil Tickets"],
-        };
-      }
-    }
+  //   // Find the first date after today
+  //   for (const date of sortedDates) {
+  //     const matchDate = new Date(date + "T00:00:00");
+  //     if (matchDate > now) {
+  //       return {
+  //         date,
+  //         wankhedeUrl: ticketLinks[date]["Wankhede Tickets"],
+  //         dyPatilUrl: ticketLinks[date]["DY Patil Tickets"],
+  //       };
+  //     }
+  //   }
 
-    return null;
-  }, []);
+  //   return null;
+  // }, []);
 
   const nextMatch = useMemo(getNextMatch, []);
 
@@ -100,11 +99,10 @@ const Hero = () => {
                         NOW LIVE
                       </span>
                     </h1>
- 
+
                     <div className="flex md:flex-row flex-col gap-4 w-[40%]">
                       <a
                         href={routes.OverallTicket}
- 
                         target="_blank"
                         className="btn-blue rounded-lg flex-1  gap-4 items-center text-md md:flex hidden justify-center text-left py-3 px-0"
                         // onClick={openVideo}
