@@ -97,7 +97,7 @@ const Table = ({ role, PlayerData }) => {
       <div className="relative ">
         {/* This div goes below (behind) the pink one */}
         <div
-          className="bg-[#001B31] w-full border-r-[25px] top-1  border-[#F15A22] h-12 right-1 z-10 absolute"
+          className="bg-[#001B31] w-full border-r-[25px] top-1  border-[#F15A22] h-10 sm:h-12 right-1 z-10 absolute"
           style={{
             clipPath: "polygon(0% 0%, 100% 0%, 97.8% 100%, 0% 100%)",
           }}
