@@ -13,7 +13,7 @@ const CustomTable = ({
 }) => {
   return (
     <div className="w-full overflow-auto">
-      <table className="w-full table-auto  border-collapse text-sm relative min-w-[700px]">
+      <table className="w-full table-auto  border-collapse text-sm relative min-w-[800px]">
         <div
           className="bg-[#001B31] w-[100%] border-r-[50px] top-2 border-[#F15A22] h-10 z-10 absolute"
           style={{
@@ -27,9 +27,9 @@ const CustomTable = ({
             overflow: "hidden", // Ensure clipping
           }}
         >
-          <thead>
+          <div className="w-full relative">
             <tr
-              className="grid pr-[2rem]"
+              className="grid pr-[2rem] w-full"
               style={{
                 gridTemplateColumns: `1fr 2fr repeat(${
                   headers.length - 2
@@ -54,7 +54,7 @@ const CustomTable = ({
                 </th>
               ))}
             </tr>
-          </thead>
+          </div>
         </div>
 
         <tbody>
