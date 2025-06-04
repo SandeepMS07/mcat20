@@ -1,7 +1,65 @@
 "use client";
 import { useEffect, useState } from "react";
 
-const CountdownTimer = ({ targetDate }) => {
+export const teamsLogoSeason3 = [
+  {
+    id: 1,
+    team: "Aakash Tigers MWS",
+    teamLogo: "/images/teams/hero/teamLogo/aakash.svg",
+    carouselLogo: "/images/teams/hero/carousel/aakash.svg",
+  },
+  {
+    id: 2,
+    team: "Arcs Andheri",
+    teamLogo: "/images/teams/hero/teamLogo/arcs.svg",
+    carouselLogo: "/images/teams/hero/carousel/arcs.svg",
+  },
+  {
+    id: 3,
+    team: "Eagle Thane Strikers",
+    teamLogo: "/images/teams/hero/teamLogo/thane.svg",
+    carouselLogo: "/images/teams/hero/carousel/thane.svg",
+  },
+  {
+    id: 4,
+    team: "Bandra Blasters",
+    teamLogo: "/images/teams/hero/teamLogo/bandra.svg",
+    carouselLogo: "/images/teams/hero/carousel/bandra.svg",
+  },
+  {
+    id: 5,
+    team: "North Mumbai Panthers",
+    teamLogo: "/images/teams/hero/teamLogo/northmumbai.svg",
+    carouselLogo: "/images/teams/hero/carousel/northMumbai.svg",
+  },
+  {
+    id: 6,
+    team: "MSC Maratha Royals",
+    teamLogo: "/images/teams/hero/teamLogo/shivaji.png",
+    carouselLogo: "/images/teams/hero/carousel/shivaji.png",
+  },
+  {
+    id: 7,
+    team: "SoBo Mumbai Falcons",
+    teamLogo: "/images/teams/hero/teamLogo/sobo.png",
+    carouselLogo: "/images/teams/hero/carousel/sobo.png",
+  },
+  {
+    id: 8,
+    team: "Triumph Knights Mumbai North East",
+    teamLogo: "/images/teams/hero/teamLogo/triumph.png",
+    carouselLogo: "/images/teams/hero/carousel/triumph.png",
+  },
+];
+
+const CountdownTimer = ({
+  targetDate,
+  homeTeam,
+  awayTeam,
+  match_no,
+  total_matches,
+}) => {
+  console.log("home team" + homeTeam);
   const [timeLeft, setTimeLeft] = useState({
     days: "00",
     hours: "00",
@@ -46,19 +104,29 @@ const CountdownTimer = ({ targetDate }) => {
       </div>
       <div className="flex justify-between items-center bg-[#00000080]">
         <img
-          src="/images/teams/hero/teamLogo/arcs.svg"
-          alt="arcs"
-          className="w-20 p-5"
+          src={
+            teamsLogoSeason3.find((team) => team.team === homeTeam)?.teamLogo
+          }
+          alt={homeTeam}
+          className={`w-20 p-3 ${
+            homeTeam === "SoBo Mumbai Falcons" ? "bg-white" : ""
+          }`}
         />
         <div className="flex flex-col items-center text-center">
           <p className="text-[#E07E27]">VS</p>
-          <p className="text-xs">MATCH 1/20</p>
+          <p className="text-xs">
+            MATCH {match_no}/{total_matches}
+          </p>
         </div>
         <div className="p-5">
           <img
-            src="/images/home/team/soboSuperSonics.png"
-            alt="arcs"
-            className="w-20  bg-white"
+            src={
+              teamsLogoSeason3.find((team) => team.team === awayTeam)?.teamLogo
+            }
+            alt={awayTeam}
+            className={`w-20 ${
+              awayTeam === "SoBo Mumbai Falcons" ? "bg-white" : ""
+            }`}
           />
         </div>
       </div>

@@ -18,7 +18,7 @@ export default function Home() {
     <>
       <div>
         <Hero />
-        <UpcomingFixturesSection />
+        {/* <UpcomingFixturesSection /> */}
         <HomeTeamSection />
         <LatestUpdates />
         {/* <IconPlayers /> */}
