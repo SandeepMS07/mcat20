@@ -38,7 +38,7 @@ const MeetMyTeam = ({ data }) => {
     const img =
       rawImg && rawImg.trim() !== ""
         ? rawImg
-        : "/images/teams/meetmyteam/image 117.svg";
+        : "";
 
     const playerObj = {
       id,
@@ -58,11 +58,11 @@ const MeetMyTeam = ({ data }) => {
 
   return (
     <div className="bg-white relative ">
-      {/* <img
+      <img
         src="/images/elements/section-element.png"
-        className="absolute right-0 -top-[11.1%] md:block hidden responsive-top"
+        className="absolute right-0 top-0 md:block hidden"
         alt="element"
-      /> */}
+      />
       <img
         src="/images/elements/section-element.png"
         className="absolute left-0 bottom-0 rotate-180 md:block hidden"
@@ -97,7 +97,7 @@ const Table = ({ role, PlayerData }) => {
       <div className="relative ">
         {/* This div goes below (behind) the pink one */}
         <div
-          className="bg-[#001B31] w-full border-r-[25px] top-1  border-[#F15A22] h-12 right-1 z-10 absolute"
+          className="bg-[#001B31] w-full border-r-[25px] top-1  border-[#F15A22] h-10 sm:h-12 right-1 z-10 absolute"
           style={{
             clipPath: "polygon(0% 0%, 100% 0%, 97.8% 100%, 0% 100%)",
           }}
@@ -157,15 +157,19 @@ const Table = ({ role, PlayerData }) => {
               }}
             >
               <div className="flex items-center gap-5 xl:gap-10">
-                <div className="h-11 w-11 rounded-full bg-[#242424]  flex items-center justify-center overflow-hidden">
-                  <Image
-                    src={player.img}
-                    alt="avatar"
-                    width={50}
-                    height={50}
-                    className="w-full "
-                  />
-                </div>
+  <div className="h-11 w-11 rounded-full bg-[#c2bcbc] flex items-center justify-center overflow-hidden">
+     {player.img && player.img.trim() !== "" && (
+    <Image
+      src={player.img}
+      alt="avatar"
+      width={50}
+      height={50}
+      className="w-full"
+    />
+    )}
+
+  </div>
+
               </div>
               <div className=" flex items-center justify-start w-[30%]">
                 <p className="text-[10px] md:text-base font-bold">

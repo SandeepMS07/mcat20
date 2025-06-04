@@ -120,7 +120,7 @@ const TeamSection = ({ data, fixtures, onTeamSelect, LogoDetails ,TeamIndex = 0}
     players.filter((p) => p.Recent_Competitive_Level__c === level).length;
 
   return (
-    <div className="w-full">
+    <div className="w-full ">
       <div
         className="w-full bg-cover bg-center pt-24  overflow-x-auto md:overflow-visible md:pt-40 flex flex-col gap-8 relative scrollbar-hide pb-32"
         style={{ backgroundImage: "url('/images/teams/hero/teamsBg.svg')" }}
