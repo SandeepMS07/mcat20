@@ -15,9 +15,9 @@ const CustomTable = ({
     <div className="w-full overflow-auto">
       <table className="w-full table-auto  border-collapse text-sm relative min-w-[800px]">
         <div
-          className="bg-[#001B31] w-[99.8%] border-r-[50px]  top-4 md:top-3 border-[#F15A22] h-10  z-10 absolute"
+          className="bg-[#001B31] w-[99.4%] md:w-[99.4%] border-r-[50px]  top-4 md:top-3 border-[#F15A22] h-10  z-10 absolute"
           style={{
-            clipPath: "polygon(0% 0%, 100% 0%, 98.2% 100%, 0% 100%)",
+            clipPath: "polygon(0% 0%, 100% 0%, 98% 100%, 0% 100%)",
           }}
         ></div>
         <div
