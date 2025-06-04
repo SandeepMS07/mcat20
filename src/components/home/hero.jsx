@@ -81,7 +81,7 @@ const Hero = () => {
         className="h-full"
       >
         <SwiperSlide className="h-full">
-          <div className="w-full h-full bg-[url('https://storage.googleapis.com/mca_images/website/banner_img/heroImgRohitPattern.png')] bg-cover bg-center  relative pt-32 overflow-hidden flex justify-center items-center">
+          <div className="w-full h-full bg-[url('/images/banner/slider3.jpg')] bg-cover bg-center  relative pt-32 overflow-hidden flex justify-center items-center">
             <div className="section-width ">
               <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
                 <p className="font-bold text-sm md:text-base xl:text-xl">
@@ -93,21 +93,24 @@ const Hero = () => {
                 <p className="font-bold text-lg md:text-xl xl:text-2xl">
                   #Kaun Banega Agla Star?{" "}
                 </p>
-                <button
-                  className="btn-primary flex gap-4 items-center"
-                  onClick={openVideo}
-                >
-                  View Details
-                  <span>
-                    <Image
-                      src="/images/home/hero/buttonIcon.svg"
-                      alt="button-icon"
-                      width={24}
-                      height={24}
-                      className="w-5 h-5"
-                    />
-                  </span>
-                </button>
+              
+                      <a
+                        href={routes.OverallTicket}
+                        target="_blank"
+                        className=" rounded-lg flex-1 btn-primary  gap-4 items-center text-md md:flex hidden justify-center text-left py-3 px-6"
+                        // onClick={openVideo}
+                      >
+                        Buy Tickets
+                        <span>
+                          <Image
+                            src="/images/home/hero/buttonIcon.svg"
+                            alt="button-icon"
+                            width={24}
+                            height={24}
+                            className="w-5 h-5"
+                          />
+                        </span>
+                      </a>
               </div>
 
               <div className="absolute bottom-40 -right-0 hidden md:block">
