@@ -1,6 +1,8 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+import Hero from "../hero/Hero";
+
 
 const PlayerDetailsHero = ({ player, selectedTab }) => {
   const getPlayerStats = () => {
@@ -34,21 +36,24 @@ const PlayerDetailsHero = ({ player, selectedTab }) => {
   const stats = getPlayerStats();
 
   return (
-    <div className="relative w-full h-[28rem] bg-[url('/images/stats/statsBg.png')] bg-no-repeat bg-center bg-cover flex justify-start items-end overflow-hidden">
-      {/* Heading */}
-      <div className="text-white w-full flex justify-start items-center px-20 md:px-60 py-20  ">
-        <p className="text-5xl font-extrabold leading-snug uppercase">Stats</p>
-      </div>
+    <>
+    <Hero imgUrl="/images/stats/statsBg.png" heading="STATS" subheading="" />
+    
+    {/* <div className="relative w-full h-[28rem] bg-[url('/images/stats/statsBg.png')] bg-no-repeat bg-center bg-cover flex justify-center items-center overflow-hidden"> */}
+    {/* Heading */}
+       {/* <div className="text-white section-width"> */}
+         {/* <p className="text-5xl font-extrabold leading-snug uppercase">STATS</p> */}
+       {/* </div> */}
 
-      {/* Background Position Number */}
+       {/* Background Position Number */}
       {/* <div className="absolute left-[20%] bottom-0 z-0 flex items-start leading-none">
-        <span className="text-[120px] font-extrabold italic text-[#3188b1] opacity-70">
-          #
-        </span>
-        <span className="text-[350px] h-full flex justify-end items-end font-extrabold italic text-[#3188b1] opacity-70">
-          {player.pos}
-        </span>
-      </div> */}
+      //   <span className="text-[120px] font-extrabold italic text-[#3188b1] opacity-70">
+      //     #
+      //   </span>
+      //   <span className="text-[350px] h-full flex justify-end items-end font-extrabold italic text-[#3188b1] opacity-70">
+      //     {player.pos}
+      //   </span>
+      // </div> */}
 
       {/* Player Image */}
       {/* <div className="absolute left-[27%] bottom-0 z-10">
@@ -62,7 +67,7 @@ const PlayerDetailsHero = ({ player, selectedTab }) => {
       </div> */}
 
       {/* Player Details and Stats */}
-      <div className="relative z-20 ml-[20rem] mb-6 text-white">
+      {/* <div className="relative z-20 ml-[20rem] mb-6 text-white"> */}
         {/* <h1 className="text-5xl font-bold mb-2">{player.player}</h1> */}
         {/* <div className="flex items-center gap-3 mb-8">
           {player.teamLogo && (
@@ -87,8 +92,9 @@ const PlayerDetailsHero = ({ player, selectedTab }) => {
             </div>
           ))}
         </div> */}
-      </div>
-    </div>
+      {/* </div> */}
+    {/* </div> */}
+    </>
   );
 };
 

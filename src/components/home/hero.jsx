@@ -10,6 +10,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import routes from "@/utilis/route";
 import fixtures3 from "@/utilis/fixtures/fixtures3";
 import { useRouter } from "next/navigation";
+
 const Hero = () => {
   const router = useRouter();
   const [showVideo, setShowVideo] = useState(false);
@@ -74,30 +75,14 @@ const Hero = () => {
                         NOW LIVE
                       </span>
                     </h1>
-                    <div className="flex md:flex-row flex-col gap-4">
+                    <div className="flex md:flex-row flex-col gap-4 w-[40%]">
                       <a
-                        href={routes.wankhedeTicket}
+                        href={routes.OverallTicket}
                         target="_blank"
-                        className="btn-primary  flex-1 gap-4 items-center text-xs md:flex hidden justify-center text-left"
-                      >
-                        Wankhede Tickets <br /> Click Here
-                        <span>
-                          <Image
-                            src="/images/home/hero/buttonIcon.svg"
-                            alt="button-icon"
-                            width={24}
-                            height={24}
-                            className="w-5 h-5"
-                          />
-                        </span>
-                      </a>
-                      <a
-                        href={routes.DYPatilTicket}
-                        target="_blank"
-                        className="btn-blue rounded-lg flex-1  gap-4 items-center text-xs md:flex hidden justify-center text-left"
+                        className="btn-blue rounded-lg flex-1  gap-4 items-center text-md md:flex hidden justify-center text-left py-3 px-0"
                         // onClick={openVideo}
                       >
-                        DY Patil Tickets <br /> Click Here
+                        Buy Tickets
                         <span>
                           <Image
                             src="/images/home/hero/buttonIcon.svg"
