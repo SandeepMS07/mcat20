@@ -196,7 +196,7 @@ const Hero = () => {
                   >
                     <div className="flex flex-col justify-between  py-6 px-8">
                       <p className="text-[#E07E27] text-base  xl:text-lg font-semibold leading-3 uppercase">
-                        Season starts in
+                        Match starts in
                       </p>
                     </div>
                   </div>
@@ -259,7 +259,7 @@ const Hero = () => {
                   >
                     <div className="flex flex-col justify-between  py-6 px-12">
                       <p className="text-[#E07E27] text-base  xl:text-lg font-semibold leading-3 uppercase">
-                        Season starts in
+                        Match starts in
                       </p>
                     </div>
                   </div>
