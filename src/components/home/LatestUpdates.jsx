@@ -61,7 +61,7 @@ const LatestUpdates = () => {
                   className="relative xl:flex-[60%] lg:flex-[55%] flex bg-[url('/images/latestUpdates/update12.jpg')] bg-cover bg-no-repeat bg-center max-lg:h-[400px] cursor-pointer"
                   onClick={() => {
                     router.push(
-                      "/latest-updates/mca-reschedules-t20-mumbai-league-2025-wankhede-stadium-and-dy-patil-stadium-to-host-23-exciting-matches-from-june-4-to-12"
+                      "latest-updates/t20-mumbai-league-2025-to-kick-off-today-with-suryakumar-yadav-and-shivam-dube-in-action-here-is-everything-you-need-to-know-about-season-3"
                     );
                   }}
                 >
