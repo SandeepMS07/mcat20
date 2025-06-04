@@ -42,7 +42,7 @@ const Navbar = () => {
             {/* Navigation Links */}
             <div className="items-center lg:flex hidden">
               <div className="flex justify-center">
-                <ul className="flex items-center justify-between gap-8 xl:gap-10 bg-transparent  xl:pl-10 py-2 rounded-full">
+                <ul className="flex items-center justify-between gap-8 xl:gap-10 bg-transparent  xl:pl-10 py-2 pr-2 rounded-full">
                   {navLinks.map((item, i) => (
                     <li key={i}>
                       <Link
@@ -58,7 +58,7 @@ const Navbar = () => {
                     </li>
                   ))}
 
-                  <a
+                  {/* <a
                     href={"/auction-info"}
                     s
                     className="px-4 py-2 md:px-6 md:py-3   rounded-full   text-white text-sm md:text-base text-center cursor-pointer flex gap-4 items-center"
@@ -77,7 +77,7 @@ const Navbar = () => {
                         className="w-5 h-5"
                       />
                     </span>
-                  </a>
+                  </a> */}
                 </ul>
               </div>
             </div>
@@ -122,7 +122,7 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-          <div className="w-fit p-6">
+          {/* <div className="w-fit p-6">
             <a
               href={"/auction-info"}
               className="px-4 py-2 md:px-6 md:py-3   rounded-full   text-white text-sm md:text-base text-center cursor-pointer flex gap-4 items-center"
@@ -142,7 +142,7 @@ const Navbar = () => {
                 />
               </span>
             </a>
-          </div>
+          </div> */}
         </div>
 
         {/* Optional Backdrop */}

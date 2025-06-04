@@ -77,12 +77,12 @@ const AdminTeamCard = ({ team, index, setStep, setSelectedTeamId }) => {
         />
       </div>
       <div className="mt-10">
-        <div className="text-white text-base font-medium mb-1">
+        {/* <div className="text-white text-base font-medium mb-1">
           Fund remaining
         </div>
         <div className="text-white text-2xl font-bold mb-4">
           {remainingFundFormatted}
-        </div>
+        </div> */}
 
         <div className="grid grid-cols-2 gap-2 mb-2">
           {[
