@@ -15,9 +15,9 @@ const CustomTable = ({
     <div className="w-full overflow-auto">
       <table className="w-full table-auto  border-collapse text-sm relative min-w-[800px]">
         <div
-          className="bg-[#001B31] w-[100%] border-r-[50px] top-2 border-[#F15A22] h-10 z-10 absolute"
+          className="bg-[#001B31] w-[99.8%] border-r-[50px]  top-4 md:top-3 border-[#F15A22] h-10  z-10 absolute"
           style={{
-            clipPath: "polygon(0% 0%, 100% 0%, 97.8% 100%, 0% 100%)",
+            clipPath: "polygon(0% 0%, 100% 0%, 98.2% 100%, 0% 100%)",
           }}
         ></div>
         <div
@@ -63,9 +63,9 @@ const CustomTable = ({
               <td colSpan={headers.length} className="relative p-0">
                 {/* Decorative layer */}
                 <div
-                  className="absolute w-[99.8%] h-10 z-10 mt-4 border-r-[50px] border-[#F15A22]"
+                  className="absolute w-[100%] xl:w-[99%] h-10 z-10 mt-4 border-r-[60px] border-[#F15A22]"
                   style={{
-                    clipPath: "polygon(0% 0%, 100% 0%, 98.2% 100%, 0% 100%)",
+                    clipPath: "polygon(0% 0%, 100% 0%, 97% 100%, 0% 100%)",
                     background:
                       "linear-gradient(to right, rgba(224, 126, 39, 0.2) 60%, rgba(255, 255, 255, 0.2) 71%, rgba(224, 126, 39, 0.2) 100%)",
                   }}
@@ -83,9 +83,9 @@ const CustomTable = ({
 
                 {/* Main background container */}
                 <div
-                  className="relative z-20 bg-[#999FA4] px-4 md:px-10 w-[98%] custom-border-bg left-6 mt-2"
+                  className="relative z-20 bg-[#999FA4] px-4 md:px-10 w-[97%] custom-border-bg left-6 mt-2"
                   style={{
-                    clipPath: "polygon(3% 0%, 100% 0%, 97.5% 100%, 0% 100%)",
+                    clipPath: "polygon(3% 0%, 100% 0%, 96% 100%, 0% 100%)",
                   }}
                 >
                   <div
