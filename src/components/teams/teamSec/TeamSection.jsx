@@ -107,23 +107,37 @@ const TeamSection = ({
   };
 
   useEffect(() => {
-    setTeamDetails(data[selectedTeamIndex]);
-    setPlayers(teamDetails?.Player_Registrations__r?.records || []);
-    setTotalPlayers(teamDetails?.Player_Registrations__r?.totalSize || 0);
-    setCurrentTeam(data[selectedTeamIndex].Name);
-    setUpcomingMatches(
-      fixtures
-        .sort((a, b) => a.match_no - b.match_no)
-        .filter(
-          (match) =>
-            match.home_team === CurrentTeam || match.away_team === CurrentTeam
-        )
-        .slice(0, 3)
+    const updatedTeamDetails = data[selectedTeamIndex];
+    const updatedPlayers =
+      updatedTeamDetails?.Player_Registrations__r?.records || [];
+    const updatedTeamName = updatedTeamDetails?.Name || "";
+
+    setTeamDetails(updatedTeamDetails);
+    setPlayers(updatedPlayers);
+    setTotalPlayers(
+      updatedTeamDetails?.Player_Registrations__r?.totalSize || 0
     );
+    setCurrentTeam(updatedTeamName);
+
+    const updatedMatches = fixtures
+      .sort((a, b) => a.match_no - b.match_no)
+      .filter(
+        (match) =>
+          match.home_team === updatedTeamName ||
+          match.away_team === updatedTeamName
+      )
+      .slice(0, 3);
+
+    setUpcomingMatches(updatedMatches);
   }, [selectedTeamIndex]);
 
+  const normalizeLevel = (level) => level?.trim().toLowerCase();
+
   const getCategoryCount = (level) =>
-    players.filter((p) => p.Recent_Competitive_Level__c === level).length;
+    players.filter(
+      (p) =>
+        normalizeLevel(p.Recent_Competitive_Level__c) === normalizeLevel(level)
+    ).length;
 
   return (
     <div className="w-full ">
