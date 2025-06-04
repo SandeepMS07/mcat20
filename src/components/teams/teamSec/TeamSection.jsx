@@ -265,14 +265,14 @@ const TeamSection = ({ data, fixtures, onTeamSelect, LogoDetails ,TeamIndex = 0}
           </div>
 
           {/* Upcoming Matches Heading */}
-          <div className="text-xl sm:text-2xl font-semibold my-8 sm:my-16 text-white">
+          {/* <div className="text-xl sm:text-2xl font-semibold my-8 sm:my-16 text-white">
             UPCOMING MATCHES
-          </div>
+          </div> */}
         </div>
       </div>
-      <div className="md:-mt-40 -mt-32 section-width relative">
+      {/* <div className="md:-mt-40 -mt-32 section-width relative">
         <UpcomingFixtures />
-      </div>
+      </div> */}
 
       {/* Match Cards Section */}
       {/* <div className="relative w-full bg-white pt-32 pb-16">
