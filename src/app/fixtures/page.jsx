@@ -257,7 +257,7 @@ export default function Page() {
               <div
                 style={{
                   width: "100%",
-                  height: "100vh",
+                  height: "150rem",
                   border: "none",
                 }}
               >
