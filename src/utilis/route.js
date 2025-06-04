@@ -32,8 +32,8 @@ const routes = {
   youtube: "https://www.youtube.com/@T20MumbaiLeague",
 
   // ticket
-  wankhedeTicket: "https://www.district.in/events/t20-mumbai-league-2025-arcs-andheri-vs-aakash-tigers-mws-and-sobo-mumbai-falcons-vs-north-mumbai-panthers-buy-tickets",
-  DYPatilTicket: "https://www.district.in/events/t20-mumbai-league-2025-bandra-blasters-vs-eagle-thane-strikers-and-triumph-knights-mne-vs-msc-maratha-royals-in-mumbai-june5-buy-tickets",
+  wankhedeTicket: "https://www.district.in/events/t20-mumbai-league-2025-bandra-blasters-vs-eagle-thane-strikers-and-triumph-knights-mne-vs-msc-maratha-royals-in-mumbai-june5-buy-tickets",
+  DYPatilTicket: "https://www.district.in/events/t20-mumbai-league-2025-arcs-andheri-vs-aakash-tigers-mws-and-sobo-mumbai-falcons-vs-north-mumbai-panthers-buy-tickets",
 };
 
 export default routes;
