@@ -15,7 +15,7 @@ const Navbar = () => {
   return (
     <div
       className={
-        pathName.includes(routes.fixtures) || pathName.startsWith("/scores")
+        pathName.includes(routes.fixtures) || pathName.startsWith("/scores") || pathName.includes(routes.matchcentre)
           ? "bg-gradient-to-r from-[#060A17] to-[#203376] lg:h-[120px] h-[85px]"
           : ""
       }

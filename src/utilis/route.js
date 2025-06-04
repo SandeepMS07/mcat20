@@ -7,6 +7,7 @@ const routes = {
   teams: "/teams",
   stats: "/stats",
   fixtures: "/fixtures",
+  matchcentre: "/matchcentre",
   latestUpdates: "/latest-updates",
   aboutUs: "/aboutUs",
   media: "/media",
