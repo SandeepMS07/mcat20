@@ -140,7 +140,7 @@ const page = () => {
               })}
           </div>
 
-          <div className="grid  lg:grid-cols-5 md:grid-cols-2 grid-cols-1 justify-between bg-black/40 backdrop-blur  rounded-xl mb-10 ">
+          <div className="grid  lg:grid-cols-4 md:grid-cols-2 grid-cols-1 justify-between bg-black/40 backdrop-blur  rounded-xl mb-10 ">
             <div className=" p-4  flex justify-center">
               <img
                 src={team?.Logo_URL__c || "/images/logo/playerTeamLogo.png"}
@@ -196,7 +196,7 @@ const page = () => {
               <h3 className="  font-bold text-white">{totalPlayers}/18</h3>
             </div>
 
-            <div className="basis-1/5 grid grid-cols-1 grid-rows-2  sm:text-left text-center   border-l border-gray-200/30 bg-gradient-to-r from-white/10 to-transparent">
+            {/* <div className="basis-1/5 grid grid-cols-1 grid-rows-2  sm:text-left text-center   border-l border-gray-200/30 bg-gradient-to-r from-white/10 to-transparent">
               <div className="border-b border-gray-600  flex  justify-center flex-col p-4">
                 <h2 className=" font-bold text-white  mb-1">
                   {totalFundFormatted}
@@ -209,7 +209,7 @@ const page = () => {
                 </h2>
                 <div className="text-xs">Fund remaining</div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="overflow-x-auto">
@@ -237,8 +237,8 @@ const page = () => {
                   </th>
                   <th className="text-left p-5">Category</th>
                   <th className="text-left p-5">Role</th>
-                  <th className="text-left p-5">Base price</th>
-                  <th className="text-left p-5">Purchased price</th>
+                  {/* <th className="text-left p-5">Base price</th>
+                  <th className="text-left p-5">Purchased price</th> */}
                 </tr>
               </thead>
               <tbody>
@@ -262,7 +262,7 @@ const page = () => {
                       )}
                     </td>
                     <td className=" p-5">{player.Primary_Role__c}</td>
-                    <td className=" p-5">
+                    {/* <td className=" p-5">
                       {player?.Base_Price__c != null
                         ? `₹${player.Base_Price__c.toLocaleString("en-IN")}`
                         : "--"}
@@ -271,7 +271,7 @@ const page = () => {
                       {player?.Winning_Bid__c != null
                         ? `₹${player.Winning_Bid__c.toLocaleString("en-IN")}`
                         : "--"}
-                    </td>
+                    </td> */}
                   </tr>
                 ))}
               </tbody>

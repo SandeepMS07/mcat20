@@ -83,14 +83,14 @@
                 "type": "Contact",
                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2G8HYAU"
               },
-              "Name": "Sagar Mishra",
+              "Name": "Hitesh Kadam",
               "Photo_URL_1__c": "https://mca-cdn.ken42.com/sagar_mishra_27_11zon.jpg",
-              "MCA_Registration_Number__c": "M01486"
+              "MCA_Registration_Number__c": "M00264"
             },
             "Base_Price__c": 200000,
             "Winning_Bid__c": 300000,
             "kitty_allocated__c": 100000,
-            "Recent_Competitive_Level__c": "Local club team"
+            "Recent_Competitive_Level__c": "local club"
           },
           {
             "attributes": {
@@ -251,21 +251,21 @@
             "Name": "PR-0001278",
             "Reserve_Bid_Amount__c": 500000,
             "Kitty_Bid_Amount__c": 975000,
-            "Primary_Role__c": "All - rounder",
+            "Primary_Role__c": "Batsman",
             "Player__c": "003IR00001k2KIjYAM",
             "Player__r": {
               "attributes": {
                 "type": "Contact",
                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2KIjYAM"
               },
-              "Name": "AYUSH YOGESH MHATRE",
+              "Name": "Karan Ravidas More",
               "Photo_URL_1__c": "https://mca-cdn.ken42.com/Senior_Players/Aayush%20Mhatre_4_11zon.jpeg",
-              "MCA_Registration_Number__c": "MCAA0061"
+              "MCA_Registration_Number__c": "M01572"
             },
             "Base_Price__c": 500000,
             "Winning_Bid__c": 1475000,
             "kitty_allocated__c": 975000,
-            "Recent_Competitive_Level__c": "First class, list A, BCCI Senior Men T20"
+            "Recent_Competitive_Level__c": "local club"
           },
           {
             "attributes": {
@@ -526,14 +526,14 @@
                 "type": "Contact",
                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2KIdYAM"
               },
-              "Name": "ABHIGYAN ABHISHEK KUNDU",
+              "Name": "Arjun Jayswal",
               "Photo_URL_1__c": "https://mca-cdn.ken42.com/Emerging%20Players/Abhigyan%20Kundu_2_11zon.jpg",
               "MCA_Registration_Number__c": "MCAA0051"
             },
             "Base_Price__c": 300000,
             "Winning_Bid__c": 500000,
             "kitty_allocated__c": 200000,
-            "Recent_Competitive_Level__c": "Mumbai age group team (under 23 or under 19)"
+            "Recent_Competitive_Level__c": "local club"
           },
           {
             "attributes": {
@@ -894,21 +894,21 @@
             "Name": "PR-0002936",
             "Reserve_Bid_Amount__c": 500000,
             "Kitty_Bid_Amount__c": 500000,
-            "Primary_Role__c": "All - rounder",
+            "Primary_Role__c": "Wicketkeeper",
             "Player__c": "003IR00001k2GshYAE",
             "Player__r": {
               "attributes": {
                 "type": "Contact",
                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2GshYAE"
               },
-              "Name": "Tanush Karunakar Kotian",
+              "Name": "Harsh Rohit Rane",
               "Photo_URL_1__c": "https://mca-cdn.ken42.com/Senior_Players/Tanush%20Kotian_33_11zon.jpeg",
-              "MCA_Registration_Number__c": "M04892"
+              "MCA_Registration_Number__c": "M00734"
             },
             "Base_Price__c": 500000,
             "Winning_Bid__c": 1000000,
             "kitty_allocated__c": 500000,
-            "Recent_Competitive_Level__c": "First class, list A, BCCI Senior Men T20"
+            "Recent_Competitive_Level__c": "local club"
           },
           {
             "attributes": {
@@ -1830,21 +1830,21 @@
             "Name": "PR-0002934",
             "Reserve_Bid_Amount__c": 500000,
             "Kitty_Bid_Amount__c": 0,
-            "Primary_Role__c": "Batsman",
+            "Primary_Role__c": "All - rounder",
             "Player__c": "003IR00001k2FxFYAU",
             "Player__r": {
               "attributes": {
                 "type": "Contact",
                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2FxFYAU"
               },
-              "Name": "Arman Jaffer",
+              "Name": "Saksham Swayam Parashar",
               "Photo_URL_1__c": "https://mca-cdn.ken42.com/Senior_Players/Arman%20Jaffer_7_11zon.jpg",
-              "MCA_Registration_Number__c": "M00483"
+              "MCA_Registration_Number__c": "M00331"
             },
             "Base_Price__c": 500000,
             "Winning_Bid__c": 500000,
             "kitty_allocated__c": 0,
-            "Recent_Competitive_Level__c": "First class, list A, BCCI Senior Men T20"
+            "Recent_Competitive_Level__c": "local club"
           },
           {
             "attributes": {
@@ -1855,21 +1855,21 @@
             "Name": "PR-0002943",
             "Reserve_Bid_Amount__c": null,
             "Kitty_Bid_Amount__c": null,
-            "Primary_Role__c": "Bowler",
+            "Primary_Role__c": "All - rounder",
             "Player__c": "003IR00001l9mA6YAI",
             "Player__r": {
               "attributes": {
                 "type": "Contact",
                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001l9mA6YAI"
               },
-              "Name": "Tushar Deshpande",
+              "Name": "Rohan Ravindra Raje",
               "Photo_URL_1__c": "https://mca-cdn.ken42.com/tushar_deshpande_39_11zon.jpg",
-              "MCA_Registration_Number__c": null
+              "MCA_Registration_Number__c": "M01549"
             },
             "Base_Price__c": 2000000,
             "Winning_Bid__c": 2000000,
             "kitty_allocated__c": 0,
-            "Recent_Competitive_Level__c": "Indian senior team"
+            "Recent_Competitive_Level__c": "local club"
           }
         ]
       }
@@ -2352,7 +2352,7 @@
       "Total_Fund__c": 10000000,
       "Fund_Remaining__c": 225000,
       "Fund_Utilized__c": 9775000,
-      "Logo_URL__c": "https://mcadirectory.blob.core.windows.net/dev/8336676908636103-Group 1.png",
+      "Logo_URL__c": "https://turbostart.blob.core.windows.net/turbostart/48447191083078844-aakashTigers.png",
       "Player_Registrations__r": {
         "totalSize": 18,
         "done": true,
@@ -2391,21 +2391,21 @@
             "Name": "PR-0002942",
             "Reserve_Bid_Amount__c": null,
             "Kitty_Bid_Amount__c": null,
-            "Primary_Role__c": "Batsman",
+            "Primary_Role__c": "All - rounder",
             "Player__c": "003IR00001l9mA5YAI",
             "Player__r": {
               "attributes": {
                 "type": "Contact",
                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001l9mA5YAI"
               },
-              "Name": "Sarfaraz Khan",
+              "Name": "Siddhant Singh",
               "Photo_URL_1__c": "https://mca-cdn.ken42.com/sarfaraz_khan_29_11zon.jpg",
-              "MCA_Registration_Number__c": null
+              "MCA_Registration_Number__c": "M00341"
             },
             "Base_Price__c": 2000000,
             "Winning_Bid__c": 2000000,
             "kitty_allocated__c": 0,
-            "Recent_Competitive_Level__c": "Indian senior team"
+            "Recent_Competitive_Level__c": "local club"
           },
           {
             "attributes": {
@@ -2966,14 +2966,14 @@
                 "type": "Contact",
                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2FuaYAE"
               },
-              "Name": "Nutan Kumar Goel",
+              "Name": "Amit Pandey",
               "Photo_URL_1__c": "https://mca-cdn.ken42.com/Emerging%20Players/Nutan%20Goel_4_11zon.jpeg",
-              "MCA_Registration_Number__c": "M00263"
+              "MCA_Registration_Number__c": "M06550"
             },
             "Base_Price__c": 300000,
             "Winning_Bid__c": 300000,
             "kitty_allocated__c": 0,
-            "Recent_Competitive_Level__c": "Mumbai age group team (under 23 or under 19)"
+            "Recent_Competitive_Level__c": "local club"
           },
           {
             "attributes": {
@@ -3084,21 +3084,21 @@
             "Name": "PR-0002945",
             "Reserve_Bid_Amount__c": null,
             "Kitty_Bid_Amount__c": null,
-            "Primary_Role__c": "Bowler",
+            "Primary_Role__c": "All - rounder",
             "Player__c": "003IR00001l9mA8YAI",
             "Player__r": {
               "attributes": {
                 "type": "Contact",
                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001l9mA8YAI"
               },
-              "Name": "Shardul Thakur",
+              "Name": "Vinay Suresh Kunwar ",
               "Photo_URL_1__c": "https://mca-cdn.ken42.com/Icon_Players/Shardul%20Thakur_4_11zon.jpg",
-              "MCA_Registration_Number__c": null
+              "MCA_Registration_Number__c": "M01584"
             },
             "Base_Price__c": 2000000,
             "Winning_Bid__c": 2000000,
             "kitty_allocated__c": 0,
-            "Recent_Competitive_Level__c": "Indian senior team"
+            "Recent_Competitive_Level__c": "local club"
           },
           {
             "attributes": {
@@ -3452,21 +3452,21 @@
             "Name": "PR-0000772",
             "Reserve_Bid_Amount__c": 200000,
             "Kitty_Bid_Amount__c": 260000,
-            "Primary_Role__c": "Bowler",
+            "Primary_Role__c": "All-rounder",
             "Player__c": "003IR00001k2FwSYAU",
             "Player__r": {
               "attributes": {
                 "type": "Contact",
                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2FwSYAU"
               },
-              "Name": "Prathamesh Ganesh Dake",
+              "Name": "Prasad Patil",
               "Photo_URL_1__c": null,
-              "MCA_Registration_Number__c": "M00419"
+              "MCA_Registration_Number__c": "M01472"
             },
             "Base_Price__c": 200000,
             "Winning_Bid__c": 460000,
             "kitty_allocated__c": 260000,
-            "Recent_Competitive_Level__c": "Local club team"
+            "Recent_Competitive_Level__c": "local club"
           },
           {
             "attributes": {
@@ -3627,21 +3627,21 @@
             "Name": "PR-0001367",
             "Reserve_Bid_Amount__c": 300000,
             "Kitty_Bid_Amount__c": 0,
-            "Primary_Role__c": "All - rounder",
+            "Primary_Role__c": "Spin Bowler",
             "Player__c": "003IR00001k2GM2YAM",
             "Player__r": {
               "attributes": {
                 "type": "Contact",
                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2GM2YAM"
               },
-              "Name": "Nishit Mahendra Balla",
+              "Name": "Kartik Mithilesh Mishra",
               "Photo_URL_1__c": "https://mca-cdn.ken42.com/Emerging%20Players/Nishit%20Balla_3_11zon.jpg",
-              "MCA_Registration_Number__c": "M02190"
+              "MCA_Registration_Number__c": "M01114"
             },
             "Base_Price__c": 300000,
             "Winning_Bid__c": 300000,
             "kitty_allocated__c": 0,
-            "Recent_Competitive_Level__c": "Mumbai age group team (under 23 or under 19)"
+            "Recent_Competitive_Level__c": "local club"
           },
           {
             "attributes": {
