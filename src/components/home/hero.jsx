@@ -42,6 +42,30 @@ const Hero = () => {
     return null;
   };
 
+  // Next Day's Ticket
+  // const nextTicketInfo = useMemo(() => {
+  //   const now = new Date();
+
+  //   // Get all ticket dates sorted chronologically
+  //   const sortedDates = Object.keys(ticketLinks).sort(
+  //     (a, b) => new Date(a).getTime() - new Date(b).getTime()
+  //   );
+
+  //   // Find the first date after today
+  //   for (const date of sortedDates) {
+  //     const matchDate = new Date(date + "T00:00:00");
+  //     if (matchDate > now) {
+  //       return {
+  //         date,
+  //         wankhedeUrl: ticketLinks[date]["Wankhede Tickets"],
+  //         dyPatilUrl: ticketLinks[date]["DY Patil Tickets"],
+  //       };
+  //     }
+  //   }
+
+  //   return null;
+  // }, []);
+
   const nextMatch = useMemo(getNextMatch, []);
 
   if (!nextMatch) return <p>No upcoming matches</p>;
@@ -75,6 +99,7 @@ const Hero = () => {
                         NOW LIVE
                       </span>
                     </h1>
+
                     <div className="flex md:flex-row flex-col gap-4 w-[40%]">
                       <a
                         href={routes.OverallTicket}

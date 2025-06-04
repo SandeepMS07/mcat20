@@ -8,6 +8,37 @@ import TitleComponent from "@/components/common/TitleComponent";
 const tabs = ["All", "View Videos", "View Images"];
 
 const items = [
+  {
+    type: "",
+    title: "Dreams do come true:",
+    date: "27 May, 2025",
+    img: "/images/gallery/n5.png",
+  },
+  {
+    type: "",
+    title: "Dreams do come true:",
+    date: "27 May, 2025",
+    img: "/images/gallery/n4.png",
+  },
+   
+   {
+    type: "",
+    title: "Dreams do come true:",
+    date: "27 May, 2025",
+    img: "/images/gallery/n3.png",
+  },
+   {
+    type: "",
+    title: "Dreams do come true:",
+    date: "27 May, 2025",
+    img: "/images/gallery/n1.png",
+  },
+   {
+    type: "",
+    title: "Dreams do come true:",
+    date: "27 May, 2025",
+    img: "/images/gallery/n2.png",
+  },
    {
     type: "",
     title: "Dreams do come true:",
@@ -80,19 +111,20 @@ const items = [
   },
   {
     type: "",
+    title: "Final: SS vs NMP",
+    date: "27 May, 2025",
+    img: "/images/gallery/img3.jpg",
+    views: 1289,
+  },
+  {
+    type: "",
     title: "Match 19: NBB vs ETS",
     date: "22 May, 2025",
     img: "/images/gallery/new6.jpg",
   },
 
   //newly updated galary
-  {
-    type: "",
-    title: "Final: SS vs NMP",
-    date: "27 May, 2025",
-    img: "/images/gallery/img3.jpg",
-    views: 1289,
-  },
+ 
   {
     type: "",
     title: "T20 Mumbai Promo",
@@ -156,6 +188,24 @@ const items = [
     title: "Dreams do come true:",
     date: "27 May, 2025",
     img: "/images/gallery/img11.jpg",
+  },
+  {
+    type: "",
+    title: "Dreams do come true:",
+    date: "27 May, 2025",
+    img: "/images/gallery/n1.png",
+  },
+   {
+    type: "",
+    title: "Dreams do come true:",
+    date: "27 May, 2025",
+    img: "/images/gallery/n2.png",
+  },
+   {
+    type: "",
+    title: "Dreams do come true:",
+    date: "27 May, 2025",
+    img: "/images/gallery/n3.png",
   },
  
 ];
