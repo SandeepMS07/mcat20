@@ -22,7 +22,7 @@ const AboutMCA = () => {
             />
             <div className="relative z-10 px-8 py-6 h-full flex items-center">
               <h2
-                className="capitalize text-xl xl:text-3xl ml-20 italic"
+                className="capitalize text-xl xl:text-3xl md:ml-20 italic"
                 style={{
                   background:
                     "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
