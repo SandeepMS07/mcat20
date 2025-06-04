@@ -58,7 +58,6 @@ const TableTabComponent = () => {
   const teamsInSeason = useMemo(() => {
     const currentSeasonData =
       activeSeason === "season_3"
- 
         ? Array.isArray(standingsSeason3)
           ? standingsSeason3
           : []
@@ -66,17 +65,16 @@ const TableTabComponent = () => {
     const teamNames = currentSeasonData.map(
       (team) => team?.team_name || "Unknown"
     );
- 
+
     return ["All Teams", ...teamNames];
   }, [activeSeason, standingsSeason3]);
 
   const filteredData = useMemo(() => {
     const seasonData =
       activeSeason === "season_3"
- 
         ? Array.isArray(standingsSeason3)
           ? standingsSeason3
-          : [] 
+          : []
         : standingsData[activeSeason] || [];
     return activeTeam === "All Teams"
       ? seasonData
@@ -122,7 +120,7 @@ const TableTabComponent = () => {
       <Hero
         imgUrl={"/images/stats/bg.svg"}
         heading="Standings"
-        subheading="Player Profile"
+        // subheading="Player Profile"
       />
       {}
 
@@ -166,13 +164,11 @@ const TableTabComponent = () => {
                   <StandingsFilter
                     season={activeSeason}
                     team={activeTeam}
- 
                     seasonOptions={[
                       { label: "Season 3", value: "season_3" },
                       { label: "Season 2", value: "season_2" },
                       { label: "Season 1", value: "season_1" },
                     ]}
- 
                     teamOptions={teamsInSeason}
                     onSeasonChange={setActiveSeason}
                     onTeamChange={setActiveTeam}
@@ -254,7 +250,6 @@ const StandingsFilter = ({
           <p className="text-white font-semibold xl:text-lg md:block hidden lg:text-base text-sm mr-2">
             Filter By:
           </p>
- 
 
           <select
             name="season"
@@ -268,7 +263,6 @@ const StandingsFilter = ({
               </option>
             ))}
           </select>
- 
         </div>
 
         <div className="flex flex-row gap-2 items-center">
