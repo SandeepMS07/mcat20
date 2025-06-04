@@ -34,7 +34,7 @@ const page = () => {
   };
   return (
     <>
-      <Hero imgUrl={"/images/stats/bg.svg"} heading="Latest Updates" />
+      <Hero imgUrl={"/images/banner/latest-updates-bg.jpg"} heading="Latest Updates" />
       <div className="section-width section-padding text-black">
         <div>
           <div className="mb-8">
