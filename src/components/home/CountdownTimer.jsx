@@ -59,7 +59,6 @@ const CountdownTimer = ({
   match_no,
   total_matches,
 }) => {
-  console.log("home team" + homeTeam);
   const [timeLeft, setTimeLeft] = useState({
     days: "00",
     hours: "00",
@@ -124,7 +123,7 @@ const CountdownTimer = ({
               teamsLogoSeason3.find((team) => team.team === awayTeam)?.teamLogo
             }
             alt={awayTeam}
-            className={`w-20 ${
+            className={`w-20 p-2 ${
               awayTeam === "SoBo Mumbai Falcons" ? "bg-white" : ""
             }`}
           />
