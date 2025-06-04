@@ -124,7 +124,7 @@ const CountdownTimer = ({
               teamsLogoSeason3.find((team) => team.team === awayTeam)?.teamLogo
             }
             alt={awayTeam}
-            className={`w-20 p-3 ${
+            className={`w-20 p-2 ${
               awayTeam === "SoBo Mumbai Falcons" ? "bg-white" : ""
             }`}
           />

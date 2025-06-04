@@ -11,32 +11,6 @@ import routes from "@/utilis/route";
 import fixtures3 from "@/utilis/fixtures/fixtures3";
 import { useRouter } from "next/navigation";
 
-const ticketLinks = {
-  "2025-06-05": {
-    "DY Patil Tickets":
-      "https://www.district.in/events/t20-mumbai-league-2025-arcs-andheri-vs-aakash-tigers-mws-and-sobo-mumbai-falcons-vs-north-mumbai-panthers-buy-tickets",
-    "Wankhede Tickets":
-      "https://www.district.in/events/t20-mumbai-league-2025-bandra-blasters-vs-eagle-thane-strikers-and-triumph-knights-mne-vs-msc-maratha-royals-in-mumbai-june5-buy-tickets",
-  },
-  "2025-06-06": {
-    "DY Patil Tickets":
-      "https://www.district.in/events/t20-mumbai-league-2025-aakash-tigers-mws-vs-bandra-blasters-and-eagle-thane-strikers-vs-msc-maratha-royals-in-navi-mumbai-june6-buy-tickets",
-    "Wankhede Tickets":
-      "https://www.district.in/events/t20-mumbai-league-2025-sobo-mumbai-falcons-vs-triumph-knights-mne-and-arcs-andheri-vs-north-mumbai-panthers-in-mumbai-june6-buy-tickets",
-  },
-  "2025-06-07": {
-    "DY Patil Tickets":
-      "https://www.district.in/events/t20-mumbai-league-2025-triumph-knights-mne-vs-bandra-blasters-and-msc-maratha-royals-vs-arcs-andheri-in-navi-mumbai-june7-buy-tickets",
-    "Wankhede Tickets":
-      "https://www.district.in/events/t20-mumbai-league-2025-north-mumbai-panthers-vs-aakash-tigers-mws-and-sobo-mumbai-falcons-vs-eagle-thane-strikers-in-mumbai-june7-buy-tickets",
-  },
-  "2025-06-08": {
-    "DY Patil Tickets":
-      "https://www.district.in/events/t20-mumbai-league-2025-msc-maratha-royals-vs-bandra-blasters-and-north-mumbai-panthers-vs-triumph-knights-mne-in-navi-mumbai-june8-buy-tickets",
-    "Wankhede Tickets":
-      "https://www.district.in/events/t20-mumbai-league-2025-eagle-thane-strikers-vs-arcs-andheri-and-aakash-tigers-mws-vs-sobo-mumbai-falcons-in-mumbai-june8-buy-tickets",
-  },
-};
 
 const Hero = () => {
   const router = useRouter();
@@ -69,29 +43,7 @@ const Hero = () => {
     return null;
   };
 
-  // Next Day's Ticket
-  const nextTicketInfo = useMemo(() => {
-    const now = new Date();
-
-    // Get all ticket dates sorted chronologically
-    const sortedDates = Object.keys(ticketLinks).sort(
-      (a, b) => new Date(a).getTime() - new Date(b).getTime()
-    );
-
-    // Find the first date after today
-    for (const date of sortedDates) {
-      const matchDate = new Date(date + "T00:00:00");
-      if (matchDate > now) {
-        return {
-          date,
-          wankhedeUrl: ticketLinks[date]["Wankhede Tickets"],
-          dyPatilUrl: ticketLinks[date]["DY Patil Tickets"],
-        };
-      }
-    }
-
-    return null;
-  }, []);
+  
 
   const nextMatch = useMemo(getNextMatch, []);
 
@@ -126,30 +78,14 @@ const Hero = () => {
                         NOW LIVE
                       </span>
                     </h1>
-                    <div className="flex md:flex-row flex-col gap-4">
+                    <div className="flex md:flex-row flex-col gap-4 w-[40%]">
                       <a
-                        href={nextTicketInfo.wankhedeUrl}
+                        href={"https://link.district.in/DSTRKT/T20MumbaiLeague2025"}
                         target="_blank"
-                        className="btn-primary  flex-1 gap-4 items-center text-xs md:flex hidden justify-center text-left"
-                      >
-                        Wankhede Tickets <br /> Click Here
-                        <span>
-                          <Image
-                            src="/images/home/hero/buttonIcon.svg"
-                            alt="button-icon"
-                            width={24}
-                            height={24}
-                            className="w-5 h-5"
-                          />
-                        </span>
-                      </a>
-                      <a
-                        href={nextTicketInfo.dyPatilUrl}
-                        target="_blank"
-                        className="btn-blue rounded-lg flex-1  gap-4 items-center text-xs md:flex hidden justify-center text-left"
+                        className="btn-blue rounded-lg flex-1  gap-4 items-center text-md md:flex hidden justify-center text-left py-3 px-0"
                         // onClick={openVideo}
                       >
-                        DY Patil Tickets <br /> Click Here
+                        Buy Tickets 
                         <span>
                           <Image
                             src="/images/home/hero/buttonIcon.svg"
