@@ -2,6 +2,7 @@
 import React, { useState, useMemo } from "react";
 import Image from "next/image";
 import standingsData from "@/constant/oldSeason/standings/standings_data_v3.json";
+import StandingsSeason3Data from "@/constant/oldSeason/standings/standings_data_s3.json";
 import CustomTable from "@/components/common/CustomTable";
 import Hero from "@/components/hero/Hero";
 import { teamLogoStats } from "@/utilis/helper";
@@ -35,13 +36,20 @@ const TableTabComponent = () => {
   const [activeTeam, setActiveTeam] = useState("All Teams");
 
   const teamsInSeason = useMemo(() => {
-    const currentSeasonData = standingsData[activeSeason] || [];
+    const currentSeasonData =
+      activeSeason === "season_3"
+        ? StandingsSeason3Data[activeSeason] || []
+        : standingsData[activeSeason] || [];
+
     const teamNames = currentSeasonData.map((team) => team.team_name);
     return ["All Teams", ...teamNames];
   }, [activeSeason]);
 
   const filteredData = useMemo(() => {
-    const seasonData = standingsData[activeSeason] || [];
+    const seasonData =
+      activeSeason === "season_3"
+        ? StandingsSeason3Data[activeSeason] || []
+        : standingsData[activeSeason] || [];
     return activeTeam === "All Teams"
       ? seasonData
       : seasonData.filter((team) => team.team_name === activeTeam);
@@ -118,7 +126,8 @@ const TableTabComponent = () => {
                   <StandingsFilter
                     season={activeSeason}
                     team={activeTeam}
-                    seasonOptions={Object.keys(standingsData)}
+                    seasonOptions={[...Object.keys(standingsData)]}
+                    // seasonOptions={[...Object.keys(standingsData), "season_3"]}
                     teamOptions={teamsInSeason}
                     onSeasonChange={setActiveSeason}
                     onTeamChange={setActiveTeam}
