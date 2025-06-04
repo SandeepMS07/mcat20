@@ -328,39 +328,75 @@ const FixtureFilter = ({
           Filter By:
         </p>
 
-        <select
-          name="season"
-          value={season}
-          onChange={(e) => onSeasonChange(e.target.value)}
-          className={`px-4 ${
-            isMobile ? "py-2" : "xl:py-2 py-1"
-          } border border-[#E07E27] uppercase bg-transparent text-[#E07E27] xl:text-sm text-xs ${
-            isMobile ? "w-full" : "lg:w-40 w-28"
-          }`}
-        >
-          <option value="Season 1">Season 1</option>
-          <option value="Season 2">Season 2</option>
-          <option value="Season 3">Season 3</option>
-        </select>
+        <div className={`relative pl-2 ${isMobile ? "w-full" : "lg:w-40 w-28"}`}>
+          <select
+            name="season"
+            value={season}
+            onChange={(e) => onSeasonChange(e.target.value)}
+            className={`appearance-none px-4 ${
+              isMobile ? "py-2" : "xl:py-2 py-1"
+            } border border-[#E07E27] uppercase bg-transparent text-[#E07E27] xl:text-sm text-xs w-full rounded`}
+          >
+            <option value="Season 1">Season 1</option>
+            <option value="Season 2">Season 2</option>
+            <option value="Season 3">Season 3</option>
+          </select>
+
+          {/* SVG down arrow */}
+          <div className="pointer-events-none absolute top-1/2 right-3 transform -translate-y-1/2 text-[#E07E27]">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </div>
+        </div>
       </div>
 
       <div className="flex flex-row gap-2 items-center">
-        <select
-          name="team"
-          value={team}
-          onChange={(e) => onTeamChange(e.target.value)}
-          className={`px-4 ${
-            isMobile ? "py-2" : "xl:py-2 py-1"
-          } bg-[#E07E27] uppercase text-white xl:text-sm text-xs ${
-            isMobile ? "w-full" : "lg:w-40 w-28"
-          }`}
-        >
-          {teamOptions.map((t) => (
-            <option key={t} value={t}>
-              {t}
-            </option>
-          ))}
-        </select>
+        <div className={`relative  ${isMobile ? "w-full" : "lg:w-40 w-28"}`}>
+          <select
+            name="team"
+            value={team}
+            onChange={(e) => onTeamChange(e.target.value)}
+            className={`appearance-none px-4 ${
+              isMobile ? "py-2" : "xl:py-2 py-1"
+            } bg-[#E07E27] uppercase text-white xl:text-sm text-xs w-full rounded`}
+          >
+            {teamOptions.map((t) => (
+              <option key={t} value={t}>
+                {t}
+              </option>
+            ))}
+          </select>
+
+          {/* SVG down arrow */}
+          <div className="pointer-events-none absolute top-1/2 right-3 transform -translate-y-1/2 text-white">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
   );

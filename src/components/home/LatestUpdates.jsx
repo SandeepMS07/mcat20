@@ -10,6 +10,14 @@ import routes from "@/utilis/route";
 const tabs = ["All", "Latest", "Reviews", "NewSection"];
 
 const updateItems = [
+    {
+    title:
+      "T20 Mumbai League 2025 to kick off today with Suryakumar Yadav and Shivam Dube in action; here is everything you need to know about Season 3",
+    date: "Mumbai, June 4, 2025",
+    img: "/images/latestUpdates/u4.png",
+    bordered: true,
+    path: "latest-updates/t20-mumbai-league-2025-to-kick-off-today-with-suryakumar-yadav-and-shivam-dube-in-action-here-is-everything-you-need-to-know-about-season-3",
+  },
   {
     title:
       "From Shivam Dube’s 5 sixes in an over to Suryakumar Yadav’s title-winning knock: Top 5 unforgettable moments of T20 Mumbai League",
@@ -26,14 +34,7 @@ const updateItems = [
     bordered: true,
     path: "latest-updates/t20-mumbai-league-caravan-ignites-cricket-passion-at-mumbai-s-iconic-maidans",
   },
-  {
-    title:
-      "MCA reschedules T20 Mumbai League 2025, Wankhede Stadium and DY Patil Stadium to host 23 exciting matches from June 4 to 12",
-    date: "Mumbai, May 20, 2025",
-    img: "/images/latestUpdates/u3.png",
-    bordered: false,
-    path: "latest-updates/mca-reschedules-t20-mumbai-league-2025-wankhede-stadium-and-dy-patil-stadium-to-host-23-exciting-matches-from-june-4-to-12",
-  },
+
 ];
 
 const LatestUpdates = () => {
@@ -57,7 +58,7 @@ const LatestUpdates = () => {
               <div className="w-full top-0 left-0 lg:flex">
                 {/* Left Block */}
                 <div
-                  className="relative xl:flex-[60%] lg:flex-[55%] flex bg-[url('/images/home/latestUpdateImage.jpg')] bg-cover bg-no-repeat bg-center max-lg:h-[400px] cursor-pointer"
+                  className="relative xl:flex-[60%] lg:flex-[55%] flex bg-[url('/images/latestUpdates/update12.jpg')] bg-cover bg-no-repeat bg-center max-lg:h-[400px] cursor-pointer"
                   onClick={() => {
                     router.push(
                       "/latest-updates/mca-reschedules-t20-mumbai-league-2025-wankhede-stadium-and-dy-patil-stadium-to-host-23-exciting-matches-from-june-4-to-12"
@@ -70,13 +71,11 @@ const LatestUpdates = () => {
                   {/* Content on top */}
                   <div className="p-10 bottom-0 max-w-2xl mt-auto relative z-10">
                     <h3 className="text-white xl:text-3xl sm:text-2xl text-xl font-semibold">
-                      MCA reschedules T20 Mumbai League 2025, Wankhede Stadium
-                      and DY Patil Stadium to host 23 exciting matches from June
-                      4 to 12{" "}
+                     T20 Mumbai League 2025 to kick off today with Suryakumar Yadav and Shivam Dube in action; here is everything you need to know about Season 3{" "}
                     </h3>
                     <ul className="list-disc ml-5 text-[#E07E27] xl:text-base text-sm sm:flex gap-8 md:mt-6 mt-2">
-                      <li>T20 Mumbai League 2025 fixtures announced</li>
-                      <li>Mumbai, May 20, 2025</li>
+                      <li>T20 Mumbai League 2025 kick off</li>
+                      <li>Mumbai, June 4, 2025</li>
                     </ul>
                   </div>
                 </div>

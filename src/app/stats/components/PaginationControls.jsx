@@ -23,8 +23,7 @@ export default function PaginationControls({
 
   return (
     <div className="relative py-4 text-white">
-  
-      { /* Background gradient */}
+      {/* Background gradient */}
       <div
         className="bg-[#001B31] w-[100%] border-r-[50px] top-2 border-[#F15A22] h-10 z-10 absolute"
         style={{
@@ -38,48 +37,67 @@ export default function PaginationControls({
         style={{
           clipPath: "polygon(0% 0%, 100% 0%, 97% 100%, 0% 100%)",
         }}
-      >   
-       <div>
-        <span className="md:text-sm text-xs text-white font-normal">Per page:</span>
-        <select
-          value={rowsPerPage}
-          onChange={handleRowsPerPage}
-          className="px-2 py-1 border rounded bg-[#0B1220] md:text-sm text-xs ml-4"
-        >
-          {rowsPerPageOptions.map((opt) => (
-            <option key={opt} value={opt}>
-              {opt}
-            </option>
-          ))}
-        </select>
+      >
+        <div className="flex items-center">
+          <span className="md:text-sm text-xs text-white font-normal">
+            Per page:
+          </span>
+          <div className="relative ml-4 ">
+            <select
+              value={rowsPerPage}
+              onChange={handleRowsPerPage}
+              className="appearance-none px-6 py-1 border rounded bg-[#0B1220] text-white md:text-sm text-xs w-full"
+            >
+              {rowsPerPageOptions.map((opt) => (
+                <option key={opt} value={opt}>
+                  {opt}
+                </option>
+              ))}
+            </select>
 
+            {/* Custom Down Arrow SVG */}
+            <div className="pointer-events-none absolute top-1/2 right-2 transform -translate-y-1/2 text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </div>
+          </div>
         </div>
 
         {/* Page info */}
-      <div className="md:text-sm text-xs text-white ">
-        {start} – {end} of {count}
-      </div>
+        <div className="md:text-sm text-xs text-white ">
+          {start} – {end} of {count}
+        </div>
 
-      {/* Prev / Next */}
-      <div className="flex items-center gap-2 md:text-sm text-xs md:mr-[3rem]">
-        <button
-          onClick={handlePrev}
-          disabled={page === 0}
-          className="px-3 py-1 border rounded disabled:opacity-50"
-        >
-          Prev
-        </button>
-        <button
-          onClick={handleNext}
-          disabled={page >= totalPages - 1}
-          className="px-3 py-1 border rounded disabled:opacity-50"
-        >
-          Next
-        </button>
+        {/* Prev / Next */}
+        <div className="flex items-center gap-2 md:text-sm text-xs md:mr-[3rem]">
+          <button
+            onClick={handlePrev}
+            disabled={page === 0}
+            className="px-3 py-1 border rounded disabled:opacity-50"
+          >
+            Prev
+          </button>
+          <button
+            onClick={handleNext}
+            disabled={page >= totalPages - 1}
+            className="px-3 py-1 border rounded disabled:opacity-50"
+          >
+            Next
+          </button>
+        </div>
       </div>
-      </div>
-
-      
     </div>
   );
 }
