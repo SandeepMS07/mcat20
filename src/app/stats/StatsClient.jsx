@@ -135,7 +135,7 @@ const PlayerTable = ({ selected, onPlayerSelect, selectedPlayer, data }) => {
         ></div>
 
         <table className="w-full table-auto border-collapse text-sm">
-          <thead
+          <div
             className="bg-[#999FA4] m-1 italic z-50 relative mb-4 mr-2 custom-heading-border"
             style={{
               clipPath: "polygon(0% 0%, 100% 0%, 97% 100%, 0% 100%)",
@@ -155,7 +155,7 @@ const PlayerTable = ({ selected, onPlayerSelect, selectedPlayer, data }) => {
                 </HeaderCell>
               ))}
             </div>
-          </thead>
+          </div>
 
           <tbody className="text-[#D8D8D8]">
             {data.map((player) => {
