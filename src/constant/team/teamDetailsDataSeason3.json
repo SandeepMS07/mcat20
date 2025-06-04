@@ -84,7 +84,7 @@
                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2G8HYAU"
               },
               "Name": "Hitesh Kadam",
-              "Photo_URL_1__c": "https://mca-cdn.ken42.com/sagar_mishra_27_11zon.jpg",
+              "Photo_URL_1__c": "",
               "MCA_Registration_Number__c": "M00264"
             },
             "Base_Price__c": 200000,
@@ -259,7 +259,7 @@
                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2KIjYAM"
               },
               "Name": "Karan Ravidas More",
-              "Photo_URL_1__c": "https://mca-cdn.ken42.com/Senior_Players/Aayush%20Mhatre_4_11zon.jpeg",
+              "Photo_URL_1__c": null,
               "MCA_Registration_Number__c": "M01572"
             },
             "Base_Price__c": 500000,
@@ -527,7 +527,7 @@
                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2KIdYAM"
               },
               "Name": "Arjun Jayswal",
-              "Photo_URL_1__c": "https://mca-cdn.ken42.com/Emerging%20Players/Abhigyan%20Kundu_2_11zon.jpg",
+              "Photo_URL_1__c": null,
               "MCA_Registration_Number__c": "MCAA0051"
             },
             "Base_Price__c": 300000,
@@ -902,7 +902,7 @@
                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2GshYAE"
               },
               "Name": "Harsh Rohit Rane",
-              "Photo_URL_1__c": "https://mca-cdn.ken42.com/Senior_Players/Tanush%20Kotian_33_11zon.jpeg",
+              "Photo_URL_1__c": null,
               "MCA_Registration_Number__c": "M00734"
             },
             "Base_Price__c": 500000,
@@ -1838,7 +1838,7 @@
                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2FxFYAU"
               },
               "Name": "Saksham Swayam Parashar",
-              "Photo_URL_1__c": "https://mca-cdn.ken42.com/Senior_Players/Arman%20Jaffer_7_11zon.jpg",
+              "Photo_URL_1__c": null,
               "MCA_Registration_Number__c": "M00331"
             },
             "Base_Price__c": 500000,
@@ -1863,7 +1863,7 @@
                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001l9mA6YAI"
               },
               "Name": "Rohan Ravindra Raje",
-              "Photo_URL_1__c": "https://mca-cdn.ken42.com/tushar_deshpande_39_11zon.jpg",
+              "Photo_URL_1__c": null,
               "MCA_Registration_Number__c": "M01549"
             },
             "Base_Price__c": 2000000,
@@ -2399,7 +2399,7 @@
                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001l9mA5YAI"
               },
               "Name": "Siddhant Singh",
-              "Photo_URL_1__c": "https://mca-cdn.ken42.com/sarfaraz_khan_29_11zon.jpg",
+              "Photo_URL_1__c": null,
               "MCA_Registration_Number__c": "M00341"
             },
             "Base_Price__c": 2000000,
@@ -2967,7 +2967,7 @@
                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2FuaYAE"
               },
               "Name": "Amit Pandey",
-              "Photo_URL_1__c": "https://mca-cdn.ken42.com/Emerging%20Players/Nutan%20Goel_4_11zon.jpeg",
+              "Photo_URL_1__c": null,
               "MCA_Registration_Number__c": "M06550"
             },
             "Base_Price__c": 300000,
@@ -3092,7 +3092,7 @@
                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001l9mA8YAI"
               },
               "Name": "Vinay Suresh Kunwar ",
-              "Photo_URL_1__c": "https://mca-cdn.ken42.com/Icon_Players/Shardul%20Thakur_4_11zon.jpg",
+              "Photo_URL_1__c": null,
               "MCA_Registration_Number__c": "M01584"
             },
             "Base_Price__c": 2000000,
@@ -3635,7 +3635,7 @@
                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2GM2YAM"
               },
               "Name": "Kartik Mithilesh Mishra",
-              "Photo_URL_1__c": "https://mca-cdn.ken42.com/Emerging%20Players/Nishit%20Balla_3_11zon.jpg",
+              "Photo_URL_1__c": null,
               "MCA_Registration_Number__c": "M01114"
             },
             "Base_Price__c": 300000,
