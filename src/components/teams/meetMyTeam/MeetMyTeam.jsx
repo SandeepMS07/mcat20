@@ -58,11 +58,11 @@ const MeetMyTeam = ({ data }) => {
 
   return (
     <div className="bg-white relative">
-      <img
+      {/* <img
         src="/images/elements/section-element.png"
         className="absolute right-0 -top-[11.1%] md:block hidden responsive-top"
         alt="element"
-      />
+      /> */}
       <img
         src="/images/elements/section-element.png"
         className="absolute left-0 bottom-0 rotate-180 md:block hidden"
