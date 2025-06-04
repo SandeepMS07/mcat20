@@ -1,12 +1,13 @@
 "use client";
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import Image from "next/image";
 import standingsData from "@/constant/oldSeason/standings/standings_data_v3.json";
 import CustomTable from "@/components/common/CustomTable";
 import Hero from "@/components/hero/Hero";
-import { teamLogoStats } from "@/utilis/helper";
+import { season3TeamLogo, teamLogoStats, teamShortName } from "@/utilis/helper";
 import TitleComponent from "@/components/common/TitleComponent";
 import { DropDown } from "@/components/common/DropDown";
+import { getStandings } from "../api/serverApi";
 
 const headers = [
   "RANK",
@@ -31,44 +32,86 @@ const rowStyles = {
 };
 
 const TableTabComponent = () => {
-  const [activeSeason, setActiveSeason] = useState("season_1");
+  const [activeSeason, setActiveSeason] = useState("season_3");
   const [activeTeam, setActiveTeam] = useState("All Teams");
+  const [standingsSeason3, setStandingsSeason3] = useState();
+  const [loading, setLoading] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      const [standingsRes] = await Promise.all([getStandings()]);
+      setStandingsSeason3(standingsRes?.data?.season_3 || []);
+      setLoading(false);
+    };
+
+    fetchData();
+  }, []);
+
+  // const teamsInSeason = useMemo(() => {
+  //   const currentSeasonData = standingsData[activeSeason] || [];
+  //   const teamNames = currentSeasonData.map((team) => team.team_name);
+  //   return ["All Teams", ...teamNames];
+  // }, [activeSeason]);
 
   const teamsInSeason = useMemo(() => {
-    const currentSeasonData = standingsData[activeSeason] || [];
-    const teamNames = currentSeasonData.map((team) => team.team_name);
+    const currentSeasonData =
+      activeSeason === "season_3"
+        ? Array.isArray(standingsSeason3)
+          ? standingsSeason3
+          : []
+        : standingsData[activeSeason] || [];
+    const teamNames = currentSeasonData.map(
+      (team) => team?.team_name || "Unknown"
+    );
     return ["All Teams", ...teamNames];
-  }, [activeSeason]);
+  }, [activeSeason, standingsSeason3]);
 
   const filteredData = useMemo(() => {
-    const seasonData = standingsData[activeSeason] || [];
+    const seasonData =
+      activeSeason === "season_3"
+        ? Array.isArray(standingsSeason3)
+          ? standingsSeason3
+          : []
+        : standingsData[activeSeason] || [];
     return activeTeam === "All Teams"
       ? seasonData
-      : seasonData.filter((team) => team.team_name === activeTeam);
-  }, [activeSeason, activeTeam]);
+      : seasonData.filter((team) => team?.team_name === activeTeam);
+  }, [activeSeason, activeTeam, standingsSeason3]);
 
-  const tableData = filteredData.map((team, index) => ({
-    RANK: index + 1,
-    TEAM: (
-      <div className="flex items-center gap-2 min-w-40 text-left">
-        <div className="w-6 h-6 flex justify-center items-center mr-2">
-          <img
-            src={teamLogoStats[team?.team_name]}
-            alt="logo"
-            className="object-contain w-full h-full"
-          />
+  // const filteredData = useMemo(() => {
+  //   const seasonData = standingsData[activeSeason] || [];
+  //   return activeTeam === "All Teams"
+  //     ? seasonData
+  //     : seasonData.filter((team) => team.team_name === activeTeam);
+  // }, [activeSeason, activeTeam]);
+
+  const tableData = filteredData.map((team, index) => {
+    const teamLogo = season3TeamLogo[team?.team_name] || "";
+    const teamName = teamShortName[team?.team_name] || "";
+    return {
+      RANK: index + 1,
+      TEAM: (
+        <div className="flex items-center gap-2 min-w-40 text-left">
+          <div className="w-6 h-6 flex justify-center items-center mr-2">
+            <img
+              src={teamLogo}
+              alt="logo"
+              className="object-contain w-full h-full"
+            />
+          </div>
+          {teamName}
         </div>
-        {team.team_name}
-      </div>
-    ),
-    MP: team.played,
-    WON: team.won,
-    LOST: team.lost,
-    TIED: team.tied,
-    "N/R": team.no_result,
-    "NET RR": team.net_run_rate,
-    PTS: team.points,
-  }));
+      ),
+      MP: team.played,
+      WON: team.won,
+      LOST: team.lost,
+      TIED: team.tied,
+      "N/R": team.no_result,
+      "NET RR": team.net_run_rate,
+      PTS: team.points,
+    };
+  });
 
   return (
     <div className="w-full bg-white">
@@ -77,6 +120,7 @@ const TableTabComponent = () => {
         heading="Standings"
         subheading="Player Profile"
       />
+      {}
 
       <div className="section-width section-padding">
         <div className="flex lg:flex-row flex-col justify-between lg:items-center pb-6 ">
@@ -112,13 +156,17 @@ const TableTabComponent = () => {
                     color: "transparent", // ensure text color is transparent
                   }}
                 >
-                  STANDINGS 
+                  STANDINGS
                 </h3>
                 <div className="hidden md:flex xl:mr-14 mr-8 max-md:mt-4 w-fit">
                   <StandingsFilter
                     season={activeSeason}
                     team={activeTeam}
-                    seasonOptions={Object.keys(standingsData)}
+                    seasonOptions={[
+                      { label: "Season 3", value: "season_3" },
+                      { label: "Season 2", value: "season_2" },
+                      { label: "Season 1", value: "season_1" },
+                    ]}
                     teamOptions={teamsInSeason}
                     onSeasonChange={setActiveSeason}
                     onTeamChange={setActiveTeam}
@@ -150,13 +198,23 @@ const TableTabComponent = () => {
           <StandingsFilter
             season={activeSeason}
             team={activeTeam}
-            seasonOptions={Object.keys(standingsData)}
+            seasonOptions={[
+              { label: "Season 3", value: "season_3" },
+              { label: "Season 2", value: "season_2" },
+              { label: "Season 1", value: "season_1" },
+            ]}
             teamOptions={teamsInSeason}
             onSeasonChange={setActiveSeason}
             onTeamChange={setActiveTeam}
           />
         </div>
-        {tableData.length > 0 ? (
+        {loading ? (
+          <div className="flex justify-center py-10">
+            <p className="text-orange-500 text-lg font-semibold">
+              Loading standings...
+            </p>
+          </div>
+        ) : tableData.length > 0 ? (
           <CustomTable
             headers={headers}
             data={tableData}
@@ -190,6 +248,7 @@ const StandingsFilter = ({
           <p className="text-white font-semibold xl:text-lg md:block hidden lg:text-base text-sm mr-2">
             Filter By:
           </p>
+
           <select
             name="season"
             value={season}
@@ -197,8 +256,8 @@ const StandingsFilter = ({
             className="px-4 xl:py-2 py-1 border border-[#E07E27] uppercase bg-transparent text-[#E07E27] xl:text-sm text-xs lg:w-40 w-28"
           >
             {seasonOptions.map((option) => (
-              <option key={option} value={option}>
-                {option.replace(/_/g, " ").toUpperCase()}
+              <option key={option.value} value={option.value}>
+                {option.label}
               </option>
             ))}
           </select>

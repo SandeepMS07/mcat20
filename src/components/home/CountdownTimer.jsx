@@ -59,7 +59,6 @@ const CountdownTimer = ({
   match_no,
   total_matches,
 }) => {
-  console.log("home team" + homeTeam);
   const [timeLeft, setTimeLeft] = useState({
     days: "00",
     hours: "00",
