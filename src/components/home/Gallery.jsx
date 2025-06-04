@@ -19,20 +19,20 @@ const items = [
     date: "27 May, 2025",
     img: "/images/gallery/n4.png",
   },
-   
-   {
+
+  {
     type: "",
     title: "Dreams do come true:",
     date: "27 May, 2025",
     img: "/images/gallery/n3.png",
   },
-   {
+  {
     type: "",
     title: "Dreams do come true:",
     date: "27 May, 2025",
     img: "/images/gallery/n1.png",
   },
-   {
+  {
     type: "",
     title: "Dreams do come true:",
     date: "27 May, 2025",
@@ -72,7 +72,6 @@ const items = [
     img: "/images/gallery/new11.jpeg",
     views: 1500,
   },
- 
 ];
 
 const Gallery = () => {
@@ -216,9 +215,9 @@ const Gallery = () => {
   return (
     <div className="bg-[url('/images/home/latestUpdateBg.png')] bg-cover bg-center bg-no-repeat py-20">
       <div className="section-width">
-        <TitleComponent 
-          orange 
-          title={"Gallery"} 
+        <TitleComponent
+          orange
+          title={"Gallery"}
           button
           buttonLink={routes.gallery}
           buttonText="View Gallery"
@@ -346,27 +345,27 @@ const Gallery = () => {
           </div>
         </div>
 
-       {/* Mobile button - show only on mobile, hide on larger screens */}
-<Link
-  href={routes.gallery || "#"}
-  className="md:hidden flex items-center btn-primary gap-2 w-fit mx-auto mt-6"
-  // style={{
-  //   background: "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
-  //   WebkitBackgroundClip: "text",
-  //   WebkitTextFillColor: "transparent",
-  //   backgroundClip: "text",
-  //   color: "transparent",
-  // }}
->
-  View Gallery
-  <Image
-    src="/images/home/hero/buttonIcon.svg"
-    alt="button-icon"
-    width={24}
-    height={24}
-    className="w-5 h-5"
-  />
-</Link>
+        {/* Mobile button - show only on mobile, hide on larger screens */}
+        <Link
+          href={routes.gallery || "#"}
+          className="md:hidden flex items-center btn-primary gap-2 w-fit mx-auto mt-6"
+          // style={{
+          //   background: "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
+          //   WebkitBackgroundClip: "text",
+          //   WebkitTextFillColor: "transparent",
+          //   backgroundClip: "text",
+          //   color: "transparent",
+          // }}
+        >
+          View Gallery
+          <Image
+            src="/images/home/hero/buttonIcon.svg"
+            alt="button-icon"
+            width={24}
+            height={24}
+            className="w-5 h-5"
+          />
+        </Link>
       </div>
     </div>
   );
