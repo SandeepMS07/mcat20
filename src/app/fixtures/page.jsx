@@ -136,6 +136,10 @@ export default function Page() {
     }
   };
 
+  const handleLoad = () => {
+    setLoading(false);
+  }; 
+
   return (
     <>
       <div className="w-full bg-white">
@@ -249,26 +253,55 @@ export default function Page() {
               />
             </div>
 
-            {/* <div style={{ width: "100%", height: "950px", border: "none" }}>
-              <iframe
-                srcDoc={`
-                <!DOCTYPE html>
-                <html>
-                  <head>
-                    <script src="https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/app.js"></script>
-                  </head>
-                  <body>
-                    <div class="smmumbaiwidget"></div>
-                  </body>
-                </html>
-              `}
-                style={{ width: "100%", height: "100%", border: "none" }}
-                title="SMMumbai Widget"
-              />
-            </div> */}
+            {season == "Season 3" ? (
+              <div
+                style={{
+                  width: "100%",
+                  height: "100vh",
+                  border: "none",
+                }}
+              >
+                <iframe
+                  srcDoc={`
+                  <!DOCTYPE html>
+                  <html>
+                    <head>
+                      <style>
+                          html, body {
+                            margin: 0;
+                            padding: 0;
+                            overflow: scroll; /* Allows scrolling */
+                          }
+
+
+                          /* Hide scrollbars */
+                          ::-webkit-scrollbar {
+                            display: none;
+                          }
+
+
+                          body {
+                            -ms-overflow-style: none;  /* IE and Edge */
+                            scrollbar-width: none;     /* Firefox */
+                          }
+                      </style>
+                      <script src="https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/app.js"></script>
+                    </head>
+                    <body>
+                      <div class="smmumbaiwidget"></div>
+                    </body>
+                  </html>
+                `}
+                  style={{ width: "100%", height: "100%", border: "none" }}
+                  onLoad={handleLoad}
+                  title="SMMumbai Widget"
+                />
+              </div>
+            ) : (
+              <>{renderFixturesComponent()}</>
+            )}
 
             {/* Render the appropriate fixtures component */}
-            {renderFixturesComponent()}
           </div>
         </div>
       </div>
