@@ -76,7 +76,7 @@ const HomeStandingsSection = ({ data }) => {
       <div className="section-width padding-bottom pt-5">
         <TitleComponent
           hideButtonOnMobile
-          title="standings Season 2"
+          title="standings Season 3"
           button
           buttonLink={routes.standing}
         />
