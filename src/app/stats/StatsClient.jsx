@@ -542,7 +542,7 @@ export default function StatsClient({ statsData }) {
                     STATS
                   </h3>
 
-                  <div className="hidden flex-col md:flex-row lg:flex xl:mr-14 mr-8 max-md:mt-4 w-fit">
+                  <div className="hidden flex-col md:flex-row lg:flex xl:mr-14 mr-8 max-md:mt-4 w-fit gap-4">
                     <DropDown
                       label="Season"
                       options={seasons}

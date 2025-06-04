@@ -112,7 +112,7 @@ const TableTabComponent = () => {
                     color: "transparent", // ensure text color is transparent
                   }}
                 >
-                  STANDINGS 
+                  STANDINGS
                 </h3>
                 <div className="hidden md:flex xl:mr-14 mr-8 max-md:mt-4 w-fit">
                   <StandingsFilter
@@ -190,33 +190,73 @@ const StandingsFilter = ({
           <p className="text-white font-semibold xl:text-lg md:block hidden lg:text-base text-sm mr-2">
             Filter By:
           </p>
-          <select
-            name="season"
-            value={season}
-            onChange={(e) => onSeasonChange(e.target.value)}
-            className="px-4 xl:py-2 py-1 border border-[#E07E27] uppercase bg-transparent text-[#E07E27] xl:text-sm text-xs lg:w-40 w-28"
-          >
-            {seasonOptions.map((option) => (
-              <option key={option} value={option}>
-                {option.replace(/_/g, " ").toUpperCase()}
-              </option>
-            ))}
-          </select>
+          <div className="relative lg:w-40 w-28">
+            <select
+              name="season"
+              value={season}
+              onChange={(e) => onSeasonChange(e.target.value)}
+              className="appearance-none px-4 xl:py-2 py-1 border border-[#E07E27] uppercase bg-transparent text-[#E07E27] xl:text-sm text-xs w-full rounded"
+            >
+              {seasonOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option.replace(/_/g, " ").toUpperCase()}
+                </option>
+              ))}
+            </select>
+
+            {/* Custom SVG Down Arrow */}
+            <div className="pointer-events-none absolute top-1/2 right-3 transform -translate-y-1/2 text-[#E07E27]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </div>
+          </div>
         </div>
 
         <div className="flex flex-row gap-2 items-center">
-          <select
-            name="team"
-            value={team}
-            onChange={(e) => onTeamChange(e.target.value)}
-            className="px-4 xl:py-2 py-1 bg-[#E07E27] uppercase text-white xl:text-sm text-xs lg:w-40 w-28"
-          >
-            {teamOptions.map((t) => (
-              <option key={t} value={t}>
-                {t}
-              </option>
-            ))}
-          </select>
+          <div className="relative lg:w-40 w-28">
+            <select
+              name="team"
+              value={team}
+              onChange={(e) => onTeamChange(e.target.value)}
+              className="appearance-none px-4 xl:py-2 py-1 bg-[#E07E27] uppercase text-white xl:text-sm text-xs w-full rounded"
+            >
+              {teamOptions.map((t) => (
+                <option key={t} value={t}>
+                  {t}
+                </option>
+              ))}
+            </select>
+
+            {/* Custom SVG Down Arrow */}
+            <div className="pointer-events-none absolute top-1/2 right-3 transform -translate-y-1/2 text-white">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
     </div>
