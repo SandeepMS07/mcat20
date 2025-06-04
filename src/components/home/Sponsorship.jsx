@@ -66,10 +66,10 @@ const Sponsorship = () => {
             return (
               <div
                 key={index}
-                className={`rounded-xl relative text-white p-4 border border-[#4c5271] ${
+                className={`w-full md:w-[240px]  rounded-xl relative text-white p-4 border border-[#4c5271] ${
                   isLast
                     ? "last:flex-[1_1_100%] md:last:flex-none "
-                    : " md:min-w-[240px]"
+                    : ""
                 }`}
                 style={{
                   background:
