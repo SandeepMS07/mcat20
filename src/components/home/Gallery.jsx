@@ -9,9 +9,40 @@ import routes from "@/utilis/route";
 const items = [
   {
     type: "",
+    title: "Dreams do come true:",
+    date: "27 May, 2025",
+    img: "/images/gallery/n5.png",
+  },
+  {
+    type: "",
+    title: "Dreams do come true:",
+    date: "27 May, 2025",
+    img: "/images/gallery/n4.png",
+  },
+   
+   {
+    type: "",
+    title: "Dreams do come true:",
+    date: "27 May, 2025",
+    img: "/images/gallery/n3.png",
+  },
+   {
+    type: "",
+    title: "Dreams do come true:",
+    date: "27 May, 2025",
+    img: "/images/gallery/n1.png",
+  },
+   {
+    type: "",
+    title: "Dreams do come true:",
+    date: "27 May, 2025",
+    img: "/images/gallery/n2.png",
+  },
+  {
+    type: "",
     title: "Final: SS vs NMP",
     date: "27 May, 2025",
-    img: "/images/gallery/new7.jpeg",
+    img: "/images/gallery/new10.jpeg",
     views: 1289,
   },
   {
@@ -41,12 +72,7 @@ const items = [
     img: "/images/gallery/new11.jpeg",
     views: 1500,
   },
-  {
-    type: "",
-    title: "Match 19: NBB vs ETS",
-    date: "22 May, 2025",
-    img: "/images/gallery/new12.jpeg",
-  },
+ 
 ];
 
 const Gallery = () => {
@@ -57,7 +83,7 @@ const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(null);
 
   const [layoutConfig, setLayoutConfig] = useState([
-    [2, 3, 2],
+    [2, 2, 3],
     [1, 3, 3],
   ]);
 
@@ -77,7 +103,7 @@ const Gallery = () => {
       } else {
         // Desktop layout - original complex grid
         setLayoutConfig([
-          [2, 3, 2],
+          [2, 2, 3],
           [1, 3, 3],
         ]);
       }

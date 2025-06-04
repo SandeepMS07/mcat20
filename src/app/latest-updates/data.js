@@ -421,4 +421,144 @@ When the Mumbai Cricket Association (MCA) launched the T20 Mumbai League, it aim
 <iframe width="560" height="315" src="https://www.youtube.com/embed/C2XHFfjrJKQ?si=tjJKjFn6hAdZ_rGH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 `,
   },
+   {
+    id: 12,
+    date: "Mumbai, June 4, 2025",
+    imgUrl: "/images/latestUpdates/update12.jpg",
+    title:
+      "T20 Mumbai League 2025 to kick off today with Suryakumar Yadav and Shivam Dube in action; here is everything you need to know about Season 3",
+    subTitle: "Season 3 is scheduled to take place at Wankhede Stadium and DY Patil Stadium from June 4 to 12",
+    content: ` The wait is finally over as the highly anticipated T20 Mumbai League 2025 is ready to thrill cricket fans across the country with Season 3 set to begin on Wednesday at the DY Patil Stadium and Wankhede Stadium. Eight dynamic teams will compete in the league, with 23 exciting matches lined up over nine days from June 4 to 12, promising top-quality cricket and unforgettable moments.
+<br/><br/>
+
+Launched in 2018 with the goal of identifying and nurturing a diverse pool of cricketing talent, the T20 Mumbai League, one of India’s leading franchise-based domestic T20 tournaments, has been a stepping stone for several rising stars, including Shivam Dube, Tushar Deshpande and Shams Mulani, who have gone on to shine on bigger stages.
+<br/><br/>
+
+Making a grand return after six years, the league promises high-octane action with a mix of international stars like Suryakumar Yadav, Shreyas Iyer, Shivam Dube and Prithvi Shaw, alongside Mumbai’s brightest young talents such as Musheer Khan, Angkrish Raghuvanshi and Atharva Ankolekar.
+<br/><br/>
+
+<div class="text-black font-bold">Mumbai Cricket Association President Ajinkya Naik said,</div> “The T20 Mumbai League has been a launchpad for many youngsters from Mumbai, igniting countless dreams and hopes. Even as it is only two editions old and currently on the third, our vision has been to bring transformative shifts in the way we see a local league fuelling aspirations for a global stage. The Mumbai stars who are now part of the national team bears testimony to this vision.”
+<br/><br/>
+
+The league will kick off with an exciting clash between ARCS Andheri, with icon player Shivam Dube, and SoBo Mumbai Falcons at the DY Patil Stadium at 10.30 AM. The venue will also host another fixture on the same day, as Triumph Knights Mumbai North East, led by Suryakumar Yadav, take on the Eagle Thane Strikers at 5.30 PM. 
+<br/><br/>
+
+<div class="text-black font-bold">India star and captain of Triumph Knights Mumbai North East, Suryakumar Yadav shared </div>his excitement ahead of the start, “T20 Mumbai League holds a special place for me and I think it is a tremendous opportunity, under the aegis of the MCA for the youngsters. Since debuting in the inaugural 2018 edition, I’ve seen the impact the league can bring across formats - be it India A, Ranji, IPL or the other leagues. With a renewed zeal for the Season 3, we’re going to see some high-octane action and the discovery of some new talent.”
+<br/><br/>
+
+Meanwhile, at the Wankhede Stadium, fans can look forward to exciting matches on the opening day featuring Aakash Tigers Mumbai Western Suburbs going up against Mumbai South Central Maratha Royals at 2.30 PM, followed by a much-anticipated face-off between Bandra Blasters and North Mumbai Panthers, having Prithvi Shaw as their icon player, at 7.30 PM.
+<br/><br/>
+
+The semi-finals and final will take place at the Wankhede Stadium on June 10 and 12 respectively.
+
+Here’s your complete guide to Season 3 of a league that celebrates rising champions and Mumbai’s local cricketing spirit:
+<br/><br/>
+
+<div class="text-black font-bold">About T20 Mumbai League:</div> Aimed at bringing the best local cricket talent of Mumbai under a common umbrella, T20 Mumbai is a league to identify, develop and promote cricketers at the grassroots level. Organized by Mumbai Cricket Association (MCA), T20 Mumbai League will provide more structure to the cricket scene in the city and endeavour to build a platform for bringing the future superstars of the sport together.
+For more information, visit: https://t20mumbai.com/ 
+<br/><br/>
+<div class="text-black font-bold">Face of the League:</div> Rohit Sharma, captain of the Indian team
+<div class="text-black font-bold">When:</div> June 4 to 12
+<div class="text-black font-bold">Venues: </div>Wankhede Stadium, Mumbai & DY Patil Stadium, Navi Mumbai
+<br/><br/>
+<div class="text-black font-bold">Match Timings:</div>
+•	Wankhede Stadium: 2:30 PM & 7:30 PM
+•	DY Patil Stadium: 10:30 AM & 5:30 PM
+•	Semi-finals: June 10 at Wankhede Stadium (2:30 PM & 7:30 PM)
+•	Final: June 12 at Wankhede Stadium (7:30 PM)
+<br/><br/>
+<div class="text-black font-bold">Where to Watch:</div>
+•	TV: Star Sports 1 (English & Hindi), Star Sports 2 (English)
+•	OTT: JioHotstar
+<br/><br/>
+<div class="text-black font-bold">Number of Players:</div> 144 (18 per team)
+<br/><br/>
+<div class="text-black font-bold">How to buy Tickets:</div> ₹100 (Level 1), ₹300 (Level 2), ₹400 (Garware Pavilion Level 2), available online on District by Zomato (https://link.district.in/DSTRKT/MumbaiT20Match1)
+<br/><br/>
+<div class="text-black font-bold">Teams and Complete Squads</div>
+<div class="text-black font-bold">1. Aakash Tigers Mumbai Western Suburbs</div>
+Operator: World Star Premier League LLP
+Players: Siddhant Singh, Siddharth Akre, Karan Shah, Zaid Patankar, Sufiyan Shaikh, Arjun Dani, Yash Dube, Ayush Jethwa, Salman Khan, Ayaz Ahmed Afzal Ahmed Kh, Mahamad Yaseen Mahamad Yusuf Saudagar, Sylvester Dsouza, Hardik Tamore, Sayed Mohd Hashim, Jay Bista, Kruthik Hanagavadi, Vasim Khan, Shams Mulani
+<br/><br/>
+<div class="text-black font-bold">2. ARCS Andheri</div>
+Operator: ARCS Sports & Entertainment Private Limited
+Players: Shivam Dube, Akhil Herwadkar, Himanshu Singh, Siddid Tiwari, Ajay Mishra, Raza Mirza, Monil Soni, Onkar Haresh Jadhav, Aishwary Surve, Deepak Shetty, Badrey Alam, Pragnesh Kanpillewar, Prasoon Singh, Prasad Pawar, Saksham Jha, Musheer Khan, Sandeep Kunchikor, Moin Khan
+<br/><br/>
+<div class="text-black font-bold">3. Bandra Blasters</div>
+Operator: PK Sports Ventures Private Limited
+Players: Ajinkya Rahane, Atif Attarwala, Akash Anand, Parth Ankolekar, Karsh Kothari, Naman Pushpak, Om Keshkamat, Sagarr Chhabriaa, Suved Parkar, Vikrant Auti, Royston Dias, Atharva Poojari, Rishit Patwal, Tushar Singh, Mohammed Adeeb Wasiul Usmani, Dhanit Raut, Tatsat Singh, Dhrumil Matkar
+<br/><br/>
+<div class="text-black font-bold">4. Eagle Thane Strikers</div>
+Operator: Eagle Infra India Ltd.
+Players: Harsh Tanna, Anish Chaudhery, Amit Pandey, Varun Lavande, Sairaj Patil, Aryan Chauhan, Aaryaraj Nikam, Shashikant Kadam, Amartya Raje, Harsh Salunkhe, Ajit Yadav, Shashank Attarde, Kaushik Chikhalikar, Atharva Ankolekar, Ankur Singh, Shivansh Singh, Vinay Kunwar, Onkar Tarmale
+<br/><br/>
+<div class="text-black font-bold">5. Mumbai South Central Maratha Royals</div>
+Operator: Royal Edge Sports & Entertainment
+Players: Yash Gadia, Rohan Ghag, Khan Awais Naushad, Aditya Dhumal, Chinmay Sutar, Irfan Umair, Sahil Jadhav, Vaibhav Mali, Sachin Yadav, Parag Khanapurkar, Varun Rao, Maxwell David Swaminathan, Naman Jhawar, Shashwat Jagtap, Ajay Singh Janu, Siddhessh Lad, Saksham Parashar, Rohan Raje
+<br/><br/>
+<div class="text-black font-bold">6. North Mumbai Panthers</div>
+Operator: Horizon Sports India Private Limited
+Players: Prithvi Shaw, Prince Badiani, Arjun Jayswal, Ayush Vartak, Rahul Sawant, Khizar Anwar Dafedar, Pratik Mishra, Swapnil Salvi, Alim Shaikh, Mohit Avasthi, Harshal Jadhav, Divyaansh Saxena, Dharsh Murkute, Gaurav Jathar, Pravesh Pal, Muzzamil Kadri, Harsh Rane, Sourabh Singh
+<br/><br/>
+<div class="text-black font-bold">7. SoBo Mumbai Falcons</div>
+Operator: Roadway Solutions India Infra Ltd.
+Players: Shreyas Iyer, Amogh Bhatkal, Kush Kariya, Sai Chavan, Mayuresh Tandel, Ishan Mulchandani, Shreyanssh Rai, Prasad Patil, Angkrish Raghuvanshi, Prem Devkar, Nikhil Giri, Akash Parkar, Kartik Mishra, Siddharth Raut, Harsh Aghav, Vinayak Bhoir, Amol Tanpure, Yash Dicholkar
+<br/><br/>
+<div class="text-black font-bold">8. Triumph Knights Mumbai North East</div>
+Operator: Transcon Triumph Knights Private Limited
+Players: Suryakumar Yadav, Sidhaant Aadhhathrao, Jay Jain, Hrishikesh Gore, Yash Chavan, Jigar Rana, Shreyas Gurav, Makarand Patil, Ayush Mhatre, Parikshit Valsangkar, Parth Naik, Suryansh Shedge, Bharat Patil, Shikhar Thakur, Minadd Manjrekar, Shivam Nirupam, Hitesh Kadam, Akash Pawar
+<br/><br/>
+<div class="text-black font-bold">Playing Format</div>Playing Format
+•	Each team plays five other teams in the league stage.
+•	The top 4 teams qualify for the semi-finals, with winners progressing to the grand final.
+<br/><br/>
+<div class="text-black font-bold">Season 3 Auction Highlights:</div>
+•	Franchises spent over ₹7.79 crore for 144 players.
+<br/><br/>
+<div class="text-black font-bold">Top buys:</div>
+•	Atharva Ankolekar – ₹16.25 lakh (Eagle Thane Strikers)
+•	Musheer Khan – ₹15 lakh (ARCS Andheri)
+•	Sairaj Patil – ₹15 lakh (Eagle Thane Strikers)
+•	Angkrish Raghuvanshi – ₹14 lakh (SoBo Mumbai Falcons)
+•	Shams Mulani – ₹14 lakh (Aakash Tigers Mumbai Western Suburbs
+<br/><br/>
+<div class="text-black font-bold">T20 Mumbai League 2025 Fixtures</div>
+<div class="text-black font-bold">Jun 04</div>
+•	10:30 AM - Arcs Andheri vs Sobo Mumbai Falcons at DY Patil Stadium
+•	2:30 PM - Aakash Tigers Mumbai Western Suburbs vs Mumbai South Central Maratha Royals at Wankhede Stadium
+•	5:30 PM - Eagle Thane Strikers vs Triumph Knights Mumbai North East at DY Patil Stadium
+•	7:30 PM - Bandra Blasters vs North Mumbai Panthers at Wankhede Stadium
+<br/><br/>
+<div class="text-black font-bold">Jun 05</div>
+•	10:30 AM - Arcs Andheri vs Aakash Tigers Mumbai Western Suburbs at DY Patil Stadium
+•	2:30 PM - Bandra Blasters vs Eagle Thane Strikers at Wankhede Stadium
+•	5:30 PM - Sobo Mumbai Falcons vs North Mumbai Panthers at DY Patil Stadium
+•	7:30 PM - Triumph Knights Mumbai North East vs Mumbai South Central Maratha Royals at Wankhede Stadium
+<br/><br/>
+<div class="text-black font-bold">Jun 06</div>
+•	10:30 AM - Aakash Tigers Mumbai Western Suburbs vs Bandra Blasters at DY Patil Stadium
+•	2:30 PM - Sobo Mumbai Falcons vs Triumph Knights Mumbai North East at Wankhede Stadium
+•	5:30 PM - Eagle Thane Strikers vs Mumbai South Central Maratha Royals at DY Patil Stadium
+•	7:30 PM - Arcs Andheri vs North Mumbai Panthers at Wankhede Stadium
+<br/><br/>
+<div class="text-black font-bold">Jun 07</div>
+•	10:30 AM - Triumph Knights Mumbai North East vs Bandra Blasters at DY Patil Stadium
+•	2:30 PM - North Mumbai Panthers vs Aakash Tigers Mumbai Western Suburbs at Wankhede Stadium
+•	5:30 PM - Mumbai South Central Maratha Royals vs Arcs Andheri at DY Patil Stadium
+•	7:30 PM - Sobo Mumbai Falcons vs Eagle Thane Strikers at Wankhede Stadium
+<br/><br/>
+<div class="text-black font-bold">Jun 08</div>
+•	10:30 AM - Mumbai South Central Maratha Royals vs Bandra Blasters at DY Patil Stadium
+•	2:30 PM - Eagle Thane Strikers vs Arcs Andheri at Wankhede Stadium
+•	5:30 PM - North Mumbai Panthers vs Triumph Knights Mumbai North East at DY Patil Stadium
+•	7:30 PM - Aakash Tigers Mumbai Western Suburbs vs Sobo Mumbai Falcons at Wankhede Stadium
+<br/><br/>
+<div class="text-black font-bold">Jun 10 - Semi-Finals</div>
+•	2:30 PM - Position 1 vs Position 4 at Wankhede Stadium
+•	7:30 PM - Position 2 vs Position 3 at Wankhede Stadium
+<br/><br/>
+<div class="text-black font-bold">Jun 12 - Final</div>
+•	7:30 PM - SF Winner 1 vs SF Winner 2 at Wankhede Stadium
+`,
+  },
 ];
