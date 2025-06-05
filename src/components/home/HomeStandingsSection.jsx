@@ -35,9 +35,11 @@ const rowStyles = {
 
 const HomeStandingsSection = ({ data }) => {
   const season3 = Array.isArray(data?.data?.season_3) ? data.data.season_3 : [];
-  const tableData = season3.map((team, index) => {
-    const teamLogo = season3TeamLogo[team?.team_name] || "";
-    const teamName = teamShortName[team?.team_name] || "";
+  const tableData =
+  data?.data?.season_3?.points?.map((team, index) => {
+    const teamLogo = team?.TeamLogo || "";
+    const teamName = team?.TeamName || "";
+
     return {
       RANK: index + 1,
       TEAM: (
@@ -52,15 +54,15 @@ const HomeStandingsSection = ({ data }) => {
           {teamName}
         </div>
       ),
-      MP: team?.played || 0,
-      WON: team?.won || 0,
-      LOST: team?.lost || 0,
-      TIED: team?.tied || 0,
-      "N/R": team?.no_result || 0,
-      "NET RR": team?.net_run_rate || 0,
-      PTS: team?.points || 0,
+      MP: parseInt(team?.Matches || "0"),
+      WON: parseInt(team?.Wins || "0"),
+      LOST: parseInt(team?.Loss || "0"),
+      TIED: parseInt(team?.Tied || "0"),
+      "N/R": parseInt(team?.NoResult || "0"),
+      "NET RR": parseFloat(team?.NetRunRate || "0").toFixed(3),
+      PTS: parseInt(team?.Points || "0"),
     };
-  });
+  }) || [];
 
   return (
     <div className="pt-20 relative">
