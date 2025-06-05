@@ -48,7 +48,7 @@ export const getStandings = async () => {
     const res = await axios.get("/v1/live/season3/standings");
     return res.data;
   } catch (err) {
-    console.error("Error in getVideos:", err);
+    console.error("Error in getStandings:", err);
     return null;
   }
 };
