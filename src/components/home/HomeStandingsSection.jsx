@@ -34,34 +34,38 @@ const rowStyles = {
 };
 
 const HomeStandingsSection = ({ data }) => {
-  const season3 = Array.isArray(data?.data?.season_3) ? data.data.season_3 : [];
-  const tableData = season3.map((team, index) => {
-    const teamLogo = season3TeamLogo[team?.team_name] || "";
-    const teamName = teamShortName[team?.team_name] || "";
- 
-    return {
-      RANK: index + 1,
-      TEAM: (
-        <div className="flex items-center gap-2 min-w-40 text-left">
-          <div className="w-6 h-6 flex justify-center items-center mr-2">
-            <img
-              src={teamLogo}
-              alt="logo"
-              className="object-contain w-full h-full"
-            />
+  console.log(data, "F;kdsl;");
+  const season3 = Array.isArray(data?.data?.season_3?.points)
+    ? data.data.season_3?.points
+    : [];
+  const tableData =
+    season3.map((team, index) => {
+      const teamLogo = season3TeamLogo[team?.team_name || team.TeamName] || "";
+      const teamName = teamShortName[team?.team_name || team.TeamName] || "";
+
+      return {
+        RANK: index + 1,
+        TEAM: (
+          <div className="flex items-center gap-2 min-w-40 text-left">
+            <div className="w-6 h-6 flex justify-center items-center mr-2">
+              <img
+                src={team?.TeamLogo}
+                alt="logo"
+                className="object-contain w-full h-full"
+              />
+            </div>
+            {team?.TeamName}
           </div>
-          {teamName}
-        </div>
-      ),
-      MP: parseInt(team?.Matches || "0"),
-      WON: parseInt(team?.Wins || "0"),
-      LOST: parseInt(team?.Loss || "0"),
-      TIED: parseInt(team?.Tied || "0"),
-      "N/R": parseInt(team?.NoResult || "0"),
-      "NET RR": parseFloat(team?.NetRunRate || "0").toFixed(3),
-      PTS: parseInt(team?.Points || "0"),
-    };
-  }) || [];
+        ),
+        MP: parseInt(team?.Matches || "0"),
+        WON: parseInt(team?.Wins || "0"),
+        LOST: parseInt(team?.Loss || "0"),
+        TIED: parseInt(team?.Tied || "0"),
+        "N/R": parseInt(team?.NoResult || "0"),
+        "NET RR": parseFloat(team?.NetRunRate || "0").toFixed(3),
+        PTS: parseInt(team?.Points || "0"),
+      };
+    }) || [];
 
   return (
     <div className="pt-20 relative">
