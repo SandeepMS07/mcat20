@@ -1,9 +1,10 @@
 "use client";
 
 import Hero from "@/components/hero/Hero";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MediaAll from "@/components/media/MediaAll";
 import TitleComponent from "@/components/common/TitleComponent";
+import {getVideosClient } from "../api/clientApi";
 
 const tabs = ["All", "View Videos", "View Images"];
 
@@ -20,26 +21,26 @@ const items = [
     date: "27 May, 2025",
     img: "/images/gallery/n4.png",
   },
-   
-   {
+
+  {
     type: "",
     title: "Dreams do come true:",
     date: "27 May, 2025",
     img: "/images/gallery/n3.png",
   },
-   {
+  {
     type: "",
     title: "Dreams do come true:",
     date: "27 May, 2025",
     img: "/images/gallery/n1.png",
   },
-   {
+  {
     type: "",
     title: "Dreams do come true:",
     date: "27 May, 2025",
     img: "/images/gallery/n2.png",
   },
-   {
+  {
     type: "",
     title: "Dreams do come true:",
     date: "27 May, 2025",
@@ -124,7 +125,7 @@ const items = [
   },
 
   //newly updated galary
- 
+
   {
     type: "",
     title: "T20 Mumbai Promo",
@@ -195,29 +196,65 @@ const items = [
     date: "27 May, 2025",
     img: "/images/gallery/n1.png",
   },
-   {
+  {
     type: "",
     title: "Dreams do come true:",
     date: "27 May, 2025",
     img: "/images/gallery/n2.png",
   },
-   {
+  {
     type: "",
     title: "Dreams do come true:",
     date: "27 May, 2025",
     img: "/images/gallery/n3.png",
   },
- 
 ];
 
 const Page = () => {
   const [activeTab, setActiveTab] = useState("All");
+  const [videos, setVideos] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchVideos = async () => {
+      setLoading(true);
+      try {
+        const videoRes = await getVideosClient();
+        const formattedVideos =
+          videoRes?.data?.map((item) => ({
+            ...item,
+            type: "video",
+            img: `https://img.youtube.com/vi/${
+              item.videoUrl.split("youtu.be/")[1]
+            }/hqdefault.jpg`,
+            title: item.Title__c,
+            date: item.Date__c,
+          })) || [];
+        console.log("Formatted videos:", formattedVideos);
+        setVideos(formattedVideos);
+      } catch (err) {
+        console.error("Error fetching videos:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchVideos();
+  }, []);
+
+  function shuffleArray(array) {
+    return array
+      .map((item) => ({ item, sortKey: Math.random() }))
+      .sort((a, b) => a.sortKey - b.sortKey)
+      .map(({ item }) => item);
+  }
+
   const filteredItems =
     activeTab === "All"
-      ? items
+      ? shuffleArray([...videos, ...items])
       : activeTab === "View Videos"
-      ? items.filter((item) => item.type === "video")
-      : items.filter((item) => item.type === "image");
+      ? videos
+      : items;
 
   return (
     <div className="w-full ">
@@ -245,7 +282,7 @@ const Page = () => {
         <div className="gap-6 section-width section-padding ">
           <TitleComponent title={"Gallery"} />
           <div className="w-full bg-black">
-            {/* <div className="w-full flex items-center">
+            <div className="w-full flex items-center">
               {tabs.map((tab, index) => (
                 <div
                   key={index}
@@ -253,13 +290,15 @@ const Page = () => {
                     activeTab === tab
                       ? "bg-[#E07E27] text-white"
                       : "text-[#E07E27]"
-                  } border-l border-[#E07E27] px-6 m-2 py-1 uppercase`}
+                  } 
+                  ${index !== 0 ? "border-l border-[#E07E27]" : ""}
+                  px-6 m-2 py-1 uppercase`}
                   onClick={() => setActiveTab(tab)}
                 >
                   {tab}
                 </div>
               ))}
-            </div> */}
+            </div>
             <div className="w-full flex items-center justify-center">
               <MediaAll items={filteredItems} />
             </div>
