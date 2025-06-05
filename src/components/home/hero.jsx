@@ -42,7 +42,6 @@ const Hero = () => {
     return null;
   };
 
- 
   // const nextTicketInfo = useMemo(() => {
   //   const now = new Date();
 
@@ -74,9 +73,9 @@ const Hero = () => {
     <div className="xl:h-[800px] lg:h-[700px] md:h-[600px] h-[500px]">
       <Swiper
         modules={[Autoplay]}
-        autoplay={{ delay: 8000 }}
+        autoplay={{ delay: 5000 }}
         pagination={{ clickable: true }}
-        speed={800}
+        speed={200}
         loop
         className="h-full"
       >
@@ -93,24 +92,23 @@ const Hero = () => {
                 <p className="font-bold text-lg md:text-xl xl:text-2xl">
                   #Kaun Banega Agla Star?{" "}
                 </p>
-              
-                      <a
-                        href={routes.OverallTicket}
-                        target="_blank"
-                        className=" rounded-lg flex-1 btn-primary  gap-4 items-center text-md md:flex hidden justify-center text-left py-3 px-6"
-                        // onClick={openVideo}
-                      >
-                        Buy Tickets
-                        <span>
-                          <Image
-                            src="/images/home/hero/buttonIcon.svg"
-                            alt="button-icon"
-                            width={24}
-                            height={24}
-                            className="w-5 h-5"
-                          />
-                        </span>
-                      </a>
+
+                <a
+                  href={routes.OverallTicket}
+                  target="_blank"
+                  className="btn-primary flex gap-4 items-center justify-center py-3 px-6 rounded-lg text-md"
+                >
+                  Buy Tickets
+                  <span>
+                    <Image
+                      src="/images/home/hero/buttonIcon.svg"
+                      alt="button-icon"
+                      width={24}
+                      height={24}
+                      className="w-5 h-5"
+                    />
+                  </span>
+                </a>
               </div>
 
               <div className="absolute bottom-40 -right-0 hidden md:block">
@@ -165,25 +163,22 @@ const Hero = () => {
                       </span>
                     </h1>
 
-                    <div className="flex md:flex-row flex-col gap-4 w-[40%]">
-                      <a
-                        href={routes.OverallTicket}
-                        target="_blank"
-                        className="btn-blue rounded-lg flex-1  gap-4 items-center text-md md:flex hidden justify-center text-left py-3 px-0"
-                        // onClick={openVideo}
-                      >
-                        Buy Tickets
-                        <span>
-                          <Image
-                            src="/images/home/hero/buttonIcon.svg"
-                            alt="button-icon"
-                            width={24}
-                            height={24}
-                            className="w-5 h-5"
-                          />
-                        </span>
-                      </a>
-                    </div>
+                    <a
+                      href={routes.OverallTicket}
+                      target="_blank"
+                      className="btn-blue inline-flex gap-4 items-center sm:mt-0 mt-2 justify-center py-3 px-6 rounded-lg text-md"
+                    >
+                      Buy Tickets
+                      <span>
+                        <Image
+                          src="/images/home/hero/buttonIcon.svg"
+                          alt="button-icon"
+                          width={24}
+                          height={24}
+                          className="w-5 h-5"
+                        />
+                      </span>
+                    </a>
                   </div>
                 </div>
                 <div className=" flex-1 my-auto oswald-font">
@@ -217,7 +212,7 @@ const Hero = () => {
                     />
                   </div>
                 </div>
-                <div className="flex md:flex-row flex-col gap-4 md:hidden ">
+                {/* <div className="flex md:flex-row flex-col gap-4 md:hidden ">
                   <a
                     href={routes.wankhedeTicket}
                     target="_blank"
@@ -252,7 +247,7 @@ const Hero = () => {
                       />
                     </span>
                   </a>
-                </div>
+                </div> */}
               </div>
 
               <div className="absolute bottom-40 -right-0 hidden lg:block">
