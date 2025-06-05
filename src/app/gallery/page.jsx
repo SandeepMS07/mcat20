@@ -9,6 +9,67 @@ import {getVideosClient } from "../api/clientApi";
 const tabs = ["All", "View Videos", "View Images"];
 
 const items = [
+ 
+  {
+    type: "",
+    title: "Dreams do come true",
+    date: "27 May, 2025",
+    img: "/images/gallery/n7.jpeg",
+  },
+  {
+    type: "",
+    title: "Dreams do come true",
+    date: "27 May, 2025",
+    img: "/images/gallery/n8.jpeg",
+  },
+  {
+    type: "",
+    title: "Dreams do come true",
+    date: "27 May, 2025",
+    img: "/images/gallery/n9.jpeg",
+  },
+   {
+    type: "",
+    title: "Dreams do come true",
+    date: "27 May, 2025",
+    img: "/images/gallery/n4.jpeg",
+  },
+  {
+    type: "",
+    title: "Dreams do come true",
+    date: "27 May, 2025",
+    img: "/images/gallery/n5.jpeg",
+  },
+  {
+    type: "",
+    title: "Dreams do come true",
+    date: "27 May, 2025",
+    img: "/images/gallery/n6.jpeg",
+  },
+  {
+    type: "",
+    title: "Dreams do come true",
+    date: "27 May, 2025",
+    img: "/images/gallery/n10.jpeg",
+  },
+  {
+    type: "",
+    title: "Dreams do come true",
+    date: "27 May, 2025",
+    img: "/images/gallery/n11.jpeg",
+  },
+  {
+    type: "",
+    title: "Dreams do come true",
+    date: "27 May, 2025",
+    img: "/images/gallery/n12.jpeg",
+  },
+  {
+    type: "",
+    title: "Dreams do come true",
+    date: "27 May, 2025",
+    img: "/images/gallery/n13.jpeg",
+  },
   {
     type: "",
     title: "Dreams do come true",
@@ -190,84 +251,7 @@ const items = [
     date: "27 May, 2025",
     img: "/images/gallery/img11.jpg",
   },
-  {
-    type: "",
-    title: "Dreams do come true",
-    date: "27 May, 2025",
-    img: "/images/gallery/n1.png",
-  },
-  {
-    type: "",
-    title: "Dreams do come true",
-    date: "27 May, 2025",
-    img: "/images/gallery/n2.png",
-  },
-  {
-    type: "",
-    title: "Dreams do come true",
-    date: "27 May, 2025",
-    img: "/images/gallery/n3.png",
-  },
-  {
-    type: "",
-    title: "Dreams do come true",
-    date: "27 May, 2025",
-    img: "/images/gallery/n4.jpeg",
-  },
-  {
-    type: "",
-    title: "Dreams do come true",
-    date: "27 May, 2025",
-    img: "/images/gallery/n5.jpeg",
-  },
-  {
-    type: "",
-    title: "Dreams do come true",
-    date: "27 May, 2025",
-    img: "/images/gallery/n6.jpeg",
-  },
-  {
-    type: "",
-    title: "Dreams do come true",
-    date: "27 May, 2025",
-    img: "/images/gallery/n7.jpeg",
-  },
-  {
-    type: "",
-    title: "Dreams do come true",
-    date: "27 May, 2025",
-    img: "/images/gallery/n8.jpeg",
-  },
-  {
-    type: "",
-    title: "Dreams do come true",
-    date: "27 May, 2025",
-    img: "/images/gallery/n9.jpeg",
-  },
-  {
-    type: "",
-    title: "Dreams do come true",
-    date: "27 May, 2025",
-    img: "/images/gallery/n10.jpeg",
-  },
-  {
-    type: "",
-    title: "Dreams do come true",
-    date: "27 May, 2025",
-    img: "/images/gallery/n11.jpeg",
-  },
-  {
-    type: "",
-    title: "Dreams do come true",
-    date: "27 May, 2025",
-    img: "/images/gallery/n12.jpeg",
-  },
-  {
-    type: "",
-    title: "Dreams do come true",
-    date: "27 May, 2025",
-    img: "/images/gallery/n13.jpeg",
-  },
+  
 ];
 
 const Page = () => {
