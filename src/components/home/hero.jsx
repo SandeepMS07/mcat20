@@ -92,23 +92,43 @@ const Hero = () => {
                 <p className="font-bold text-lg md:text-xl xl:text-2xl">
                   #Kaun Banega Agla Star?{" "}
                 </p>
-
-                <a
-                  href={routes.OverallTicket}
-                  target="_blank"
-                  className="btn-primary flex gap-4 items-center justify-center py-3 px-6 rounded-lg text-md"
-                >
-                  Buy Tickets
-                  <span>
-                    <Image
-                      src="/images/home/hero/buttonIcon.svg"
-                      alt="button-icon"
-                      width={24}
-                      height={24}
-                      className="w-5 h-5"
-                    />
-                  </span>
-                </a>
+                <div className="flex flex-row gap-2">
+                  <a
+                    href={routes.OverallTicket}
+                    target="_blank"
+                    className="btn-primary flex gap-4 items-center justify-center py-3 px-6 rounded-lg text-md"
+                  >
+                    Buy Tickets
+                    <span>
+                      <Image
+                        src="/images/home/hero/buttonIcon.svg"
+                        alt="button-icon"
+                        width={24}
+                        height={24}
+                        className="w-5 h-5"
+                      />
+                    </span>
+                  </a>
+                  <a
+                    className="btn-blue flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md"
+                    onClick={() => {
+                      router.push(
+                        "latest-updates/sairaj-steals-spotlight-after-sky-show-on-t20-mumbai-league-2025-opening-day"
+                      );
+                    }}
+                  >
+                    Read More{" "}
+                    <span>
+                      <Image
+                        src="/images/home/hero/buttonIcon.svg"
+                        alt="button-icon"
+                        width={24}
+                        height={24}
+                        className="w-5 h-5"
+                      />
+                    </span>
+                  </a>
+                </div>
               </div>
 
               <div className="absolute bottom-40 -right-0 hidden md:block">
@@ -162,23 +182,43 @@ const Hero = () => {
                         NOW LIVE
                       </span>
                     </h1>
-
-                    <a
-                      href={routes.OverallTicket}
-                      target="_blank"
-                      className="btn-blue inline-flex gap-4 items-center sm:mt-0 mt-2 justify-center py-3 px-6 rounded-lg text-md"
-                    >
-                      Buy Tickets
-                      <span>
-                        <Image
-                          src="/images/home/hero/buttonIcon.svg"
-                          alt="button-icon"
-                          width={24}
-                          height={24}
-                          className="w-5 h-5"
-                        />
-                      </span>
-                    </a>
+                    <div className="flex mt-4 sm:mt-0 flex-col gap-2 sm:flex-row items-start sm:items-center">
+                      <a
+                        href={routes.OverallTicket}
+                        target="_blank"
+                        className="btn-primary inline-flex gap-4 items-center justify-center py-3 px-6 rounded-lg text-md"
+                      >
+                        Buy Tickets
+                        <span>
+                          <Image
+                            src="/images/home/hero/buttonIcon.svg"
+                            alt="button-icon"
+                            width={24}
+                            height={24}
+                            className="w-5 h-5"
+                          />
+                        </span>
+                      </a>
+                      <a
+                        className="btn-blue inline-flex gap-4 cursor-pointer items-center justify-center py-3 px-6 rounded-lg text-md"
+                        onClick={() => {
+                          router.push(
+                            "latest-updates/mca-reschedules-t20-mumbai-league-2025-wankhede-stadium-and-dy-patil-stadium-to-host-23-exciting-matches-from-june-4-to-12"
+                          );
+                        }}
+                      >
+                        Read More
+                        <span>
+                          <Image
+                            src="/images/home/hero/buttonIcon.svg"
+                            alt="button-icon"
+                            width={24}
+                            height={24}
+                            className="w-5 h-5"
+                          />
+                        </span>
+                      </a>
+                    </div>
                   </div>
                 </div>
                 <div className=" flex-1 my-auto oswald-font">
@@ -296,21 +336,42 @@ const Hero = () => {
                 <p className="font-bold text-lg md:text-xl xl:text-2xl">
                   #AalaReAglaStar
                 </p>
-                <button
-                  className="btn-primary flex gap-4 items-center"
-                  onClick={openVideo}
-                >
-                  View Details
-                  <span>
-                    <Image
-                      src="/images/home/hero/buttonIcon.svg"
-                      alt="button-icon"
-                      width={24}
-                      height={24}
-                      className="w-5 h-5"
-                    />
-                  </span>
-                </button>
+                <div className="flex gap-2">
+                  <button
+                    className="btn-primary flex gap-4 items-center"
+                    onClick={openVideo}
+                  >
+                    View Details
+                    <span>
+                      <Image
+                        src="/images/home/hero/buttonIcon.svg"
+                        alt="button-icon"
+                        width={24}
+                        height={24}
+                        className="w-5 h-5"
+                      />
+                    </span>
+                  </button>
+                  <a
+                        className="btn-blue inline-flex gap-4 cursor-pointer items-center justify-center py-3 px-6 rounded-lg text-md"
+                        onClick={() => {
+                          router.push(
+                            "latest-updates/mca-adds-star-power-to-t20-mumbai-league-unveils-rohit-sharma-as-face-of-season-3"
+                          );
+                        }}
+                      >
+                        Read More
+                        <span>
+                          <Image
+                            src="/images/home/hero/buttonIcon.svg"
+                            alt="button-icon"
+                            width={24}
+                            height={24}
+                            className="w-5 h-5"
+                          />
+                        </span>
+                      </a>
+                </div>
               </div>
 
               <div className="absolute bottom-40 -right-0 hidden md:block">
