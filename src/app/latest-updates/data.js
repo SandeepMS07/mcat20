@@ -422,6 +422,51 @@ When the Mumbai Cricket Association (MCA) launched the T20 Mumbai League, it aim
 `,
   },
    {
+    id: 13,
+    date: "Mumbai, june 4, 2025",
+    imgUrl: "/images/latestUpdates/update13-main.png",
+    title:
+      "Sairaj steals spotlight after SKY show on T20 Mumbai League 2025 opening day",
+    subTitle: "",
+    content: `
+     India’s T20I skipper Suryakumar Yadav lit up the opening day of the third season of the T20 Mumbai League 2025 with a blistering 25-ball half-century, but his heroics weren’t enough as Sairaj Patil’s impressive cameo helped a spirited Eagle Thane Strikers claim a five-wicket win against Triumph Knights Mumbai North East at the DY Patil Stadium in Navi Mumbai on Wednesday.
+<br/><br/>
+
+Suryakumar (50), ably supported by Jigar Rana (53), anchored the Knights’ innings as they posted a competitive 179/7 after being asked to bat first. The start wasn’t ideal for the Knights but Rana and Parikshit Valsangkar steadied the innings with a crucial 88-run partnership. Once Rana fell to a slower ball and Parikshit was run out in the next over, Suryakumar took control of the proceedings. 
+<br/><br/>
+
+The India star found able company in Jay Jain (24) as the pair added 40 runs to keep the innings steady during the middle overs. Jain’s stay ended when he was cramped for room by Amit Pandey, with keeper Anish Chaudhery whipping off the bails. Despite the quick wickets, Suryakumar remained calm and clinical at the death, unleashing a flurry of powerful strokes to lift the Knights to a strong finish and set the tone for the tournament.
+<br/><br/>
+
+In response, Varun Lavande powered the Strikers’ chase with a fiery 57 off 38 balls, guiding them to a strong 89/1 at the halfway mark. His 73-run stand with Anish (37) laid a solid foundation, but the momentum briefly shifted after the Knights’ came up with a couple of quick wickets. However, Sairaj Patil’s entry ensured that the Strikers remained in the contest as he smoked four mammoth sixes in his 22-ball unbeaten 47 to seal the deal for his side.
+<br/><br/>
+<div class="text-black font-bold">SoBo Mumbai Falcons, MSC Maratha Royals record wins</div>
+
+
+Earlier, in the tournament opener at the DY Patil Stadium, SoBo Mumbai Falcons edged past ARCS Andheri in a Super Over after rain halted the match just three overs into the Falcons' innings. Put in to bat, the Falcons were 26/1 when play was stopped, with opener Ishan Mulchandani (8 off 5) bowled by ARCS Andheri spinner Musheer Khan. Stand-in captain Angrish Raghuvanshi (15 not out) and Amogh Bhatkal (1 not out) were at the crease when heavy showers forced an early end to the match.
+<br/><br/>
+
+In the resulting Super Over, Akash Parker smashed a quickfire 27 runs for the Falcons. In response, ARCS Andheri faltered and could only manage 13, handing SoBo Mumbai Falcons a narrow win.
+<br/><br/>
+
+Considered one of the best domestic T20 leagues across the country, the tournament was earlier inaugurated in the presence of MCA President Ajinkya Naik, Secretary Abhay Hadap, former MCA President Dr Vijay Patil, Chairman of League Governing Council  Vihang Sarnaik along with MCA Apex Council Members at the DY Patil Stadium.
+<br/><br/>
+
+The second match of the day, played at Wankhede Stadium between Aakash Tigers MWS and Mumbai South Central Maratha Royals, was also affected by rain and reduced to a nine-over contest. Batting first, the Royals put up a competitive 96/4, thanks to Rohan Raje’s explosive 48 off 21 balls. In reply, the Tigers were restricted to 88/5, with Maxwell David Swaminathan starring with the ball, picking up two crucial wickets to seal a eight-run win for the Royals.
+<br/><br/>
+
+Later, in the last match of the opening day at the Wankhede Stadium, Bandra Blasters beat North Mumbai Panthers by 40 runs.
+<br/><br/>
+
+Fans will have the chance to witness the action live with tickets available online on District by Zomato, priced at just ₹100 (Level 1), ₹300 (Level 2), and ₹400 (Garware Pavilion Level 2). The tournament is being telecast on Star Sports 1 (English & Hindi), Star Sports 2 (English) and JioHotstar.
+<br/><br/>
+
+<div class="text-black font-bold">Brief Scores:</div>
+Match 1: SoBo Mumbai Falcons: 27 (Akash Parker 27) beat ARCS Andheri 13 (Shivam Dube 12, Musheer Khan 1) via Super Over.
+Match 2: Mumbai South Central Maratha Royals: 96/4 (Rohan Raje 48 not out) beat Akash Tigers MWS: 88/5 (Jay Bista 23; Maxwell Swaminathan 2/15) by eight runs,
+Match 3: Triumph Knights Mumbai North East 179/6 (Jigar Rana 53, Suryakumar Yadav 50 not out) lose to Eagle Thane Strikers 181/5 (Varun Lavande 57, Siaraj Patil 47 not out) by five wickets.
+    `  },
+   {
     id: 12,
     date: "Mumbai, June 4, 2025",
     imgUrl: "/images/latestUpdates/update12.jpg",
@@ -561,4 +606,5 @@ Players: Suryakumar Yadav, Sidhaant Aadhhathrao, Jay Jain, Hrishikesh Gore, Yash
 •	7:30 PM - SF Winner 1 vs SF Winner 2 at Wankhede Stadium
 `,
   },
+   
 ];
