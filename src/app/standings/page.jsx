@@ -42,7 +42,7 @@ const TableTabComponent = () => {
     const fetchData = async () => {
       setLoading(true);
       const [standingsRes] = await Promise.all([getStandings()]);
-      setStandingsSeason3(standingsRes?.data?.season_3 || []);
+      setStandingsSeason3(standingsRes?.data?.season_3?.points || []);
       setLoading(false);
     };
 
@@ -62,10 +62,11 @@ const TableTabComponent = () => {
           ? standingsSeason3
           : []
         : standingsData[activeSeason] || [];
-    const teamNames = currentSeasonData.map(
-      (team) => team?.team_name || "Unknown"
+  
+    const teamNames = currentSeasonData.map((team) =>
+      activeSeason === "season_3" ? team?.TeamName : team?.team_name || "Unknown"
     );
-
+  
     return ["All Teams", ...teamNames];
   }, [activeSeason, standingsSeason3]);
 
@@ -78,7 +79,11 @@ const TableTabComponent = () => {
         : standingsData[activeSeason] || [];
     return activeTeam === "All Teams"
       ? seasonData
-      : seasonData.filter((team) => team?.team_name === activeTeam);
+      : seasonData.filter((team) =>
+        activeSeason === "season_3"
+          ? team?.TeamName === activeTeam
+          : team?.team_name === activeTeam
+      );
   }, [activeSeason, activeTeam, standingsSeason3]);
 
   // const filteredData = useMemo(() => {
@@ -89,8 +94,16 @@ const TableTabComponent = () => {
   // }, [activeSeason, activeTeam]);
 
   const tableData = filteredData.map((team, index) => {
-    const teamLogo = season3TeamLogo[team?.team_name] || "";
-    const teamName = teamShortName[team?.team_name] || "";
+    const isSeason3 = activeSeason === "season_3";
+  
+    const teamLogo = isSeason3
+      ? team.TeamLogo
+      : season3TeamLogo[team?.team_name] || "";
+  
+    const teamName = isSeason3
+      ? team.TeamName
+      : teamShortName[team?.team_name] || "";
+
     return {
       RANK: index + 1,
       TEAM: (
@@ -105,13 +118,13 @@ const TableTabComponent = () => {
           {teamName}
         </div>
       ),
-      MP: team.played,
-      WON: team.won,
-      LOST: team.lost,
-      TIED: team.tied,
-      "N/R": team.no_result,
-      "NET RR": team.net_run_rate,
-      PTS: team.points,
+      MP: isSeason3 ? team.Matches : team.played,
+      WON: isSeason3 ? team.Wins : team.won,
+      LOST: isSeason3 ? team.Loss : team.lost,
+      TIED: isSeason3 ? team.Tied : team.tied,
+      "N/R": isSeason3 ? team.NoResult : team.no_result,
+      "NET RR": isSeason3 ? team.NetRunRate : team.net_run_rate,
+      PTS: isSeason3 ? team.Points : team.points,
     };
   });
 

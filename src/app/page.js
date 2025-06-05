@@ -15,7 +15,7 @@ import UpcomingFixturesSection from "@/components/home/UpcomingFixturesSection";
 import { getStandings } from "./api/serverApi";
 
 export default async function Home() {
-  const standingsData = await getStandings();
+  // const standingsData = await getStandings();
 
   return (
     <>
@@ -25,10 +25,10 @@ export default async function Home() {
         <HomeTeamSection />
         <LatestUpdates />
         {/* <IconPlayers /> */}
-        <HomeStandingsSection data={standingsData} />
+        {/* <HomeStandingsSection data={standingsData} /> */}
         {/* <TopPlayers /> */}
-        <Gallery />
         <Socials />
+        <Gallery />
         <Sponsorship />
         {/* <TopPlayers /> */}
         {/* <News /> */}

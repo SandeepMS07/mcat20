@@ -45,11 +45,11 @@ const Sponsorship = () => {
 
   return (
     <div className="bg-cover bg-center bg-no-repeat relative">
-      {/* <img
+      <img
         src="/images/elements/section-element.png"
         className="absolute right-0 top-0 md:block hidden"
         alt="element"
-      /> */}
+      />
       {/* Mobile button - show only on mobile, hide on larger screens */}
       <img
         src="/images/elements/section-element.png"
@@ -66,12 +66,8 @@ const Sponsorship = () => {
             return (
               <div
                 key={index}
- 
                 className={`w-full md:w-[18.2%]  rounded-xl relative text-white p-4 border border-[#4c5271] ${
-                  isLast
-                    ? "md:grow md:max-w-[40%]"
-                    : ""
- 
+                  isLast ? "md:grow md:max-w-[40%]" : ""
                 }`}
                 style={{
                   background:
