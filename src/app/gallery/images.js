@@ -1,5 +1,71 @@
 
 const images = [ 
+   {
+    type: "",
+    title: "Dreams do come true",
+    date: "27 May, 2025",
+    img: "/images/gallery/g1.jpeg",
+  },
+   {
+    type: "",
+    title: "Dreams do come true",
+    date: "27 May, 2025",
+    img: "/images/gallery/g2.jpeg",
+  },
+   {
+    type: "",
+    title: "Dreams do come true",
+    date: "27 May, 2025",
+    img: "/images/gallery/g3.jpeg",
+  },
+   {
+    type: "",
+    title: "Dreams do come true",
+    date: "27 May, 2025",
+    img: "/images/gallery/g4.png",
+  },
+   {
+    type: "",
+    title: "Dreams do come true",
+    date: "27 May, 2025",
+    img: "/images/gallery/g5.jpeg",
+  },
+   {
+    type: "",
+    title: "Dreams do come true",
+    date: "27 May, 2025",
+    img: "/images/gallery/g6.jpeg",
+  },
+   {
+    type: "",
+    title: "Dreams do come true",
+    date: "27 May, 2025",
+    img: "/images/gallery/g7.jpeg",
+  },
+   {
+    type: "",
+    title: "Dreams do come true",
+    date: "27 May, 2025",
+    img: "/images/gallery/g8.jpeg",
+  },
+   {
+    type: "",
+    title: "Dreams do come true",
+    date: "27 May, 2025",
+    img: "/images/gallery/g9.jpeg",
+  },
+   {
+    type: "",
+    title: "Dreams do come true",
+    date: "27 May, 2025",
+    img: "/images/gallery/g10.jpeg",
+  },
+   {
+    type: "",
+    title: "Dreams do come true",
+    date: "27 May, 2025",
+    img: "/images/gallery/g11.jpeg",
+  },
   {
     type: "",
     title: "Dreams do come true",
