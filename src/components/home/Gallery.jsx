@@ -5,85 +5,18 @@ import Image from "next/image";
 import TitleComponent from "../common/TitleComponent";
 import Link from "next/link";
 import routes from "@/utilis/route";
-
-const items = [
-  {
-    type: "",
-    title: "Dreams do come true:",
-    date: "27 May, 2025",
-    img: "/images/gallery/n5.png",
-  },
-  {
-    type: "",
-    title: "Dreams do come true:",
-    date: "27 May, 2025",
-    img: "/images/gallery/n4.png",
-  },
-
-  {
-    type: "",
-    title: "Dreams do come true:",
-    date: "27 May, 2025",
-    img: "/images/gallery/n3.png",
-  },
-  {
-    type: "",
-    title: "Dreams do come true:",
-    date: "27 May, 2025",
-    img: "/images/gallery/n1.png",
-  },
-  {
-    type: "",
-    title: "Dreams do come true:",
-    date: "27 May, 2025",
-    img: "/images/gallery/n2.png",
-  },
-  {
-    type: "",
-    title: "Final: SS vs NMP",
-    date: "27 May, 2025",
-    img: "/images/gallery/new10.jpeg",
-    views: 1289,
-  },
-  {
-    type: "",
-    title: "T20 Mumbai Promo",
-    date: "",
-    img: "/images/gallery/new8.jpeg",
-    views: 1500,
-  },
-  {
-    type: "",
-    title: "Match 19: NBB vs ETS",
-    date: "22 May, 2025",
-    img: "/images/gallery/new9.jpeg",
-  },
-  {
-    type: "",
-    title: "Final: SS vs NMP",
-    date: "27 May, 2025",
-    img: "/images/gallery/new10.jpeg",
-    views: 1289,
-  },
-  {
-    type: "",
-    title: "T20 Mumbai Promo",
-    date: "",
-    img: "/images/gallery/new11.jpeg",
-    views: 1500,
-  },
-];
+import images from "../../app/gallery/images";
 
 const Gallery = () => {
-  const validItems = Array.isArray(items) && items.length > 0 ? items : [];
+  const validItems = Array.isArray(images) && images.length > 0 ?images.slice(0, 8): [];
 
   const [showModal, setShowModal] = useState(false);
   const [modalImage, setModalImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
 
   const [layoutConfig, setLayoutConfig] = useState([
-    [2, 2, 3],
-    [1, 3, 3],
+    [2, 2, 2, 1],
+    [1, 2, 2,2],
   ]);
 
   // Function to determine layout based on screen size
@@ -102,8 +35,8 @@ const Gallery = () => {
       } else {
         // Desktop layout - original complex grid
         setLayoutConfig([
-          [2, 2, 3],
-          [1, 3, 3],
+          [1, 2, 2,2],
+          [2, 1, 2,2],
         ]);
       }
     }
