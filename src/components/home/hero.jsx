@@ -42,7 +42,6 @@ const Hero = () => {
     return null;
   };
 
- 
   // const nextTicketInfo = useMemo(() => {
   //   const now = new Date();
 
@@ -74,12 +73,76 @@ const Hero = () => {
     <div className="xl:h-[800px] lg:h-[700px] md:h-[600px] h-[500px]">
       <Swiper
         modules={[Autoplay]}
-        autoplay={{ delay: 8000 }}
+        autoplay={{ delay: 5000 }}
         pagination={{ clickable: true }}
-        speed={800}
+        speed={200}
         loop
         className="h-full"
       >
+        <SwiperSlide className="h-full">
+          <div className="w-full h-full bg-[url('/images/banner/slider3.jpg')] bg-cover bg-center  relative pt-32 overflow-hidden flex justify-center items-center">
+            <div className="section-width ">
+              <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
+                <p className="font-bold text-sm md:text-base xl:text-xl">
+                  T20 Mumbai Season 3
+                </p>
+                <h1 className="  font-extrabold max-w-3xl max-sm:text-center">
+                  Mumbai’s Homegrown <br /> Talent Hits the Field
+                </h1>
+                <p className="font-bold text-lg md:text-xl xl:text-2xl">
+                  #Kaun Banega Agla Star?{" "}
+                </p>
+
+                <a
+                  href={routes.OverallTicket}
+                  target="_blank"
+                  className="btn-primary flex gap-4 items-center justify-center py-3 px-6 rounded-lg text-md"
+                >
+                  Buy Tickets
+                  <span>
+                    <Image
+                      src="/images/home/hero/buttonIcon.svg"
+                      alt="button-icon"
+                      width={24}
+                      height={24}
+                      className="w-5 h-5"
+                    />
+                  </span>
+                </a>
+              </div>
+
+              <div className="absolute bottom-40 -right-0 hidden md:block">
+                <div
+                  className="w-full rounded-l-xl md:rounded-l-xl border-y-2 border-l-2  border-[#E07E27] shadow-2xl overflow-hidden cursor-pointer"
+                  onClick={() => {
+                    router.push(routes.fixtures);
+                  }}
+                >
+                  <div
+                    className="  w-full flex overflow-hidden items-center justify-evenly rounded-tl-lg gap-4"
+                    style={{
+                      background:
+                        "linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.48) 1.45%, rgba(0, 0, 0, 0.70) 100%), rgba(255, 255, 255, 0.09)",
+                    }}
+                  >
+                    <div className="flex flex-col justify-between  py-6 px-12">
+                      <p className="text-[#E07E27] text-base  xl:text-lg font-semibold leading-3 uppercase">
+                        Match starts in
+                      </p>
+                    </div>
+                  </div>
+                  <CountdownTimer
+                    targetDate={nextMatch.targetDate}
+                    homeTeam={nextMatch.home_team}
+                    awayTeam={nextMatch.away_team}
+                    match_no={nextMatch.match_no}
+                    total_matches={nextMatch.total_matches}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
         <SwiperSlide>
           <div className="w-full h-full bg-[url('https://storage.googleapis.com/mca_images/website/banner_img/slider2.jpg')] bg-cover bg-center  relative md:pt-32 pt-14 overflow-hidden flex justify-center items-center">
             {/* <div className="h-80 w-80 absolute left-0 bottom-0 bg-red-400"></div> */}
@@ -100,25 +163,22 @@ const Hero = () => {
                       </span>
                     </h1>
 
-                    <div className="flex md:flex-row flex-col gap-4 w-[40%]">
-                      <a
-                        href={routes.OverallTicket}
-                        target="_blank"
-                        className="btn-blue rounded-lg flex-1  gap-4 items-center text-md md:flex hidden justify-center text-left py-3 px-0"
-                        // onClick={openVideo}
-                      >
-                        Buy Tickets
-                        <span>
-                          <Image
-                            src="/images/home/hero/buttonIcon.svg"
-                            alt="button-icon"
-                            width={24}
-                            height={24}
-                            className="w-5 h-5"
-                          />
-                        </span>
-                      </a>
-                    </div>
+                    <a
+                      href={routes.OverallTicket}
+                      target="_blank"
+                      className="btn-blue inline-flex gap-4 items-center sm:mt-0 mt-2 justify-center py-3 px-6 rounded-lg text-md"
+                    >
+                      Buy Tickets
+                      <span>
+                        <Image
+                          src="/images/home/hero/buttonIcon.svg"
+                          alt="button-icon"
+                          width={24}
+                          height={24}
+                          className="w-5 h-5"
+                        />
+                      </span>
+                    </a>
                   </div>
                 </div>
                 <div className=" flex-1 my-auto oswald-font">
@@ -152,7 +212,7 @@ const Hero = () => {
                     />
                   </div>
                 </div>
-                <div className="flex md:flex-row flex-col gap-4 md:hidden ">
+                {/* <div className="flex md:flex-row flex-col gap-4 md:hidden ">
                   <a
                     href={routes.wankhedeTicket}
                     target="_blank"
@@ -187,7 +247,7 @@ const Hero = () => {
                       />
                     </span>
                   </a>
-                </div>
+                </div> */}
               </div>
 
               <div className="absolute bottom-40 -right-0 hidden lg:block">

@@ -35,11 +35,10 @@ const rowStyles = {
 
 const HomeStandingsSection = ({ data }) => {
   const season3 = Array.isArray(data?.data?.season_3) ? data.data.season_3 : [];
-  const tableData =
-  data?.data?.season_3?.points?.map((team, index) => {
-    const teamLogo = team?.TeamLogo || "";
-    const teamName = team?.TeamName || "";
-
+  const tableData = season3.map((team, index) => {
+    const teamLogo = season3TeamLogo[team?.team_name] || "";
+    const teamName = teamShortName[team?.team_name] || "";
+ 
     return {
       RANK: index + 1,
       TEAM: (
