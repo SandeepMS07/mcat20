@@ -9,7 +9,7 @@ const UpdatesCard = ({ data, onClick }) => {
     >
       {/* Image */}
       <Image
-        src={data?.imgUrl}
+        src={data.id === 14? "/images/latestUpdates/update14-main.jpg" : data?.imgUrl}
         width={1000}
         height={1000}
         className="w-full h-full object-cover absolute z-0 rounded-md"
