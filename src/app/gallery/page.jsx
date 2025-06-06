@@ -6,11 +6,11 @@ import MediaAll from "@/components/media/MediaAll";
 import TitleComponent from "@/components/common/TitleComponent";
 import {getVideosClient } from "../api/clientApi";
 import images from "./images";
-const tabs = ["All", "View Videos", "View Images"];
+const tabs = ["View Images","View Videos"];
 
 
 const Page = () => {
-  const [activeTab, setActiveTab] = useState("All");
+  const [activeTab, setActiveTab] = useState("View Images");
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(false);
 
