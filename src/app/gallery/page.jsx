@@ -4,7 +4,7 @@ import Hero from "@/components/hero/Hero";
 import React, { useState, useEffect } from "react";
 import MediaAll from "@/components/media/MediaAll";
 import TitleComponent from "@/components/common/TitleComponent";
-import { getVideosClient } from "../api/clientApi";
+import { getImagesClient, getVideosClient } from "../api/clientApi";
 import images from "./images";
 
 const tabs = ["View Images", "View Videos"];
@@ -36,6 +36,19 @@ const Page = () => {
     };
 
     fetchVideos();
+  }, []);
+
+  // Fetching the data from the API
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const images = await getImagesClient();
+        console.log(images);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchImages();
   }, []);
 
   const filteredItems = activeTab === "View Videos" ? videos : images;
