@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import LoadingPage from "@/app/loading";
 
-const MediaAll = ({ items }) => {
+const MediaAll = ({ items, loading }) => {
   // Check if items is valid and has elements
-  console.log("Items:", items);
   const validItems = Array.isArray(items) && items.length > 0 ? items : [];
 
   const [showModal, setShowModal] = useState(false);
@@ -12,24 +12,24 @@ const MediaAll = ({ items }) => {
   const [currentIndex, setCurrentIndex] = useState(null);
 
   const [layoutConfig, setLayoutConfig] = useState([
-    [2, 3, 2], // 3
-    [1, 3, 3], // 3 (6)
-    [1, 3, 1, 2], // 4 (10)
-    [1, 3, 3], // 3 (13)
-    [1, 3, 1, 2], // 4 (17)
-    [3, 4], // 2 (19)
-    [2, 2, 3], // 3 (22)
-    [1, 3, 3], // 3 (25)
-    [3, 2, 1], // 3 (28)
-    [3, 1, 1, 1, 1], // 5 (33)
-    [2, 1, 1, 1, 2], // 5 (38)
+    [2, 3, 2],
+    [1, 3, 3],
+    [1, 3, 1, 2],
+    [1, 3, 3],
+    [1, 3, 1, 2],
+    [3, 4],
+    [2, 2, 3],
+    [1, 3, 3],
+    [3, 2, 1],
+    [3, 1, 1, 1, 1],
+    [2, 1, 1, 1, 2],
   ]);
   // Function to determine layout based on screen size
   const updateLayout = () => {
     if (typeof window !== "undefined") {
       if (window.innerWidth < 640) {
         // Mobile layout - single column
-        setLayoutConfig(Array(41).fill([7]));
+        setLayoutConfig(Array(62).fill([7]));
       } else if (window.innerWidth < 1024) {
         // Tablet layout
         setLayoutConfig([
@@ -42,9 +42,6 @@ const MediaAll = ({ items }) => {
           [4, 3],
           [3, 4],
           [4, 3],
-          [3, 4], // 20
-          [4, 3],
-          [3, 4],
           [3, 4],
           [4, 3],
           [3, 4],
@@ -52,22 +49,41 @@ const MediaAll = ({ items }) => {
           [3, 4],
           [4, 3],
           [3, 4],
+          [4, 3],
+          [3, 4],
+          [4, 3],
+          [3, 4],
+          [4, 3],
+          [3, 4],
+          [4, 3],
+          [3, 4],
+          [4, 3],
+          [3, 4],
+          [4, 3],
+          [3, 4],
+          [4, 3],
+          [3, 4],
+          [4, 3],
         ]);
       } else {
         // Desktop layout
         setLayoutConfig([
-          [2, 2, 2,1],
-          [ 1, 2 ,1,3],
+          [2, 2, 2, 1],
+          [1, 2, 1, 3],
           [2, 3, 2],
           [1, 3, 3],
           [2, 1, 3, 1],
           [2, 3, 2],
           [1, 3, 3],
-          [1, 1, 1,4],
+          [1, 1, 1, 4],
           [2, 2, 3],
           [3, 2, 2],
           [1, 3, 3],
           [3, 2, 2],
+          [2, 2, 3],
+          [2, 3, 2],
+          [2, 2, 2, 1],
+          [1, 3, 3],
         ]);
       }
     }
@@ -84,8 +100,11 @@ const MediaAll = ({ items }) => {
     }
   }, []);
 
+  if (loading) {
+    return <LoadingPage />;
+  }
   // If no valid items, return early
-  if (validItems.length === 0) {
+  if (validItems.length === 0 && !loading) {
     return <div className="w-full p-3">No media items available</div>;
   }
 
@@ -253,4 +272,3 @@ const MediaAll = ({ items }) => {
 };
 
 export default MediaAll;
-//pakka code 1
