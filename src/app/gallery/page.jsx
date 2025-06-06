@@ -6,10 +6,11 @@ import MediaAll from "@/components/media/MediaAll";
 import TitleComponent from "@/components/common/TitleComponent";
 import { getVideosClient } from "../api/clientApi";
 import images from "./images";
-const tabs = ["All", "View Videos", "View Images"];
+
+const tabs = ["View Images", "View Videos"];
 
 const Page = () => {
-  const [activeTab, setActiveTab] = useState("All");
+  const [activeTab, setActiveTab] = useState("View Images");
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
@@ -37,25 +38,7 @@ const Page = () => {
     fetchVideos();
   }, []);
 
-  // SHow first 10 images and the shuffle the rest images and videos
-  function shuffleArray(images, videos) {
-    const firstTen = images.slice(0, 10);
-    const remaining = [...images.slice(10), ...videos];
-
-    const shuffled = remaining
-      .map((item) => ({ item, sortKey: Math.random() }))
-      .sort((a, b) => a.sortKey - b.sortKey)
-      .map(({ item }) => item);
-
-    return [...firstTen, ...shuffled];
-  }
-
-  const filteredItems =
-    activeTab === "All"
-      ? shuffleArray(images, videos)
-      : activeTab === "View Videos"
-      ? videos
-      : images;
+  const filteredItems = activeTab === "View Videos" ? videos : images;
 
   return (
     <div className="w-full ">

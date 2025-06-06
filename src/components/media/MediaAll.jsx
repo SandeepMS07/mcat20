@@ -25,81 +25,22 @@ const MediaAll = ({ items }) => {
     [2, 1, 1, 1, 2], // 5 (38)
   ]);
 
-  // // Function to determine layout based on screen size
-  // const updateLayout = () => {
-  //   if (typeof window !== "undefined") {
-  //     if (window.innerWidth < 640) {
-  //       // Mobile layout - single column
-  //       setLayoutConfig(Array(41).fill([7]));
-  //     } else if (window.innerWidth < 1024) {
-  //       // Tablet layout
-  //       setLayoutConfig([
-  //         [4, 3],
-  //         [3, 4],
-  //         [4, 3],
-  //         [3, 4],
-  //         [4, 3],
-  //         [3, 4],
-  //         [4, 3],
-  //         [3, 4],
-  //         [4, 3],
-  //         [3, 4], // 20
-  //         [4, 3],
-  //         [3, 4],
-  //         [3, 4],
-  //         [4, 3],
-  //         [3, 4],
-  //         [4, 3],
-  //         [3, 4],
-  //         [4, 3],
-  //         [3, 4],
-  //       ]);
-  //     } else {
-  //       // Desktop layout
-  //       setLayoutConfig([
-  //         [3, 2, 2],
-  //         [1, 2, 2 ,2],
-  //         [3, 2, 2],
-  //         [1, 3, 3],
-  //         [2, 1, 3, 1],
-  //         [2, 3, 2],
-  //         [1, 3, 3],
-  //         [3, 3, 1],
-  //         [2, 2, 3],
-  //         [3, 2, 2],
-  //         [3, 3, 1],
-  //         [3, 2, 2],
-  //       ]);
-  //     }
-  //   }
-  // };
-
-  // Get the column size of the grid item based on the image size attribute
-  const getSizeUnit = (size) => {
-    switch (size) {
-      case "small":
-        return 1;
-      case "medium":
-        return 2;
-      case "large":
-        return 3;
-      default:
-        return 1;
-    }
-  };
 
   // Dynamic layout calculation for the desktop
+  
   const generateDesktopLayout = (items) => {
     const unitsPerRow = 7;
     const layout = [];
     const remaining = [...items];
+
+    const getRandomUnit = () => Math.floor(Math.random() * 3) + 1; 
 
     while (remaining.length > 0) {
       let row = [];
       let total = 0;
 
       for (let i = 0; i < remaining.length; i++) {
-        const unit = getSizeUnit(remaining[i].size);
+        const unit = getRandomUnit(); 
 
         if (total + unit <= unitsPerRow) {
           row.push(unit);
@@ -111,17 +52,12 @@ const MediaAll = ({ items }) => {
         }
       }
 
-      // Only add to layout if row is exactly 7 units
+      // Only push full rows of exactly 7 units
       if (total === unitsPerRow) {
         layout.push(row);
       } else {
-        // if incomplete row was formed, put items back
-        for (let j = row.length - 1; j >= 0; j--) {
-          const unit = row[j];
-          const item = { ...items.find((it) => getSizeUnit(it.size) === unit) };
-          remaining.unshift(item);
-        }
-        break; // stop processing further if no full row can be made
+        // put items back (we can’t recover original sizes, but we can just stop)
+        break;
       }
     }
 

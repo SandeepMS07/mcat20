@@ -7,57 +7,6 @@ import Link from "next/link";
 import routes from "@/utilis/route";
 import images from "../../app/gallery/images";
 
-// Based on the size attribute of each image get the column length
-const getSizeUnit = (size) => {
-  switch (size) {
-    case "small":
-      return 1;
-    case "medium":
-      return 2;
-    case "large":
-      return 3;
-    default:
-      return 1;
-  }
-};
-
-// Dynamically generate the layout for the desktop
-
-const generateDesktopLayout = (images) => {
-  const unitsPerRow = 7;
-  const layout = [];
-  const remaining = [...images];
-
-  while (remaining.length > 0) {
-    let row = [];
-    let total = 0;
-
-    // Try adding items to current row
-    for (let i = 0; i < remaining.length; i++) {
-      const unit = getSizeUnit(remaining[i].size);
-
-      if (total + unit <= unitsPerRow) {
-        row.push(unit);
-        total += unit;
-        remaining.splice(i, 1); // remove from pool
-        i--; // adjust index due to removal
-
-        if (total === unitsPerRow) break;
-      }
-    }
-
-    // If we couldn't fill exactly 7, pad with 1s to meet UI expectation
-    while (total < unitsPerRow) {
-      row.push(1);
-      total += 1;
-    }
-
-    layout.push(row);
-  }
-
-  return layout;
-};
-
 const Gallery = () => {
   const validItems =
     Array.isArray(images) && images.length > 0 ? images.slice(0, 8) : [];
@@ -80,9 +29,6 @@ const Gallery = () => {
           [4, 3],
           [3, 4],
         ]);
-      } else {
-        const layout = generateDesktopLayout(validItems);
-        setLayoutConfig(layout);
       }
     }
   };
