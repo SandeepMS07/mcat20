@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import MediaAll from "@/components/media/MediaAll";
 import TitleComponent from "@/components/common/TitleComponent";
 import { getVideosClient, getImagesClient } from "../api/clientApi";
-import images from "./images";
+import LoadingPage from "../loading";
 const tabs = ["View Images", "View Videos"];
 
 const Page = () => {
@@ -29,7 +29,6 @@ const Page = () => {
             title: item.Title__c,
             date: item.Date__c,
           })) || [];
-        console.log("Formatted videos:", formattedVideos);
         setVideos(formattedVideos);
       } catch (err) {
         console.error("Error fetching videos:", err);
@@ -74,6 +73,10 @@ const Page = () => {
       : activeTab === "View Videos"
       ? videos
       : images;
+
+  if (loading) {
+    return <LoadingPage />;
+  }
 
   return (
     <div className="w-full ">

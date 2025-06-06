@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import LoadingPage from "@/app/loading";
 
 const MediaAll = ({ items, loading }) => {
   // Check if items is valid and has elements
-  console.log("Items:", items);
   const validItems = Array.isArray(items) && items.length > 0 ? items : [];
 
   const [showModal, setShowModal] = useState(false);
@@ -12,17 +12,17 @@ const MediaAll = ({ items, loading }) => {
   const [currentIndex, setCurrentIndex] = useState(null);
 
   const [layoutConfig, setLayoutConfig] = useState([
-    [2, 3, 2], // 3
-    [1, 3, 3], // 3 (6)
-    [1, 3, 1, 2], // 4 (10)
-    [1, 3, 3], // 3 (13)
-    [1, 3, 1, 2], // 4 (17)
-    [3, 4], // 2 (19)
-    [2, 2, 3], // 3 (22)
-    [1, 3, 3], // 3 (25)
-    [3, 2, 1], // 3 (28)
-    [3, 1, 1, 1, 1], // 5 (33)
-    [2, 1, 1, 1, 2], // 5 (38)
+    [2, 3, 2],
+    [1, 3, 3],
+    [1, 3, 1, 2],
+    [1, 3, 3],
+    [1, 3, 1, 2],
+    [3, 4],
+    [2, 2, 3],
+    [1, 3, 3],
+    [3, 2, 1],
+    [3, 1, 1, 1, 1],
+    [2, 1, 1, 1, 2],
   ]);
   // Function to determine layout based on screen size
   const updateLayout = () => {
@@ -101,7 +101,7 @@ const MediaAll = ({ items, loading }) => {
   }, []);
 
   if (loading) {
-    <div className="text-white text-center py-10">Loading...</div>;
+    return <LoadingPage />;
   }
   // If no valid items, return early
   if (validItems.length === 0 && !loading) {
@@ -272,4 +272,3 @@ const MediaAll = ({ items, loading }) => {
 };
 
 export default MediaAll;
-//pakka code 1
