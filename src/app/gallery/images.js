@@ -308,4 +308,443 @@ const images = [
   },
 ];
 
-export default images;
+const ImageFolders = {
+  "Match 1": [
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/g1.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/g2.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/g3.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/g4.png",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/g5.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/g6.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/g7.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/g8.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/g9.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/g10.jpeg",
+    },
+  ],
+  "Match 2": [
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n7.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n8.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n9.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n4.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n5.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n6.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n10.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n11.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n12.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n13.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n5.png",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n4.png",
+    },
+
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n3.png",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n1.png",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n2.png",
+    },
+  ],
+  "Match 3": [
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n7.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n8.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n9.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n4.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n5.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n6.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n10.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n11.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n12.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n13.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n5.png",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n4.png",
+    },
+
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n3.png",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n1.png",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n2.png",
+    },
+  ],
+
+  "Match 4": [
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n7.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n8.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n9.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n4.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n5.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n6.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n10.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n11.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n12.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n13.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n5.png",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n4.png",
+    },
+
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n3.png",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n1.png",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n2.png",
+    },
+  ],
+
+  "Match 5": [
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n7.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n8.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n9.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n4.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n5.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n6.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n10.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n11.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n12.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n13.jpeg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n5.png",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n4.png",
+    },
+
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n3.png",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n1.png",
+    },
+    {
+      type: "",
+      title: "Dreams do come true",
+      date: "27 May, 2025",
+      img: "/images/gallery/n2.png",
+    },
+  ],
+};
+
+export {images, ImageFolders};

@@ -1,62 +1,366 @@
-import React from "react";
-import Image from "next/image";
-import { useEffect, useState } from "react";
+// import React from "react";
+// import Image from "next/image";
+// import { useEffect, useState } from "react";
 
-const MediaAll = ({ items }) => {
-  // Check if items is valid and has elements
-  console.log("Items:", items);
-  const validItems = Array.isArray(items) && items.length > 0 ? items : [];
+// const MediaAll = ({ items, type }) => {
+//   const [selectedFolder, setSelectedFolder] = useState(null);
+//   // Check if items is valid and has elements
+
+//   const isImageType = type === "image";
+//   const isVideoType = type === "video";
+
+//   const folderKeys =
+//     isImageType && items && typeof items === "object" ? Object.keys(items) : [];
+
+//   const validItems = isVideoType
+//     ? Array.isArray(items) && items.length > 0
+//       ? items
+//       : []
+//     : selectedFolder
+//     ? items?.[selectedFolder] ?? []
+//     : [];
+
+//   const [showModal, setShowModal] = useState(false);
+//   const [currentIndex, setCurrentIndex] = useState(null);
+
+//   const [layoutConfig, setLayoutConfig] = useState([
+//     [2, 3, 2], // 3
+//     [1, 3, 3], // 3 (6)
+//     [1, 3, 1, 2], // 4 (10)
+//     [1, 3, 3], // 3 (13)
+//     [1, 3, 1, 2], // 4 (17)
+//     [3, 4], // 2 (19)
+//     [2, 2, 3], // 3 (22)
+//     [1, 3, 3], // 3 (25)
+//     [3, 2, 1], // 3 (28)
+//     [3, 1, 1, 1, 1], // 5 (33)
+//     [2, 1, 1, 1, 2], // 5 (38)
+//   ]);
+
+//   // Dynamic layout calculation for the desktop
+
+//   const generateDesktopLayout = (items) => {
+//     const unitsPerRow = 7;
+//     const layout = [];
+//     const remaining = [...items];
+
+//     const getRandomUnit = () => Math.floor(Math.random() * 3) + 1;
+
+//     while (remaining.length > 0) {
+//       let row = [];
+//       let total = 0;
+
+//       for (let i = 0; i < remaining.length; i++) {
+//         const unit = getRandomUnit();
+
+//         if (total + unit <= unitsPerRow) {
+//           row.push(unit);
+//           total += unit;
+//           remaining.splice(i, 1);
+//           i--;
+
+//           if (total === unitsPerRow) break;
+//         }
+//       }
+
+//       // Only push full rows of exactly 7 units
+//       if (total === unitsPerRow) {
+//         layout.push(row);
+//       } else {
+//         // put items back (we can’t recover original sizes, but we can just stop)
+//         break;
+//       }
+//     }
+
+//     return layout;
+//   };
+
+//   // Dynamic layout calculation for the tablet
+//   const generateTabletLayout = (items) => {
+//     // Alternate rows of [4, 3] and [3, 4] for all images
+//     const layout = [];
+//     const rowsNeeded = Math.ceil(items.length / 2);
+//     for (let i = 0; i < rowsNeeded; i++) {
+//       layout.push(i % 2 === 0 ? [4, 3] : [3, 4]);
+//     }
+//     return layout;
+//   };
+
+//   // Dynamic layout calculation for the mobile
+//   const generateMobileLayout = (items) => {
+//     return Array(items.length).fill([7]);
+//   };
+
+//   // Function to determine layout based on screen size
+//   const updateLayout = () => {
+//     if (typeof window !== "undefined") {
+//       if (window.innerWidth < 640) {
+//         setLayoutConfig(generateMobileLayout(validItems));
+//       } else if (window.innerWidth < 1024) {
+//         setLayoutConfig(generateTabletLayout(validItems));
+//       } else {
+//         setLayoutConfig(generateDesktopLayout(validItems));
+//       }
+//     }
+//   };
+
+//   // Set up resize listener with SSR safety check
+//   useEffect(() => {
+//     updateLayout();
+
+//     // Add resize listener only on client side
+//     if (typeof window !== "undefined") {
+//       window.addEventListener("resize", updateLayout);
+//       return () => window.removeEventListener("resize", updateLayout);
+//     }
+//   }, []);
+
+//   // If no valid items, return early
+//   if (validItems.length === 0) {
+//     return <div className="w-full p-3">No media items available</div>;
+//   }
+
+//   let renderedIndex = 0;
+
+//   return (
+//     <div className="w-full flex flex-col gap-3 p-3">
+
+//       {layoutConfig.map((row, rowIndex) => {
+//         // Stop rendering if we've shown all items
+//         if (renderedIndex >= validItems.length) {
+//           return null;
+//         }
+
+//         return (
+//           <div key={rowIndex} className="h-[250px] w-full">
+//             <div className="grid w-full h-full grid-cols-7 gap-2 md:gap-3 lg:gap-4">
+//               {row.map((span, colIndex) => {
+//                 // Stop rendering if we've shown all items
+//                 if (renderedIndex >= validItems.length) return null;
+//                 const item = validItems[renderedIndex];
+//                 const indexForModal = renderedIndex++;
+//                 if (!item?.img) return null;
+
+//                 // Safety check
+//                 // if (!item || !item.img) {
+//                 //   console.warn(
+//                 //     "Invalid item or missing image at index:",
+//                 //     renderedIndex - 1
+//                 //   );
+//                 //   return null;
+//                 // }
+
+//                 return (
+//                   <div
+//                     key={colIndex}
+//                     className={`relative col-span-${span} overflow-hidden bg-white/30`}
+//                     onClick={() => {
+//                       setCurrentIndex(indexForModal);
+//                       setShowModal(true);
+//                     }}
+//                   >
+//                     {/* Use optional chaining and provide fallback for image */}
+//                     <Image
+//                       src={item.img}
+//                       alt={item.title || "Gallery image"}
+//                       fill
+//                       className="object-cover "
+//                       sizes="(max-width: 640px) 95vw, (max-width: 1024px) 45vw, 33vw"
+//                     />
+
+//                     {/* <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent text-white p-2">
+//                       <p className="text-sm font-semibold line-clamp-1">
+//                         {item.title || "Untitled"}
+//                       </p>
+//                       {item.date && (
+//                         <p className="text-xs text-gray-300">{item.date}</p>
+//                       )}
+//                     </div> */}
+
+//                     {item.type === "video" && (
+//                       <div className="absolute inset-0 flex items-center justify-center">
+//                         <Image
+//                           src="/images/home/whyT2C/vidLogo.svg"
+//                           width={100}
+//                           height={100}
+//                           className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16"
+//                           alt="Video"
+//                         />
+//                       </div>
+//                     )}
+
+//                     {item.views && item.type === "image" && (
+//                       <div className="absolute top-2 right-2">
+//                         <Image
+//                           src="/images/home/whyT2C/imgIcon.svg"
+//                           width={100}
+//                           height={100}
+//                           alt="Image"
+//                           className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8"
+//                         />
+//                       </div>
+//                     )}
+
+//                     {item.type === "coming-soon" && (
+//                       <div className="absolute top-2 left-2 bg-white text-black text-xs px-2 py-1 rounded font-semibold">
+//                         COMING SOON
+//                       </div>
+//                     )}
+//                   </div>
+//                 );
+//               })}
+//             </div>
+//           </div>
+//         );
+//       })}
+
+//       {/* Hidden utility classes to ensure Tailwind includes them in the build */}
+//       {/* <div className="hidden col-span-1 col-span-2 col-span-3 col-span-4 col-span-5 col-span-6 col-span-7" /> */}
+//       {showModal && (
+//         <div
+//           className="fixed inset-0 z-[9999] bg-black bg-opacity-80 flex items-center justify-center p-4"
+//           onClick={() => setShowModal(false)}
+//         >
+//           <div
+//             className="relative max-w-4xl w-full max-h-[90vh]"
+//             onClick={(e) => e.stopPropagation()}
+//           >
+//             <button
+//               onClick={() => setShowModal(false)}
+//               className="absolute -top-5 -right-5 bg-white text-black p-3 py-2 rounded-full text-sm z-50 font-bold"
+//             >
+//               ✕
+//             </button>
+
+//             {currentIndex > 0 && (
+//               <button
+//                 className="absolute -left-20 top-1/2 transform -translate-y-1/2 bg-[#ffffff80] hover:bg-white text-black flex justify-center items-center rounded-full z-50 w-14 h-14"
+//                 onClick={() => setCurrentIndex((prev) => prev - 1)}
+//               >
+//                 ◀
+//               </button>
+//             )}
+
+//             {currentIndex < validItems.length - 1 && (
+//               <button
+//                 className="absolute -right-20 top-1/2 transform -translate-y-1/2 bg-[#ffffff80] hover:bg-white text-black flex justify-center items-center rounded-full z-50 w-14 h-14"
+//                 onClick={() => setCurrentIndex((prev) => prev + 1)}
+//               >
+//                 ▶
+//               </button>
+//             )}
+
+//             {/* <Image
+//               src={validItems[currentIndex]?.img}
+//               alt="popup"
+//               width={1000}
+//               height={800}
+//               className="w-full h-auto object-contain rounded"
+//             /> */}
+//             {validItems[currentIndex]?.type === "video" ? (
+//               <iframe
+//                 width="100%"
+//                 height="500"
+//                 src={`https://www.youtube.com/embed/${
+//                   validItems[currentIndex]?.videoUrl?.split("youtu.be/")[1]
+//                 }`}
+//                 title={validItems[currentIndex]?.title || "Video Preview"}
+//                 allowFullScreen
+//                 className="rounded w-full max-h-[80vh]"
+//               />
+//             ) : (
+//               <Image
+//                 src={validItems[currentIndex]?.img}
+//                 alt="popup"
+//                 width={1000}
+//                 height={800}
+//                 className="w-full h-auto object-contain rounded"
+//               />
+//             )}
+//           </div>
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default MediaAll;
+// //pakka code 1
+
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { FaP } from "react-icons/fa6";
+
+const MediaAll = ({ items, type }) => {
+  const isImageType = type === "image";
+  const isVideoType = type === "video";
 
   const [showModal, setShowModal] = useState(false);
-  const [modalImage, setModalImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
+  const [selectedFolder, setSelectedFolder] = useState(null);
+  const [layoutConfig, setLayoutConfig] = useState([]);
 
-  const [layoutConfig, setLayoutConfig] = useState([
-    [2, 3, 2], // 3
-    [1, 3, 3], // 3 (6)
-    [1, 3, 1, 2], // 4 (10)
-    [1, 3, 3], // 3 (13)
-    [1, 3, 1, 2], // 4 (17)
-    [3, 4], // 2 (19)
-    [2, 2, 3], // 3 (22)
-    [1, 3, 3], // 3 (25)
-    [3, 2, 1], // 3 (28)
-    [3, 1, 1, 1, 1], // 5 (33)
-    [2, 1, 1, 1, 2], // 5 (38)
-  ]);
+  const folderKeys =
+    isImageType && items && typeof items === "object" ? Object.keys(items) : [];
 
+  const validItems = isVideoType
+    ? Array.isArray(items) && items.length > 0
+      ? items
+      : []
+    : selectedFolder
+    ? items?.[selectedFolder] ?? []
+    : [];
 
-  // Dynamic layout calculation for the desktop
-  
   const generateDesktopLayout = (items) => {
     const unitsPerRow = 7;
     const layout = [];
     const remaining = [...items];
 
-    const getRandomUnit = () => Math.floor(Math.random() * 3) + 1; 
+    const getRandomUnit = () => Math.floor(Math.random() * 3) + 1;
 
     while (remaining.length > 0) {
       let row = [];
       let total = 0;
+      const tempRow = [];
 
-      for (let i = 0; i < remaining.length; i++) {
-        const unit = getRandomUnit(); 
+      let i = 0;
+      while (i < remaining.length && total < unitsPerRow) {
+        const unit = getRandomUnit();
 
         if (total + unit <= unitsPerRow) {
-          row.push(unit);
+          tempRow.push(unit);
           total += unit;
-          remaining.splice(i, 1);
-          i--;
+        }
 
-          if (total === unitsPerRow) break;
+        i++;
+
+        if (total === unitsPerRow) {
+          row = [...tempRow];
+          layout.push(row);
+          remaining.splice(0, tempRow.length);
+          break;
         }
       }
 
-      // Only push full rows of exactly 7 units
-      if (total === unitsPerRow) {
-        layout.push(row);
-      } else {
-        // put items back (we can’t recover original sizes, but we can just stop)
+      // If we failed to build a full row and have more than 1 item left, retry
+      if (total < unitsPerRow) {
+        if (remaining.length > tempRow.length) {
+          // More items are available but couldn't form a valid row; try again
+          continue;
+        }
+
+        // Final leftover row logic
+        const left = remaining.length;
+
+        if (left === 1 && layout.length > 0) {
+          layout[layout.length - 1].push(2); // Add 1 image to previous row
+          remaining.splice(0, 1);
+        } else {
+          const partialRow = new Array(left).fill(2); // Last row as partial
+          layout.push(partialRow);
+          remaining.splice(0, left);
+        }
+
         break;
       }
     }
@@ -64,9 +368,7 @@ const MediaAll = ({ items }) => {
     return layout;
   };
 
-  // Dynamic layout calculation for the tablet
   const generateTabletLayout = (items) => {
-    // Alternate rows of [4, 3] and [3, 4] for all images
     const layout = [];
     const rowsNeeded = Math.ceil(items.length / 2);
     for (let i = 0; i < rowsNeeded; i++) {
@@ -75,12 +377,11 @@ const MediaAll = ({ items }) => {
     return layout;
   };
 
-  // Dynamic layout calculation for the mobile
   const generateMobileLayout = (items) => {
     return Array(items.length).fill([7]);
   };
 
-  // Function to determine layout based on screen size
+  // Dynamic layout calculation for images
   const updateLayout = () => {
     if (typeof window !== "undefined") {
       if (window.innerWidth < 640) {
@@ -88,24 +389,59 @@ const MediaAll = ({ items }) => {
       } else if (window.innerWidth < 1024) {
         setLayoutConfig(generateTabletLayout(validItems));
       } else {
-        setLayoutConfig(generateDesktopLayout(validItems));
+        if (isVideoType) {
+          setLayoutConfig(generateVideoLayout(validItems)); // <== guaranteed all render for videos
+        } else {
+          setLayoutConfig(generateDesktopLayout(validItems)); // <== can remain dynamic for images
+        }
       }
     }
   };
 
-  // Set up resize listener with SSR safety check
+  // Video Layout
+  const generateVideoLayout = (items) => {
+    const patterns = [
+      [3, 2, 2],
+      [2, 3, 2],
+      [2, 2, 3],
+    ];
+
+    const layout = [];
+    let i = 0;
+    let patternIndex = 0;
+
+    while (i < items.length) {
+      const pattern = patterns[patternIndex % patterns.length];
+      const remaining = items.length - i;
+
+      // Trim pattern if not enough items left
+      const row = pattern.slice(0, remaining);
+      layout.push(row);
+
+      i += row.length;
+      patternIndex++;
+    }
+
+    return layout;
+  };
+
+  // Reset selected folder when type changes
+  useEffect(() => {
+    if (type === "image") {
+      setSelectedFolder(null);
+    }
+  }, [type]);
+
+  // Set up resize listener
   useEffect(() => {
     updateLayout();
-
-    // Add resize listener only on client side
     if (typeof window !== "undefined") {
       window.addEventListener("resize", updateLayout);
       return () => window.removeEventListener("resize", updateLayout);
     }
-  }, []);
+  }, [selectedFolder, items]);
 
-  // If no valid items, return early
-  if (validItems.length === 0) {
+  if (isVideoType && validItems.length === 0) {
     return <div className="w-full p-3">No media items available</div>;
   }
 
@@ -113,97 +449,109 @@ const MediaAll = ({ items }) => {
 
   return (
     <div className="w-full flex flex-col gap-3 p-3">
-      {layoutConfig.map((row, rowIndex) => {
-        // Stop rendering if we've shown all items
-        if (renderedIndex >= validItems.length) {
-          return null;
-        }
-
-        return (
-          <div key={rowIndex} className="h-[250px] w-full">
-            <div className="grid w-full h-full grid-cols-7 gap-2 md:gap-3 lg:gap-4">
-              {row.map((span, colIndex) => {
-                // Stop rendering if we've shown all items
-                if (renderedIndex >= validItems.length) return null;
-                const item = validItems[renderedIndex];
-                const indexForModal = renderedIndex++;
-                if (!item?.img) return null;
-
-                // Safety check
-                // if (!item || !item.img) {
-                //   console.warn(
-                //     "Invalid item or missing image at index:",
-                //     renderedIndex - 1
-                //   );
-                //   return null;
-                // }
-
-                return (
-                  <div
-                    key={colIndex}
-                    className={`relative col-span-${span} overflow-hidden bg-white/30`}
-                    onClick={() => {
-                      setCurrentIndex(indexForModal);
-                      setShowModal(true);
-                    }}
-                  >
-                    {/* Use optional chaining and provide fallback for image */}
+      {/* Folder structure for images */}
+      {isImageType && !selectedFolder && (
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {folderKeys.map((key) => {
+            const images = items[key];
+            const firstImage = images?.[0]?.img;
+            return (
+              <div
+                key={key}
+                className="relative cursor-pointer bg-[#1A2447]/40 rounded-md shadow overflow-hidden border border-[#3A4878] "
+                onClick={() => setSelectedFolder(key)}
+              >
+                <div className="absolute top-0 right-0 text-md text-[#E07E27]  bg-[#1A2447] px-2 py-1 rounded-bl-md rounded-tr-md  font-semibold z-20">{images?.length}</div>
+                {firstImage && (
+                  <div className="relative w-full h-60">                   
                     <Image
-                      src={item.img}
-                      alt={item.title || "Gallery image"}
+                      src={firstImage}
+                      alt={images?.[0]?.title || "Folder Preview"}
                       fill
-                      className="object-cover "
-                      sizes="(max-width: 640px) 95vw, (max-width: 1024px) 45vw, 33vw"
+                      className="object-cover"
                     />
-
-                    {/* <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent text-white p-2">
-                      <p className="text-sm font-semibold line-clamp-1">
-                        {item.title || "Untitled"}
-                      </p>
-                      {item.date && (
-                        <p className="text-xs text-gray-300">{item.date}</p>
-                      )}
-                    </div> */}
-
-                    {item.type === "video" && (
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <Image
-                          src="/images/home/whyT2C/vidLogo.svg"
-                          width={100}
-                          height={100}
-                          className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16"
-                          alt="Video"
-                        />
-                      </div>
-                    )}
-
-                    {item.views && item.type === "image" && (
-                      <div className="absolute top-2 right-2">
-                        <Image
-                          src="/images/home/whyT2C/imgIcon.svg"
-                          width={100}
-                          height={100}
-                          alt="Image"
-                          className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8"
-                        />
-                      </div>
-                    )}
-
-                    {item.type === "coming-soon" && (
-                      <div className="absolute top-2 left-2 bg-white text-black text-xs px-2 py-1 rounded font-semibold">
-                        COMING SOON
-                      </div>
-                    )}
                   </div>
-                );
-              })}
-            </div>
-          </div>
-        );
-      })}
+                )}
+                <div className="p-3 text-center font-semibold text-white">
+                  {key}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
 
-      {/* Hidden utility classes to ensure Tailwind includes them in the build */}
-      {/* <div className="hidden col-span-1 col-span-2 col-span-3 col-span-4 col-span-5 col-span-6 col-span-7" /> */}
+      {/* Grid layout (images after folder selected OR videos) */}
+      {(isVideoType || (isImageType && selectedFolder)) &&
+        layoutConfig.map((row, rowIndex) => {
+          if (renderedIndex >= validItems.length) {
+            return null;
+          }
+
+          return (
+            <div key={rowIndex} className="h-[250px] w-full">
+              <div className="grid w-full h-full grid-cols-7 gap-2 md:gap-3 lg:gap-4">
+                {row.map((span, colIndex) => {
+                  if (renderedIndex >= validItems.length) return null;
+                  const item = validItems[renderedIndex];
+                  const indexForModal = renderedIndex++;
+                  if (!item?.img) return null;
+
+                  return (
+                    <div
+                      key={colIndex}
+                      className={`relative col-span-${span} overflow-hidden bg-white/30`}
+                      onClick={() => {
+                        setCurrentIndex(indexForModal);
+                        setShowModal(true);
+                      }}
+                    >
+                      <Image
+                        src={item.img}
+                        alt={item.title || "Gallery image"}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 640px) 95vw, (max-width: 1024px) 45vw, 33vw"
+                      />
+
+                      {item.type === "video" && (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <Image
+                            src="/images/home/whyT2C/vidLogo.svg"
+                            width={100}
+                            height={100}
+                            className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16"
+                            alt="Video"
+                          />
+                        </div>
+                      )}
+
+                      {item.views && item.type === "image" && (
+                        <div className="absolute top-2 right-2">
+                          <Image
+                            src="/images/home/whyT2C/imgIcon.svg"
+                            width={100}
+                            height={100}
+                            alt="Image"
+                            className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8"
+                          />
+                        </div>
+                      )}
+
+                      {item.type === "coming-soon" && (
+                        <div className="absolute top-2 left-2 bg-white text-black text-xs px-2 py-1 rounded font-semibold">
+                          COMING SOON
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
+
+      {/* Modal preview */}
       {showModal && (
         <div
           className="fixed inset-0 z-[9999] bg-black bg-opacity-80 flex items-center justify-center p-4"
@@ -238,13 +586,6 @@ const MediaAll = ({ items }) => {
               </button>
             )}
 
-            {/* <Image
-              src={validItems[currentIndex]?.img}
-              alt="popup"
-              width={1000}
-              height={800}
-              className="w-full h-auto object-contain rounded"
-            /> */}
             {validItems[currentIndex]?.type === "video" ? (
               <iframe
                 width="100%"
@@ -273,4 +614,3 @@ const MediaAll = ({ items }) => {
 };
 
 export default MediaAll;
-//pakka code 1

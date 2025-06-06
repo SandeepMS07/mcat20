@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import MediaAll from "@/components/media/MediaAll";
 import TitleComponent from "@/components/common/TitleComponent";
 import { getImagesClient, getVideosClient } from "../api/clientApi";
-import images from "./images";
+import { images, ImageFolders } from "./images";
 
 const tabs = ["View Images", "View Videos"];
 
@@ -39,19 +39,21 @@ const Page = () => {
   }, []);
 
   // Fetching the data from the API
-  useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const images = await getImagesClient();
-        console.log(images);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchImages();
-  }, []);
+  // useEffect(() => {
+  //   const fetchImages = async () => {
+  //     try {
+  //       const images = await getImagesClient();
+  //       console.log(images);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
+  //   fetchImages();
+  // }, []);
 
-  const filteredItems = activeTab === "View Videos" ? videos : images;
+  console.log("the image folders are", ImageFolders);
+  // const filteredItems = activeTab === "View Videos" ? videos : images;
+  const filteredItems = activeTab === "View Videos" ? videos : ImageFolders;
 
   return (
     <div className="w-full ">
@@ -78,8 +80,10 @@ const Page = () => {
         />
         <div className="gap-6 section-width section-padding ">
           <TitleComponent title={"Gallery"} />
-          <div className="w-full bg-black">
-            <div className="w-full flex items-center">
+          <div className="relative w-full bg-[url('/images/gallery/Background.jpg')] bg-cover bg-center bg-no-repeat ">
+            <div className="absolute inset-0 bg-black/60"></div>
+
+            <div className="relative w-full flex items-center z-10">
               {tabs.map((tab, index) => (
                 <div
                   key={index}
@@ -96,8 +100,11 @@ const Page = () => {
                 </div>
               ))}
             </div>
-            <div className="w-full flex items-center justify-center">
-              <MediaAll items={filteredItems} />
+            <div className="relative w-full flex items-center justify-center z-10">
+              <MediaAll
+                items={filteredItems}
+                type={activeTab === "View Videos" ? "video" : "image"}
+              />
             </div>
           </div>
         </div>

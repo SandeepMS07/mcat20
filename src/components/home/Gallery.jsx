@@ -5,7 +5,7 @@ import Image from "next/image";
 import TitleComponent from "../common/TitleComponent";
 import Link from "next/link";
 import routes from "@/utilis/route";
-import images from "../../app/gallery/images";
+import {images} from "../../app/gallery/images";
 
 const Gallery = () => {
   const validItems =
