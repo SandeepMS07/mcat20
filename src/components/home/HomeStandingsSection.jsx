@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import TitleComponent from "../common/TitleComponent";
 import CustomTable from "../common/CustomTable";
@@ -10,6 +11,8 @@ import {
   teamShortName,
 } from "@/utilis/helper";
 import "./style.css";
+import { useEffect, useState } from "react";
+import { getStandings } from "@/app/api/serverApi";
 
 const headers = [
   "RANK",
@@ -33,11 +36,23 @@ const rowStyles = {
   className: "p-5",
 };
 
-const HomeStandingsSection = ({ data }) => {
-  console.log(data, "F;kdsl;");
-  const season3 = Array.isArray(data?.data?.season_3?.points)
-    ? data.data.season_3?.points
-    : [];
+const HomeStandingsSection = () => {
+  const [standingsData, setStandingsSeason3] = useState([]);
+  const [loading, setLoading] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      const [standingsRes] = await Promise.all([getStandings()]);
+      setStandingsSeason3(standingsRes?.data?.season_3?.points || []);
+      setLoading(false);
+    };
+
+    fetchData();
+  }, []);
+
+  const season3 = Array.isArray(standingsData) ? standingsData : [];
+
   const tableData =
     season3.map((team, index) => {
       const teamLogo = season3TeamLogo[team?.team_name || team.TeamName] || "";
@@ -68,43 +83,49 @@ const HomeStandingsSection = ({ data }) => {
     }) || [];
 
   return (
-    <div className="pt-20 relative">
-      <img
-        src="/images/elements/section-element.png"
-        className="absolute right-0 top-0 md:block hidden"
-        alt="element"
-      />
-      <img
-        src="/images/elements/section-element.png"
-        className="absolute left-0 bottom-0 rotate-180  md:block hidden "
-        alt="element"
-      />
-      <div className="section-width padding-bottom pt-5">
-        <TitleComponent
-          hideButtonOnMobile
-          title="standings Season 3"
-          button
-          buttonLink={routes.standing}
-        />
-
-        <div>
-          {tableData?.length > 0 ? (
-            <CustomTable
-              headers={headers}
-              data={tableData}
-              customRenderers={{}}
-              headerStyles={headerStyles}
-              tBodyStyles={tBodyStyles}
-              rowStyles={rowStyles}
+    <>
+      {loading ? (
+        <div className="text-center py-10 text-gray-400">Loading...</div>
+      ) : (
+        <div className="pt-20 relative">
+          <img
+            src="/images/elements/section-element.png"
+            className="absolute right-0 top-0 md:block hidden"
+            alt="element"
+          />
+          <img
+            src="/images/elements/section-element.png"
+            className="absolute left-0 bottom-0 rotate-180  md:block hidden "
+            alt="element"
+          />
+          <div className="section-width padding-bottom pt-5">
+            <TitleComponent
+              hideButtonOnMobile
+              title="standings Season 3"
+              button
+              buttonLink={routes.standing}
             />
-          ) : (
-            <div className="text-center py-10 text-gray-400">
-              No data available for this team in the selected season.
+
+            <div>
+              {tableData?.length > 0 ? (
+                <CustomTable
+                  headers={headers}
+                  data={tableData}
+                  customRenderers={{}}
+                  headerStyles={headerStyles}
+                  tBodyStyles={tBodyStyles}
+                  rowStyles={rowStyles}
+                />
+              ) : (
+                <div className="text-center py-10 text-gray-400">
+                  No data available for this team in the selected season.
+                </div>
+              )}
             </div>
-          )}
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 
