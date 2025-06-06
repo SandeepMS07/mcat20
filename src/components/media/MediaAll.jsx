@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const MediaAll = ({ items }) => {
+const MediaAll = ({ items, loading }) => {
   // Check if items is valid and has elements
   console.log("Items:", items);
   const validItems = Array.isArray(items) && items.length > 0 ? items : [];
@@ -29,7 +29,7 @@ const MediaAll = ({ items }) => {
     if (typeof window !== "undefined") {
       if (window.innerWidth < 640) {
         // Mobile layout - single column
-        setLayoutConfig(Array(41).fill([7]));
+        setLayoutConfig(Array(62).fill([7]));
       } else if (window.innerWidth < 1024) {
         // Tablet layout
         setLayoutConfig([
@@ -42,9 +42,6 @@ const MediaAll = ({ items }) => {
           [4, 3],
           [3, 4],
           [4, 3],
-          [3, 4], // 20
-          [4, 3],
-          [3, 4],
           [3, 4],
           [4, 3],
           [3, 4],
@@ -52,22 +49,41 @@ const MediaAll = ({ items }) => {
           [3, 4],
           [4, 3],
           [3, 4],
+          [4, 3],
+          [3, 4],
+          [4, 3],
+          [3, 4],
+          [4, 3],
+          [3, 4],
+          [4, 3],
+          [3, 4],
+          [4, 3],
+          [3, 4],
+          [4, 3],
+          [3, 4],
+          [4, 3],
+          [3, 4],
+          [4, 3],
         ]);
       } else {
         // Desktop layout
         setLayoutConfig([
-          [2, 2, 2,1],
-          [ 1, 2 ,1,3],
+          [2, 2, 2, 1],
+          [1, 2, 1, 3],
           [2, 3, 2],
           [1, 3, 3],
           [2, 1, 3, 1],
           [2, 3, 2],
           [1, 3, 3],
-          [1, 1, 1,4],
+          [1, 1, 1, 4],
           [2, 2, 3],
           [3, 2, 2],
           [1, 3, 3],
           [3, 2, 2],
+          [2, 2, 3],
+          [2, 3, 2],
+          [2, 2, 2, 1],
+          [1, 3, 3],
         ]);
       }
     }
@@ -84,8 +100,11 @@ const MediaAll = ({ items }) => {
     }
   }, []);
 
+  if (loading) {
+    <div className="text-white text-center py-10">Loading...</div>;
+  }
   // If no valid items, return early
-  if (validItems.length === 0) {
+  if (validItems.length === 0 && !loading) {
     return <div className="w-full p-3">No media items available</div>;
   }
 

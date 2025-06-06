@@ -4,15 +4,15 @@ import Hero from "@/components/hero/Hero";
 import React, { useState, useEffect } from "react";
 import MediaAll from "@/components/media/MediaAll";
 import TitleComponent from "@/components/common/TitleComponent";
-import {getVideosClient } from "../api/clientApi";
+import { getVideosClient, getImagesClient } from "../api/clientApi";
 import images from "./images";
-const tabs = ["View Images","View Videos"];
-
+const tabs = ["View Images", "View Videos"];
 
 const Page = () => {
   const [activeTab, setActiveTab] = useState("View Images");
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -37,6 +37,26 @@ const Page = () => {
         setLoading(false);
       }
     };
+
+    const fetchImages = async () => {
+      setLoading(true);
+      try {
+        const imageRes = await getImagesClient();
+        const formattedImages =
+          imageRes?.data?.map((item) => ({
+            ...item,
+            type: "image",
+            img: item.Image_URL__c,
+          })) || [];
+        setImages(formattedImages);
+      } catch (err) {
+        console.error("Error fetching images:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchImages();
 
     fetchVideos();
   }, []);
@@ -99,7 +119,7 @@ const Page = () => {
               ))}
             </div>
             <div className="w-full flex items-center justify-center">
-              <MediaAll items={filteredItems} />
+              <MediaAll items={filteredItems} loading={loading} />
             </div>
           </div>
         </div>
