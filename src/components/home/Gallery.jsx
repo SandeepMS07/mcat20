@@ -7,8 +7,57 @@ import Link from "next/link";
 import routes from "@/utilis/route";
 import images from "../../app/gallery/images";
 
+const getSizeUnit = (size) => {
+  switch (size) {
+    case "small":
+      return 1;
+    case "medium":
+      return 2;
+    case "large":
+      return 3;
+    default:
+      return 1;
+  }
+};
+
+const generateDesktopLayout = (images) => {
+  const unitsPerRow = 7;
+  const layout = [];
+  const remaining = [...images]; 
+
+  while (remaining.length > 0) {
+    let row = [];
+    let total = 0;
+
+    // Try adding items to current row
+    for (let i = 0; i < remaining.length; i++) {
+      const unit = getSizeUnit(remaining[i].size);
+
+      if (total + unit <= unitsPerRow) {
+        row.push(unit);
+        total += unit;
+        remaining.splice(i, 1); // remove from pool
+        i--; // adjust index due to removal
+
+        if (total === unitsPerRow) break;
+      }
+    }
+
+    // If we couldn't fill exactly 7, pad with 1s to meet UI expectation
+    while (total < unitsPerRow) {
+      row.push(1);
+      total += 1;
+    }
+
+    layout.push(row);
+  }
+
+  return layout;
+};
+
 const Gallery = () => {
-  const validItems = Array.isArray(images) && images.length > 0 ?images.slice(0, 8): [];
+  const validItems =
+    Array.isArray(images) && images.length > 0 ? images.slice(0, 8) : [];
 
   const [showModal, setShowModal] = useState(false);
   const [modalImage, setModalImage] = useState(null);
@@ -16,28 +65,45 @@ const Gallery = () => {
 
   const [layoutConfig, setLayoutConfig] = useState([
     [2, 2, 2, 1],
-    [1, 2, 2,2],
+    [1, 2, 2, 2],
   ]);
 
-  // Function to determine layout based on screen size
+  // // Function to determine layout based on screen size
+  // const updateLayout = () => {
+  //   if (typeof window !== "undefined") {
+  //     if (window.innerWidth < 640) {
+  //       // Mobile layout - single column with all 11 images
+  //       setLayoutConfig([[7], [7], [7]]);
+  //     } else if (window.innerWidth < 1024) {
+  //       // Tablet layout - simplified grid with all 11 images
+  //       setLayoutConfig([
+  //         [3, 4], // 2 images
+  //         [4, 3], // 2 images
+  //         [3, 4], // 2 images
+  //       ]);
+  //     } else {
+  //       // Desktop layout - original complex grid
+  //       setLayoutConfig([
+  //         [1, 2, 2,2],
+  //         [2, 1, 2,2],
+  //       ]);
+  //     }
+  //   }
+  // };
+
   const updateLayout = () => {
     if (typeof window !== "undefined") {
       if (window.innerWidth < 640) {
-        // Mobile layout - single column with all 11 images
         setLayoutConfig([[7], [7], [7]]);
       } else if (window.innerWidth < 1024) {
-        // Tablet layout - simplified grid with all 11 images
         setLayoutConfig([
-          [3, 4], // 2 images
-          [4, 3], // 2 images
-          [3, 4], // 2 images
+          [3, 4],
+          [4, 3],
+          [3, 4],
         ]);
       } else {
-        // Desktop layout - original complex grid
-        setLayoutConfig([
-          [1, 2, 2,2],
-          [2, 1, 2,2],
-        ]);
+        const layout = generateDesktopLayout(validItems);
+        setLayoutConfig(layout);
       }
     }
   };
@@ -60,90 +126,90 @@ const Gallery = () => {
 
   let renderedIndex = 0;
 
-  const renderMediaGrid = (items) => {
-    // If no valid items, return early
-    const validItems = Array.isArray(items) && items.length > 0 ? items : [];
+  // const renderMediaGrid = (items) => {
+  //   // If no valid items, return early
+  //   const validItems = Array.isArray(items) && items.length > 0 ? items : [];
 
-    if (validItems.length === 0) {
-      return <div className="w-full p-3">No media items available</div>;
-    }
+  //   if (validItems.length === 0) {
+  //     return <div className="w-full p-3">No media items available</div>;
+  //   }
 
-    let renderedIndex = 0;
+  //   let renderedIndex = 0;
 
-    return (
-      <div className="w-full flex flex-col gap-3 p-3">
-        {layoutConfig.map((row, rowIndex) => {
-          // Stop rendering if we've shown all items
-          if (renderedIndex >= validItems.length) {
-            return null;
-          }
+  //   return (
+  //     <div className="w-full flex flex-col gap-3 p-3">
+  //       {layoutConfig.map((row, rowIndex) => {
+  //         // Stop rendering if we've shown all items
+  //         if (renderedIndex >= validItems.length) {
+  //           return null;
+  //         }
 
-          return (
-            <div key={rowIndex} className="h-[300px] w-full">
-              <div className="grid w-full h-full grid-cols-7 gap-2 md:gap-3 lg:gap-4">
-                {row.map((span, colIndex) => {
-                  // Stop rendering if we've shown all items
-                  if (renderedIndex >= validItems.length) return null;
-                  const item = validItems[renderedIndex];
-                  const indexForModal = renderedIndex++;
-                  if (!item?.img) return null;
+  //         return (
+  //           <div key={rowIndex} className="h-[300px] w-full">
+  //             <div className="grid w-full h-full grid-cols-7 gap-2 md:gap-3 lg:gap-4">
+  //               {row.map((span, colIndex) => {
+  //                 // Stop rendering if we've shown all items
+  //                 if (renderedIndex >= validItems.length) return null;
+  //                 const item = validItems[renderedIndex];
+  //                 const indexForModal = renderedIndex++;
+  //                 if (!item?.img) return null;
 
-                  return (
-                    <div
-                      key={colIndex}
-                      className={`relative col-span-${span} overflow-hidden bg-white/30`}
-                      onClick={() => {
-                        setCurrentIndex(indexForModal);
-                        setShowModal(true);
-                      }}
-                    >
-                      <Image
-                        src={item.img}
-                        alt={item.title || "Gallery image"}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 640px) 95vw, (max-width: 1024px) 45vw, 33vw"
-                      />
+  //                 return (
+  //                   <div
+  //                     key={colIndex}
+  //                     className={`relative col-span-${span} overflow-hidden bg-white/30`}
+  //                     onClick={() => {
+  //                       setCurrentIndex(indexForModal);
+  //                       setShowModal(true);
+  //                     }}
+  //                   >
+  //                     <Image
+  //                       src={item.img}
+  //                       alt={item.title || "Gallery image"}
+  //                       fill
+  //                       className="object-cover"
+  //                       sizes="(max-width: 640px) 95vw, (max-width: 1024px) 45vw, 33vw"
+  //                     />
 
-                      {item.type === "video" && (
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <Image
-                            src="/images/home/whyT2C/vidLogo.svg"
-                            width={100}
-                            height={100}
-                            className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16"
-                            alt="Video"
-                          />
-                        </div>
-                      )}
+  //                     {item.type === "video" && (
+  //                       <div className="absolute inset-0 flex items-center justify-center">
+  //                         <Image
+  //                           src="/images/home/whyT2C/vidLogo.svg"
+  //                           width={100}
+  //                           height={100}
+  //                           className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16"
+  //                           alt="Video"
+  //                         />
+  //                       </div>
+  //                     )}
 
-                      {item.views && item.type === "image" && (
-                        <div className="absolute top-2 right-2">
-                          <Image
-                            src="/images/home/whyT2C/imgIcon.svg"
-                            width={100}
-                            height={100}
-                            alt="Image"
-                            className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8"
-                          />
-                        </div>
-                      )}
+  //                     {item.views && item.type === "image" && (
+  //                       <div className="absolute top-2 right-2">
+  //                         <Image
+  //                           src="/images/home/whyT2C/imgIcon.svg"
+  //                           width={100}
+  //                           height={100}
+  //                           alt="Image"
+  //                           className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8"
+  //                         />
+  //                       </div>
+  //                     )}
 
-                      {item.type === "coming-soon" && (
-                        <div className="absolute top-2 left-2 bg-white text-black text-xs px-2 py-1 rounded font-semibold">
-                          COMING SOON
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    );
-  };
+  //                     {item.type === "coming-soon" && (
+  //                       <div className="absolute top-2 left-2 bg-white text-black text-xs px-2 py-1 rounded font-semibold">
+  //                         COMING SOON
+  //                       </div>
+  //                     )}
+  //                   </div>
+  //                 );
+  //               })}
+  //             </div>
+  //           </div>
+  //         );
+  //       })}
+  //     </div>
+  //   );
+  // };
 
   return (
     <div className="bg-[url('/images/home/latestUpdateBg.png')] bg-cover bg-center bg-no-repeat py-20">

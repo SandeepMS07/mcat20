@@ -24,51 +24,125 @@ const MediaAll = ({ items }) => {
     [3, 1, 1, 1, 1], // 5 (33)
     [2, 1, 1, 1, 2], // 5 (38)
   ]);
-  // Function to determine layout based on screen size
+
+  // // Function to determine layout based on screen size
+  // const updateLayout = () => {
+  //   if (typeof window !== "undefined") {
+  //     if (window.innerWidth < 640) {
+  //       // Mobile layout - single column
+  //       setLayoutConfig(Array(41).fill([7]));
+  //     } else if (window.innerWidth < 1024) {
+  //       // Tablet layout
+  //       setLayoutConfig([
+  //         [4, 3],
+  //         [3, 4],
+  //         [4, 3],
+  //         [3, 4],
+  //         [4, 3],
+  //         [3, 4],
+  //         [4, 3],
+  //         [3, 4],
+  //         [4, 3],
+  //         [3, 4], // 20
+  //         [4, 3],
+  //         [3, 4],
+  //         [3, 4],
+  //         [4, 3],
+  //         [3, 4],
+  //         [4, 3],
+  //         [3, 4],
+  //         [4, 3],
+  //         [3, 4],
+  //       ]);
+  //     } else {
+  //       // Desktop layout
+  //       setLayoutConfig([
+  //         [3, 2, 2],
+  //         [1, 2, 2 ,2],
+  //         [3, 2, 2],
+  //         [1, 3, 3],
+  //         [2, 1, 3, 1],
+  //         [2, 3, 2],
+  //         [1, 3, 3],
+  //         [3, 3, 1],
+  //         [2, 2, 3],
+  //         [3, 2, 2],
+  //         [3, 3, 1],
+  //         [3, 2, 2],
+  //       ]);
+  //     }
+  //   }
+  // };
+
+  const getSizeUnit = (size) => {
+    switch (size) {
+      case "small":
+        return 1;
+      case "medium":
+        return 2;
+      case "large":
+        return 3;
+      default:
+        return 1;
+    }
+  };
+
+  const generateDesktopLayout = (items) => {
+    const unitsPerRow = 7;
+    const layout = [];
+    const remaining = [...items];
+
+    while (remaining.length > 0) {
+      let row = [];
+      let total = 0;
+
+      for (let i = 0; i < remaining.length; i++) {
+        const unit = getSizeUnit(remaining[i].size);
+
+        if (total + unit <= unitsPerRow) {
+          row.push(unit);
+          total += unit;
+          remaining.splice(i, 1);
+          i--;
+
+          if (total === unitsPerRow) break;
+        }
+      }
+
+      // Pad if needed
+      while (total < unitsPerRow) {
+        row.push(1);
+        total += 1;
+      }
+
+      layout.push(row);
+    }
+
+    return layout;
+  };
+
+  const generateTabletLayout = (items) => {
+    // Alternate rows of [4, 3] and [3, 4] for all images
+    const layout = [];
+    const rowsNeeded = Math.ceil(items.length / 2);
+    for (let i = 0; i < rowsNeeded; i++) {
+      layout.push(i % 2 === 0 ? [4, 3] : [3, 4]);
+    }
+    return layout;
+  };
+
+  const generateMobileLayout = (items) => {
+    return Array(items.length).fill([7]);
+  };
+
   const updateLayout = () => {
     if (typeof window !== "undefined") {
       if (window.innerWidth < 640) {
-        // Mobile layout - single column
-        setLayoutConfig(Array(41).fill([7]));
+        setLayoutConfig(generateMobileLayout(validItems));
       } else if (window.innerWidth < 1024) {
-        // Tablet layout
-        setLayoutConfig([
-          [4, 3],
-          [3, 4],
-          [4, 3],
-          [3, 4],
-          [4, 3],
-          [3, 4],
-          [4, 3],
-          [3, 4],
-          [4, 3],
-          [3, 4], // 20
-          [4, 3],
-          [3, 4],
-          [3, 4],
-          [4, 3],
-          [3, 4],
-          [4, 3],
-          [3, 4],
-          [4, 3],
-          [3, 4],
-        ]);
+        setLayoutConfig(generateTabletLayout(validItems));
       } else {
-        // Desktop layout
-        setLayoutConfig([
-          [3, 2, 2],
-          [1, 2, 2 ,2],
-          [3, 2, 2],
-          [1, 3, 3],
-          [2, 1, 3, 1],
-          [2, 3, 2],
-          [1, 3, 3],
-          [3, 3, 1],
-          [2, 2, 3],
-          [3, 2, 2],
-          [3, 3, 1],
-          [3, 2, 2],
-        ]);
+        setLayoutConfig(generateDesktopLayout(validItems));
       }
     }
   };
