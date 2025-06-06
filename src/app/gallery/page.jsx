@@ -4,19 +4,16 @@ import Hero from "@/components/hero/Hero";
 import React, { useState, useEffect } from "react";
 import MediaAll from "@/components/media/MediaAll";
 import TitleComponent from "@/components/common/TitleComponent";
-import {getVideosClient } from "../api/clientApi";
+import { getVideosClient } from "../api/clientApi";
 import images from "./images";
 const tabs = ["All", "View Videos", "View Images"];
-
 
 const Page = () => {
   const [activeTab, setActiveTab] = useState("All");
   const [videos, setVideos] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchVideos = async () => {
-      setLoading(true);
       try {
         const videoRes = await getVideosClient();
         const formattedVideos =
@@ -34,23 +31,28 @@ const Page = () => {
       } catch (err) {
         console.error("Error fetching videos:", err);
       } finally {
-        setLoading(false);
       }
     };
 
     fetchVideos();
   }, []);
 
-  function shuffleArray(array) {
-    return array
+  // SHow first 10 images and the shuffle the rest images and videos
+  function shuffleArray(images, videos) {
+    const firstTen = images.slice(0, 10);
+    const remaining = [...images.slice(10), ...videos];
+
+    const shuffled = remaining
       .map((item) => ({ item, sortKey: Math.random() }))
       .sort((a, b) => a.sortKey - b.sortKey)
       .map(({ item }) => item);
+
+    return [...firstTen, ...shuffled];
   }
 
   const filteredItems =
     activeTab === "All"
-      ? shuffleArray([...videos, ...images])
+      ? shuffleArray(images, videos)
       : activeTab === "View Videos"
       ? videos
       : images;

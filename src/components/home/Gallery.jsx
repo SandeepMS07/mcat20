@@ -7,6 +7,7 @@ import Link from "next/link";
 import routes from "@/utilis/route";
 import images from "../../app/gallery/images";
 
+// Based on the size attribute of each image get the column length
 const getSizeUnit = (size) => {
   switch (size) {
     case "small":
@@ -20,10 +21,12 @@ const getSizeUnit = (size) => {
   }
 };
 
+// Dynamically generate the layout for the desktop
+
 const generateDesktopLayout = (images) => {
   const unitsPerRow = 7;
   const layout = [];
-  const remaining = [...images]; 
+  const remaining = [...images];
 
   while (remaining.length > 0) {
     let row = [];
@@ -60,36 +63,12 @@ const Gallery = () => {
     Array.isArray(images) && images.length > 0 ? images.slice(0, 8) : [];
 
   const [showModal, setShowModal] = useState(false);
-  const [modalImage, setModalImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
 
   const [layoutConfig, setLayoutConfig] = useState([
     [2, 2, 2, 1],
     [1, 2, 2, 2],
   ]);
-
-  // // Function to determine layout based on screen size
-  // const updateLayout = () => {
-  //   if (typeof window !== "undefined") {
-  //     if (window.innerWidth < 640) {
-  //       // Mobile layout - single column with all 11 images
-  //       setLayoutConfig([[7], [7], [7]]);
-  //     } else if (window.innerWidth < 1024) {
-  //       // Tablet layout - simplified grid with all 11 images
-  //       setLayoutConfig([
-  //         [3, 4], // 2 images
-  //         [4, 3], // 2 images
-  //         [3, 4], // 2 images
-  //       ]);
-  //     } else {
-  //       // Desktop layout - original complex grid
-  //       setLayoutConfig([
-  //         [1, 2, 2,2],
-  //         [2, 1, 2,2],
-  //       ]);
-  //     }
-  //   }
-  // };
 
   const updateLayout = () => {
     if (typeof window !== "undefined") {
@@ -125,91 +104,6 @@ const Gallery = () => {
   }
 
   let renderedIndex = 0;
-
-  // const renderMediaGrid = (items) => {
-  //   // If no valid items, return early
-  //   const validItems = Array.isArray(items) && items.length > 0 ? items : [];
-
-  //   if (validItems.length === 0) {
-  //     return <div className="w-full p-3">No media items available</div>;
-  //   }
-
-  //   let renderedIndex = 0;
-
-  //   return (
-  //     <div className="w-full flex flex-col gap-3 p-3">
-  //       {layoutConfig.map((row, rowIndex) => {
-  //         // Stop rendering if we've shown all items
-  //         if (renderedIndex >= validItems.length) {
-  //           return null;
-  //         }
-
-  //         return (
-  //           <div key={rowIndex} className="h-[300px] w-full">
-  //             <div className="grid w-full h-full grid-cols-7 gap-2 md:gap-3 lg:gap-4">
-  //               {row.map((span, colIndex) => {
-  //                 // Stop rendering if we've shown all items
-  //                 if (renderedIndex >= validItems.length) return null;
-  //                 const item = validItems[renderedIndex];
-  //                 const indexForModal = renderedIndex++;
-  //                 if (!item?.img) return null;
-
-  //                 return (
-  //                   <div
-  //                     key={colIndex}
-  //                     className={`relative col-span-${span} overflow-hidden bg-white/30`}
-  //                     onClick={() => {
-  //                       setCurrentIndex(indexForModal);
-  //                       setShowModal(true);
-  //                     }}
-  //                   >
-  //                     <Image
-  //                       src={item.img}
-  //                       alt={item.title || "Gallery image"}
-  //                       fill
-  //                       className="object-cover"
-  //                       sizes="(max-width: 640px) 95vw, (max-width: 1024px) 45vw, 33vw"
-  //                     />
-
-  //                     {item.type === "video" && (
-  //                       <div className="absolute inset-0 flex items-center justify-center">
-  //                         <Image
-  //                           src="/images/home/whyT2C/vidLogo.svg"
-  //                           width={100}
-  //                           height={100}
-  //                           className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16"
-  //                           alt="Video"
-  //                         />
-  //                       </div>
-  //                     )}
-
-  //                     {item.views && item.type === "image" && (
-  //                       <div className="absolute top-2 right-2">
-  //                         <Image
-  //                           src="/images/home/whyT2C/imgIcon.svg"
-  //                           width={100}
-  //                           height={100}
-  //                           alt="Image"
-  //                           className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8"
-  //                         />
-  //                       </div>
-  //                     )}
-
-  //                     {item.type === "coming-soon" && (
-  //                       <div className="absolute top-2 left-2 bg-white text-black text-xs px-2 py-1 rounded font-semibold">
-  //                         COMING SOON
-  //                       </div>
-  //                     )}
-  //                   </div>
-  //                 );
-  //               })}
-  //             </div>
-  //           </div>
-  //         );
-  //       })}
-  //     </div>
-  //   );
-  // };
 
   return (
     <div className="bg-[url('/images/home/latestUpdateBg.png')] bg-cover bg-center bg-no-repeat py-20">

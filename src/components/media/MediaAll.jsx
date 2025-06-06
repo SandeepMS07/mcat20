@@ -74,6 +74,7 @@ const MediaAll = ({ items }) => {
   //   }
   // };
 
+  // Get the column size of the grid item based on the image size attribute
   const getSizeUnit = (size) => {
     switch (size) {
       case "small":
@@ -87,6 +88,7 @@ const MediaAll = ({ items }) => {
     }
   };
 
+  // Dynamic layout calculation for the desktop
   const generateDesktopLayout = (items) => {
     const unitsPerRow = 7;
     const layout = [];
@@ -109,18 +111,24 @@ const MediaAll = ({ items }) => {
         }
       }
 
-      // Pad if needed
-      while (total < unitsPerRow) {
-        row.push(1);
-        total += 1;
+      // Only add to layout if row is exactly 7 units
+      if (total === unitsPerRow) {
+        layout.push(row);
+      } else {
+        // if incomplete row was formed, put items back
+        for (let j = row.length - 1; j >= 0; j--) {
+          const unit = row[j];
+          const item = { ...items.find((it) => getSizeUnit(it.size) === unit) };
+          remaining.unshift(item);
+        }
+        break; // stop processing further if no full row can be made
       }
-
-      layout.push(row);
     }
 
     return layout;
   };
 
+  // Dynamic layout calculation for the tablet
   const generateTabletLayout = (items) => {
     // Alternate rows of [4, 3] and [3, 4] for all images
     const layout = [];
@@ -131,10 +139,12 @@ const MediaAll = ({ items }) => {
     return layout;
   };
 
+  // Dynamic layout calculation for the mobile
   const generateMobileLayout = (items) => {
     return Array(items.length).fill([7]);
   };
 
+  // Function to determine layout based on screen size
   const updateLayout = () => {
     if (typeof window !== "undefined") {
       if (window.innerWidth < 640) {
