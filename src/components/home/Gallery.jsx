@@ -36,7 +36,7 @@ const Gallery = () => {
         // Desktop layout - original complex grid
         setLayoutConfig([
           [1, 2, 2,2],
-          [2, 1, 2,2],
+          [1, 2, 1,3],
         ]);
       }
     }
