@@ -29,6 +29,10 @@ const page = () => {
 
   const router = useRouter();
 
+  if (latestUpdates.length == 0) {
+    return <div className="text-black text-md text-center">No Latest Updates Found</div>;
+  }
+
   const handleLatestUpdateClick = (title) => {
     router.push(`${routes.latestUpdates}/${formatTitleForURL(title)}`);
   };

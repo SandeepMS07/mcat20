@@ -65,6 +65,10 @@ const LatestUpdates = () => {
     return <LoadingPage />;
   }
 
+  if(latestUpdates.length < 1){
+    return null;
+  }
+
   const handleLatestUpdateClick = (title) => {
     router.push(`${routes.latestUpdates}/${formatTitleForURL(title)}`);
   };
