@@ -23,7 +23,7 @@ export const teamsLogoSeason3 = [
   {
     id: 4,
     team: "Bandra Blasters",
-    teamLogo: "/images/teams/hero/teamLogo/bandra.svg",
+    teamLogo: "https://turbostart.blob.core.windows.net/turbostart/1044990513729378-LOGO - BANDRA BLASTERS copy.png",
     carouselLogo: "/images/teams/hero/carousel/bandra.svg",
   },
   {
@@ -41,7 +41,7 @@ export const teamsLogoSeason3 = [
   {
     id: 7,
     team: "SoBo Mumbai Falcons",
-    teamLogo: "/images/teams/hero/teamLogo/sobo.png",
+    teamLogo: "/images/teams/hero/teamLogo/soboMumbaiFalcons.svg",
     carouselLogo: "/images/teams/hero/carousel/sobo.png",
   },
   {
@@ -94,7 +94,7 @@ const CountdownTimer = ({
 
   return (
     <div>
-      <div className="w-full flex items-start justify-center gap-2 md:gap-4 py-6 bg-[#FDFDFD12]">
+      <div className="w-full flex items-start justify-center gap-2 md:gap-3  bg-[#FDFDFD12]">
         <TimeBlock label="Days" value={timeLeft.days} />
         <Separator />
         <TimeBlock label="Hours" value={timeLeft.hours} />
@@ -107,7 +107,7 @@ const CountdownTimer = ({
             teamsLogoSeason3.find((team) => team.team === homeTeam)?.teamLogo
           }
           alt={homeTeam}
-          className={`w-20 p-3 ${
+          className={`w-20  ${
             homeTeam === "SoBo Mumbai Falcons" ? "bg-white" : ""
           }`}
         />
@@ -123,7 +123,7 @@ const CountdownTimer = ({
               teamsLogoSeason3.find((team) => team.team === awayTeam)?.teamLogo
             }
             alt={awayTeam}
-            className={`w-20 p-2 ${
+            className={`w-20 p-1 ${
               awayTeam === "SoBo Mumbai Falcons" ? "bg-white" : ""
             }`}
           />

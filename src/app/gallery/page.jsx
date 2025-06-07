@@ -29,7 +29,6 @@ const Page = () => {
             title: item.Title__c,
             date: item.Date__c,
           })) || [];
-        console.log("Formatted videos:", formattedVideos);
         setVideos(formattedVideos);
       } catch (err) {
         console.error("Error fetching videos:", err);

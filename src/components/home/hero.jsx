@@ -290,22 +290,22 @@ const Hero = () => {
                 </div> */}
               </div>
 
-              <div className="absolute bottom-40 -right-0 hidden lg:block">
+              <div className="absolute bottom-40 right-0 hidden lg:block">
                 <div
-                  className="w-[250px] rounded-l-xl md:rounded-l-xl border-y-2 border-l-2  border-[#E07E27] shadow-2xl overflow-hidden  cursor-pointer"
+                  className="w-full rounded-l-xl md:rounded-l-xl border-y-2 border-l-2 border-[#E07E27] shadow-2xl overflow-hidden cursor-pointer"
                   onClick={() => {
                     router.push(routes.fixtures);
                   }}
                 >
                   <div
-                    className="  w-full flex overflow-hidden items-center justify-evenly rounded-tl-lg gap-4"
+                    className="w-full flex overflow-hidden items-center justify-evenly rounded-tl-lg gap-4"
                     style={{
                       background:
                         "linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.48) 1.45%, rgba(0, 0, 0, 0.70) 100%), rgba(255, 255, 255, 0.09)",
                     }}
                   >
-                    <div className="flex flex-col justify-between  py-6 px-8">
-                      <p className="text-[#E07E27] text-base  xl:text-lg font-semibold leading-3 uppercase">
+                    <div className="flex flex-col justify-between py-6 px-12">
+                      <p className="text-[#E07E27] text-base xl:text-lg font-semibold leading-3 uppercase">
                         Match starts in
                       </p>
                     </div>
@@ -319,6 +319,36 @@ const Hero = () => {
                   />
                 </div>
               </div>
+
+              {/* <div className="absolute bottom-40 -right-0 hidden md:block">
+                <div
+                  className="w-full rounded-l-xl md:rounded-l-xl border-y-2 border-l-2  border-[#E07E27] shadow-2xl overflow-hidden cursor-pointer"
+                  onClick={() => {
+                    router.push(routes.fixtures);
+                  }}
+                >
+                  <div
+                    className="  w-full flex overflow-hidden items-center justify-evenly rounded-tl-lg gap-4"
+                    style={{
+                      background:
+                        "linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.48) 1.45%, rgba(0, 0, 0, 0.70) 100%), rgba(255, 255, 255, 0.09)",
+                    }}
+                  >
+                    <div className="flex flex-col justify-between  py-6 px-12">
+                      <p className="text-[#E07E27] text-base  xl:text-lg font-semibold leading-3 uppercase">
+                        Match starts in
+                      </p>
+                    </div>
+                  </div>
+                  <CountdownTimer
+                    targetDate={nextMatch.targetDate}
+                    homeTeam={nextMatch.home_team}
+                    awayTeam={nextMatch.away_team}
+                    match_no={nextMatch.match_no}
+                    total_matches={nextMatch.total_matches}
+                  />
+                </div>
+              </div> */}
             </div>
           </div>
         </SwiperSlide>
@@ -353,24 +383,108 @@ const Hero = () => {
                     </span>
                   </button>
                   <a
-                        className="btn-blue inline-flex gap-4 cursor-pointer items-center justify-center py-3 px-6 rounded-lg text-md"
-                        onClick={() => {
-                          router.push(
-                            "latest-updates/mca-adds-star-power-to-t20-mumbai-league-unveils-rohit-sharma-as-face-of-season-3"
-                          );
-                        }}
-                      >
-                        Read More
-                        <span>
-                          <Image
-                            src="/images/home/hero/buttonIcon.svg"
-                            alt="button-icon"
-                            width={24}
-                            height={24}
-                            className="w-5 h-5"
-                          />
-                        </span>
-                      </a>
+                    className="btn-blue inline-flex gap-4 cursor-pointer items-center justify-center py-3 px-6 rounded-lg text-md"
+                    onClick={() => {
+                      router.push(
+                        "latest-updates/mca-adds-star-power-to-t20-mumbai-league-unveils-rohit-sharma-as-face-of-season-3"
+                      );
+                    }}
+                  >
+                    Read More
+                    <span>
+                      <Image
+                        src="/images/home/hero/buttonIcon.svg"
+                        alt="button-icon"
+                        width={24}
+                        height={24}
+                        className="w-5 h-5"
+                      />
+                    </span>
+                  </a>
+                </div>
+              </div>
+
+              <div className="absolute bottom-40 -right-0 hidden md:block">
+                <div
+                  className="w-full rounded-l-xl md:rounded-l-xl border-y-2 border-l-2  border-[#E07E27] shadow-2xl overflow-hidden cursor-pointer"
+                  onClick={() => {
+                    router.push(routes.fixtures);
+                  }}
+                >
+                  <div
+                    className="  w-full flex overflow-hidden items-center justify-evenly rounded-tl-lg gap-4"
+                    style={{
+                      background:
+                        "linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.48) 1.45%, rgba(0, 0, 0, 0.70) 100%), rgba(255, 255, 255, 0.09)",
+                    }}
+                  >
+                    <div className="flex flex-col justify-between  py-6 px-12">
+                      <p className="text-[#E07E27] text-base  xl:text-lg font-semibold leading-3 uppercase">
+                        Match starts in
+                      </p>
+                    </div>
+                  </div>
+                  <CountdownTimer
+                    targetDate={nextMatch.targetDate}
+                    homeTeam={nextMatch.home_team}
+                    awayTeam={nextMatch.away_team}
+                    match_no={nextMatch.match_no}
+                    total_matches={nextMatch.total_matches}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide className="h-full">
+          <div className="w-full h-full bg-[url('/images/banner/banner4.png')] bg-cover bg-center  relative pt-32 overflow-hidden flex justify-center items-center">
+            <div className="section-width ">
+              <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
+                <p className="font-bold text-sm md:text-base xl:text-xl">
+                  T20 MUMBAI SEASON 3
+                </p>
+
+                <h1 className="  font-extrabold max-w-3xl max-sm:text-center">
+                  For Real Time Action and <br /> Behind the Scenes
+                </h1>
+                <p className="font-bold text-lg md:text-xl xl:text-2xl">
+                  #Follow Us on Socials
+                </p>
+                <div className="flex gap-6">
+                  <a target="_blank" href={routes.instagram}>
+                    <Image
+                      src="/images/footer/insta.svg"
+                      alt="Google"
+                      width={40}
+                      height={40}
+                    />
+                  </a>
+
+                  <a target="_blank" href={routes.twitter}>
+                    <Image
+                      src="/images/footer/twitter.svg"
+                      alt="Google"
+                      width={40}
+                      height={40}
+                    />
+                  </a>
+
+                  <a target="_blank" href={routes.youtube}>
+                    <Image
+                      src="/images/footer/youtube.svg"
+                      alt="Google"
+                      width={40}
+                      height={40}
+                    />
+                  </a>
+                  <a target="_blank" href={routes.facebook}>
+                    <Image
+                      src="/images/footer/facebook.svg"
+                      alt="Google"
+                      width={40}
+                      height={40}
+                    />
+                  </a>
                 </div>
               </div>
 

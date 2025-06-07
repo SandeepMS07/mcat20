@@ -12,11 +12,8 @@ import Sponsorship from "@/components/home/Sponsorship";
 import IconPlayers from "@/components/home/Iconplayers";
 import HomeStandingsSection from "@/components/home/HomeStandingsSection";
 import UpcomingFixturesSection from "@/components/home/UpcomingFixturesSection";
-import { getStandings } from "./api/serverApi";
 
 export default async function Home() {
-  // const standingsData = await getStandings();
-
   return (
     <>
       <div>
@@ -25,10 +22,10 @@ export default async function Home() {
         <HomeTeamSection />
         <LatestUpdates />
         {/* <IconPlayers /> */}
-        {/* <HomeStandingsSection data={standingsData} /> */}
+        <HomeStandingsSection />
         {/* <TopPlayers /> */}
-        <Socials />
         <Gallery />
+        <Socials />
         <Sponsorship />
         {/* <TopPlayers /> */}
         {/* <News /> */}

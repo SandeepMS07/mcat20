@@ -1,5 +1,5 @@
 import schedule from "../../../public/images/latestUpdates/schedule.jpeg";
-import "./styles.css"
+import "./styles.css";
 export const CardData = [
   {
     id: 1,
@@ -421,8 +421,8 @@ When the Mumbai Cricket Association (MCA) launched the T20 Mumbai League, it aim
 <iframe width="560" height="315" src="https://www.youtube.com/embed/C2XHFfjrJKQ?si=tjJKjFn6hAdZ_rGH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 `,
   },
-   {
-    id: 13,
+  {
+    id: 12,
     date: "Mumbai, june 4, 2025",
     imgUrl: "/images/latestUpdates/update13-main.png",
     title:
@@ -465,14 +465,16 @@ Fans will have the chance to witness the action live with tickets available onli
 Match 1: SoBo Mumbai Falcons: 27 (Akash Parker 27) beat ARCS Andheri 13 (Shivam Dube 12, Musheer Khan 1) via Super Over.
 Match 2: Mumbai South Central Maratha Royals: 96/4 (Rohan Raje 48 not out) beat Akash Tigers MWS: 88/5 (Jay Bista 23; Maxwell Swaminathan 2/15) by eight runs,
 Match 3: Triumph Knights Mumbai North East 179/6 (Jigar Rana 53, Suryakumar Yadav 50 not out) lose to Eagle Thane Strikers 181/5 (Varun Lavande 57, Siaraj Patil 47 not out) by five wickets.
-    `  },
-   {
-    id: 12,
+    `,
+  },
+  {
+    id: 13,
     date: "Mumbai, June 4, 2025",
     imgUrl: "/images/latestUpdates/update12.jpg",
     title:
       "T20 Mumbai League 2025 to kick off today with Suryakumar Yadav and Shivam Dube in action; here is everything you need to know about Season 3",
-    subTitle: "Season 3 is scheduled to take place at Wankhede Stadium and DY Patil Stadium from June 4 to 12",
+    subTitle:
+      "Season 3 is scheduled to take place at Wankhede Stadium and DY Patil Stadium from June 4 to 12",
     content: ` The wait is finally over as the highly anticipated T20 Mumbai League 2025 is ready to thrill cricket fans across the country with Season 3 set to begin on Wednesday at the DY Patil Stadium and Wankhede Stadium. Eight dynamic teams will compete in the league, with 23 exciting matches lined up over nine days from June 4 to 12, promising top-quality cricket and unforgettable moments.
 <br/><br/>
 
@@ -606,5 +608,39 @@ Players: Suryakumar Yadav, Sidhaant Aadhhathrao, Jay Jain, Hrishikesh Gore, Yash
 •	7:30 PM - SF Winner 1 vs SF Winner 2 at Wankhede Stadium
 `,
   },
-   
+  {
+    id: 14,
+    date: "Mumbai, june 5, 2025",
+    imgUrl: "/images/latestUpdates/update14.png",
+    title:
+      "All-round Sairaj powers Eagle Thane Strikers to second straight win of T20 Mumbai League 2025; Arcs Andheri register first win",
+    subTitle: "",
+    content: `
+     Mumbai, June 5: Riding on a dominant all-round display from Sairaj Patil, Eagle Thane Strikers continued their dominant run in the T20 Mumbai League 2025 with a commanding 97-run victory over Bandra Blasters at the Wankhede Stadium on Thursday. After powering Thane to a formidable total with a brisk unbeaten half-century, Patil returned to make an impact with the ball, picking up two key wickets in a superb all-round display. His efforts proved decisive as the Strikers decimated the Blasters’ batting line-up to seal their second straight victory, building on their opening-day win over Triumph Knights Mumbai North East.
+<br/><br/>
+On a wicket which offered even bounce, Sairaj continued his superb form from Wednesday to remain unbeaten on 54 with three boundaries and four hits into the stands studding his 28-ball knock. Asked to bat first, the Strikers posted 205/6 with Varun Lavande (43 off 32) and captain Atharva Ankolekar (33 off 19) also posting useful contributions. Patil and Ankolekar laid the foundation of a big total with a 56-run partnership before the latter fell while attempting to force the pace. Shashikant Kadam then joined Patil and the duo plundered 43 runs between them off just 15 balls to ensure a strong finish for the Thane innings. 
+<br/><br/>
+In reply, the Bandra innings never really managed to gather any proper momentum as their batters seemed to be bogged down by the pressure of the daunting target. Off-spinner Shashank Attarde was the wrecker-in-chief with figures of 3/26 as the Thane bowlers ruled the roost to skittle the Blasters out for 108 runs in 18.2 overs with only five of their batters managing to reach double figures. 
+<br/><br/>
+
+<div class="text-black font-bold">Arcs Andheri register first win</div>
+<br/>
+In the first match of the day, ARCS Andheri defeated Aakash Tigers MWS by 12 runs (DLS method) at the DY Patil Stadium in Navi Mumbai. The match could not be completed due to rain which left the sizeable crowd disappointed. 
+
+<br/><br/>
+Asked to bat first, the Tigers posted 211/6 in their 20 overs thanks to some power-packed batting by Vasim Khan. Khan smashed 68 off just 33 deliveries hitting 12 boundaries and two sixes. After Khan's departure, Hardik Tamore (43 off 34) and skipper Shams Mulani (46 off 22) took up the big hitting duties to steer the Tigers to a formidable total.
+
+<br/><br/>
+The Andheri chase was into its third over when it started to rain, leading to a stoppage in play. The innings was subsequently reduced to 16 overs. But a second spell of heavy showers forced a halt to the proceedings when just 7.2 overs had been bowled and Andheri were on 85/2.
+
+<br/><br/>
+Fans will have the chance to witness the action live with tickets available online on District by Zomato, priced at just ₹100 (Level 1), ₹300 (Level 2), and ₹400 (Garware Pavilion Level 2). The tournament is being telecast on Star Sports 1 (English & Hindi), Star Sports 2 (English) and JioHotstar.
+
+<br/><br/>
+<div class="text-black font-bold">Brief Scores:</div>
+Match 1: Aakash Tigers MWS: 211/6 (Vasim Khan 68, Shams Mulani 46, Hardik Tamore 43) lost to ARCS Andheri: 85/2 (Akhil Herwadkar 36 not out) by 12 runs (DLS method) <br/> <br/>
+Match 2:  Eagle Thane Strikers: 205/6 in 20 overs (Sairaj Patil 54 not out, Varun Lavande 43, Atharva Ankolekar 33; Karsh Kothari 2/44, Royston Dias 2/46) defeated Bandra Blasters: 108 (Suved Parkar 18; Shashank Attarde 3/26, Sairaj Patil 2/11, Aryan Chauhan 2/11) by 97 runs. <br/> <br/>
+Match 3: SOBO Mumbai Falcons (135/1 in 11.5 overs Harsh Ramnath Aghav 64,  Ishan Simran Mulchandani 61) won by 9 Wickets against North Mumbai Panthers (132/8 in 20 overs Gaurav Ashok Jathar 34, Sourabh Santosh Singh 28) <br/> <br/>
+Match 4:  Triumph Knights MNE (154/5 in 19 overs Siddhant Mangesh Adhatrao 51, Suryakumar Yadav 42) won by 5 Wickets against MSC Maratha Royals (153 in 20 overs Saksham Swayam Parashar 45)`,
+  },
 ];

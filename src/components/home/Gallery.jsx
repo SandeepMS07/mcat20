@@ -1,13 +1,34 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import Image from "next/image";
 import TitleComponent from "../common/TitleComponent";
 import Link from "next/link";
 import routes from "@/utilis/route";
-import {images} from "../../app/gallery/images";
+import { images } from "../../app/gallery/images";
+import LoadingPage from "@/app/loading";
+import { getImagesClient } from "@/app/api/clientApi";
 
 const Gallery = () => {
+  const [loading, setLoading] = useState(false);
+  // const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const imageRes = await getImagesClient();
+        const formattedImages = imageRes?.data?.slice(0, 8);
+        console.log(formattedImages);
+        // setImages(formattedImages);
+      } catch (err) {
+        console.error("Error fetching videos:", err);
+      } finally {
+      }
+    };
+
+    fetchImages();
+  },[]);
+
   const validItems =
     Array.isArray(images) && images.length > 0 ? images.slice(0, 8) : [];
 
@@ -16,6 +37,7 @@ const Gallery = () => {
 
   const [layoutConfig, setLayoutConfig] = useState([
     [2, 2, 2, 1],
+    [1, 2, 2, 2],
     [1, 2, 2, 2],
   ]);
 
@@ -43,6 +65,10 @@ const Gallery = () => {
       return () => window.removeEventListener("resize", updateLayout);
     }
   }, []);
+
+  if (loading) {
+    <LoadingPage />;
+  }
 
   // If no valid items, return early
   if (validItems.length === 0) {
@@ -93,8 +119,8 @@ const Gallery = () => {
                           }}
                         >
                           <Image
-                            src={item.img}
-                            alt={item.title || "Gallery image"}
+                            src={item?.Image_URL__c}
+                            alt={"Gallery image"}
                             fill
                             className="object-cover "
                             sizes="(max-width: 640px) 95vw, (max-width: 1024px) 45vw, 33vw"
