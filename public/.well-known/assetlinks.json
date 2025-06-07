@@ -1,0 +1,13 @@
+[
+    {
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.mca.t20mumbai",
+        "sha256_cert_fingerprints": [
+          "B3:02:96:63:24:B7:70:83:A8:1C:61:73:28:BB:34:C8:C3:A4:1A:E2:82:1E:05:8F:FC:C1:02:F8:4D:09:EC:08"
+        ]
+      }
+    }
+  ]
+  
