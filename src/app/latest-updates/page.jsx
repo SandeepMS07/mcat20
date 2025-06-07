@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import { formatTitleForURL } from "@/utilis/helper";
 import routes from "@/utilis/route";
 import TitleComponent from "@/components/common/TitleComponent";
-import latestUpdatesBg from "../../../public/images/latestUpdates/latest-updates-bg.png";
 import { getLatestUpdatesClient } from "@/app/api/clientApi";
 import { useEffect, useState } from "react";
 import LoadingPage from "../loading";
@@ -39,7 +38,10 @@ const page = () => {
 
   return (
     <div className="w-full h-auto">
-      <Hero imgUrl={latestUpdatesBg} heading="Latest Updates" />
+      <Hero
+        imgUrl={"/images/latestUpdates/latest-updates-bg.png"}
+        heading="Latest Updates"
+      />
       <div className="relative">
         <img
           src="/images/elements/section-element.png"
