@@ -29,10 +29,6 @@ const page = () => {
 
   const router = useRouter();
 
-  if (latestUpdates.length == 0) {
-    return <div className="text-black text-md text-center">No Latest Updates Found</div>;
-  }
-
   const handleLatestUpdateClick = (title) => {
     router.push(`${routes.latestUpdates}/${formatTitleForURL(title)}`);
   };
@@ -58,15 +54,17 @@ const page = () => {
         <div className=" text-black gap-16 section-width section-padding ">
           <TitleComponent title={"Latest Updates"} />
           <div className="w-full grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5">
-            {[...(latestUpdates?.data || [])]
-              .sort((a, b) => b.Order__c - a.Order__c)
-              .map((item, index) => (
-                <UpdatesCard
-                  data={item}
-                  key={index}
-                  onClick={() => handleLatestUpdateClick(item.Title__c)}
-                />
-              ))}
+            {!isLoading && latestUpdates.length !== 0
+              ? [...(latestUpdates?.data || [])]
+                  .sort((a, b) => b.Order__c - a.Order__c)
+                  .map((item, index) => (
+                    <UpdatesCard
+                      data={item}
+                      key={index}
+                      onClick={() => handleLatestUpdateClick(item.Title__c)}
+                    />
+                  ))
+              : "No data found..."}
           </div>
         </div>
       </div>
