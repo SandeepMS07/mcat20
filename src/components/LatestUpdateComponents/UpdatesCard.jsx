@@ -9,7 +9,11 @@ const UpdatesCard = ({ data, onClick }) => {
     >
       {/* Image */}
       <Image
-        src={data.id === 14? "/images/latestUpdates/update14-main.jpg" : data?.imgUrl}
+        src={
+          data.Order__c === 15
+            ? "/images/latestUpdates/update14-main.jpg"
+            : data?.Image_URL__c
+        }
         width={1000}
         height={1000}
         className="w-full h-full object-cover absolute z-0 rounded-md"
@@ -22,7 +26,7 @@ const UpdatesCard = ({ data, onClick }) => {
       <div className="w-full h-full flex items-end p-5 z-20 text-white justify-between relative">
         <div className="w- flex flex-col justify-between">
           <p className="font-bold xl:text-xl lg:text-lg text-base">
-            {truncateTextSpells(data?.title, 50)}
+            {truncateTextSpells(data?.Title__c, 50)}
           </p>
           {/* <p className="text-[#F6F9FF] text-base">
             {truncateTextSpells(data?.subTitle, 30)}
