@@ -147,7 +147,7 @@ const MediaAll = ({ items, loading }) => {
                     }}
                   >
                     {/* Use optional chaining and provide fallback for image */}
-                    <Image
+                    <img
                       src={item.img}
                       alt={item.title || "Gallery image"}
                       fill
@@ -166,7 +166,7 @@ const MediaAll = ({ items, loading }) => {
 
                     {item.type === "video" && (
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <Image
+                        <img
                           src="/images/home/whyT2C/vidLogo.svg"
                           width={100}
                           height={100}
@@ -178,7 +178,7 @@ const MediaAll = ({ items, loading }) => {
 
                     {item.views && item.type === "image" && (
                       <div className="absolute top-2 right-2">
-                        <Image
+                        <img
                           src="/images/home/whyT2C/imgIcon.svg"
                           width={100}
                           height={100}
@@ -256,7 +256,7 @@ const MediaAll = ({ items, loading }) => {
                 className="rounded w-full max-h-[80vh]"
               />
             ) : (
-              <Image
+              <img
                 src={validItems[currentIndex]?.img}
                 alt="popup"
                 width={1000}

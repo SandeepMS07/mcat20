@@ -124,7 +124,7 @@ const Gallery = () => {
                         setShowModal(true);
                       }}
                     >
-                      <Image
+                      <img
                         src={item.img}
                         alt={item.title || "Gallery image"}
                         fill
@@ -134,7 +134,7 @@ const Gallery = () => {
 
                       {item.type === "video" && (
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <Image
+                          <img
                             src="/images/home/whyT2C/vidLogo.svg"
                             width={100}
                             height={100}
@@ -146,7 +146,7 @@ const Gallery = () => {
 
                       {item.views && item.type === "image" && (
                         <div className="absolute top-2 right-2">
-                          <Image
+                          <img
                             src="/images/home/whyT2C/imgIcon.svg"
                             width={100}
                             height={100}
@@ -213,7 +213,7 @@ const Gallery = () => {
                               setShowModal(true);
                             }}
                           >
-                            <Image
+                            <img
                               src={item.img}
                               alt={item.title || "Gallery image"}
                               fill
@@ -223,7 +223,7 @@ const Gallery = () => {
 
                             {item.type === "video" && (
                               <div className="absolute inset-0 flex items-center justify-center">
-                                <Image
+                                <img
                                   src="/images/home/whyT2C/vidLogo.svg"
                                   width={100}
                                   height={100}
@@ -235,7 +235,7 @@ const Gallery = () => {
 
                             {item.views && item.type === "image" && (
                               <div className="absolute top-2 right-2">
-                                <Image
+                                <img
                                   src="/images/home/whyT2C/imgIcon.svg"
                                   width={100}
                                   height={100}
@@ -292,7 +292,7 @@ const Gallery = () => {
                       </button>
                     )}
 
-                    <Image
+                    <img
                       src={validItems[currentIndex]?.img}
                       alt="popup"
                       width={1000}
@@ -319,7 +319,7 @@ const Gallery = () => {
           // }}
         >
           View Gallery
-          <Image
+          <img
             src="/images/home/hero/buttonIcon.svg"
             alt="button-icon"
             width={24}
