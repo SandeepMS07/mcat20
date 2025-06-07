@@ -171,12 +171,12 @@ const TeamSection = ({
                   style={gradientStyle}
                 >
                   {/*Background patterns and gradient for the team logo */}
-                  <Image
+                  <img
                     src={teampattern2}
                     alt="pattern2"
                     className="absolute inset-0 w-full h-[80%] z-10 top-0 rounded-md"
                   />
-                  <Image
+                  <img
                     src={teampattern1}
                     alt="pattern1"
                     className="absolute inset-0 w-full h-full z-20 rounded-md object-cover"

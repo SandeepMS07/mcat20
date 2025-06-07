@@ -3,12 +3,11 @@ import Image from "next/image";
 
 const Hero = ({ imgUrl, heading, subheading }) => {
   return (
-    <div className="w-full relative flex justify-end py-14 ">
-      <Image
+    <div className={`w-full relative flex justify-end py-14 bg-gray-500`}>
+      <img
         src={imgUrl}
         alt="background"
-        fill
-        className=" object-cover z-0 "
+        className="absolute inset-0 w-full h-full object-cover z-0"
       />
       {/* <div className="w-full h-full bg-[#00000080] absolute left-0 top-0 "></div> */}
       <div className="relative z-10  pt-8 h-full  flex-col overflow-hidden justify-between text-white flex gap-24 mt-52 section-width">
