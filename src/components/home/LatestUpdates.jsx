@@ -65,10 +65,6 @@ const LatestUpdates = () => {
     return <LoadingPage />;
   }
 
-  if (latestUpdates.length == 0) {
-    return <div className="w-full p-3">No media items available</div>;
-  }
-
   const handleLatestUpdateClick = (title) => {
     router.push(`${routes.latestUpdates}/${formatTitleForURL(title)}`);
   };
@@ -83,76 +79,47 @@ const LatestUpdates = () => {
           buttonText="View All Updates"
           hideButtonOnMobile={true}
         />
+        {latestUpdates.length === 0 ? (
+          <div className="w-full text-center text-white text-base sm:text-lg md:text-xl mt-6">
+            No updates found.
+          </div>
+        ) : (
+          <div className="w-full flex flex-col gap-7 relative">
+            <div className="w-full overflow-x-auto scrollbar-hide">
+              <div className="relative w-full h-fit">
+                <div className="w-full top-0 left-0 lg:flex">
+                  {/* Left Block */}
+                  <div
+                    className={`relative xl:flex-[60%] lg:flex-[55%] flex max-lg:h-[400px] cursor-pointer`}
+                    style={{
+                      backgroundImage:
+                        primaryItem?.Order__c === 15
+                          ? `url('/images/latestUpdates/update14-main.jpg')`
+                          : primaryItem?.Image_URL__c
+                          ? `url(${primaryItem.Image_URL__c})`
+                          : "/images/latestUpdates/latest-updates-bg.png",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                    }}
+                    onClick={() => {
+                      handleLatestUpdateClick(primaryItem?.Title__c);
+                    }}
+                  >
+                    {/* Black overlay gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-0"></div>
 
-        <div className="w-full flex flex-col gap-7 relative">
-          <div className="w-full overflow-x-auto scrollbar-hide">
-            <div className="relative w-full h-fit">
-              <div className="w-full top-0 left-0 lg:flex">
-                {/* Left Block */}
-                <div
-                  className={`relative xl:flex-[60%] lg:flex-[55%] flex max-lg:h-[400px] cursor-pointer`}
-                  style={{
-                    backgroundImage:
-                      primaryItem?.Order__c === 15
-                        ? `url('/images/latestUpdates/update14-main.jpg')`
-                        : primaryItem?.Image_URL__c
-                        ? `url(${primaryItem.Image_URL__c})`
-                        : "/images/latestUpdates/latest-updates-bg.png",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat",
-                  }}
-                  onClick={() => {
-                    handleLatestUpdateClick(primaryItem?.Title__c);
-                  }}
-                >
-                  {/* Black overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-0"></div>
-
-                  {/* Content on top */}
-                  <div className="p-10 bottom-0 max-w-2xl mt-auto relative z-10">
-                    <h3 className="text-white xl:text-3xl sm:text-2xl text-xl font-semibold">
-                      {primaryItem?.Title__c}{" "}
-                    </h3>
-                    <ul className="list-disc ml-5 text-[#E07E27] xl:text-base text-sm sm:flex gap-8 md:mt-6 mt-2">
-                      <li>T20 Mumbai League 2025</li>
-                      <li>
-                        Mumbai,{"  "}
-                        {primaryItem.Date__c
-                          ? new Date(primaryItem.Date__c).toLocaleDateString(
-                              "en-IN",
-                              {
-                                year: "numeric",
-                                month: "long",
-                                day: "numeric",
-                              }
-                            )
-                          : ""}
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                {/* Right Block (Mapped) */}
-                <div className="xl:flex-[40%] lg:flex-[45%] flex flex-col">
-                  {latestUpdates.slice(0, 3).map((item, index) => (
-                    <div
-                      key={index}
-                      className={`flex-1 flex justify-between items-center bg-[#E07E27] hover:bg-[#D3731E] cursor-pointer ${
-                        item.bordered ? "border-b border-[#D3731E]" : ""
-                      }`}
-                      onClick={() => {
-                        handleLatestUpdateClick(item?.Title__c);
-                      }}
-                    >
-                      <div className="max-w-80 p-4">
-                        <h5 className="mb-2 text-white 2xl:text-2xl xl:text-xl lg:text-base text-sm font-medium">
-                          {truncateTextSpells(item?.Title__c, 80)}
-                        </h5>
-                        <p className="text-black xl:text-base sm:text-sm text-xs font-medium">
-                          {"Mumbai, "}
-                          {item.Date__c
-                            ? new Date(item.Date__c).toLocaleDateString(
+                    {/* Content on top */}
+                    <div className="p-10 bottom-0 max-w-2xl mt-auto relative z-10">
+                      <h3 className="text-white xl:text-3xl sm:text-2xl text-xl font-semibold">
+                        {primaryItem?.Title__c}{" "}
+                      </h3>
+                      <ul className="list-disc ml-5 text-[#E07E27] xl:text-base text-sm sm:flex gap-8 md:mt-6 mt-2">
+                        <li>T20 Mumbai League 2025</li>
+                        <li>
+                          Mumbai,{"  "}
+                          {primaryItem.Date__c
+                            ? new Date(primaryItem.Date__c).toLocaleDateString(
                                 "en-IN",
                                 {
                                   year: "numeric",
@@ -161,26 +128,60 @@ const LatestUpdates = () => {
                                 }
                               )
                             : ""}
-                        </p>
-                      </div>
-                      <div>
-                        <img
-                          src={
-                            item?.Order__c == 15
-                              ? "/images/latestUpdates/update14-main.jpg"
-                              : item?.Image_URL__c
-                          }
-                          className="xl:max-h-[200px] xl:max-w-[200px] sm:max-w-[150px] max-w-[120px] min-h-[95px] lg:min-h-[190px] h-auto object-cover"
-                          alt="latest update"
-                        />
-                      </div>
+                        </li>
+                      </ul>
                     </div>
-                  ))}
+                  </div>
+
+                  {/* Right Block (Mapped) */}
+                  <div className="xl:flex-[40%] lg:flex-[45%] flex flex-col">
+                    {latestUpdates.slice(0, 3).map((item, index) => (
+                      <div
+                        key={index}
+                        className={`flex-1 flex justify-between items-center bg-[#E07E27] hover:bg-[#D3731E] cursor-pointer ${
+                          item.bordered ? "border-b border-[#D3731E]" : ""
+                        }`}
+                        onClick={() => {
+                          handleLatestUpdateClick(item?.Title__c);
+                        }}
+                      >
+                        <div className="max-w-80 p-4">
+                          <h5 className="mb-2 text-white 2xl:text-2xl xl:text-xl lg:text-base text-sm font-medium">
+                            {truncateTextSpells(item?.Title__c, 80)}
+                          </h5>
+                          <p className="text-black xl:text-base sm:text-sm text-xs font-medium">
+                            {"Mumbai, "}
+                            {item.Date__c
+                              ? new Date(item.Date__c).toLocaleDateString(
+                                  "en-IN",
+                                  {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                  }
+                                )
+                              : ""}
+                          </p>
+                        </div>
+                        <div>
+                          <img
+                            src={
+                              item?.Order__c == 15
+                                ? "/images/latestUpdates/update14-main.jpg"
+                                : item?.Image_URL__c
+                            }
+                            className="xl:max-h-[200px] xl:max-w-[200px] sm:max-w-[150px] max-w-[120px] min-h-[95px] lg:min-h-[190px] h-auto object-cover"
+                            alt="latest update"
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Mobile button - show only on mobile, hide on larger screens */}
         <Link
