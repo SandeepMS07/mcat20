@@ -222,15 +222,8 @@ const TeamSection = ({
             </div>
 
             {/* Right side: Details Section */}
-            <div className="flex  flex-col lg:flex-row justify-center gap-4 mt-6 lg:mt-0 items-center w-full lg:w-2/4">
-              {/* <div className=" w-full lg:w-[50%] gap-4  flex items-center flex-row justify-center my-6 text-center ">
-                <h3 className=" font-medium mb-2 text-[#E07E27]">
-                  Total Players{" "}
-                </h3>
-                <h3 className="font-bold text-white">-</h3>
-                <h3 className=" font-bold text-white"> {totalPlayers}</h3>
-              </div> */}
-
+            {/* <div className="flex  flex-col lg:flex-row justify-center gap-4 mt-6 lg:mt-0 items-center w-full lg:w-2/4">
+              
               <div className="w-full flex flex-col   items-center p-4">
                 {[
                   {
@@ -281,7 +274,7 @@ const TeamSection = ({
                   );
                 })}
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Upcoming Matches Heading */}
