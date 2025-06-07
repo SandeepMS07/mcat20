@@ -219,3 +219,27 @@ export const season3TeamLogo = {
   "Triumph Knights MNE":
     "https://mcadirectory.blob.core.windows.net/dev/007792959990218895-triumphKnights.png",
 };
+
+
+export const decodeHtml = (html) => {
+  if (!html) return "";
+
+  const textarea = document.createElement("textarea");
+  textarea.innerHTML = html;
+  let decoded = textarea.value;
+
+  decoded = decoded.replace(/<\/img>/gi, "");
+  decoded = decoded.replace(/<img([^>]*?)(?<!\/)>/gi, "<img$1 />");
+
+  decoded = decoded.replace(/<span[^>]*>/gi, "").replace(/<\/span>/gi, "");
+
+  return decoded;
+};
+
+export const toTitleCase = (str) => {
+  if (!str) return '';
+  return str
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ');
+};
