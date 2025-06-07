@@ -65,8 +65,8 @@ const LatestUpdates = () => {
     return <LoadingPage />;
   }
 
-  if(latestUpdates.length < 1){
-    return <p>No Updates Found</p>;
+  if (latestUpdates.length == 0) {
+    return <div className="w-full p-3">No media items available</div>;
   }
 
   const handleLatestUpdateClick = (title) => {
