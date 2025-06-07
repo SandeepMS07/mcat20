@@ -93,7 +93,7 @@ const LatestUpdates = () => {
                   className={`relative xl:flex-[60%] lg:flex-[55%] flex max-lg:h-[400px] cursor-pointer`}
                   style={{
                     backgroundImage:
-                      primaryItem?.Order__c === 15
+                      primaryItem?.Order__c === 14
                         ? `url('/images/latestUpdates/update14-main.jpg')`
                         : primaryItem?.Image_URL__c
                         ? `url(${primaryItem.Image_URL__c})`
@@ -166,7 +166,7 @@ const LatestUpdates = () => {
                       <div>
                         <img
                           src={
-                            item?.Order__c == 15
+                            item?.Order__c == 14
                               ? "/images/latestUpdates/update14-main.jpg"
                               : item?.Image_URL__c
                           }

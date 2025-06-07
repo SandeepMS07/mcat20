@@ -10,7 +10,7 @@ const UpdatesCard = ({ data, onClick }) => {
       {/* Image */}
       <Image
         src={
-          data.Order__c === 15
+          data.Order__c === 14
             ? "/images/latestUpdates/update14-main.jpg"
             : data?.Image_URL__c
         }
