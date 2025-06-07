@@ -66,7 +66,7 @@ const LatestUpdates = () => {
   }
 
   if(latestUpdates.length < 1){
-    return null;
+    return <p>No Updates Found</p>;
   }
 
   const handleLatestUpdateClick = (title) => {
