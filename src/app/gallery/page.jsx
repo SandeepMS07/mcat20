@@ -6,12 +6,14 @@ import MediaAll from "@/components/media/MediaAll";
 import TitleComponent from "@/components/common/TitleComponent";
 import { getImagesClient, getVideosClient } from "../api/clientApi";
 import { images, ImageFolders } from "./images";
+import { BsArrowLeftCircle } from "react-icons/bs";
 
 const tabs = ["View Images", "View Videos"];
 
 const Page = () => {
   const [activeTab, setActiveTab] = useState("View Images");
   const [videos, setVideos] = useState([]);
+  const [selectedFolder, setSelectedFolder] = useState(null);
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -84,6 +86,14 @@ const Page = () => {
             <div className="absolute inset-0 bg-black/60"></div>
 
             <div className="relative w-full flex items-center z-10">
+              {activeTab === "View Images" && selectedFolder && (
+                <div
+                  className="text-[#E07E27] text-3xl px-2 cursor-pointer"
+                  onClick={() => setSelectedFolder(null)}
+                >
+                  <BsArrowLeftCircle />
+                </div>
+              )}
               {tabs.map((tab, index) => (
                 <div
                   key={index}
@@ -104,6 +114,8 @@ const Page = () => {
               <MediaAll
                 items={filteredItems}
                 type={activeTab === "View Videos" ? "video" : "image"}
+                selectedFolder={selectedFolder}
+                setSelectedFolder={setSelectedFolder}
               />
             </div>
           </div>
