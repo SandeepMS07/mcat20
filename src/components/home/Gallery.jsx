@@ -5,13 +5,13 @@ import Image from "next/image";
 import TitleComponent from "../common/TitleComponent";
 import Link from "next/link";
 import routes from "@/utilis/route";
-import { images } from "../../app/gallery/images";
+// import { images } from "../../app/gallery/images";
 import LoadingPage from "@/app/loading";
 import { getImagesClient } from "@/app/api/clientApi";
 
 const Gallery = () => {
   const [loading, setLoading] = useState(false);
-  // const [images, setImages] = useState([]);
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -19,7 +19,7 @@ const Gallery = () => {
         const imageRes = await getImagesClient();
         const formattedImages = imageRes?.data?.slice(0, 8);
         console.log(formattedImages);
-        // setImages(formattedImages);
+        setImages(formattedImages);
       } catch (err) {
         console.error("Error fetching videos:", err);
       } finally {
@@ -107,7 +107,7 @@ const Gallery = () => {
                       if (renderedIndex >= validItems.length) return null;
                       const item = validItems[renderedIndex];
                       const indexForModal = renderedIndex++;
-                      if (!item?.img) return null;
+                      if (!item?.Image_URL__c) return null;
 
                       return (
                         <div
@@ -119,7 +119,7 @@ const Gallery = () => {
                           }}
                         >
                           <Image
-                            src={item?.Image_URL__c}
+                            src={item?.Image_URL__c || ""}
                             alt={"Gallery image"}
                             fill
                             className="object-cover "
