@@ -168,6 +168,10 @@ export const teamLogoStats = {
     "https://t20mumbai.com/images/home/team/soboSuperSonics.png",
   "Triumph Knights Mumbai North East":
     "https://mcadirectory.blob.core.windows.net/dev/007792959990218895-triumphKnights.png",
+    "SOBO Mumbai Falcons":
+      "https://t20mumbai.com/images/home/team/soboSuperSonics.png",
+    "Triumph Knights MNE":
+    "https://mcadirectory.blob.core.windows.net/dev/630539656646887-8. Triumph Knights Mumbai North East PNG v1 1.png",
 };
 
 export const teamShortName = {
@@ -212,12 +216,14 @@ export const season3TeamLogo = {
     "https://t20mumbai.com/images/home/team/soboSuperSonics.png",
   "SoBo Mumbai Falcons":
     "https://t20mumbai.com/images/home/team/soboSuperSonics.png",
-  "SOBO Mumbai Falcons":
-    "https://t20mumbai.com/images/home/team/soboSuperSonics.png",
-  "Triumph Knights Mumbai North East":
+    "Triumph Knights Mumbai North East":
     "https://mcadirectory.blob.core.windows.net/dev/007792959990218895-triumphKnights.png",
+    "SOBO Mumbai Falcons":
+      "https://t20mumbai.com/images/home/team/soboSuperSonics.png",
   "Triumph Knights MNE":
-    "https://mcadirectory.blob.core.windows.net/dev/007792959990218895-triumphKnights.png",
+    "https://mcadirectory.blob.core.windows.net/dev/630539656646887-8. Triumph Knights Mumbai North East PNG v1 1.png",
+  // "Triumph Knights MNE":
+  //   "https://mcadirectory.blob.core.windows.net/dev/007792959990218895-triumphKnights.png",
 };
 
 export const decodeHtml = (html) => {
