@@ -34,7 +34,7 @@ const TitleComponent = ({
         </div>
         <div className="flex items-center justify-between     z-10 absolute h-full top-0 left-0 right-0">
           <h3
-            className="capitalize  md:text-lg lg:text-xl xl:text-2xl md:ml-16 ml-12 italic"
+            className="capitalize  md:text-lg lg:text-xl xl:text-2xl md:ml-16 ml-12 italic px-2"
             style={{
               background:
                 "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
