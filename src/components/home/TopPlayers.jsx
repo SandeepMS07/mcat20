@@ -2,6 +2,7 @@ import Image from "next/image";
 import TitleComponent from "../common/TitleComponent";
 import routes from "@/utilis/route";
 import statsData from "@/constant/stats/statsData.json";
+import Link from "next/link";
 import "./style.css";
 import {
   teamLogoStats,
@@ -142,6 +143,8 @@ const TopPlayers = () => {
           title="Top Players Season 3"
           button={true}
           buttonLink={routes.stats}
+          buttonText="View All"
+          hideButtonOnMobile={true}
         />
         <div className="flex flex-col lg:flex-row justify-center gap-6 sm:gap-10">
           <TopPlayerCard
@@ -172,6 +175,27 @@ const TopPlayers = () => {
             teamName={topPlayersData.bowler.teamName}
           />
         </div>
+
+        <Link
+          href={routes.stats || "#"}
+          className="md:hidden flex items-center btn-primary gap-2 w-fit mx-auto mt-6"
+          // style={{
+          //   background: "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
+          //   WebkitBackgroundClip: "text",
+          //   WebkitTextFillColor: "transparent",
+          //   backgroundClip: "text",
+          //   color: "transparent",
+          // }}
+        >
+          View Top Players
+          <img
+            src="/images/home/hero/buttonIcon.svg"
+            alt="button-icon"
+            width={24}
+            height={24}
+            className="w-5 h-5"
+          />
+        </Link>
       </div>
     </div>
   );
