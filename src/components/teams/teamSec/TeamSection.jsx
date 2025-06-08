@@ -171,15 +171,19 @@ const TeamSection = ({
                   style={gradientStyle}
                 >
                   {/*Background patterns and gradient for the team logo */}
-                  <img
-                    src={teampattern2}
-                    alt="pattern2"
-                    className="absolute inset-0 w-full h-[80%] z-10 top-0 rounded-md"
+                  <Image
+                    src={"/images/elements/teamCardRoundElement.png"}
+                    width={100}
+                    height={100}
+                    className="w-full h-full absolute top-0 left-0 rounded-xl opacity-60"
+                    alt="Logo"
                   />
-                  <img
-                    src={teampattern1}
-                    alt="pattern1"
-                    className="absolute inset-0 w-full h-full z-20 rounded-md object-cover"
+                  <Image
+                    src={"/images/elements/teamCardElement.png"}
+                    width={100}
+                    height={100}
+                    className="w-full h-full absolute top-0 left-0 rounded-xl"
+                    alt="Logo"
                   />
                   <div className="z-30 rounded-[5.5px]">
                     <TeamLogo

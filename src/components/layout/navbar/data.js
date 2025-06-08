@@ -15,7 +15,11 @@ export const navLinks = [
     path: `${routes.gallery}`,
   },
   {
-    title: "Fixtures",
+    title: "Standings",
+    path: `${routes.standing}`,
+  },
+  {
+    title: "Match Centre",
     path: `${routes.fixtures}`,
   },
   {
