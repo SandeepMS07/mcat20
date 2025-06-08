@@ -247,7 +247,7 @@ const Hero = () => {
                     </h3>
                     <img
                       src="/images/home/hero/districtLogo.png"
-                      className="md:h-20 h-14 w-atuo"
+                      className="md:h-20 h-14 w-auto"
                       alt=""
                     />
                   </div>
@@ -485,6 +485,89 @@ const Hero = () => {
                       height={40}
                     />
                   </a>
+                </div>
+              </div>
+
+              <div className="absolute bottom-40 -right-0 hidden md:block">
+                <div
+                  className="w-full rounded-l-xl md:rounded-l-xl border-y-2 border-l-2  border-[#E07E27] shadow-2xl overflow-hidden cursor-pointer"
+                  onClick={() => {
+                    router.push(routes.fixtures);
+                  }}
+                >
+                  <div
+                    className="  w-full flex overflow-hidden items-center justify-evenly rounded-tl-lg gap-4"
+                    style={{
+                      background:
+                        "linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.48) 1.45%, rgba(0, 0, 0, 0.70) 100%), rgba(255, 255, 255, 0.09)",
+                    }}
+                  >
+                    <div className="flex flex-col justify-between  py-6 px-12">
+                      <p className="text-[#E07E27] text-base  xl:text-lg font-semibold leading-3 uppercase">
+                        Match starts in
+                      </p>
+                    </div>
+                  </div>
+                  <CountdownTimer
+                    targetDate={nextMatch.targetDate}
+                    homeTeam={nextMatch.home_team}
+                    awayTeam={nextMatch.away_team}
+                    match_no={nextMatch.match_no}
+                    total_matches={nextMatch.total_matches}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide className="h-full">
+          <div className="w-full h-full bg-[url('/images/banner/banner5.png')] bg-cover bg-center  relative pt-20  overflow-hidden flex justify-center items-center ">
+            <div className="section-width  py-2">
+              <div className="flex flex-col justify-center text-center md:text-left  md:flex-row items-center md:justify-between">
+                <div className="flex-col items-center  sm:items-start gap-3 lg:gap-6">
+                  <h1 className="  font-extrabold max-w-3xl max-sm:text-center">
+                    SEMI FINAL
+                    <br /> TICKETS
+                  </h1>
+
+                  <div className="flex items-center">
+                    <h3 className=" font-extrabold max-w-3xl text-[#fdcf53] ">
+                      #Now Live On
+                    </h3>
+                    <img
+                      src={"/images/home/hero/districtNormal.jpg"}
+                      alt=""
+                      width={100}
+                      className="md:h-16 h-12 w-auto m-4 rounded-md "
+                    />
+                  </div>
+
+                  <div className="flex gap-2 justify-center md:justify-start pb-3">
+                    <a
+                      href={routes.OverallTicket}
+                      target="_blank"
+                      className="btn-primary flex gap-4 items-center justify-center py-3 px-6 rounded-lg text-md"
+                    >
+                      Buy Tickets
+                      <span>
+                        <Image
+                          src="/images/home/hero/buttonIcon.svg"
+                          alt="button-icon"
+                          width={24}
+                          height={24}
+                          className="w-5 h-5"
+                        />
+                      </span>
+                    </a>
+                  </div>
+                </div>
+                <div className="w-[70%]  md:w-[50%] flex justify-center items-center py-2">
+                  <img
+                    src="/images/home/hero/smCard.png"
+                    alt="semiFinal"
+                    className="w-[60%]"
+                  />
                 </div>
               </div>
 

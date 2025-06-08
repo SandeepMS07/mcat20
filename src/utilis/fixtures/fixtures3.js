@@ -185,7 +185,6 @@ const fixtures3 = [
     venue: "Wankhede Stadium",
     status:"upcoming",
   },
-
   {
     match_no: 21,
     time: "2:30 PM",
