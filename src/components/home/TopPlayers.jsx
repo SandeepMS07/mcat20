@@ -2,6 +2,7 @@ import Image from "next/image";
 import TitleComponent from "../common/TitleComponent";
 import routes from "@/utilis/route";
 import statsData from "@/constant/stats/statsData.json";
+import Link from "next/link";
 import "./style.css";
 import {
   teamLogoStats,
@@ -36,7 +37,7 @@ const getTopPlayersData = () => {
       players.push({
         id: playerId,
         name: playerData.name_full,
-        playerImg:playerData.player_photo,
+        playerImg: playerData.player_photo,
         teamName: season2Data.team_name,
         batting: season2Data.batting,
         bowling: season2Data.bowling,
@@ -115,7 +116,7 @@ const getTopPlayersData = () => {
     })),
   };
 
-  console.log(topBowlers,"topboulwlefjl")
+  console.log(topBowlers, "topboulwlefjl");
 
   return {
     batsman: batsmanData,
@@ -142,6 +143,8 @@ const TopPlayers = () => {
           title="Top Players Season 3"
           button={true}
           buttonLink={routes.stats}
+          buttonText="View All"
+          hideButtonOnMobile={true}
         />
         <div className="flex flex-col lg:flex-row justify-center gap-6 sm:gap-10">
           <TopPlayerCard
@@ -172,6 +175,27 @@ const TopPlayers = () => {
             teamName={topPlayersData.bowler.teamName}
           />
         </div>
+
+        <Link
+          href={routes.stats || "#"}
+          className="md:hidden flex items-center btn-primary gap-2 w-fit mx-auto mt-6"
+          // style={{
+          //   background: "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
+          //   WebkitBackgroundClip: "text",
+          //   WebkitTextFillColor: "transparent",
+          //   backgroundClip: "text",
+          //   color: "transparent",
+          // }}
+        >
+          View Top Players
+          <img
+            src="/images/home/hero/buttonIcon.svg"
+            alt="button-icon"
+            width={24}
+            height={24}
+            className="w-5 h-5"
+          />
+        </Link>
       </div>
     </div>
   );
@@ -228,8 +252,8 @@ const TopPlayerCard = ({
   leaderboard = [],
 }) => {
   const isBatsman = type === "batsman";
-  console.log(leaderboard,"leaderboard")
-  console.log(teamName,"team anem")
+  console.log(leaderboard, "leaderboard");
+  console.log(teamName, "team anem");
   const statsConfig = isBatsman
     ? [
         { value: runs, label: "RUNS" },
@@ -287,48 +311,57 @@ const TopPlayerCard = ({
             </div>
           </div>
 
-          <div className="flex items-end px-3 md:px-4 lg:px-6 sm:min-h-[280px] relative">
-            <div className="flex-1 pb-4 md:pb-6 lg:pb-8 relative">
-              {/* <img src={playerImage} className="basis-[30%]" alt={playerName}/> */}
-              <div className="mb-3 md:mb-4 lg:mb-6 flex justify-start items-center">
-                <div className="z-20 mr-2 md:mr-2.5 lg:mr-3">
-                  <img
-                    width={50}
-                    height={50}
-                    src={teamLogo}
-                    alt={`${playerName} team logo`}
-                    className="opacity-90"
-                  />
-                </div>
-                <h2
-                  className="text-xl md:text-2xl  font-bold text-transparent bg-clip-text uppercase tracking-wide italic"
-                  style={textGradientStyle}
-                >
-                  {playerName}
-                </h2>
+          <div className="flex items-end px-3 md:px-4 lg:px-6 sm:min-h-[280px] relative z-20">
+            <div className="flex-1 flex flex-col xl:flex-row relative gap-6 justify-center items-center xl:items-end xl:justify-end">
+              <div className="flex justify-center w-[80%] xl:w-[50%] rounded-lg overflow-hidden">
+                <img
+                  src={playerImage}
+                  className="w-full h-[250px] md:h-[300px] sm:object-contain  lg:object-cover rounded-lg"
+                  alt={playerName}
+                />
               </div>
 
-              <div className="border border-white border-opacity-30 rounded-lg p-3 md:p-4 lg:p-6 bg-black bg-opacity-20">
-                <div className="grid gap-3 md:gap-4 lg:gap-6">
-                  <div className="grid grid-cols-3 gap-3 md:gap-4 lg:gap-6">
-                    {statsConfig
-                      .slice(0, isBatsman ? 2 : 2)
-                      .map((stat, idx) => (
+              <div>
+                <div className="mb-3 md:mb-4 lg:mb-6 flex justify-start items-center">
+                  <div className="z-20 mr-2 md:mr-2.5 lg:mr-3">
+                    <img
+                      width={50}
+                      height={50}
+                      src={teamLogo}
+                      alt={`${playerName} team logo`}
+                      className="opacity-90"
+                    />
+                  </div>
+                  <h2
+                    className="text-xl md:text-2xl  font-bold text-transparent bg-clip-text uppercase tracking-wide italic"
+                    style={textGradientStyle}
+                  >
+                    {playerName}
+                  </h2>
+                </div>
+
+                <div className="border border-white border-opacity-30 rounded-lg p-3 md:p-4 lg:p-6 bg-black bg-opacity-20 mb-4">
+                  <div className="grid gap-3 md:gap-4 lg:gap-6">
+                    <div className="grid grid-cols-3 gap-3 md:gap-4 lg:gap-6">
+                      {statsConfig
+                        .slice(0, isBatsman ? 2 : 2)
+                        .map((stat, idx) => (
+                          <StatItem
+                            key={idx}
+                            value={stat.value}
+                            label={stat.label}
+                          />
+                        ))}
+                    </div>
+                    <div className="grid grid-cols-3 gap-3 md:gap-4 lg:gap-6">
+                      {statsConfig.slice(2).map((stat, idx) => (
                         <StatItem
                           key={idx}
                           value={stat.value}
                           label={stat.label}
                         />
                       ))}
-                  </div>
-                  <div className="grid grid-cols-3 gap-3 md:gap-4 lg:gap-6">
-                    {statsConfig.slice(2).map((stat, idx) => (
-                      <StatItem
-                        key={idx}
-                        value={stat.value}
-                        label={stat.label}
-                      />
-                    ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -528,7 +561,7 @@ export default TopPlayers;
 //   // Format top batsman data
 //   const topBatsman = topBatsmen[0];
 //   console.log(topBatsman,"top batsman")
- 
+
 //   const batsmanData = {
 //     rank: 1,
 //     playerImage: "/images/playerProfile/default.svg",

@@ -166,7 +166,7 @@ const LatestUpdates = () => {
                       <div>
                         <img
                           src={
-                            item?.Order__c == 14
+                            item?.Order__c == 15
                               ? "/images/latestUpdates/update14-main.jpg"
                               : item?.Image_URL__c
                           }
