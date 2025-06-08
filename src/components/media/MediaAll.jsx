@@ -151,7 +151,7 @@ const MediaAll = ({ items, loading }) => {
                       src={item.img}
                       alt={item.title || "Gallery image"}
                       fill
-                      className="object-cover "
+                      className="absolute inset-0 w-full h-full object-cover "
                       sizes="(max-width: 640px) 95vw, (max-width: 1024px) 45vw, 33vw"
                     />
 

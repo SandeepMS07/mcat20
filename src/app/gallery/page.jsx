@@ -42,11 +42,13 @@ const Page = () => {
       try {
         const imageRes = await getImagesClient();
         const formattedImages =
-          imageRes?.data?.map((item) => ({
-            ...item,
-            type: "image",
-            img: item.Image_URL__c,
-          })) || [];
+          imageRes?.data
+            ?.map((item) => ({
+              ...item,
+              type: "image",
+              img: item.Image_URL__c,
+            }))
+            .sort((a, b) => b.Order__c - a.Order__c) || [];
         setImages(formattedImages);
       } catch (err) {
         console.error("Error fetching images:", err);
