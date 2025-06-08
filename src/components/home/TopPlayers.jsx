@@ -289,10 +289,10 @@ const TopPlayerCard = ({
 
           <div className="flex items-end px-3 md:px-4 lg:px-6 sm:min-h-[280px] relative z-20">
             <div className="flex-1 flex flex-col xl:flex-row relative gap-6 justify-center items-center xl:items-end xl:justify-end">
-              <div className="flex justify-center w-[80%] xl:w-[50%]">
+              <div className="flex justify-center w-[80%] xl:w-[50%] rounded-lg overflow-hidden">
                 <img
                   src={playerImage}
-                  className="w-full h-[280px] md:h-[300px] object-cover rounded-lg"
+                  className="w-full h-[250px] md:h-[300px] object-cover rounded-lg"
                   alt={playerName}
                 />
               </div>
