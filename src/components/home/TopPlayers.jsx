@@ -292,7 +292,7 @@ const TopPlayerCard = ({
               {/* <img src={playerImage} className="basis-[30%]" alt={playerName}/> */}
               <div className="mb-3 md:mb-4 lg:mb-6 flex justify-start items-center">
                 <div className="z-20 mr-2 md:mr-2.5 lg:mr-3">
-                  <Image
+                  <img
                     width={50}
                     height={50}
                     src={teamLogo}
