@@ -247,7 +247,7 @@ const Hero = () => {
                     </h3>
                     <img
                       src="/images/home/hero/districtLogo.png"
-                      className="md:h-20 h-14 w-atuo"
+                      className="md:h-20 h-14 w-auto"
                       alt=""
                     />
                   </div>
@@ -520,16 +520,34 @@ const Hero = () => {
             </div>
           </div>
         </SwiperSlide>
+
         <SwiperSlide className="h-full">
-          <div className="w-full h-full bg-[url('/images/banner/banner5.png')] bg-cover bg-center  relative pt-32 pr-32 overflow-hidden flex justify-center items-center">
-            <div className="section-width ">
-              <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6 pt-32">
-                <div className="flex mt-6 sm:mt-0 flex-col gap-2 sm:flex-row items-start sm:items-center ">
-                  <div className="flex flex-col gap-4">
+          <div className="w-full h-full bg-[url('/images/banner/banner5.png')] bg-cover bg-center  relative pt-20  overflow-hidden flex justify-center items-center ">
+            <div className="section-width  py-2">
+              <div className="flex flex-col justify-center text-center md:text-left  md:flex-row items-center md:justify-between">
+                <div className="flex-col items-center  sm:items-start gap-3 lg:gap-6">
+                  <h1 className="  font-extrabold max-w-3xl max-sm:text-center">
+                    SEMI FINAL
+                    <br /> TICKETS
+                  </h1>
+
+                  <div className="flex items-center">
+                    <h3 className=" font-extrabold max-w-3xl text-[#fdcf53] ">
+                      #Now Live On
+                    </h3>
+                    <img
+                      src={"/images/home/hero/districtNormal.jpg"}
+                      alt=""
+                      width={100}
+                      className="md:h-16 h-12 w-auto m-4 rounded-md "
+                    />
+                  </div>
+
+                  <div className="flex gap-2 justify-center md:justify-start pb-3">
                     <a
                       href={routes.OverallTicket}
                       target="_blank"
-                      className="btn-primary inline-flex gap-4 items-center justify-start py-3 px-6 rounded-lg text-md"
+                      className="btn-primary flex gap-4 items-center justify-center py-3 px-6 rounded-lg text-md"
                     >
                       Buy Tickets
                       <span>
@@ -543,6 +561,13 @@ const Hero = () => {
                       </span>
                     </a>
                   </div>
+                </div>
+                <div className="w-[70%]  md:w-[50%] flex justify-center items-center py-2">
+                  <img
+                    src="/images/home/hero/smCard.png"
+                    alt="semiFinal"
+                    className="w-[60%]"
+                  />
                 </div>
               </div>
 
