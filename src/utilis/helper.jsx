@@ -220,7 +220,6 @@ export const season3TeamLogo = {
     "https://mcadirectory.blob.core.windows.net/dev/007792959990218895-triumphKnights.png",
 };
 
-
 export const decodeHtml = (html) => {
   if (!html) return "";
 
@@ -237,9 +236,9 @@ export const decodeHtml = (html) => {
 };
 
 export const toTitleCase = (str) => {
-  if (!str) return '';
+  if (!str) return "";
   return str
-    .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join(' ');
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(" ");
 };

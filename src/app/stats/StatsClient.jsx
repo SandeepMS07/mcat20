@@ -3,7 +3,7 @@ import React, { useState, useMemo, useEffect } from "react";
 import Image from "next/image";
 import PlayerDetailsHero from "@/components/stats/PlayerDetailsHero";
 import PaginationControls from "./components/PaginationControls";
-import { teamLogoStats } from "@/utilis/helper";
+import { season3TeamLogo, teamLogoStats } from "@/utilis/helper";
 import { DropDown } from "@/components/common/DropDown";
 import "./style.css";
 
@@ -239,7 +239,7 @@ export default function StatsClient({ statsData }) {
       .map((p) => {
         const t = p.seasons[season] || {};
         const s = p.seasons[season]?.[category] || {};
-        const teamLogo = teamLogoStats[t.team_name] || "";
+        const teamLogo = season3TeamLogo[t.team_name] || "";
 
         if (s.matches_played === 0 || !t.team_name) return null;
 
@@ -674,7 +674,11 @@ export default function StatsClient({ statsData }) {
             </div>
             <div className=" flex flex-col lg:flex-row items-start md:items-center justify-between gap-4 border border-1 rounded-lg ">
               <div className="flex items-center gap-4">
-                {["batting", "bowling", "fielding"].map((tab) => (
+                {[
+                  "batting",
+                  "bowling",
+                  // "fielding"
+                ].map((tab) => (
                   <p
                     key={tab}
                     onClick={() => setSelected(tab)}
