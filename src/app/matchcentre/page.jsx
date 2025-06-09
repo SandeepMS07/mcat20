@@ -17,7 +17,7 @@ export default function Page() {
 
   return (
     <>
-      <div className="w-full bg-white">
+      <div className="w-full bg-white h-screen">
         {/* <div className="w-full relative flex justify-end lg:py-36 py-20 bg-[url('/images/banner/fixture.jpg')] bg-cover bg-center bg-no-repeat">
           <div className="relative z-10 pt-8 h-full flex-col overflow-hidden justify-between text-white flex gap-24 mt-20 section-width">
             <div className="w-full flex flex-col items-start justify-between bg-transparent gap-20">
@@ -59,7 +59,7 @@ export default function Page() {
                 priority
               />
 
-              {/* Foreground content */}
+           
               <div className="absolute top-0 left-0 h-full z-10 flex flex-col md:flex-row md:items-center md:justify-between justify-center   w-full">
                 <h2
                   className="uppercase max-sm:text-base md:text-lg lg:text-xl xl:text-2xl  xl:ml-16 ml-12 italic text-black"
@@ -77,7 +77,7 @@ export default function Page() {
 
               </div>
             </div>
-            <div style={{ height: '70vh', width: '100%' }}>
+            <div style={{ height: '90vh', width: '100%' }}>
                 {iframeSrc ? (
                     <iframe
                     src={iframeSrc}
