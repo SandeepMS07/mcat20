@@ -56,8 +56,6 @@ const Page = () => {
             // date: item.Date__c || "",           // optional if date exists
           })) || [];
 
-
-
         const isMatchTag = (tag) => /^Match\s\d+/i.test(tag);
         const extractMatchNumber = (tag) => {
           const match = tag.match(/^Match\s(\d+)/i);
@@ -66,7 +64,8 @@ const Page = () => {
 
         // Group by Tag__c
         const grouped = formattedImages.reduce((acc, item) => {
-          const tag = item.Tag__c || "Untitled";
+          const tag = item.Tag__c?.trim();
+          if (!tag || tag === "T20Gallery") return acc; // skip if no tag or it's T20Gallery
           if (!acc[tag]) acc[tag] = [];
           acc[tag].push(item);
           return acc;

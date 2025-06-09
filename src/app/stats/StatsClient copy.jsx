@@ -74,8 +74,6 @@ const makeCategoryData = (category, season) => {
       const s = p.seasons[season]?.[category] || {};
       const teamLogo = teamLogoStats[t.team_name] || "";
 
-      console.log(teamLogo,"teamlogo, dfklsnl")
-
       if (category === "batting") {
         return {
           player: p.name_full,

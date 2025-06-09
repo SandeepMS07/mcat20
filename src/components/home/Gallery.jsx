@@ -18,8 +18,6 @@ const Gallery = () => {
       try {
         setLoading(true);
         const imageRes = await getImagesClient();
-        // console.log(imageRes, "setImages");
-
         const formattedImages =
           imageRes?.data?.map((item) => ({
             ...item,
@@ -34,7 +32,12 @@ const Gallery = () => {
           return match ? parseInt(match[1], 10) : 0;
         };
 
-        const sortedImages = formattedImages.sort((a, b) => {
+        console.log(formattedImages, "formattedImages");
+        const filteredImages = formattedImages.filter(
+          (item) => item.Tag__c !== null && item.Tag__c !== undefined
+        );
+
+        const sortedImages = filteredImages.sort((a, b) => {
           const aTag = a.Tag__c || "";
           const bTag = b.Tag__c || "";
 
