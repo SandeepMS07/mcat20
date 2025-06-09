@@ -14,6 +14,7 @@ const Page = () => {
   const [activeTab, setActiveTab] = useState("View Images");
   const [videos, setVideos] = useState([]);
   const [selectedFolder, setSelectedFolder] = useState(null);
+  const [imageFolders, setImageFolders] = useState([]);
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -40,17 +41,70 @@ const Page = () => {
   }, []);
 
   // Fetching the data from the API
-  // useEffect(() => {
-  //   const fetchImages = async () => {
-  //     try {
-  //       const images = await getImagesClient();
-  //       console.log(images);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
-  //   fetchImages();
-  // }, []);
+  useEffect(() => {
+     const fetchImages = async () => {
+    try {
+      setLoading(true);
+      const imageRes = await getImagesClient();
+
+      const formattedImages =
+        imageRes?.data?.map((item) => ({
+          ...item,
+          type: "image",
+          // img: item.Image_URL__c,
+          // title: item.Title__c || "Untitled", // optional if title exists
+          // date: item.Date__c || "",           // optional if date exists
+        })) || [];
+
+        console.log(formattedImages, "formattedImages");
+
+      const isMatchTag = (tag) => /^Match\s\d+/i.test(tag);
+      const extractMatchNumber = (tag) => {
+        const match = tag.match(/^Match\s(\d+)/i);
+        return match ? parseInt(match[1], 10) : 0;
+      };
+
+      // Group by Tag__c
+      const grouped = formattedImages.reduce((acc, item) => {
+        const tag = item.Tag__c || "Untitled";
+        if (!acc[tag]) acc[tag] = [];
+        acc[tag].push(item);
+        return acc;
+      }, {});
+
+      // Sort the keys as per logic
+      const sortedKeys = Object.keys(grouped).sort((a, b) => {
+        const aIsMatch = isMatchTag(a);
+        const bIsMatch = isMatchTag(b);
+
+        if (aIsMatch && bIsMatch) {
+          return extractMatchNumber(b) - extractMatchNumber(a); // Match 5 before Match 1
+        } else if (aIsMatch) {
+          return -1;
+        } else if (bIsMatch) {
+          return 1;
+        } else {
+          return b.localeCompare(a); // Z → A for non-Match
+        }
+      });
+
+      // Construct final ImageFolders object
+      const imageFolders = {};
+      sortedKeys.forEach((key) => {
+        imageFolders[key] = grouped[key];
+      });
+
+      console.log("Final ImageFolders:", imageFolders);
+      setImageFolders(imageFolders); // Assuming you have this state
+    } catch (err) {
+      console.error("Error fetching images:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchImages();
+  }, []);
 
   console.log("the image folders are", ImageFolders);
   // const filteredItems = activeTab === "View Videos" ? videos : images;
