@@ -158,8 +158,7 @@ const Gallery = () => {
                           <img
                             src={item?.Image_URL__c || ""}
                             alt={"Gallery image"}
-                            fill
-                            className="object-cover "
+                            className=" w-full h-full object-cover"
                             sizes="(max-width: 640px) 95vw, (max-width: 1024px) 45vw, 33vw"
                           />
 
