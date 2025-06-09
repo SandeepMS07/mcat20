@@ -48,7 +48,7 @@ const Page = () => {
       try {
         setLoading(true);
         const imageRes = await getImagesClient();
-
+        console.log(imageRes, "setImages");
         const formattedImages =
           imageRes?.data?.map((item) => ({
             ...item,
