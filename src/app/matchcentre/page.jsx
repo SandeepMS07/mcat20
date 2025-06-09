@@ -26,7 +26,7 @@ export default function Page() {
           </div>
         </div> */}
 
-        <div className="relative">
+        {/* <div className="relative">
           <img
             src="/images/elements/section-element.png"
             className="absolute right-0 top-0 md:block hidden"
@@ -36,12 +36,11 @@ export default function Page() {
             src="/images/elements/section-element.png"
             className="absolute left-0 bottom-0 rotate-180 md:block hidden"
             alt="element"
-          />
+          /> */}
 
-          <div className="section-width pt-10">
+          {/* <div className="section-width pt-10"> */}
             {/* Season and Team Selection Header */}
-            <div className="relative  mb-6">
-              {/* Background image */}
+            {/* <div className="relative  mb-6">
               <Image
                 src="/images/elements/small-title-bg.png"
                 alt="Mobile Title"
@@ -76,7 +75,7 @@ export default function Page() {
                 </h2>
 
               </div>
-            </div>
+            </div> */}
             <div style={{ height: '90vh', width: '100%' }}>
                 {iframeSrc ? (
                     <iframe
@@ -91,8 +90,8 @@ export default function Page() {
                 )}
             </div>
             
-          </div>
-        </div>
+          {/* </div>
+        </div> */}
       </div>
     </>
   );
