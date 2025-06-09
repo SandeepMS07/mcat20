@@ -449,8 +449,11 @@ const Hero = () => {
                     className="btn-primary flex gap-4 items-center"
                     // onClick={openVideo}
                     onClick={() => {
-                      window.location.href =
-                        "https://www.instagram.com/reel/DKovUKKhr7F/";
+                      window.open(
+                        "https://www.instagram.com/reel/DKovUKKhr7F/",
+                        "_blank",
+                        "noopener,noreferrer"
+                      );
                     }}
                   >
                     View Details
