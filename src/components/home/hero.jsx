@@ -156,7 +156,7 @@ const Hero = () => {
                     match_no={nextMatch.match_no}
                     total_matches={nextMatch.total_matches}
                   />
-                </div> 
+                </div>
               </div>
             </div>
           </div>
@@ -447,7 +447,11 @@ const Hero = () => {
                 <div className="flex gap-2">
                   <button
                     className="btn-primary flex gap-4 items-center"
-                    onClick={openVideo}
+                    // onClick={openVideo}
+                    onClick={() => {
+                      window.location.href =
+                        "https://www.instagram.com/reel/DKovUKKhr7F/";
+                    }}
                   >
                     View Details
                     <span>
@@ -460,7 +464,7 @@ const Hero = () => {
                       />
                     </span>
                   </button>
-                  <a
+                  {/* <a
                     className="btn-blue inline-flex gap-4 cursor-pointer items-center justify-center py-3 px-6 rounded-lg text-md"
                     onClick={() => {
                       router.push(
@@ -478,7 +482,7 @@ const Hero = () => {
                         className="w-5 h-5"
                       />
                     </span>
-                  </a>
+                  </a> */}
                 </div>
               </div>
 
@@ -598,8 +602,6 @@ const Hero = () => {
             </div>
           </div>
         </SwiperSlide>
-
-        
       </Swiper>
 
       {showVideo && (
@@ -628,4 +630,3 @@ const Hero = () => {
 };
 
 export default Hero;
-// https://youtu.be/DFswpwcH68E?si=oS6Fp-hBzKS0ds4g
