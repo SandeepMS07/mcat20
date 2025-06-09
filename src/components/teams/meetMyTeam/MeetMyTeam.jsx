@@ -54,7 +54,7 @@ const MeetMyTeam = ({ data }) => {
     groupedByRole[role].push(playerObj);
   });
 
-  console.log(groupedByRole);
+  // console.log(groupedByRole);
 
   return (
     <div className="bg-white relative ">

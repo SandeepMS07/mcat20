@@ -18,7 +18,7 @@ const Gallery = () => {
       try {
         setLoading(true);
         const imageRes = await getImagesClient();
-        console.log(imageRes, "setImages");
+        // console.log(imageRes, "setImages");
 
         const formattedImages =
           imageRes?.data?.map((item) => ({
@@ -54,7 +54,7 @@ const Gallery = () => {
           }
         });
 
-        console.log(sortedImages, "sortedImages");
+        // console.log(sortedImages, "sortedImages");
         setImages(sortedImages.slice(0, 8));
       } catch (err) {
         console.error("Error fetching images:", err);

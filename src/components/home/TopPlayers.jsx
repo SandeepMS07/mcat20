@@ -116,7 +116,7 @@ const getTopPlayersData = () => {
     })),
   };
 
-  console.log(topBowlers, "topboulwlefjl");
+  // console.log(topBowlers, "topboulwlefjl");
 
   return {
     batsman: batsmanData,
@@ -252,8 +252,8 @@ const TopPlayerCard = ({
   leaderboard = [],
 }) => {
   const isBatsman = type === "batsman";
-  console.log(leaderboard, "leaderboard");
-  console.log(teamName, "team anem");
+  // console.log(leaderboard, "leaderboard");
+  // console.log(teamName, "team anem");
   const statsConfig = isBatsman
     ? [
         { value: runs, label: "RUNS" },

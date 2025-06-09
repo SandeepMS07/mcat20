@@ -31,7 +31,6 @@ const Page = () => {
             title: item.title,
             date: item.date,
           })) || [];
-        console.log(formattedVideos, "formattedVideos");
         setVideos(formattedVideos);
       } catch (err) {
         console.error("Error fetching videos:", err);
@@ -48,7 +47,6 @@ const Page = () => {
       try {
         setLoading(true);
         const imageRes = await getImagesClient();
-        console.log(imageRes, "setImages");
         const formattedImages =
           imageRes?.data?.map((item) => ({
             ...item,
@@ -58,7 +56,7 @@ const Page = () => {
             // date: item.Date__c || "",           // optional if date exists
           })) || [];
 
-        console.log(formattedImages, "formattedImages");
+
 
         const isMatchTag = (tag) => /^Match\s\d+/i.test(tag);
         const extractMatchNumber = (tag) => {
@@ -98,7 +96,7 @@ const Page = () => {
           imageFolders[key] = grouped[key];
         });
 
-        console.log("Final ImageFolders:", imageFolders);
+        // console.log("Final ImageFolders:", imageFolders);
         setImageFolders(imageFolders); // Assuming you have this state
       } catch (err) {
         console.error("Error fetching images:", err);
