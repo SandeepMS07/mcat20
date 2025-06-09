@@ -41,6 +41,10 @@ const Sponsorship = () => {
       img: "/images/home/sponsorship/starsports.png",
       title: "Official Broadcaster",
     },
+    {
+      img: "/images/home/sponsorship/scrapji.png",
+      title: "Recycling Partner",
+    },
   ];
 
   return (
@@ -60,14 +64,10 @@ const Sponsorship = () => {
 
         <div className="flex flex-wrap gap-8 bg-[#000B3D] p-4 rounded-xl w-full justify-center">
           {sponsorData.map((item, index) => {
-            const isLast = index === sponsorData.length - 1;
-
             return (
               <div
                 key={index}
-                className={`w-full md:w-[18.2%]  rounded-xl relative text-white p-4 border border-[#4c5271] ${
-                  isLast ? "md:grow md:max-w-[40%]" : ""
-                }`}
+                className={`w-full md:w-[18.2%]  rounded-xl relative text-white p-4 border border-[#4c5271] `}
                 style={{
                   background:
                     "linear-gradient(180.69deg, rgba(255, 255, 255, 0.15) -61.51%, rgba(0, 0, 0, 0.15) 91.86%)",
@@ -97,7 +97,7 @@ const Sponsorship = () => {
                   <div className="flex-1 border-b-[1px] border-gray-800"></div>
                 </div>
 
-                <p className="text-lg font-medium z-20 relative mt-4">
+                <p className="text-lg font-medium z-20 relative mt-4 break-words whitespace-normal">
                   {item.title}
                 </p>
               </div>
