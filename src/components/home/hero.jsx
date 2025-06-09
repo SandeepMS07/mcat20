@@ -334,7 +334,7 @@ const Hero = () => {
                     />
                   </div>
                 </div>
-                <div className="flex md:flex-row flex-col gap-4 md:hidden ">
+                {/* <div className="flex md:flex-row flex-col gap-4 md:hidden ">
                   <a
                     href={routes.wankhedeTicket}
                     target="_blank"
@@ -369,7 +369,7 @@ const Hero = () => {
                       />
                     </span>
                   </a>
-                </div>
+                </div> */}
               </div>
 
               <div className="absolute bottom-40 right-0 hidden lg:block">
