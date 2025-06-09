@@ -10,6 +10,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import routes from "@/utilis/route";
 import fixtures3 from "@/utilis/fixtures/fixtures3";
 import { useRouter } from "next/navigation";
+import InstagramEmbed from "../instragramPlayer/InstagramEmbed";
 
 const Hero = () => {
   const router = useRouter();
@@ -156,7 +157,7 @@ const Hero = () => {
                     match_no={nextMatch.match_no}
                     total_matches={nextMatch.total_matches}
                   />
-                </div> 
+                </div>
               </div>
             </div>
           </div>
@@ -460,7 +461,7 @@ const Hero = () => {
                       />
                     </span>
                   </button>
-                  <a
+                  {/* <a
                     className="btn-blue inline-flex gap-4 cursor-pointer items-center justify-center py-3 px-6 rounded-lg text-md"
                     onClick={() => {
                       router.push(
@@ -478,7 +479,7 @@ const Hero = () => {
                         className="w-5 h-5"
                       />
                     </span>
-                  </a>
+                  </a> */}
                 </div>
               </div>
 
@@ -598,25 +599,38 @@ const Hero = () => {
             </div>
           </div>
         </SwiperSlide>
-
-        
       </Swiper>
 
       {showVideo && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-80">
-          <div className="relative w-[90%] md:w-[70%] lg:w-[60%] aspect-video bg-black rounded-lg overflow-hidden">
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/DFswpwcH68E?autoplay=1&rel=0"
-              title="YouTube video"
-              allow="autoplay; encrypted-media"
-              allowFullScreen
-              className="rounded-lg"
-            ></iframe>
+        // <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-80">
+        //   <div className="relative w-[90%] md:w-[70%] lg:w-[60%] aspect-video bg-black rounded-lg overflow-hidden">
+        //     <iframe
+        //       width="100%"
+        //       height="100%"
+        //       src="https://www.youtube.com/embed/DFswpwcH68E?autoplay=1&rel=0"
+        //       title="YouTube video"
+        //       allow="autoplay; encrypted-media"
+        //       allowFullScreen
+        //       className="rounded-lg"
+        //     ></iframe>
+        //     <button
+        //       onClick={closeVideo}
+        //       className="absolute top-3 right-3 text-white bg-[#E07E27] rounded-full p-2 w-10 h-10 hover:bg-[#c86a1e]"
+        //     >
+        //       ✕
+        //     </button>
+        //   </div>
+        // </div>
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-80 ">
+          <div className="relative  w-full md:w-[50%] lg:w-[45%] xl:w-[30%] 2xl:w-[20%] flex justify-center">
+            <div className="relative w-[90%] max-w-[500px] bg-black rounded-lg overflow-hidden">
+              <div className="relative w-full aspect-[9/16] flex items-center justify-center">
+                <InstagramEmbed />
+              </div>
+            </div>
             <button
               onClick={closeVideo}
-              className="absolute top-3 right-3 text-white bg-[#E07E27] rounded-full p-2 w-10 h-10 hover:bg-[#c86a1e]"
+              className="absolute -top-6 right-0 text-white bg-[#E07E27] rounded-full p-2 w-10 h-10 hover:bg-[#c86a1e]"
             >
               ✕
             </button>
