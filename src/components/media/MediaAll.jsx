@@ -1,4 +1,3 @@
-
 // import React from "react";Add commentMore actions
 // import Image from "next/image";
 // import { useEffect, useState } from "react";
@@ -363,7 +362,7 @@ const MediaAll = ({ items, type, selectedFolder, setSelectedFolder }) => {
 
         break;
       }
-    } 
+    }
 
     return layout;
   };
@@ -600,7 +599,7 @@ const MediaAll = ({ items, type, selectedFolder, setSelectedFolder }) => {
                 className="rounded w-full max-h-[80vh]"
               />
             ) : (
-              <Image
+              <img
                 src={validItems[currentIndex]?.img}
                 alt="popup"
                 width={1000}

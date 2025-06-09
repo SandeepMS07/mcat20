@@ -21,13 +21,13 @@ export default async function Home() {
         {/* <UpcomingFixturesSection /> */}
         <HomeTeamSection />
         <LatestUpdates />
+        <TopPlayers />
         {/* <IconPlayers /> */}
         <HomeStandingsSection />
         {/* <TopPlayers /> */}
-        <Gallery />
         <Socials />
+        <Gallery />
         <Sponsorship />
-        {/* <TopPlayers /> */}
         {/* <News /> */}
         {/* <Fixtures /> */}
         {/*    <AboutT2C /> */}

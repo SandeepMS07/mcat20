@@ -72,7 +72,7 @@ const page = () => {
                 <p className="  ">{selectedUpdate?.Sub_Title__c}</p>
               </div>
 
-              <Image
+              <img
                 src={selectedUpdate?.Image_URL__c}
                 width={1000}
                 height={500}

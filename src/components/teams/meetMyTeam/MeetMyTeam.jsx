@@ -159,7 +159,7 @@ const Table = ({ role, PlayerData }) => {
               <div className="flex items-center gap-5 xl:gap-10">
   <div className="h-11 w-11 rounded-full bg-[#c2bcbc] flex items-center justify-center overflow-hidden">
      {player.img && player.img.trim() !== "" && (
-    <Image
+    <img
       src={player.img}
       alt="avatar"
       width={50}
@@ -177,7 +177,7 @@ const Table = ({ role, PlayerData }) => {
                 </p>
               </div>
               <div className="w-[50%] flex items-center justify-between">
-                <Image
+                <img
                   src={
                     role == "batsman"
                       ? "/images/teams/meetmyteam/Layer_1 (1).svg"
@@ -195,7 +195,7 @@ const Table = ({ role, PlayerData }) => {
                 <span className="text-[10px] md:text-base font-bold ">
                   {player.role}
                 </span>
-                <Image
+                <img
                   src="/images/teams/meetmyteam/uil_arrow.svg"
                   alt="arrow"
                   width={20}

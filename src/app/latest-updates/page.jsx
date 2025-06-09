@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import { formatTitleForURL } from "@/utilis/helper";
 import routes from "@/utilis/route";
 import TitleComponent from "@/components/common/TitleComponent";
-import latestUpdatesBg from "../../../public/images/latestUpdates/latest-updates-bg.png";
 import { getLatestUpdatesClient } from "@/app/api/clientApi";
 import { useEffect, useState } from "react";
 import LoadingPage from "../loading";
@@ -29,10 +28,6 @@ const page = () => {
 
   const router = useRouter();
 
-  if (latestUpdates.length == 0) {
-    return <div className="text-black text-md text-center">No Latest Updates Found</div>;
-  }
-
   const handleLatestUpdateClick = (title) => {
     router.push(`${routes.latestUpdates}/${formatTitleForURL(title)}`);
   };
@@ -43,30 +38,35 @@ const page = () => {
 
   return (
     <div className="w-full h-auto">
-      <Hero imgUrl={latestUpdatesBg} heading="Latest Updates" />
+      <Hero
+        imgUrl={"/images/latestUpdates/latest-updates-bg.png"}
+        heading="Latest Updates"
+      />
       <div className="relative">
         <img
           src="/images/elements/section-element.png"
-          className="absolute right-0 top-0"
+          className="absolute right-0 top-0 md:block hidden"
           alt="element"
         />
         <img
           src="/images/elements/section-element.png"
-          className="absolute left-0 bottom-0 rotate-180"
+          className="absolute left-0 bottom-0 rotate-180 md:block hidden"
           alt="element"
         />
         <div className=" text-black gap-16 section-width section-padding ">
           <TitleComponent title={"Latest Updates"} />
           <div className="w-full grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5">
-            {[...(latestUpdates?.data || [])]
-              .sort((a, b) => b.Order__c - a.Order__c)
-              .map((item, index) => (
-                <UpdatesCard
-                  data={item}
-                  key={index}
-                  onClick={() => handleLatestUpdateClick(item.Title__c)}
-                />
-              ))}
+            {!isLoading && latestUpdates.length !== 0
+              ? [...(latestUpdates?.data || [])]
+                  .sort((a, b) => b.Order__c - a.Order__c)
+                  .map((item, index) => (
+                    <UpdatesCard
+                      data={item}
+                      key={index}
+                      onClick={() => handleLatestUpdateClick(item.Title__c)}
+                    />
+                  ))
+              : "No data found..."}
           </div>
         </div>
       </div>

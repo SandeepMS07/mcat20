@@ -87,8 +87,8 @@ const HomeStandingsSection = () => {
       {loading ? (
         <div className="text-center py-10 text-gray-400">Loading...</div>
       ) : (
-        <div className="pt-20 relative">
-          <img
+        <div className="pt-20 relative bg-[url('/images/home/latestUpdateBg.png')] bg-cover bg-center bg-no-repeat ">
+          {/* <img
             src="/images/elements/section-element.png"
             className="absolute right-0 top-0 md:block hidden"
             alt="element"
@@ -97,7 +97,7 @@ const HomeStandingsSection = () => {
             src="/images/elements/section-element.png"
             className="absolute left-0 bottom-0 rotate-180  md:block hidden "
             alt="element"
-          />
+          /> */}
           <div className="section-width padding-bottom pt-5">
             <TitleComponent
               hideButtonOnMobile

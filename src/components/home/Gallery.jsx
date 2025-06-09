@@ -16,10 +16,20 @@ const Gallery = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
+        setLoading(true);
         const imageRes = await getImagesClient();
-        const formattedImages = imageRes?.data?.slice(0, 8);
+        const formattedImages =
+          imageRes?.data
+            ?.map((item) => ({
+              ...item,
+              type: "image",
+              img: item.Image_URL__c,
+            }))
+            .sort((a, b) => b.Order__c - a.Order__c) || [];
+
         console.log(formattedImages);
-        setImages(formattedImages);
+        setImages(formattedImages.slice(0, 8));
+        setLoading(false);
       } catch (err) {
         console.error("Error fetching videos:", err);
       } finally {
@@ -27,7 +37,7 @@ const Gallery = () => {
     };
 
     fetchImages();
-  },[]);
+  }, []);
 
   const validItems =
     Array.isArray(images) && images.length > 0 ? images.slice(0, 8) : [];
@@ -72,7 +82,7 @@ const Gallery = () => {
 
   // If no valid items, return early
   if (validItems.length === 0) {
-    return <div className="w-full p-3">No media items available</div>;
+    return null;
   }
 
   let renderedIndex = 0;
@@ -118,7 +128,7 @@ const Gallery = () => {
                             setShowModal(true);
                           }}
                         >
-                          <Image
+                          <img
                             src={item?.Image_URL__c || ""}
                             alt={"Gallery image"}
                             fill
@@ -128,7 +138,7 @@ const Gallery = () => {
 
                           {item.type === "video" && (
                             <div className="absolute inset-0 flex items-center justify-center">
-                              <Image
+                              <img
                                 src="/images/home/whyT2C/vidLogo.svg"
                                 width={100}
                                 height={100}
@@ -140,7 +150,7 @@ const Gallery = () => {
 
                           {item.views && item.type === "image" && (
                             <div className="absolute top-2 right-2">
-                              <Image
+                              <img
                                 src="/images/home/whyT2C/imgIcon.svg"
                                 width={100}
                                 height={100}

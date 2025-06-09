@@ -172,14 +172,18 @@ const TeamSection = ({
                 >
                   {/*Background patterns and gradient for the team logo */}
                   <Image
-                    src={teampattern2}
-                    alt="pattern2"
-                    className="absolute inset-0 w-full h-[80%] z-10 top-0 rounded-md"
+                    src={"/images/elements/teamCardRoundElement.png"}
+                    width={100}
+                    height={100}
+                    className="w-full h-full absolute top-0 left-0 rounded-xl opacity-60"
+                    alt="Logo"
                   />
                   <Image
-                    src={teampattern1}
-                    alt="pattern1"
-                    className="absolute inset-0 w-full h-full z-20 rounded-md object-cover"
+                    src={"/images/elements/teamCardElement.png"}
+                    width={100}
+                    height={100}
+                    className="w-full h-full absolute top-0 left-0 rounded-xl"
+                    alt="Logo"
                   />
                   <div className="z-30 rounded-[5.5px]">
                     <TeamLogo
@@ -222,15 +226,8 @@ const TeamSection = ({
             </div>
 
             {/* Right side: Details Section */}
-            <div className="flex  flex-col lg:flex-row justify-center gap-4 mt-6 lg:mt-0 items-center w-full lg:w-2/4">
-              {/* <div className=" w-full lg:w-[50%] gap-4  flex items-center flex-row justify-center my-6 text-center ">
-                <h3 className=" font-medium mb-2 text-[#E07E27]">
-                  Total Players{" "}
-                </h3>
-                <h3 className="font-bold text-white">-</h3>
-                <h3 className=" font-bold text-white"> {totalPlayers}</h3>
-              </div> */}
-
+            {/* <div className="flex  flex-col lg:flex-row justify-center gap-4 mt-6 lg:mt-0 items-center w-full lg:w-2/4">
+              
               <div className="w-full flex flex-col   items-center p-4">
                 {[
                   {
@@ -281,7 +278,7 @@ const TeamSection = ({
                   );
                 })}
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Upcoming Matches Heading */}
