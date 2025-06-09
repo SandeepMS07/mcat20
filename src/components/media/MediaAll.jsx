@@ -1,4 +1,3 @@
-// //pakka code 1
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { FaP } from "react-icons/fa6";
