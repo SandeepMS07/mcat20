@@ -245,18 +245,14 @@ const Hero = () => {
             </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide>
+        {/* <SwiperSlide>
           <div className="w-full h-full bg-[url('https://storage.googleapis.com/mca_images/website/banner_img/slider2.jpg')] bg-cover bg-center  relative md:pt-32 pt-14 overflow-hidden flex justify-center items-center">
-            {/* <div className="h-80 w-80 absolute left-0 bottom-0 bg-red-400"></div> */}
+            
             <div className="section-width  ">
               <div className="flex md:flex-row flex-col items-start gap-3 lg:gap-6 h-full w-full xl:pr-32 lg:pr-40">
                 <div className=" flex-1 md:border-r-2 border-white md:py-8 flex">
                   <div className="ml-auto pr-10">
-                    {/* <img
-                      src="/images/home/hero/ticketlivetext.png"
-                      className="md:w-5/6 lg:w-full h-auto "
-                      alt="text"
-                    /> */}
+                  
                     <h1 className="oswald-font xl:max-w-sm md:max-w-xs max-w-60 xl:text-[100px] md:text-[80px] text-[50px] tracking-[0px] leading-[90%] font-bold md:mb-4 ">
                       TICKETS
                       <span className=" xl:text-[90px] md:text-[75px] text-[48px] tracking-[-4px] text-[#fdcf53]">
@@ -334,7 +330,7 @@ const Hero = () => {
                     />
                   </div>
                 </div>
-                {/* <div className="flex md:flex-row flex-col gap-4 md:hidden ">
+                <div className="flex md:flex-row flex-col gap-4 md:hidden ">
                   <a
                     href={routes.wankhedeTicket}
                     target="_blank"
@@ -369,7 +365,7 @@ const Hero = () => {
                       />
                     </span>
                   </a>
-                </div> */}
+                </div>
               </div>
 
               <div className="absolute bottom-40 right-0 hidden lg:block">
@@ -433,7 +429,7 @@ const Hero = () => {
               </div>
             </div>
           </div>
-        </SwiperSlide>
+        </SwiperSlide> */}
         <SwiperSlide className="h-full">
           <div className="w-full h-full bg-[url('https://storage.googleapis.com/mca_images/website/banner_img/heroImgRohitPattern.png')] bg-cover bg-center  relative pt-32 overflow-hidden flex justify-center items-center">
             <div className="section-width ">
