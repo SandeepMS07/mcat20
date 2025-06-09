@@ -15,6 +15,7 @@ export const getVideosClient = async () => {
 export const getImagesClient = async () => {
   try {
     const res = await axios.get("/v1/application/web/gallery");
+    console.log(res , "api-call");
     return res.data;
   } catch (err) {
     console.error(err);

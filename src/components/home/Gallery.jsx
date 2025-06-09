@@ -18,21 +18,48 @@ const Gallery = () => {
       try {
         setLoading(true);
         const imageRes = await getImagesClient();
-        const formattedImages =
-          imageRes?.data
-            ?.map((item) => ({
-              ...item,
-              type: "image",
-              img: item.Image_URL__c,
-            }))
-            .sort((a, b) => b.Order__c - a.Order__c) || [];
+        console.log(imageRes, "setImages");
 
-        console.log(formattedImages);
-        setImages(formattedImages.slice(0, 8));
-        setLoading(false);
+        const formattedImages =
+          imageRes?.data?.map((item) => ({
+            ...item,
+            type: "image",
+            img: item.Image_URL__c,
+          })) || [];
+
+        const isMatchTag = (tag) => /^Match\s\d+/i.test(tag);
+
+        const extractMatchNumber = (tag) => {
+          const match = tag.match(/^Match\s(\d+)/i);
+          return match ? parseInt(match[1], 10) : 0;
+        };
+
+        const sortedImages = formattedImages.sort((a, b) => {
+          const aTag = a.Tag__c || "";
+          const bTag = b.Tag__c || "";
+
+          const aIsMatch = isMatchTag(aTag);
+          const bIsMatch = isMatchTag(bTag);
+
+          if (aIsMatch && bIsMatch) {
+            // Sort descending numerically for Match tags
+            return extractMatchNumber(bTag) - extractMatchNumber(aTag);
+          } else if (aIsMatch) {
+            return -1;
+          } else if (bIsMatch) {
+            return 1;
+          } else {
+            // Sort Z → A for non-Match tags
+            return bTag.localeCompare(aTag);
+          }
+        });
+
+        console.log(sortedImages, "sortedImages");
+        setImages(sortedImages.slice(0, 8));
       } catch (err) {
-        console.error("Error fetching videos:", err);
+        console.error("Error fetching images:", err);
       } finally {
+        setLoading(false);
       }
     };
 
