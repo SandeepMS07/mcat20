@@ -8,7 +8,8 @@ import routes from "@/utilis/route";
 const Footer = () => {
   const pathName = usePathname();
 
-  if (pathName === "/auction-info") return;
+ if (pathName === "/auction-info" || pathName === routes.matchcentre) return;
+ 
   return (
     <div className=" w-full bg-black h-auto  flex justify-center items-center gap-[20px]">
       <div className=" flex justify-between items-center section-width flex-col md:flex-row gap-[60px] py-8   ">

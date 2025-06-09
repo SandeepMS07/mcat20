@@ -1,0 +1,183 @@
+"use client";
+import { useEffect, useState } from "react";
+
+export default function AppNavbarBanner() {
+  const [showBanner, setShowBanner] = useState(false);
+  const [isDismissed, setIsDismissed] = useState(false);
+
+  useEffect(() => {
+    if (window.location.pathname === "/link") {
+      setShowBanner(false);
+      setIsDismissed(true);
+      return;
+    }
+    const dismissed = localStorage.getItem("appBannerDismissed");
+    if (dismissed) {
+      setIsDismissed(true);
+      return;
+    }
+
+    const bannerTimeout = setTimeout(() => {
+      setShowBanner(true);
+    }, 1000);
+
+    return () => clearTimeout(bannerTimeout);
+  }, []);
+
+  const handleOpenApp = () => {
+    const userAgent = navigator.userAgent || navigator.vendor;
+    const isAndroid = /android/i.test(userAgent);
+    const isIOS = /iPhone|iPad|iPod/i.test(userAgent);
+
+    if (isIOS) {
+      window.location.href = "https://t20mumbai.com/link";
+    } else if (isAndroid) {
+      const fallbackUrl = "https://t20mumbai.com/link";
+      window.location.href = `intent://links#Intent;scheme=t20mumbai;package=com.mca.t20mumbai;S.browser_fallback_url=${encodeURIComponent(
+        fallbackUrl
+      )};end`;
+    } else {
+      window.open(
+        "https://play.google.com/store/apps/details?id=com.mca.t20mumbai",
+        "_blank"
+      );
+    }
+  };
+
+  const dismissBanner = () => {
+    setShowBanner(false);
+    setIsDismissed(true);
+    localStorage.setItem("appBannerDismissed", "true");
+  };
+
+  if (!showBanner || isDismissed) return null;
+
+  return (
+    <div
+      style={{
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        backgroundColor: "#fff",
+        borderBottom: "1px solid #e0e0e0",
+        padding: "12px 16px",
+        boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+        zIndex: 1000,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        animation: "slideDown 0.3s ease-out",
+      }}
+    >
+      <style>
+        {`
+        @keyframes slideDown {
+          from {
+            transform: translateY(-100%);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .banner-content {
+            font-size: 12px;
+          }
+          .banner-button {
+            padding: 6px 12px !important;
+            font-size: 12px !important;
+          }
+        }
+      `}
+      </style>
+
+      <div style={{ display: "flex", alignItems: "center", flex: 1 }}>
+        <div style={{ marginRight: "12px" }}>
+          <div
+            style={{
+              width: "40px",
+              height: "40px",
+              borderRadius: "8px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "white",
+              fontSize: "18px",
+              fontWeight: "bold",
+            }}
+          >
+            <img
+              src={"/images/home/mcaI20Logo.svg"}
+              style={{ height: "50px", width: "auto" }}
+              alt="logo"
+            />
+          </div>
+        </div>
+        <div className="banner-content">
+          <p
+            style={{
+              margin: 0,
+              fontSize: "14px",
+              fontWeight: "600",
+              color: "#333",
+            }}
+          >
+            T20 Mumbai App
+          </p>
+          <p style={{ margin: 0, fontSize: "12px", color: "#666" }}>
+            Get live scores & updates
+          </p>
+        </div>
+      </div>
+
+      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        <button
+          onClick={handleOpenApp}
+          className="banner-button"
+          style={{
+            backgroundColor: "#1976d2",
+            color: "white",
+            padding: "8px 16px",
+            fontSize: "14px",
+            border: "none",
+            borderRadius: "20px",
+            cursor: "pointer",
+            fontWeight: "600",
+            transition: "background-color 0.2s",
+          }}
+          onMouseEnter={(e) => (e.target.style.backgroundColor = "#1565c0")}
+          onMouseLeave={(e) => (e.target.style.backgroundColor = "#1976d2")}
+        >
+          Open App
+        </button>
+
+        <button
+          onClick={dismissBanner}
+          style={{
+            background: "none",
+            border: "none",
+            fontSize: "26px",
+            color: "#666",
+            cursor: "pointer",
+            padding: "4px",
+            borderRadius: "50%",
+            width: "28px",
+            height: "28px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            transition: "background-color 0.2s",
+          }}
+          onMouseEnter={(e) => (e.target.style.backgroundColor = "#f0f0f0")}
+          onMouseLeave={(e) => (e.target.style.backgroundColor = "transparent")}
+        >
+          ×
+        </button>
+      </div>
+    </div>
+  );
+}

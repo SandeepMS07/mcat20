@@ -2,7 +2,7 @@ import Footer from "@/components/layout/footer/footer";
 import "./globals.css";
 import Navbar from "@/components/layout/navbar/navbar";
 import MixpanelProvider from "@/components/tracking/MixpanelProvider";
-
+import AppNavbarBanner from "@/components/openApp/openApp";
 export const metadata = {
   title: "T20 Mumbai League - Season 3 2025",
   description:
@@ -22,6 +22,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
+        <AppNavbarBanner/>
         <MixpanelProvider />
         <Navbar />
         {children}
