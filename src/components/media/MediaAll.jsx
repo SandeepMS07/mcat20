@@ -165,7 +165,7 @@ const MediaAll = ({ items, type, selectedFolder, setSelectedFolder }) => {
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {folderKeys.map((key) => {
             const images = items[key];
-            const firstImage = images?.[0]?.img;
+            const firstImage = images?.[0]?.Image_URL__c;
             return (
               <div
                 key={key}
@@ -196,6 +196,8 @@ const MediaAll = ({ items, type, selectedFolder, setSelectedFolder }) => {
 
       {/* Grid layout (images after folder selected OR videos) */}
       {(isVideoType || (isImageType && selectedFolder)) &&
+       
+        
         layoutConfig.map((row, rowIndex) => {
           if (renderedIndex >= validItems.length) {
             return null;
@@ -208,7 +210,8 @@ const MediaAll = ({ items, type, selectedFolder, setSelectedFolder }) => {
                   if (renderedIndex >= validItems.length) return null;
                   const item = validItems[renderedIndex];
                   const indexForModal = renderedIndex++;
-                  if (!item?.img) return null;
+                  if (isImageType && !item?.Image_URL__c) return null;
+                  if(isVideoType && !item?.img) return null;
 
                   return (
                     <div
@@ -220,7 +223,7 @@ const MediaAll = ({ items, type, selectedFolder, setSelectedFolder }) => {
                       }}
                     >
                       <Image
-                        src={item.img}
+                        src={item.img || ""}
                         alt={item.title || "Gallery image"}
                         fill
                         className="object-cover"
