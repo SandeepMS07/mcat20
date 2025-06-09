@@ -95,7 +95,7 @@ const HomeTeamSection = () => {
       <div className="section-width padding-top padding-bottom">
         <TitleComponent
           title={"Teams"}
-          button={true}
+          button={false}
           buttonLink={routes.teams}
         />
         <div className="w-full flex flex-col gap-7 relative">
