@@ -36,6 +36,16 @@ const rowStyles = {
   className: "p-5",
 };
 
+// Helper function to get team abbreviation
+const getTeamAbbreviation = (teamName) => {
+  if (!teamName) return "";
+  
+  return teamName
+    .split(" ")
+    .map(word => word.charAt(0).toUpperCase())
+    .join("");
+};
+
 const HomeStandingsSection = () => {
   const [standingsData, setStandingsSeason3] = useState([]);
   const [loading, setLoading] = useState();
@@ -57,11 +67,13 @@ const HomeStandingsSection = () => {
     season3.map((team, index) => {
       const teamLogo = season3TeamLogo[team?.team_name || team.TeamName] || "";
       const teamName = teamShortName[team?.team_name || team.TeamName] || "";
+      const fullTeamName = team?.TeamName || "";
+      const abbreviatedName = getTeamAbbreviation(fullTeamName);
 
       return {
         RANK: index + 1,
         TEAM: (
-          <div className="flex items-center gap-2 min-w-40 text-left">
+          <div className="flex items-center gap-2   md:min-w-40 text-left">
             <div className="w-6 h-6 flex justify-center items-center mr-2">
               <img
                 src={team?.TeamLogo}
@@ -69,7 +81,9 @@ const HomeStandingsSection = () => {
                 className="object-contain w-full h-full"
               />
             </div>
-            {team?.TeamName}
+            {/* Show full name on desktop, abbreviated on mobile */}
+            <span className="hidden md:inline">{fullTeamName}</span>
+            <span className="md:hidden">{abbreviatedName}</span>
           </div>
         ),
         MP: parseInt(team?.Matches || "0"),
@@ -115,6 +129,7 @@ const HomeStandingsSection = () => {
                   headerStyles={headerStyles}
                   tBodyStyles={tBodyStyles}
                   rowStyles={rowStyles}
+                  isHomeTable = {true}
                 />
               ) : (
                 <div className="text-center py-10 text-gray-400">

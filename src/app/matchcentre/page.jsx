@@ -76,7 +76,7 @@ export default function Page() {
 
               </div>
             </div> */}
-            <div style={{ height: '90vh', width: '100%' }}>
+            <div style={{ height: '100vh', width: '100%' }}>
                 {iframeSrc ? (
                     <iframe
                     src={iframeSrc}
