@@ -1,12 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function AppNavbarBanner() {
   const [showBanner, setShowBanner] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
-    if (window.location.pathname === "/link") {
+    if (pathname !== "/") {
       setShowBanner(false);
       setIsDismissed(true);
       return;
@@ -14,15 +16,17 @@ export default function AppNavbarBanner() {
     const dismissed = localStorage.getItem("appBannerDismissed");
     if (dismissed) {
       setIsDismissed(true);
+      setShowBanner(false);
       return;
     }
 
     const bannerTimeout = setTimeout(() => {
       setShowBanner(true);
+      setIsDismissed(false);
     }, 1000);
 
     return () => clearTimeout(bannerTimeout);
-  }, []);
+  }, [pathname]);
 
   const handleOpenApp = () => {
     const userAgent = navigator.userAgent || navigator.vendor;
