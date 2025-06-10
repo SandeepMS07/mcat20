@@ -14,6 +14,17 @@ const CustomTable = ({
 }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
 
+  // Header mapping for home table
+  const homeTableHeaders = {
+    0: "R",      // Rank
+    1: "Teams",  // Team name
+    2: "M",      // Matches
+    3: "W",      // Wins
+    4: "L",      // Losses
+    5: "NRR",      // Points
+    // Add more mappings as needed
+  };
+
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 640);
     window.addEventListener("resize", handleResize);
@@ -21,21 +32,34 @@ const CustomTable = ({
   }, []);
 
   const filteredHeaders = headers.filter((_, index) => {
-    if (isHomeTable && isMobile && (index === 6 || index === 7)) return false;
+    if (isHomeTable && isMobile && (index === 5 || index === 6)) return false;
     return true;
   });
 
+  // Function to get display header name - UPDATED TO CHECK FOR MOBILE
+  const getDisplayHeader = (header, index) => {
+    if (isHomeTable && isMobile && homeTableHeaders[index]) {
+      return homeTableHeaders[index];
+    }
+    return header;
+  };
+
   return (
     <div className="w-full overflow-auto">
-      <table className="w-full table-auto  border-collapse text-sm relative min-w-[800px]">
+      <table className="w-full table-auto  border-collapse text-sm relative min-w-[450px]">
         <div
-          className="bg-[#001B31] w-[99.4%] md:w-[99.4%] border-r-[50px]  top-4 md:top-3 border-[#F15A22] h-10  z-10 absolute"
+          className={`bg-[#001B31]   border-r-[50px]  top-3 md:top-3 border-[#F15A22] h-10   z-10 absolute
+                                ${isHomeTable && isMobile ?  " w-full":"w-[99.8%]" }
+`}
           style={{
-            clipPath: "polygon(0% 0%, 100% 0%, 98% 100%, 0% 100%)",
+            clipPath: "polygon(0% 0%, 100% 0%, 97.8% 100%, 0% 100%)",
           }}
         ></div>
         <div
-          className="bg-[#999FA4] m-1 italic z-50 relative mb-4 mr-2 custom-heading-border"
+          className={`bg-[#999FA4] m-1 italic z-50 relative mb-4 mr-2 custom-heading-border
+                                            ${isHomeTable && isMobile ?  " w-[98%]":"w-[99.4%]"}`
+
+          }
           style={{
             clipPath: "polygon(0% 0%, 100% 0%, 97% 100%, 0% 100%)",
             overflow: "hidden", // Ensure clipping
@@ -43,10 +67,12 @@ const CustomTable = ({
         >
           <div className="w-full relative">
             <tr
-              className="grid pr-[2rem] w-full"
+              className={`grid w-full
+                  ${isHomeTable && isMobile ?  " pr-0":"pr-[2rem]"}
+                `}
               style={{
                 gridTemplateColumns: isMobile
-                  ? `repeat(${filteredHeaders.length}, .1fr)`
+                  ? `repeat(${filteredHeaders.length}, .3fr)`
                   : `1fr 2fr repeat(${filteredHeaders.length - 2}, 1fr)`,
               }}
             >
@@ -54,9 +80,10 @@ const CustomTable = ({
                 <th
                   key={index}
                   className={`
-      ${!isHomeTable && !isMobile && index === 1 ? "pr-[2rem]" : ""}
+                     ${isHomeTable && isMobile ?  "text-center ":"text-left pl-[2rem]" }
+      ${!isHomeTable && !isMobile && index === 1 ? "pr-[2rem] " : ""}
       ${index === filteredHeaders.length - 1 ? "pr-[13px]" : ""}
-      py-4 pl-[2rem] text-left font-bold text-transparent bg-clip-text
+      py-4  font-bold text-transparent bg-clip-text
     `}
                   style={{
                     backgroundImage:
@@ -65,7 +92,7 @@ const CustomTable = ({
                     WebkitTextFillColor: "transparent",
                   }}
                 >
-                  {header}
+                  {getDisplayHeader(header, index)}
                 </th>
               ))}
             </tr>
@@ -78,7 +105,8 @@ const CustomTable = ({
               <td colSpan={filteredHeaders.length} className="relative p-0">
                 {/* Decorative layer */}
                 <div
-                  className="absolute w-[100%] xl:w-[99%] h-10 z-10 mt-4 border-r-[60px] border-[#F15A22]"
+                  className={`absolute  xl:w-[99%] h-10 z-10 mt-4 border-r-[60px] border-[#F15A22] 
+                    ${isHomeTable && isMobile ?  " w-full":"w-[100%]" }`}
                   style={{
                     clipPath: "polygon(0% 0%, 100% 0%, 97% 100%, 0% 100%)",
                     background:
@@ -98,7 +126,9 @@ const CustomTable = ({
 
                 {/* Main background container */}
                 <div
-                  className="relative z-20 bg-[#999FA4] px-4 md:px-10 w-[97%] custom-border-bg left-6 mt-2"
+                  className={`relative z-20 bg-[#999FA4] px-4 md:px-10  custom-border-bg left-6 mt-2 
+                     ${isHomeTable && isMobile ?  " w-[94%]":"w-[97%]" }
+                    `}
                   style={{
                     clipPath: "polygon(3% 0%, 100% 0%, 96% 100%, 0% 100%)",
                   }}
@@ -108,7 +138,7 @@ const CustomTable = ({
                     style={{
                       gridTemplateColumns:
                         isMobile && isHomeTable
-                          ? `repeat(${filteredHeaders.length - 1}, .1fr)`
+                          ? `repeat(${filteredHeaders.length - 1}, .3fr)`
                           : `2fr repeat(${filteredHeaders.length - 2}, 1fr)`,
                     }}
                   >
