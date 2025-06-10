@@ -23,7 +23,8 @@ export const teamsLogoSeason3 = [
   {
     id: 4,
     team: "Bandra Blasters",
-    teamLogo: "https://turbostart.blob.core.windows.net/turbostart/1044990513729378-LOGO - BANDRA BLASTERS copy.png",
+    teamLogo:
+      "https://turbostart.blob.core.windows.net/turbostart/1044990513729378-LOGO - BANDRA BLASTERS copy.png",
     carouselLogo: "/images/teams/hero/carousel/bandra.svg",
   },
   {
@@ -102,22 +103,26 @@ const CountdownTimer = ({
         <TimeBlock label="Minutes" value={timeLeft.minutes} />
       </div>
       <div className="flex justify-between items-center bg-[#00000080]">
-        <img
-          src={
-            teamsLogoSeason3.find((team) => team.team === homeTeam)?.teamLogo
-          }
-          alt={homeTeam}
-          className={`w-20  ${
-            homeTeam === "SoBo Mumbai Falcons" ? "bg-white" : ""
-          }`}
-        />
+        <div className="p-2 text-center flex flex-col  items-center">
+          <img
+            src={
+              teamsLogoSeason3.find((team) => team.team === homeTeam)?.teamLogo
+            }
+            alt={homeTeam}
+            className={`w-20  ${
+              homeTeam === "SoBo Mumbai Falcons" ? "bg-white" : ""
+            }`}
+          />
+          <span className="my-2">{homeTeam}</span>
+        </div>
+
         <div className="flex flex-col items-center text-center">
           <p className="text-[#E07E27]">VS</p>
           <p className="text-xs">
             MATCH {match_no}/{total_matches}
           </p>
         </div>
-        <div className="p-5">
+        <div className="p-4 text-center flex flex-col items-center">
           <img
             src={
               teamsLogoSeason3.find((team) => team.team === awayTeam)?.teamLogo
@@ -127,6 +132,7 @@ const CountdownTimer = ({
               awayTeam === "SoBo Mumbai Falcons" ? "bg-white" : ""
             }`}
           />
+          <span className="my-2">{awayTeam}</span>
         </div>
       </div>
     </div>
