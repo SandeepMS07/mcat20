@@ -45,16 +45,16 @@ const CustomTable = ({
             <tr
               className="grid pr-[2rem] w-full"
               style={{
-                gridTemplateColumns: `1fr 2fr repeat(${
-                  headers.length - 2
-                }, 1fr)`,
+                gridTemplateColumns: isMobile
+                  ? `repeat(${filteredHeaders.length}, .1fr)`
+                  : `1fr 2fr repeat(${filteredHeaders.length - 2}, 1fr)`,
               }}
             >
               {filteredHeaders.map((header, index) => (
                 <th
                   key={index}
                   className={`
-      ${index === 1 ? "pr-[2rem]" : ""}
+      ${!isHomeTable && !isMobile && index === 1 ? "pr-[2rem]" : ""}
       ${index === filteredHeaders.length - 1 ? "pr-[13px]" : ""}
       py-4 pl-[2rem] text-left font-bold text-transparent bg-clip-text
     `}
@@ -106,9 +106,10 @@ const CustomTable = ({
                   <div
                     className="grid"
                     style={{
-                      gridTemplateColumns: isMobile && isHomeTable
-                        ? `repeat(${filteredHeaders.length - 1}, .5fr)`
-                        : `2fr repeat(${filteredHeaders.length - 2}, 1fr)`,
+                      gridTemplateColumns:
+                        isMobile && isHomeTable
+                          ? `repeat(${filteredHeaders.length - 1}, .1fr)`
+                          : `2fr repeat(${filteredHeaders.length - 2}, 1fr)`,
                     }}
                   >
                     {filteredHeaders.slice(1).map((header, colIndex) => (
