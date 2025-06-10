@@ -102,8 +102,9 @@ const CountdownTimer = ({
         <Separator />
         <TimeBlock label="Minutes" value={timeLeft.minutes} />
       </div>
-      <div className="flex justify-between items-center bg-[#00000080] gap-2">
-        <div className="p-2 text-center flex flex-col  items-center">
+      <div className="flex justify-between items-center bg-[#00000080]">
+        <div className="p-4 text-center flex flex-col  items-center">
+           <div className="h-14 w-14 flex justify-center items-center"> 
           <img
             src={
               teamsLogoSeason3.find((team) => team.team === homeTeam)?.teamLogo
@@ -113,26 +114,29 @@ const CountdownTimer = ({
               homeTeam === "SoBo Mumbai Falcons" ? "bg-white" : ""
             }`}
           />
-          <span className="w-20 break-words my-2">{homeTeam}</span>
+        </div>
+          <span className="w-20 break-words my-2 text-xs">{homeTeam}</span>
         </div>
 
         <div className="flex flex-col items-center text-center">
           <p className="text-[#E07E27]">VS</p>
           <p className="text-xs">
-            MATCH {match_no}/{total_matches}
+            MATCH <br /> {match_no}/{total_matches}
           </p>
         </div>
         <div className="p-4 text-center flex flex-col items-center">
-          <img
-            src={
-              teamsLogoSeason3.find((team) => team.team === awayTeam)?.teamLogo
-            }
-            alt={awayTeam}
-            className={`w-20 p-1 ${
-              awayTeam === "SoBo Mumbai Falcons" ? "bg-white" : ""
-            }`}
-          />
-          <span className="w-20 break-words my-2">{awayTeam}</span>
+          <div className="h-14 w-14">
+            <img
+              src={
+                teamsLogoSeason3.find((team) => team.team === awayTeam)?.teamLogo
+              }
+              alt={awayTeam}
+              className={`w-20 p-1 ${
+                awayTeam === "SoBo Mumbai Falcons" ? "bg-white" : ""
+              }`}
+            />
+          </div>
+          <span className="w-20 break-words my-2 text-xs">{awayTeam}</span>
         </div>
       </div>
     </div>
