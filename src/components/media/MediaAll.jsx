@@ -2,6 +2,41 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { FaP } from "react-icons/fa6";
 
+const matches = {
+  "Match 21": "ETS vs MSC MR",
+  "Match 20": "NMP vs AT MWS",
+  "Match 19": "NMP vs TK MNE",
+  "Match 18": "ETS vs AA",
+  "Match 17": "MSC MR vs BB",
+  "Match 16": "SMF vs ETS",
+  "Match 15": "MSC MR vs AA",
+  "Match 14": "NMP vs AT MWS",
+  "Match 13": "TK MNE vs BB",
+  "Match 12": "AA vs NMP",
+  "Match 11": "ETS vs MSC MR",
+  "Match 10": "SMF vs TK MNE",
+  "Match 9": "AT MWS vs BB",
+  "Match 8": "TK MNE vs MSC MR",
+  "Match 7": "SMF vs NMP",
+  "Match 6": "BB vs ETS",
+  "Match 5": "AA vs AT MWS",
+  "Match 4": "BB vs NMP",
+  "Match 3": "ETS vs TK MNE",
+  "Match 2": "AT MWS vs MSC MR",
+  "Match 1": "AA vs SMF",
+};
+
+// Function to get the match details
+const getMatchDetails = (key) => {
+  // Find the key that starts with 'Match' and matches the passed key
+  const matchKey = Object.keys(matches).find((matchKey) =>
+    matchKey.startsWith(key)
+  );
+
+  // Return the match details or a default message if not found
+  return matchKey ? matches[matchKey] : "";
+};
+
 const MediaAll = ({ items, type, selectedFolder, setSelectedFolder }) => {
   const isImageType = type === "image";
   const isVideoType = type === "video";
@@ -165,7 +200,12 @@ const MediaAll = ({ items, type, selectedFolder, setSelectedFolder }) => {
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {folderKeys.map((key) => {
             const images = items[key];
-            const firstImage = images?.[0]?.Image_URL__c;
+            const firstImage =
+              images?.[0]?.Tag__c == "Event"
+                ? "/images/gallery/auction.png"
+                : images?.[0]?.Image_URL__c;
+
+                const matchName = getMatchDetails(key);
             return (
               <div
                 key={key}
@@ -186,7 +226,7 @@ const MediaAll = ({ items, type, selectedFolder, setSelectedFolder }) => {
                   </div>
                 )}
                 <div className="p-3 text-center font-semibold text-white">
-                  {key}
+                  {key} {matchName !== "" && `: ${matchName}`}
                 </div>
               </div>
             );
@@ -196,8 +236,6 @@ const MediaAll = ({ items, type, selectedFolder, setSelectedFolder }) => {
 
       {/* Grid layout (images after folder selected OR videos) */}
       {(isVideoType || (isImageType && selectedFolder)) &&
-       
-        
         layoutConfig.map((row, rowIndex) => {
           if (renderedIndex >= validItems.length) {
             return null;
@@ -211,7 +249,7 @@ const MediaAll = ({ items, type, selectedFolder, setSelectedFolder }) => {
                   const item = validItems[renderedIndex];
                   const indexForModal = renderedIndex++;
                   if (isImageType && !item?.Image_URL__c) return null;
-                  if(isVideoType && !item?.img) return null;
+                  if (isVideoType && !item?.img) return null;
 
                   return (
                     <div
