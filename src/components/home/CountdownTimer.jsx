@@ -102,7 +102,7 @@ const CountdownTimer = ({
         <Separator />
         <TimeBlock label="Minutes" value={timeLeft.minutes} />
       </div>
-      <div className="flex justify-between items-center bg-[#00000080]">
+      <div className="flex justify-between items-center bg-[#00000080] gap-2">
         <div className="p-2 text-center flex flex-col  items-center">
           <img
             src={
@@ -113,7 +113,7 @@ const CountdownTimer = ({
               homeTeam === "SoBo Mumbai Falcons" ? "bg-white" : ""
             }`}
           />
-          <span className="my-2">{homeTeam}</span>
+          <span className="w-20 break-words my-2">{homeTeam}</span>
         </div>
 
         <div className="flex flex-col items-center text-center">
@@ -132,7 +132,7 @@ const CountdownTimer = ({
               awayTeam === "SoBo Mumbai Falcons" ? "bg-white" : ""
             }`}
           />
-          <span className="my-2">{awayTeam}</span>
+          <span className="w-20 break-words my-2">{awayTeam}</span>
         </div>
       </div>
     </div>
