@@ -2625,30 +2625,31 @@
                     "SOBO Mumbai Falcons"
                 ],
                 "batting": {
-                    "matches_played": 3,
-                    "innings_batted": 3,
-                    "runs": 49,
-                    "balls": 44,
+                    "matches_played": 4,
+                    "innings_batted": 4,
+                    "runs": 50,
+                    "balls": 47,
                     "fours": 3,
                     "sixes": 3,
-                    "dots": 20,
+                    "dots": 22,
                     "not_outs": 0,
                     "highest_score": 25,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 111.36,
-                    "average": 16.33,
+                    "strike_rate": 106.38,
+                    "average": 12.5,
                     "dismissal_types": {
                         "lbw Parikshit Sanjay Valsangkar": 1,
                         "c Amit Haredra Pandey": 1,
-                        "c Kruthik Shankarappa Hanagavadi": 1
+                        "c Kruthik Shankarappa Hanagavadi": 1,
+                        "c Akash  Anand": 1
                     },
                     "dismissals_in_pp": 1,
                     "dismissals_in_do": 1,
-                    "boundary_percentage": 61.22,
-                    "dot_ball_percentage": 45.45,
-                    "balls_per_boundary": 7.33,
-                    "ones": 17,
+                    "boundary_percentage": 60.0,
+                    "dot_ball_percentage": 46.81,
+                    "balls_per_boundary": 7.83,
+                    "ones": 18,
                     "twos": 1,
                     "threes": 0,
                     "highest_strike_rate_innings": {
@@ -2671,7 +2672,7 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 2.2
+                    "dot_ball_frequency": 2.14
                 },
                 "bowling": {
                     "matches_played": 0,
@@ -2722,7 +2723,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 4
+                "total_matches_in_squad": 5
             },
             "overall": {
                 "team_name": "",
@@ -2730,26 +2731,26 @@
                     "SOBO Mumbai Falcons"
                 ],
                 "batting": {
-                    "matches_played": 3,
-                    "innings_batted": 3,
-                    "runs": 49,
-                    "balls": 44,
+                    "matches_played": 4,
+                    "innings_batted": 4,
+                    "runs": 50,
+                    "balls": 47,
                     "fours": 3,
                     "sixes": 3,
-                    "dots": 20,
+                    "dots": 22,
                     "not_outs": 0,
                     "highest_score": 25,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 111.36,
-                    "average": 16.33,
+                    "strike_rate": 106.38,
+                    "average": 12.5,
                     "dismissal_types": {},
                     "dismissals_in_pp": 1,
                     "dismissals_in_do": 1,
-                    "boundary_percentage": 61.22,
-                    "dot_ball_percentage": 45.45,
-                    "balls_per_boundary": 7.33,
-                    "ones": 17,
+                    "boundary_percentage": 60.0,
+                    "dot_ball_percentage": 46.81,
+                    "balls_per_boundary": 7.83,
+                    "ones": 18,
                     "twos": 1,
                     "threes": 0,
                     "highest_strike_rate_innings": {
@@ -2772,7 +2773,7 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 2.2
+                    "dot_ball_frequency": 2.14
                 },
                 "bowling": {
                     "matches_played": 0,
@@ -2823,7 +2824,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 4
+                "total_matches_in_squad": 5
             }
         },
         "player_photo": ""
@@ -3033,35 +3034,36 @@
                     "SOBO Mumbai Falcons"
                 ],
                 "batting": {
-                    "matches_played": 2,
-                    "innings_batted": 2,
-                    "runs": 6,
-                    "balls": 9,
-                    "fours": 0,
+                    "matches_played": 3,
+                    "innings_batted": 3,
+                    "runs": 16,
+                    "balls": 20,
+                    "fours": 1,
                     "sixes": 0,
-                    "dots": 3,
+                    "dots": 7,
                     "not_outs": 1,
-                    "highest_score": 5,
+                    "highest_score": 10,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 66.67,
-                    "average": 6.0,
+                    "strike_rate": 80.0,
+                    "average": 8.0,
                     "dismissal_types": {
-                        "c Zaid Nafeel Patankar": 1
+                        "c Zaid Nafeel Patankar": 1,
+                        "lbw Sagarr Prakash Chhabriaa": 1
                     },
                     "dismissals_in_pp": 0,
                     "dismissals_in_do": 1,
-                    "boundary_percentage": 0.0,
-                    "dot_ball_percentage": 33.33,
-                    "balls_per_boundary": "inf",
-                    "ones": 6,
+                    "boundary_percentage": 25.0,
+                    "dot_ball_percentage": 35.0,
+                    "balls_per_boundary": 20.0,
+                    "ones": 12,
                     "twos": 0,
                     "threes": 0,
                     "highest_strike_rate_innings": {
-                        "value": 0.0,
-                        "balls_faced": 0,
-                        "runs_scored": 0,
-                        "match_id": ""
+                        "value": 90.91,
+                        "balls_faced": 11,
+                        "runs_scored": 10,
+                        "match_id": "1665"
                     },
                     "most_sixes_innings": {
                         "count": 0,
@@ -3077,7 +3079,7 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 3.0
+                    "dot_ball_frequency": 2.86
                 },
                 "bowling": {
                     "matches_played": 0,
@@ -3128,7 +3130,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 2
+                "total_matches_in_squad": 3
             },
             "overall": {
                 "team_name": "",
@@ -3136,33 +3138,33 @@
                     "SOBO Mumbai Falcons"
                 ],
                 "batting": {
-                    "matches_played": 2,
-                    "innings_batted": 2,
-                    "runs": 6,
-                    "balls": 9,
-                    "fours": 0,
+                    "matches_played": 3,
+                    "innings_batted": 3,
+                    "runs": 16,
+                    "balls": 20,
+                    "fours": 1,
                     "sixes": 0,
-                    "dots": 3,
+                    "dots": 7,
                     "not_outs": 1,
-                    "highest_score": 5,
+                    "highest_score": 10,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 66.67,
-                    "average": 6.0,
+                    "strike_rate": 80.0,
+                    "average": 8.0,
                     "dismissal_types": {},
                     "dismissals_in_pp": 0,
                     "dismissals_in_do": 1,
-                    "boundary_percentage": 0.0,
-                    "dot_ball_percentage": 33.33,
-                    "balls_per_boundary": "inf",
-                    "ones": 6,
+                    "boundary_percentage": 25.0,
+                    "dot_ball_percentage": 35.0,
+                    "balls_per_boundary": 20.0,
+                    "ones": 12,
                     "twos": 0,
                     "threes": 0,
                     "highest_strike_rate_innings": {
-                        "value": 0.0,
-                        "balls_faced": 0,
-                        "runs_scored": 0,
-                        "match_id": ""
+                        "value": 90.91,
+                        "balls_faced": 11,
+                        "runs_scored": 10,
+                        "match_id": "1665"
                     },
                     "most_sixes_innings": {
                         "count": 0,
@@ -3178,7 +3180,7 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 3.0
+                    "dot_ball_frequency": 2.86
                 },
                 "bowling": {
                     "matches_played": 0,
@@ -3229,7 +3231,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 2
+                "total_matches_in_squad": 3
             }
         },
         "player_photo": ""
@@ -3439,32 +3441,33 @@
                     "Bandra Blasters"
                 ],
                 "batting": {
-                    "matches_played": 5,
-                    "innings_batted": 5,
-                    "runs": 114,
-                    "balls": 94,
-                    "fours": 10,
+                    "matches_played": 6,
+                    "innings_batted": 6,
+                    "runs": 124,
+                    "balls": 101,
+                    "fours": 12,
                     "sixes": 3,
-                    "dots": 30,
+                    "dots": 33,
                     "not_outs": 0,
                     "highest_score": 56,
                     "fifties": 1,
                     "hundreds": 0,
-                    "strike_rate": 121.28,
-                    "average": 22.8,
+                    "strike_rate": 122.77,
+                    "average": 20.67,
                     "dismissal_types": {
                         "c Ayush Sachin Vartak": 1,
                         "lbw Shashank Vinayak Attarde": 1,
                         "c Hardik Jitendra Tamore": 1,
                         "c Jay Sanjay Jain": 1,
-                        "c (Sub) Shashwat Yogesh Jagtap": 1
+                        "c (Sub) Shashwat Yogesh Jagtap": 1,
+                        "c Angkrish Avaneesh Raghuvanshi": 1
                     },
-                    "dismissals_in_pp": 3,
+                    "dismissals_in_pp": 4,
                     "dismissals_in_do": 1,
-                    "boundary_percentage": 50.88,
-                    "dot_ball_percentage": 31.91,
-                    "balls_per_boundary": 7.23,
-                    "ones": 46,
+                    "boundary_percentage": 53.23,
+                    "dot_ball_percentage": 32.67,
+                    "balls_per_boundary": 6.73,
+                    "ones": 48,
                     "twos": 5,
                     "threes": 0,
                     "highest_strike_rate_innings": {
@@ -3487,27 +3490,27 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 3.13
+                    "dot_ball_frequency": 3.06
                 },
                 "bowling": {
-                    "matches_played": 0,
-                    "innings_bowled": 0,
-                    "balls_bowled": 0,
-                    "overs_bowled_str": "0.0",
-                    "runs_conceded": 0,
-                    "wickets": 0,
+                    "matches_played": 1,
+                    "innings_bowled": 1,
+                    "balls_bowled": 4,
+                    "overs_bowled_str": "0.4",
+                    "runs_conceded": 3,
+                    "wickets": 1,
                     "maidens": 0,
-                    "dots_bowled": 0,
+                    "dots_bowled": 1,
                     "noballs": 0,
                     "wides": 0,
                     "three_wickets": 0,
                     "five_wickets": 0,
-                    "economy_rate": 0.0,
-                    "average": 0.0,
-                    "strike_rate": 0.0,
+                    "economy_rate": 4.5,
+                    "average": 3.0,
+                    "strike_rate": 4.0,
                     "wickets_in_pp": 0,
                     "wickets_in_do": 0,
-                    "dot_ball_percentage": 0.0,
+                    "dot_ball_percentage": 25.0,
                     "extras_per_over": 0.0,
                     "best_economy_innings": {
                         "value": "inf",
@@ -3516,18 +3519,18 @@
                         "match_id": ""
                     },
                     "best_strike_rate_innings": {
-                        "value": "inf",
-                        "wickets_taken": 0,
-                        "balls_bowled": 0,
-                        "match_id": ""
+                        "value": 4.0,
+                        "wickets_taken": 1,
+                        "balls_bowled": 4,
+                        "match_id": "1665"
                     },
                     "most_runs_conceded_innings": {
-                        "value": 0,
-                        "match_id": ""
+                        "value": 3,
+                        "match_id": "1665"
                     },
                     "most_dots_bowled_innings": {
-                        "value": 0,
-                        "match_id": ""
+                        "value": 1,
+                        "match_id": "1665"
                     }
                 },
                 "fielding": {
@@ -3538,7 +3541,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             },
             "overall": {
                 "team_name": "",
@@ -3546,26 +3549,26 @@
                     "Bandra Blasters"
                 ],
                 "batting": {
-                    "matches_played": 5,
-                    "innings_batted": 5,
-                    "runs": 114,
-                    "balls": 94,
-                    "fours": 10,
+                    "matches_played": 6,
+                    "innings_batted": 6,
+                    "runs": 124,
+                    "balls": 101,
+                    "fours": 12,
                     "sixes": 3,
-                    "dots": 30,
+                    "dots": 33,
                     "not_outs": 0,
                     "highest_score": 56,
                     "fifties": 1,
                     "hundreds": 0,
-                    "strike_rate": 121.28,
-                    "average": 22.8,
+                    "strike_rate": 122.77,
+                    "average": 20.67,
                     "dismissal_types": {},
-                    "dismissals_in_pp": 3,
+                    "dismissals_in_pp": 4,
                     "dismissals_in_do": 1,
-                    "boundary_percentage": 50.88,
-                    "dot_ball_percentage": 31.91,
-                    "balls_per_boundary": 7.23,
-                    "ones": 46,
+                    "boundary_percentage": 53.23,
+                    "dot_ball_percentage": 32.67,
+                    "balls_per_boundary": 6.73,
+                    "ones": 48,
                     "twos": 5,
                     "threes": 0,
                     "highest_strike_rate_innings": {
@@ -3588,27 +3591,27 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 3.13
+                    "dot_ball_frequency": 3.06
                 },
                 "bowling": {
-                    "matches_played": 0,
-                    "innings_bowled": 0,
-                    "balls_bowled": 0,
-                    "overs_bowled_str": "0.0",
-                    "runs_conceded": 0,
-                    "wickets": 0,
+                    "matches_played": 1,
+                    "innings_bowled": 1,
+                    "balls_bowled": 4,
+                    "overs_bowled_str": "0.4",
+                    "runs_conceded": 3,
+                    "wickets": 1,
                     "maidens": 0,
-                    "dots_bowled": 0,
+                    "dots_bowled": 1,
                     "noballs": 0,
                     "wides": 0,
                     "three_wickets": 0,
                     "five_wickets": 0,
-                    "economy_rate": 0.0,
-                    "average": 0.0,
-                    "strike_rate": 0.0,
+                    "economy_rate": 4.5,
+                    "average": 3.0,
+                    "strike_rate": 4.0,
                     "wickets_in_pp": 0,
                     "wickets_in_do": 0,
-                    "dot_ball_percentage": 0.0,
+                    "dot_ball_percentage": 25.0,
                     "extras_per_over": 0.0,
                     "best_economy_innings": {
                         "value": "inf",
@@ -3617,18 +3620,18 @@
                         "match_id": ""
                     },
                     "best_strike_rate_innings": {
-                        "value": "inf",
-                        "wickets_taken": 0,
-                        "balls_bowled": 0,
-                        "match_id": ""
+                        "value": 4.0,
+                        "wickets_taken": 1,
+                        "balls_bowled": 4,
+                        "match_id": "1665"
                     },
                     "most_runs_conceded_innings": {
-                        "value": 0,
-                        "match_id": ""
+                        "value": 3,
+                        "match_id": "1665"
                     },
                     "most_dots_bowled_innings": {
-                        "value": 0,
-                        "match_id": ""
+                        "value": 1,
+                        "match_id": "1665"
                     }
                 },
                 "fielding": {
@@ -3639,7 +3642,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             }
         },
         "player_photo": "https://mca-cdn.ken42.com/vikrant_auti_43_11zon.jpg"
@@ -4304,24 +4307,24 @@
                     "dot_ball_frequency": 1.67
                 },
                 "bowling": {
-                    "matches_played": 4,
-                    "innings_bowled": 4,
-                    "balls_bowled": 90,
-                    "overs_bowled_str": "15.0",
-                    "runs_conceded": 73,
-                    "wickets": 4,
-                    "maidens": 0,
-                    "dots_bowled": 39,
+                    "matches_played": 5,
+                    "innings_bowled": 5,
+                    "balls_bowled": 114,
+                    "overs_bowled_str": "19.0",
+                    "runs_conceded": 91,
+                    "wickets": 5,
+                    "maidens": 1,
+                    "dots_bowled": 50,
                     "noballs": 0,
                     "wides": 0,
                     "three_wickets": 0,
                     "five_wickets": 0,
-                    "economy_rate": 4.87,
-                    "average": 18.25,
-                    "strike_rate": 22.5,
+                    "economy_rate": 4.79,
+                    "average": 18.2,
+                    "strike_rate": 22.8,
                     "wickets_in_pp": 2,
                     "wickets_in_do": 0,
-                    "dot_ball_percentage": 43.33,
+                    "dot_ball_percentage": 43.86,
                     "extras_per_over": 0.0,
                     "best_economy_innings": {
                         "value": 3.75,
@@ -4352,7 +4355,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             },
             "overall": {
                 "team_name": "",
@@ -4405,24 +4408,24 @@
                     "dot_ball_frequency": 1.67
                 },
                 "bowling": {
-                    "matches_played": 4,
-                    "innings_bowled": 4,
-                    "balls_bowled": 90,
-                    "overs_bowled_str": "15.0",
-                    "runs_conceded": 73,
-                    "wickets": 4,
-                    "maidens": 0,
-                    "dots_bowled": 39,
+                    "matches_played": 5,
+                    "innings_bowled": 5,
+                    "balls_bowled": 114,
+                    "overs_bowled_str": "19.0",
+                    "runs_conceded": 91,
+                    "wickets": 5,
+                    "maidens": 1,
+                    "dots_bowled": 50,
                     "noballs": 0,
                     "wides": 0,
                     "three_wickets": 0,
                     "five_wickets": 0,
-                    "economy_rate": 4.87,
-                    "average": 18.25,
-                    "strike_rate": 22.5,
+                    "economy_rate": 4.79,
+                    "average": 18.2,
+                    "strike_rate": 22.8,
                     "wickets_in_pp": 2,
                     "wickets_in_do": 0,
-                    "dot_ball_percentage": 43.33,
+                    "dot_ball_percentage": 43.86,
                     "extras_per_over": 0.0,
                     "best_economy_innings": {
                         "value": 3.75,
@@ -4453,7 +4456,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             }
         },
         "player_photo": ""
@@ -6340,25 +6343,25 @@
                     "dot_ball_frequency": 0.0
                 },
                 "bowling": {
-                    "matches_played": 4,
-                    "innings_bowled": 4,
-                    "balls_bowled": 84,
-                    "overs_bowled_str": "14.0",
-                    "runs_conceded": 106,
-                    "wickets": 5,
+                    "matches_played": 5,
+                    "innings_bowled": 5,
+                    "balls_bowled": 102,
+                    "overs_bowled_str": "17.0",
+                    "runs_conceded": 145,
+                    "wickets": 6,
                     "maidens": 0,
-                    "dots_bowled": 28,
+                    "dots_bowled": 33,
                     "noballs": 0,
                     "wides": 3,
                     "three_wickets": 1,
                     "five_wickets": 0,
-                    "economy_rate": 7.57,
-                    "average": 21.2,
-                    "strike_rate": 16.8,
-                    "wickets_in_pp": 1,
+                    "economy_rate": 8.53,
+                    "average": 24.17,
+                    "strike_rate": 17.0,
+                    "wickets_in_pp": 2,
                     "wickets_in_do": 3,
-                    "dot_ball_percentage": 33.33,
-                    "extras_per_over": 0.21,
+                    "dot_ball_percentage": 32.35,
+                    "extras_per_over": 0.18,
                     "best_economy_innings": {
                         "value": 4.25,
                         "overs_bowled_str": "4",
@@ -6388,7 +6391,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             },
             "overall": {
                 "team_name": "",
@@ -6441,25 +6444,25 @@
                     "dot_ball_frequency": 0.0
                 },
                 "bowling": {
-                    "matches_played": 4,
-                    "innings_bowled": 4,
-                    "balls_bowled": 84,
-                    "overs_bowled_str": "14.0",
-                    "runs_conceded": 106,
-                    "wickets": 5,
+                    "matches_played": 5,
+                    "innings_bowled": 5,
+                    "balls_bowled": 102,
+                    "overs_bowled_str": "17.0",
+                    "runs_conceded": 145,
+                    "wickets": 6,
                     "maidens": 0,
-                    "dots_bowled": 28,
+                    "dots_bowled": 33,
                     "noballs": 0,
                     "wides": 3,
                     "three_wickets": 1,
                     "five_wickets": 0,
-                    "economy_rate": 7.57,
-                    "average": 21.2,
-                    "strike_rate": 16.8,
-                    "wickets_in_pp": 1,
+                    "economy_rate": 8.53,
+                    "average": 24.17,
+                    "strike_rate": 17.0,
+                    "wickets_in_pp": 2,
                     "wickets_in_do": 3,
-                    "dot_ball_percentage": 33.33,
-                    "extras_per_over": 0.21,
+                    "dot_ball_percentage": 32.35,
+                    "extras_per_over": 0.18,
                     "best_economy_innings": {
                         "value": 4.25,
                         "overs_bowled_str": "4",
@@ -6489,7 +6492,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             }
         },
         "player_photo": ""
@@ -6699,42 +6702,43 @@
                     "SOBO Mumbai Falcons"
                 ],
                 "batting": {
-                    "matches_played": 5,
-                    "innings_batted": 5,
-                    "runs": 111,
-                    "balls": 90,
-                    "fours": 14,
-                    "sixes": 1,
-                    "dots": 32,
+                    "matches_played": 6,
+                    "innings_batted": 6,
+                    "runs": 138,
+                    "balls": 104,
+                    "fours": 15,
+                    "sixes": 4,
+                    "dots": 38,
                     "not_outs": 1,
                     "highest_score": 42,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 123.33,
-                    "average": 27.75,
+                    "strike_rate": 132.69,
+                    "average": 27.6,
                     "dismissal_types": {
                         "c Rahul Deepak Sawant": 1,
                         "bowled": 1,
                         "st Anish Mukund Chaudhery": 1,
-                        "lbw Vasim  Khan": 1
+                        "lbw Vasim  Khan": 1,
+                        "c Parth Vinod Ankolekar": 1
                     },
-                    "dismissals_in_pp": 2,
+                    "dismissals_in_pp": 3,
                     "dismissals_in_do": 0,
-                    "boundary_percentage": 55.86,
-                    "dot_ball_percentage": 35.56,
-                    "balls_per_boundary": 6.0,
-                    "ones": 37,
-                    "twos": 6,
+                    "boundary_percentage": 60.87,
+                    "dot_ball_percentage": 36.54,
+                    "balls_per_boundary": 5.47,
+                    "ones": 40,
+                    "twos": 7,
                     "threes": 0,
                     "highest_strike_rate_innings": {
-                        "value": 168.0,
-                        "balls_faced": 25,
-                        "runs_scored": 42,
-                        "match_id": "1653"
+                        "value": 192.86,
+                        "balls_faced": 14,
+                        "runs_scored": 27,
+                        "match_id": "1665"
                     },
                     "most_sixes_innings": {
-                        "count": 1,
-                        "match_id": "1653"
+                        "count": 3,
+                        "match_id": "1665"
                     },
                     "fastest_fifty_balls": {
                         "balls": "inf",
@@ -6746,7 +6750,7 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 2.81
+                    "dot_ball_frequency": 2.74
                 },
                 "bowling": {
                     "matches_played": 0,
@@ -6797,7 +6801,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             },
             "overall": {
                 "team_name": "",
@@ -6805,37 +6809,37 @@
                     "SOBO Mumbai Falcons"
                 ],
                 "batting": {
-                    "matches_played": 5,
-                    "innings_batted": 5,
-                    "runs": 111,
-                    "balls": 90,
-                    "fours": 14,
-                    "sixes": 1,
-                    "dots": 32,
+                    "matches_played": 6,
+                    "innings_batted": 6,
+                    "runs": 138,
+                    "balls": 104,
+                    "fours": 15,
+                    "sixes": 4,
+                    "dots": 38,
                     "not_outs": 1,
                     "highest_score": 42,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 123.33,
-                    "average": 27.75,
+                    "strike_rate": 132.69,
+                    "average": 27.6,
                     "dismissal_types": {},
-                    "dismissals_in_pp": 2,
+                    "dismissals_in_pp": 3,
                     "dismissals_in_do": 0,
-                    "boundary_percentage": 55.86,
-                    "dot_ball_percentage": 35.56,
-                    "balls_per_boundary": 6.0,
-                    "ones": 37,
-                    "twos": 6,
+                    "boundary_percentage": 60.87,
+                    "dot_ball_percentage": 36.54,
+                    "balls_per_boundary": 5.47,
+                    "ones": 40,
+                    "twos": 7,
                     "threes": 0,
                     "highest_strike_rate_innings": {
-                        "value": 168.0,
-                        "balls_faced": 25,
-                        "runs_scored": 42,
-                        "match_id": "1653"
+                        "value": 192.86,
+                        "balls_faced": 14,
+                        "runs_scored": 27,
+                        "match_id": "1665"
                     },
                     "most_sixes_innings": {
-                        "count": 1,
-                        "match_id": "1653"
+                        "count": 3,
+                        "match_id": "1665"
                     },
                     "fastest_fifty_balls": {
                         "balls": "inf",
@@ -6847,7 +6851,7 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 2.81
+                    "dot_ball_frequency": 2.74
                 },
                 "bowling": {
                     "matches_played": 0,
@@ -6898,7 +6902,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             }
         },
         "player_photo": "https://mca-cdn.ken42.com/Senior_Players/Angkrish%20Raghuvanshi_6_11zon.jpg"
@@ -72532,42 +72536,43 @@
                     "Bandra Blasters"
                 ],
                 "batting": {
-                    "matches_played": 5,
-                    "innings_batted": 5,
-                    "runs": 43,
-                    "balls": 45,
-                    "fours": 4,
-                    "sixes": 0,
-                    "dots": 16,
+                    "matches_played": 6,
+                    "innings_batted": 6,
+                    "runs": 74,
+                    "balls": 73,
+                    "fours": 8,
+                    "sixes": 1,
+                    "dots": 31,
                     "not_outs": 1,
-                    "highest_score": 12,
+                    "highest_score": 31,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 95.56,
-                    "average": 10.75,
+                    "strike_rate": 101.37,
+                    "average": 14.8,
                     "dismissal_types": {
                         "run out (Dharsh Prasad Murkute)": 1,
                         "c Aryan  Chauhan": 1,
                         "lbw Shams Zakir Mulani": 1,
-                        "c SURYA KUMAR ASHOK KUMAR YADAV": 1
+                        "c SURYA KUMAR ASHOK KUMAR YADAV": 1,
+                        "bowled": 1
                     },
                     "dismissals_in_pp": 3,
                     "dismissals_in_do": 0,
-                    "boundary_percentage": 37.21,
-                    "dot_ball_percentage": 35.56,
-                    "balls_per_boundary": 11.25,
-                    "ones": 23,
-                    "twos": 2,
+                    "boundary_percentage": 51.35,
+                    "dot_ball_percentage": 42.47,
+                    "balls_per_boundary": 8.11,
+                    "ones": 30,
+                    "twos": 3,
                     "threes": 0,
                     "highest_strike_rate_innings": {
-                        "value": 100.0,
-                        "balls_faced": 11,
-                        "runs_scored": 11,
-                        "match_id": "1656"
+                        "value": 110.71,
+                        "balls_faced": 28,
+                        "runs_scored": 31,
+                        "match_id": "1665"
                     },
                     "most_sixes_innings": {
-                        "count": 0,
-                        "match_id": ""
+                        "count": 1,
+                        "match_id": "1665"
                     },
                     "fastest_fifty_balls": {
                         "balls": "inf",
@@ -72579,7 +72584,7 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 2.81
+                    "dot_ball_frequency": 2.35
                 },
                 "bowling": {
                     "matches_played": 0,
@@ -72630,7 +72635,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             },
             "overall": {
                 "team_name": "",
@@ -72638,37 +72643,37 @@
                     "Bandra Blasters"
                 ],
                 "batting": {
-                    "matches_played": 5,
-                    "innings_batted": 5,
-                    "runs": 43,
-                    "balls": 45,
-                    "fours": 4,
-                    "sixes": 0,
-                    "dots": 16,
+                    "matches_played": 6,
+                    "innings_batted": 6,
+                    "runs": 74,
+                    "balls": 73,
+                    "fours": 8,
+                    "sixes": 1,
+                    "dots": 31,
                     "not_outs": 1,
-                    "highest_score": 12,
+                    "highest_score": 31,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 95.56,
-                    "average": 10.75,
+                    "strike_rate": 101.37,
+                    "average": 14.8,
                     "dismissal_types": {},
                     "dismissals_in_pp": 3,
                     "dismissals_in_do": 0,
-                    "boundary_percentage": 37.21,
-                    "dot_ball_percentage": 35.56,
-                    "balls_per_boundary": 11.25,
-                    "ones": 23,
-                    "twos": 2,
+                    "boundary_percentage": 51.35,
+                    "dot_ball_percentage": 42.47,
+                    "balls_per_boundary": 8.11,
+                    "ones": 30,
+                    "twos": 3,
                     "threes": 0,
                     "highest_strike_rate_innings": {
-                        "value": 100.0,
-                        "balls_faced": 11,
-                        "runs_scored": 11,
-                        "match_id": "1656"
+                        "value": 110.71,
+                        "balls_faced": 28,
+                        "runs_scored": 31,
+                        "match_id": "1665"
                     },
                     "most_sixes_innings": {
-                        "count": 0,
-                        "match_id": ""
+                        "count": 1,
+                        "match_id": "1665"
                     },
                     "fastest_fifty_balls": {
                         "balls": "inf",
@@ -72680,7 +72685,7 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 2.81
+                    "dot_ball_frequency": 2.35
                 },
                 "bowling": {
                     "matches_played": 0,
@@ -72731,7 +72736,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             }
         },
         "player_photo": "https://mca-cdn.ken42.com/Senior_Players/2.%20Akash%20Anand_2_11zon.jpeg"
@@ -74980,30 +74985,31 @@
                     "Bandra Blasters"
                 ],
                 "batting": {
-                    "matches_played": 4,
-                    "innings_batted": 4,
-                    "runs": 53,
-                    "balls": 39,
-                    "fours": 4,
-                    "sixes": 3,
-                    "dots": 14,
+                    "matches_played": 5,
+                    "innings_batted": 5,
+                    "runs": 76,
+                    "balls": 52,
+                    "fours": 7,
+                    "sixes": 4,
+                    "dots": 19,
                     "not_outs": 2,
-                    "highest_score": 20,
+                    "highest_score": 23,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 135.9,
-                    "average": 26.5,
+                    "strike_rate": 146.15,
+                    "average": 25.33,
                     "dismissal_types": {
                         "c Shashank Vinayak Attarde": 1,
-                        "c Hardik Jitendra Tamore": 1
+                        "c Hardik Jitendra Tamore": 1,
+                        "c Harsh Ramnath Aghav": 1
                     },
                     "dismissals_in_pp": 0,
-                    "dismissals_in_do": 2,
-                    "boundary_percentage": 64.15,
-                    "dot_ball_percentage": 35.9,
-                    "balls_per_boundary": 5.57,
-                    "ones": 17,
-                    "twos": 1,
+                    "dismissals_in_do": 3,
+                    "boundary_percentage": 68.42,
+                    "dot_ball_percentage": 36.54,
+                    "balls_per_boundary": 4.73,
+                    "ones": 20,
+                    "twos": 2,
                     "threes": 0,
                     "highest_strike_rate_innings": {
                         "value": 200.0,
@@ -75025,28 +75031,28 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 2.79
+                    "dot_ball_frequency": 2.74
                 },
                 "bowling": {
-                    "matches_played": 4,
-                    "innings_bowled": 4,
-                    "balls_bowled": 66,
-                    "overs_bowled_str": "11.0",
-                    "runs_conceded": 84,
-                    "wickets": 5,
+                    "matches_played": 5,
+                    "innings_bowled": 5,
+                    "balls_bowled": 90,
+                    "overs_bowled_str": "15.0",
+                    "runs_conceded": 117,
+                    "wickets": 7,
                     "maidens": 0,
-                    "dots_bowled": 17,
+                    "dots_bowled": 24,
                     "noballs": 0,
                     "wides": 1,
                     "three_wickets": 0,
                     "five_wickets": 0,
-                    "economy_rate": 7.64,
-                    "average": 16.8,
-                    "strike_rate": 13.2,
+                    "economy_rate": 7.8,
+                    "average": 16.71,
+                    "strike_rate": 12.86,
                     "wickets_in_pp": 0,
                     "wickets_in_do": 1,
-                    "dot_ball_percentage": 25.76,
-                    "extras_per_over": 0.09,
+                    "dot_ball_percentage": 26.67,
+                    "extras_per_over": 0.07,
                     "best_economy_innings": {
                         "value": 6.0,
                         "overs_bowled_str": "4",
@@ -75060,8 +75066,8 @@
                         "match_id": "1652"
                     },
                     "most_runs_conceded_innings": {
-                        "value": 31,
-                        "match_id": "1649"
+                        "value": 33,
+                        "match_id": "1665"
                     },
                     "most_dots_bowled_innings": {
                         "value": 7,
@@ -75076,7 +75082,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             },
             "overall": {
                 "team_name": "",
@@ -75084,27 +75090,27 @@
                     "Bandra Blasters"
                 ],
                 "batting": {
-                    "matches_played": 4,
-                    "innings_batted": 4,
-                    "runs": 53,
-                    "balls": 39,
-                    "fours": 4,
-                    "sixes": 3,
-                    "dots": 14,
+                    "matches_played": 5,
+                    "innings_batted": 5,
+                    "runs": 76,
+                    "balls": 52,
+                    "fours": 7,
+                    "sixes": 4,
+                    "dots": 19,
                     "not_outs": 2,
-                    "highest_score": 20,
+                    "highest_score": 23,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 135.9,
-                    "average": 26.5,
+                    "strike_rate": 146.15,
+                    "average": 25.33,
                     "dismissal_types": {},
                     "dismissals_in_pp": 0,
-                    "dismissals_in_do": 2,
-                    "boundary_percentage": 64.15,
-                    "dot_ball_percentage": 35.9,
-                    "balls_per_boundary": 5.57,
-                    "ones": 17,
-                    "twos": 1,
+                    "dismissals_in_do": 3,
+                    "boundary_percentage": 68.42,
+                    "dot_ball_percentage": 36.54,
+                    "balls_per_boundary": 4.73,
+                    "ones": 20,
+                    "twos": 2,
                     "threes": 0,
                     "highest_strike_rate_innings": {
                         "value": 200.0,
@@ -75126,28 +75132,28 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 2.79
+                    "dot_ball_frequency": 2.74
                 },
                 "bowling": {
-                    "matches_played": 4,
-                    "innings_bowled": 4,
-                    "balls_bowled": 66,
-                    "overs_bowled_str": "11.0",
-                    "runs_conceded": 84,
-                    "wickets": 5,
+                    "matches_played": 5,
+                    "innings_bowled": 5,
+                    "balls_bowled": 90,
+                    "overs_bowled_str": "15.0",
+                    "runs_conceded": 117,
+                    "wickets": 7,
                     "maidens": 0,
-                    "dots_bowled": 17,
+                    "dots_bowled": 24,
                     "noballs": 0,
                     "wides": 1,
                     "three_wickets": 0,
                     "five_wickets": 0,
-                    "economy_rate": 7.64,
-                    "average": 16.8,
-                    "strike_rate": 13.2,
+                    "economy_rate": 7.8,
+                    "average": 16.71,
+                    "strike_rate": 12.86,
                     "wickets_in_pp": 0,
                     "wickets_in_do": 1,
-                    "dot_ball_percentage": 25.76,
-                    "extras_per_over": 0.09,
+                    "dot_ball_percentage": 26.67,
+                    "extras_per_over": 0.07,
                     "best_economy_innings": {
                         "value": 6.0,
                         "overs_bowled_str": "4",
@@ -75161,8 +75167,8 @@
                         "match_id": "1652"
                     },
                     "most_runs_conceded_innings": {
-                        "value": 31,
-                        "match_id": "1649"
+                        "value": 33,
+                        "match_id": "1665"
                     },
                     "most_dots_bowled_innings": {
                         "value": 7,
@@ -75177,7 +75183,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             }
         },
         "player_photo": ""
@@ -80665,26 +80671,28 @@
                     "Bandra Blasters"
                 ],
                 "batting": {
-                    "matches_played": 2,
-                    "innings_batted": 2,
-                    "runs": 9,
-                    "balls": 6,
+                    "matches_played": 3,
+                    "innings_batted": 3,
+                    "runs": 10,
+                    "balls": 8,
                     "fours": 2,
                     "sixes": 0,
-                    "dots": 3,
+                    "dots": 4,
                     "not_outs": 2,
                     "highest_score": 8,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 150.0,
-                    "average": "inf",
-                    "dismissal_types": {},
+                    "strike_rate": 125.0,
+                    "average": 10.0,
+                    "dismissal_types": {
+                        "run out (Yash Prakash Dicholkar)": 1
+                    },
                     "dismissals_in_pp": 0,
-                    "dismissals_in_do": 0,
-                    "boundary_percentage": 88.89,
+                    "dismissals_in_do": 1,
+                    "boundary_percentage": 80.0,
                     "dot_ball_percentage": 50.0,
-                    "balls_per_boundary": 3.0,
-                    "ones": 1,
+                    "balls_per_boundary": 4.0,
+                    "ones": 2,
                     "twos": 0,
                     "threes": 0,
                     "highest_strike_rate_innings": {
@@ -80758,7 +80766,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 3
+                "total_matches_in_squad": 4
             },
             "overall": {
                 "team_name": "",
@@ -80766,26 +80774,26 @@
                     "Bandra Blasters"
                 ],
                 "batting": {
-                    "matches_played": 2,
-                    "innings_batted": 2,
-                    "runs": 9,
-                    "balls": 6,
+                    "matches_played": 3,
+                    "innings_batted": 3,
+                    "runs": 10,
+                    "balls": 8,
                     "fours": 2,
                     "sixes": 0,
-                    "dots": 3,
+                    "dots": 4,
                     "not_outs": 2,
                     "highest_score": 8,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 150.0,
-                    "average": "inf",
+                    "strike_rate": 125.0,
+                    "average": 10.0,
                     "dismissal_types": {},
                     "dismissals_in_pp": 0,
-                    "dismissals_in_do": 0,
-                    "boundary_percentage": 88.89,
+                    "dismissals_in_do": 1,
+                    "boundary_percentage": 80.0,
                     "dot_ball_percentage": 50.0,
-                    "balls_per_boundary": 3.0,
-                    "ones": 1,
+                    "balls_per_boundary": 4.0,
+                    "ones": 2,
                     "twos": 0,
                     "threes": 0,
                     "highest_strike_rate_innings": {
@@ -80859,7 +80867,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 3
+                "total_matches_in_squad": 4
             }
         },
         "player_photo": "https://mca-cdn.ken42.com/atharva_poojari_4_11zon.jpg"
@@ -85591,25 +85599,25 @@
                     "dot_ball_frequency": 3.0
                 },
                 "bowling": {
-                    "matches_played": 4,
-                    "innings_bowled": 4,
-                    "balls_bowled": 79,
-                    "overs_bowled_str": "13.1",
-                    "runs_conceded": 77,
-                    "wickets": 7,
+                    "matches_played": 5,
+                    "innings_bowled": 5,
+                    "balls_bowled": 91,
+                    "overs_bowled_str": "15.1",
+                    "runs_conceded": 93,
+                    "wickets": 9,
                     "maidens": 1,
-                    "dots_bowled": 47,
+                    "dots_bowled": 53,
                     "noballs": 0,
                     "wides": 2,
                     "three_wickets": 1,
                     "five_wickets": 0,
-                    "economy_rate": 5.85,
-                    "average": 11.0,
-                    "strike_rate": 11.29,
-                    "wickets_in_pp": 5,
+                    "economy_rate": 6.13,
+                    "average": 10.33,
+                    "strike_rate": 10.11,
+                    "wickets_in_pp": 7,
                     "wickets_in_do": 2,
-                    "dot_ball_percentage": 59.49,
-                    "extras_per_over": 0.15,
+                    "dot_ball_percentage": 58.24,
+                    "extras_per_over": 0.13,
                     "best_economy_innings": {
                         "value": 3.5,
                         "overs_bowled_str": "4",
@@ -85639,7 +85647,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 1,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             },
             "overall": {
                 "team_name": "",
@@ -85692,25 +85700,25 @@
                     "dot_ball_frequency": 3.0
                 },
                 "bowling": {
-                    "matches_played": 4,
-                    "innings_bowled": 4,
-                    "balls_bowled": 79,
-                    "overs_bowled_str": "13.1",
-                    "runs_conceded": 77,
-                    "wickets": 7,
+                    "matches_played": 5,
+                    "innings_bowled": 5,
+                    "balls_bowled": 91,
+                    "overs_bowled_str": "15.1",
+                    "runs_conceded": 93,
+                    "wickets": 9,
                     "maidens": 1,
-                    "dots_bowled": 47,
+                    "dots_bowled": 53,
                     "noballs": 0,
                     "wides": 2,
                     "three_wickets": 1,
                     "five_wickets": 0,
-                    "economy_rate": 5.85,
-                    "average": 11.0,
-                    "strike_rate": 11.29,
-                    "wickets_in_pp": 5,
+                    "economy_rate": 6.13,
+                    "average": 10.33,
+                    "strike_rate": 10.11,
+                    "wickets_in_pp": 7,
                     "wickets_in_do": 2,
-                    "dot_ball_percentage": 59.49,
-                    "extras_per_over": 0.15,
+                    "dot_ball_percentage": 58.24,
+                    "extras_per_over": 0.13,
                     "best_economy_innings": {
                         "value": 3.5,
                         "overs_bowled_str": "4",
@@ -85740,7 +85748,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 1,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             }
         },
         "player_photo": ""
@@ -85995,25 +86003,25 @@
                     "dot_ball_frequency": 0.0
                 },
                 "bowling": {
-                    "matches_played": 4,
-                    "innings_bowled": 4,
-                    "balls_bowled": 78,
-                    "overs_bowled_str": "13.0",
-                    "runs_conceded": 82,
+                    "matches_played": 5,
+                    "innings_bowled": 5,
+                    "balls_bowled": 96,
+                    "overs_bowled_str": "16.0",
+                    "runs_conceded": 105,
                     "wickets": 3,
                     "maidens": 0,
-                    "dots_bowled": 35,
+                    "dots_bowled": 45,
                     "noballs": 0,
                     "wides": 2,
                     "three_wickets": 0,
                     "five_wickets": 0,
-                    "economy_rate": 6.31,
-                    "average": 27.33,
-                    "strike_rate": 26.0,
+                    "economy_rate": 6.56,
+                    "average": 35.0,
+                    "strike_rate": 32.0,
                     "wickets_in_pp": 0,
                     "wickets_in_do": 0,
-                    "dot_ball_percentage": 44.87,
-                    "extras_per_over": 0.15,
+                    "dot_ball_percentage": 46.88,
+                    "extras_per_over": 0.12,
                     "best_economy_innings": {
                         "value": 5.5,
                         "overs_bowled_str": "4",
@@ -86043,7 +86051,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             },
             "overall": {
                 "team_name": "",
@@ -86096,25 +86104,25 @@
                     "dot_ball_frequency": 0.0
                 },
                 "bowling": {
-                    "matches_played": 4,
-                    "innings_bowled": 4,
-                    "balls_bowled": 78,
-                    "overs_bowled_str": "13.0",
-                    "runs_conceded": 82,
+                    "matches_played": 5,
+                    "innings_bowled": 5,
+                    "balls_bowled": 96,
+                    "overs_bowled_str": "16.0",
+                    "runs_conceded": 105,
                     "wickets": 3,
                     "maidens": 0,
-                    "dots_bowled": 35,
+                    "dots_bowled": 45,
                     "noballs": 0,
                     "wides": 2,
                     "three_wickets": 0,
                     "five_wickets": 0,
-                    "economy_rate": 6.31,
-                    "average": 27.33,
-                    "strike_rate": 26.0,
+                    "economy_rate": 6.56,
+                    "average": 35.0,
+                    "strike_rate": 32.0,
                     "wickets_in_pp": 0,
                     "wickets_in_do": 0,
-                    "dot_ball_percentage": 44.87,
-                    "extras_per_over": 0.15,
+                    "dot_ball_percentage": 46.88,
+                    "extras_per_over": 0.12,
                     "best_economy_innings": {
                         "value": 5.5,
                         "overs_bowled_str": "4",
@@ -86144,7 +86152,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             }
         },
         "player_photo": "https://mca-cdn.ken42.com/we_transfer/jpeg-optimizer_4M2A6015.JPG"
@@ -86761,36 +86769,37 @@
                     "SOBO Mumbai Falcons"
                 ],
                 "batting": {
-                    "matches_played": 3,
-                    "innings_batted": 3,
-                    "runs": 49,
-                    "balls": 49,
-                    "fours": 1,
-                    "sixes": 3,
-                    "dots": 20,
+                    "matches_played": 4,
+                    "innings_batted": 4,
+                    "runs": 81,
+                    "balls": 69,
+                    "fours": 4,
+                    "sixes": 5,
+                    "dots": 28,
                     "not_outs": 1,
-                    "highest_score": 30,
+                    "highest_score": 32,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 100.0,
-                    "average": 24.5,
+                    "strike_rate": 117.39,
+                    "average": 27.0,
                     "dismissal_types": {
                         "lbw Atharva Vinod Ankolekar": 1,
-                        "lbw Salman Idrish Khan": 1
+                        "lbw Salman Idrish Khan": 1,
+                        "c Parth Vinod Ankolekar": 1
                     },
                     "dismissals_in_pp": 0,
                     "dismissals_in_do": 1,
-                    "boundary_percentage": 44.9,
-                    "dot_ball_percentage": 40.82,
-                    "balls_per_boundary": 12.25,
-                    "ones": 24,
-                    "twos": 0,
+                    "boundary_percentage": 56.79,
+                    "dot_ball_percentage": 40.58,
+                    "balls_per_boundary": 7.67,
+                    "ones": 30,
+                    "twos": 1,
                     "threes": 1,
                     "highest_strike_rate_innings": {
-                        "value": 107.14,
-                        "balls_faced": 28,
-                        "runs_scored": 30,
-                        "match_id": "1653"
+                        "value": 160.0,
+                        "balls_faced": 20,
+                        "runs_scored": 32,
+                        "match_id": "1665"
                     },
                     "most_sixes_innings": {
                         "count": 2,
@@ -86806,28 +86815,28 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 2.45
+                    "dot_ball_frequency": 2.46
                 },
                 "bowling": {
-                    "matches_played": 4,
-                    "innings_bowled": 4,
-                    "balls_bowled": 71,
-                    "overs_bowled_str": "11.5",
-                    "runs_conceded": 78,
-                    "wickets": 4,
+                    "matches_played": 5,
+                    "innings_bowled": 5,
+                    "balls_bowled": 83,
+                    "overs_bowled_str": "13.5",
+                    "runs_conceded": 94,
+                    "wickets": 7,
                     "maidens": 0,
-                    "dots_bowled": 30,
+                    "dots_bowled": 36,
                     "noballs": 0,
-                    "wides": 0,
-                    "three_wickets": 1,
+                    "wides": 1,
+                    "three_wickets": 2,
                     "five_wickets": 0,
-                    "economy_rate": 6.59,
-                    "average": 19.5,
-                    "strike_rate": 17.75,
+                    "economy_rate": 6.8,
+                    "average": 13.43,
+                    "strike_rate": 11.86,
                     "wickets_in_pp": 0,
-                    "wickets_in_do": 3,
-                    "dot_ball_percentage": 42.25,
-                    "extras_per_over": 0.0,
+                    "wickets_in_do": 6,
+                    "dot_ball_percentage": 43.37,
+                    "extras_per_over": 0.07,
                     "best_economy_innings": {
                         "value": 5.67,
                         "overs_bowled_str": "3",
@@ -86835,10 +86844,10 @@
                         "match_id": "1650"
                     },
                     "best_strike_rate_innings": {
-                        "value": 6.0,
-                        "wickets_taken": 4,
-                        "balls_bowled": 24,
-                        "match_id": "1663"
+                        "value": 4.0,
+                        "wickets_taken": 3,
+                        "balls_bowled": 12,
+                        "match_id": "1665"
                     },
                     "most_runs_conceded_innings": {
                         "value": 24,
@@ -86857,7 +86866,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 1,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             },
             "overall": {
                 "team_name": "",
@@ -86865,33 +86874,33 @@
                     "SOBO Mumbai Falcons"
                 ],
                 "batting": {
-                    "matches_played": 3,
-                    "innings_batted": 3,
-                    "runs": 49,
-                    "balls": 49,
-                    "fours": 1,
-                    "sixes": 3,
-                    "dots": 20,
+                    "matches_played": 4,
+                    "innings_batted": 4,
+                    "runs": 81,
+                    "balls": 69,
+                    "fours": 4,
+                    "sixes": 5,
+                    "dots": 28,
                     "not_outs": 1,
-                    "highest_score": 30,
+                    "highest_score": 32,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 100.0,
-                    "average": 24.5,
+                    "strike_rate": 117.39,
+                    "average": 27.0,
                     "dismissal_types": {},
                     "dismissals_in_pp": 0,
                     "dismissals_in_do": 1,
-                    "boundary_percentage": 44.9,
-                    "dot_ball_percentage": 40.82,
-                    "balls_per_boundary": 12.25,
-                    "ones": 24,
-                    "twos": 0,
+                    "boundary_percentage": 56.79,
+                    "dot_ball_percentage": 40.58,
+                    "balls_per_boundary": 7.67,
+                    "ones": 30,
+                    "twos": 1,
                     "threes": 1,
                     "highest_strike_rate_innings": {
-                        "value": 107.14,
-                        "balls_faced": 28,
-                        "runs_scored": 30,
-                        "match_id": "1653"
+                        "value": 160.0,
+                        "balls_faced": 20,
+                        "runs_scored": 32,
+                        "match_id": "1665"
                     },
                     "most_sixes_innings": {
                         "count": 2,
@@ -86907,28 +86916,28 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 2.45
+                    "dot_ball_frequency": 2.46
                 },
                 "bowling": {
-                    "matches_played": 4,
-                    "innings_bowled": 4,
-                    "balls_bowled": 71,
-                    "overs_bowled_str": "11.5",
-                    "runs_conceded": 78,
-                    "wickets": 4,
+                    "matches_played": 5,
+                    "innings_bowled": 5,
+                    "balls_bowled": 83,
+                    "overs_bowled_str": "13.5",
+                    "runs_conceded": 94,
+                    "wickets": 7,
                     "maidens": 0,
-                    "dots_bowled": 30,
+                    "dots_bowled": 36,
                     "noballs": 0,
-                    "wides": 0,
-                    "three_wickets": 1,
+                    "wides": 1,
+                    "three_wickets": 2,
                     "five_wickets": 0,
-                    "economy_rate": 6.59,
-                    "average": 19.5,
-                    "strike_rate": 17.75,
+                    "economy_rate": 6.8,
+                    "average": 13.43,
+                    "strike_rate": 11.86,
                     "wickets_in_pp": 0,
-                    "wickets_in_do": 3,
-                    "dot_ball_percentage": 42.25,
-                    "extras_per_over": 0.0,
+                    "wickets_in_do": 6,
+                    "dot_ball_percentage": 43.37,
+                    "extras_per_over": 0.07,
                     "best_economy_innings": {
                         "value": 5.67,
                         "overs_bowled_str": "3",
@@ -86936,10 +86945,10 @@
                         "match_id": "1650"
                     },
                     "best_strike_rate_innings": {
-                        "value": 6.0,
-                        "wickets_taken": 4,
-                        "balls_bowled": 24,
-                        "match_id": "1663"
+                        "value": 4.0,
+                        "wickets_taken": 3,
+                        "balls_bowled": 12,
+                        "match_id": "1665"
                     },
                     "most_runs_conceded_innings": {
                         "value": 24,
@@ -86958,7 +86967,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 1,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             }
         },
         "player_photo": ""
@@ -88800,31 +88809,32 @@
                     "Bandra Blasters"
                 ],
                 "batting": {
-                    "matches_played": 5,
-                    "innings_batted": 5,
+                    "matches_played": 6,
+                    "innings_batted": 6,
                     "runs": 212,
-                    "balls": 134,
+                    "balls": 135,
                     "fours": 22,
                     "sixes": 10,
-                    "dots": 47,
+                    "dots": 48,
                     "not_outs": 0,
                     "highest_score": 76,
                     "fifties": 2,
                     "hundreds": 0,
-                    "strike_rate": 158.21,
-                    "average": 42.4,
+                    "strike_rate": 157.04,
+                    "average": 35.33,
                     "dismissal_types": {
                         "st Swapnil Suresh Salvi": 1,
                         "bowled": 1,
                         "caught and bowled": 1,
                         "c Yash  Chavan": 1,
-                        "c Aditya Sanjay Dhumal": 1
+                        "c Aditya Sanjay Dhumal": 1,
+                        "c Angkrish Avaneesh Raghuvanshi": 1
                     },
-                    "dismissals_in_pp": 2,
+                    "dismissals_in_pp": 3,
                     "dismissals_in_do": 0,
                     "boundary_percentage": 69.81,
-                    "dot_ball_percentage": 35.07,
-                    "balls_per_boundary": 4.19,
+                    "dot_ball_percentage": 35.56,
+                    "balls_per_boundary": 4.22,
                     "ones": 47,
                     "twos": 7,
                     "threes": 1,
@@ -88848,7 +88858,7 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 2.85
+                    "dot_ball_frequency": 2.81
                 },
                 "bowling": {
                     "matches_played": 0,
@@ -88899,7 +88909,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 1,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             },
             "overall": {
                 "team_name": "",
@@ -88907,25 +88917,25 @@
                     "Bandra Blasters"
                 ],
                 "batting": {
-                    "matches_played": 5,
-                    "innings_batted": 5,
+                    "matches_played": 6,
+                    "innings_batted": 6,
                     "runs": 212,
-                    "balls": 134,
+                    "balls": 135,
                     "fours": 22,
                     "sixes": 10,
-                    "dots": 47,
+                    "dots": 48,
                     "not_outs": 0,
                     "highest_score": 76,
                     "fifties": 2,
                     "hundreds": 0,
-                    "strike_rate": 158.21,
-                    "average": 42.4,
+                    "strike_rate": 157.04,
+                    "average": 35.33,
                     "dismissal_types": {},
-                    "dismissals_in_pp": 2,
+                    "dismissals_in_pp": 3,
                     "dismissals_in_do": 0,
                     "boundary_percentage": 69.81,
-                    "dot_ball_percentage": 35.07,
-                    "balls_per_boundary": 4.19,
+                    "dot_ball_percentage": 35.56,
+                    "balls_per_boundary": 4.22,
                     "ones": 47,
                     "twos": 7,
                     "threes": 1,
@@ -88949,7 +88959,7 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 2.85
+                    "dot_ball_frequency": 2.81
                 },
                 "bowling": {
                     "matches_played": 0,
@@ -89000,7 +89010,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 1,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             }
         },
         "player_photo": "https://mca-cdn.ken42.com/Senior_Players/Suved%20Parkar_31_11zon.jpeg"
@@ -90630,6 +90640,410 @@
             }
         },
         "player_photo": "https://mca-cdn.ken42.com/we_transfer/4M2A5940.jpg"
+    },
+    "M01472": {
+        "name_full": "Patil Prasad Prakash",
+        "seasons": {
+            "season_1": {
+                "team_name": "",
+                "played_for_teams": [],
+                "batting": {
+                    "matches_played": 0,
+                    "innings_batted": 0,
+                    "runs": 0,
+                    "balls": 0,
+                    "fours": 0,
+                    "sixes": 0,
+                    "dots": 0,
+                    "not_outs": 0,
+                    "highest_score": 0,
+                    "fifties": 0,
+                    "hundreds": 0,
+                    "strike_rate": 0.0,
+                    "average": 0.0,
+                    "dismissal_types": {},
+                    "dismissals_in_pp": 0,
+                    "dismissals_in_do": 0,
+                    "boundary_percentage": 0.0,
+                    "dot_ball_percentage": 0.0,
+                    "balls_per_boundary": 0.0,
+                    "ones": 0,
+                    "twos": 0,
+                    "threes": 0,
+                    "highest_strike_rate_innings": {
+                        "value": 0.0,
+                        "balls_faced": 0,
+                        "runs_scored": 0,
+                        "match_id": ""
+                    },
+                    "most_sixes_innings": {
+                        "count": 0,
+                        "match_id": ""
+                    },
+                    "fastest_fifty_balls": {
+                        "balls": "inf",
+                        "runs": 0,
+                        "match_id": ""
+                    },
+                    "fastest_hundred_balls": {
+                        "balls": "inf",
+                        "runs": 0,
+                        "match_id": ""
+                    }
+                },
+                "bowling": {
+                    "matches_played": 0,
+                    "innings_bowled": 0,
+                    "balls_bowled": 0,
+                    "overs_bowled_str": "0.0",
+                    "runs_conceded": 0,
+                    "wickets": 0,
+                    "maidens": 0,
+                    "dots_bowled": 0,
+                    "noballs": 0,
+                    "wides": 0,
+                    "three_wickets": 0,
+                    "five_wickets": 0,
+                    "economy_rate": 0.0,
+                    "average": 0.0,
+                    "strike_rate": 0.0,
+                    "wickets_in_pp": 0,
+                    "wickets_in_do": 0,
+                    "dot_ball_percentage": 0.0,
+                    "extras_per_over": 0.0,
+                    "best_economy_innings": {
+                        "value": "inf",
+                        "overs_bowled_str": "0.0",
+                        "runs_conceded": 0,
+                        "match_id": ""
+                    },
+                    "best_strike_rate_innings": {
+                        "value": "inf",
+                        "wickets_taken": 0,
+                        "balls_bowled": 0,
+                        "match_id": ""
+                    },
+                    "most_runs_conceded_innings": {
+                        "value": 0,
+                        "match_id": ""
+                    },
+                    "most_dots_bowled_innings": {
+                        "value": 0,
+                        "match_id": ""
+                    }
+                },
+                "fielding": {
+                    "matches_played": 0,
+                    "catches": 0,
+                    "stumpings": 0,
+                    "run_outs_direct": 0,
+                    "run_outs_assisted": 0
+                },
+                "player_of_match_awards": 0,
+                "total_matches_in_squad": 0
+            },
+            "season_2": {
+                "team_name": "",
+                "played_for_teams": [],
+                "batting": {
+                    "matches_played": 0,
+                    "innings_batted": 0,
+                    "runs": 0,
+                    "balls": 0,
+                    "fours": 0,
+                    "sixes": 0,
+                    "dots": 0,
+                    "not_outs": 0,
+                    "highest_score": 0,
+                    "fifties": 0,
+                    "hundreds": 0,
+                    "strike_rate": 0.0,
+                    "average": 0.0,
+                    "dismissal_types": {},
+                    "dismissals_in_pp": 0,
+                    "dismissals_in_do": 0,
+                    "boundary_percentage": 0.0,
+                    "dot_ball_percentage": 0.0,
+                    "balls_per_boundary": 0.0,
+                    "ones": 0,
+                    "twos": 0,
+                    "threes": 0,
+                    "highest_strike_rate_innings": {
+                        "value": 0.0,
+                        "balls_faced": 0,
+                        "runs_scored": 0,
+                        "match_id": ""
+                    },
+                    "most_sixes_innings": {
+                        "count": 0,
+                        "match_id": ""
+                    },
+                    "fastest_fifty_balls": {
+                        "balls": "inf",
+                        "runs": 0,
+                        "match_id": ""
+                    },
+                    "fastest_hundred_balls": {
+                        "balls": "inf",
+                        "runs": 0,
+                        "match_id": ""
+                    }
+                },
+                "bowling": {
+                    "matches_played": 0,
+                    "innings_bowled": 0,
+                    "balls_bowled": 0,
+                    "overs_bowled_str": "0.0",
+                    "runs_conceded": 0,
+                    "wickets": 0,
+                    "maidens": 0,
+                    "dots_bowled": 0,
+                    "noballs": 0,
+                    "wides": 0,
+                    "three_wickets": 0,
+                    "five_wickets": 0,
+                    "economy_rate": 0.0,
+                    "average": 0.0,
+                    "strike_rate": 0.0,
+                    "wickets_in_pp": 0,
+                    "wickets_in_do": 0,
+                    "dot_ball_percentage": 0.0,
+                    "extras_per_over": 0.0,
+                    "best_economy_innings": {
+                        "value": "inf",
+                        "overs_bowled_str": "0.0",
+                        "runs_conceded": 0,
+                        "match_id": ""
+                    },
+                    "best_strike_rate_innings": {
+                        "value": "inf",
+                        "wickets_taken": 0,
+                        "balls_bowled": 0,
+                        "match_id": ""
+                    },
+                    "most_runs_conceded_innings": {
+                        "value": 0,
+                        "match_id": ""
+                    },
+                    "most_dots_bowled_innings": {
+                        "value": 0,
+                        "match_id": ""
+                    }
+                },
+                "fielding": {
+                    "matches_played": 0,
+                    "catches": 0,
+                    "stumpings": 0,
+                    "run_outs_direct": 0,
+                    "run_outs_assisted": 0
+                },
+                "player_of_match_awards": 0,
+                "total_matches_in_squad": 0
+            },
+            "season_3": {
+                "team_name": "SOBO Mumbai Falcons",
+                "played_for_teams": [
+                    "SOBO Mumbai Falcons"
+                ],
+                "batting": {
+                    "matches_played": 0,
+                    "innings_batted": 0,
+                    "runs": 0,
+                    "balls": 0,
+                    "fours": 0,
+                    "sixes": 0,
+                    "dots": 0,
+                    "not_outs": 0,
+                    "highest_score": 0,
+                    "fifties": 0,
+                    "hundreds": 0,
+                    "strike_rate": 0.0,
+                    "average": 0.0,
+                    "dismissal_types": {},
+                    "dismissals_in_pp": 0,
+                    "dismissals_in_do": 0,
+                    "boundary_percentage": 0.0,
+                    "dot_ball_percentage": 0.0,
+                    "balls_per_boundary": 0.0,
+                    "ones": 0,
+                    "twos": 0,
+                    "threes": 0,
+                    "highest_strike_rate_innings": {
+                        "value": 0.0,
+                        "balls_faced": 0,
+                        "runs_scored": 0,
+                        "match_id": ""
+                    },
+                    "most_sixes_innings": {
+                        "count": 0,
+                        "match_id": ""
+                    },
+                    "fastest_fifty_balls": {
+                        "balls": "inf",
+                        "runs": 0,
+                        "match_id": ""
+                    },
+                    "fastest_hundred_balls": {
+                        "balls": "inf",
+                        "runs": 0,
+                        "match_id": ""
+                    },
+                    "dot_ball_frequency": 0.0
+                },
+                "bowling": {
+                    "matches_played": 1,
+                    "innings_bowled": 1,
+                    "balls_bowled": 12,
+                    "overs_bowled_str": "2.0",
+                    "runs_conceded": 17,
+                    "wickets": 0,
+                    "maidens": 0,
+                    "dots_bowled": 2,
+                    "noballs": 0,
+                    "wides": 0,
+                    "three_wickets": 0,
+                    "five_wickets": 0,
+                    "economy_rate": 8.5,
+                    "average": "inf",
+                    "strike_rate": "inf",
+                    "wickets_in_pp": 0,
+                    "wickets_in_do": 0,
+                    "dot_ball_percentage": 16.67,
+                    "extras_per_over": 0.0,
+                    "best_economy_innings": {
+                        "value": 8.5,
+                        "overs_bowled_str": "2",
+                        "runs_conceded": 17,
+                        "match_id": "1665"
+                    },
+                    "best_strike_rate_innings": {
+                        "value": "inf",
+                        "wickets_taken": 0,
+                        "balls_bowled": 0,
+                        "match_id": ""
+                    },
+                    "most_runs_conceded_innings": {
+                        "value": 17,
+                        "match_id": "1665"
+                    },
+                    "most_dots_bowled_innings": {
+                        "value": 2,
+                        "match_id": "1665"
+                    }
+                },
+                "fielding": {
+                    "matches_played": 0,
+                    "catches": 0,
+                    "stumpings": 0,
+                    "run_outs_direct": 0,
+                    "run_outs_assisted": 0
+                },
+                "player_of_match_awards": 0,
+                "total_matches_in_squad": 1
+            },
+            "overall": {
+                "team_name": "",
+                "played_for_teams": [
+                    "SOBO Mumbai Falcons"
+                ],
+                "batting": {
+                    "matches_played": 0,
+                    "innings_batted": 0,
+                    "runs": 0,
+                    "balls": 0,
+                    "fours": 0,
+                    "sixes": 0,
+                    "dots": 0,
+                    "not_outs": 0,
+                    "highest_score": 0,
+                    "fifties": 0,
+                    "hundreds": 0,
+                    "strike_rate": 0.0,
+                    "average": 0.0,
+                    "dismissal_types": {},
+                    "dismissals_in_pp": 0,
+                    "dismissals_in_do": 0,
+                    "boundary_percentage": 0.0,
+                    "dot_ball_percentage": 0.0,
+                    "balls_per_boundary": 0.0,
+                    "ones": 0,
+                    "twos": 0,
+                    "threes": 0,
+                    "highest_strike_rate_innings": {
+                        "value": 0.0,
+                        "balls_faced": 0,
+                        "runs_scored": 0,
+                        "match_id": ""
+                    },
+                    "most_sixes_innings": {
+                        "count": 0,
+                        "match_id": ""
+                    },
+                    "fastest_fifty_balls": {
+                        "balls": "inf",
+                        "runs": 0,
+                        "match_id": ""
+                    },
+                    "fastest_hundred_balls": {
+                        "balls": "inf",
+                        "runs": 0,
+                        "match_id": ""
+                    },
+                    "dot_ball_frequency": 0.0
+                },
+                "bowling": {
+                    "matches_played": 1,
+                    "innings_bowled": 1,
+                    "balls_bowled": 12,
+                    "overs_bowled_str": "2.0",
+                    "runs_conceded": 17,
+                    "wickets": 0,
+                    "maidens": 0,
+                    "dots_bowled": 2,
+                    "noballs": 0,
+                    "wides": 0,
+                    "three_wickets": 0,
+                    "five_wickets": 0,
+                    "economy_rate": 8.5,
+                    "average": "inf",
+                    "strike_rate": "inf",
+                    "wickets_in_pp": 0,
+                    "wickets_in_do": 0,
+                    "dot_ball_percentage": 16.67,
+                    "extras_per_over": 0.0,
+                    "best_economy_innings": {
+                        "value": 8.5,
+                        "overs_bowled_str": "2",
+                        "runs_conceded": 17,
+                        "match_id": "1665"
+                    },
+                    "best_strike_rate_innings": {
+                        "value": "inf",
+                        "wickets_taken": 0,
+                        "balls_bowled": 0,
+                        "match_id": ""
+                    },
+                    "most_runs_conceded_innings": {
+                        "value": 17,
+                        "match_id": "1665"
+                    },
+                    "most_dots_bowled_innings": {
+                        "value": 2,
+                        "match_id": "1665"
+                    }
+                },
+                "fielding": {
+                    "matches_played": 0,
+                    "catches": 0,
+                    "stumpings": 0,
+                    "run_outs_direct": 0,
+                    "run_outs_assisted": 0
+                },
+                "player_of_match_awards": 0,
+                "total_matches_in_squad": 1
+            }
+        },
+        "player_photo": ""
     },
     "M01479": {
         "name_full": "Deepak Bhaskar Shetty",
@@ -96158,30 +96572,30 @@
                     "dot_ball_frequency": 2.75
                 },
                 "bowling": {
-                    "matches_played": 2,
-                    "innings_bowled": 2,
-                    "balls_bowled": 36,
-                    "overs_bowled_str": "6.0",
-                    "runs_conceded": 47,
-                    "wickets": 1,
+                    "matches_played": 3,
+                    "innings_bowled": 3,
+                    "balls_bowled": 54,
+                    "overs_bowled_str": "9.0",
+                    "runs_conceded": 64,
+                    "wickets": 2,
                     "maidens": 0,
-                    "dots_bowled": 13,
+                    "dots_bowled": 23,
                     "noballs": 0,
-                    "wides": 1,
+                    "wides": 2,
                     "three_wickets": 0,
                     "five_wickets": 0,
-                    "economy_rate": 7.83,
-                    "average": 47.0,
-                    "strike_rate": 36.0,
+                    "economy_rate": 7.11,
+                    "average": 32.0,
+                    "strike_rate": 27.0,
                     "wickets_in_pp": 0,
                     "wickets_in_do": 0,
-                    "dot_ball_percentage": 36.11,
-                    "extras_per_over": 0.17,
+                    "dot_ball_percentage": 42.59,
+                    "extras_per_over": 0.22,
                     "best_economy_innings": {
-                        "value": 7.0,
+                        "value": 5.67,
                         "overs_bowled_str": "3",
-                        "runs_conceded": 21,
-                        "match_id": "1653"
+                        "runs_conceded": 17,
+                        "match_id": "1665"
                     },
                     "best_strike_rate_innings": {
                         "value": 18.0,
@@ -96194,8 +96608,8 @@
                         "match_id": "1663"
                     },
                     "most_dots_bowled_innings": {
-                        "value": 8,
-                        "match_id": "1653"
+                        "value": 10,
+                        "match_id": "1665"
                     }
                 },
                 "fielding": {
@@ -96206,7 +96620,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 1,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             },
             "overall": {
                 "team_name": "",
@@ -96259,30 +96673,30 @@
                     "dot_ball_frequency": 2.75
                 },
                 "bowling": {
-                    "matches_played": 2,
-                    "innings_bowled": 2,
-                    "balls_bowled": 36,
-                    "overs_bowled_str": "6.0",
-                    "runs_conceded": 47,
-                    "wickets": 1,
+                    "matches_played": 3,
+                    "innings_bowled": 3,
+                    "balls_bowled": 54,
+                    "overs_bowled_str": "9.0",
+                    "runs_conceded": 64,
+                    "wickets": 2,
                     "maidens": 0,
-                    "dots_bowled": 13,
+                    "dots_bowled": 23,
                     "noballs": 0,
-                    "wides": 1,
+                    "wides": 2,
                     "three_wickets": 0,
                     "five_wickets": 0,
-                    "economy_rate": 7.83,
-                    "average": 47.0,
-                    "strike_rate": 36.0,
+                    "economy_rate": 7.11,
+                    "average": 32.0,
+                    "strike_rate": 27.0,
                     "wickets_in_pp": 0,
                     "wickets_in_do": 0,
-                    "dot_ball_percentage": 36.11,
-                    "extras_per_over": 0.17,
+                    "dot_ball_percentage": 42.59,
+                    "extras_per_over": 0.22,
                     "best_economy_innings": {
-                        "value": 7.0,
+                        "value": 5.67,
                         "overs_bowled_str": "3",
-                        "runs_conceded": 21,
-                        "match_id": "1653"
+                        "runs_conceded": 17,
+                        "match_id": "1665"
                     },
                     "best_strike_rate_innings": {
                         "value": 18.0,
@@ -96295,8 +96709,8 @@
                         "match_id": "1663"
                     },
                     "most_dots_bowled_innings": {
-                        "value": 8,
-                        "match_id": "1653"
+                        "value": 10,
+                        "match_id": "1665"
                     }
                 },
                 "fielding": {
@@ -96307,7 +96721,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 1,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             }
         },
         "player_photo": ""
@@ -96924,32 +97338,33 @@
                     "Bandra Blasters"
                 ],
                 "batting": {
-                    "matches_played": 4,
-                    "innings_batted": 4,
-                    "runs": 130,
-                    "balls": 90,
+                    "matches_played": 5,
+                    "innings_batted": 5,
+                    "runs": 145,
+                    "balls": 116,
                     "fours": 6,
                     "sixes": 7,
-                    "dots": 23,
+                    "dots": 36,
                     "not_outs": 0,
                     "highest_score": 41,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 144.44,
-                    "average": 32.5,
+                    "strike_rate": 125.0,
+                    "average": 29.0,
                     "dismissal_types": {
                         "c Gaurav Ashok Jathar": 1,
                         "c Harsh Vikas Tanna": 1,
                         "c Vasim  Khan": 1,
-                        "bowled": 1
+                        "bowled": 1,
+                        "c Siddharth Jayesh Raut": 1
                     },
                     "dismissals_in_pp": 0,
                     "dismissals_in_do": 3,
-                    "boundary_percentage": 50.77,
-                    "dot_ball_percentage": 25.56,
-                    "balls_per_boundary": 6.92,
-                    "ones": 44,
-                    "twos": 10,
+                    "boundary_percentage": 45.52,
+                    "dot_ball_percentage": 31.03,
+                    "balls_per_boundary": 8.92,
+                    "ones": 55,
+                    "twos": 12,
                     "threes": 0,
                     "highest_strike_rate_innings": {
                         "value": 164.0,
@@ -96971,7 +97386,7 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 3.91
+                    "dot_ball_frequency": 3.22
                 },
                 "bowling": {
                     "matches_played": 0,
@@ -97022,7 +97437,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             },
             "overall": {
                 "team_name": "",
@@ -97030,27 +97445,27 @@
                     "Bandra Blasters"
                 ],
                 "batting": {
-                    "matches_played": 4,
-                    "innings_batted": 4,
-                    "runs": 130,
-                    "balls": 90,
+                    "matches_played": 5,
+                    "innings_batted": 5,
+                    "runs": 145,
+                    "balls": 116,
                     "fours": 6,
                     "sixes": 7,
-                    "dots": 23,
+                    "dots": 36,
                     "not_outs": 0,
                     "highest_score": 41,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 144.44,
-                    "average": 32.5,
+                    "strike_rate": 125.0,
+                    "average": 29.0,
                     "dismissal_types": {},
                     "dismissals_in_pp": 0,
                     "dismissals_in_do": 3,
-                    "boundary_percentage": 50.77,
-                    "dot_ball_percentage": 25.56,
-                    "balls_per_boundary": 6.92,
-                    "ones": 44,
-                    "twos": 10,
+                    "boundary_percentage": 45.52,
+                    "dot_ball_percentage": 31.03,
+                    "balls_per_boundary": 8.92,
+                    "ones": 55,
+                    "twos": 12,
                     "threes": 0,
                     "highest_strike_rate_innings": {
                         "value": 164.0,
@@ -97072,7 +97487,7 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 3.91
+                    "dot_ball_frequency": 3.22
                 },
                 "bowling": {
                     "matches_played": 0,
@@ -97123,7 +97538,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             }
         },
         "player_photo": ""
@@ -99364,29 +99779,30 @@
                     "Bandra Blasters"
                 ],
                 "batting": {
-                    "matches_played": 3,
-                    "innings_batted": 3,
+                    "matches_played": 4,
+                    "innings_batted": 4,
                     "runs": 13,
-                    "balls": 10,
+                    "balls": 11,
                     "fours": 0,
                     "sixes": 1,
-                    "dots": 3,
+                    "dots": 4,
                     "not_outs": 0,
                     "highest_score": 7,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 130.0,
-                    "average": 4.33,
+                    "strike_rate": 118.18,
+                    "average": 3.25,
                     "dismissal_types": {
                         "c Shashank Vinayak Attarde": 1,
                         "run out (Siddharth Nitin Akre)": 1,
-                        "c Jay Sanjay Jain": 1
+                        "c Jay Sanjay Jain": 1,
+                        "c Ishan Simran Mulchandani": 1
                     },
                     "dismissals_in_pp": 0,
-                    "dismissals_in_do": 3,
+                    "dismissals_in_do": 4,
                     "boundary_percentage": 46.15,
-                    "dot_ball_percentage": 30.0,
-                    "balls_per_boundary": 10.0,
+                    "dot_ball_percentage": 36.36,
+                    "balls_per_boundary": 11.0,
                     "ones": 5,
                     "twos": 1,
                     "threes": 0,
@@ -99410,28 +99826,28 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 3.33
+                    "dot_ball_frequency": 2.75
                 },
                 "bowling": {
-                    "matches_played": 5,
-                    "innings_bowled": 5,
-                    "balls_bowled": 96,
-                    "overs_bowled_str": "16.0",
-                    "runs_conceded": 127,
+                    "matches_played": 6,
+                    "innings_bowled": 6,
+                    "balls_bowled": 102,
+                    "overs_bowled_str": "17.0",
+                    "runs_conceded": 141,
                     "wickets": 7,
                     "maidens": 0,
-                    "dots_bowled": 34,
+                    "dots_bowled": 35,
                     "noballs": 0,
                     "wides": 8,
                     "three_wickets": 1,
                     "five_wickets": 0,
-                    "economy_rate": 7.94,
-                    "average": 18.14,
-                    "strike_rate": 13.71,
+                    "economy_rate": 8.29,
+                    "average": 20.14,
+                    "strike_rate": 14.57,
                     "wickets_in_pp": 6,
                     "wickets_in_do": 1,
-                    "dot_ball_percentage": 35.42,
-                    "extras_per_over": 0.5,
+                    "dot_ball_percentage": 34.31,
+                    "extras_per_over": 0.47,
                     "best_economy_innings": {
                         "value": 6.67,
                         "overs_bowled_str": "3",
@@ -99461,7 +99877,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 1,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             },
             "overall": {
                 "team_name": "",
@@ -99469,25 +99885,25 @@
                     "Bandra Blasters"
                 ],
                 "batting": {
-                    "matches_played": 3,
-                    "innings_batted": 3,
+                    "matches_played": 4,
+                    "innings_batted": 4,
                     "runs": 13,
-                    "balls": 10,
+                    "balls": 11,
                     "fours": 0,
                     "sixes": 1,
-                    "dots": 3,
+                    "dots": 4,
                     "not_outs": 0,
                     "highest_score": 7,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 130.0,
-                    "average": 4.33,
+                    "strike_rate": 118.18,
+                    "average": 3.25,
                     "dismissal_types": {},
                     "dismissals_in_pp": 0,
-                    "dismissals_in_do": 3,
+                    "dismissals_in_do": 4,
                     "boundary_percentage": 46.15,
-                    "dot_ball_percentage": 30.0,
-                    "balls_per_boundary": 10.0,
+                    "dot_ball_percentage": 36.36,
+                    "balls_per_boundary": 11.0,
                     "ones": 5,
                     "twos": 1,
                     "threes": 0,
@@ -99511,28 +99927,28 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 3.33
+                    "dot_ball_frequency": 2.75
                 },
                 "bowling": {
-                    "matches_played": 5,
-                    "innings_bowled": 5,
-                    "balls_bowled": 96,
-                    "overs_bowled_str": "16.0",
-                    "runs_conceded": 127,
+                    "matches_played": 6,
+                    "innings_bowled": 6,
+                    "balls_bowled": 102,
+                    "overs_bowled_str": "17.0",
+                    "runs_conceded": 141,
                     "wickets": 7,
                     "maidens": 0,
-                    "dots_bowled": 34,
+                    "dots_bowled": 35,
                     "noballs": 0,
                     "wides": 8,
                     "three_wickets": 1,
                     "five_wickets": 0,
-                    "economy_rate": 7.94,
-                    "average": 18.14,
-                    "strike_rate": 13.71,
+                    "economy_rate": 8.29,
+                    "average": 20.14,
+                    "strike_rate": 14.57,
                     "wickets_in_pp": 6,
                     "wickets_in_do": 1,
-                    "dot_ball_percentage": 35.42,
-                    "extras_per_over": 0.5,
+                    "dot_ball_percentage": 34.31,
+                    "extras_per_over": 0.47,
                     "best_economy_innings": {
                         "value": 6.67,
                         "overs_bowled_str": "3",
@@ -99562,7 +99978,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 1,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             }
         },
         "player_photo": ""
@@ -103424,29 +103840,30 @@
                     "SOBO Mumbai Falcons"
                 ],
                 "batting": {
-                    "matches_played": 4,
-                    "innings_batted": 4,
-                    "runs": 96,
-                    "balls": 57,
+                    "matches_played": 5,
+                    "innings_batted": 5,
+                    "runs": 104,
+                    "balls": 62,
                     "fours": 6,
-                    "sixes": 8,
-                    "dots": 24,
+                    "sixes": 9,
+                    "dots": 26,
                     "not_outs": 2,
                     "highest_score": 64,
                     "fifties": 1,
                     "hundreds": 0,
-                    "strike_rate": 168.42,
-                    "average": 48.0,
+                    "strike_rate": 167.74,
+                    "average": 34.67,
                     "dismissal_types": {
                         "c Parikshit Sanjay Valsangkar": 1,
-                        "run out (Vinay Suresh Kunwar)": 1
+                        "run out (Vinay Suresh Kunwar)": 1,
+                        "c Suved Vijay Parkar": 1
                     },
                     "dismissals_in_pp": 1,
                     "dismissals_in_do": 0,
                     "boundary_percentage": 75.0,
-                    "dot_ball_percentage": 42.11,
-                    "balls_per_boundary": 4.07,
-                    "ones": 14,
+                    "dot_ball_percentage": 41.94,
+                    "balls_per_boundary": 4.13,
+                    "ones": 16,
                     "twos": 5,
                     "threes": 0,
                     "highest_strike_rate_innings": {
@@ -103472,30 +103889,30 @@
                     "dot_ball_frequency": 2.38
                 },
                 "bowling": {
-                    "matches_played": 2,
-                    "innings_bowled": 2,
-                    "balls_bowled": 30,
-                    "overs_bowled_str": "5.0",
-                    "runs_conceded": 41,
+                    "matches_played": 3,
+                    "innings_bowled": 3,
+                    "balls_bowled": 54,
+                    "overs_bowled_str": "9.0",
+                    "runs_conceded": 63,
                     "wickets": 3,
                     "maidens": 0,
-                    "dots_bowled": 10,
-                    "noballs": 0,
+                    "dots_bowled": 19,
+                    "noballs": 1,
                     "wides": 1,
                     "three_wickets": 1,
                     "five_wickets": 0,
-                    "economy_rate": 8.2,
-                    "average": 13.67,
-                    "strike_rate": 10.0,
+                    "economy_rate": 7.0,
+                    "average": 21.0,
+                    "strike_rate": 18.0,
                     "wickets_in_pp": 0,
                     "wickets_in_do": 1,
-                    "dot_ball_percentage": 33.33,
-                    "extras_per_over": 0.2,
+                    "dot_ball_percentage": 35.19,
+                    "extras_per_over": 0.22,
                     "best_economy_innings": {
-                        "value": 7.5,
+                        "value": 5.5,
                         "overs_bowled_str": "4",
-                        "runs_conceded": 30,
-                        "match_id": "1659"
+                        "runs_conceded": 22,
+                        "match_id": "1665"
                     },
                     "best_strike_rate_innings": {
                         "value": 8.0,
@@ -103520,7 +103937,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             },
             "overall": {
                 "team_name": "",
@@ -103528,26 +103945,26 @@
                     "SOBO Mumbai Falcons"
                 ],
                 "batting": {
-                    "matches_played": 4,
-                    "innings_batted": 4,
-                    "runs": 96,
-                    "balls": 57,
+                    "matches_played": 5,
+                    "innings_batted": 5,
+                    "runs": 104,
+                    "balls": 62,
                     "fours": 6,
-                    "sixes": 8,
-                    "dots": 24,
+                    "sixes": 9,
+                    "dots": 26,
                     "not_outs": 2,
                     "highest_score": 64,
                     "fifties": 1,
                     "hundreds": 0,
-                    "strike_rate": 168.42,
-                    "average": 48.0,
+                    "strike_rate": 167.74,
+                    "average": 34.67,
                     "dismissal_types": {},
                     "dismissals_in_pp": 1,
                     "dismissals_in_do": 0,
                     "boundary_percentage": 75.0,
-                    "dot_ball_percentage": 42.11,
-                    "balls_per_boundary": 4.07,
-                    "ones": 14,
+                    "dot_ball_percentage": 41.94,
+                    "balls_per_boundary": 4.13,
+                    "ones": 16,
                     "twos": 5,
                     "threes": 0,
                     "highest_strike_rate_innings": {
@@ -103573,30 +103990,30 @@
                     "dot_ball_frequency": 2.38
                 },
                 "bowling": {
-                    "matches_played": 2,
-                    "innings_bowled": 2,
-                    "balls_bowled": 30,
-                    "overs_bowled_str": "5.0",
-                    "runs_conceded": 41,
+                    "matches_played": 3,
+                    "innings_bowled": 3,
+                    "balls_bowled": 54,
+                    "overs_bowled_str": "9.0",
+                    "runs_conceded": 63,
                     "wickets": 3,
                     "maidens": 0,
-                    "dots_bowled": 10,
-                    "noballs": 0,
+                    "dots_bowled": 19,
+                    "noballs": 1,
                     "wides": 1,
                     "three_wickets": 1,
                     "five_wickets": 0,
-                    "economy_rate": 8.2,
-                    "average": 13.67,
-                    "strike_rate": 10.0,
+                    "economy_rate": 7.0,
+                    "average": 21.0,
+                    "strike_rate": 18.0,
                     "wickets_in_pp": 0,
                     "wickets_in_do": 1,
-                    "dot_ball_percentage": 33.33,
-                    "extras_per_over": 0.2,
+                    "dot_ball_percentage": 35.19,
+                    "extras_per_over": 0.22,
                     "best_economy_innings": {
-                        "value": 7.5,
+                        "value": 5.5,
                         "overs_bowled_str": "4",
-                        "runs_conceded": 30,
-                        "match_id": "1659"
+                        "runs_conceded": 22,
+                        "match_id": "1665"
                     },
                     "best_strike_rate_innings": {
                         "value": 8.0,
@@ -103621,7 +104038,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             }
         },
         "player_photo": ""
@@ -105454,31 +105871,32 @@
                     "Bandra Blasters"
                 ],
                 "batting": {
-                    "matches_played": 4,
-                    "innings_batted": 4,
-                    "runs": 92,
-                    "balls": 66,
-                    "fours": 3,
-                    "sixes": 7,
-                    "dots": 21,
+                    "matches_played": 5,
+                    "innings_batted": 5,
+                    "runs": 126,
+                    "balls": 96,
+                    "fours": 4,
+                    "sixes": 9,
+                    "dots": 30,
                     "not_outs": 0,
                     "highest_score": 52,
                     "fifties": 1,
                     "hundreds": 0,
-                    "strike_rate": 139.39,
-                    "average": 23.0,
+                    "strike_rate": 131.25,
+                    "average": 25.2,
                     "dismissal_types": {
                         "c Sourabh Santosh Singh": 1,
                         "c Shashank Vinayak Attarde": 1,
                         "bowled": 1,
-                        "c Siddhant Mangesh Adhatrao": 1
+                        "c Siddhant Mangesh Adhatrao": 1,
+                        "c Siddharth Jayesh Raut": 1
                     },
                     "dismissals_in_pp": 0,
-                    "dismissals_in_do": 4,
-                    "boundary_percentage": 58.7,
-                    "dot_ball_percentage": 31.82,
-                    "balls_per_boundary": 6.6,
-                    "ones": 32,
+                    "dismissals_in_do": 5,
+                    "boundary_percentage": 55.56,
+                    "dot_ball_percentage": 31.25,
+                    "balls_per_boundary": 7.38,
+                    "ones": 50,
                     "twos": 3,
                     "threes": 0,
                     "highest_strike_rate_innings": {
@@ -105501,28 +105919,28 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 3.14
+                    "dot_ball_frequency": 3.2
                 },
                 "bowling": {
-                    "matches_played": 4,
-                    "innings_bowled": 4,
-                    "balls_bowled": 90,
-                    "overs_bowled_str": "15.0",
-                    "runs_conceded": 110,
-                    "wickets": 5,
+                    "matches_played": 5,
+                    "innings_bowled": 5,
+                    "balls_bowled": 114,
+                    "overs_bowled_str": "19.0",
+                    "runs_conceded": 140,
+                    "wickets": 6,
                     "maidens": 0,
-                    "dots_bowled": 28,
+                    "dots_bowled": 36,
                     "noballs": 2,
                     "wides": 3,
                     "three_wickets": 1,
                     "five_wickets": 0,
-                    "economy_rate": 7.33,
-                    "average": 22.0,
-                    "strike_rate": 18.0,
+                    "economy_rate": 7.37,
+                    "average": 23.33,
+                    "strike_rate": 19.0,
                     "wickets_in_pp": 0,
                     "wickets_in_do": 0,
-                    "dot_ball_percentage": 31.11,
-                    "extras_per_over": 0.33,
+                    "dot_ball_percentage": 31.58,
+                    "extras_per_over": 0.26,
                     "best_economy_innings": {
                         "value": 6.5,
                         "overs_bowled_str": "4",
@@ -105552,7 +105970,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 1,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             },
             "overall": {
                 "team_name": "",
@@ -105560,26 +105978,26 @@
                     "Bandra Blasters"
                 ],
                 "batting": {
-                    "matches_played": 4,
-                    "innings_batted": 4,
-                    "runs": 92,
-                    "balls": 66,
-                    "fours": 3,
-                    "sixes": 7,
-                    "dots": 21,
+                    "matches_played": 5,
+                    "innings_batted": 5,
+                    "runs": 126,
+                    "balls": 96,
+                    "fours": 4,
+                    "sixes": 9,
+                    "dots": 30,
                     "not_outs": 0,
                     "highest_score": 52,
                     "fifties": 1,
                     "hundreds": 0,
-                    "strike_rate": 139.39,
-                    "average": 23.0,
+                    "strike_rate": 131.25,
+                    "average": 25.2,
                     "dismissal_types": {},
                     "dismissals_in_pp": 0,
-                    "dismissals_in_do": 4,
-                    "boundary_percentage": 58.7,
-                    "dot_ball_percentage": 31.82,
-                    "balls_per_boundary": 6.6,
-                    "ones": 32,
+                    "dismissals_in_do": 5,
+                    "boundary_percentage": 55.56,
+                    "dot_ball_percentage": 31.25,
+                    "balls_per_boundary": 7.38,
+                    "ones": 50,
                     "twos": 3,
                     "threes": 0,
                     "highest_strike_rate_innings": {
@@ -105602,28 +106020,28 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 3.14
+                    "dot_ball_frequency": 3.2
                 },
                 "bowling": {
-                    "matches_played": 4,
-                    "innings_bowled": 4,
-                    "balls_bowled": 90,
-                    "overs_bowled_str": "15.0",
-                    "runs_conceded": 110,
-                    "wickets": 5,
+                    "matches_played": 5,
+                    "innings_bowled": 5,
+                    "balls_bowled": 114,
+                    "overs_bowled_str": "19.0",
+                    "runs_conceded": 140,
+                    "wickets": 6,
                     "maidens": 0,
-                    "dots_bowled": 28,
+                    "dots_bowled": 36,
                     "noballs": 2,
                     "wides": 3,
                     "three_wickets": 1,
                     "five_wickets": 0,
-                    "economy_rate": 7.33,
-                    "average": 22.0,
-                    "strike_rate": 18.0,
+                    "economy_rate": 7.37,
+                    "average": 23.33,
+                    "strike_rate": 19.0,
                     "wickets_in_pp": 0,
                     "wickets_in_do": 0,
-                    "dot_ball_percentage": 31.11,
-                    "extras_per_over": 0.33,
+                    "dot_ball_percentage": 31.58,
+                    "extras_per_over": 0.26,
                     "best_economy_innings": {
                         "value": 6.5,
                         "overs_bowled_str": "4",
@@ -105653,7 +106071,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 1,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             }
         },
         "player_photo": "https://mca-cdn.ken42.com/dhrumil_matkar_9_11zon.jpg"
@@ -106673,18 +107091,18 @@
                     "Bandra Blasters"
                 ],
                 "batting": {
-                    "matches_played": 2,
-                    "innings_batted": 2,
+                    "matches_played": 3,
+                    "innings_batted": 3,
                     "runs": 3,
-                    "balls": 5,
+                    "balls": 7,
                     "fours": 0,
                     "sixes": 0,
-                    "dots": 2,
-                    "not_outs": 1,
+                    "dots": 4,
+                    "not_outs": 2,
                     "highest_score": 2,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 60.0,
+                    "strike_rate": 42.86,
                     "average": 3.0,
                     "dismissal_types": {
                         "run out (Hardik Jitendra Tamore)": 1
@@ -106692,7 +107110,7 @@
                     "dismissals_in_pp": 0,
                     "dismissals_in_do": 1,
                     "boundary_percentage": 0.0,
-                    "dot_ball_percentage": 40.0,
+                    "dot_ball_percentage": 57.14,
                     "balls_per_boundary": "inf",
                     "ones": 3,
                     "twos": 0,
@@ -106717,33 +107135,33 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 2.5
+                    "dot_ball_frequency": 1.75
                 },
                 "bowling": {
-                    "matches_played": 5,
-                    "innings_bowled": 5,
-                    "balls_bowled": 108,
-                    "overs_bowled_str": "18.0",
-                    "runs_conceded": 144,
+                    "matches_played": 6,
+                    "innings_bowled": 6,
+                    "balls_bowled": 114,
+                    "overs_bowled_str": "19.0",
+                    "runs_conceded": 147,
                     "wickets": 6,
                     "maidens": 0,
-                    "dots_bowled": 46,
+                    "dots_bowled": 49,
                     "noballs": 0,
                     "wides": 2,
                     "three_wickets": 0,
                     "five_wickets": 0,
-                    "economy_rate": 8.0,
-                    "average": 24.0,
-                    "strike_rate": 18.0,
+                    "economy_rate": 7.74,
+                    "average": 24.5,
+                    "strike_rate": 19.0,
                     "wickets_in_pp": 4,
                     "wickets_in_do": 2,
-                    "dot_ball_percentage": 42.59,
+                    "dot_ball_percentage": 42.98,
                     "extras_per_over": 0.11,
                     "best_economy_innings": {
-                        "value": 6.0,
-                        "overs_bowled_str": "2",
-                        "runs_conceded": 12,
-                        "match_id": "1656"
+                        "value": 3.0,
+                        "overs_bowled_str": "1",
+                        "runs_conceded": 3,
+                        "match_id": "1665"
                     },
                     "best_strike_rate_innings": {
                         "value": 12.0,
@@ -106768,7 +107186,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             },
             "overall": {
                 "team_name": "",
@@ -106776,24 +107194,24 @@
                     "Bandra Blasters"
                 ],
                 "batting": {
-                    "matches_played": 2,
-                    "innings_batted": 2,
+                    "matches_played": 3,
+                    "innings_batted": 3,
                     "runs": 3,
-                    "balls": 5,
+                    "balls": 7,
                     "fours": 0,
                     "sixes": 0,
-                    "dots": 2,
-                    "not_outs": 1,
+                    "dots": 4,
+                    "not_outs": 2,
                     "highest_score": 2,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 60.0,
+                    "strike_rate": 42.86,
                     "average": 3.0,
                     "dismissal_types": {},
                     "dismissals_in_pp": 0,
                     "dismissals_in_do": 1,
                     "boundary_percentage": 0.0,
-                    "dot_ball_percentage": 40.0,
+                    "dot_ball_percentage": 57.14,
                     "balls_per_boundary": "inf",
                     "ones": 3,
                     "twos": 0,
@@ -106818,33 +107236,33 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 2.5
+                    "dot_ball_frequency": 1.75
                 },
                 "bowling": {
-                    "matches_played": 5,
-                    "innings_bowled": 5,
-                    "balls_bowled": 108,
-                    "overs_bowled_str": "18.0",
-                    "runs_conceded": 144,
+                    "matches_played": 6,
+                    "innings_bowled": 6,
+                    "balls_bowled": 114,
+                    "overs_bowled_str": "19.0",
+                    "runs_conceded": 147,
                     "wickets": 6,
                     "maidens": 0,
-                    "dots_bowled": 46,
+                    "dots_bowled": 49,
                     "noballs": 0,
                     "wides": 2,
                     "three_wickets": 0,
                     "five_wickets": 0,
-                    "economy_rate": 8.0,
-                    "average": 24.0,
-                    "strike_rate": 18.0,
+                    "economy_rate": 7.74,
+                    "average": 24.5,
+                    "strike_rate": 19.0,
                     "wickets_in_pp": 4,
                     "wickets_in_do": 2,
-                    "dot_ball_percentage": 42.59,
+                    "dot_ball_percentage": 42.98,
                     "extras_per_over": 0.11,
                     "best_economy_innings": {
-                        "value": 6.0,
-                        "overs_bowled_str": "2",
-                        "runs_conceded": 12,
-                        "match_id": "1656"
+                        "value": 3.0,
+                        "overs_bowled_str": "1",
+                        "runs_conceded": 3,
+                        "match_id": "1665"
                     },
                     "best_strike_rate_innings": {
                         "value": 12.0,
@@ -106869,7 +107287,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 5
+                "total_matches_in_squad": 6
             }
         },
         "player_photo": ""
@@ -107485,36 +107903,37 @@
                     "Bandra Blasters"
                 ],
                 "batting": {
-                    "matches_played": 3,
-                    "innings_batted": 3,
-                    "runs": 35,
-                    "balls": 37,
+                    "matches_played": 4,
+                    "innings_batted": 4,
+                    "runs": 47,
+                    "balls": 47,
                     "fours": 1,
-                    "sixes": 1,
-                    "dots": 13,
+                    "sixes": 2,
+                    "dots": 16,
                     "not_outs": 0,
                     "highest_score": 16,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 94.59,
-                    "average": 11.67,
+                    "strike_rate": 100.0,
+                    "average": 11.75,
                     "dismissal_types": {
                         "bowled": 2,
-                        "c Atharva Vinod Ankolekar": 1
+                        "c Atharva Vinod Ankolekar": 1,
+                        "run out (Shreyas Santosh Iyer)": 1
                     },
                     "dismissals_in_pp": 1,
-                    "dismissals_in_do": 0,
-                    "boundary_percentage": 28.57,
-                    "dot_ball_percentage": 35.14,
-                    "balls_per_boundary": 18.5,
-                    "ones": 19,
+                    "dismissals_in_do": 1,
+                    "boundary_percentage": 34.04,
+                    "dot_ball_percentage": 34.04,
+                    "balls_per_boundary": 15.67,
+                    "ones": 25,
                     "twos": 3,
                     "threes": 0,
                     "highest_strike_rate_innings": {
-                        "value": 100.0,
-                        "balls_faced": 16,
-                        "runs_scored": 16,
-                        "match_id": "1649"
+                        "value": 120.0,
+                        "balls_faced": 10,
+                        "runs_scored": 12,
+                        "match_id": "1665"
                     },
                     "most_sixes_innings": {
                         "count": 1,
@@ -107530,7 +107949,7 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 2.85
+                    "dot_ball_frequency": 2.94
                 },
                 "bowling": {
                     "matches_played": 0,
@@ -107581,7 +108000,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 3
+                "total_matches_in_squad": 4
             },
             "overall": {
                 "team_name": "",
@@ -107589,33 +108008,33 @@
                     "Bandra Blasters"
                 ],
                 "batting": {
-                    "matches_played": 3,
-                    "innings_batted": 3,
-                    "runs": 35,
-                    "balls": 37,
+                    "matches_played": 4,
+                    "innings_batted": 4,
+                    "runs": 47,
+                    "balls": 47,
                     "fours": 1,
-                    "sixes": 1,
-                    "dots": 13,
+                    "sixes": 2,
+                    "dots": 16,
                     "not_outs": 0,
                     "highest_score": 16,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 94.59,
-                    "average": 11.67,
+                    "strike_rate": 100.0,
+                    "average": 11.75,
                     "dismissal_types": {},
                     "dismissals_in_pp": 1,
-                    "dismissals_in_do": 0,
-                    "boundary_percentage": 28.57,
-                    "dot_ball_percentage": 35.14,
-                    "balls_per_boundary": 18.5,
-                    "ones": 19,
+                    "dismissals_in_do": 1,
+                    "boundary_percentage": 34.04,
+                    "dot_ball_percentage": 34.04,
+                    "balls_per_boundary": 15.67,
+                    "ones": 25,
                     "twos": 3,
                     "threes": 0,
                     "highest_strike_rate_innings": {
-                        "value": 100.0,
-                        "balls_faced": 16,
-                        "runs_scored": 16,
-                        "match_id": "1649"
+                        "value": 120.0,
+                        "balls_faced": 10,
+                        "runs_scored": 12,
+                        "match_id": "1665"
                     },
                     "most_sixes_innings": {
                         "count": 1,
@@ -107631,7 +108050,7 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 2.85
+                    "dot_ball_frequency": 2.94
                 },
                 "bowling": {
                     "matches_played": 0,
@@ -107682,7 +108101,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 3
+                "total_matches_in_squad": 4
             }
         },
         "player_photo": "https://mca-cdn.ken42.com/we_transfer/4M2A6561.jpg"
@@ -108302,19 +108721,19 @@
                     "SOBO Mumbai Falcons"
                 ],
                 "batting": {
-                    "matches_played": 5,
-                    "innings_batted": 5,
-                    "runs": 147,
-                    "balls": 89,
-                    "fours": 10,
-                    "sixes": 11,
-                    "dots": 27,
-                    "not_outs": 1,
+                    "matches_played": 6,
+                    "innings_batted": 6,
+                    "runs": 199,
+                    "balls": 123,
+                    "fours": 12,
+                    "sixes": 14,
+                    "dots": 32,
+                    "not_outs": 2,
                     "highest_score": 61,
-                    "fifties": 2,
+                    "fifties": 3,
                     "hundreds": 0,
-                    "strike_rate": 165.17,
-                    "average": 36.75,
+                    "strike_rate": 161.79,
+                    "average": 49.75,
                     "dismissal_types": {
                         "bowled": 1,
                         "c Suryansh Prashant Shedge": 1,
@@ -108323,11 +108742,11 @@
                     },
                     "dismissals_in_pp": 3,
                     "dismissals_in_do": 0,
-                    "boundary_percentage": 72.11,
-                    "dot_ball_percentage": 30.34,
-                    "balls_per_boundary": 4.24,
-                    "ones": 41,
-                    "twos": 0,
+                    "boundary_percentage": 66.33,
+                    "dot_ball_percentage": 26.02,
+                    "balls_per_boundary": 4.73,
+                    "ones": 63,
+                    "twos": 2,
                     "threes": 0,
                     "highest_strike_rate_innings": {
                         "value": 244.0,
@@ -108349,7 +108768,7 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 3.3
+                    "dot_ball_frequency": 3.84
                 },
                 "bowling": {
                     "matches_played": 2,
@@ -108399,8 +108818,8 @@
                     "run_outs_direct": 0,
                     "run_outs_assisted": 0
                 },
-                "player_of_match_awards": 0,
-                "total_matches_in_squad": 5
+                "player_of_match_awards": 1,
+                "total_matches_in_squad": 6
             },
             "overall": {
                 "team_name": "",
@@ -108408,27 +108827,27 @@
                     "SOBO Mumbai Falcons"
                 ],
                 "batting": {
-                    "matches_played": 5,
-                    "innings_batted": 5,
-                    "runs": 147,
-                    "balls": 89,
-                    "fours": 10,
-                    "sixes": 11,
-                    "dots": 27,
-                    "not_outs": 1,
+                    "matches_played": 6,
+                    "innings_batted": 6,
+                    "runs": 199,
+                    "balls": 123,
+                    "fours": 12,
+                    "sixes": 14,
+                    "dots": 32,
+                    "not_outs": 2,
                     "highest_score": 61,
-                    "fifties": 2,
+                    "fifties": 3,
                     "hundreds": 0,
-                    "strike_rate": 165.17,
-                    "average": 36.75,
+                    "strike_rate": 161.79,
+                    "average": 49.75,
                     "dismissal_types": {},
                     "dismissals_in_pp": 3,
                     "dismissals_in_do": 0,
-                    "boundary_percentage": 72.11,
-                    "dot_ball_percentage": 30.34,
-                    "balls_per_boundary": 4.24,
-                    "ones": 41,
-                    "twos": 0,
+                    "boundary_percentage": 66.33,
+                    "dot_ball_percentage": 26.02,
+                    "balls_per_boundary": 4.73,
+                    "ones": 63,
+                    "twos": 2,
                     "threes": 0,
                     "highest_strike_rate_innings": {
                         "value": 244.0,
@@ -108450,7 +108869,7 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 3.3
+                    "dot_ball_frequency": 3.84
                 },
                 "bowling": {
                     "matches_played": 2,
@@ -108500,8 +108919,8 @@
                     "run_outs_direct": 0,
                     "run_outs_assisted": 0
                 },
-                "player_of_match_awards": 0,
-                "total_matches_in_squad": 5
+                "player_of_match_awards": 1,
+                "total_matches_in_squad": 6
             }
         },
         "player_photo": "https://mca-cdn.ken42.com/we_transfer/jpeg-optimizer_4M2A6118.JPG"
@@ -110333,26 +110752,27 @@
                     "Bandra Blasters"
                 ],
                 "batting": {
-                    "matches_played": 1,
-                    "innings_batted": 1,
+                    "matches_played": 2,
+                    "innings_batted": 2,
                     "runs": 3,
-                    "balls": 5,
+                    "balls": 6,
                     "fours": 0,
                     "sixes": 0,
-                    "dots": 2,
+                    "dots": 3,
                     "not_outs": 0,
                     "highest_score": 3,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 60.0,
-                    "average": 3.0,
+                    "strike_rate": 50.0,
+                    "average": 1.5,
                     "dismissal_types": {
-                        "c Vinay Suresh Kunwar": 1
+                        "c Vinay Suresh Kunwar": 1,
+                        "run out (Akash Pravin Parkar)": 1
                     },
                     "dismissals_in_pp": 0,
-                    "dismissals_in_do": 1,
+                    "dismissals_in_do": 2,
                     "boundary_percentage": 0.0,
-                    "dot_ball_percentage": 40.0,
+                    "dot_ball_percentage": 50.0,
                     "balls_per_boundary": "inf",
                     "ones": 3,
                     "twos": 0,
@@ -110377,28 +110797,28 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 2.5
+                    "dot_ball_frequency": 2.0
                 },
                 "bowling": {
-                    "matches_played": 3,
-                    "innings_bowled": 3,
-                    "balls_bowled": 23,
-                    "overs_bowled_str": "3.5",
-                    "runs_conceded": 33,
+                    "matches_played": 4,
+                    "innings_bowled": 4,
+                    "balls_bowled": 29,
+                    "overs_bowled_str": "4.5",
+                    "runs_conceded": 42,
                     "wickets": 0,
                     "maidens": 0,
-                    "dots_bowled": 5,
+                    "dots_bowled": 7,
                     "noballs": 0,
                     "wides": 2,
                     "three_wickets": 0,
                     "five_wickets": 0,
-                    "economy_rate": 8.61,
+                    "economy_rate": 8.69,
                     "average": "inf",
                     "strike_rate": "inf",
                     "wickets_in_pp": 0,
                     "wickets_in_do": 0,
-                    "dot_ball_percentage": 21.74,
-                    "extras_per_over": 0.52,
+                    "dot_ball_percentage": 24.14,
+                    "extras_per_over": 0.41,
                     "best_economy_innings": {
                         "value": 6.55,
                         "overs_bowled_str": "1.5",
@@ -110428,7 +110848,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 4
+                "total_matches_in_squad": 5
             },
             "overall": {
                 "team_name": "",
@@ -110436,24 +110856,24 @@
                     "Bandra Blasters"
                 ],
                 "batting": {
-                    "matches_played": 1,
-                    "innings_batted": 1,
+                    "matches_played": 2,
+                    "innings_batted": 2,
                     "runs": 3,
-                    "balls": 5,
+                    "balls": 6,
                     "fours": 0,
                     "sixes": 0,
-                    "dots": 2,
+                    "dots": 3,
                     "not_outs": 0,
                     "highest_score": 3,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 60.0,
-                    "average": 3.0,
+                    "strike_rate": 50.0,
+                    "average": 1.5,
                     "dismissal_types": {},
                     "dismissals_in_pp": 0,
-                    "dismissals_in_do": 1,
+                    "dismissals_in_do": 2,
                     "boundary_percentage": 0.0,
-                    "dot_ball_percentage": 40.0,
+                    "dot_ball_percentage": 50.0,
                     "balls_per_boundary": "inf",
                     "ones": 3,
                     "twos": 0,
@@ -110478,28 +110898,28 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 2.5
+                    "dot_ball_frequency": 2.0
                 },
                 "bowling": {
-                    "matches_played": 3,
-                    "innings_bowled": 3,
-                    "balls_bowled": 23,
-                    "overs_bowled_str": "3.5",
-                    "runs_conceded": 33,
+                    "matches_played": 4,
+                    "innings_bowled": 4,
+                    "balls_bowled": 29,
+                    "overs_bowled_str": "4.5",
+                    "runs_conceded": 42,
                     "wickets": 0,
                     "maidens": 0,
-                    "dots_bowled": 5,
+                    "dots_bowled": 7,
                     "noballs": 0,
                     "wides": 2,
                     "three_wickets": 0,
                     "five_wickets": 0,
-                    "economy_rate": 8.61,
+                    "economy_rate": 8.69,
                     "average": "inf",
                     "strike_rate": "inf",
                     "wickets_in_pp": 0,
                     "wickets_in_do": 0,
-                    "dot_ball_percentage": 21.74,
-                    "extras_per_over": 0.52,
+                    "dot_ball_percentage": 24.14,
+                    "extras_per_over": 0.41,
                     "best_economy_innings": {
                         "value": 6.55,
                         "overs_bowled_str": "1.5",
@@ -110529,7 +110949,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 4
+                "total_matches_in_squad": 5
             }
         },
         "player_photo": "https://mca-cdn.ken42.com/Emerging%20Players/Parth%20Ankolekar_6_11zon.jpg"
@@ -111146,19 +111566,19 @@
                     "SOBO Mumbai Falcons"
                 ],
                 "batting": {
-                    "matches_played": 2,
-                    "innings_batted": 2,
-                    "runs": 8,
-                    "balls": 10,
+                    "matches_played": 3,
+                    "innings_batted": 3,
+                    "runs": 9,
+                    "balls": 11,
                     "fours": 0,
                     "sixes": 0,
                     "dots": 4,
-                    "not_outs": 0,
+                    "not_outs": 1,
                     "highest_score": 8,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 80.0,
-                    "average": 4.0,
+                    "strike_rate": 81.82,
+                    "average": 4.5,
                     "dismissal_types": {
                         "c Hrishikesh Bhushan Gore": 1,
                         "c Amit Haredra Pandey": 1
@@ -111166,9 +111586,9 @@
                     "dismissals_in_pp": 1,
                     "dismissals_in_do": 0,
                     "boundary_percentage": 0.0,
-                    "dot_ball_percentage": 40.0,
+                    "dot_ball_percentage": 36.36,
                     "balls_per_boundary": "inf",
-                    "ones": 4,
+                    "ones": 5,
                     "twos": 2,
                     "threes": 0,
                     "highest_strike_rate_innings": {
@@ -111191,7 +111611,7 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 2.5
+                    "dot_ball_frequency": 2.75
                 },
                 "bowling": {
                     "matches_played": 0,
@@ -111242,7 +111662,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 3
+                "total_matches_in_squad": 4
             },
             "overall": {
                 "team_name": "",
@@ -111250,26 +111670,26 @@
                     "SOBO Mumbai Falcons"
                 ],
                 "batting": {
-                    "matches_played": 2,
-                    "innings_batted": 2,
-                    "runs": 8,
-                    "balls": 10,
+                    "matches_played": 3,
+                    "innings_batted": 3,
+                    "runs": 9,
+                    "balls": 11,
                     "fours": 0,
                     "sixes": 0,
                     "dots": 4,
-                    "not_outs": 0,
+                    "not_outs": 1,
                     "highest_score": 8,
                     "fifties": 0,
                     "hundreds": 0,
-                    "strike_rate": 80.0,
-                    "average": 4.0,
+                    "strike_rate": 81.82,
+                    "average": 4.5,
                     "dismissal_types": {},
                     "dismissals_in_pp": 1,
                     "dismissals_in_do": 0,
                     "boundary_percentage": 0.0,
-                    "dot_ball_percentage": 40.0,
+                    "dot_ball_percentage": 36.36,
                     "balls_per_boundary": "inf",
-                    "ones": 4,
+                    "ones": 5,
                     "twos": 2,
                     "threes": 0,
                     "highest_strike_rate_innings": {
@@ -111292,7 +111712,7 @@
                         "runs": 0,
                         "match_id": ""
                     },
-                    "dot_ball_frequency": 2.5
+                    "dot_ball_frequency": 2.75
                 },
                 "bowling": {
                     "matches_played": 0,
@@ -111343,7 +111763,7 @@
                     "run_outs_assisted": 0
                 },
                 "player_of_match_awards": 0,
-                "total_matches_in_squad": 3
+                "total_matches_in_squad": 4
             }
         },
         "player_photo": "https://mca-cdn.ken42.com/we_transfer/jpeg-optimizer_4M2A6411.JPG"
