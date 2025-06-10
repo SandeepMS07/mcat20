@@ -46,7 +46,9 @@ const CustomTable = ({
 
   return (
     <div className="w-full overflow-auto">
-      <table className="w-full table-auto  border-collapse text-sm relative min-w-[450px]">
+      <table className={`w-full table-auto  border-collapse text-sm relative min-w-[450px]
+         ${isHomeTable && isMobile ?  "  min-w-[450px]":" min-w-[800px]" }`
+      }>
         <div
           className={`bg-[#001B31]   border-r-[50px]  top-3 md:top-3 border-[#F15A22] h-10   z-10 absolute
                                 ${isHomeTable && isMobile ?  " w-full":"w-[99.8%]" }
@@ -81,7 +83,7 @@ const CustomTable = ({
                   key={index}
                   className={`
                      ${isHomeTable && isMobile ?  "text-center ":"text-left pl-[2rem]" }
-      ${!isHomeTable && !isMobile && index === 1 ? "pr-[2rem] " : ""}
+      ${(!isHomeTable && !isMobile && index === 1 || !isHomeTable) ? "pr-[2rem] " : ""}
       ${index === filteredHeaders.length - 1 ? "pr-[13px]" : ""}
       py-4  font-bold text-transparent bg-clip-text
     `}
