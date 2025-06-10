@@ -129,7 +129,7 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="absolute bottom-40 -right-0 hidden md:block">
+              {/* <div className="absolute bottom-40 -right-0 hidden md:block">
                 <div
                   className="w-full rounded-l-xl md:rounded-l-xl border-y-2 border-l-2  border-[#E07E27] shadow-2xl overflow-hidden cursor-pointer"
                   onClick={() => {
@@ -157,7 +157,7 @@ const Hero = () => {
                     total_matches={nextMatch.total_matches}
                   />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </SwiperSlide>
@@ -213,7 +213,7 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="absolute bottom-40 -right-0 hidden md:block">
+              {/* <div className="absolute bottom-40 -right-0 hidden md:block">
                 <div
                   className="w-full rounded-l-xl md:rounded-l-xl border-y-2 border-l-2  border-[#E07E27] shadow-2xl overflow-hidden cursor-pointer"
                   onClick={() => {
@@ -241,7 +241,7 @@ const Hero = () => {
                     total_matches={nextMatch.total_matches}
                   />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </SwiperSlide>
@@ -489,7 +489,7 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="absolute bottom-40 -right-0 hidden md:block">
+              {/* <div className="absolute bottom-40 -right-0 hidden md:block">
                 <div
                   className="w-full rounded-l-xl md:rounded-l-xl border-y-2 border-l-2  border-[#E07E27] shadow-2xl overflow-hidden cursor-pointer"
                   onClick={() => {
@@ -517,7 +517,7 @@ const Hero = () => {
                     total_matches={nextMatch.total_matches}
                   />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </SwiperSlide>
@@ -573,7 +573,7 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="absolute bottom-40 -right-0 hidden md:block">
+              {/* <div className="absolute bottom-40 -right-0 hidden md:block">
                 <div
                   className="w-full rounded-l-xl md:rounded-l-xl border-y-2 border-l-2  border-[#E07E27] shadow-2xl overflow-hidden cursor-pointer"
                   onClick={() => {
@@ -601,7 +601,7 @@ const Hero = () => {
                     total_matches={nextMatch.total_matches}
                   />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </SwiperSlide>
