@@ -136,7 +136,7 @@ const Page = () => {
         />
         <div className="gap-6 section-width section-padding ">
           <TitleComponent title={"Gallery"} />
-          <div className="relative w-full bg-[url('/images/gallery/Background.jpg')] bg-black bg-cover bg-center bg-no-repeat ">
+          <div className="relative w-full bg-[url('/images/gallery/background.jpg')] bg-black bg-cover bg-center bg-no-repeat ">
             <div className="absolute inset-0 bg-black/60"></div>
 
             <div className="relative w-full flex items-center z-10">
