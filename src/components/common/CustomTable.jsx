@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import "./style.css";
 
@@ -10,7 +10,21 @@ const CustomTable = ({
   headerStyles = {},
   rowStyles = {},
   tBodyStyles = {},
+  isHomeTable = false,
 }) => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 640);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const filteredHeaders = headers.filter((_, index) => {
+    if (isHomeTable && isMobile && (index === 6 || index === 7)) return false;
+    return true;
+  });
+
   return (
     <div className="w-full overflow-auto">
       <table className="w-full table-auto  border-collapse text-sm relative min-w-[800px]">
@@ -36,13 +50,14 @@ const CustomTable = ({
                 }, 1fr)`,
               }}
             >
-              {headers.map((header, index) => (
+              {filteredHeaders.map((header, index) => (
                 <th
                   key={index}
                   className={`
-            ${index === 1 ? "pr-[2rem]" : ""}
-            ${index === headers.length - 1 ? "pr-[13px]" : ""}
-            py-4 pl-[2rem] text-left font-bold text-transparent bg-clip-text`}
+      ${index === 1 ? "pr-[2rem]" : ""}
+      ${index === filteredHeaders.length - 1 ? "pr-[13px]" : ""}
+      py-4 pl-[2rem] text-left font-bold text-transparent bg-clip-text
+    `}
                   style={{
                     backgroundImage:
                       "linear-gradient(180deg, #666666 20.89%, #FFFFFF 48.4%, #666666 80.91%)",
@@ -60,7 +75,7 @@ const CustomTable = ({
         <tbody>
           {data.map((row, rowIndex) => (
             <tr key={rowIndex} className="relative pr-[2rem]">
-              <td colSpan={headers.length} className="relative p-0">
+              <td colSpan={filteredHeaders.length} className="relative p-0">
                 {/* Decorative layer */}
                 <div
                   className="absolute w-[100%] xl:w-[99%] h-10 z-10 mt-4 border-r-[60px] border-[#F15A22]"
@@ -91,12 +106,12 @@ const CustomTable = ({
                   <div
                     className="grid"
                     style={{
-                      gridTemplateColumns: `2fr repeat(${
-                        headers.length - 2
-                      }, 1fr)`, // 2fr for the second column, 1fr for others
+                      gridTemplateColumns: isMobile && isHomeTable
+                        ? `repeat(${filteredHeaders.length - 1}, .5fr)`
+                        : `2fr repeat(${filteredHeaders.length - 2}, 1fr)`,
                     }}
                   >
-                    {headers.slice(1).map((header, colIndex) => (
+                    {filteredHeaders.slice(1).map((header, colIndex) => (
                       <div
                         key={colIndex}
                         className={`p-4 text-center whitespace-nowrap border-[#222222] ${
