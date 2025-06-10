@@ -217,11 +217,10 @@ const MediaAll = ({ items, type, selectedFolder, setSelectedFolder }) => {
                 </div>
                 {firstImage && (
                   <div className="relative w-full h-60">
-                    <Image
+                    <img
                       src={firstImage}
                       alt={images?.[0]?.title || "Folder Preview"}
-                      fill
-                      className="object-cover"
+                      className="w-full h-full object-cover"
                     />
                   </div>
                 )}
@@ -260,17 +259,16 @@ const MediaAll = ({ items, type, selectedFolder, setSelectedFolder }) => {
                         setShowModal(true);
                       }}
                     >
-                      <Image
+                      <img
                         src={item.img || ""}
                         alt={item.title || "Gallery image"}
-                        fill
-                        className="object-cover"
+                        className="w-full h-full object-cover"
                         sizes="(max-width: 640px) 95vw, (max-width: 1024px) 45vw, 33vw"
                       />
 
                       {item.type === "video" && (
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <Image
+                          <img
                             src="/images/home/whyT2C/vidLogo.svg"
                             width={100}
                             height={100}
@@ -282,7 +280,7 @@ const MediaAll = ({ items, type, selectedFolder, setSelectedFolder }) => {
 
                       {item.views && item.type === "image" && (
                         <div className="absolute top-2 right-2">
-                          <Image
+                          <img
                             src="/images/home/whyT2C/imgIcon.svg"
                             width={100}
                             height={100}

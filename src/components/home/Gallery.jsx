@@ -236,7 +236,7 @@ const Gallery = () => {
                     </button>
                   )}
 
-                  <Image
+                  <img
                     src={validItems[currentIndex]?.img}
                     alt="popup"
                     width={1000}
@@ -262,7 +262,7 @@ const Gallery = () => {
           // }}
         >
           View Gallery
-          <Image
+          <img
             src="/images/home/hero/buttonIcon.svg"
             alt="button-icon"
             width={24}
