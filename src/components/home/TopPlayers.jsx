@@ -116,7 +116,7 @@ const getTopPlayersData = () => {
     })),
   };
 
-  console.log(topBowlers, "topboulwlefjl");
+  // console.log(topBowlers, "topboulwlefjl");
 
   return {
     batsman: batsmanData,
@@ -252,8 +252,8 @@ const TopPlayerCard = ({
   leaderboard = [],
 }) => {
   const isBatsman = type === "batsman";
-  console.log(leaderboard, "leaderboard");
-  console.log(teamName, "team anem");
+  // console.log(leaderboard, "leaderboard");
+  // console.log(teamName, "team anem");
   const statsConfig = isBatsman
     ? [
         { value: runs, label: "RUNS" },
@@ -316,7 +316,7 @@ const TopPlayerCard = ({
               <div className="flex justify-center w-[80%] xl:w-[50%] rounded-lg overflow-hidden">
                 <img
                   src={playerImage}
-                  className="w-full h-[250px] md:h-[300px] sm:object-contain  lg:object-cover rounded-lg"
+                  className="w-auto h-[250px] md:h-[300px] sm:object-contain  lg:object-cover rounded-lg"
                   alt={playerName}
                 />
               </div>

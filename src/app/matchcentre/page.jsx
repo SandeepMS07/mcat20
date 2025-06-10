@@ -10,7 +10,7 @@ export default function Page() {
 
     useEffect(() => {
         const queryString = window.location.search;
-        console.log(queryString, "queryString")
+        // console.log(queryString, "queryString")
         const fullUrl = `https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/matchcentre.html${queryString}`;
         setIframeSrc(fullUrl);
     }, []);

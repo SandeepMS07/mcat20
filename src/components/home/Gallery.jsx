@@ -1,40 +1,64 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import Image from "next/image";
 import TitleComponent from "../common/TitleComponent";
 import Link from "next/link";
 import routes from "@/utilis/route";
-import images from "../../app/gallery/images";
-import { getImagesClient } from "../../app/api/clientApi";
+// import { images } from "../../app/gallery/images";
+import LoadingPage from "@/app/loading";
+import { getImagesClient } from "@/app/api/clientApi";
 
 const Gallery = () => {
-  const [validItems, setValidItems] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [modalImage, setModalImage] = useState(null);
-  const [currentIndex, setCurrentIndex] = useState(null);
-
-  const [layoutConfig, setLayoutConfig] = useState([
-    [2, 2, 2, 1],
-    [1, 2, 2, 2],
-  ]);
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
     const fetchImages = async () => {
-      setLoading(true);
       try {
+        setLoading(true);
         const imageRes = await getImagesClient();
         const formattedImages =
-          imageRes?.data
-            ?.map((item) => ({
-              ...item,
-              type: "image",
-              img: item.Image_URL__c,
-            }))
-            .sort((a, b) => b.Order__c - a.Order__c) || [];
+          imageRes?.data?.map((item) => ({
+            ...item,
+            type: "image",
+            img: item.Image_URL__c,
+          })) || [];
 
-        setValidItems(formattedImages.slice(0, 8));
+        const isMatchTag = (tag) => /^Match\s\d+/i.test(tag);
+
+        const extractMatchNumber = (tag) => {
+          const match = tag.match(/^Match\s(\d+)/i);
+          return match ? parseInt(match[1], 10) : 0;
+        };
+
+        console.log(formattedImages, "formattedImages");
+        const filteredImages = formattedImages.filter(
+          (item) => item.Tag__c !== null && item.Tag__c !== undefined
+        );
+
+        const sortedImages = filteredImages.sort((a, b) => {
+          const aTag = a.Tag__c || "";
+          const bTag = b.Tag__c || "";
+
+          const aIsMatch = isMatchTag(aTag);
+          const bIsMatch = isMatchTag(bTag);
+
+          if (aIsMatch && bIsMatch) {
+            // Sort descending numerically for Match tags
+            return extractMatchNumber(bTag) - extractMatchNumber(aTag);
+          } else if (aIsMatch) {
+            return -1;
+          } else if (bIsMatch) {
+            return 1;
+          } else {
+            // Sort Z → A for non-Match tags
+            return bTag.localeCompare(aTag);
+          }
+        });
+
+        // console.log(sortedImages, "sortedImages");
+        setImages(sortedImages.slice(0, 8));
       } catch (err) {
         console.error("Error fetching images:", err);
       } finally {
@@ -45,31 +69,37 @@ const Gallery = () => {
     fetchImages();
   }, []);
 
-  // Function to determine layout based on screen size
+  const validItems =
+    Array.isArray(images) && images.length > 0 ? images.slice(0, 8) : [];
+
+  const [showModal, setShowModal] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(null);
+
+  const [layoutConfig, setLayoutConfig] = useState([
+    [2, 2, 2, 1],
+    [1, 2, 2, 2],
+    [1, 2, 2, 2],
+  ]);
+
   const updateLayout = () => {
     if (typeof window !== "undefined") {
       if (window.innerWidth < 640) {
-        // Mobile layout - single column with all 11 images
         setLayoutConfig([[7], [7], [7]]);
       } else if (window.innerWidth < 1024) {
-        // Tablet layout - simplified grid with all 11 images
         setLayoutConfig([
-          [3, 4], // 2 images
-          [4, 3], // 2 images
-          [3, 4], // 2 images
-        ]);
-      } else {
-        setLayoutConfig([
-          [1, 2, 2, 2],
-          [1, 2, 1, 3],
+          [3, 4],
+          [4, 3],
+          [3, 4],
         ]);
       }
     }
   };
 
+  // Set up resize listener with SSR safety check
   useEffect(() => {
     updateLayout();
 
+    // Add resize listener only on client side
     if (typeof window !== "undefined") {
       window.addEventListener("resize", updateLayout);
       return () => window.removeEventListener("resize", updateLayout);
@@ -77,96 +107,15 @@ const Gallery = () => {
   }, []);
 
   if (loading) {
-    <div className="text-white text-center py-10">Loading...</div>;
+    <LoadingPage />;
   }
 
+  // If no valid items, return early
   if (validItems.length === 0) {
-    return <div className="w-full p-3">No media items available</div>;
+    return null;
   }
 
   let renderedIndex = 0;
-
-  const renderMediaGrid = (items) => {
-    const validItems = Array.isArray(items) && items.length > 0 ? items : [];
-
-    if (validItems.length === 0) {
-      return <div className="w-full p-3">No media items available</div>;
-    }
-
-    let renderedIndex = 0;
-
-    return (
-      <div className="w-full flex flex-col gap-3 p-3">
-        {layoutConfig.map((row, rowIndex) => {
-          if (renderedIndex >= validItems.length) {
-            return null;
-          }
-
-          return (
-            <div key={rowIndex} className="h-[300px] w-full">
-              <div className="grid w-full h-full grid-cols-7 gap-2 md:gap-3 lg:gap-4">
-                {row.map((span, colIndex) => {
-                  if (renderedIndex >= validItems.length) return null;
-                  const item = validItems[renderedIndex];
-                  const indexForModal = renderedIndex++;
-                  if (!item?.img) return null;
-
-                  return (
-                    <div
-                      key={colIndex}
-                      className={`relative col-span-${span} overflow-hidden bg-white/30`}
-                      onClick={() => {
-                        setCurrentIndex(indexForModal);
-                        setShowModal(true);
-                      }}
-                    >
-                      <img
-                        src={item.img}
-                        alt={item.title || "Gallery image"}
-                        fill
-                        className="absolute inset-0 w-full h-full object-cover"
-                        sizes="(max-width: 640px) 95vw, (max-width: 1024px) 45vw, 33vw"
-                      />
-
-                      {item.type === "video" && (
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <img
-                            src="/images/home/whyT2C/vidLogo.svg"
-                            width={100}
-                            height={100}
-                            className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16"
-                            alt="Video"
-                          />
-                        </div>
-                      )}
-
-                      {item.views && item.type === "image" && (
-                        <div className="absolute top-2 right-2">
-                          <img
-                            src="/images/home/whyT2C/imgIcon.svg"
-                            width={100}
-                            height={100}
-                            alt="Image"
-                            className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8"
-                          />
-                        </div>
-                      )}
-
-                      {item.type === "coming-soon" && (
-                        <div className="absolute top-2 left-2 bg-white text-black text-xs px-2 py-1 rounded font-semibold">
-                          COMING SOON
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    );
-  };
 
   return (
     <div className="bg-[url('/images/home/latestUpdateBg.png')] bg-cover bg-center bg-no-repeat py-20">
@@ -185,6 +134,7 @@ const Gallery = () => {
         <div className="w-full bg-black">
           <div className="w-full flex flex-col gap-3 p-3">
             {layoutConfig.map((row, rowIndex) => {
+              // Stop rendering if we've shown all items
               if (renderedIndex >= validItems.length) {
                 return null;
               }
@@ -193,10 +143,11 @@ const Gallery = () => {
                 <div key={rowIndex} className="h-[250px] w-full">
                   <div className="grid w-full h-full grid-cols-7 gap-2 md:gap-3 lg:gap-4">
                     {row.map((span, colIndex) => {
+                      // Stop rendering if we've shown all items
                       if (renderedIndex >= validItems.length) return null;
                       const item = validItems[renderedIndex];
                       const indexForModal = renderedIndex++;
-                      if (!item?.img) return null;
+                      if (!item?.Image_URL__c) return null;
 
                       return (
                         <div
@@ -208,10 +159,9 @@ const Gallery = () => {
                           }}
                         >
                           <img
-                            src={item.img}
-                            alt={item.title || "Gallery image"}
-                            fill
-                            className="absolute inset-0 w-full h-full object-cover "
+                            src={item?.Image_URL__c || ""}
+                            alt={"Gallery image"}
+                            className=" w-full h-full object-cover"
                             sizes="(max-width: 640px) 95vw, (max-width: 1024px) 45vw, 33vw"
                           />
 
@@ -286,7 +236,7 @@ const Gallery = () => {
                     </button>
                   )}
 
-                  <img
+                  <Image
                     src={validItems[currentIndex]?.img}
                     alt="popup"
                     width={1000}
@@ -312,7 +262,7 @@ const Gallery = () => {
           // }}
         >
           View Gallery
-          <img
+          <Image
             src="/images/home/hero/buttonIcon.svg"
             alt="button-icon"
             width={24}

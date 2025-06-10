@@ -23,7 +23,8 @@ export const teamsLogoSeason3 = [
   {
     id: 4,
     team: "Bandra Blasters",
-    teamLogo: "https://turbostart.blob.core.windows.net/turbostart/1044990513729378-LOGO - BANDRA BLASTERS copy.png",
+    teamLogo:
+      "https://turbostart.blob.core.windows.net/turbostart/1044990513729378-LOGO - BANDRA BLASTERS copy.png",
     carouselLogo: "/images/teams/hero/carousel/bandra.svg",
   },
   {
@@ -102,31 +103,40 @@ const CountdownTimer = ({
         <TimeBlock label="Minutes" value={timeLeft.minutes} />
       </div>
       <div className="flex justify-between items-center bg-[#00000080]">
-        <img
-          src={
-            teamsLogoSeason3.find((team) => team.team === homeTeam)?.teamLogo
-          }
-          alt={homeTeam}
-          className={`w-20  ${
-            homeTeam === "SoBo Mumbai Falcons" ? "bg-white" : ""
-          }`}
-        />
+        <div className="p-4 text-center flex flex-col  items-center">
+           <div className="h-14 w-14 flex justify-center items-center"> 
+          <img
+            src={
+              teamsLogoSeason3.find((team) => team.team === homeTeam)?.teamLogo
+            }
+            alt={homeTeam}
+            className={`w-20  ${
+              homeTeam === "SoBo Mumbai Falcons" ? "bg-white" : ""
+            }`}
+          />
+        </div>
+          <span className="w-20 break-words my-2 text-xs">{homeTeam}</span>
+        </div>
+
         <div className="flex flex-col items-center text-center">
           <p className="text-[#E07E27]">VS</p>
           <p className="text-xs">
-            MATCH {match_no}/{total_matches}
+            MATCH <br /> {match_no}/{total_matches}
           </p>
         </div>
-        <div className="p-5">
-          <img
-            src={
-              teamsLogoSeason3.find((team) => team.team === awayTeam)?.teamLogo
-            }
-            alt={awayTeam}
-            className={`w-20 p-1 ${
-              awayTeam === "SoBo Mumbai Falcons" ? "bg-white" : ""
-            }`}
-          />
+        <div className="p-4 text-center flex flex-col items-center">
+          <div className="h-14 w-14">
+            <img
+              src={
+                teamsLogoSeason3.find((team) => team.team === awayTeam)?.teamLogo
+              }
+              alt={awayTeam}
+              className={`w-20 p-1 ${
+                awayTeam === "SoBo Mumbai Falcons" ? "bg-white" : ""
+              }`}
+            />
+          </div>
+          <span className="w-20 break-words my-2 text-xs">{awayTeam}</span>
         </div>
       </div>
     </div>

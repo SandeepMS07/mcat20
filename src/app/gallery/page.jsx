@@ -4,19 +4,21 @@ import Hero from "@/components/hero/Hero";
 import React, { useState, useEffect } from "react";
 import MediaAll from "@/components/media/MediaAll";
 import TitleComponent from "@/components/common/TitleComponent";
-import { getVideosClient, getImagesClient } from "../api/clientApi";
-import LoadingPage from "../loading";
+import { getImagesClient, getVideosClient } from "../api/clientApi";
+// import { images, ImageFolders } from "./images";
+import { BsArrowLeftCircle } from "react-icons/bs";
+
 const tabs = ["View Images", "View Videos"];
 
 const Page = () => {
   const [activeTab, setActiveTab] = useState("View Images");
   const [videos, setVideos] = useState([]);
+  const [selectedFolder, setSelectedFolder] = useState(null);
+  const [ImageFolders, setImageFolders] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [images, setImages] = useState([]);
 
   useEffect(() => {
     const fetchVideos = async () => {
-      setLoading(true);
       try {
         const videoRes = await getVideosClient();
         const formattedVideos =
@@ -26,30 +28,75 @@ const Page = () => {
             img: `https://img.youtube.com/vi/${
               item.videoUrl.split("youtu.be/")[1]
             }/hqdefault.jpg`,
-            title: item.Title__c,
-            date: item.Date__c,
+            title: item.title,
+            date: item.date,
           })) || [];
         setVideos(formattedVideos);
       } catch (err) {
         console.error("Error fetching videos:", err);
       } finally {
-        setLoading(false);
       }
     };
 
+    fetchVideos();
+  }, []);
+
+  // Fetching the data from the API
+  useEffect(() => {
     const fetchImages = async () => {
-      setLoading(true);
       try {
+        setLoading(true);
         const imageRes = await getImagesClient();
         const formattedImages =
-          imageRes?.data
-            ?.map((item) => ({
-              ...item,
-              type: "image",
-              img: item.Image_URL__c,
-            }))
-            .sort((a, b) => b.Order__c - a.Order__c) || [];
-        setImages(formattedImages);
+          imageRes?.data?.map((item) => ({
+            ...item,
+            type: "image",
+            img: item.Image_URL__c,
+            // title: item.Title__c || "Untitled", // optional if title exists
+            // date: item.Date__c || "",           // optional if date exists
+          })) || [];
+
+        const isMatchTag = (tag) => /^Match\s\d+/i.test(tag);
+        const extractMatchNumber = (tag) => {
+          const match = tag.match(/^Match\s(\d+)/i);
+          return match ? parseInt(match[1], 10) : 0;
+        };
+
+        // Group by Tag__c
+        const grouped = formattedImages.reduce((acc, item) => {
+          const tag = item.Tag__c?.trim();
+          if (!tag || tag === "T20Gallery") return acc; // skip if no tag or it's T20Gallery
+          if (!acc[tag]) acc[tag] = [];
+          acc[tag].push(item);
+          return acc;
+        }, {});
+
+        // Sort the keys as per logic
+        const sortedKeys = Object.keys(grouped)
+          .filter((key) => key !== "T20Gallery") // Exclude this tag
+          .sort((a, b) => {
+            const aIsMatch = isMatchTag(a);
+            const bIsMatch = isMatchTag(b);
+
+            if (aIsMatch && bIsMatch) {
+              return extractMatchNumber(b) - extractMatchNumber(a);
+            } else if (aIsMatch) {
+              return -1;
+            } else if (bIsMatch) {
+              return 1;
+            } else {
+              return b.localeCompare(a); // Z → A for others
+            }
+          });
+
+        // Construct final ImageFolders object
+        const imageFolders = {};
+        sortedKeys.forEach((key) => {
+          imageFolders[key] = grouped[key];
+        });
+
+        // console.log("Final ImageFolders:", imageFolders);
+        setImageFolders(imageFolders); // Assuming you have this state
       } catch (err) {
         console.error("Error fetching images:", err);
       } finally {
@@ -58,27 +105,11 @@ const Page = () => {
     };
 
     fetchImages();
-
-    fetchVideos();
   }, []);
 
-  function shuffleArray(array) {
-    return array
-      .map((item) => ({ item, sortKey: Math.random() }))
-      .sort((a, b) => a.sortKey - b.sortKey)
-      .map(({ item }) => item);
-  }
-
-  const filteredItems =
-    activeTab === "All"
-      ? shuffleArray([...videos, ...images])
-      : activeTab === "View Videos"
-      ? videos
-      : images;
-
-  if (loading) {
-    return <LoadingPage />;
-  }
+  // console.log("the image folders are", ImageFolders);
+  // const filteredItems = activeTab === "View Videos" ? videos : images;
+  const filteredItems = activeTab === "View Videos" ? videos : ImageFolders;
 
   return (
     <div className="w-full ">
@@ -105,8 +136,18 @@ const Page = () => {
         />
         <div className="gap-6 section-width section-padding ">
           <TitleComponent title={"Gallery"} />
-          <div className="w-full bg-black">
-            <div className="w-full flex items-center">
+          <div className="relative w-full bg-[url('/images/gallery/Background.jpg')] bg-cover bg-center bg-no-repeat ">
+            <div className="absolute inset-0 bg-black/60"></div>
+
+            <div className="relative w-full flex items-center z-10">
+              {activeTab === "View Images" && selectedFolder && (
+                <div
+                  className="text-[#E07E27] text-3xl px-2 cursor-pointer"
+                  onClick={() => setSelectedFolder(null)}
+                >
+                  <BsArrowLeftCircle />
+                </div>
+              )}
               {tabs.map((tab, index) => (
                 <div
                   key={index}
@@ -123,8 +164,13 @@ const Page = () => {
                 </div>
               ))}
             </div>
-            <div className="w-full flex items-center justify-center">
-              <MediaAll items={filteredItems} loading={loading} />
+            <div className="relative w-full flex items-center justify-center z-10">
+              <MediaAll
+                items={filteredItems}
+                type={activeTab === "View Videos" ? "video" : "image"}
+                selectedFolder={selectedFolder}
+                setSelectedFolder={setSelectedFolder}
+              />
             </div>
           </div>
         </div>
