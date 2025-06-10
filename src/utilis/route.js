@@ -22,6 +22,8 @@ const routes = {
   contact: "#",
   howToUse: "#",
   roadmap: "#",
+  yourPhotos: "your-photos",
+
 
   privacyPolicy: "/privacy_policy",
   // social links
