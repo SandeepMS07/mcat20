@@ -18,6 +18,10 @@ export const navLinks = [
     title: "Standings",
     path: `${routes.standing}`,
   },
+   {
+    title: "Your Photos",
+    path: `${routes.yourPhotos}`,
+  },
   {
     title: "Match Centre",
     path: `${routes.fixtures}`,

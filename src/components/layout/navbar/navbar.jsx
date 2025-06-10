@@ -13,9 +13,9 @@ const Navbar = () => {
 
   if (pathName === "/auction-info" || pathName === routes.matchcentre) return;
   return (
-    <div
+   <div
       className={
-        pathName.includes(routes.fixtures) || pathName.startsWith("/scores") || pathName.includes(routes.matchcentre)
+        pathName.includes(routes.fixtures) || pathName.startsWith("/scores") || pathName.includes(routes.matchcentre) || pathName.includes(routes.yourPhotos)
           ? "bg-gradient-to-r from-[#060A17] to-[#203376] lg:h-[120px] h-[85px]"
           : ""
       }
