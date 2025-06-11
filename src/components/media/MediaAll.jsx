@@ -3,9 +3,9 @@ import Image from "next/image";
 import { FaP } from "react-icons/fa6";
 
 const matches = {
-  "Match 23": "Finals - MSC MR vs SMF",
-  "Match 22": "SF2 - SMF vs BB",
-  "Match 21": "SF1 - ETS vs MSC MR",
+  "Match 23": "Finals: MSC MR vs SMF",
+  "Match 22": "Semi Finals 2: SMF vs BB",
+  "Match 21": "Semi Finals 1: ETS vs MSC MR",
   "Match 20": "NMP vs AT MWS",
   "Match 19": "NMP vs TK MNE",
   "Match 18": "ETS vs AA",
@@ -207,7 +207,7 @@ const MediaAll = ({ items, type, selectedFolder, setSelectedFolder }) => {
                 ? "/images/gallery/auction.png"
                 : images?.[0]?.Image_URL__c;
 
-                const matchName = getMatchDetails(key);
+            const matchName = getMatchDetails(key);
             return (
               <div
                 key={key}
@@ -227,7 +227,12 @@ const MediaAll = ({ items, type, selectedFolder, setSelectedFolder }) => {
                   </div>
                 )}
                 <div className="p-3 text-center font-semibold text-white">
-                  {key} {matchName !== "" && `: ${matchName}`}
+                  {key === "Match 23" ||
+                  key === "Match 22" ||
+                  key === "Match 21"
+                    ? ""
+                    : `${key} :`}{" "}
+                  {matchName !== "" && `${matchName}`}
                 </div>
               </div>
             );
