@@ -116,8 +116,8 @@ const CountdownTimer = ({
           }}
         >
           <div className="flex flex-col justify-between  py-6 px-12">
-            <p className="text-[#E07E27] text-base  xl:text-lg font-semibold leading-3 uppercase">
-              Finals starts in
+            <p className="text-white text-base  xl:text-lg font-semibold leading-3 uppercase justify-center flex items-center gap-1 "><GoDotFill className="text-green-500" />
+              Match is Live
             </p>
           </div>
         </div>
@@ -133,42 +133,39 @@ const CountdownTimer = ({
         <div className="p-4 text-center flex flex-col  items-center">
            <div className="h-14 w-14 flex justify-center items-center"> 
           <img
-            src={
-              teamsLogoSeason3.find((team) => team.team === homeTeam)?.teamLogo
-            }
-            alt={homeTeam}
+            src={"/images/teams/hero/teamLogo/soboMumbaiFalcons.svg"}
+            alt={"MSC Maratha Royals"}
             className={`w-20  ${
               homeTeam === "SoBo Mumbai Falcons" ? "bg-white" : ""
             }`}
           />
         </div>
-          <span className="w-20 break-words my-2 text-xs">{homeTeam}</span>
+          <span className="w-20 break-words my-2 text-xs">SoBo Mumbai Falcons</span>
         </div>
 
         <div className="flex flex-col items-center text-center">
           <p className="text-[#E07E27]">VS</p>
           <p className="text-xs">
-            MATCH <br /> {match_no}/{total_matches}
+            FINALS
+             {/* <br /> {match_no}/{total_matches} */}
           </p>
         </div>
         <div className="p-4 text-center flex flex-col items-center">
           <div className="h-14 w-14">
             <img
-              src={
-                teamsLogoSeason3.find((team) => team.team === awayTeam)?.teamLogo
-              }
-              alt={awayTeam}
+              src={"/images/teams/hero/teamLogo/shivaji.png"}
+              alt={"MSC Maratha Royals"}
               className={`w-20 p-1 ${
                 awayTeam === "SoBo Mumbai Falcons" ? "bg-white" : ""
               }`}
             />
           </div>
-          <span className="w-20 break-words my-2 text-xs">{awayTeam}</span>
+          <span className="w-20 break-words my-2 text-xs">MSC Maratha Royals</span>
         </div>
       </div >
-        <div className="bg-[#00000080] text-center justify-center flex items-center gap-1 pb-2"><GoDotFill className="text-green-500" />
+        {/* <div className="bg-[#00000080] text-center justify-center flex items-center gap-1 pb-2"><GoDotFill className="text-green-500" />
           Match is Live
-        </div>
+        </div> */}
     </div>
     </div>
   );
