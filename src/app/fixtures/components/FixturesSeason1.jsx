@@ -7,7 +7,7 @@ import Link from "next/link";
 import { teamLogoStats } from "@/utilis/helper";
 
 const FixturesSeason1 = ({ selectedTeam = "" }) => {
-  // Process Season 1 fixtures data
+
   function processMatches(jsonData) {
     if (!jsonData || !jsonData.matches) {
       return [];

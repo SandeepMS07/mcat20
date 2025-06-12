@@ -85,7 +85,7 @@ const Hero = () => {
               <div className="flex flex-col justify-center text-center md:text-left  md:flex-row items-center md:justify-between">
                 <div className="flex-col items-center  sm:items-start gap-3 lg:gap-6">
                   <h1 className="  font-extrabold max-w-3xl max-sm:text-center">
-                    SEMI FINAL
+                    FINAL
                     <br /> TICKETS
                   </h1>
 

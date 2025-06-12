@@ -40,7 +40,7 @@ const routes = {
     "https://www.district.in/events/t20-mumbai-league-2025-arcs-andheri-vs-aakash-tigers-mws-and-sobo-mumbai-falcons-vs-north-mumbai-panthers-buy-tickets",
 
   OverallTicket:
-    "https://www.district.in/events/t20-mumbai-league-2025-semi-final-1-2-jun10-2025-buy-tickets",
+    "https://www.district.in/events/t20-mumbai-league-2025-finals-jun12-2025-buy-tickets",
 };
 
 export default routes;

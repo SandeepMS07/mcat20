@@ -74,7 +74,6 @@ function getTeamsForSeason(season) {
   let teams = [];
 
   if (season === "Season 1" || season === "Season 2") {
-    // For Season 1 & 2, extract from processed matches
     const allMatches = processMatches(TOURNAMENT_IDS[season] || {});
     const names = new Set();
     allMatches.forEach((m) => {
