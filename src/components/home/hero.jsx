@@ -19,28 +19,7 @@ const Hero = () => {
   const closeVideo = () => setShowVideo(false);
 
   // Get the next match using the date and time from json
-  const getNextMatch = () => {
-    const now = new Date();
-
-    for (const match of fixtures3) {
-      // Convert "4th June" + "10:30 AM" into a Date object
-      const cleanedDate = match.date.replace(/(st|nd|rd|th)/, "");
-      const matchDateTimeStr = `${cleanedDate} 2025 ${match.time}`;
-      const matchDate = new Date(`${matchDateTimeStr} GMT+0530`);
-
-      if (matchDate > now) {
-        return {
-          targetDate: matchDate.toISOString(),
-          match_no: match.match_no,
-          home_team: match.home_team,
-          away_team: match.away_team,
-          total_matches: fixtures3.length,
-        };
-      }
-    }
-
-    return null;
-  };
+ 
 
   // const nextTicketInfo = useMemo(() => {
   //   const now = new Date();
@@ -65,9 +44,8 @@ const Hero = () => {
   //   return null;
   // }, []);
 
-  const nextMatch = useMemo(getNextMatch, []);
 
-  if (!nextMatch) return <p>No upcoming matches</p>;
+  // if (!nextMatch) return <p>No upcoming matches</p>;
 
   const handleNavigateToFixture = ()=>{
     router.push(`${routes.matchcentre}?type=scorecard&mId=1666&cId=63&dId=1&sId=113`);
@@ -136,11 +114,7 @@ const Hero = () => {
               <div className="absolute bottom-40 -right-0 hidden md:block">
               
                   <CountdownTimer
-                    targetDate={nextMatch.targetDate}
-                    homeTeam={nextMatch.home_team}
-                    awayTeam={nextMatch.away_team}
-                    match_no={nextMatch.match_no}
-                    total_matches={nextMatch.total_matches}
+                    
                   />
                 
               </div>
@@ -202,11 +176,7 @@ const Hero = () => {
               <div className="absolute bottom-40 -right-0 hidden md:block">
                 
                   <CountdownTimer
-                    targetDate={nextMatch.targetDate}
-                    homeTeam={nextMatch.home_team}
-                    awayTeam={nextMatch.away_team}
-                    match_no={nextMatch.match_no}
-                    total_matches={nextMatch.total_matches}
+                   
                   />
                 </div>
               </div>
@@ -455,11 +425,7 @@ const Hero = () => {
               <div className="absolute bottom-40 -right-0 hidden md:block">
               
                   <CountdownTimer
-                    targetDate={nextMatch.targetDate}
-                    homeTeam={nextMatch.home_team}
-                    awayTeam={nextMatch.away_team}
-                    match_no={nextMatch.match_no}
-                    total_matches={nextMatch.total_matches}
+                    
                   />
                 </div>
               </div>
@@ -520,11 +486,7 @@ const Hero = () => {
               <div className="absolute bottom-40 -right-0 hidden md:block">
                 
                   <CountdownTimer
-                    targetDate={nextMatch.targetDate}
-                    homeTeam={nextMatch.home_team}
-                    awayTeam={nextMatch.away_team}
-                    match_no={nextMatch.match_no}
-                    total_matches={nextMatch.total_matches}
+                    
                   />
               </div>
             </div>

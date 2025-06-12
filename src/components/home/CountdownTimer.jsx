@@ -66,38 +66,8 @@ const CountdownTimer = ({
   total_matches,
 }) => {
   const router = useRouter();
-  const [timeLeft, setTimeLeft] = useState({
-    days: "00",
-    hours: "00",
-    minutes: "00",
-  });
-
-  useEffect(() => {
-    const updateTimer = () => {
-      const now = new Date();
-      const distance = new Date(targetDate) - now;
-
-      if (distance <= 0) {
-        setTimeLeft({ days: "00", hours: "00", minutes: "00" });
-        return;
-      }
-
-      const days = String(
-        Math.floor(distance / (1000 * 60 * 60 * 24))
-      ).padStart(2, "0");
-      const hours = String(
-        Math.floor((distance / (1000 * 60 * 60)) % 24)
-      ).padStart(2, "0");
-      const minutes = String(
-        Math.floor((distance / (1000 * 60)) % 60)
-      ).padStart(2, "0");
-
-      setTimeLeft({ days, hours, minutes });
-    };
-
-    const intervalId = setInterval(updateTimer, 1000);
-    return () => clearInterval(intervalId);
-  }, [targetDate]);
+   
+ 
 
 
   const handleNavigateToFixture = ()=>{
