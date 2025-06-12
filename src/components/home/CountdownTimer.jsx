@@ -122,13 +122,13 @@ const CountdownTimer = ({
           </div>
         </div>
       <div>
-      <div className="w-full flex items-start justify-center gap-2 md:gap-3  bg-[#FDFDFD12]">
+      {/* <div className="w-full flex items-start justify-center gap-2 md:gap-3  bg-[#FDFDFD12]">
         <TimeBlock label="Days" value={timeLeft.days} />
         <Separator />
         <TimeBlock label="Hours" value={timeLeft.hours} />
         <Separator />
         <TimeBlock label="Minutes" value={timeLeft.minutes} />
-      </div>
+      </div> */}
       <div className="flex justify-between items-center bg-[#00000080]">
         <div className="p-4 text-center flex flex-col  items-center">
            <div className="h-14 w-14 flex justify-center items-center"> 
@@ -166,9 +166,9 @@ const CountdownTimer = ({
           <span className="w-20 break-words my-2 text-xs">{awayTeam}</span>
         </div>
       </div >
-        {/* <div className="bg-[#00000080] text-center justify-center flex items-center gap-1 pb-2"><GoDotFill className="text-green-500" />
+        <div className="bg-[#00000080] text-center justify-center flex items-center gap-1 pb-2"><GoDotFill className="text-green-500" />
           Match is Live
-        </div> */}
+        </div>
     </div>
     </div>
   );
