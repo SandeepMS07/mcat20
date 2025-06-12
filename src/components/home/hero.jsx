@@ -19,7 +19,6 @@ const Hero = () => {
   const closeVideo = () => setShowVideo(false);
 
   // Get the next match using the date and time from json
- 
 
   // const nextTicketInfo = useMemo(() => {
   //   const now = new Date();
@@ -44,12 +43,13 @@ const Hero = () => {
   //   return null;
   // }, []);
 
-
   // if (!nextMatch) return <p>No upcoming matches</p>;
 
-  const handleNavigateToFixture = ()=>{
-    router.push(`${routes.matchcentre}?type=scorecard&mId=1666&cId=63&dId=1&sId=113`);
-  }
+  const handleNavigateToFixture = () => {
+    router.push(
+      `${routes.matchcentre}?type=scorecard&mId=1666&cId=63&dId=1&sId=113`
+    );
+  };
 
   return (
     <div className="xl:h-[800px] lg:h-[700px] md:h-[600px] h-[500px]">
@@ -111,14 +111,10 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="absolute bottom-40 -right-0 hidden md:block">
-              
-                  <CountdownTimer
-                    
-                  />
-                
-              </div>
-            </div>
+              {/* <div className="absolute bottom-40 -right-0 hidden md:block">
+                <CountdownTimer />
+              </div> */}
+            </div> 
           </div>
         </SwiperSlide>
         <SwiperSlide className="h-full">
@@ -173,14 +169,11 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="absolute bottom-40 -right-0 hidden md:block">
-                
-                  <CountdownTimer
-                   
-                  />
-                </div>
-              </div>
+              {/* <div className="absolute bottom-40 -right-0 hidden md:block">
+                <CountdownTimer />
+              </div> */}
             </div>
+          </div>
         </SwiperSlide>
         {/* <SwiperSlide>
           <div className="w-full h-full bg-[url('https://storage.googleapis.com/mca_images/website/banner_img/slider2.jpg')] bg-cover bg-center  relative md:pt-32 pt-14 overflow-hidden flex justify-center items-center">
@@ -422,14 +415,11 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="absolute bottom-40 -right-0 hidden md:block">
-              
-                  <CountdownTimer
-                    
-                  />
-                </div>
-              </div>
+              {/* <div className="absolute bottom-40 -right-0 hidden md:block">
+                <CountdownTimer />
+              </div> */}
             </div>
+          </div>
         </SwiperSlide>
         <SwiperSlide className="h-full">
           <div className="w-full h-full bg-[url('/images/banner/banner4.png')] bg-cover bg-center  relative pt-32 overflow-hidden flex justify-center items-center">
@@ -483,12 +473,9 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="absolute bottom-40 -right-0 hidden md:block">
-                
-                  <CountdownTimer
-                    
-                  />
-              </div>
+              {/* <div className="absolute bottom-40 -right-0 hidden md:block">
+                <CountdownTimer />
+              </div> */}
             </div>
           </div>
         </SwiperSlide>
