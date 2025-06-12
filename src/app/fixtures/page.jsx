@@ -11,6 +11,7 @@ import fixtures3 from "@/utilis/fixtures/fixtures3.js";
 import FixturesSeason1 from "./components/FixturesSeason1";
 import FixturesSeason2 from "./components/FixturesSeason2";
 import FixturesSeason3 from "./components/FixturesSeason3";
+import FixtureWidget from "./components/FixtureWidget";
 
 function parseStaticDate(dateStr, timeStr = "") {
   const dayOnly = dateStr.replace(/(\d+)(st|nd|rd|th)/, "$1");
@@ -253,49 +254,51 @@ export default function Page() {
             </div>
 
             {season == "Season 3" ? (
-              <div
-                style={{
-                  width: "100%",
-                  height: "150rem",
-                  border: "none",
-                }}
-              >
-                <iframe
-                  srcDoc={`
-                  <!DOCTYPE html>
-                  <html>
-                    <head>
-                      <style>
-                          html, body {
-                            margin: 0;
-                            padding: 0;
-                            overflow: scroll; /* Allows scrolling */
-                          }
+
+<><FixtureWidget /></>
+// <div
+              //   style={{
+              //     width: "100%",
+              //     height: "150rem",
+              //     border: "none",
+              //   }}
+              // >
+              //   <iframe
+              //     srcDoc={`
+              //     <!DOCTYPE html>
+              //     <html>
+              //       <head>
+              //         <style>
+              //             html, body {
+              //               margin: 0;
+              //               padding: 0;
+              //               overflow: scroll; /* Allows scrolling */
+              //             }
 
 
-                          /* Hide scrollbars */
-                          ::-webkit-scrollbar {
-                            display: none;
-                          }
+              //             /* Hide scrollbars */
+              //             ::-webkit-scrollbar {
+              //               display: none;
+              //             }
 
 
-                          body {
-                            -ms-overflow-style: none;  /* IE and Edge */
-                            scrollbar-width: none;     /* Firefox */
-                          }
-                      </style>
-                      <script src="https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/app.js"></script>
-                    </head>
-                    <body>
-                      <div class="smmumbaiwidget"></div>
-                    </body>
-                  </html>
-                `}
-                  style={{ width: "100%", height: "100%", border: "none" }}
-                  onLoad={handleLoad}
-                  title="SMMumbai Widget"
-                />
-              </div>
+              //             body {
+              //               -ms-overflow-style: none;  /* IE and Edge */
+              //               scrollbar-width: none;     /* Firefox */
+              //             }
+              //         </style>
+              //         <script src="https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/app.js"></script>
+              //       </head>
+              //       <body>
+              //         <div class="smmumbaiwidget"></div>
+              //       </body>
+              //     </html>
+              //   `}
+              //     style={{ width: "100%", height: "100%", border: "none" }}
+              //     onLoad={handleLoad}
+              //     title="SMMumbai Widget"
+              //   />
+              // </div>
             ) : (
               <>{renderFixturesComponent()}</>
             )}
@@ -360,8 +363,8 @@ const FixtureFilter = ({
           </div>
         </div>
       </div>
-
-      <div className="flex flex-row gap-2 items-center">
+      {
+        season !== "Season 3" &&<div className="flex flex-row gap-2 items-center">
         <div className={`relative  ${isMobile ? "w-full" : "lg:w-40 w-28"}`}>
           <select
             name="team"
@@ -397,6 +400,9 @@ const FixtureFilter = ({
           </div>
         </div>
       </div>
+      }
+
+      
     </div>
   );
 };

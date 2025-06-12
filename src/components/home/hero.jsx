@@ -69,6 +69,10 @@ const Hero = () => {
 
   if (!nextMatch) return <p>No upcoming matches</p>;
 
+  const handleNavigateToFixture = ()=>{
+    router.push(`${routes.matchcentre}?type=scorecard&mId=1666&cId=63&dId=1&sId=113`);
+  }
+
   return (
     <div className="xl:h-[800px] lg:h-[700px] md:h-[600px] h-[500px]">
       <Swiper
@@ -132,9 +136,7 @@ const Hero = () => {
               <div className="absolute bottom-40 -right-0 hidden md:block">
                 <div
                   className="w-full rounded-l-xl md:rounded-l-xl border-y-2 border-l-2  border-[#E07E27] shadow-2xl overflow-hidden cursor-pointer"
-                  onClick={() => {
-                    router.push(routes.fixtures);
-                  }}
+                  onClick={handleNavigateToFixture}
                 >
                   <div
                     className="  w-full flex overflow-hidden items-center justify-evenly rounded-tl-lg gap-4"
@@ -216,9 +218,7 @@ const Hero = () => {
               <div className="absolute bottom-40 -right-0 hidden md:block">
                 <div
                   className="w-full rounded-l-xl md:rounded-l-xl border-y-2 border-l-2  border-[#E07E27] shadow-2xl overflow-hidden cursor-pointer"
-                  onClick={() => {
-                    router.push(routes.fixtures);
-                  }}
+                  onClick={handleNavigateToFixture}
                 >
                   <div
                     className="  w-full flex overflow-hidden items-center justify-evenly rounded-tl-lg gap-4"
@@ -371,9 +371,7 @@ const Hero = () => {
               <div className="absolute bottom-40 right-0 hidden lg:block">
                 <div
                   className="w-full rounded-l-xl md:rounded-l-xl border-y-2 border-l-2 border-[#E07E27] shadow-2xl overflow-hidden cursor-pointer"
-                  onClick={() => {
-                    router.push(routes.fixtures);
-                  }}
+                  onClick={handleNavigateToFixture}
                 >
                   <div
                     className="w-full flex overflow-hidden items-center justify-evenly rounded-tl-lg gap-4"
@@ -401,9 +399,7 @@ const Hero = () => {
               <div className="absolute bottom-40 -right-0 hidden md:block">
                 <div
                   className="w-full rounded-l-xl md:rounded-l-xl border-y-2 border-l-2  border-[#E07E27] shadow-2xl overflow-hidden cursor-pointer"
-                  onClick={() => {
-                    router.push(routes.fixtures);
-                  }}
+                  onClick={handleNavigateToFixture}
                 >
                   <div
                     className="  w-full flex overflow-hidden items-center justify-evenly rounded-tl-lg gap-4"
@@ -492,9 +488,7 @@ const Hero = () => {
               <div className="absolute bottom-40 -right-0 hidden md:block">
                 <div
                   className="w-full rounded-l-xl md:rounded-l-xl border-y-2 border-l-2  border-[#E07E27] shadow-2xl overflow-hidden cursor-pointer"
-                  onClick={() => {
-                    router.push(routes.fixtures);
-                  }}
+                  onClick={handleNavigateToFixture}
                 >
                   <div
                     className="  w-full flex overflow-hidden items-center justify-evenly rounded-tl-lg gap-4"
@@ -576,9 +570,7 @@ const Hero = () => {
               <div className="absolute bottom-40 -right-0 hidden md:block">
                 <div
                   className="w-full rounded-l-xl md:rounded-l-xl border-y-2 border-l-2  border-[#E07E27] shadow-2xl overflow-hidden cursor-pointer"
-                  onClick={() => {
-                    router.push(routes.fixtures);
-                  }}
+                  onClick={handleNavigateToFixture}
                 >
                   <div
                     className="  w-full flex overflow-hidden items-center justify-evenly rounded-tl-lg gap-4"
