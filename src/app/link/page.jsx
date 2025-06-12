@@ -4,28 +4,35 @@ import { useEffect, useState } from "react";
 export default function AppRedirectPage() {
   const [platform, setPlatform] = useState(null);
 
+  const IOS_APP_URL = "https://apps.apple.com/app/id6746642031";
+  const ANDROID_APP_URL =
+    "https://play.google.com/store/apps/details?id=com.mca.t20mumbai";
+  const WEB_FALLBACK_URL = "https://t20mumbai.com";
+
   useEffect(() => {
     const userAgent = navigator.userAgent || navigator.vendor;
     const isAndroid = /android/i.test(userAgent);
-    const isIOS = /iPhone|iPad|iPod/i.test(userAgent);
+    const isIOS = /iPad|iPhone|iPod|Macintosh/i.test(userAgent);
 
     if (isIOS) {
       setPlatform("ios");
+      window.location.href = IOS_APP_URL;
     } else if (isAndroid) {
       setPlatform("android");
+      window.location.href = ANDROID_APP_URL;
     } else {
       setPlatform("web");
+      window.location.href = WEB_FALLBACK_URL;
     }
   }, []);
 
   const handleManualRedirect = () => {
     if (platform === "ios") {
-      window.location.href = "https://apps.apple.com/app/id6746642031";
+      window.location.href = IOS_APP_URL;
     } else if (platform === "android") {
-      window.location.href =
-        "https://play.google.com/store/apps/details?id=com.mca.t20mumbai";
+      window.location.href = ANDROID_APP_URL;
     } else {
-      window.location.href = "https://t20mumbai.com";
+      window.location.href = WEB_FALLBACK_URL;
     }
   };
 
@@ -41,7 +48,7 @@ export default function AppRedirectPage() {
       </div>
 
       <h1 className="text-2xl md:text-3xl text-white mb-8 font-semibold tracking-wide">
-         T20 Mumbai
+        T20 Mumbai
       </h1>
 
       {platform === "ios" && (
@@ -84,8 +91,6 @@ export default function AppRedirectPage() {
           <div className="text-gray-400 text-sm">Click to open now</div>
         </div>
       )}
-
-      {/* Back home button with enhanced styling */}
       <a
         href="/"
         className="bg-gray-700 hover:bg-gray-600 text-white py-2 px-6 rounded-lg transition-colors duration-200 shadow-md"
