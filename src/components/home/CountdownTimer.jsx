@@ -1,5 +1,10 @@
 "use client";
+import routes from "@/utilis/route";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { GoDotFill } from "react-icons/go";
+
+
 
 export const teamsLogoSeason3 = [
   {
@@ -60,6 +65,7 @@ const CountdownTimer = ({
   match_no,
   total_matches,
 }) => {
+  const router = useRouter();
   const [timeLeft, setTimeLeft] = useState({
     days: "00",
     hours: "00",
@@ -93,8 +99,29 @@ const CountdownTimer = ({
     return () => clearInterval(intervalId);
   }, [targetDate]);
 
+
+  const handleNavigateToFixture = ()=>{
+    router.push(`${routes.matchcentre}?type=scorecard&mId=1666&cId=63&dId=1&sId=113`);
+  }
+
   return (
-    <div>
+      <div className="w-full rounded-l-xl md:rounded-l-xl border-y-2 border-l-2  border-[#E07E27] shadow-2xl overflow-hidden cursor-pointer"
+        onClick={handleNavigateToFixture}
+      >
+        <div
+          className="  w-full flex overflow-hidden items-center justify-evenly rounded-tl-lg gap-4"
+          style={{
+            background:
+              "linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.48) 1.45%, rgba(0, 0, 0, 0.70) 100%), rgba(255, 255, 255, 0.09)",
+          }}
+        >
+          <div className="flex flex-col justify-between  py-6 px-12">
+            <p className="text-[#E07E27] text-base  xl:text-lg font-semibold leading-3 uppercase">
+              Finals starts in
+            </p>
+          </div>
+        </div>
+      <div>
       <div className="w-full flex items-start justify-center gap-2 md:gap-3  bg-[#FDFDFD12]">
         <TimeBlock label="Days" value={timeLeft.days} />
         <Separator />
@@ -138,7 +165,11 @@ const CountdownTimer = ({
           </div>
           <span className="w-20 break-words my-2 text-xs">{awayTeam}</span>
         </div>
-      </div>
+      </div >
+        {/* <div className="bg-[#00000080] text-center justify-center flex items-center gap-1 pb-2"><GoDotFill className="text-green-500" />
+          Match is Live
+        </div> */}
+    </div>
     </div>
   );
 };
