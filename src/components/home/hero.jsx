@@ -118,7 +118,7 @@ const Hero = () => {
                   #Kaun Banega Agla Star?{" "}
                 </p>
                 <div className="flex flex-row gap-2">
-                  <a
+                  {/* <a
                     href={routes.OverallTicket}
                     target="_blank"
                     className="btn-primary flex gap-4 items-center justify-center py-3 px-6 rounded-lg text-md"
@@ -133,7 +133,7 @@ const Hero = () => {
                         className="w-5 h-5"
                       />
                     </span>
-                  </a>
+                  </a> */}
                   <a
                     className="btn-blue flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md"
                     onClick={() => {
