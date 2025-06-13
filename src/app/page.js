@@ -24,7 +24,7 @@ export default async function Home() {
         <TopPlayers />
         {/* <IconPlayers /> */}
         <HomeStandingsSection />
-        {/* <TopPlayers /> */}
+      
         <Socials />
         <Gallery />
         <Sponsorship />
