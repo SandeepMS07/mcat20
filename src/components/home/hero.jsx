@@ -62,59 +62,46 @@ const Hero = () => {
         className="h-full"
       >
         <SwiperSlide className="h-full">
-          <div className="w-full h-full bg-[url('/images/banner/banner5.png')] bg-cover bg-center  relative pt-20  overflow-hidden flex justify-center items-center ">
+          <div className="w-full h-full bg-[url('https://mca-cdn.ken42.com/season3/latest_updates/slider7.jpg')] bg-cover bg-center  relative pt-20  overflow-hidden flex justify-center items-center ">
             <div className="section-width  py-2">
-              <div className="flex flex-col justify-center text-center md:text-left  md:flex-row items-center md:justify-between">
-                <div className="flex-col items-center  sm:items-start gap-3 lg:gap-6">
-                  <h1 className="  font-extrabold max-w-3xl max-sm:text-center">
-                    FINAL
-                    <br /> TICKETS
-                  </h1>
-
-                  <div className="flex items-center">
-                    <h3 className=" font-extrabold max-w-3xl text-[#fdcf53] ">
-                      #Now Live On
-                    </h3>
-                    <img
-                      src={"/images/home/hero/districtNormal.jpg"}
-                      alt=""
-                      width={100}
-                      className="md:h-16 h-12 w-auto m-4 rounded-md "
-                    />
-                  </div>
-
-                  <div className="flex gap-2 justify-center md:justify-start pb-3">
-                    <a
-                      href={routes.OverallTicket}
-                      target="_blank"
-                      className="btn-primary flex gap-4 items-center justify-center py-3 px-6 rounded-lg text-md"
-                    >
-                      Buy Tickets
-                      <span>
-                        <Image
-                          src="/images/home/hero/buttonIcon.svg"
-                          alt="button-icon"
-                          width={24}
-                          height={24}
-                          className="w-5 h-5"
-                        />
-                      </span>
-                    </a>
-                  </div>
-                </div>
-                <div className="w-[70%]  md:w-[50%] flex justify-center items-center py-2">
-                  <img
-                    src="/images/home/hero/smCard.png"
-                    alt="semiFinal"
-                    className="w-[60%]"
-                  />
+             <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
+                <p className="font-bold text-sm uppercase md:text-base bg-[#182769] px-3 py-2 xl:text-xl">
+                  T20 Mumbai Season 3
+                </p>
+                <h1 className="  font-extrabold max-w-3xl max-sm:text-center">
+                 CHAMPIONS <br /> MSC Maratha Royals
+                </h1>
+                <p className="font-bold text-lg md:text-xl xl:text-2xl">
+                  #AalaReAglaStar
+                </p>
+                <div className="flex flex-row gap-2">
+                
+                  <a
+                    className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md"
+                    onClick={() => {
+                      router.push(
+                        "/latest-updates"
+                      );
+                    }}
+                  >
+                    Read More{" "}
+                    <span>
+                      <Image
+                        src="/images/home/hero/buttonIcon.svg"
+                        alt="button-icon"
+                        width={24}
+                        height={24}
+                        className="w-5 h-5"
+                      />
+                    </span>
+                  </a>
                 </div>
               </div>
 
               {/* <div className="absolute bottom-40 -right-0 hidden md:block">
                 <CountdownTimer />
               </div> */}
-            </div> 
+            </div>
           </div>
         </SwiperSlide>
         <SwiperSlide className="h-full">
