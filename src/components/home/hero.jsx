@@ -19,28 +19,6 @@ const Hero = () => {
   const closeVideo = () => setShowVideo(false);
 
   // Get the next match using the date and time from json
-  const getNextMatch = () => {
-    const now = new Date();
-
-    for (const match of fixtures3) {
-      // Convert "4th June" + "10:30 AM" into a Date object
-      const cleanedDate = match.date.replace(/(st|nd|rd|th)/, "");
-      const matchDateTimeStr = `${cleanedDate} 2025 ${match.time}`;
-      const matchDate = new Date(`${matchDateTimeStr} GMT+0530`);
-
-      if (matchDate > now) {
-        return {
-          targetDate: matchDate.toISOString(),
-          match_no: match.match_no,
-          home_team: match.home_team,
-          away_team: match.away_team,
-          total_matches: fixtures3.length,
-        };
-      }
-    }
-
-    return null;
-  };
 
   // const nextTicketInfo = useMemo(() => {
   //   const now = new Date();
@@ -65,9 +43,13 @@ const Hero = () => {
   //   return null;
   // }, []);
 
-  const nextMatch = useMemo(getNextMatch, []);
+  // if (!nextMatch) return <p>No upcoming matches</p>;
 
-  if (!nextMatch) return <p>No upcoming matches</p>;
+  const handleNavigateToFixture = () => {
+    router.push(
+      `${routes.matchcentre}?type=scorecard&mId=1666&cId=63&dId=1&sId=113`
+    );
+  };
 
   return (
     <div className="xl:h-[800px] lg:h-[700px] md:h-[600px] h-[500px]">
@@ -129,36 +111,10 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="absolute bottom-40 -right-0 hidden md:block">
-                <div
-                  className="w-full rounded-l-xl md:rounded-l-xl border-y-2 border-l-2  border-[#E07E27] shadow-2xl overflow-hidden cursor-pointer"
-                  onClick={() => {
-                    router.push(routes.fixtures);
-                  }}
-                >
-                  <div
-                    className="  w-full flex overflow-hidden items-center justify-evenly rounded-tl-lg gap-4"
-                    style={{
-                      background:
-                        "linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.48) 1.45%, rgba(0, 0, 0, 0.70) 100%), rgba(255, 255, 255, 0.09)",
-                    }}
-                  >
-                    <div className="flex flex-col justify-between  py-6 px-12">
-                      <p className="text-[#E07E27] text-base  xl:text-lg font-semibold leading-3 uppercase">
-                        Match starts in
-                      </p>
-                    </div>
-                  </div>
-                  <CountdownTimer
-                    targetDate={nextMatch.targetDate}
-                    homeTeam={nextMatch.home_team}
-                    awayTeam={nextMatch.away_team}
-                    match_no={nextMatch.match_no}
-                    total_matches={nextMatch.total_matches}
-                  />
-                </div>
-              </div>
-            </div>
+              {/* <div className="absolute bottom-40 -right-0 hidden md:block">
+                <CountdownTimer />
+              </div> */}
+            </div> 
           </div>
         </SwiperSlide>
         <SwiperSlide className="h-full">
@@ -213,35 +169,9 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="absolute bottom-40 -right-0 hidden md:block">
-                <div
-                  className="w-full rounded-l-xl md:rounded-l-xl border-y-2 border-l-2  border-[#E07E27] shadow-2xl overflow-hidden cursor-pointer"
-                  onClick={() => {
-                    router.push(routes.fixtures);
-                  }}
-                >
-                  <div
-                    className="  w-full flex overflow-hidden items-center justify-evenly rounded-tl-lg gap-4"
-                    style={{
-                      background:
-                        "linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.48) 1.45%, rgba(0, 0, 0, 0.70) 100%), rgba(255, 255, 255, 0.09)",
-                    }}
-                  >
-                    <div className="flex flex-col justify-between  py-6 px-12">
-                      <p className="text-[#E07E27] text-base  xl:text-lg font-semibold leading-3 uppercase">
-                        Match starts in
-                      </p>
-                    </div>
-                  </div>
-                  <CountdownTimer
-                    targetDate={nextMatch.targetDate}
-                    homeTeam={nextMatch.home_team}
-                    awayTeam={nextMatch.away_team}
-                    match_no={nextMatch.match_no}
-                    total_matches={nextMatch.total_matches}
-                  />
-                </div>
-              </div>
+              {/* <div className="absolute bottom-40 -right-0 hidden md:block">
+                <CountdownTimer />
+              </div> */}
             </div>
           </div>
         </SwiperSlide>
@@ -371,9 +301,7 @@ const Hero = () => {
               <div className="absolute bottom-40 right-0 hidden lg:block">
                 <div
                   className="w-full rounded-l-xl md:rounded-l-xl border-y-2 border-l-2 border-[#E07E27] shadow-2xl overflow-hidden cursor-pointer"
-                  onClick={() => {
-                    router.push(routes.fixtures);
-                  }}
+                  onClick={handleNavigateToFixture}
                 >
                   <div
                     className="w-full flex overflow-hidden items-center justify-evenly rounded-tl-lg gap-4"
@@ -401,9 +329,7 @@ const Hero = () => {
               <div className="absolute bottom-40 -right-0 hidden md:block">
                 <div
                   className="w-full rounded-l-xl md:rounded-l-xl border-y-2 border-l-2  border-[#E07E27] shadow-2xl overflow-hidden cursor-pointer"
-                  onClick={() => {
-                    router.push(routes.fixtures);
-                  }}
+                  onClick={handleNavigateToFixture}
                 >
                   <div
                     className="  w-full flex overflow-hidden items-center justify-evenly rounded-tl-lg gap-4"
@@ -489,35 +415,9 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="absolute bottom-40 -right-0 hidden md:block">
-                <div
-                  className="w-full rounded-l-xl md:rounded-l-xl border-y-2 border-l-2  border-[#E07E27] shadow-2xl overflow-hidden cursor-pointer"
-                  onClick={() => {
-                    router.push(routes.fixtures);
-                  }}
-                >
-                  <div
-                    className="  w-full flex overflow-hidden items-center justify-evenly rounded-tl-lg gap-4"
-                    style={{
-                      background:
-                        "linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.48) 1.45%, rgba(0, 0, 0, 0.70) 100%), rgba(255, 255, 255, 0.09)",
-                    }}
-                  >
-                    <div className="flex flex-col justify-between  py-6 px-12">
-                      <p className="text-[#E07E27] text-base  xl:text-lg font-semibold leading-3 uppercase">
-                        Match starts in
-                      </p>
-                    </div>
-                  </div>
-                  <CountdownTimer
-                    targetDate={nextMatch.targetDate}
-                    homeTeam={nextMatch.home_team}
-                    awayTeam={nextMatch.away_team}
-                    match_no={nextMatch.match_no}
-                    total_matches={nextMatch.total_matches}
-                  />
-                </div>
-              </div>
+              {/* <div className="absolute bottom-40 -right-0 hidden md:block">
+                <CountdownTimer />
+              </div> */}
             </div>
           </div>
         </SwiperSlide>
@@ -573,35 +473,9 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="absolute bottom-40 -right-0 hidden md:block">
-                <div
-                  className="w-full rounded-l-xl md:rounded-l-xl border-y-2 border-l-2  border-[#E07E27] shadow-2xl overflow-hidden cursor-pointer"
-                  onClick={() => {
-                    router.push(routes.fixtures);
-                  }}
-                >
-                  <div
-                    className="  w-full flex overflow-hidden items-center justify-evenly rounded-tl-lg gap-4"
-                    style={{
-                      background:
-                        "linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.48) 1.45%, rgba(0, 0, 0, 0.70) 100%), rgba(255, 255, 255, 0.09)",
-                    }}
-                  >
-                    <div className="flex flex-col justify-between  py-6 px-12">
-                      <p className="text-[#E07E27] text-base  xl:text-lg font-semibold leading-3 uppercase">
-                        Match starts in
-                      </p>
-                    </div>
-                  </div>
-                  <CountdownTimer
-                    targetDate={nextMatch.targetDate}
-                    homeTeam={nextMatch.home_team}
-                    awayTeam={nextMatch.away_team}
-                    match_no={nextMatch.match_no}
-                    total_matches={nextMatch.total_matches}
-                  />
-                </div>
-              </div>
+              {/* <div className="absolute bottom-40 -right-0 hidden md:block">
+                <CountdownTimer />
+              </div> */}
             </div>
           </div>
         </SwiperSlide>

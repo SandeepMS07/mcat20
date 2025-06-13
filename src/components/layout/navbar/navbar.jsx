@@ -11,7 +11,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathName = usePathname();
 
-  if (pathName === "/auction-info" || pathName === routes.matchcentre) return;
+  if (pathName === "/auction-info" ) return;
   return (
    <div
       className={

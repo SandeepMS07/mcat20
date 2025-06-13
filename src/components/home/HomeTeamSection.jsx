@@ -8,6 +8,7 @@ import { Carousel } from "../Carousel";
 import routes from "@/utilis/route";
 import teamDetailsDataSeason3 from "../../constant/team/teamDetailsDataSeason3.json";
 import { teamGradients } from "@/utilis/helper";
+// import CountdownTimer from "./CountdownTimer";
 
 const teamsDataHomePage = [
   {
@@ -80,6 +81,8 @@ const HomeTeamSection = () => {
   const [teamDetails, setTeamDetails] = useState(teamDetailsDataSeason3.data);
 
   return (
+    <>
+    {/* <div className="pl-5 mt-8 md:hidden block"><CountdownTimer/></div> */}
     <div className="relative">
       <img
         src="/images/elements/section-element.png"
@@ -130,6 +133,7 @@ const HomeTeamSection = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
