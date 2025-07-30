@@ -12,23 +12,19 @@ COPY next.config.mjs tailwind.config.js postcss.config.mjs jsconfig.json ./
 COPY public ./public
 COPY src ./src
 
-# Build and export the static site
-RUN npm run build && npm run export
+# Build the static site (includes export automatically)
+RUN npm run build
 
 # ---------- Stage 2: Serve the static site ----------
 FROM node:18-alpine AS runner
 
-# Install serve globally
 RUN npm install -g serve
 
 WORKDIR /app
 
-# Copy exported static site
+# Copy static output from build stage
 COPY --from=builder /app/out ./
 
-# Expose the port Next.js will run on
 EXPOSE 3000
 
-# Serve the app
 CMD ["serve", "-s", ".", "-l", "3000"]
-
