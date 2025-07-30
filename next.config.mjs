@@ -1,5 +1,9 @@
+
 /** @type {import('next').NextConfig} */
-const nextConfig = { images: {
+const nextConfig = {
+  output: 'export',
+  distDir: 'out', // optional, but keeps Dockerfile and serve command aligned
+  images: {
     remotePatterns: [
       {
         protocol: "https",
@@ -10,6 +14,7 @@ const nextConfig = { images: {
         hostname: "**",
       },
     ],
-  },};
+  },
+};
 
 export default nextConfig;
