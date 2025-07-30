@@ -1,8 +1,6 @@
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  distDir: 'out', // optional, but keeps Dockerfile and serve command aligned
+  distDir: "out", // optional, but keeps Dockerfile and serve command aligned
   images: {
     remotePatterns: [
       {
