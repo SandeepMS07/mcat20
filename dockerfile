@@ -1,41 +1,34 @@
 # ---------- Stage 1: Build the Next.js app ----------
-    FROM node:18-alpine AS builder
+FROM node:18-alpine AS builder
 
-    # Set working directory
-    WORKDIR /app
-    
-    # Install dependencies
-    COPY package*.json ./
-    RUN npm install
-    
-    # Copy config and source files
-    COPY next.config.mjs tailwind.config.js postcss.config.mjs ./
-    COPY jsconfig.json ./
-    COPY public ./public
-    COPY src ./src
+WORKDIR /app
 
-   
-    # Build the app
-    RUN npm run build
-    
-    
-    # ---------- Stage 2: Serve the built app ----------
-    FROM node:18-alpine AS runner
-    
-    WORKDIR /app
-    
-    
-    ENV NODE_ENV=production
-    
-    # Copy only the build output and necessary files
-    COPY --from=builder /app/.next ./.next
-    COPY --from=builder /app/public ./public
-    COPY --from=builder /app/node_modules ./node_modules
-    COPY --from=builder /app/package.json ./
-    
-    # Expose the port the app runs on
-    EXPOSE 3000
-    
-    # Run the app
-    CMD ["npm", "start"]
-    
+# Install dependencies
+COPY package*.json ./
+RUN npm install
+
+# Copy app files
+COPY next.config.mjs tailwind.config.js postcss.config.mjs jsconfig.json ./
+COPY public ./public
+COPY src ./src
+
+# Build and export the static site
+RUN npm run build && npm run export
+
+# ---------- Stage 2: Serve the static site ----------
+FROM node:18-alpine AS runner
+
+# Install serve globally
+RUN npm install -g serve
+
+WORKDIR /app
+
+# Copy exported static site
+COPY --from=builder /app/out ./
+
+# Expose the port Next.js will run on
+EXPOSE 3000
+
+# Serve the app
+CMD ["serve", "-s", ".", "-l", "3000"]
+
