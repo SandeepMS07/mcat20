@@ -6,6 +6,7 @@ const Socials = () => {
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://static.elfsight.com/platform/platform.js";
+    
     script.async = true;
     script.defer = true;
     document.body.appendChild(script);
@@ -32,8 +33,7 @@ const Socials = () => {
         {/* <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 max-sm:w-fit mx-auto"> */}
         <div>
           <div
-            className="elfsight-app-699da6b2-483b-4520-a7cd-82f1db1898af"
-            data-elfsight-app-lazy
+            class="elfsight-app-87100cb2-c9df-4f10-83fd-600b046e9da0" data-elfsight-app-lazy
           />
 
           {/* <script
