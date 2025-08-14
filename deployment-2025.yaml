@@ -5,7 +5,7 @@ metadata:
   labels:
     app: mca-t20-ui-prod
 spec:
-  replicas: 2
+  replicas: 1
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -24,10 +24,7 @@ spec:
         image: asia-south1-docker.pkg.dev/ken-cloud-436408/mca-t20-ui-prod/prod:latest
         ports:
         - containerPort: 3000
-        resources:
-          requests:
-            cpu: "500m"
-            memory: "2Gi"
+        
 ---
 apiVersion: v1
 kind: Service
