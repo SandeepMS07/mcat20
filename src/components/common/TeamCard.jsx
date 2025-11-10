@@ -56,11 +56,16 @@ const TeamCard = ({ data }) => {
         <img
           src={
             data?.Name === "Aakash Tigers MWS"
-              ? "https://turbostart.blob.core.windows.net/turbostart/48447191083078844-aakashTigers.png"
+              ? "https://turbostart.blob.core.windows.net/team-logos/Artboard%201.png"
               : data?.Name === "MSC Maratha Royals"
               ? "https://mcadirectory.blob.core.windows.net/dev/4441894866960012-shivajiParkLions.png"
               : data?.Name === "Triumph Knights Mumbai North East"
               ? "https://mcadirectory.blob.core.windows.net/dev/007792959990218895-triumphKnights.png"
+              :data?.Name === "Arcs Andheri" ? "https://turbostart.blob.core.windows.net/team-logos/2. Andheri Arcs.jpg"
+              :data?.Name === "SoBo Mumbai Falcons" ? "https://turbostart.blob.core.windows.net/team-logos/Artboard%201%20(2).png"
+              :data?.Name === "North Mumbai Panthers" ? "https://turbostart.blob.core.windows.net/team-logos/Artboard%201%20(1).png"
+              :data?.Name === "Eagle Thane Strikers" ? "https://turbostart.blob.core.windows.net/team-logos/Eagle%20Thane%20Strikers%20-%20LOGO%20NEW%20-%20Final_18ver.png"
+              :data?.Name === "Bandra Blasters" ? "https://turbostart.blob.core.windows.net/team-logos/image.png"
               : data?.Logo_URL__c || "/images/logo/playerTeamLogo.png"
           }
           alt="Team Logo"
