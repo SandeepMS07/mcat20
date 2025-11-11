@@ -129,49 +129,49 @@ export const teamGradients = {
 };
 export const teamLogoBN = {
   "Aakash Tigers MWS":
-    "https://turbostart.blob.core.windows.net/turbostart/48447191083078844-aakashTigers.png",
+    "https://turbostart.blob.core.windows.net/team-logos/Artboard%201.png",
   "Arcs Andheri":
-    "https://turbostart.blob.core.windows.net/turbostart/7423173046036597-arcsAndheri.png",
+    "https://turbostart.blob.core.windows.net/team-logos/2.%20Andheri%20Arcs.jpg",
   "Eagle Thane Strikers":
-    "https://t20mumbai.com/images/home/team/eagleThaneStrikers.png",
+    "https://turbostart.blob.core.windows.net/team-logos/Eagle%20Thane%20Strikers%20-%20LOGO%20NEW%20-%20Final_18ver.png",
   "Bandra Blasters":
-    "https://turbostart.blob.core.windows.net/turbostart/1044990513729378-LOGO - BANDRA BLASTERS copy.png",
+    "https://turbostart.blob.core.windows.net/team-logos/image.png",
   "North Mumbai Panthers":
-    "https://turbostart.blob.core.windows.net/turbostart/7886630352212134-northMumbaiPanthers.png",
+    "https://turbostart.blob.core.windows.net/team-logos/Artboard%201%20(1).png",
   "MSC Maratha Royals":
-    "https://t20mumbai.com/images/home/team/shivajiParkLions.png",
+    "https://turbostart.blob.core.windows.net/team-logos/Maratha%20Logo%20Final_AW-01.png",
   "SoBo Mumbai Falcons":
-    "https://t20mumbai.com/images/home/team/soboSuperSonics.png",
+    "https://turbostart.blob.core.windows.net/team-logos/WhatsApp%20Image%202025-11-11%20at%2013.04.23.jpeg",
   "Triumph Knights Mumbai North East":
-    "https://mcadirectory.blob.core.windows.net/dev/007792959990218895-triumphKnights.png",
+    "https://turbostart.blob.core.windows.net/team-logos/8.%20Triumph%20Knights%20Mumbai%20North%20East%20PNG%20v2%20(1).png",
 };
 export const teamLogoStats = {
   "Aakash Tigers MWS":
-    "https://turbostart.blob.core.windows.net/turbostart/48447191083078844-aakashTigers.png",
+    "https://turbostart.blob.core.windows.net/team-logos/Artboard%201.png",
   "Shivaji Park Lions": "/images/logo/shivajiParkLions.png",
   "SoBo SuperSonics": "/images/logo/soboSuperSonics.png",
   "Aakash Tigers Mumbai Western Suburbs":
     "https://turbostart.blob.core.windows.net/turbostart/48447191083078844-aakashTigers.png",
   "ARCS Andheri":
-    "https://turbostart.blob.core.windows.net/turbostart/7423173046036597-arcsAndheri.png",
+    "https://turbostart.blob.core.windows.net/team-logos/2.%20Andheri%20Arcs.jpg",
   "Eagle Thane Strikers":
-    "https://t20mumbai.com/images/home/team/eagleThaneStrikers.png",
+    "https://turbostart.blob.core.windows.net/team-logos/Eagle%20Thane%20Strikers%20-%20LOGO%20NEW%20-%20Final_18ver.png",
   "Bandra Blasters":
-    "https://turbostart.blob.core.windows.net/turbostart/1044990513729378-LOGO - BANDRA BLASTERS copy.png",
+    "https://turbostart.blob.core.windows.net/team-logos/image.png",
   "NaMo Bandra Blasters":
-    "https://turbostart.blob.core.windows.net/turbostart/1044990513729378-LOGO - BANDRA BLASTERS copy.png",
+    "https://turbostart.blob.core.windows.net/team-logos/image.png",
   "North Mumbai Panthers":
-    "https://turbostart.blob.core.windows.net/turbostart/7886630352212134-northMumbaiPanthers.png",
+    "https://turbostart.blob.core.windows.net/team-logos/Artboard%201%20(1).png",
   "MSC Maratha Royals":
-    "https://t20mumbai.com/images/home/team/shivajiParkLions.png",
+    "https://turbostart.blob.core.windows.net/team-logos/Maratha%20Logo%20Final_AW-01.png",
   "SoBo Mumbai Falcons":
-    "https://t20mumbai.com/images/home/team/soboSuperSonics.png",
+    "https://turbostart.blob.core.windows.net/team-logos/WhatsApp%20Image%202025-11-11%20at%2013.04.23.jpeg",
   "Triumph Knights Mumbai North East":
-    "https://mcadirectory.blob.core.windows.net/dev/007792959990218895-triumphKnights.png",
-    "SOBO Mumbai Falcons":
-      "https://t20mumbai.com/images/home/team/soboSuperSonics.png",
-    "Triumph Knights MNE":
-    "https://mcadirectory.blob.core.windows.net/dev/630539656646887-8. Triumph Knights Mumbai North East PNG v1 1.png",
+    "https://turbostart.blob.core.windows.net/team-logos/image.svg",
+  "SOBO Mumbai Falcons":
+    "https://turbostart.blob.core.windows.net/team-logos/WhatsApp%20Image%202025-11-11%20at%2013.04.23.jpeg",
+  "Triumph Knights MNE":
+    "https://turbostart.blob.core.windows.net/team-logos/8.%20Triumph%20Knights%20Mumbai%20North%20East%20PNG%20v2%20(1).png",
 };
 
 export const teamShortName = {
@@ -193,37 +193,36 @@ export const teamShortName = {
 
 export const season3TeamLogo = {
   "Aakash Tigers MWS":
-    "https://turbostart.blob.core.windows.net/turbostart/48447191083078844-aakashTigers.png",
+    "https://turbostart.blob.core.windows.net/team-logos/Artboard%201.png",
   "Aakash Tigers Mumbai Western Suburbs":
     "https://turbostart.blob.core.windows.net/turbostart/48447191083078844-aakashTigers.png",
   "ARCS Andheri":
-    "https://turbostart.blob.core.windows.net/turbostart/7423173046036597-arcsAndheri.png",
+    "https://turbostart.blob.core.windows.net/team-logos/2.%20Andheri%20Arcs.jpg",
   "Arcs Andheri":
-    "https://turbostart.blob.core.windows.net/turbostart/7423173046036597-arcsAndheri.png",
+    "https://turbostart.blob.core.windows.net/team-logos/2.%20Andheri%20Arcs.jpg",
   "Eagle Thane Strikers":
-    "https://t20mumbai.com/images/home/team/eagleThaneStrikers.png",
+    "https://turbostart.blob.core.windows.net/team-logos/Eagle%20Thane%20Strikers%20-%20LOGO%20NEW%20-%20Final_18ver.png",
   "Bandra Blasters":
-    "https://turbostart.blob.core.windows.net/turbostart/1044990513729378-LOGO - BANDRA BLASTERS copy.png",
+    "https://turbostart.blob.core.windows.net/team-logos/image.png",
   "NaMo Bandra Blasters":
-    "https://turbostart.blob.core.windows.net/turbostart/1044990513729378-LOGO - BANDRA BLASTERS copy.png",
+    "https://turbostart.blob.core.windows.net/team-logos/image.png",
   "North Mumbai Panthers":
-    "https://turbostart.blob.core.windows.net/turbostart/7886630352212134-northMumbaiPanthers.png",
-  "Shivaji Park Lions":
-    "https://t20mumbai.com/images/home/team/shivajiParkLions.png",
+    "https://turbostart.blob.core.windows.net/team-logos/Artboard%201%20(1).png",
+  "Shivaji Park Lions": "/images/logo/shivajiParkLions.png",
   "MSC Maratha Royals":
-    "https://t20mumbai.com/images/home/team/shivajiParkLions.png",
+    "https://turbostart.blob.core.windows.net/team-logos/Maratha%20Logo%20Final_AW-01.png",
   "SoBo SuperSonics":
-    "https://t20mumbai.com/images/home/team/soboSuperSonics.png",
+    "https://turbostart.blob.core.windows.net/team-logos/Frame%202095587121%20(3).svg",
   "SoBo Mumbai Falcons":
-    "https://t20mumbai.com/images/home/team/soboSuperSonics.png",
-    "Triumph Knights Mumbai North East":
-    "https://mcadirectory.blob.core.windows.net/dev/007792959990218895-triumphKnights.png",
-    "SOBO Mumbai Falcons":
-      "https://t20mumbai.com/images/home/team/soboSuperSonics.png",
+    "https://turbostart.blob.core.windows.net/team-logos/WhatsApp%20Image%202025-11-11%20at%2013.04.23.jpeg",
+  "Triumph Knights Mumbai North East":
+    "https://turbostart.blob.core.windows.net/team-logos/image.svg",
+  "SOBO Mumbai Falcons":
+    "https://turbostart.blob.core.windows.net/team-logos/WhatsApp%20Image%202025-11-11%20at%2013.04.23.jpeg",
   "Triumph Knights MNE":
-    "https://mcadirectory.blob.core.windows.net/dev/630539656646887-8. Triumph Knights Mumbai North East PNG v1 1.png",
+    "https://turbostart.blob.core.windows.net/team-logos/8.%20Triumph%20Knights%20Mumbai%20North%20East%20PNG%20v2%20(1).png",
   // "Triumph Knights MNE":
-  //   "https://mcadirectory.blob.core.windows.net/dev/007792959990218895-triumphKnights.png",
+  //   "https://turbostart.blob.core.windows.net/team-logos/image.svg",
 };
 
 export const decodeHtml = (html) => {
