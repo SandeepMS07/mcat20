@@ -5,55 +5,43 @@ import Image from "next/image";
 
 const MATCHCENTRE_CSS = "https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/app.css";
 const MATCHCENTRE_SCRIPT = "https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/app_matchcentre.js";
-const SCRIPT_ID = "matchcentre-widget-script";
+const WIDGET_SCRIPT_ID = "matchcentre-widget-script";
+
+const loadWidgetScript = () => {
+  if (!document.querySelector(`link[href="${MATCHCENTRE_CSS}"]`)) {
+    const link = document.createElement("link");
+    link.href = MATCHCENTRE_CSS;
+    link.rel = "stylesheet";
+    link.type = "text/css";
+    document.head.appendChild(link);
+  }
+
+  const existingScript = document.getElementById(WIDGET_SCRIPT_ID);
+  if (existingScript) {
+    existingScript.remove();
+  }
+
+  const script = document.createElement("script");
+  script.src = MATCHCENTRE_SCRIPT;
+  script.async = true;
+  script.id = WIDGET_SCRIPT_ID;
+  document.body.appendChild(script);
+  return script;
+};
 
 export default function Page() {
   const [widgetLoaded, setWidgetLoaded] = useState(false);
 
   useEffect(() => {
-    const ensureStylesheet = () => {
-      if (document.querySelector(`link[href="${MATCHCENTRE_CSS}"]`)) return;
-      const cssLink = document.createElement("link");
-      cssLink.rel = "stylesheet";
-      cssLink.href = MATCHCENTRE_CSS;
-      document.head.appendChild(cssLink);
-    };
+    const widgetEl = document.querySelector("app-matchcentre");
+    if (widgetEl) widgetEl.innerHTML = "";
 
-    const ensureScript = () => {
-      const existingScript = document.getElementById(SCRIPT_ID);
-      if (existingScript) {
-        return existingScript;
-      }
-
-      const script = document.createElement("script");
-      script.id = SCRIPT_ID;
-      script.src = MATCHCENTRE_SCRIPT;
-      script.async = true;
-      script.dataset.loaded = "false";
-      document.body.appendChild(script);
-      return script;
-    };
-
-    ensureStylesheet();
-    const scriptEl = ensureScript();
-    if (!scriptEl.dataset.loaded) {
-      scriptEl.dataset.loaded = "false";
-    }
-    let detachLoadListener;
-
-    if (scriptEl.dataset.loaded === "true") {
-      setWidgetLoaded(true);
-    } else {
-      const onLoad = () => {
-        scriptEl.dataset.loaded = "true";
-        setWidgetLoaded(true);
-      };
-      scriptEl.addEventListener("load", onLoad);
-      detachLoadListener = () => scriptEl.removeEventListener("load", onLoad);
-    }
+    const scriptEl = loadWidgetScript();
+    const onLoad = () => setWidgetLoaded(true);
+    scriptEl.addEventListener("load", onLoad);
 
     return () => {
-      detachLoadListener?.();
+      scriptEl.removeEventListener("load", onLoad);
     };
   }, []);
 
