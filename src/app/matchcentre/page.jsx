@@ -3,35 +3,58 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
+const MATCHCENTRE_CSS = "https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/app.css";
+const MATCHCENTRE_SCRIPT = "https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/app_matchcentre.js";
+const SCRIPT_ID = "matchcentre-widget-script";
+
 export default function Page() {
   const [widgetLoaded, setWidgetLoaded] = useState(false);
 
-     // const [iframeSrc, setIframeSrc] = useState('');
-
-    // useEffect(() => {
-    //     const queryString = window.location.search;
-    //     // console.log(queryString, "queryString")
-    //     const fullUrl = `https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/matchcentre.html${queryString}`;
-    //     setIframeSrc(fullUrl);
-    // }, []);
-
   useEffect(() => {
-    const loadWidget = async () => {
-      // Load CSS
+    const ensureStylesheet = () => {
+      if (document.querySelector(`link[href="${MATCHCENTRE_CSS}"]`)) return;
       const cssLink = document.createElement("link");
       cssLink.rel = "stylesheet";
-      cssLink.href = "https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/app.css";
+      cssLink.href = MATCHCENTRE_CSS;
       document.head.appendChild(cssLink);
-
-      // Load JS
-      const script = document.createElement("script");
-      script.src = "https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/app_matchcentre.js";
-      script.async = true;
-      script.onload = () => setWidgetLoaded(true);
-      document.body.appendChild(script);
     };
 
-    loadWidget();
+    const ensureScript = () => {
+      const existingScript = document.getElementById(SCRIPT_ID);
+      if (existingScript) {
+        return existingScript;
+      }
+
+      const script = document.createElement("script");
+      script.id = SCRIPT_ID;
+      script.src = MATCHCENTRE_SCRIPT;
+      script.async = true;
+      script.dataset.loaded = "false";
+      document.body.appendChild(script);
+      return script;
+    };
+
+    ensureStylesheet();
+    const scriptEl = ensureScript();
+    if (!scriptEl.dataset.loaded) {
+      scriptEl.dataset.loaded = "false";
+    }
+    let detachLoadListener;
+
+    if (scriptEl.dataset.loaded === "true") {
+      setWidgetLoaded(true);
+    } else {
+      const onLoad = () => {
+        scriptEl.dataset.loaded = "true";
+        setWidgetLoaded(true);
+      };
+      scriptEl.addEventListener("load", onLoad);
+      detachLoadListener = () => scriptEl.removeEventListener("load", onLoad);
+    }
+
+    return () => {
+      detachLoadListener?.();
+    };
   }, []);
 
   return (
@@ -85,11 +108,8 @@ export default function Page() {
                 )} */}
             {/* </div> */}
           <div className="mt-8 min-h-[80vh]">
-            {widgetLoaded ? (
-              <app-matchcentre></app-matchcentre>
-            ) : (
-              <p>Loading Match Centre Widget...</p>
-            )}
+            <app-matchcentre className={widgetLoaded ? "" : "opacity-0"}></app-matchcentre>
+            {!widgetLoaded && <p>Loading Match Centre Widget...</p>}
           </div>
         </div>
       </div>
