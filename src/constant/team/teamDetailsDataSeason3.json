@@ -84,7 +84,7 @@
                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2G8HYAU"
               },
               "Name": "Hitesh Kadam",
-              "Photo_URL_1__c": "",
+              "Photo_URL_1__c": "https://turbostart.blob.core.windows.net/team-logos/WhatsApp Image 2025-11-11 at 16.07.21.jpeg",
               "MCA_Registration_Number__c": "M00264"
             },
             "Base_Price__c": 200000,
