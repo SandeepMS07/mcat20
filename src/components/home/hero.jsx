@@ -62,6 +62,46 @@ const Hero = () => {
         className="h-full"
       >
         <SwiperSlide className="h-full">
+          <div className="w-full h-full bg-[url('/images/home/hero/new-hero.jpg')] bg-cover bg-center relative pt-20 overflow-hidden flex justify-center items-center">
+            <div className="absolute inset-0 bg-black/40"></div>
+            <div className="section-width py-2 relative z-10">
+              <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
+                <p className="font-bold text-sm uppercase md:text-base bg-[#182769] px-3 py-2 xl:text-xl">
+                  T20 Mumbai Season 4
+                </p>
+                <h1 className="font-extrabold max-w-3xl max-sm:text-center">
+                  MCA announces Season 4 <br /> &amp; Inaugural Women&apos;s
+                  League
+                </h1>
+                <p className="font-bold text-lg md:text-xl xl:text-2xl">
+                  #ChanceSoduNako
+                </p>
+                <div className="flex flex-row gap-2">
+                  <a
+                    className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md"
+                    onClick={() => {
+                      router.push(
+                        "/latest-updates/mca-announces-t20-mumbai-league-season-4-and-launches-inaugural-womens-league"
+                      );
+                    }}
+                  >
+                    Read More{" "}
+                    <span>
+                      <Image
+                        src="/images/home/hero/buttonIcon.svg"
+                        alt="button-icon"
+                        width={24}
+                        height={24}
+                        className="w-5 h-5"
+                      />
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide className="h-full">
           <div className="w-full h-full bg-[url('https://mca-cdn.ken42.com/season3/latest_updates/slider7.jpg')] bg-cover bg-center  relative pt-20  overflow-hidden flex justify-center items-center ">
             <div className="section-width  py-2">
              <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
@@ -104,7 +144,7 @@ const Hero = () => {
             </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide className="h-full">
+        {/* <SwiperSlide className="h-full">
           <div className="w-full h-full bg-[url('/images/banner/slider3.jpg')] bg-cover bg-center  relative pt-32 overflow-hidden flex justify-center items-center">
             <div className="section-width ">
               <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
@@ -118,7 +158,7 @@ const Hero = () => {
                   #Kaun Banega Agla Star?{" "}
                 </p>
                 <div className="flex flex-row gap-2">
-                  {/* <a
+                  <a
                     href={routes.OverallTicket}
                     target="_blank"
                     className="btn-primary flex gap-4 items-center justify-center py-3 px-6 rounded-lg text-md"
@@ -133,7 +173,7 @@ const Hero = () => {
                         className="w-5 h-5"
                       />
                     </span>
-                  </a> */}
+                  </a>
                   <a
                     className="btn-blue flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md"
                     onClick={() => {
@@ -156,12 +196,12 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* <div className="absolute bottom-40 -right-0 hidden md:block">
+              <div className="absolute bottom-40 -right-0 hidden md:block">
                 <CountdownTimer />
-              </div> */}
+              </div>
             </div>
           </div>
-        </SwiperSlide>
+        </SwiperSlide> */}
         {/* <SwiperSlide>
           <div className="w-full h-full bg-[url('https://storage.googleapis.com/mca_images/website/banner_img/slider2.jpg')] bg-cover bg-center  relative md:pt-32 pt-14 overflow-hidden flex justify-center items-center">
             
@@ -343,7 +383,7 @@ const Hero = () => {
             </div>
           </div>
         </SwiperSlide> */}
-        <SwiperSlide className="h-full">
+        {/* <SwiperSlide className="h-full">
           <div className="w-full h-full bg-[url('https://storage.googleapis.com/mca_images/website/banner_img/heroImgRohitPattern.png')] bg-cover bg-center  relative pt-32 overflow-hidden flex justify-center items-center">
             <div className="section-width ">
               <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
@@ -360,7 +400,6 @@ const Hero = () => {
                 <div className="flex gap-2">
                   <button
                     className="btn-primary flex gap-4 items-center"
-                    // onClick={openVideo}
                     onClick={() => {
                       window.open(
                         "https://www.instagram.com/reel/DKovUKKhr7F/",
@@ -380,7 +419,7 @@ const Hero = () => {
                       />
                     </span>
                   </button>
-                  {/* <a
+                  <a
                     className="btn-blue inline-flex gap-4 cursor-pointer items-center justify-center py-3 px-6 rounded-lg text-md"
                     onClick={() => {
                       router.push(
@@ -398,22 +437,22 @@ const Hero = () => {
                         className="w-5 h-5"
                       />
                     </span>
-                  </a> */}
+                  </a>
                 </div>
               </div>
 
-              {/* <div className="absolute bottom-40 -right-0 hidden md:block">
+              <div className="absolute bottom-40 -right-0 hidden md:block">
                 <CountdownTimer />
-              </div> */}
+              </div>
             </div>
           </div>
-        </SwiperSlide>
+        </SwiperSlide> */}
         <SwiperSlide className="h-full">
           <div className="w-full h-full bg-[url('/images/banner/banner4.png')] bg-cover bg-center  relative pt-32 overflow-hidden flex justify-center items-center">
             <div className="section-width ">
               <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
                 <p className="font-bold text-sm md:text-base xl:text-xl">
-                  T20 MUMBAI SEASON 3
+                  T20 MUMBAI SEASON 4
                 </p>
 
                 <h1 className="  font-extrabold max-w-3xl max-sm:text-center">

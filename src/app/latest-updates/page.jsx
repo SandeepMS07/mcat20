@@ -1,7 +1,7 @@
 "use client";
 import Hero from "@/components/hero/Hero";
 import UpdatesCard from "@/components/LatestUpdateComponents/UpdatesCard";
-import { CardData } from "./data";
+import { LocalLatestUpdates } from "./data";
 import { useRouter } from "next/navigation";
 import { formatTitleForURL } from "@/utilis/helper";
 import routes from "@/utilis/route";
@@ -18,9 +18,17 @@ const page = () => {
     const fetchUpdates = async () => {
       setLoading(true);
       const data = await getLatestUpdatesClient();
-      if (data?.data?.length) {
-        setLatestUpdates(data);
-      }
+      const apiUpdates = data?.data || [];
+      const merged = [
+        ...LocalLatestUpdates,
+        ...apiUpdates.filter(
+          (item) =>
+            !LocalLatestUpdates.some(
+              (local) => local.Title__c === item?.Title__c
+            )
+        ),
+      ];
+      setLatestUpdates({ data: merged });
       setLoading(false);
     };
     fetchUpdates();

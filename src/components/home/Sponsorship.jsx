@@ -4,46 +4,12 @@ import TitleComponent from "../common/TitleComponent";
 const Sponsorship = () => {
   const sponsorData = [
     {
-      img: "/images/home/sponsorship/meil.png",
-      title: "Powered By",
+      img: "/images/home/sponsorship/hell.png",
+      title: "Hell Energy - Energy Drink Partner",
     },
     {
-      img: "/images/home/sponsorship/jpi.png",
-      title: "League Sponsor",
-    },
-    {
-      img: "/images/home/sponsorship/hoh.png",
-      title: "League Sponsor",
-    },
-    {
-      img: "/images/home/sponsorship/jkumar.png",
-      title: "Umpire Sponsor",
-    },
-    {
-      img: "/images/home/sponsorship/district.png",
-      title: "Ticketing Partner",
-    },
-    {
-      img: "/images/home/sponsorship/dream11.png",
-      title: "Fantasy Partner",
-    },
-
-    {
-      img: "/images/home/sponsorship/jiohotstar.png",
-      title: "Streaming Partner",
-    },
-
-    {
-      img: "/images/home/sponsorship/redfm.png",
-      title: "Radio Partner",
-    },
-    {
-      img: "/images/home/sponsorship/starsports.png",
-      title: "Official Broadcaster",
-    },
-    {
-      img: "/images/home/sponsorship/scrapji.png",
-      title: "Recycling Partner",
+      img: "/images/home/sponsorship/tyka.png",
+      title: "TYKA - Kitting Partner",
     },
   ];
 

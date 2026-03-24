@@ -1,5 +1,88 @@
 import schedule from "../../../public/images/latestUpdates/schedule.jpeg";
 import "./styles.css";
+
+export const LocalLatestUpdates = [
+    {
+    Id: "local-1",
+    Title__c:
+      "MCA announces T20 Mumbai League Season 4 and launches Inaugural Women's League",
+    Date__c: "2026-03-24",
+    Image_URL__c: "/images/latestUpdates/local-3-banner.jpeg",
+    path: "/latest-updates/mca-announces-t20-mumbai-league-season-4-and-launches-inaugural-womens-league",
+    Sub_Title__c:
+      "Mumbai Cricket Association (MCA) announced the return of the T20 Mumbai League for Season 4 and launched the inaugural T20 Mumbai Women's League at a major event in Mumbai.",
+    Content__c: `Mumbai Cricket Association (MCA) today announced the return of T20 Mumbai League with an exhilarating Season 4 and also launched the inaugural T20 Mumbai Women's League, pitted to be the most exciting domestic tournaments in the women's arena.<br/><br/>
+The trophies for both tournaments were unveiled by Rohit Sharma, face of the league, at a glittering event in Mumbai that was also attended by Mumbai star and India players Sayali Satghare, MCA President Ajinkya Naik, Cabinet Minister and former MCA President Ashish Shelar, and Rajdip Gupta, Chairman of the League Governing Council, joined by members of the Apex Council and the League Governing Council along with team operators.<br/><br/>
+<img src="/images/latestUpdates/local-3-inner1.jpeg" alt="T20 Mumbai League launch event" />
+<br/><br/>
+Speaking at the launch of the T20 Mumbai League and T20 Mumbai Women's League, Rohit Sharma said: "I'm very happy with how Mumbai cricket is shaping up-not just in the IPL team, but also with what the T20 Mumbai League has done for many young cricketers. We saw so many cricketers who played in the T20 Mumbai now go on to play for IPL teams and the national team as well. It is a big platform. I'm happy that we are doing this again after a very successful last season, I was involved last season. I saw it was a very tough task. I have to give credit to each and every member of the MCA for pulling it through. This year, there are three women's teams as well, so it's getting bigger."<br/><br/>
+Elaborating on the significance of the T20 Mumbai Women's League, Sayali Satghare said: "Mumbai has always been a city that lives and breathes cricket, and it means a lot to see a dedicated platform now being created for women as well. I would like to thank the Mumbai Cricket Association for taking this important step and investing in the future of women's cricket. The T20 Mumbai Women's League will give many young girls the opportunity to dream bigger, compete at a high level and believe that they too can represent Mumbai and India one day."<br/><br/>
+MCA President Ajinkya Naik added: "Mumbai's cricketing legacy has always been built on a strong grassroots structure and a culture that encourages players to push themselves and aim higher. The T20 Mumbai League reflects that philosophy by providing talented cricketers from across the city a professional stage to showcase their abilities. The launch of the T20 Mumbai Women's League is an important milestone for us. Women's cricket is growing rapidly, and it is essential that we create strong platforms that allow talented players to compete, develop and progress to higher levels of the game."<br/><br/>
+Former MCA President and Cabinet Minister Ashish Shelar said: "I congratulate the entire MCA team, especially Ajinkya [Naik], Rajdip [Gupta], and all the MCA members, for such a wonderful T20 Mumbai launch. I still remember the day in 2018 when we were here and thought that we should have a league where we could give an opportunity to our young talent to showcase their abilities in a bigger way. And it has been demonstrated here, Ajinkya has rightly given that space. So the league has its own legacy. I welcome all the franchise owners who have shown confidence in our entire team. Wherever it is needed, the Government of Maharashtra and I, as an individual, will always be there because our Chief Minister always tells me to push the best. There are three women's teams coming, so I think that is the best thing that has been done, the launch of the women's league."<br/><br/>
+Rajdip Gupta, Chairman of the League Governing Council, stated: "The T20 Mumbai League has consistently showcased the depth of talent in the city. With the addition of the women's competition, the league enters an exciting new phase. Our aim is to create a professionally run tournament that not only delivers high-quality cricket but also strengthens the pathway for emerging players."<br/><br/>
+<div style="text-align:center;">
+  <img src="/images/latestUpdates/local3-inner2.jpeg" alt="T20 Mumbai League launch stage" style="max-width:720px;width:100%;height:auto;display:inline-block;" />
+</div>
+<br/><br/>
+An insightful and engaging panel discussion featuring Rohit Sharma and Sayali Satghare highlighted the significance of the women's league and Mumbai's deep cricketing culture.<br/><br/>
+The inaugural T20 Mumbai Women's League will witness competition between three teams, operated by PRS Infraprojects LLP, Roadway Solution India Infra Ltd and World Star Sporting Private Limited.<br/><br/>
+Season 4 of the men's competition will continue to feature eight franchises representing different regions of the city: Aakash Tigers Mumbai Western Suburbs (World Star Premier League LLP), ARCS Andheri (ARCS Sports & Entertainment Private Limited), Bandra Blasters (PK Sports Ventures Private Limited), Eagle Thane Strikers (Eagle Infra India Ltd), Mumbai South Central Maratha Royals (Royal Edge Sports & Entertainment), North Mumbai Panthers (Horizon Sports India Private Limited), SoBo Mumbai Falcons (Roadway Solutions India Infra Ltd.) and Triumph Knights Mumbai North East (Transcon Triumph Knights Private Limited).<br/><br/>
+Since its launch in 2018, the T20 Mumbai League has established itself as one of India's most competitive domestic T20 tournaments, providing a platform for emerging players to showcase their abilities. Several cricketers who featured in the league, including Shivam Dube and Tushar Deshpande, have gone on to represent Mumbai and India, and to play in the Indian Premier League, underlining the league's importance in the country's cricketing ecosystem.<br/><br/>
+As the city prepares for another exciting cricket season, the league promises to celebrate the depth of Mumbai's cricketing talent while bringing high-voltage action for the fans.`,
+    Order__c: 1003,
+    bordered: true,
+  },
+  {
+    Id: "local-2",
+    Title__c: "Bids Opened for Team Operating Rights - T20 Mumbai Women's League",
+    Date__c: "2026-03-21",
+    Image_URL__c: "/images/latestUpdates/local-2-banner.jpeg",
+    path: "/latest-updates/bids-opened-for-team-operating-rights-t20-mumbai-womens-league",
+    Sub_Title__c:
+      "The bids for Team Operating Rights for three teams in the upcoming T20 Mumbai Women's League were officially opened today, drawing strong participation from reputed organizations.",
+    Content__c: `The bids for Team Operating Rights for three teams in the upcoming T20 Mumbai Women's League were officially opened today.<br/><br/>
+The bidding process witnessed enthusiastic participation from reputed organizations, reflecting the growing interest and confidence in women's cricket in Mumbai.<br/><br/>
+<div class="responsive-image-wrapper">
+  <img src="/images/latestUpdates/local-2-inner1.jpeg" alt="T20 Mumbai Women's League bidding - 1" />
+  <img src="/images/latestUpdates/local-2-inner2.jpeg" alt="T20 Mumbai Women's League bidding - 2" />
+</div>
+<br/>
+Based on the financial bids received, the following bidders have secured the Team Operating Rights:<br/><br/>
+<ul>
+  <li>PRS Infraprojects LLP - Rs. 2,25,00,000/- (Rank 1)</li>
+  <li>Roadway Solution India Infra Ltd - Rs. 1,09,00,000/- (Rank 2)</li>
+  <li>World Star Sporting Private Limited - Rs. 79,00,000/- (Rank 3)</li>
+</ul>
+<br/>
+The successful bidders (Rank 1 to 3) will be awarded the rights to operate the three teams, subject to completion of the necessary formalities and execution of agreements.<br/><br/>
+The strong response to the bidding process underlines the rising stature of the T20 Mumbai Women's League and the Association's continued commitment to strengthening the women's cricketing ecosystem.<br/><br/>
+MCA President, Ajinkya Naik, says, "The overwhelming response to the bidding process for the T20 Mumbai Women's League is a strong endorsement of our vision to elevate women's cricket in Mumbai. The participation of reputed corporate groups reflects the growing commercial confidence in the women's game. We are committed to building a competitive and professionally managed league that provides a robust platform for emerging talent."<br/><br/>
+T20 Mumbai League Governing Council Chairman, Rajdip Gupta, expresses, "The successful conclusion of the bidding process marks an important milestone for the T20 Mumbai Women's League. The strong bids received underline the league's credibility and potential. We look forward to working closely with the franchise owners to deliver a high-quality tournament that showcases the depth of women's cricketing talent in Mumbai."<br/><br/>
+Further details regarding the teams, player auction, and tournament schedule will be announced shortly.`,
+    Order__c: 1002,
+    bordered: true,
+  },
+  {
+    Id: "local-3",
+    Title__c: "#ChanceSoduNako: Defining the Spirit of the T20 Mumbai League",
+    Date__c: "2026-03-18",
+    Image_URL__c: "/images/latestUpdates/local-1.jpeg",
+    path: "/latest-updates/chance-sodunako-defining-the-spirit-of-the-t20-mumbai-league",
+    Sub_Title__c:
+      "The Mumbai Cricket Association (MCA) has unveiled #ChanceSoduNako as the central theme for the upcoming season of the T20 Mumbai League, encapsulating the core philosophy of Mumbai cricket: seizing opportunities when they arise.",
+    Content__c: `The Mumbai Cricket Association (MCA) has unveiled #ChanceSoduNako as the central theme for the upcoming season of the T20 Mumbai League, encapsulating the core philosophy of Mumbai cricket: seizing opportunities when they arise.<br/><br/>
+Derived from the local ethos, #ChanceSoduNako, which translates to "don't let go of the opportunity," reflects the competitive and resilient mindset that has long defined the city's cricketing culture.<br/><br/>
+For players, the message is clear. In a highly competitive ecosystem, opportunities are limited and often decisive. A single performance - whether with the bat, ball, or in the field - can significantly influence a player's trajectory. The T20 Mumbai League continues to serve as a key platform where such opportunities are created, enabling emerging talent to showcase their abilities on a prominent stage.<br/><br/>
+With the return of Season 4 of the men's league and the introduction of the inaugural Women's T20 Mumbai League, the scope of opportunity expands further. The inclusion of the women's competition marks a significant step towards building a more inclusive and comprehensive cricketing ecosystem in Mumbai.<br/><br/>
+Beyond the field, #ChanceSoduNako also resonates with fans, encouraging them to be active participants in the league by supporting teams and experiencing high-quality cricket at iconic venues.<br/><br/>
+As the T20 Mumbai League prepares for its upcoming season, #ChanceSoduNako stands as a unifying message, reinforcing the importance of readiness, ambition, and making every opportunity count.`,
+    Order__c: 1001,
+    bordered: true,
+  },
+  
+
+];
+
 export const CardData = [
   {
     id: 1,

@@ -5,10 +5,10 @@ import { useState, useEffect } from "react";
 import TitleComponent from "../common/TitleComponent";
 import { truncateTextSpells, formatTitleForURL } from "@/utilis/helper";
 import { useRouter } from "next/navigation";
-import path from "path";
 import routes from "@/utilis/route";
 import { getLatestUpdatesClient } from "@/app/api/clientApi";
 import LoadingPage from "@/app/loading";
+import { LocalLatestUpdates } from "@/app/latest-updates/data";
 
 const tabs = ["All", "Latest", "Reviews", "NewSection"];
 
@@ -51,10 +51,19 @@ const LatestUpdates = () => {
     const fetchUpdates = async () => {
       setLoading(true);
       const data = await getLatestUpdatesClient();
-      if (data?.data?.length) {
-        setLatestUpdates(data.data);
-        setPrimaryItem(data?.data[0]);
-      }
+      const apiUpdates = data?.data || [];
+      const merged = [
+        ...LocalLatestUpdates,
+        ...apiUpdates.filter(
+          (item) =>
+            !LocalLatestUpdates.some(
+              (local) => local.Title__c === item?.Title__c
+            )
+        ),
+      ];
+
+      setLatestUpdates(merged);
+      setPrimaryItem(merged[0]);
       setLoading(false);
     };
 
@@ -69,8 +78,15 @@ const LatestUpdates = () => {
     return null;
   }
 
-  const handleLatestUpdateClick = (title) => {
-    router.push(`${routes.latestUpdates}/${formatTitleForURL(title)}`);
+  const handleLatestUpdateClick = (item) => {
+    const targetPath =
+      item?.path ||
+      `${routes.latestUpdates}/${formatTitleForURL(
+        item?.Title__c || item?.title || ""
+      )}`;
+    if (targetPath) {
+      router.push(targetPath);
+    }
   };
 
   return (
@@ -103,7 +119,7 @@ const LatestUpdates = () => {
                     backgroundRepeat: "no-repeat",
                   }}
                   onClick={() => {
-                    handleLatestUpdateClick(primaryItem?.Title__c);
+                    handleLatestUpdateClick(primaryItem);
                   }}
                 >
                   {/* Black overlay gradient */}
@@ -142,7 +158,7 @@ const LatestUpdates = () => {
                         item.bordered ? "border-b border-[#D3731E]" : ""
                       }`}
                       onClick={() => {
-                        handleLatestUpdateClick(item?.Title__c);
+                        handleLatestUpdateClick(item);
                       }}
                     >
                       <div className="max-w-80 p-4">

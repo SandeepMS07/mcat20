@@ -2,13 +2,12 @@
 import TitleComponent from "@/components/common/TitleComponent";
 import Hero from "@/components/hero/Hero";
 import Image from "next/image";
-// import { CardData } from "../data";
+import { LocalLatestUpdates } from "../data";
 import UpdatesCard from "@/components/LatestUpdateComponents/UpdatesCard";
 import { useEffect, useState } from "react";
 import { formatTitleForURL,decodeHtml} from "@/utilis/helper";
 import { useParams, useRouter } from "next/navigation";
 import routes from "@/utilis/route";
-import LoadingPage from "@/app/loading";
 import { getLatestUpdatesClient } from "@/app/api/clientApi";
 
 const page = () => {
@@ -17,24 +16,40 @@ const page = () => {
   const [updatesData, setUpdatesData] = useState([]);
   const [bannerImage, setBannerImage] = useState("");
   const [selectedUpdate, setSelectedUpdate] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   // Fetch the latest news from the api
   useEffect(() => {
     const fetchUpdates = async () => {
+      setLoading(true);
       const data = await getLatestUpdatesClient();
-      if (data?.data?.length) {
-        setUpdatesData(data.data);
-
-        const found = data.data.find(
+      const apiUpdates = data?.data || [];
+      const merged = [
+        ...LocalLatestUpdates,
+        ...apiUpdates.filter(
           (item) =>
-            formatTitleForURL(item.Title__c) ===
-            decodeURIComponent(params?.updates)
-        );
+            !LocalLatestUpdates.some(
+              (local) => local.Title__c === item?.Title__c
+            )
+        ),
+      ];
 
-        if (found) {
-          setSelectedUpdate(found);
-        }
+      setUpdatesData(merged);
+
+      const slug = decodeURIComponent(params?.updates || "");
+      const found = merged.find((item) => {
+        const titleSlug = formatTitleForURL(item?.Title__c || item?.title || "");
+        const pathSlug = (item?.path || "")
+          .split("/")
+          .filter(Boolean)
+          .pop();
+        return titleSlug === slug || pathSlug === slug;
+      });
+
+      if (found) {
+        setSelectedUpdate(found);
       }
+      setLoading(false);
     };
 
     fetchUpdates();
@@ -52,7 +67,9 @@ const page = () => {
       />
       <div className="section-width section-padding text-black">
         <div>
-          {selectedUpdate ? (
+          {loading ? (
+            <div className="py-10 text-center text-black">Loading...</div>
+          ) : selectedUpdate ? (
             <>
               <div className="mb-8">
                 <p className="mb-2">
@@ -100,7 +117,9 @@ const page = () => {
               </div>
             </>
           ) : (
-            <LoadingPage />
+            <div className="py-10 text-center text-black">
+              Update not found.
+            </div>
           )}
         </div>
       </div>
