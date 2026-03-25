@@ -62,8 +62,8 @@ const Hero = () => {
         className="h-full"
       >
         <SwiperSlide className="h-full">
-          <div className="w-full h-full bg-[url('/images/home/hero/new-hero.jpg')] bg-cover bg-center relative pt-20 overflow-hidden flex justify-center items-center">
-            <div className="absolute inset-0 bg-black/40"></div>
+          <div className="w-full h-full bg-[url('/images/home/hero/new-hero2.jpg')] bg-cover bg-center relative pt-20 overflow-hidden flex justify-center items-center">
+            <div className="absolute inset-0 bg-black/30"></div>
             <div className="section-width py-2 relative z-10">
               <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
                 <p className="font-bold text-sm uppercase md:text-base bg-[#182769] px-3 py-2 xl:text-xl">

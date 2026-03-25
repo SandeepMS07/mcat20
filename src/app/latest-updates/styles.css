@@ -12,6 +12,18 @@
   object-fit: cover;
 }
 
+.centered-image {
+  text-align: center;
+  width: 100%;
+}
+
+.centered-image img {
+  display: inline-block;
+  max-width: 820px;
+  width: 100%;
+  height: auto;
+}
+
 @media (min-width: 768px) {
   .responsive-image-wrapper {
     flex-direction: row;
