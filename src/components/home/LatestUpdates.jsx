@@ -131,7 +131,7 @@ const LatestUpdates = () => {
                       {primaryItem?.Title__c}{" "}
                     </h3>
                     <ul className="list-disc ml-5 text-[#E07E27] xl:text-base text-sm sm:flex gap-8 md:mt-6 mt-2">
-                      <li>T20 Mumbai League 2025</li>
+                      <li>T20 Mumbai League 2026</li>
                       <li>
                         Mumbai,{"  "}
                         {primaryItem.Date__c

@@ -459,7 +459,7 @@ const Hero = () => {
                   For Real Time Action and <br /> Behind the Scenes
                 </h1>
                 <p className="font-bold text-lg md:text-xl xl:text-2xl">
-                  #Follow Us on Socials
+                  Follow Us on Socials
                 </p>
                 <div className="flex gap-6">
                   <a target="_blank" href={routes.instagram}>
