@@ -24,11 +24,7 @@ const PlayerRegistrationPage = () => {
       if (event.origin !== iframeOrigin) return;
       if (!event.data || event.data.type !== "GO_BACK") return;
 
-      if (window.history.length > 1) {
-        window.history.back();
-      } else {
-        window.location.href = fallbackUrl;
-      }
+      window.location.href = fallbackUrl;
     };
 
     window.addEventListener("message", handler);
