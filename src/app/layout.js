@@ -1,8 +1,6 @@
-import Footer from "@/components/layout/footer/footer";
 import "./globals.css";
-import Navbar from "@/components/layout/navbar/navbar";
 import MixpanelProvider from "@/components/tracking/MixpanelProvider";
-import AppNavbarBanner from "@/components/openApp/openApp";
+import ClientChrome from "@/components/layout/ClientChrome";
 export const metadata = {
   title: "T20 Mumbai League - Season 4 2026",
   description:
@@ -22,11 +20,8 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        <AppNavbarBanner/>
         <MixpanelProvider />
-        <Navbar />
-        {children}
-        <Footer />
+        <ClientChrome>{children}</ClientChrome>
       </body>
     </html>
   );

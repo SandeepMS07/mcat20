@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 const Hero = () => {
   const router = useRouter();
   const [showVideo, setShowVideo] = useState(false);
-  const registrationUrl = "https://mca-registration.ken42.com";
+  const registrationUrl = "/player-registration";
   const registrationCloseDate = "10TH APRIL";
   const registrationTickerItems = [
     "PLAYER REGISTRATION OPEN NOW",
@@ -28,7 +28,7 @@ const Hero = () => {
   const openVideo = () => setShowVideo(true);
   const closeVideo = () => setShowVideo(false);
   const handleRegistrationRedirect = () => {
-    window.open(registrationUrl, "_blank", "noopener,noreferrer");
+    router.push(registrationUrl);
   };
 
   // Get the next match using the date and time from json
