@@ -14,9 +14,22 @@ import { useRouter } from "next/navigation";
 const Hero = () => {
   const router = useRouter();
   const [showVideo, setShowVideo] = useState(false);
+  const registrationUrl = "https://mca-registration.ken42.com";
+  const registrationCloseDate = "10TH APRIL";
+  const registrationTickerItems = [
+    "PLAYER REGISTRATION OPEN NOW",
+    "T20 MUMBAI SEASON 4 (MEN)",
+    "INAUGURAL WOMEN'S SEASON",
+    "PLAYER REGISTRATION LIVE NOW!",
+  ];
+  const registrationTickerText = registrationTickerItems.join(" • ");
+  const tickerLoopCopies = 4;
 
   const openVideo = () => setShowVideo(true);
   const closeVideo = () => setShowVideo(false);
+  const handleRegistrationRedirect = () => {
+    window.open(registrationUrl, "_blank", "noopener,noreferrer");
+  };
 
   // Get the next match using the date and time from json
 
@@ -61,6 +74,80 @@ const Hero = () => {
         loop
         className="h-full"
       >
+        <SwiperSlide className="h-full" data-swiper-autoplay={7000}>
+          <div className="relative flex h-full w-full items-center justify-center overflow-hidden bg-[url('/images/home/hero/Home.png')] bg-cover bg-center pt-20">
+
+            <div className="hero-ticker absolute inset-x-0 top-[82px] z-20 overflow-hidden border-y border-[#f4a03b] bg-[#f4a03b] text-[#04184d] sm:top-[88px] lg:top-[96px]">
+              <div
+                className="hero-ticker-track flex w-max items-center"
+                style={{ "--ticker-loop-copies": tickerLoopCopies }}
+              >
+                {Array.from({ length: tickerLoopCopies }).map(
+                  (_, duplicateIndex) => (
+                  <div
+                    key={duplicateIndex}
+                    className="flex shrink-0 items-center gap-4 px-1.5 py-1 md:gap-6 md:px-3"
+                  >
+                    <span className="shrink-0 text-[8px] font-extrabold uppercase tracking-[0.05em] text-[#000] md:text-[10px] lg:text-[12px]">
+                      {registrationTickerText}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={handleRegistrationRedirect}
+                      className="shrink-0 rounded-[8px] px-3 py-1 text-[8px] font-bold text-white md:px-5 md:text-[10px] lg:text-[12px]"
+                      style={{
+                        background:
+                          "var(--Style, linear-gradient(90deg, #000 0%, #000 21.84%, #203376 101.04%))",
+                      }}
+                    >
+                      Register Now
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="section-width relative z-10 flex h-full items-center py-8">
+              <div className="flex w-full justify-center pt-16 text-center sm:justify-start sm:pt-20 sm:text-left">
+                <div className="flex max-w-3xl flex-col items-center gap-4 sm:items-start lg:gap-6">
+                  <p className="text-lg font-bold uppercase md:text-xl xl:text-2xl">
+                    T20 Mumbai League 2026
+                  </p>
+                  <h1 className="max-w-3xl font-extrabold uppercase leading-tight">
+                    Registrations Open <br />
+                    For Men &amp; Women
+                  </h1>
+                  <div className="flex flex-col items-center gap-1 text-[#f9ae2d] sm:items-start">
+                    <p className="text-lg font-bold uppercase md:text-xl xl:text-2xl">
+                      Closes On
+                    </p>
+                    <h2 className="font-extrabold uppercase text-[#f9ae2d]">
+                      {registrationCloseDate}
+                    </h2>
+                  </div>
+                  <div className="flex flex-row justify-center gap-2 pt-2 sm:justify-start">
+                    <button
+                      type="button"
+                      className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md uppercase"
+                      onClick={handleRegistrationRedirect}
+                    >
+                      Register Now
+                      <span>
+                        <Image
+                          src="/images/home/hero/buttonIcon.svg"
+                          alt="button-icon"
+                          width={24}
+                          height={24}
+                          className="h-5 w-5"
+                        />
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
         <SwiperSlide className="h-full">
           <div className="w-full h-full bg-[url('/images/home/hero/new-hero2.jpg')] bg-cover bg-center relative pt-20 overflow-hidden flex justify-center items-center">
             <div className="absolute inset-0 bg-black/30"></div>
@@ -528,6 +615,30 @@ const Hero = () => {
           </div>
         </div>
       )}
+
+      <style jsx>{`
+        .hero-ticker-track {
+          animation: heroTicker 28s linear infinite;
+          will-change: transform;
+        }
+
+        .hero-ticker:hover .hero-ticker-track {
+          animation-play-state: paused;
+        }
+
+        @keyframes heroTicker {
+          0% {
+            transform: translate3d(0, 0, 0);
+          }
+          100% {
+            transform: translate3d(
+              calc(-100% / var(--ticker-loop-copies)),
+              0,
+              0
+            );
+          }
+        }
+      `}</style>
     </div>
   );
 };
