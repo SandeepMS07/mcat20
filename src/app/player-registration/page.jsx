@@ -6,6 +6,8 @@ const PlayerRegistrationPage = () => {
   const [loaded, setLoaded] = useState(false);
   const [showFallback, setShowFallback] = useState(false);
   const iframeUrl = "https://mca-registration.ken42.com";
+  const iframeOrigin = "https://mca-registration.ken42.com";
+  const fallbackUrl = "https://t20mumbai.com/";
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -16,6 +18,22 @@ const PlayerRegistrationPage = () => {
 
     return () => clearTimeout(timeoutId);
   }, [loaded]);
+
+  useEffect(() => {
+    const handler = (event) => {
+      if (event.origin !== iframeOrigin) return;
+      if (!event.data || event.data.type !== "GO_BACK") return;
+
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = fallbackUrl;
+      }
+    };
+
+    window.addEventListener("message", handler);
+    return () => window.removeEventListener("message", handler);
+  }, [iframeOrigin, fallbackUrl]);
 
   return (
     <div className="w-full min-h-screen bg-black">
