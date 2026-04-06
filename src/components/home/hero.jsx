@@ -24,6 +24,8 @@ const Hero = () => {
   ];
   const registrationTickerText = registrationTickerItems.join(" • ");
   const tickerLoopCopies = 4;
+  const heroTickerOffsetClass = "top-0";
+  const heroSlidePaddingClass = "pt-[160px] sm:pt-[176px] lg:pt-[192px]";
 
   const openVideo = () => setShowVideo(true);
   const closeVideo = () => setShowVideo(false);
@@ -65,7 +67,38 @@ const Hero = () => {
   };
 
   return (
-    <div className="xl:h-[800px] lg:h-[700px] md:h-[600px] h-[500px]">
+    <div className="relative xl:h-[800px] lg:h-[700px] md:h-[600px] h-[500px]">
+      <div
+        className={`hero-ticker absolute inset-x-0 ${heroTickerOffsetClass} z-20 overflow-hidden border-y border-[#f4a03b] bg-[#f4a03b] text-[#04184d]`}
+      >
+        <div
+          className="hero-ticker-track flex w-max items-center"
+          style={{ "--ticker-loop-copies": tickerLoopCopies }}
+        >
+          {Array.from({ length: tickerLoopCopies }).map((_, duplicateIndex) => (
+            <div
+              key={duplicateIndex}
+              className="flex shrink-0 items-center gap-4 px-1.5 py-1 md:gap-6 md:px-3"
+            >
+              <span className="shrink-0 text-[8px] font-extrabold uppercase tracking-[0.05em] text-[#000] md:text-[10px] lg:text-[12px]">
+                {registrationTickerText}
+              </span>
+              <button
+                type="button"
+                onClick={handleRegistrationRedirect}
+                className="shrink-0 rounded-[8px] px-3 py-1 text-[8px] font-bold text-white md:px-5 md:text-[10px] lg:text-[12px]"
+                style={{
+                  background:
+                    "var(--Style, linear-gradient(90deg, #000 0%, #000 21.84%, #203376 101.04%))",
+                }}
+              >
+                Register Now
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <Swiper
         modules={[Autoplay]}
         autoplay={{ delay: 5000 }}
@@ -75,40 +108,11 @@ const Hero = () => {
         className="h-full"
       >
         <SwiperSlide className="h-full" data-swiper-autoplay={7000}>
-          <div className="relative flex h-full w-full items-center justify-center overflow-hidden bg-[url('/images/home/hero/Home.png')] bg-cover bg-center pt-20">
-
-            <div className="hero-ticker absolute inset-x-0 top-[82px] z-20 overflow-hidden border-y border-[#f4a03b] bg-[#f4a03b] text-[#04184d] sm:top-[88px] lg:top-[96px]">
-              <div
-                className="hero-ticker-track flex w-max items-center"
-                style={{ "--ticker-loop-copies": tickerLoopCopies }}
-              >
-                {Array.from({ length: tickerLoopCopies }).map(
-                  (_, duplicateIndex) => (
-                  <div
-                    key={duplicateIndex}
-                    className="flex shrink-0 items-center gap-4 px-1.5 py-1 md:gap-6 md:px-3"
-                  >
-                    <span className="shrink-0 text-[8px] font-extrabold uppercase tracking-[0.05em] text-[#000] md:text-[10px] lg:text-[12px]">
-                      {registrationTickerText}
-                    </span>
-                    <button
-                      type="button"
-                      onClick={handleRegistrationRedirect}
-                      className="shrink-0 rounded-[8px] px-3 py-1 text-[8px] font-bold text-white md:px-5 md:text-[10px] lg:text-[12px]"
-                      style={{
-                        background:
-                          "var(--Style, linear-gradient(90deg, #000 0%, #000 21.84%, #203376 101.04%))",
-                      }}
-                    >
-                      Register Now
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </div>
-
+          <div
+            className={`relative flex h-full w-full items-center justify-center overflow-hidden bg-[url('/images/home/hero/Home.png')] bg-cover bg-center ${heroSlidePaddingClass}`}
+          >
             <div className="section-width relative z-10 flex h-full items-center py-8">
-              <div className="flex w-full justify-center pt-16 text-center sm:justify-start sm:pt-20 sm:text-left">
+              <div className="flex w-full justify-center pt-10 text-center sm:justify-start sm:pt-14 sm:text-left">
                 <div className="flex max-w-3xl flex-col items-center gap-4 sm:items-start lg:gap-6">
                   <p className="text-lg font-bold uppercase md:text-xl xl:text-2xl">
                     T20 Mumbai League 2026
@@ -149,7 +153,9 @@ const Hero = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide className="h-full">
-          <div className="w-full h-full bg-[url('/images/home/hero/new-hero2.jpg')] bg-cover bg-center relative pt-20 overflow-hidden flex justify-center items-center">
+          <div
+            className={`w-full h-full bg-[url('/images/home/hero/new-hero2.jpg')] bg-cover bg-center relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center`}
+          >
             <div className="absolute inset-0 bg-black/30"></div>
             <div className="section-width py-2 relative z-10">
               <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
@@ -189,7 +195,9 @@ const Hero = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide className="h-full">
-          <div className="w-full h-full bg-[url('https://mca-cdn.ken42.com/season3/latest_updates/slider7.jpg')] bg-cover bg-center  relative pt-20  overflow-hidden flex justify-center items-center ">
+          <div
+            className={`w-full h-full bg-[url('https://mca-cdn.ken42.com/season3/latest_updates/slider7.jpg')] bg-cover bg-center relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center`}
+          >
             <div className="section-width  py-2">
              <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
                 <p className="font-bold text-sm uppercase md:text-base bg-[#182769] px-3 py-2 xl:text-xl">
@@ -535,7 +543,9 @@ const Hero = () => {
           </div>
         </SwiperSlide> */}
         <SwiperSlide className="h-full">
-          <div className="w-full h-full bg-[url('/images/banner/banner4.png')] bg-cover bg-center  relative pt-32 overflow-hidden flex justify-center items-center">
+          <div
+            className={`w-full h-full bg-[url('/images/banner/banner4.png')] bg-cover bg-center relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center`}
+          >
             <div className="section-width ">
               <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
                 <p className="font-bold text-sm md:text-base xl:text-xl">

@@ -20,11 +20,11 @@ const Navbar = () => {
           : ""
       }
     >
-      <div className=" z-50 absolute top-[20px] w-full  flex justify-center">
+      <div className="z-50 absolute top-[55px] w-full flex justify-center lg:top-[70px]">
         <div className="relative w-[90%]">
           {/* Logo Section */}
 
-          <nav className="flex justify-between items-center  section-width bg-[#ffffff1f] rounded-full relative overflow-visible w-full py-2 px-4">
+          <nav className="flex justify-between items-center section-width bg-[#ffffff1f] rounded-full relative overflow-visible w-full px-4 py-2.5">
             <div className="-my-24" style={{ zIndex: 9999 }}>
               {!menuOpen && (
                 <Link href="/">
