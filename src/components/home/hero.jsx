@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState, useMemo } from "react";
+import { useEffect, useState } from "react";
 import CountdownTimer from "./CountdownTimer";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
@@ -11,9 +11,16 @@ import routes from "@/utilis/route";
 import fixtures3 from "@/utilis/fixtures/fixtures3";
 import { useRouter } from "next/navigation";
 
+const REGISTRATION_PROMO_CUTOFF_TS = new Date(
+  "2026-04-11T00:00:00+05:30"
+).getTime();
+
 const Hero = () => {
   const router = useRouter();
   const [showVideo, setShowVideo] = useState(false);
+  const [showRegistrationPromo, setShowRegistrationPromo] = useState(
+    () => Date.now() < REGISTRATION_PROMO_CUTOFF_TS
+  );
   const registrationUrl = "/player-registration";
   const registrationCloseDate = "10TH APRIL";
   const registrationTickerItems = [
@@ -32,6 +39,22 @@ const Hero = () => {
   const handleRegistrationRedirect = () => {
     router.push(registrationUrl);
   };
+
+  useEffect(() => {
+    if (!showRegistrationPromo) return;
+
+    const msUntilCutoff = REGISTRATION_PROMO_CUTOFF_TS - Date.now();
+    if (msUntilCutoff <= 0) {
+      setShowRegistrationPromo(false);
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      setShowRegistrationPromo(false);
+    }, msUntilCutoff);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [showRegistrationPromo]);
 
   // Get the next match using the date and time from json
 
@@ -68,36 +91,40 @@ const Hero = () => {
 
   return (
     <div className="relative xl:h-[800px] lg:h-[700px] md:h-[600px] h-[500px]">
-      <div
-        className={`hero-ticker absolute inset-x-0 ${heroTickerOffsetClass} z-20 overflow-hidden border-y border-[#f4a03b] bg-[#f4a03b] text-[#04184d]`}
-      >
+      {showRegistrationPromo && (
         <div
-          className="hero-ticker-track flex w-max items-center"
-          style={{ "--ticker-loop-copies": tickerLoopCopies }}
+          className={`hero-ticker absolute inset-x-0 ${heroTickerOffsetClass} z-20 overflow-hidden border-y border-[#f4a03b] bg-[#f4a03b] text-[#04184d]`}
         >
-          {Array.from({ length: tickerLoopCopies }).map((_, duplicateIndex) => (
-            <div
-              key={duplicateIndex}
-              className="flex shrink-0 items-center gap-4 px-1.5 py-1 md:gap-6 md:px-3"
-            >
-              <span className="shrink-0 text-[8px] font-extrabold uppercase tracking-[0.05em] text-[#000] md:text-[10px] lg:text-[12px]">
-                {registrationTickerText}
-              </span>
-              <button
-                type="button"
-                onClick={handleRegistrationRedirect}
-                className="shrink-0 rounded-[8px] px-3 py-1 text-[8px] font-bold text-white md:px-5 md:text-[10px] lg:text-[12px]"
-                style={{
-                  background:
-                    "var(--Style, linear-gradient(90deg, #000 0%, #000 21.84%, #203376 101.04%))",
-                }}
-              >
-                Register Now
-              </button>
-            </div>
-          ))}
+          <div
+            className="hero-ticker-track flex w-max items-center"
+            style={{ "--ticker-loop-copies": tickerLoopCopies }}
+          >
+            {Array.from({ length: tickerLoopCopies }).map(
+              (_, duplicateIndex) => (
+                <div
+                  key={duplicateIndex}
+                  className="flex shrink-0 items-center gap-4 px-1.5 py-1 md:gap-6 md:px-3"
+                >
+                  <span className="shrink-0 text-[8px] font-extrabold uppercase tracking-[0.05em] text-[#000] md:text-[10px] lg:text-[12px]">
+                    {registrationTickerText}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={handleRegistrationRedirect}
+                    className="shrink-0 rounded-[8px] px-3 py-1 text-[8px] font-bold text-white md:px-5 md:text-[10px] lg:text-[12px]"
+                    style={{
+                      background:
+                        "var(--Style, linear-gradient(90deg, #000 0%, #000 21.84%, #203376 101.04%))",
+                    }}
+                  >
+                    Register Now
+                  </button>
+                </div>
+              )
+            )}
+          </div>
         </div>
-      </div>
+      )}
 
       <Swiper
         modules={[Autoplay]}
@@ -107,51 +134,53 @@ const Hero = () => {
         loop
         className="h-full"
       >
-        <SwiperSlide className="h-full" data-swiper-autoplay={7000}>
-          <div
-            className={`relative flex h-full w-full items-center justify-center overflow-hidden bg-[url('/images/home/hero/Home.png')] bg-cover bg-center ${heroSlidePaddingClass}`}
-          >
-            <div className="section-width relative z-10 flex h-full items-center py-8">
-              <div className="flex w-full justify-center pt-10 text-center sm:justify-start sm:pt-14 sm:text-left">
-                <div className="flex max-w-3xl flex-col items-center gap-4 sm:items-start lg:gap-6">
-                  <p className="text-lg font-bold uppercase md:text-xl xl:text-2xl">
-                    T20 Mumbai League 2026
-                  </p>
-                  <h1 className="max-w-3xl font-extrabold uppercase leading-tight">
-                    Registrations Open <br />
-                    For Men &amp; Women
-                  </h1>
-                  <div className="flex flex-col items-center gap-1 text-[#f9ae2d] sm:items-start">
+        {showRegistrationPromo && (
+          <SwiperSlide className="h-full" data-swiper-autoplay={7000}>
+            <div
+              className={`relative flex h-full w-full items-center justify-center overflow-hidden bg-[url('/images/home/hero/Home.png')] bg-cover bg-center ${heroSlidePaddingClass}`}
+            >
+              <div className="section-width relative z-10 flex h-full items-center py-8">
+                <div className="flex w-full justify-center pt-10 text-center sm:justify-start sm:pt-14 sm:text-left">
+                  <div className="flex max-w-3xl flex-col items-center gap-4 sm:items-start lg:gap-6">
                     <p className="text-lg font-bold uppercase md:text-xl xl:text-2xl">
-                      Closes On
+                      T20 Mumbai League 2026
                     </p>
-                    <h2 className="font-extrabold uppercase text-[#f9ae2d]">
-                      {registrationCloseDate}
-                    </h2>
-                  </div>
-                  <div className="flex flex-row justify-center gap-2 pt-2 sm:justify-start">
-                    <button
-                      type="button"
-                      className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md uppercase"
-                      onClick={handleRegistrationRedirect}
-                    >
-                      Register Now
-                      <span>
-                        <Image
-                          src="/images/home/hero/buttonIcon.svg"
-                          alt="button-icon"
-                          width={24}
-                          height={24}
-                          className="h-5 w-5"
-                        />
-                      </span>
-                    </button>
+                    <h1 className="max-w-3xl font-extrabold uppercase leading-tight">
+                      Registrations Open <br />
+                      For Men &amp; Women
+                    </h1>
+                    <div className="flex flex-col items-center gap-1 text-[#f9ae2d] sm:items-start">
+                      <p className="text-lg font-bold uppercase md:text-xl xl:text-2xl">
+                        Closes On
+                      </p>
+                      <h2 className="font-extrabold uppercase text-[#f9ae2d]">
+                        {registrationCloseDate}
+                      </h2>
+                    </div>
+                    <div className="flex flex-row justify-center gap-2 pt-2 sm:justify-start">
+                      <button
+                        type="button"
+                        className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md uppercase"
+                        onClick={handleRegistrationRedirect}
+                      >
+                        Register Now
+                        <span>
+                          <Image
+                            src="/images/home/hero/buttonIcon.svg"
+                            alt="button-icon"
+                            width={24}
+                            height={24}
+                            className="h-5 w-5"
+                          />
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </SwiperSlide>
+          </SwiperSlide>
+        )}
         <SwiperSlide className="h-full">
           <div
             className={`w-full h-full bg-[url('/images/home/hero/new-hero2.jpg')] bg-cover bg-center relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center`}
