@@ -20,7 +20,7 @@ const Navbar = () => {
           : ""
       }
     >
-      <div className="z-50 absolute top-[55px] w-full flex justify-center lg:top-[70px]">
+      <div className="z-50 absolute top-[20px] w-full flex justify-center">
         <div className="relative w-[90%]">
           {/* Logo Section */}
 
