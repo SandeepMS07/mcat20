@@ -154,7 +154,7 @@ const Hero = () => {
                     <br />
                     For Support Staff
                   </h1>
-                  <p className="text-[16px] font-bold uppercase text-[#f9ae2d] sm:text-lg lg:text-xl">
+                  <p className="text-[16px] font-bold text-[#f9ae2d] sm:text-lg lg:text-xl">
                     Open Till 16th April
                   </p>
                   <a
