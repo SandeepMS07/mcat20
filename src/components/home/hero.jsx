@@ -22,6 +22,8 @@ const Hero = () => {
     () => Date.now() < REGISTRATION_PROMO_CUTOFF_TS
   );
   const registrationUrl = "/player-registration";
+  const registrationsBlogPath =
+    "/latest-updates/t20-mumbai-league-player-registrations-close-with-over-2400-entries";
   const registrationCloseDate = "10TH APRIL";
   const registrationTickerItems = [
     "PLAYER REGISTRATION OPEN NOW",
@@ -38,6 +40,9 @@ const Hero = () => {
   const closeVideo = () => setShowVideo(false);
   const handleRegistrationRedirect = () => {
     router.push(registrationUrl);
+  };
+  const handleRegistrationsBlogRedirect = () => {
+    router.push(registrationsBlogPath);
   };
 
   useEffect(() => {
@@ -181,6 +186,61 @@ const Hero = () => {
             </div>
           </SwiperSlide>
         )}
+        <SwiperSlide className="h-full" data-swiper-autoplay={7000}>
+          <div
+            className={`relative flex h-full w-full items-center justify-center overflow-hidden bg-[url('/images/home/hero/Home.png')] bg-cover bg-center ${heroSlidePaddingClass}`}
+          >
+          
+            <div className="section-width relative z-10 flex h-full items-center py-6">
+              <div className="w-full max-w-3xl text-center sm:text-left">
+                <p className="text-sm font-bold uppercase tracking-wide sm:text-base lg:text-[24px]">
+                  T20 Mumbai League 2026
+                </p>
+                <h1 className="mt-2 text-[46px] font-extrabold leading-none lg:text-[96px]">
+                  2411
+                </h1>
+                <h2 className="text-[28px] font-extrabold uppercase leading-[1.05] lg:text-[48px]">
+                  Players Registered
+                </h2>
+
+                <div className="mt-4 flex items-center justify-center gap-4 sm:mt-6 sm:justify-start sm:gap-6">
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wide text-[#F9AE2D] sm:text-sm lg:text-[20px]">
+                      Men
+                    </p>
+                    <p className="text-[20px] font-extrabold leading-none text-[#F9AE2D] lg:text-[36px]">
+                      2048
+                    </p>
+                  </div>
+                  <div className="h-12 w-px bg-[#F9AE2D]/70 sm:h-16 lg:h-20"></div>
+                  <div>
+                  <p className="text-xs font-bold uppercase tracking-wide text-[#F9AE2D] sm:text-sm lg:text-[20px]">
+                      Women
+                    </p>
+                    <p className="text-[20px] font-extrabold leading-none text-[#F9AE2D] lg:text-[36px]">
+                      363
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  className="btn-primary mt-5 inline-flex items-center gap-3 px-6 py-3 text-sm font-bold uppercase sm:mt-8"
+                  onClick={handleRegistrationsBlogRedirect}
+                >
+                  Read More
+                  <Image
+                    src="/images/home/hero/buttonIcon.svg"
+                    alt="button-icon"
+                    width={24}
+                    height={24}
+                    className="h-5 w-5"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
         <SwiperSlide className="h-full">
           <div
             className={`w-full h-full bg-[url('/images/home/hero/new-hero2.jpg')] bg-cover bg-center relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center`}

@@ -2,7 +2,24 @@ import schedule from "../../../public/images/latestUpdates/schedule.jpeg";
 import "./styles.css";
 
 export const LocalLatestUpdates = [
-    {
+  {
+    Id: "local-4",
+    Title__c:
+      "T20 Mumbai League Player Registrations Close with Over 2,400 Entries",
+    Date__c: "2026-04-11",
+    Image_URL__c: "/images/latestUpdates/Player-Registrations.png",
+    path: "/latest-updates/t20-mumbai-league-player-registrations-close-with-over-2400-entries",
+    Sub_Title__c:
+      "",
+    Content__c: `Player registrations for the upcoming season of the T20 Mumbai League officially closed on April 10th and received an overwhelming response from across the city.<br/><br/>
+A total of 2,411 players have registered for the league, underlining the continued enthusiasm and depth of cricketing talent in Mumbai. This includes 2,048 men registering for Season 4 of the men's competition and 363 women for the inaugural Women's T20 Mumbai League.<br/><br/>
+The strong participation numbers highlight the growing appeal of the league as a premier platform for aspiring cricketers to showcase their skills and progress in their careers.<br/><br/>
+The introduction of the Women's T20 Mumbai League has also marked a significant step forward, with encouraging participation reflecting the increasing interest and development of women's cricket in the city.<br/><br/>
+The T20 Mumbai League continues to embody its central philosophy "Chance Sodu Nako", offering players a platform to seize their moment and take a step forward in their cricketing journey.`,
+    Order__c: 1004,
+    bordered: true,
+  },
+  {
     Id: "local-1",
     Title__c:
       "MCA announces T20 Mumbai League Season 4 and launches Inaugural Women's League",
