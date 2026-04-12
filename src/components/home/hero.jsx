@@ -143,25 +143,25 @@ const Hero = () => {
           <div
             className={`relative flex h-full w-full items-center justify-center overflow-hidden bg-[url('/images/banner/banner-bg.png')] bg-cover bg-center ${heroSlidePaddingClass} pt-0 sm:pt-0 lg:pt-0`}
           >
-            <div className="section-width relative z-10 flex h-full items-center">
-              <div className="flex w-full flex-col items-center justify-between gap-8 lg:flex-row lg:gap-12">
-                <div className="flex max-w-2xl flex-col items-center gap-4 text-center sm:items-start sm:text-left">
+            <div className="section-width relative z-10 flex h-full items-center py-6 sm:py-8">
+              <div className="flex w-full -mt-20 flex-col items-center justify-between gap-6 sm:mt-0 lg:flex-row lg:gap-12">
+                <div className="flex max-w-2xl flex-col items-center gap-3 text-center sm:items-start sm:gap-4 sm:text-left">
                   <p className="inline-flex rounded bg-[#1e2f7a]/80 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.08em] text-white sm:text-xs lg:text-sm">
                     T20 Mumbai League 2026
                   </p>
-                  <h1 className="text-[26px] font-extrabold uppercase leading-tight sm:text-[34px] lg:text-[44px]">
+                  <h1 className="text-[22px] font-extrabold uppercase leading-tight sm:text-[30px] lg:text-[44px]">
                     Registrations Open
                     <br />
                     For Support Staff
                   </h1>
-                  <p className="text-[16px] font-bold text-[#f9ae2d] sm:text-lg lg:text-xl">
+                  <p className="text-[14px] font-bold text-[#f9ae2d] sm:text-lg lg:text-xl">
                     Open Till 16th April
                   </p>
                   <a
                     href="https://www.mumbaicricket.com/news/2026/19968"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-primary inline-flex items-center gap-3 px-5 py-3 text-sm font-bold uppercase"
+                    className="btn-primary inline-flex items-center gap-3 px-5 py-2.5 text-xs font-bold uppercase sm:py-3 sm:text-sm"
                   >
                     Register Now
                     <Image
@@ -173,7 +173,7 @@ const Hero = () => {
                     />
                   </a>
                 </div>
-                <div className="flex w-full max-w-md flex-col gap-3 sm:max-w-lg">
+                <div className="flex w-full max-w-md flex-col gap-2 sm:gap-3 sm:max-w-lg">
                   {[
                     "Coach & Assistant Coach",
                     "Strength & Conditioning Coach",
@@ -183,7 +183,7 @@ const Hero = () => {
                   ].map((role) => (
                     <div
                       key={role}
-                      className="w-full bg-[#f2b312] px-4 py-2 text-center text-sm font-extrabold uppercase tracking-wide text-[#0a1a66] sm:text-base lg:text-lg"
+                      className="w-full bg-[#f2b312] px-3 py-2 text-center text-[12px] font-extrabold uppercase tracking-wide text-[#0a1a66] sm:px-4 sm:text-base lg:text-lg"
                     >
                       {role}
                     </div>
