@@ -139,6 +139,60 @@ const Hero = () => {
         loop
         className="h-full"
       >
+        <SwiperSlide className="h-full" data-swiper-autoplay={7000}>
+          <div
+            className={`relative flex h-full w-full items-center justify-center overflow-hidden bg-[url('/images/banner/banner-bg.png')] bg-cover bg-center ${heroSlidePaddingClass} pt-0 sm:pt-0 lg:pt-0`}
+          >
+            <div className="section-width relative z-10 flex h-full items-center">
+              <div className="flex w-full flex-col items-center justify-between gap-8 lg:flex-row lg:gap-12">
+                <div className="flex max-w-2xl flex-col items-center gap-4 text-center sm:items-start sm:text-left">
+                  <p className="inline-flex rounded bg-[#1e2f7a]/80 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.08em] text-white sm:text-xs lg:text-sm">
+                    T20 Mumbai League 2026
+                  </p>
+                  <h1 className="text-[26px] font-extrabold uppercase leading-tight sm:text-[34px] lg:text-[44px]">
+                    Registrations Open
+                    <br />
+                    For Support Staff
+                  </h1>
+                  <p className="text-[16px] font-bold uppercase text-[#f9ae2d] sm:text-lg lg:text-xl">
+                    Open Till 16th April
+                  </p>
+                  <a
+                    href="https://www.mumbaicricket.com/news/2026/19968"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary inline-flex items-center gap-3 px-5 py-3 text-sm font-bold uppercase"
+                  >
+                    Register Now
+                    <Image
+                      src="/images/home/hero/buttonIcon.svg"
+                      alt="button-icon"
+                      width={24}
+                      height={24}
+                      className="h-5 w-5"
+                    />
+                  </a>
+                </div>
+                <div className="flex w-full max-w-md flex-col gap-3 sm:max-w-lg">
+                  {[
+                    "Coach & Assistant Coach",
+                    "Strength & Conditioning Coach",
+                    "Physiotherapist",
+                    "Masseur",
+                    "Performance Analyst",
+                  ].map((role) => (
+                    <div
+                      key={role}
+                      className="w-full bg-[#f2b312] px-4 py-2 text-center text-sm font-extrabold uppercase tracking-wide text-[#0a1a66] sm:text-base lg:text-lg"
+                    >
+                      {role}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
         {showRegistrationPromo && (
           <SwiperSlide className="h-full" data-swiper-autoplay={7000}>
             <div
