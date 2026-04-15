@@ -10,6 +10,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import routes from "@/utilis/route";
 import fixtures3 from "@/utilis/fixtures/fixtures3";
 import { useRouter } from "next/navigation";
+import { PLAYER_REGISTRATION_SHARE_KEY } from "@/constant";
 
 const REGISTRATION_PROMO_CUTOFF_TS = new Date(
   "2026-04-11T00:00:00+05:30"
@@ -21,7 +22,7 @@ const Hero = () => {
   const [showRegistrationPromo, setShowRegistrationPromo] = useState(
     () => Date.now() < REGISTRATION_PROMO_CUTOFF_TS
   );
-  const registrationUrl = "/player-private-registration";
+  const registrationUrl = `/player-registration/${PLAYER_REGISTRATION_SHARE_KEY}`;
   const registrationsBlogPath =
     "/latest-updates/t20-mumbai-league-player-registrations-close-with-over-2400-entries";
   const registrationCloseDate = "10TH APRIL";

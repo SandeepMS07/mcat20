@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 
-const PlayerPrivateRegistrationPage = () => {
+const PlayerRegistrationClient = () => {
   const [loaded, setLoaded] = useState(false);
   const [showFallback, setShowFallback] = useState(false);
   const iframeUrl = "https://mca-registration.ken42.com";
@@ -71,4 +71,4 @@ const PlayerPrivateRegistrationPage = () => {
   );
 };
 
-export default PlayerPrivateRegistrationPage;
+export default PlayerRegistrationClient;
