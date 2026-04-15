@@ -21,7 +21,7 @@ const Hero = () => {
   const [showRegistrationPromo, setShowRegistrationPromo] = useState(
     () => Date.now() < REGISTRATION_PROMO_CUTOFF_TS
   );
-  const registrationUrl = "/player-registration";
+  const registrationUrl = "/player-private-registration";
   const registrationsBlogPath =
     "/latest-updates/t20-mumbai-league-player-registrations-close-with-over-2400-entries";
   const registrationCloseDate = "10TH APRIL";
