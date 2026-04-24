@@ -24,13 +24,13 @@ export default async function Home() {
         <TopPlayers />
         {/* <IconPlayers /> */}
         <HomeStandingsSection />
-      
+    
         <Socials />
         <Gallery />
         <Sponsorship />
-        {/* <News /> */}
-        {/* <Fixtures /> */}
-        {/*    <AboutT2C /> */}
+        {/* <News />
+        <Fixtures />
+           <AboutT2C /> */}
       </div>
     </>
   );

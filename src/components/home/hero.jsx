@@ -140,7 +140,7 @@ const Hero = () => {
         loop
         className="h-full"
       >
-        <SwiperSlide className="h-full" data-swiper-autoplay={7000}>
+        {/* <SwiperSlide className="h-full" data-swiper-autoplay={7000}>
           <div
             className={`relative flex h-full w-full items-center justify-center overflow-hidden bg-[url('/images/banner/banner-bg.png')] bg-cover bg-center ${heroSlidePaddingClass} pt-0 sm:pt-0 lg:pt-0`}
           >
@@ -193,7 +193,7 @@ const Hero = () => {
               </div>
             </div>
           </div>
-        </SwiperSlide>
+        </SwiperSlide> */}
         {showRegistrationPromo && (
           <SwiperSlide className="h-full" data-swiper-autoplay={7000}>
             <div
