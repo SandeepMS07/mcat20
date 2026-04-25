@@ -3,6 +3,53 @@ import "./styles.css";
 
 export const LocalLatestUpdates = [
   {
+    Id: "local-5",
+    Title__c:
+      "Suryakumar Yadav, Shreyas Iyer, Shivam Dube headline star-studded line-up as MCA announces retained players for T20 Mumbai League 2026",
+    Date__c: "2026-04-25",
+    Image_URL__c: "/images/latestUpdates/Suryakumar.jpg",
+    path: "/latest-updates/suryakumar-yadav-shreyas-iyer-shivam-dube-headline-star-studded-line-up-as-mca-announces-retained-players-for-t20-mumbai-league-2026",
+    Sub_Title__c:
+      "Shardul Thakur, Tushar Deshpande, Ayush Mhatre and Sarfaraz Khan among other key names retained, while Yashasvi Jaiswal and Ajinkya Rahane are allotted as Icon Players, with franchises locking core squads ahead of Season 4.",
+    Content__c: `The Mumbai Cricket Association (MCA) has set the stage for a blockbuster T20 Mumbai League 2026, unveiling a star-studded list of player retentions featuring India captain Suryakumar Yadav, Shreyas Iyer and Shivam Dube.<br/><br/>
+<div class="centered-image">
+  <img src="/images/latestUpdates/Suryakumar2.jpg" alt="Suryakumar Yadav at T20 Mumbai League announcement" />
+</div>
+<br/><br/>
+With elite performers such as U-19 World Cup-winning captain Ayush Mhatre, Shardul Thakur, Tushar Deshpande and Sarfaraz Khan retained, and Yashasvi Jaiswal and Ajinkya Rahane allotted as Icon Players, franchises have secured a formidable core, underlining the league's growing stature and competitive edge.<br/><br/>
+Each of the eight teams retained three players, striking a strategic balance between international experience and emerging domestic talent as the league builds towards a high-octane fourth season.<br/><br/>
+Triumph Knights Mumbai North East have retained Suryakumar (Icon Player), who led India to the T20 World Cup 2026 title, alongside Ayush and Suryansh Shedge, while last season's runners-up SoBo Mumbai Falcons have secured Shreyas (Icon Player), Angkrish Raghuvanshi and Harsh Aghav. Defending champions Mumbai South Central Maratha Royals have retained Tushar (Icon Player), with Siddhesh Lad and Rohan Raje forming a settled core.<br/><br/>
+<div class="centered-image">
+  <img src="/images/latestUpdates/Bandra.jpg" alt="T20 Mumbai League retained players event" />
+</div>
+<br/><br/>
+Bandra Blasters have been allotted Yashasvi as their Icon Player, with Suved Parkar and Dhrumil Matkar also retained, while ARCS Andheri have retained Shivam (Icon Player) alongside Pragnesh Kanpillewar and Deepak Shetty. Aakash Tigers Mumbai Western Suburbs have secured Sarfaraz (Icon Player), supported by Shams Mulani and Jay Bista. North Mumbai Panthers have been allotted Icon Player Ajinkya, joined by retained players Abhigyan Kundu and Tanush Kotian, while Eagle Thane Strikers have placed their faith in Shardul (Icon Player) alongside Atharva Ankolekar and Sairaj Patil.<br/><br/>
+<div class="centered-image">
+  <img src="/images/latestUpdates/Bandra2.jpg" alt="T20 Mumbai League team retentions" />
+</div>
+<br/><br/>
+With some of India's most dynamic T20 performers spread across teams, the league is primed for intense rivalries, explosive contests and high-quality cricket. Several of the retained players are proven performers in the Indian Premier League and on the international stage, adding significant depth and star appeal to the competition.<br/><br/>
+Mumbai's unmatched cricketing pipeline once again comes to the fore, with franchises blending established stars and exciting young talent. Fans can expect a fast-paced, fiercely competitive season featuring marquee clashes, emerging rivalries and breakthrough performances that could shape the next generation of Indian cricket.<br/><br/>
+Season 4 promises to be bigger, faster and more competitive, further cementing the T20 Mumbai League's position as a leading tournament in India's domestic cricket landscape.<br/><br/>
+MCA President Ajinkya Naik said: "This is a strong statement of intent from all franchises. The retention of some of the biggest names in Indian cricket reflects the strength and credibility the T20 Mumbai League has built over the years. At the same time, the opportunity for young and emerging players to share the dressing room with such established stars is invaluable for their growth and development. With such a high-quality core in place, we are set for a season that will raise the bar in terms of competitiveness and overall standard of cricket."<br/><br/>
+Rajdip Gupta, Chairman of the League Governing Council, added: "These retentions underline the strategic clarity of franchises and the depth of talent available in Mumbai. The mix of established stars and emerging players will make this one of the most exciting seasons yet. The retention strategy clearly reflects the intent of teams to build continuity while maintaining a high-performance environment."<br/><br/>
+Since its inception in 2018, the T20 Mumbai League has emerged as a key platform for talent identification and progression, with several players going on to represent Mumbai, feature in the Indian Premier League and earn national honours.<br/><br/>
+With the retention phase complete, focus now shifts to the upcoming player auction, as franchises look to build on their strong core and assemble squads capable of competing for the title in what promises to be a blockbuster 2026 season. The dates and details for the auction will be announced soon.<br/><br/>
+<strong>List of Retained Players:</strong><br/><br/>
+<ul>
+  <li>Aakash Tigers Mumbai Western Suburbs: Sarfaraz Khan (Icon Player), Shams Mulani and Jay Bista</li>
+  <li>ARCS Andheri: Shivam Dube (Icon Player), Pragnesh Kanpillewar and Deepak Shetty</li>
+  <li>Bandra Blasters: Yashasvi Jaiswal (Icon Player), Suved Parkar and Dhrumil Matkar</li>
+  <li>Mumbai South Central Maratha Royals: Tushar Deshpande (Icon Player), Siddhesh Lad and Rohan Raje</li>
+  <li>North Mumbai Panthers: Ajinkya Rahane (Icon Player), Abhigyan Kundu and Tanush Kotian</li>
+  <li>SoBo Mumbai Falcons: Shreyas Iyer (Icon Player), Angkrish Raghuvanshi and Harsh Aghav</li>
+  <li>Eagle Thane Strikers: Shardul Thakur (Icon Player), Atharva Ankolekar and Sairaj Patil</li>
+  <li>Triumph Knights Mumbai North East: Suryakumar Yadav (Icon Player), Ayush Mhatre and Suryansh Shedge</li>
+</ul>`,
+    Order__c: 1005,
+    bordered: true,
+  },
+  {
     Id: "local-4",
     Title__c:
       "T20 Mumbai League Player Registrations Close with Over 2,400 Entries",
