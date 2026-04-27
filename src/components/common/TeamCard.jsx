@@ -5,7 +5,11 @@ import { useRouter } from "next/navigation";
 const TeamCard = ({ data }) => {
   const router = useRouter();
 
-  const gradient = teamGradients[data?.Name] || { from: "#1e1e1e", to: "#444" };
+  const gradient =
+    data?.Name === "To Be Announced"
+      ? { from: "#FBC92E", to: "#262262" }
+      : teamGradients[data?.Name] || { from: "#1e1e1e", to: "#444" };
+  const isClickable = Boolean(data?.Id) && data?.Name !== "To Be Announced";
 
   // const handleClick = () => {
   //   router.push({
@@ -18,6 +22,7 @@ const TeamCard = ({ data }) => {
   // };
 
   const handleClick = () => {
+    if (!isClickable) return;
     // router.push(`/auction-info?teamId=${data.Id}&setStepValue=2`);
     router.push(`/teams?team=${encodeURIComponent(data.Name)}`);
   };
@@ -25,7 +30,9 @@ const TeamCard = ({ data }) => {
   return (
     <div
       // bg-gradient-to-b from-[${item.gradient.from}] to-[${item.gradient.to}]
-      className={`p-4 rounded-xl flex justify-center relative `}
+      className={`p-4 rounded-xl flex justify-center relative ${
+        isClickable ? "cursor-pointer" : "cursor-default"
+      }`}
       style={{
         background: `linear-gradient(to bottom, ${gradient.from}, ${gradient.to})`,
       }}
@@ -55,6 +62,9 @@ const TeamCard = ({ data }) => {
         /> */}
         <img
           src={
+            data?.Name === "To Be Announced"
+              ? "/images/home/team/to-be-announced.png"
+              :
             data?.Name === "Aakash Tigers MWS"
               ? "https://turbostart.blob.core.windows.net/team-logos/Artboard%201.png"
               : data?.Name === "MSC Maratha Royals"

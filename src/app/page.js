@@ -12,6 +12,7 @@ import Sponsorship from "@/components/home/Sponsorship";
 import IconPlayers from "@/components/home/Iconplayers";
 import HomeStandingsSection from "@/components/home/HomeStandingsSection";
 import UpcomingFixturesSection from "@/components/home/UpcomingFixturesSection";
+import Winners from "@/components/home/Winners";
 
 export default async function Home() {
   return (
@@ -28,6 +29,7 @@ export default async function Home() {
         <Socials />
         <Gallery />
         <Sponsorship />
+        <Winners />
         {/* <News />
         <Fixtures />
            <AboutT2C /> */}

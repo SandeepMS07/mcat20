@@ -194,6 +194,48 @@ const Hero = () => {
             </div>
           </div>
         </SwiperSlide> */}
+         <SwiperSlide className="h-full">
+          <div
+            className={`w-full h-full bg-[url('/images/home/hero/power2.jpeg')] bg-cover bg-center relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center`}
+          >
+            <div className="absolute inset-0 bg-black/10"></div>
+            <div className="section-width py-2 relative z-10">
+              <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
+                <p className="font-bold text-sm uppercase md:text-base bg-[#182769] px-3 py-2 xl:text-xl">
+                  T20 Mumbai Season 4
+                </p>
+                <h1 className="font-extrabold max-w-4xl max-sm:text-center">
+                  A Power-Packed Lineup <br />  Sets the Stage for Season 4
+                  League
+                </h1>
+                <p className="font-bold text-lg md:text-xl xl:text-2xl">
+                  #AalaReAglaStar
+                </p>
+                <div className="flex flex-row gap-2">
+                  <a
+                    className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md"
+                    onClick={() => {
+                      router.push(
+                        "/latest-updates/suryakumar-yadav-shreyas-iyer-shivam-dube-headline-star-studded-line-up-as-mca-announces-retained-players-for-t20-mumbai-league-2026"
+                      );
+                    }}
+                  >
+                    Read More{" "}
+                    <span>
+                      <Image
+                        src="/images/home/hero/buttonIcon.svg"
+                        alt="button-icon"
+                        width={24}
+                        height={24}
+                        className="w-5 h-5"
+                      />
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
         {showRegistrationPromo && (
           <SwiperSlide className="h-full" data-swiper-autoplay={7000}>
             <div
@@ -338,7 +380,7 @@ const Hero = () => {
             </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide className="h-full">
+        {/* <SwiperSlide className="h-full">
           <div
             className={`w-full h-full bg-[url('https://mca-cdn.ken42.com/season3/latest_updates/slider7.jpg')] bg-cover bg-center relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center`}
           >
@@ -377,12 +419,12 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* <div className="absolute bottom-40 -right-0 hidden md:block">
+              <div className="absolute bottom-40 -right-0 hidden md:block">
                 <CountdownTimer />
-              </div> */}
+              </div>
             </div>
           </div>
-        </SwiperSlide>
+        </SwiperSlide> */}
         {/* <SwiperSlide className="h-full">
           <div className="w-full h-full bg-[url('/images/banner/slider3.jpg')] bg-cover bg-center  relative pt-32 overflow-hidden flex justify-center items-center">
             <div className="section-width ">
