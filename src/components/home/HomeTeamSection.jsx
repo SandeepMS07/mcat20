@@ -8,7 +8,7 @@ import routes from "@/utilis/route";
 import teamDetailsDataSeason3 from "../../constant/team/teamDetailsDataSeason3.json";
 // import CountdownTimer from "./CountdownTimer";
 
-const womensTeamNames = ["Aakash Tigers MWS", "Triumph Knights Mumbai North East"];
+const womensTeamNames = ["Aakash Tigers MWS", "SoBo Mumbai Falcons"];
 
 const HomeTeamSection = () => {
   const [teamDetails, setTeamDetails] = useState(teamDetailsDataSeason3.data);
@@ -36,7 +36,7 @@ const HomeTeamSection = () => {
 
       <div className="section-width padding-top padding-bottom">
         <TitleComponent
-        title={"Men's Team"}          button={false}
+        title={"Men's Teams"}          button={false}
           buttonLink={routes.teams}
         />
         <div className="w-full flex flex-col gap-7 relative">
@@ -68,7 +68,7 @@ const HomeTeamSection = () => {
         </div>
 
         <div className="mt-16">
-          <TitleComponent title={"Women's Team"} button={false} />
+          <TitleComponent title={"Women's Teams"} button={false} />
           <div className="w-full flex flex-col gap-7 relative mt-8">
             <div className="w-full overflow-x-auto scrollbar-hide">
               <div className="sm:grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 2xl:gap-8 gap-5 hidden">

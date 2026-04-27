@@ -9,6 +9,7 @@ import { getImagesClient, getVideosClient } from "../api/clientApi";
 import { BsArrowLeftCircle } from "react-icons/bs";
 
 const tabs = ["View Images", "View Videos"];
+const PRIORITY_GALLERY_TAG = "T20 mumbai S4 2026";
 
 const Page = () => {
   const [activeTab, setActiveTab] = useState("View Images");
@@ -75,6 +76,14 @@ const Page = () => {
         const sortedKeys = Object.keys(grouped)
           .filter((key) => key !== "T20Gallery") // Exclude this tag
           .sort((a, b) => {
+            const aIsPriority =
+              a?.toLowerCase?.() === PRIORITY_GALLERY_TAG.toLowerCase();
+            const bIsPriority =
+              b?.toLowerCase?.() === PRIORITY_GALLERY_TAG.toLowerCase();
+
+            if (aIsPriority && !bIsPriority) return -1;
+            if (!aIsPriority && bIsPriority) return 1;
+
             const aIsMatch = isMatchTag(a);
             const bIsMatch = isMatchTag(b);
 
