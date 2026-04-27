@@ -9,6 +9,8 @@ import routes from "@/utilis/route";
 import LoadingPage from "@/app/loading";
 import { getImagesClient } from "@/app/api/clientApi";
 
+const PRIORITY_GALLERY_TAG = "T20 mumbai S4 2026";
+
 const Gallery = () => {
   const [loading, setLoading] = useState(false);
   const [images, setImages] = useState([]);
@@ -40,6 +42,14 @@ const Gallery = () => {
         const sortedImages = filteredImages.sort((a, b) => {
           const aTag = a.Tag__c || "";
           const bTag = b.Tag__c || "";
+
+          const aIsPriority =
+            aTag?.toLowerCase?.() === PRIORITY_GALLERY_TAG.toLowerCase();
+          const bIsPriority =
+            bTag?.toLowerCase?.() === PRIORITY_GALLERY_TAG.toLowerCase();
+
+          if (aIsPriority && !bIsPriority) return -1;
+          if (!aIsPriority && bIsPriority) return 1;
 
           const aIsMatch = isMatchTag(aTag);
           const bIsMatch = isMatchTag(bTag);
@@ -77,7 +87,7 @@ const Gallery = () => {
 
   const [layoutConfig, setLayoutConfig] = useState([
     [2, 2, 2, 1],
-    [1, 2, 2, 2],
+    [2, 2, 1, 2],
     [1, 2, 2, 2],
   ]);
 
