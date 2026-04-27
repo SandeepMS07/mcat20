@@ -45,6 +45,7 @@ export const Carousel = ({
       break;
     case "testimonial":
     case "clientLogo":
+    case "womensTeam":
     case "investors":
     case "globalInvestors":
       autoPlayConfig = sectionAutoPlayConfig;

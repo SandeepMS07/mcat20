@@ -3,6 +3,8 @@ import Image from "next/image";
 import { FaP } from "react-icons/fa6";
 
 const matches = {
+    "Match 23": "Finals: MSC MR vs SMF",
+
   "Match 23": "Finals: MSC MR vs SMF",
   "Match 22": "Semi Finals 2: SMF vs BB",
   "Match 21": "Semi Finals 1: ETS vs MSC MR",
