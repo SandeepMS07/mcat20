@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CountdownTimer from "./CountdownTimer";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
@@ -19,6 +19,8 @@ const REGISTRATION_PROMO_CUTOFF_TS = new Date(
 const Hero = () => {
   const router = useRouter();
   const [showVideo, setShowVideo] = useState(false);
+  const rohitHoverVideoRef = useRef(null);
+  const swiperRef = useRef(null);
   const [showRegistrationPromo, setShowRegistrationPromo] = useState(
     () => Date.now() < REGISTRATION_PROMO_CUTOFF_TS
   );
@@ -39,11 +41,62 @@ const Hero = () => {
 
   const openVideo = () => setShowVideo(true);
   const closeVideo = () => setShowVideo(false);
+  const handleRohitHeroMouseEnter = () => {
+    const swiper = swiperRef.current;
+    if (swiper?.autoplay?.running) swiper.autoplay.stop();
+
+    const videoEl = rohitHoverVideoRef.current;
+    if (!videoEl) return;
+
+    try {
+      videoEl.currentTime = 0;
+      const playPromise = videoEl.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(() => {});
+      }
+    } catch (_) {}
+  };
+
+  const handleRohitHeroMouseLeave = () => {
+    const videoEl = rohitHoverVideoRef.current;
+    if (!videoEl) return;
+
+    try {
+      videoEl.pause();
+      videoEl.currentTime = 0;
+    } catch (_) {}
+
+    const swiper = swiperRef.current;
+    if (swiper?.autoplay && !swiper.autoplay.running) swiper.autoplay.start();
+  };
   const handleRegistrationRedirect = () => {
     router.push(registrationUrl);
   };
   const handleRegistrationsBlogRedirect = () => {
     router.push(registrationsBlogPath);
+  };
+  const handleAppDownloadRedirect = () => {
+    const userAgent = navigator.userAgent || navigator.vendor;
+    const isAndroid = /android/i.test(userAgent);
+    const isIOS = /iPhone|iPad|iPod/i.test(userAgent);
+
+    if (isIOS) {
+      window.location.href = "https://t20mumbai.com/link";
+      return;
+    }
+
+    if (isAndroid) {
+      const fallbackUrl = "https://t20mumbai.com/link";
+      window.location.href = `intent://links#Intent;scheme=t20mumbai;package=com.mca.t20mumbai;S.browser_fallback_url=${encodeURIComponent(
+        fallbackUrl
+      )};end`;
+      return;
+    }
+
+    window.open(
+      "https://play.google.com/store/apps/details?id=com.mca.t20mumbai",
+      "_blank"
+    );
   };
 
   useEffect(() => {
@@ -61,6 +114,16 @@ const Hero = () => {
 
     return () => window.clearTimeout(timeoutId);
   }, [showRegistrationPromo]);
+
+  useEffect(() => {
+    const videoEl = rohitHoverVideoRef.current;
+    if (!videoEl) return;
+
+    // Warm the cache on page load so hover playback starts instantly.
+    try {
+      videoEl.load();
+    } catch (_) {}
+  }, []);
 
   // Get the next match using the date and time from json
 
@@ -96,7 +159,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative xl:h-[800px] lg:h-[700px] md:h-[600px] h-[500px]">
+    <div className="relative 2xl:h-[900px] xl:h-[800px] lg:h-[700px] md:h-[600px] h-[500px]">
       {showRegistrationPromo && (
         <div
           className={`hero-ticker absolute inset-x-0 ${heroTickerOffsetClass} z-20 overflow-hidden border-y border-[#f4a03b] bg-[#f4a03b] text-[#04184d]`}
@@ -138,6 +201,9 @@ const Hero = () => {
         pagination={{ clickable: true }}
         speed={200}
         loop
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper;
+        }}
         className="h-full"
       >
         {/* <SwiperSlide className="h-full" data-swiper-autoplay={7000}>
@@ -194,6 +260,61 @@ const Hero = () => {
             </div>
           </div>
         </SwiperSlide> */}
+        <SwiperSlide className="h-full">
+          <div
+            className={`group w-full h-full bg-[url('/images/home/hero/rohit.jpeg')] bg-cover bg-right md:bg-top relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center cursor-pointer`}
+            onMouseEnter={handleRohitHeroMouseEnter}
+            onMouseLeave={handleRohitHeroMouseLeave}
+            onTouchStart={handleRohitHeroMouseEnter}
+            onTouchEnd={handleRohitHeroMouseLeave}
+            onClick={handleAppDownloadRedirect}
+          >
+            <video
+              ref={rohitHoverVideoRef}
+              className="absolute inset-0 h-full w-full object-cover object-top opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100"
+              src="/images/home/hero/rohit-video.mp4"
+              muted
+              playsInline
+              loop
+              preload="auto"
+            />
+            <div className="absolute inset-0 bg-black/10"></div>
+            <div className="section-width py-2 relative z-10">
+              <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
+                <p className="font-bold text-sm uppercase md:text-base bg-[#182769] px-3 py-2 xl:text-xl">
+                  T20 Mumbai Season 4
+                </p>
+                <h1 className="font-extrabold max-w-4xl max-sm:text-center">
+                An Exclusive Conversation <br />  with Rohit Sharma
+                </h1> 
+                <p className="font-bold text-lg md:text-xl xl:text-2xl">
+                  Only on the <span className="bg-gradient-to-r from-[#F29C1D] via-[#EFBC19] to-[#EDCA17] bg-clip-text text-transparent">
+  T20 Mumbai App
+</span>
+                </p>
+                <div className="flex flex-row gap-2">
+                  <a
+                    className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md"
+                    onClick={() => {
+                      handleAppDownloadRedirect();
+                    }}
+                  >
+                    Watch now
+                    <span>
+                      <Image
+                        src="/images/home/hero/buttonIcon.svg"
+                        alt="button-icon"
+                        width={24}
+                        height={24}
+                        className="w-5 h-5"
+                      />
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
          <SwiperSlide className="h-full">
           <div
             className={`w-full h-full bg-[url('/images/home/hero/power2.jpeg')] bg-cover bg-center relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center`}
