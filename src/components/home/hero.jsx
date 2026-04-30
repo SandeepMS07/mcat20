@@ -15,11 +15,14 @@ import { PLAYER_REGISTRATION_SHARE_KEY } from "@/constant";
 const REGISTRATION_PROMO_CUTOFF_TS = new Date(
   "2026-04-11T00:00:00+05:30"
 ).getTime();
+const ROHIT_HOVER_PLAY_DELAY_MS = 500;
 
 const Hero = () => {
   const router = useRouter();
   const [showVideo, setShowVideo] = useState(false);
+  const [isRohitHoverVideoActive, setIsRohitHoverVideoActive] = useState(false);
   const rohitHoverVideoRef = useRef(null);
+  const rohitHoverDelayTimeoutRef = useRef(null);
   const swiperRef = useRef(null);
   const [showRegistrationPromo, setShowRegistrationPromo] = useState(
     () => Date.now() < REGISTRATION_PROMO_CUTOFF_TS
@@ -41,9 +44,18 @@ const Hero = () => {
 
   const openVideo = () => setShowVideo(true);
   const closeVideo = () => setShowVideo(false);
-  const handleRohitHeroMouseEnter = () => {
+
+  const clearRohitHoverDelay = () => {
+    if (!rohitHoverDelayTimeoutRef.current) return;
+    window.clearTimeout(rohitHoverDelayTimeoutRef.current);
+    rohitHoverDelayTimeoutRef.current = null;
+  };
+
+  const startRohitHoverPlayback = () => {
     const swiper = swiperRef.current;
     if (swiper?.autoplay?.running) swiper.autoplay.stop();
+
+    setIsRohitHoverVideoActive(true);
 
     const videoEl = rohitHoverVideoRef.current;
     if (!videoEl) return;
@@ -57,7 +69,20 @@ const Hero = () => {
     } catch (_) {}
   };
 
+  const handleRohitHeroMouseEnter = () => {
+    clearRohitHoverDelay();
+    setIsRohitHoverVideoActive(false);
+
+    rohitHoverDelayTimeoutRef.current = window.setTimeout(() => {
+      rohitHoverDelayTimeoutRef.current = null;
+      startRohitHoverPlayback();
+    }, ROHIT_HOVER_PLAY_DELAY_MS);
+  };
+
   const handleRohitHeroMouseLeave = () => {
+    clearRohitHoverDelay();
+    setIsRohitHoverVideoActive(false);
+
     const videoEl = rohitHoverVideoRef.current;
     if (!videoEl) return;
 
@@ -123,6 +148,12 @@ const Hero = () => {
     try {
       videoEl.load();
     } catch (_) {}
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      clearRohitHoverDelay();
+    };
   }, []);
 
   // Get the next match using the date and time from json
@@ -271,8 +302,10 @@ const Hero = () => {
           >
             <video
               ref={rohitHoverVideoRef}
-              className="absolute inset-0 h-full w-full object-cover object-top opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100"
-              src="/images/home/hero/rohit-video.mp4"
+              className={`absolute inset-0 h-full w-full object-cover object-top transition-opacity duration-300 ease-out ${
+                isRohitHoverVideoActive ? "opacity-100" : "opacity-0"
+              }`}
+              src="https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1777530746564-274btnl4nw8-bg-cover-(1).mp4"
               muted
               playsInline
               loop

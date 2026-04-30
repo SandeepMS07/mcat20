@@ -25,7 +25,8 @@ const winnersData = [
     teamKey: "Triumph Knights Mumbai North East",
     teamName: "Triumph Knights MNE",
     imageUrl: "/images/home/winners/season-1.jpeg",
-    logoOverride: "/images/home/winners/triumph-old.png",
+        logoClassName: "h-40",
+
   },
 ];
 
@@ -96,7 +97,7 @@ const Winners = () => {
       <div className="absolute inset-0 bg-[#071C48]/70" />
 
       <div className="relative section-width">
-        <TitleComponent orange title={"Winners"} button={false} />
+        <TitleComponent orange title={"Champions Through The Years"} button={false} />
 
         <div className="w-full">
           {/* Desktop / Tablet */}
