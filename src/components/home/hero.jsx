@@ -237,6 +237,39 @@ const Hero = () => {
         }}
         className="h-full"
       >
+        <SwiperSlide className="h-full">
+          <div
+            className={`w-full h-full bg-[url('/images/home/hero/auctionBg.png')] bg-cover bg-center relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center`}
+          >
+            <div className="absolute inset-0 bg-black/35"></div>
+            <div className="section-width py-2 relative z-10">
+              <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
+                <h1 className="font-extrabold max-w-4xl max-sm:text-center">
+                  Watch T20 Mumbai League <br /> Auction 2026
+                </h1>
+                <div className="flex flex-row gap-2">
+                  <a
+                    className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md uppercase"
+                    onClick={() => {
+                      router.push("/latest-updates");
+                    }}
+                  >
+                    Watch Now
+                    <span>
+                      <Image
+                        src="/images/home/hero/buttonIcon.svg"
+                        alt="button-icon"
+                        width={24}
+                        height={24}
+                        className="w-5 h-5"
+                      />
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
         {/* <SwiperSlide className="h-full" data-swiper-autoplay={7000}>
           <div
             className={`relative flex h-full w-full items-center justify-center overflow-hidden bg-[url('/images/banner/banner-bg.png')] bg-cover bg-center ${heroSlidePaddingClass} pt-0 sm:pt-0 lg:pt-0`}
