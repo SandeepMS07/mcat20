@@ -125,6 +125,7 @@ export const teamGradients = {
   "North Mumbai Panthers": { from: "#FEB713", to: "#5F4200" },
   "MSC Maratha Royals": { from: "#1000A1", to: "#B84124" },
   "SoBo Mumbai Falcons": { from: "#fff4e9", to: "#882626" },
+  "Thane Skyrisers": { from: "#7BE7E3", to: "#142A6E" },
   "Triumph Knights Mumbai North East": { from: "#E8D273", to: "#9E7437" },
 };
 export const teamLogoBN = {

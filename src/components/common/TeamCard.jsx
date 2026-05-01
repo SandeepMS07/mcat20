@@ -81,7 +81,9 @@ const TeamCard = ({ data }) => {
           alt="Team Logo"
           width={60}
           height={60}
-          className="w-auto xl:h-32 h-28 mx-auto"
+          className={`w-auto mx-auto ${
+            data?.Name === "Thane Skyrisers" ? "xl:h-40 h-36" : "xl:h-32 h-28"
+          }`}
         />
         {data.Name && (
           <p className="text-white text-center mt-10">{data.Name}</p>

@@ -16,7 +16,11 @@ const HomeTeamSection = () => {
     ...womensTeamNames
       .map((teamName) => teamDetails.find((t) => t?.Name === teamName))
       .filter(Boolean),
-    { Name: "To Be Announced" },
+    {
+      Name: "Thane Skyrisers",
+      Logo_URL__c:
+        "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1777550579538-2rnu5ffs2is-Vihang_Thane-Risers-Logo.png",
+    },
   ];
 
   return (
