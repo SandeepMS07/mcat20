@@ -64,24 +64,31 @@ const TeamCard = ({ data }) => {
           src={
             data?.Name === "To Be Announced"
               ? "/images/home/team/to-be-announced.png"
-              :
-            data?.Name === "Aakash Tigers MWS"
-              ? "https://turbostart.blob.core.windows.net/team-logos/Artboard%201.png"
-              : data?.Name === "MSC Maratha Royals"
-              ? "https://mcadirectory.blob.core.windows.net/dev/4441894866960012-shivajiParkLions.png"
-              : data?.Name === "Triumph Knights Mumbai North East"
-              ? "https://mcadirectory.blob.core.windows.net/dev/007792959990218895-triumphKnights.png"
-              :data?.Name === "Arcs Andheri" ? "https://turbostart.blob.core.windows.net/team-logos/2. Andheri Arcs.jpg"
-              :data?.Name === "SoBo Mumbai Falcons" ? "https://turbostart.blob.core.windows.net/team-logos/Artboard%201%20(2).png"
-              :data?.Name === "North Mumbai Panthers" ? "https://turbostart.blob.core.windows.net/team-logos/Artboard%201%20(1).png"
-              :data?.Name === "Eagle Thane Strikers" ? "https://turbostart.blob.core.windows.net/team-logos/Eagle%20Thane%20Strikers%20-%20LOGO%20NEW%20-%20Final_18ver.png"
-              :data?.Name === "Bandra Blasters" ? "https://turbostart.blob.core.windows.net/team-logos/image.png"
-              : data?.Logo_URL__c || "/images/logo/playerTeamLogo.png"
+              : data?.Name === "Aakash Tigers MWS"
+                ? "https://turbostart.blob.core.windows.net/team-logos/Artboard%201.png"
+                : data?.Name === "MSC Maratha Royals"
+                  ? "https://mcadirectory.blob.core.windows.net/dev/4441894866960012-shivajiParkLions.png"
+                  : data?.Name === "Triumph Knights Mumbai North East"
+                    ? "https://mcadirectory.blob.core.windows.net/dev/007792959990218895-triumphKnights.png"
+                    : data?.Name === "Arcs Andheri"
+                      ? "https://turbostart.blob.core.windows.net/team-logos/2. Andheri Arcs.jpg"
+                      : data?.Name === "SoBo Mumbai Falcons"
+                        ? "https://turbostart.blob.core.windows.net/team-logos/Artboard%201%20(2).png"
+                        : data?.Name === "North Mumbai Panthers"
+                          ? "https://turbostart.blob.core.windows.net/team-logos/Artboard%201%20(1).png"
+                          : data?.Name === "Eagle Thane Strikers"
+                            ? "https://turbostart.blob.core.windows.net/team-logos/Eagle%20Thane%20Strikers%20-%20LOGO%20NEW%20-%20Final_18ver.png"
+                            : data?.Name === "Bandra Blasters"
+                              ? "https://turbostart.blob.core.windows.net/team-logos/image.png"
+                              : data?.Logo_URL__c ||
+                                "/images/logo/playerTeamLogo.png"
           }
           alt="Team Logo"
           width={60}
           height={60}
-          className="w-auto xl:h-32 h-28 mx-auto"
+          className={`w-auto mx-auto ${
+            data?.Name === "Thane Skyrisers" ? "xl:h-40 h-36" : "xl:h-32 h-28"
+          }`}
         />
         {data.Name && (
           <p className="text-white text-center mt-10">{data.Name}</p>

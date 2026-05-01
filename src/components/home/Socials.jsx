@@ -33,7 +33,8 @@ const Socials = () => {
         {/* <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 max-sm:w-fit mx-auto"> */}
         <div>
           <div
-            class="elfsight-app-699da6b2-483b-4520-a7cd-82f1db1898af" data-elfsight-app-lazy
+            className="elfsight-app-699da6b2-483b-4520-a7cd-82f1db1898af"
+            data-elfsight-app-lazy
           />
 
           {/* <script
