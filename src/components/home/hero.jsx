@@ -13,7 +13,7 @@ import { useRouter } from "next/navigation";
 import { PLAYER_REGISTRATION_SHARE_KEY } from "@/constant";
 
 const REGISTRATION_PROMO_CUTOFF_TS = new Date(
-  "2026-04-11T00:00:00+05:30"
+  "2026-04-11T00:00:00+05:30",
 ).getTime();
 const ROHIT_HOVER_PLAY_DELAY_MS = 500;
 
@@ -25,7 +25,7 @@ const Hero = () => {
   const rohitHoverDelayTimeoutRef = useRef(null);
   const swiperRef = useRef(null);
   const [showRegistrationPromo, setShowRegistrationPromo] = useState(
-    () => Date.now() < REGISTRATION_PROMO_CUTOFF_TS
+    () => Date.now() < REGISTRATION_PROMO_CUTOFF_TS,
   );
   const registrationUrl = `/player-registration/${PLAYER_REGISTRATION_SHARE_KEY}`;
   const registrationsBlogPath =
@@ -113,14 +113,14 @@ const Hero = () => {
     if (isAndroid) {
       const fallbackUrl = "https://t20mumbai.com/link";
       window.location.href = `intent://links#Intent;scheme=t20mumbai;package=com.mca.t20mumbai;S.browser_fallback_url=${encodeURIComponent(
-        fallbackUrl
+        fallbackUrl,
       )};end`;
       return;
     }
 
     window.open(
       "https://play.google.com/store/apps/details?id=com.mca.t20mumbai",
-      "_blank"
+      "_blank",
     );
   };
 
@@ -185,7 +185,7 @@ const Hero = () => {
 
   const handleNavigateToFixture = () => {
     router.push(
-      `${routes.matchcentre}?type=scorecard&mId=1666&cId=63&dId=1&sId=113`
+      `${routes.matchcentre}?type=scorecard&mId=1666&cId=63&dId=1&sId=113`,
     );
   };
 
@@ -220,7 +220,7 @@ const Hero = () => {
                     Register Now
                   </button>
                 </div>
-              )
+              ),
             )}
           </div>
         </div>
@@ -247,11 +247,14 @@ const Hero = () => {
                 <h1 className="font-extrabold max-w-4xl max-sm:text-center">
                   Watch T20 Mumbai League <br /> Auction 2026
                 </h1>
+                <p className="font-bold text-lg md:text-xl xl:text-2xl">
+                  #ChanceSoduNako
+                </p>
                 <div className="flex flex-row gap-2">
                   <a
                     className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md uppercase"
                     onClick={() => {
-                      router.push("/latest-updates");
+                      router.push("/live-auction");
                     }}
                   >
                     Watch Now
@@ -351,12 +354,13 @@ const Hero = () => {
                   T20 Mumbai Season 4
                 </p>
                 <h1 className="font-extrabold max-w-4xl max-sm:text-center">
-                An Exclusive Conversation <br />  with Rohit Sharma
-                </h1> 
+                  An Exclusive Conversation <br /> with Rohit Sharma
+                </h1>
                 <p className="font-bold text-lg md:text-xl xl:text-2xl">
-                  Only on the <span className="bg-gradient-to-r from-[#F29C1D] via-[#EFBC19] to-[#EDCA17] bg-clip-text text-transparent">
-  T20 Mumbai App
-</span>
+                  Only on the{" "}
+                  <span className="bg-gradient-to-r from-[#F29C1D] via-[#EFBC19] to-[#EDCA17] bg-clip-text text-transparent">
+                    T20 Mumbai App
+                  </span>
                 </p>
                 <div className="flex flex-row gap-2">
                   <a
@@ -381,7 +385,7 @@ const Hero = () => {
             </div>
           </div>
         </SwiperSlide>
-         <SwiperSlide className="h-full">
+        <SwiperSlide className="h-full">
           <div
             className={`w-full h-full bg-[url('/images/home/hero/power2.jpeg')] bg-cover bg-center relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center`}
           >
@@ -392,18 +396,18 @@ const Hero = () => {
                   T20 Mumbai Season 4
                 </p>
                 <h1 className="font-extrabold max-w-4xl max-sm:text-center">
-                  A Power-Packed Lineup <br />  Sets the Stage for Season 4
+                  A Power-Packed Lineup <br /> Sets the Stage for Season 4
                   League
                 </h1>
                 <p className="font-bold text-lg md:text-xl xl:text-2xl">
-                  #AalaReAglaStar
+                  #ChanceSoduNako
                 </p>
                 <div className="flex flex-row gap-2">
                   <a
                     className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md"
                     onClick={() => {
                       router.push(
-                        "/latest-updates/suryakumar-yadav-shreyas-iyer-shivam-dube-headline-star-studded-line-up-as-mca-announces-retained-players-for-t20-mumbai-league-2026"
+                        "/latest-updates/suryakumar-yadav-shreyas-iyer-shivam-dube-headline-star-studded-line-up-as-mca-announces-retained-players-for-t20-mumbai-league-2026",
                       );
                     }}
                   >
@@ -474,7 +478,6 @@ const Hero = () => {
           <div
             className={`relative flex h-full w-full items-center justify-center overflow-hidden bg-[url('/images/home/hero/Home.png')] bg-cover bg-center ${heroSlidePaddingClass}`}
           >
-          
             <div className="section-width relative z-10 flex h-full items-center py-6">
               <div className="w-full max-w-3xl text-center sm:text-left">
                 <p className="text-sm font-bold uppercase tracking-wide sm:text-base lg:text-[24px]">
@@ -498,7 +501,7 @@ const Hero = () => {
                   </div>
                   <div className="h-12 w-px bg-[#F9AE2D]/70 sm:h-16 lg:h-20"></div>
                   <div>
-                  <p className="text-xs font-bold uppercase tracking-wide text-[#F9AE2D] sm:text-sm lg:text-[20px]">
+                    <p className="text-xs font-bold uppercase tracking-wide text-[#F9AE2D] sm:text-sm lg:text-[20px]">
                       Women
                     </p>
                     <p className="text-[20px] font-extrabold leading-none text-[#F9AE2D] lg:text-[36px]">
@@ -547,7 +550,7 @@ const Hero = () => {
                     className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md"
                     onClick={() => {
                       router.push(
-                        "/latest-updates/mca-announces-t20-mumbai-league-season-4-and-launches-inaugural-womens-league"
+                        "/latest-updates/mca-announces-t20-mumbai-league-season-4-and-launches-inaugural-womens-league",
                       );
                     }}
                   >
