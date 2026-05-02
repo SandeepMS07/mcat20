@@ -257,7 +257,7 @@ const Hero = () => {
                       router.push("/live-auction");
                     }}
                   >
-                    Watch Now
+                   Live
                     <span>
                       <Image
                         src="/images/home/hero/buttonIcon.svg"
