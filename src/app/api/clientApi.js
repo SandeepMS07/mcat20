@@ -2,6 +2,16 @@ import { getAxiosInstance } from "./axiosInstance";
 
 const axios = getAxiosInstance();
 
+export const getTeamDetailsClient = async () => {
+  try {
+    const res = await axios.get("/v1/auction/teams");
+    return res.data;
+  } catch (err) {
+    console.error("Client error fetching team details:", err);
+    return null;
+  }
+};
+
 export const getVideosClient = async () => {
   try {
     const res = await axios.get("/v1/application/youtube/link");
