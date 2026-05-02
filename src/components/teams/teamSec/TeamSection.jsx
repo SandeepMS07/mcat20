@@ -70,7 +70,16 @@ const teamsDataHomePage = [
       to: "#9E7437",
     },
   },
+  {
+    team: "Thane Skyrisers",
+    gradient: {
+      from: "#7BE7E3",
+      to: "#142A6E",
+    },
+  },
 ];
+
+const getTeamNameKey = (name = "") => name.replace(/\s*\(W\)\s*$/i, "").trim();
 
 const TeamSection = ({
   data,
@@ -78,18 +87,28 @@ const TeamSection = ({
   onTeamSelect,
   LogoDetails,
   TeamIndex = 0,
+  activeTeamType = "men",
+  onTeamTypeChange,
+  menTab = "men",
+  womenTab = "women",
 }) => {
   const [selectedTeamIndex, setSelectedTeamIndex] = useState(TeamIndex);
-  const [teamDetails, setTeamDetails] = useState(data[selectedTeamIndex]);
+  const [teamDetails, setTeamDetails] = useState(data?.[selectedTeamIndex]);
   const [players, setPlayers] = useState(
     teamDetails?.Player_Registrations__r?.records || []
   );
   const [totalPlayers, setTotalPlayers] = useState(
     teamDetails?.Player_Registrations__r?.totalSize || 0
   );
-  const [CurrentTeam, setCurrentTeam] = useState(data[selectedTeamIndex].Name);
+  const [CurrentTeam, setCurrentTeam] = useState(
+    data?.[selectedTeamIndex]?.Name || ""
+  );
 
-  const Matches = fixtures
+  useEffect(() => {
+    setSelectedTeamIndex(TeamIndex);
+  }, [TeamIndex]);
+
+  const Matches = [...(fixtures || [])]
     .sort((a, b) => a.match_no - b.match_no)
     .filter(
       (match) =>
@@ -107,6 +126,10 @@ const TeamSection = ({
   };
 
   useEffect(() => {
+    if (!data?.length) {
+      return;
+    }
+
     const updatedTeamDetails = data[selectedTeamIndex];
     const updatedPlayers =
       updatedTeamDetails?.Player_Registrations__r?.records || [];
@@ -119,7 +142,7 @@ const TeamSection = ({
     );
     setCurrentTeam(updatedTeamName);
 
-    const updatedMatches = fixtures
+    const updatedMatches = [...(fixtures || [])]
       .sort((a, b) => a.match_no - b.match_no)
       .filter(
         (match) =>
@@ -129,7 +152,13 @@ const TeamSection = ({
       .slice(0, 3);
 
     setUpcomingMatches(updatedMatches);
-  }, [selectedTeamIndex]);
+  }, [selectedTeamIndex, data, fixtures]);
+
+  const selectedTeam = data?.[selectedTeamIndex];
+
+  if (!selectedTeam) {
+    return null;
+  }
 
   const normalizeLevel = (level) => level?.trim().toLowerCase();
 
@@ -146,10 +175,53 @@ const TeamSection = ({
         style={{ backgroundImage: "url('/images/teams/hero/teamsBg.svg')" }}
       >
         <div className="section-width">
-          <div className="w-full h-full grid grid-cols-4 gap-4 xl:flex xl:flex-row xl:gap-6 justify-center xl:justify-between my-6 p-2 xl:p-8 bg-black bg-opacity-[0.6] rounded-md">
+          <div className="w-full flex justify-start">
+            <div
+              className="relative grid grid-cols-2 w-[220px] md:w-[240px] rounded-[43.5px] p-1 overflow-hidden"
+              style={{
+                background:
+                  "radial-gradient(73.95% 52.29% at 49.38% 41.83%, #ECD815 0%, #F58220 70%, #F15A22 100%)",
+              }}
+            >
+              <span
+                className={`pointer-events-none absolute top-1 left-1 h-[calc(100%-8px)] w-[calc(50%-4px)] rounded-[43.5px] bg-white transition-transform duration-300 ease-out ${
+                  activeTeamType === menTab
+                    ? "translate-x-0"
+                    : "translate-x-full"
+                }`}
+              />
+
+              <button
+                type="button"
+                onClick={() => onTeamTypeChange?.(menTab)}
+                className={`relative z-10 px-3 md:px-4 py-2 text-sm md:text-base font-bold leading-none transition-colors duration-300 ${
+                  activeTeamType === menTab
+                    ? "text-[#243874]"
+                    : "text-white hover:text-white/90"
+                }`}
+              >
+                MEN
+              </button>
+
+              <button
+                type="button"
+                onClick={() => onTeamTypeChange?.(womenTab)}
+                className={`relative z-10 px-3 md:px-4 py-2 text-sm md:text-base font-bold leading-none transition-colors duration-300 ${
+                  activeTeamType === womenTab
+                    ? "text-[#243874]"
+                    : "text-white hover:text-white/90"
+                }`}
+              >
+                WOMEN
+              </button>
+            </div>
+          </div>
+
+          <div className="w-full h-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 xl:flex xl:flex-row xl:flex-wrap xl:gap-6 justify-center xl:justify-start mt-4 mb-6 p-2 xl:p-8 bg-black bg-opacity-[0.6] rounded-md">
             {data.map((team, index) => {
+              const normalizedTeamName = getTeamNameKey(team?.Name);
               const gradientMatch = teamsDataHomePage.find(
-                (t) => t.team === team.Name
+                (t) => t.team === normalizedTeamName
               );
 
               const gradientStyle = gradientMatch
@@ -162,7 +234,7 @@ const TeamSection = ({
                 <div
                   key={index}
                   onClick={() => handleLogoClick(index)}
-                  className={`relative w-full flex items-center justify-center rounded-[5.5px] p-1 cursor-pointer border border-white transition-transform duration-300
+                  className={`relative w-full xl:w-[140px] xl:shrink-0 flex items-center justify-center rounded-[5.5px] p-1 cursor-pointer border border-white transition-transform duration-300
                        ${
                          index === selectedTeamIndex
                            ? "border-gray-700 shadow-[0_2px_10px_rgba(224,126,39,0.6)] scale-[1.1]"
@@ -200,14 +272,14 @@ const TeamSection = ({
           {/* Team Details */}
           <div className="w-full flex flex-col lg:flex-row justify-between gap-6 my-6 p-4 bg-black bg-opacity-[0.6] rounded-md">
             <div className="flex flex-col sm:flex-row justify-center items-center sm:items-center w-full lg:w-full">
-              <TeamDetailLogo image={data[selectedTeamIndex].Logo_URL__c} />
+              <TeamDetailLogo image={selectedTeam.Logo_URL__c} />
               <div className="hidden sm:block w-px h-12 sm:h-16 m-2 bg-gray-500"></div>
               <div className="text-white sm:ml-4 mt-4 sm:mt-0 w-full">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-center md:text-start">
                   {/* Break the team to two lines */}
-                  {data[selectedTeamIndex].Name.split(" ").length > 4 ? (
+                  {selectedTeam.Name.split(" ").length > 4 ? (
                     (() => {
-                      const words = data[selectedTeamIndex].Name.split(" ");
+                      const words = selectedTeam.Name.split(" ");
                       const firstLine = words.slice(0, 2).join(" ");
                       const secondLine = words.slice(2).join(" ");
                       return (
@@ -219,7 +291,7 @@ const TeamSection = ({
                       );
                     })()
                   ) : (
-                    <span>{data[selectedTeamIndex].Name}</span>
+                    <span>{selectedTeam.Name}</span>
                   )}
                 </h2>
               </div>
@@ -350,14 +422,12 @@ const TeamLogo = ({ image, onClick, name }) => {
   return (
     <div
       onClick={onClick}
-      className={`sm:w-[100px] sm:h-[100px]   md:w-full flex items-center justify-center rounded-[5.5px] border-1 border-white relative`}
+      className="w-full h-[92px] md:h-[110px] flex items-center justify-center rounded-[5.5px] border-1 border-white relative"
     >
       <img
         src={image}
         alt="team-logo"
-        className={`
-          p-2
-           w-full h-full object-contain cursor-pointer transition-all duration-300 z-30`}
+        className="h-[72px] md:h-[86px] w-auto max-w-[86%] object-contain cursor-pointer transition-all duration-300 z-30"
       />
     </div>
   );
@@ -365,11 +435,11 @@ const TeamLogo = ({ image, onClick, name }) => {
 
 const TeamDetailLogo = ({ image }) => {
   return (
-    <div className="flex item-center">
+    <div className="flex items-center justify-center w-56 h-24 px-4">
       <img
         src={image}
         alt="team-detail-logo"
-        className="w-56 h-auto px-4 object-contain"
+        className="max-h-full max-w-full object-contain"
       />
     </div>
   );
