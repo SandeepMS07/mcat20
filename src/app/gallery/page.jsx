@@ -9,7 +9,10 @@ import { getImagesClient, getVideosClient } from "../api/clientApi";
 import { BsArrowLeftCircle } from "react-icons/bs";
 
 const tabs = ["View Images", "View Videos"];
-const PRIORITY_GALLERY_TAG = "T20 mumbai S4 2026";
+const PRIORITY_GALLERY_TAGS = [
+  "T20 Mumbai S4 Auction 2026",
+  "T20 mumbai S4 2026",
+];
 
 const Page = () => {
   const [activeTab, setActiveTab] = useState("View Images");
@@ -72,17 +75,24 @@ const Page = () => {
           return acc;
         }, {});
 
+        const getPriorityTagIndex = (tag) =>
+          PRIORITY_GALLERY_TAGS.findIndex(
+            (priorityTag) => priorityTag.toLowerCase() === tag?.toLowerCase?.()
+          );
+
         // Sort the keys as per logic
         const sortedKeys = Object.keys(grouped)
           .filter((key) => key !== "T20Gallery") // Exclude this tag
           .sort((a, b) => {
-            const aIsPriority =
-              a?.toLowerCase?.() === PRIORITY_GALLERY_TAG.toLowerCase();
-            const bIsPriority =
-              b?.toLowerCase?.() === PRIORITY_GALLERY_TAG.toLowerCase();
+            const aPriorityIndex = getPriorityTagIndex(a);
+            const bPriorityIndex = getPriorityTagIndex(b);
+            const aIsPriority = aPriorityIndex !== -1;
+            const bIsPriority = bPriorityIndex !== -1;
 
-            if (aIsPriority && !bIsPriority) return -1;
-            if (!aIsPriority && bIsPriority) return 1;
+            if (aIsPriority && bIsPriority)
+              return aPriorityIndex - bPriorityIndex;
+            if (aIsPriority) return -1;
+            if (bIsPriority) return 1;
 
             const aIsMatch = isMatchTag(a);
             const bIsMatch = isMatchTag(b);

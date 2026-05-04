@@ -9,7 +9,10 @@ import routes from "@/utilis/route";
 import LoadingPage from "@/app/loading";
 import { getImagesClient } from "@/app/api/clientApi";
 
-const PRIORITY_GALLERY_TAG = "T20 mumbai S4 2026";
+const PRIORITY_GALLERY_TAGS = [
+  "T20 Mumbai S4 Auction 2026",
+  "T20 mumbai S4 2026",
+];
 
 const Gallery = () => {
   const [loading, setLoading] = useState(false);
@@ -39,17 +42,23 @@ const Gallery = () => {
           (item) => item.Tag__c !== null && item.Tag__c !== undefined
         );
 
+        const getPriorityTagIndex = (tag) =>
+          PRIORITY_GALLERY_TAGS.findIndex(
+            (priorityTag) => priorityTag.toLowerCase() === tag?.toLowerCase?.()
+          );
+
         const sortedImages = filteredImages.sort((a, b) => {
           const aTag = a.Tag__c || "";
           const bTag = b.Tag__c || "";
 
-          const aIsPriority =
-            aTag?.toLowerCase?.() === PRIORITY_GALLERY_TAG.toLowerCase();
-          const bIsPriority =
-            bTag?.toLowerCase?.() === PRIORITY_GALLERY_TAG.toLowerCase();
+          const aPriorityIndex = getPriorityTagIndex(aTag);
+          const bPriorityIndex = getPriorityTagIndex(bTag);
+          const aIsPriority = aPriorityIndex !== -1;
+          const bIsPriority = bPriorityIndex !== -1;
 
-          if (aIsPriority && !bIsPriority) return -1;
-          if (!aIsPriority && bIsPriority) return 1;
+          if (aIsPriority && bIsPriority) return aPriorityIndex - bPriorityIndex;
+          if (aIsPriority) return -1;
+          if (bIsPriority) return 1;
 
           const aIsMatch = isMatchTag(aTag);
           const bIsMatch = isMatchTag(bTag);
