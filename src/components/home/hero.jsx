@@ -237,7 +237,7 @@ const Hero = () => {
         }}
         className="h-full"
       >
-        <SwiperSlide className="h-full">
+        {/* <SwiperSlide className="h-full">
           <div
             className={`w-full h-full bg-[url('/images/home/hero/auctionBg.png')] bg-cover bg-center relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center`}
           >
@@ -272,7 +272,7 @@ const Hero = () => {
               </div>
             </div>
           </div>
-        </SwiperSlide>
+        </SwiperSlide> */}
         {/* <SwiperSlide className="h-full" data-swiper-autoplay={7000}>
           <div
             className={`relative flex h-full w-full items-center justify-center overflow-hidden bg-[url('/images/banner/banner-bg.png')] bg-cover bg-center ${heroSlidePaddingClass} pt-0 sm:pt-0 lg:pt-0`}
