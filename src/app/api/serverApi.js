@@ -5,20 +5,15 @@ import https from "node:https";
 import { getAxiosInstance } from "./axiosInstance";
 
 const TRANSIENT_HTTP_STATUS = new Set([429, 500, 502, 503, 504]);
-const DEFAULT_MAX_RETRIES = 2;
-const DEFAULT_TIMEOUT_MS = 15000;
-const DEFAULT_BASE_DELAY_MS = 300;
-const DEFAULT_MAX_DELAY_MS = 3000;
+const MAX_RETRIES = 2;
+const TIMEOUT_MS = 15000;
+const BASE_DELAY_MS = 300;
+const MAX_DELAY_MS = 3000;
 
 const parseEnvInt = (value, fallback) => {
   const parsed = Number.parseInt(value ?? "", 10);
   return Number.isFinite(parsed) && parsed >= 0 ? parsed : fallback;
 };
-
-const MAX_RETRIES = parseEnvInt(process.env.SERVER_API_MAX_RETRIES, DEFAULT_MAX_RETRIES);
-const TIMEOUT_MS = parseEnvInt(process.env.SERVER_API_TIMEOUT_MS, DEFAULT_TIMEOUT_MS);
-const BASE_DELAY_MS = parseEnvInt(process.env.SERVER_API_RETRY_BASE_DELAY_MS, DEFAULT_BASE_DELAY_MS);
-const MAX_DELAY_MS = parseEnvInt(process.env.SERVER_API_RETRY_MAX_DELAY_MS, DEFAULT_MAX_DELAY_MS);
 
 const axios = getAxiosInstance({
   timeout: TIMEOUT_MS,
@@ -34,7 +29,7 @@ const axios = getAxiosInstance({
     maxFreeSockets: 20,
     scheduling: "lifo",
   }),
- });
+});
 
 const sleep = (ms) =>
   new Promise((resolve) => {
@@ -62,7 +57,9 @@ const computeBackoffDelayMs = (attempt, retryAfterHeader) => {
 
   const exponential = BASE_DELAY_MS * 2 ** attempt;
   const capped = Math.min(exponential, MAX_DELAY_MS);
-  const jitter = Math.floor(Math.random() * Math.max(75, Math.floor(capped * 0.2)));
+  const jitter = Math.floor(
+    Math.random() * Math.max(75, Math.floor(capped * 0.2)),
+  );
   return capped + jitter;
 };
 
