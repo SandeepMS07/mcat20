@@ -1,10 +1,11 @@
 import { BACKEND_URL } from "@/constant";
-import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
+import axios from "axios";
 
-export const getAxiosInstance = () => {
+export const getAxiosInstance = (overrides = {}) => {
   const instance = axios.create({
     baseURL: BACKEND_URL,
     timeout: 15000,
+    ...overrides,
   });
 
   instance.interceptors.request.use((req) => {
