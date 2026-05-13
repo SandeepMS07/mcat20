@@ -1,27 +1,77 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import TeamCard from "../common/TeamCard";
 import TitleComponent from "../common/TitleComponent";
 import { SwiperSlide } from "swiper/react";
 import { Carousel } from "../Carousel";
 import routes from "@/utilis/route";
 import teamDetailsDataSeason3 from "../../constant/team/teamDetailsDataSeason3.json";
+import { getTeamDetailsClient } from "@/app/api/clientApi";
 // import CountdownTimer from "./CountdownTimer";
 
-const womensTeamNames = ["Aakash Tigers MWS", "SoBo Mumbai Falcons"];
+const MEN_TAB = "men";
+const WOMEN_TAB = "women";
+const FALLBACK_TEAMS = teamDetailsDataSeason3?.data || [];
+const WOMENS_TEAM_FALLBACK_NAMES = ["Aakash Tigers MWS", "SoBo Mumbai Falcons"];
+
+const getTeamBucket = (teamType = "") =>
+  `${teamType}`.toLowerCase().includes("women") ? WOMEN_TAB : MEN_TAB;
+
+const getFilteredTeams = (teams, bucket) =>
+  [...(teams || [])]
+    .filter((team) => getTeamBucket(team?.Team_Type__c) === bucket)
+    .sort((a, b) => (a?.Name || "").localeCompare(b?.Name || ""));
+
+const normalizeWomenName = (name = "") =>
+  name.replace(/\s*\(w\)\s*$/i, "").trim().toLowerCase();
 
 const HomeTeamSection = () => {
-  const [teamDetails, setTeamDetails] = useState(teamDetailsDataSeason3.data);
-  const womensTeams = [
-    ...womensTeamNames
-      .map((teamName) => teamDetails.find((t) => t?.Name === teamName))
-      .filter(Boolean),
-    {
-      Name: "Thane Skyrisers",
-      Logo_URL__c:
-        "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1777550579538-2rnu5ffs2is-Vihang_Thane-Risers-Logo.png",
-    },
-  ];
+  const [allTeams, setAllTeams] = useState(FALLBACK_TEAMS);
+
+  useEffect(() => {
+    const fetchTeams = async () => {
+      const response = await getTeamDetailsClient();
+      const records = response?.data || [];
+
+      if (!Array.isArray(records) || records.length === 0) {
+        return;
+      }
+
+      setAllTeams(records);
+    };
+
+    fetchTeams();
+  }, []);
+
+  const mensTeams = useMemo(
+    () => getFilteredTeams(allTeams, MEN_TAB),
+    [allTeams]
+  );
+
+  const womensTeams = useMemo(() => {
+    const apiWomensTeams = getFilteredTeams(allTeams, WOMEN_TAB);
+    const fallbackWomensTeams = WOMENS_TEAM_FALLBACK_NAMES.map((teamName) =>
+      allTeams.find(
+        (team) => normalizeWomenName(team?.Name) === normalizeWomenName(teamName)
+      )
+    ).filter(Boolean);
+
+    const baseWomensTeams =
+      apiWomensTeams.length > 0 ? apiWomensTeams : fallbackWomensTeams;
+
+    // Handle variants like "Thane Skyrisers" and "Thane Skyrisers (W)" as one team.
+    const dedupedByName = new Map();
+    for (const team of baseWomensTeams) {
+      const key = normalizeWomenName(team?.Name);
+      if (!dedupedByName.has(key)) {
+        dedupedByName.set(key, team);
+      }
+    }
+
+    return [...dedupedByName.values()].sort((a, b) =>
+      (a?.Name || "").localeCompare(b?.Name || "")
+    );
+  }, [allTeams]);
 
   return (
     <>
@@ -47,11 +97,9 @@ const HomeTeamSection = () => {
           <div className="w-full flex flex-col gap-7 relative">
             <div className="w-full overflow-x-auto  scrollbar-hide">
               <div className="sm:grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 2xl:gap-8 gap-5 hidden">
-                {[...teamDetails]
-                  .sort((a, b) => a.Name.localeCompare(b.Name))
-                  ?.map((item, i) => {
-                    return <TeamCard data={item} key={i} />;
-                  })}
+                {mensTeams?.map((item, i) => {
+                  return <TeamCard data={item} key={i} />;
+                })}
               </div>
               <div className="w-full sm:hidden block">
                 <Carousel
@@ -60,13 +108,11 @@ const HomeTeamSection = () => {
                   spaceBetween={50}
                   loop={true}
                 >
-                  {[...teamDetails]
-                    .sort((a, b) => a.Name.localeCompare(b.Name))
-                    .map((item, i) => (
-                      <SwiperSlide key={i}>
-                        <TeamCard data={item} key={i} />
-                      </SwiperSlide>
-                    ))}
+                  {mensTeams.map((item, i) => (
+                    <SwiperSlide key={i}>
+                      <TeamCard data={item} key={i} />
+                    </SwiperSlide>
+                  ))}
                 </Carousel>
               </div>
             </div>

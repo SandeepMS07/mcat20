@@ -2,13 +2,17 @@ import { teamGradients } from "@/utilis/helper";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
+const normalizeTeamName = (name = "") =>
+  name.replace(/\s*\(w\)\s*$/i, "").trim();
+
 const TeamCard = ({ data }) => {
   const router = useRouter();
+  const normalizedName = normalizeTeamName(data?.Name);
 
   const gradient =
     data?.Name === "To Be Announced"
       ? { from: "#FBC92E", to: "#262262" }
-      : teamGradients[data?.Name] || { from: "#1e1e1e", to: "#444" };
+      : teamGradients[normalizedName] || { from: "#1e1e1e", to: "#444" };
   const isClickable = Boolean(data?.Id) && data?.Name !== "To Be Announced";
 
   // const handleClick = () => {
@@ -52,7 +56,7 @@ const TeamCard = ({ data }) => {
         className="w-full h-full absolute top-0 left-0 rounded-xl"
         alt="Logo"
       />
-      <div className="relative">
+      <div className="relative flex min-h-[220px] w-full flex-col items-center justify-between">
         {/* <Image
           src={data.logo}
           width={100}
@@ -60,38 +64,27 @@ const TeamCard = ({ data }) => {
           className="w-auto xl:h-32 h-28 mx-auto"
           alt="Logo"
         /> */}
-        <img
-          src={
-            data?.Name === "To Be Announced"
-              ? "/images/home/team/to-be-announced.png"
-              : data?.Name === "Aakash Tigers MWS"
-                ? "https://turbostart.blob.core.windows.net/team-logos/Artboard%201.png"
-                : data?.Name === "MSC Maratha Royals"
-                  ? "https://mcadirectory.blob.core.windows.net/dev/4441894866960012-shivajiParkLions.png"
-                  : data?.Name === "Triumph Knights Mumbai North East"
-                    ? "https://mcadirectory.blob.core.windows.net/dev/007792959990218895-triumphKnights.png"
-                    : data?.Name === "Arcs Andheri"
-                      ? "https://turbostart.blob.core.windows.net/team-logos/2. Andheri Arcs.jpg"
-                      : data?.Name === "SoBo Mumbai Falcons"
-                        ? "https://turbostart.blob.core.windows.net/team-logos/Artboard%201%20(2).png"
-                        : data?.Name === "North Mumbai Panthers"
-                          ? "https://turbostart.blob.core.windows.net/team-logos/Artboard%201%20(1).png"
-                          : data?.Name === "Eagle Thane Strikers"
-                            ? "https://turbostart.blob.core.windows.net/team-logos/Eagle%20Thane%20Strikers%20-%20LOGO%20NEW%20-%20Final_18ver.png"
-                            : data?.Name === "Bandra Blasters"
-                              ? "https://turbostart.blob.core.windows.net/team-logos/image.png"
-                              : data?.Logo_URL__c ||
-                                "/images/logo/playerTeamLogo.png"
-          }
-          alt="Team Logo"
-          width={60}
-          height={60}
-          className={`w-auto mx-auto ${
-            data?.Name === "Thane Skyrisers" ? "xl:h-40 h-36" : "xl:h-32 h-28"
-          }`}
-        />
+        <div className="flex h-[150px] w-full items-center justify-center">
+          <img
+            src={
+              data?.Name === "To Be Announced"
+                ? "/images/home/team/to-be-announced.png"
+                : data?.Logo_URL__c || "/images/logo/playerTeamLogo.png"
+            }
+            alt="Team Logo"
+            width={60}
+            height={60}
+            className={`w-auto mx-auto ${
+              normalizedName === "Thane Skyrisers"
+                ? "xl:h-40 h-36"
+                : "xl:h-32 h-28"
+            }`}
+          />
+        </div>
         {data.Name && (
-          <p className="text-white text-center mt-10">{data.Name}</p>
+          <p className="text-white text-center leading-snug min-h-[3.25rem] flex items-center justify-center">
+            {data.Name}
+          </p>
         )}
       </div>
     </div>

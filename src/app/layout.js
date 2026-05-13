@@ -2,6 +2,9 @@ import "./globals.css";
 import MixpanelProvider from "@/components/tracking/MixpanelProvider";
 import ClientChrome from "@/components/layout/ClientChrome";
 export const metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://t20mumbai.in"
+  ),
   title: "T20 Mumbai League - Season 4 2026",
   description:
     "T20 Mumbai League is a T20 cricket league in Mumbai, India. It features local teams and players, promoting cricket in the region.",

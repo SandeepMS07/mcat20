@@ -1,91 +1,16 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { teamDetails, teamsLogo } from "./teamLogo";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
 import Image from "next/image";
 import "swiper/css";
 import "swiper/css/autoplay";
-import Home from "@/app/page";
-import HomeTeamSection from "@/components/home/HomeTeamSection";
-import teampattern1 from "../../../../public/images/elements/teamCardElement.png";
-import teampattern2 from "../../../../public/images/elements/teamCardRoundElement.png";
-import UpcomingFixtures from "@/components/common/UpcomingFixtures";
-
-const teamsDataHomePage = [
-  {
-    team: "Aakash Tigers MWS",
-    gradient: {
-      from: "#FD7E00",
-      to: "#0244AA",
-    },
-  },
-  {
-    team: "Arcs Andheri",
-    gradient: {
-      from: "#263C90",
-      to: "#8C2B8E",
-    },
-  },
-  {
-    team: "Eagle Thane Strikers",
-    gradient: {
-      from: "#FBC92E",
-      to: "#262262",
-    },
-  },
-  {
-    team: "Bandra Blasters",
-    gradient: {
-      from: "#4B1C86",
-      to: "#E51C21",
-    },
-  },
-  {
-    team: "North Mumbai Panthers",
-    gradient: {
-      from: "#FEB713",
-      to: "#845C00",
-    },
-  },
-  {
-    team: "MSC Maratha Royals",
-    gradient: {
-      from: "#1000A1",
-      to: "#B84124",
-    },
-  },
-  {
-    team: "SoBo Mumbai Falcons",
-    gradient: {
-      from: "#FFF4E9",
-      to: "#882626",
-    },
-  },
-  {
-    team: "Triumph Knights Mumbai North East",
-    gradient: {
-      from: "#E8D273",
-      to: "#9E7437",
-    },
-  },
-  {
-    team: "Thane Skyrisers",
-    gradient: {
-      from: "#7BE7E3",
-      to: "#142A6E",
-    },
-  },
-];
+import { teamGradients } from "@/utilis/helper";
 
 const getTeamNameKey = (name = "") => name.replace(/\s*\(W\)\s*$/i, "").trim();
 
 const TeamSection = ({
   data,
-  fixtures,
   onTeamSelect,
-  LogoDetails,
   TeamIndex = 0,
   activeTeamType = "men",
   onTeamTypeChange,
@@ -93,30 +18,10 @@ const TeamSection = ({
   womenTab = "women",
 }) => {
   const [selectedTeamIndex, setSelectedTeamIndex] = useState(TeamIndex);
-  const [teamDetails, setTeamDetails] = useState(data?.[selectedTeamIndex]);
-  const [players, setPlayers] = useState(
-    teamDetails?.Player_Registrations__r?.records || []
-  );
-  const [totalPlayers, setTotalPlayers] = useState(
-    teamDetails?.Player_Registrations__r?.totalSize || 0
-  );
-  const [CurrentTeam, setCurrentTeam] = useState(
-    data?.[selectedTeamIndex]?.Name || ""
-  );
 
   useEffect(() => {
     setSelectedTeamIndex(TeamIndex);
   }, [TeamIndex]);
-
-  const Matches = [...(fixtures || [])]
-    .sort((a, b) => a.match_no - b.match_no)
-    .filter(
-      (match) =>
-        match.home_team === CurrentTeam || match.away_team === CurrentTeam
-    )
-    .slice(0, 3);
-
-  const [upcomingMatches, setUpcomingMatches] = useState(Matches);
 
   const handleLogoClick = (index) => {
     setSelectedTeamIndex(index);
@@ -129,44 +34,13 @@ const TeamSection = ({
     if (!data?.length) {
       return;
     }
-
-    const updatedTeamDetails = data[selectedTeamIndex];
-    const updatedPlayers =
-      updatedTeamDetails?.Player_Registrations__r?.records || [];
-    const updatedTeamName = updatedTeamDetails?.Name || "";
-
-    setTeamDetails(updatedTeamDetails);
-    setPlayers(updatedPlayers);
-    setTotalPlayers(
-      updatedTeamDetails?.Player_Registrations__r?.totalSize || 0
-    );
-    setCurrentTeam(updatedTeamName);
-
-    const updatedMatches = [...(fixtures || [])]
-      .sort((a, b) => a.match_no - b.match_no)
-      .filter(
-        (match) =>
-          match.home_team === updatedTeamName ||
-          match.away_team === updatedTeamName
-      )
-      .slice(0, 3);
-
-    setUpcomingMatches(updatedMatches);
-  }, [selectedTeamIndex, data, fixtures]);
+  }, [selectedTeamIndex, data]);
 
   const selectedTeam = data?.[selectedTeamIndex];
 
   if (!selectedTeam) {
     return null;
   }
-
-  const normalizeLevel = (level) => level?.trim().toLowerCase();
-
-  const getCategoryCount = (level) =>
-    players.filter(
-      (p) =>
-        normalizeLevel(p.Recent_Competitive_Level__c) === normalizeLevel(level)
-    ).length;
 
   return (
     <div className="w-full ">
@@ -220,13 +94,10 @@ const TeamSection = ({
           <div className="w-full h-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 xl:flex xl:flex-row xl:flex-wrap xl:gap-6 justify-center xl:justify-start mt-4 mb-6 p-2 xl:p-8 bg-black bg-opacity-[0.6] rounded-md">
             {data.map((team, index) => {
               const normalizedTeamName = getTeamNameKey(team?.Name);
-              const gradientMatch = teamsDataHomePage.find(
-                (t) => t.team === normalizedTeamName
-              );
-
-              const gradientStyle = gradientMatch
+              const gradient = teamGradients[normalizedTeamName];
+              const gradientStyle = gradient
                 ? {
-                    backgroundImage: `linear-gradient(to bottom, ${gradientMatch.gradient.from}, ${gradientMatch.gradient.to})`,
+                    backgroundImage: `linear-gradient(to bottom, ${gradient.from}, ${gradient.to})`,
                   }
                 : {};
 
