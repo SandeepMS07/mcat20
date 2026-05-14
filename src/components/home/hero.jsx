@@ -488,11 +488,14 @@ const Hero = () => {
           >
             <div className="absolute inset-0 bg-black/35"></div>
             <div className="section-width relative z-10 flex h-full items-center py-6">
-              <div className="w-full max-w-3xl text-center sm:text-left">
+              <div className="w-full max-w-3xl pt-11 sm:pt-[60px] lg:pt-[84px] text-center sm:text-left">
+                <p className="inline-block font-bold text-sm uppercase md:text-base bg-[#182769] px-3 py-2 xl:text-xl">
+                  T20 Mumbai Season 4
+                </p>
                 <h1 className="text-[36px] font-extrabold leading-tight sm:text-[44px] lg:text-[72px]">
                   Squads for the T20 Mumbai League are set
                 </h1>
-                <p className="mt-3 text-[20px] font-bold sm:text-[28px] lg:text-[52px]">
+                <p className="mt-3 font-bold text-lg md:text-xl xl:text-2xl">
                   #ChanceSoduNako
                 </p>
                 <div className="mt-5 flex flex-col items-center gap-3 sm:mt-8 sm:flex-row sm:items-start">
