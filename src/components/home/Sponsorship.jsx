@@ -1,74 +1,56 @@
-import Image from "next/image";
 import TitleComponent from "../common/TitleComponent";
 
+const PRINCIPAL_SPONSORS = [
+  { img: "/images/home/sponsorship/jpi.png", alt: "JP Infra" },
+  { img: "/images/home/sponsorship/hoh.png", alt: "House of Hiranandani" },
+];
+
+const ASSOCIATE_SPONSORS = [
+  { img: "/images/home/sponsorship/meil.png", alt: "Meil" },
+  { img: "/images/home/sponsorship/starsports.png", alt: "Star Sports 1" },
+  { img: "/images/home/sponsorship/starsports.png", alt: "Star Sports 2" },
+  { img: "/images/home/sponsorship/jkumar.png", alt: "J. Kumar" },
+  { img: "/images/home/sponsorship/redfm.png", alt: "Red FM" },
+];
+
+const PARTNER_SPONSORS = [
+  { img: "/images/home/sponsorship/jiohotstar.png", alt: "Jio Hotstar" },
+  { img: "/images/home/sponsorship/district.png", alt: "District by Zomato" },
+  { img: "/images/home/sponsorship/scrapji.png", alt: "Scrapji" },
+  { img: "/images/home/sponsorship/dream11.png", alt: "Dream11" },
+];
+
+const SponsorTier = ({ items, maxHeight = "h-16" }) => (
+  <div className="flex flex-wrap items-center justify-center gap-6 border-t border-white/10 bg-white px-4 py-5 first:border-t-0 sm:gap-10 sm:px-10">
+    {items.map((s, i) => (
+      <div key={`${s.alt}-${i}`} className="flex items-center justify-center">
+        <img
+          src={s.img}
+          alt={s.alt}
+          className={`${maxHeight} w-auto object-contain`}
+        />
+      </div>
+    ))}
+  </div>
+);
+
 const Sponsorship = () => {
-  const sponsorData = [
-    {
-      img: "/images/home/sponsorship/hell.png",
-      title: "Hell Energy - Energy Drink Partner",
-    },
-    {
-      img: "/images/home/sponsorship/tyka.png",
-      title: "TYKA - Kitting Partner",
-    },
-  ];
-
   return (
-    <div className="bg-cover bg-center bg-no-repeat relative">
-      <img
-        src="/images/elements/section-element.png"
-        className="absolute right-0 top-0 md:block hidden"
-        alt="element"
-      />
-      <img
-        src="/images/elements/section-element.png"
-        className="absolute left-0 bottom-0 rotate-180 md:block hidden "
-        alt="element"
-      />
+    <div className="bg-white">
       <div className="section-width section-padding">
-        <TitleComponent title={"Sponsors"} />
+        <div className="mb-6 text-center">
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#0A1A4A]">
+            Our
+          </p>
+          <h2 className="text-2xl font-extrabold italic uppercase tracking-wide text-[#0A1A4A] sm:text-3xl lg:text-4xl">
+            Sponsors
+          </h2>
+        </div>
 
-        <div className="flex flex-wrap gap-8 bg-[#000B3D] p-4 rounded-xl w-full justify-center">
-          {sponsorData.map((item, index) => {
-            return (
-              <div
-                key={index}
-                className={`w-full md:w-[18.2%]  rounded-xl relative text-white p-4 border border-[#4c5271] `}
-                style={{
-                  background:
-                    "linear-gradient(180.69deg, rgba(255, 255, 255, 0.15) -61.51%, rgba(0, 0, 0, 0.15) 91.86%)",
-                }}
-              >
-                <div className="w-full h-24 flex items-center mb-4">
-                  <div className="max-h-24 w-full flex justify-start">
-                    <img
-                      src={item.img}
-                      alt="Sponsor"
-                      className="object-contain h-20 max-w-full"
-                    />
-                  </div>
-                </div>
-
-                <div className="w-full flex flex-row">
-                  <div
-                    className="w-[20px]"
-                    style={{
-                      borderWidth: "1px",
-                      borderStyle: "solid",
-                      borderImageSource:
-                        "linear-gradient(90deg, #E07E27 -22.62%, #E93301 100%)",
-                      borderImageSlice: 1,
-                    }}
-                  ></div>
-                  <div className="flex-1 border-b-[1px] border-gray-800"></div>
-                </div>
-
-                <p className="text-lg font-medium z-20 relative mt-4 break-words whitespace-normal">
-                  {item.title}
-                </p>
-              </div>
-            );
-          })}
+        <div className="overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-black/5">
+          <SponsorTier items={PRINCIPAL_SPONSORS} maxHeight="h-20 sm:h-24" />
+          <SponsorTier items={ASSOCIATE_SPONSORS} maxHeight="h-12 sm:h-14" />
+          <SponsorTier items={PARTNER_SPONSORS} maxHeight="h-12 sm:h-14" />
         </div>
       </div>
     </div>

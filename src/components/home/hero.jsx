@@ -2,11 +2,13 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import CountdownTimer from "./CountdownTimer";
+import HeroPoll from "./HeroPoll";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import { FaLocationDot } from "react-icons/fa6";
+import "swiper/css/navigation";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import routes from "@/utilis/route";
 import fixtures3 from "@/utilis/fixtures/fixtures3";
 import { useRouter } from "next/navigation";
@@ -232,9 +234,18 @@ const Hero = () => {
       )}
 
       <Swiper
-        modules={[Autoplay]}
+        modules={[Autoplay, Pagination, Navigation]}
         autoplay={{ delay: 5000 }}
-        pagination={{ clickable: true }}
+        pagination={{
+          el: ".hero-pagination",
+          clickable: true,
+          bulletClass: "hero-bullet",
+          bulletActiveClass: "hero-bullet-active",
+        }}
+        navigation={{
+          prevEl: ".hero-prev",
+          nextEl: ".hero-next",
+        }}
         speed={200}
         loop
         onSwiper={(swiper) => {
@@ -242,97 +253,32 @@ const Hero = () => {
         }}
         className="h-full"
       >
-        {/* <SwiperSlide className="h-full">
-          <div
-            className={`w-full h-full bg-[url('/images/home/hero/auctionBg.png')] bg-cover bg-center relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center`}
-          >
-            <div className="absolute inset-0 bg-black/35"></div>
-            <div className="section-width py-2 relative z-10">
-              <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
-                <h1 className="font-extrabold max-w-4xl max-sm:text-center">
-                  Watch T20 Mumbai League <br /> Auction 2026
-                </h1>
-                <p className="font-bold text-lg md:text-xl xl:text-2xl">
-                  #ChanceSoduNako
-                </p>
-                <div className="flex flex-row gap-2">
-                  <a
-                    className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md uppercase"
-                    onClick={() => {
-                      router.push("/live-auction");
-                    }}
-                  >
-                   Live
-                    <span>
-                      <Image
-                        src="/images/home/hero/buttonIcon.svg"
-                        alt="button-icon"
-                        width={24}
-                        height={24}
-                        className="w-5 h-5"
-                      />
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide> */}
-        {/* <SwiperSlide className="h-full" data-swiper-autoplay={7000}>
-          <div
-            className={`relative flex h-full w-full items-center justify-center overflow-hidden bg-[url('/images/banner/banner-bg.png')] bg-cover bg-center ${heroSlidePaddingClass} pt-0 sm:pt-0 lg:pt-0`}
-          >
-            <div className="section-width relative z-10 flex h-full items-center py-6 sm:py-8">
-              <div className="flex w-full -mt-20 flex-col items-center justify-between gap-6 sm:mt-0 lg:flex-row lg:gap-12">
-                <div className="flex max-w-2xl flex-col items-center gap-3 text-center sm:items-start sm:gap-4 sm:text-left">
-                  <p className="inline-flex rounded bg-[#1e2f7a]/80 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.08em] text-white sm:text-xs lg:text-sm">
-                    T20 Mumbai League 2026
-                  </p>
-                  <h1 className="text-[22px] font-extrabold uppercase leading-tight sm:text-[30px] lg:text-[44px]">
-                    Registrations Open
-                    <br />
-                    For Support Staff
-                  </h1>
-                  <p className="text-[14px] font-bold text-[#f9ae2d] sm:text-lg lg:text-xl">
-                    Open Till 16th April
-                  </p>
-                  <a
-                    href="https://www.mumbaicricket.com/news/2026/19968"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary inline-flex items-center gap-3 px-5 py-2.5 text-xs font-bold uppercase sm:py-3 sm:text-sm"
-                  >
-                    Register Now
-                    <Image
-                      src="/images/home/hero/buttonIcon.svg"
-                      alt="button-icon"
-                      width={24}
-                      height={24}
-                      className="h-5 w-5"
-                    />
-                  </a>
-                </div>
-                <div className="flex w-full max-w-md flex-col gap-2 sm:gap-3 sm:max-w-lg">
-                  {[
-                    "Coach & Assistant Coach",
-                    "Strength & Conditioning Coach",
-                    "Physiotherapist",
-                    "Masseur",
-                    "Performance Analyst",
-                  ].map((role) => (
-                    <div
-                      key={role}
-                      className="w-full bg-[#f2b312] px-3 py-2 text-center text-[12px] font-extrabold uppercase tracking-wide text-[#0a1a66] sm:px-4 sm:text-base lg:text-lg"
-                    >
-                      {role}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide> */}
         <SwiperSlide className="h-full">
+          <div className="w-full h-full bg-[url('/images/home/hero/hero-bg.jpg')] bg-cover bg-center relative overflow-hidden">
+            <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
+            <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
+            <div className="absolute inset-0 z-10 flex items-end pb-14 sm:pb-20 lg:pb-28">
+              <div className="section-width w-full">
+                <div className="flex max-w-3xl flex-col items-start gap-3 lg:gap-4">
+                  <p className="text-xs font-medium uppercase tracking-wide text-white/90 sm:text-sm">
+                    20 Feb, 2026
+                  </p>
+                  <h1 className="font-extrabold text-white">
+                    Mumbai South Central Maratha Royals crowned T20 Mumbai
+                    League 2025 champions
+                  </h1>
+                  <button
+                    type="button"
+                    className="btn-primary mt-2 inline-flex items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold"
+                  >
+                    Read More
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
+        {/* <SwiperSlide className="h-full">
           <div
             className={`group w-full h-full bg-[url('/images/home/hero/rohit.jpeg')] bg-cover bg-right md:bg-top relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center cursor-pointer`}
             onMouseEnter={handleRohitHeroMouseEnter}
@@ -562,354 +508,6 @@ const Hero = () => {
             </div>
           </div>
         </SwiperSlide>
-        {/* <SwiperSlide className="h-full">
-          <div
-            className={`w-full h-full bg-[url('https://mca-cdn.ken42.com/season3/latest_updates/slider7.jpg')] bg-cover bg-center relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center`}
-          >
-            <div className="section-width  py-2">
-             <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
-                <p className="font-bold text-sm uppercase md:text-base bg-[#182769] px-3 py-2 xl:text-xl">
-                  T20 Mumbai Season 3
-                </p>
-                <h1 className="  font-extrabold max-w-3xl max-sm:text-center">
-                 CHAMPIONS <br /> MSC Maratha Royals
-                </h1>
-                <p className="font-bold text-lg md:text-xl xl:text-2xl">
-                  #AalaReAglaStar
-                </p>
-                <div className="flex flex-row gap-2">
-                
-                  <a
-                    className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md"
-                    onClick={() => {
-                      router.push(
-                        "/latest-updates"
-                      );
-                    }}
-                  >
-                    Read More{" "}
-                    <span>
-                      <Image
-                        src="/images/home/hero/buttonIcon.svg"
-                        alt="button-icon"
-                        width={24}
-                        height={24}
-                        className="w-5 h-5"
-                      />
-                    </span>
-                  </a>
-                </div>
-              </div>
-
-              <div className="absolute bottom-40 -right-0 hidden md:block">
-                <CountdownTimer />
-              </div>
-            </div>
-          </div>
-        </SwiperSlide> */}
-        {/* <SwiperSlide className="h-full">
-          <div className="w-full h-full bg-[url('/images/banner/slider3.jpg')] bg-cover bg-center  relative pt-32 overflow-hidden flex justify-center items-center">
-            <div className="section-width ">
-              <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
-                <p className="font-bold text-sm md:text-base xl:text-xl">
-                  T20 Mumbai Season 3
-                </p>
-                <h1 className="  font-extrabold max-w-3xl max-sm:text-center">
-                  Mumbai’s Homegrown <br /> Talent Hits the Field
-                </h1>
-                <p className="font-bold text-lg md:text-xl xl:text-2xl">
-                  #Kaun Banega Agla Star?{" "}
-                </p>
-                <div className="flex flex-row gap-2">
-                  <a
-                    href={routes.OverallTicket}
-                    target="_blank"
-                    className="btn-primary flex gap-4 items-center justify-center py-3 px-6 rounded-lg text-md"
-                  >
-                    Buy Tickets
-                    <span>
-                      <Image
-                        src="/images/home/hero/buttonIcon.svg"
-                        alt="button-icon"
-                        width={24}
-                        height={24}
-                        className="w-5 h-5"
-                      />
-                    </span>
-                  </a>
-                  <a
-                    className="btn-blue flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md"
-                    onClick={() => {
-                      router.push(
-                        "latest-updates/sairaj-steals-spotlight-after-sky-show-on-t20-mumbai-league-2025-opening-day"
-                      );
-                    }}
-                  >
-                    Read More{" "}
-                    <span>
-                      <Image
-                        src="/images/home/hero/buttonIcon.svg"
-                        alt="button-icon"
-                        width={24}
-                        height={24}
-                        className="w-5 h-5"
-                      />
-                    </span>
-                  </a>
-                </div>
-              </div>
-
-              <div className="absolute bottom-40 -right-0 hidden md:block">
-                <CountdownTimer />
-              </div>
-            </div>
-          </div>
-        </SwiperSlide> */}
-        {/* <SwiperSlide>
-          <div className="w-full h-full bg-[url('https://storage.googleapis.com/mca_images/website/banner_img/slider2.jpg')] bg-cover bg-center  relative md:pt-32 pt-14 overflow-hidden flex justify-center items-center">
-            
-            <div className="section-width  ">
-              <div className="flex md:flex-row flex-col items-start gap-3 lg:gap-6 h-full w-full xl:pr-32 lg:pr-40">
-                <div className=" flex-1 md:border-r-2 border-white md:py-8 flex">
-                  <div className="ml-auto pr-10">
-                  
-                    <h1 className="oswald-font xl:max-w-sm md:max-w-xs max-w-60 xl:text-[100px] md:text-[80px] text-[50px] tracking-[0px] leading-[90%] font-bold md:mb-4 ">
-                      TICKETS
-                      <span className=" xl:text-[90px] md:text-[75px] text-[48px] tracking-[-4px] text-[#fdcf53]">
-                        {" "}
-                        NOW LIVE
-                      </span>
-                    </h1>
-                    <div className="flex mt-4 sm:mt-0 flex-col gap-2 sm:flex-row items-start sm:items-center">
-                      <a
-                        href={routes.OverallTicket}
-                        target="_blank"
-                        className="btn-primary inline-flex gap-4 items-center justify-center py-3 px-6 rounded-lg text-md"
-                      >
-                        Buy Tickets
-                        <span>
-                          <Image
-                            src="/images/home/hero/buttonIcon.svg"
-                            alt="button-icon"
-                            width={24}
-                            height={24}
-                            className="w-5 h-5"
-                          />
-                        </span>
-                      </a>
-                      <a
-                        className="btn-blue inline-flex gap-4 cursor-pointer items-center justify-center py-3 px-6 rounded-lg text-md"
-                        onClick={() => {
-                          router.push(
-                            "latest-updates/mca-reschedules-t20-mumbai-league-2025-wankhede-stadium-and-dy-patil-stadium-to-host-23-exciting-matches-from-june-4-to-12"
-                          );
-                        }}
-                      >
-                        Read More
-                        <span>
-                          <Image
-                            src="/images/home/hero/buttonIcon.svg"
-                            alt="button-icon"
-                            width={24}
-                            height={24}
-                            className="w-5 h-5"
-                          />
-                        </span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className=" flex-1 my-auto oswald-font">
-                  <h3 className="  font-extrabold max-w-3xl  uppercase">
-                    From june 4th to June 12TH
-                  </h3>
-                  <div className="flex items-center gap-2 md:mt-3 mt-1">
-                    <FaLocationDot />
-                    <a href={routes.wankhedeTicket} target="_blank">
-                      <h3 className="  font-extrabold max-w-3xl  uppercase">
-                        wankhede stadium, MUMBAI
-                      </h3>
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-2 md:mt-3 mt-1">
-                    <FaLocationDot />
-                    <a href={routes.DYPatilTicket} target="_blank">
-                      <h3 className="  font-extrabold max-w-3xl ">
-                        DY PATIL STADIUM, NAVI MUMBAI
-                      </h3>
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-4 md:mt-5 mt-3">
-                    <h3 className="  font-extrabold max-w-3xl ">
-                      OFFICIALLY AT
-                    </h3>
-                    <img
-                      src="/images/home/hero/districtLogo.png"
-                      className="md:h-20 h-14 w-auto"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <div className="flex md:flex-row flex-col gap-4 md:hidden ">
-                  <a
-                    href={routes.wankhedeTicket}
-                    target="_blank"
-                    className="btn-primary  flex-1 gap-4 items-center text-xs flex justify-center text-left"
-                    // onClick={openVideo}
-                  >
-                    Wankhede Tickets Click Here
-                    <span>
-                      <Image
-                        src="/images/home/hero/buttonIcon.svg"
-                        alt="button-icon"
-                        width={24}
-                        height={24}
-                        className="w-5 h-5"
-                      />
-                    </span>
-                  </a>
-                  <a
-                    href={routes.DYPatilTicket}
-                    target="_blank"
-                    className="btn-blue rounded-lg flex-1  gap-4 items-center text-xs   justify-center text-left"
-                    // onClick={openVideo}
-                  >
-                    DY Patil Tickets Click Here
-                    <span>
-                      <Image
-                        src="/images/home/hero/buttonIcon.svg"
-                        alt="button-icon"
-                        width={24}
-                        height={24}
-                        className="w-5 h-5"
-                      />
-                    </span>
-                  </a>
-                </div>
-              </div>
-
-              <div className="absolute bottom-40 right-0 hidden lg:block">
-                <div
-                  className="w-full rounded-l-xl md:rounded-l-xl border-y-2 border-l-2 border-[#E07E27] shadow-2xl overflow-hidden cursor-pointer"
-                  onClick={handleNavigateToFixture}
-                >
-                  <div
-                    className="w-full flex overflow-hidden items-center justify-evenly rounded-tl-lg gap-4"
-                    style={{
-                      background:
-                        "linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.48) 1.45%, rgba(0, 0, 0, 0.70) 100%), rgba(255, 255, 255, 0.09)",
-                    }}
-                  >
-                    <div className="flex flex-col justify-between py-6 px-12">
-                      <p className="text-[#E07E27] text-base xl:text-lg font-semibold leading-3 uppercase">
-                        Match starts in
-                      </p>
-                    </div>
-                  </div>
-                  <CountdownTimer
-                    targetDate={nextMatch.targetDate}
-                    homeTeam={nextMatch.home_team}
-                    awayTeam={nextMatch.away_team}
-                    match_no={nextMatch.match_no}
-                    total_matches={nextMatch.total_matches}
-                  />
-                </div>
-              </div>
-
-              <div className="absolute bottom-40 -right-0 hidden md:block">
-                <div
-                  className="w-full rounded-l-xl md:rounded-l-xl border-y-2 border-l-2  border-[#E07E27] shadow-2xl overflow-hidden cursor-pointer"
-                  onClick={handleNavigateToFixture}
-                >
-                  <div
-                    className="  w-full flex overflow-hidden items-center justify-evenly rounded-tl-lg gap-4"
-                    style={{
-                      background:
-                        "linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.48) 1.45%, rgba(0, 0, 0, 0.70) 100%), rgba(255, 255, 255, 0.09)",
-                    }}
-                  >
-                    <div className="flex flex-col justify-between  py-6 px-12">
-                      <p className="text-[#E07E27] text-base  xl:text-lg font-semibold leading-3 uppercase">
-                        Match starts in
-                      </p>
-                    </div>
-                  </div>
-                  <CountdownTimer
-                    targetDate={nextMatch.targetDate}
-                    homeTeam={nextMatch.home_team}
-                    awayTeam={nextMatch.away_team}
-                    match_no={nextMatch.match_no}
-                    total_matches={nextMatch.total_matches}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide> */}
-        {/* <SwiperSlide className="h-full">
-          <div className="w-full h-full bg-[url('https://storage.googleapis.com/mca_images/website/banner_img/heroImgRohitPattern.png')] bg-cover bg-center  relative pt-32 overflow-hidden flex justify-center items-center">
-            <div className="section-width ">
-              <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
-                <p className="font-bold text-sm md:text-base xl:text-xl">
-                  T20 Mumbai Season 3
-                </p>
-
-                <h1 className="  font-extrabold max-w-3xl max-sm:text-center">
-                  Not just back. <br /> Back to build the next icon
-                </h1>
-                <p className="font-bold text-lg md:text-xl xl:text-2xl">
-                  #AalaReAglaStar
-                </p>
-                <div className="flex gap-2">
-                  <button
-                    className="btn-primary flex gap-4 items-center"
-                    onClick={() => {
-                      window.open(
-                        "https://www.instagram.com/reel/DKovUKKhr7F/",
-                        "_blank",
-                        "noopener,noreferrer"
-                      );
-                    }}
-                  >
-                    View Details
-                    <span>
-                      <Image
-                        src="/images/home/hero/buttonIcon.svg"
-                        alt="button-icon"
-                        width={24}
-                        height={24}
-                        className="w-5 h-5"
-                      />
-                    </span>
-                  </button>
-                  <a
-                    className="btn-blue inline-flex gap-4 cursor-pointer items-center justify-center py-3 px-6 rounded-lg text-md"
-                    onClick={() => {
-                      router.push(
-                        "latest-updates/mca-adds-star-power-to-t20-mumbai-league-unveils-rohit-sharma-as-face-of-season-3"
-                      );
-                    }}
-                  >
-                    Read More
-                    <span>
-                      <Image
-                        src="/images/home/hero/buttonIcon.svg"
-                        alt="button-icon"
-                        width={24}
-                        height={24}
-                        className="w-5 h-5"
-                      />
-                    </span>
-                  </a>
-                </div>
-              </div>
-
-              <div className="absolute bottom-40 -right-0 hidden md:block">
-                <CountdownTimer />
-              </div>
-            </div>
-          </div>
-        </SwiperSlide> */}
         <SwiperSlide className="h-full">
           <div
             className={`w-full h-full bg-[url('/images/banner/banner4.png')] bg-cover bg-center relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center`}
@@ -964,13 +562,37 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* <div className="absolute bottom-40 -right-0 hidden md:block">
-                <CountdownTimer />
-              </div> */}
+         //      <div className="absolute bottom-40 -right-0 hidden md:block">
+           //     <CountdownTimer />
+            //  </div> 
             </div>
           </div>
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
+
+      <div className="absolute bottom-5 right-4 z-30 flex items-center gap-3 sm:bottom-7 sm:right-8 sm:gap-4 lg:bottom-10 lg:right-12">
+        <div className="hero-pagination flex items-center gap-1.5"></div>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            aria-label="Previous slide"
+            className="hero-prev flex h-7 w-7 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur-sm transition-colors hover:bg-white/25"
+          >
+            <FaChevronLeft className="h-2.5 w-2.5" />
+          </button>
+          <button
+            type="button"
+            aria-label="Next slide"
+            className="hero-next flex h-7 w-7 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur-sm transition-colors hover:bg-white/25"
+          >
+            <FaChevronRight className="h-2.5 w-2.5" />
+          </button>
+        </div>
+      </div>
+
+      {/* <div className="pointer-events-none absolute inset-x-0 bottom-6 z-30 flex justify-center px-3 sm:bottom-8 sm:right-6 sm:left-auto sm:justify-end sm:px-0 lg:bottom-12 lg:right-12">
+        <HeroPoll />
+      </div> */}
 
       {showVideo && (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-80">

@@ -1,12 +1,12 @@
 /* Import Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Sen:wght@400..800&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  @apply font-figtree;
+  @apply font-jakarta;
   color: #fff;
   background: white;
   background-size: fill;
@@ -103,7 +103,7 @@ body {
 
 @layer base {
   h1 {
-    @apply 2xl:text-[64px] xl:text-[54px] lg:text-[48px] md:text-[36px] text-[28px]  md:tracking-[-1.92px] tracking-[-0.96px] leading-tight xl:leading-tight font-semibold 2xl:leading-tight;
+    @apply 2xl:text-[44px]   lg:text-[26px] md:text-[28px] text-[24px] font-extrabold   leading-tight xl:leading-tight font-semibold 2xl:leading-tight;
   }
 
   h2 {
@@ -143,4 +143,23 @@ body {
 
 .oswald-font {
   font-family: "Oswald", sans-serif;
+}
+
+.hero-bullet {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  transition:
+    width 0.25s ease,
+    background-color 0.25s ease;
+}
+.hero-bullet:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+.hero-bullet-active {
+  width: 20px;
+  background: #e07e27;
 }

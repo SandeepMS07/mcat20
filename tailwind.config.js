@@ -22,7 +22,10 @@ module.exports = {
         'text-gradient': 'linear-gradient(90deg, #909DC1 0%, #3663DE 100%)',
       },
       fontFamily: {
-        figtree: ['Figtree', 'sans-serif'], // Add Figtree as a custom font
+        figtree: ['Figtree', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
+        jakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
+        sen: ['Sen', 'sans-serif'],
       },
     },
   },

@@ -1,11 +1,6 @@
 "use client";
 
-import React, { use, useEffect, useState } from "react";
-import Image from "next/image";
-import TitleComponent from "../common/TitleComponent";
-import Link from "next/link";
-import routes from "@/utilis/route";
-// import { images } from "../../app/gallery/images";
+import { useEffect, useState } from "react";
 import LoadingPage from "@/app/loading";
 import { getImagesClient } from "@/app/api/clientApi";
 
@@ -14,9 +9,21 @@ const PRIORITY_GALLERY_TAGS = [
   "T20 mumbai S4 2026",
 ];
 
+const isMatchTag = (tag) => /^Match\s\d+/i.test(tag);
+const extractMatchNumber = (tag) => {
+  const match = tag.match(/^Match\s(\d+)/i);
+  return match ? parseInt(match[1], 10) : 0;
+};
+const getPriorityTagIndex = (tag) =>
+  PRIORITY_GALLERY_TAGS.findIndex(
+    (priorityTag) => priorityTag.toLowerCase() === tag?.toLowerCase?.(),
+  );
+
 const Gallery = () => {
   const [loading, setLoading] = useState(false);
   const [images, setImages] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(null);
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -30,22 +37,9 @@ const Gallery = () => {
             img: item.Image_URL__c,
           })) || [];
 
-        const isMatchTag = (tag) => /^Match\s\d+/i.test(tag);
-
-        const extractMatchNumber = (tag) => {
-          const match = tag.match(/^Match\s(\d+)/i);
-          return match ? parseInt(match[1], 10) : 0;
-        };
-
-        console.log(formattedImages, "formattedImages");
         const filteredImages = formattedImages.filter(
-          (item) => item.Tag__c !== null && item.Tag__c !== undefined
+          (item) => item.Tag__c !== null && item.Tag__c !== undefined,
         );
-
-        const getPriorityTagIndex = (tag) =>
-          PRIORITY_GALLERY_TAGS.findIndex(
-            (priorityTag) => priorityTag.toLowerCase() === tag?.toLowerCase?.()
-          );
 
         const sortedImages = filteredImages.sort((a, b) => {
           const aTag = a.Tag__c || "";
@@ -56,7 +50,8 @@ const Gallery = () => {
           const aIsPriority = aPriorityIndex !== -1;
           const bIsPriority = bPriorityIndex !== -1;
 
-          if (aIsPriority && bIsPriority) return aPriorityIndex - bPriorityIndex;
+          if (aIsPriority && bIsPriority)
+            return aPriorityIndex - bPriorityIndex;
           if (aIsPriority) return -1;
           if (bIsPriority) return 1;
 
@@ -64,20 +59,17 @@ const Gallery = () => {
           const bIsMatch = isMatchTag(bTag);
 
           if (aIsMatch && bIsMatch) {
-            // Sort descending numerically for Match tags
             return extractMatchNumber(bTag) - extractMatchNumber(aTag);
           } else if (aIsMatch) {
             return -1;
           } else if (bIsMatch) {
             return 1;
           } else {
-            // Sort Z → A for non-Match tags
             return bTag.localeCompare(aTag);
           }
         });
 
-        // console.log(sortedImages, "sortedImages");
-        setImages(sortedImages.slice(0, 8));
+        setImages(sortedImages.slice(0, 16));
       } catch (err) {
         console.error("Error fetching images:", err);
       } finally {
@@ -88,209 +80,91 @@ const Gallery = () => {
     fetchImages();
   }, []);
 
-  const validItems =
-    Array.isArray(images) && images.length > 0 ? images.slice(0, 8) : [];
+  if (loading) return <LoadingPage />;
+  if (images.length === 0) return null;
 
-  const [showModal, setShowModal] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(null);
-
-  const [layoutConfig, setLayoutConfig] = useState([
-    [2, 2, 2, 1],
-    [2, 2, 1, 2],
-    [1, 2, 2, 2],
-  ]);
-
-  const updateLayout = () => {
-    if (typeof window !== "undefined") {
-      if (window.innerWidth < 640) {
-        setLayoutConfig([[7], [7], [7]]);
-      } else if (window.innerWidth < 1024) {
-        setLayoutConfig([
-          [3, 4],
-          [4, 3],
-          [3, 4],
-        ]);
-      }
-    }
+  const openModal = (index) => {
+    setCurrentIndex(index);
+    setShowModal(true);
   };
 
-  // Set up resize listener with SSR safety check
-  useEffect(() => {
-    updateLayout();
-
-    // Add resize listener only on client side
-    if (typeof window !== "undefined") {
-      window.addEventListener("resize", updateLayout);
-      return () => window.removeEventListener("resize", updateLayout);
-    }
-  }, []);
-
-  if (loading) {
-    <LoadingPage />;
-  }
-
-  // If no valid items, return early
-  if (validItems.length === 0) {
-    return null;
-  }
-
-  let renderedIndex = 0;
-
   return (
-    <div className="bg-[url('/images/home/latestUpdateBg.png')] bg-cover bg-center bg-no-repeat py-20">
+    <section className="bg-[#192a66] pt-6 pb-2 sm:pt-10 sm:pb-4">
       <div className="section-width">
-        <TitleComponent
-          orange
-          title={"Gallery"}
-          button
-          buttonLink={routes.gallery}
-          buttonText="View Gallery"
-          hideButtonOnMobile={true}
-        />
-      </div>
-
-      <div className="flex flex-col gap-6 section-width">
-        <div className="w-full bg-black">
-          <div className="w-full flex flex-col gap-3 p-3">
-            {layoutConfig.map((row, rowIndex) => {
-              // Stop rendering if we've shown all items
-              if (renderedIndex >= validItems.length) {
-                return null;
-              }
-
-              return (
-                <div key={rowIndex} className="h-[250px] w-full">
-                  <div className="grid w-full h-full grid-cols-7 gap-2 md:gap-3 lg:gap-4">
-                    {row.map((span, colIndex) => {
-                      // Stop rendering if we've shown all items
-                      if (renderedIndex >= validItems.length) return null;
-                      const item = validItems[renderedIndex];
-                      const indexForModal = renderedIndex++;
-                      if (!item?.Image_URL__c) return null;
-
-                      return (
-                        <div
-                          key={colIndex}
-                          className={`relative col-span-${span} overflow-hidden bg-white/30`}
-                          onClick={() => {
-                            setCurrentIndex(indexForModal);
-                            setShowModal(true);
-                          }}
-                        >
-                          <img
-                            src={item?.Image_URL__c || ""}
-                            alt={"Gallery image"}
-                            className=" w-full h-full object-cover"
-                            sizes="(max-width: 640px) 95vw, (max-width: 1024px) 45vw, 33vw"
-                          />
-
-                          {item.type === "video" && (
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <img
-                                src="/images/home/whyT2C/vidLogo.svg"
-                                width={100}
-                                height={100}
-                                className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16"
-                                alt="Video"
-                              />
-                            </div>
-                          )}
-
-                          {item.views && item.type === "image" && (
-                            <div className="absolute top-2 right-2">
-                              <img
-                                src="/images/home/whyT2C/imgIcon.svg"
-                                width={100}
-                                height={100}
-                                alt="Image"
-                                className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8"
-                              />
-                            </div>
-                          )}
-
-                          {item.type === "coming-soon" && (
-                            <div className="absolute top-2 left-2 bg-white text-black text-xs px-2 py-1 rounded font-semibold">
-                              COMING SOON
-                            </div>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              );
-            })}
-
-            {showModal && (
-              <div
-                className="fixed inset-0 z-[9999] bg-black bg-opacity-80 flex items-center justify-center p-4"
-                onClick={() => setShowModal(false)}
+        <div className="overflow-hidden rounded-3xl bg-[#143083] px-5 py-6 sm:px-8 sm:py-7 lg:px-10 lg:py-8">
+          <h2 className="mb-5 text-2xl font-extrabold italic text-white sm:mb-6 sm:text-3xl lg:mb-7 lg:text-4xl">
+            Match Moments
+          </h2>
+          <div className="scrollbar-hide -mx-1 flex gap-4 overflow-x-auto px-1 pb-1 sm:gap-5 lg:gap-6">
+            {images.map((item, i) => (
+              <button
+                type="button"
+                key={item.Id || i}
+                onClick={() => openModal(i)}
+                aria-label="Open match moment"
+                className="group relative h-20 w-20 shrink-0 overflow-hidden rounded-full ring-[3px] ring-[#F2A23A] transition-transform hover:scale-105 sm:h-24 sm:w-24 lg:h-28 lg:w-28"
               >
-                <div
-                  className="relative max-w-4xl w-full max-h-[90vh]"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <button
-                    onClick={() => setShowModal(false)}
-                    className="absolute -top-5 -right-5 bg-white text-black p-3 py-2 rounded-full text-sm z-50 font-bold"
-                  >
-                    ✕
-                  </button>
-
-                  {currentIndex > 0 && (
-                    <button
-                      className="absolute -left-20 top-1/2 transform -translate-y-1/2 bg-[#ffffff80] hover:bg-white text-black flex justify-center items-center rounded-full z-50 w-14 h-14"
-                      onClick={() => setCurrentIndex((prev) => prev - 1)}
-                    >
-                      ◀
-                    </button>
-                  )}
-
-                  {currentIndex < validItems.length - 1 && (
-                    <button
-                      className="absolute -right-20 top-1/2 transform -translate-y-1/2 bg-[#ffffff80] hover:bg-white text-black flex justify-center items-center rounded-full z-50 w-14 h-14"
-                      onClick={() => setCurrentIndex((prev) => prev + 1)}
-                    >
-                      ▶
-                    </button>
-                  )}
-
-                  <img
-                    src={validItems[currentIndex]?.img}
-                    alt="popup"
-                    width={1000}
-                    height={800}
-                    className="w-full h-auto object-contain rounded"
-                  />
-                </div>
-              </div>
-            )}
+                <img
+                  src={item.Image_URL__c}
+                  alt=""
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </button>
+            ))}
           </div>
         </div>
-
-        {/* Mobile button - show only on mobile, hide on larger screens */}
-        <Link
-          href={routes.gallery || "#"}
-          className="md:hidden flex items-center btn-primary gap-2 w-fit mx-auto mt-6"
-          // style={{
-          //   background: "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
-          //   WebkitBackgroundClip: "text",
-          //   WebkitTextFillColor: "transparent",
-          //   backgroundClip: "text",
-          //   color: "transparent",
-          // }}
-        >
-          View Gallery
-          <img
-            src="/images/home/hero/buttonIcon.svg"
-            alt="button-icon"
-            width={24}
-            height={24}
-            className="w-5 h-5"
-          />
-        </Link>
       </div>
-    </div>
+
+      {showModal && currentIndex !== null && (
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 p-4"
+          onClick={() => setShowModal(false)}
+        >
+          <div
+            className="relative w-full max-w-4xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setShowModal(false)}
+              className="absolute -top-12 right-0 z-50 flex h-10 w-10 items-center justify-center rounded-full bg-white text-black"
+              aria-label="Close"
+            >
+              ✕
+            </button>
+
+            {currentIndex > 0 && (
+              <button
+                type="button"
+                className="absolute -left-4 top-1/2 z-50 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-black sm:-left-16 sm:h-14 sm:w-14"
+                onClick={() => setCurrentIndex((prev) => prev - 1)}
+                aria-label="Previous"
+              >
+                ◀
+              </button>
+            )}
+
+            {currentIndex < images.length - 1 && (
+              <button
+                type="button"
+                className="absolute -right-4 top-1/2 z-50 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-black sm:-right-16 sm:h-14 sm:w-14"
+                onClick={() => setCurrentIndex((prev) => prev + 1)}
+                aria-label="Next"
+              >
+                ▶
+              </button>
+            )}
+
+            <img
+              src={images[currentIndex]?.img}
+              alt=""
+              className="h-auto max-h-[85vh] w-full rounded-lg object-contain"
+            />
+          </div>
+        </div>
+      )}
+    </section>
   );
 };
 

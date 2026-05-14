@@ -1,146 +1,194 @@
 "use client";
-import Image from "next/image";
-import TitleComponent from "../common/TitleComponent";
-import CustomTable from "../common/CustomTable";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import routes from "@/utilis/route";
-import {
-  season3TeamLogo,
-  teamLogoBN,
-  teamLogoStats,
-  teamShortName,
-} from "@/utilis/helper";
-import "./style.css";
-import { useEffect, useState } from "react";
 import { getStandings } from "@/app/api/serverApi";
+import "./style.css";
 
-const headers = [
-  "RANK",
-  "TEAM",
-  "MP",
-  "WON",
-  "LOST",
-  "TIED",
-  "N/R",
-  "NET RR",
-  "PTS",
+const HEADERS = [
+  { key: "pos", label: "POS" },
+  { key: "teams", label: "TEAMS" },
+  { key: "p", label: "P" },
+  { key: "w", label: "W" },
+  { key: "l", label: "L" },
+  { key: "t", label: "T" },
+  { key: "nrr", label: "NRR" },
+  { key: "for", label: "FOR" },
+  { key: "against", label: "AGAINST" },
+  { key: "pts", label: "PTS" },
+  { key: "form", label: "RECENT FORM" },
 ];
 
-const headerStyles = {
-  className: "bg-[#E07E27] text-black text-center",
-};
-const tBodyStyles = {
-  className: "bg-[#0F1A2D] text-white text-left",
-};
-const rowStyles = {
-  className: "p-5",
-};
-
-// Helper function to get team abbreviation
 const getTeamAbbreviation = (teamName) => {
   if (!teamName) return "";
-  
   return teamName
     .split(" ")
-    .map(word => word.charAt(0).toUpperCase())
+    .map((word) => word.charAt(0).toUpperCase())
     .join("");
 };
 
+const synthesiseRecentForm = (wins, losses) => {
+  const form = [];
+  for (let i = 0; i < Math.min(wins, 3); i += 1) form.push("W");
+  for (let i = 0; i < Math.min(losses, 5 - form.length); i += 1) form.push("L");
+  return form.slice(0, 5);
+};
+
 const HomeStandingsSection = () => {
-  const [standingsData, setStandingsSeason3] = useState([]);
-  const [loading, setLoading] = useState();
+  const [standingsData, setStandingsData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const [standingsRes] = await Promise.all([getStandings()]);
-      setStandingsSeason3(standingsRes?.data?.season_3?.points || []);
+      const standingsRes = await getStandings();
+      const points =
+        standingsRes?.data?.season_4?.points ||
+        standingsRes?.data?.season_3?.points ||
+        [];
+      setStandingsData(points);
       setLoading(false);
     };
-
     fetchData();
   }, []);
 
-  const season3 = Array.isArray(standingsData) ? standingsData : [];
-
-  const tableData =
-    season3.map((team, index) => {
-      const teamLogo = season3TeamLogo[team?.team_name || team.TeamName] || "";
-      const teamName = teamShortName[team?.team_name || team.TeamName] || "";
-      const fullTeamName = team?.TeamName || "";
-      const abbreviatedName = getTeamAbbreviation(fullTeamName);
-
-      return {
-        RANK: index + 1,
-        TEAM: (
-          <div className="flex items-center gap-2   md:min-w-40 text-left">
-            <div className="w-6 h-6 flex justify-center items-center mr-2">
-              <img
-                src={team?.TeamLogo}
-                alt="logo"
-                className="object-contain w-full h-full"
-              />
-            </div>
-            {/* Show full name on desktop, abbreviated on mobile */}
-            <span className="hidden md:inline">{fullTeamName}</span>
-            <span className="md:hidden">{abbreviatedName}</span>
-          </div>
-        ),
-        MP: parseInt(team?.Matches || "0"),
-        WON: parseInt(team?.Wins || "0"),
-        LOST: parseInt(team?.Loss || "0"),
-        TIED: parseInt(team?.Tied || "0"),
-        "N/R": parseInt(team?.NoResult || "0"),
-        "NET RR": parseFloat(team?.NetRunRate || "0").toFixed(3),
-        PTS: parseInt(team?.Points || "0"),
-      };
-    }) || [];
+  const rows = Array.isArray(standingsData) ? standingsData : [];
 
   return (
-    <>
-      {loading ? (
-        <div className="text-center py-10 text-gray-400">Loading...</div>
-      ) : (
-        <div className="pt-20 relative bg-[url('/images/home/latestUpdateBg.png')] bg-cover bg-center bg-no-repeat ">
-          {/* <img
-            src="/images/elements/section-element.png"
-            className="absolute right-0 top-0 md:block hidden"
-            alt="element"
-          />
-          <img
-            src="/images/elements/section-element.png"
-            className="absolute left-0 bottom-0 rotate-180  md:block hidden "
-            alt="element"
-          /> */}
-          <div className="section-width padding-bottom pt-5">
-            <TitleComponent
-              hideButtonOnMobile
-              title="standings Season 3"
-              button
-              buttonLink={routes.standing}
-            />
+    <section className="bg-[#192a66] py-12 sm:py-16">
+      <div className="section-width">
+        <div className="mb-6 flex items-end justify-between gap-3 sm:mb-8">
+          <h2 className="flex flex-col text-3xl font-extrabold uppercase italic leading-none text-white sm:text-4xl lg:text-5xl">
+            <span className="text-white/70">Season 4</span>
+            <span>Standings</span>
+          </h2>
+          <Link
+            href={routes.standing || "#"}
+            className="inline-flex h-10 items-center justify-center rounded-full border border-white/40 px-5 text-xs font-medium uppercase italic tracking-wide text-white transition-colors hover:bg-white/10 sm:text-sm"
+          >
+            View More
+          </Link>
+        </div>
 
-            <div>
-              {tableData?.length > 0 ? (
-                <CustomTable
-                  headers={headers}
-                  data={tableData}
-                  customRenderers={{}}
-                  headerStyles={headerStyles}
-                  tBodyStyles={tBodyStyles}
-                  rowStyles={rowStyles}
-                  isHomeTable = {true}
-                />
-              ) : (
-                <div className="text-center py-10 text-gray-400">
-                  No data available for this team in the selected season.
-                </div>
-              )}
+        {loading ? (
+          <div className="py-10 text-center text-white/60">Loading...</div>
+        ) : rows.length === 0 ? (
+          <div className="py-10 text-center text-white/60">
+            Standings will appear when Season 4 begins.
+          </div>
+        ) : (
+          <div className="overflow-x-auto">
+            <div className="min-w-[900px] space-y-2">
+              <div className="flex h-12 items-center rounded-3xl bg-[#1b3eb9] px-3 text-xs font-bold uppercase italic tracking-wide text-[#ffda00]">
+                {HEADERS.map((h) => (
+                  <div
+                    key={h.key}
+                    className={`${
+                      h.key === "teams"
+                        ? "flex-[2] pl-12"
+                        : h.key === "pos"
+                          ? "w-14 text-center"
+                          : h.key === "form"
+                            ? "flex-1 text-center"
+                            : "flex-1 text-center"
+                    }`}
+                  >
+                    {h.label}
+                  </div>
+                ))}
+              </div>
+
+              {rows.map((team, index) => {
+                const fullName = team?.TeamName || team?.team_name || "";
+                const abbr = getTeamAbbreviation(fullName);
+                const wins = parseInt(team?.Wins || "0", 10);
+                const losses = parseInt(team?.Loss || "0", 10);
+                const form = synthesiseRecentForm(wins, losses);
+                const runsFor = team?.RunsScored ?? team?.runs_for ?? "—";
+                const runsAgainst =
+                  team?.RunsConceded ?? team?.runs_against ?? "—";
+
+                return (
+                  <div
+                    key={fullName + index}
+                    className="relative flex h-14 items-center rounded-3xl bg-[#1b3eb9] px-3 text-sm text-white"
+                  >
+                    <div className="w-14 text-center text-2xl font-extrabold italic text-[#F2A23A]">
+                      {index + 1}
+                    </div>
+
+                    <div className="ml-1 flex flex-1 items-center rounded-3xl bg-[#192a66] py-2 pl-3 pr-3">
+                      <div className="flex flex-[2] items-center gap-3">
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#E07E27]">
+                          {team?.TeamLogo ? (
+                            <img
+                              src={team.TeamLogo}
+                              alt={fullName}
+                              className="h-6 w-6 object-contain"
+                            />
+                          ) : (
+                            <span className="text-xs font-bold text-white">
+                              {abbr}
+                            </span>
+                          )}
+                        </span>
+                        <span className="font-semibold">{fullName}</span>
+                      </div>
+                      <div className="flex-1 text-center">
+                        {parseInt(team?.Matches || "0", 10)}
+                      </div>
+                      <div className="flex-1 text-center">{wins}</div>
+                      <div className="flex-1 text-center">{losses}</div>
+                      <div className="flex-1 text-center">
+                        {parseInt(team?.Tied || "0", 10)}
+                      </div>
+                      <div className="flex-1 text-center">
+                        {parseFloat(team?.NetRunRate || "0").toFixed(3)}
+                      </div>
+                      <div className="flex-1 text-center text-white/80">
+                        {runsFor}
+                      </div>
+                      <div className="flex-1 text-center text-white/80">
+                        {runsAgainst}
+                      </div>
+                      <div className="flex-1 text-center text-base font-extrabold text-[#F2A23A]">
+                        {parseInt(team?.Points || "0", 10)}
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center justify-center gap-1.5">
+                          {form.length === 0 ? (
+                            <span className="text-xs text-white/40">—</span>
+                          ) : (
+                            form.map((r, i) => (
+                              <span
+                                key={i}
+                                className={`h-3 w-3 rounded-full ring-1 ${
+                                  r === "W"
+                                    ? "bg-[#16b652] ring-[#16b652]/60"
+                                    : "bg-[#ff0101] ring-[#ff0101]/60"
+                                }`}
+                                aria-label={r === "W" ? "Win" : "Loss"}
+                              />
+                            ))
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
-        </div>
-      )}
-    </>
+        )}
+
+        <Link
+          href={routes.standing || "#"}
+          className="mx-auto mt-6 inline-flex h-10 w-fit items-center justify-center rounded-full border border-white/40 px-5 text-xs font-medium uppercase italic tracking-wide text-white sm:hidden"
+        >
+          View More
+        </Link>
+      </div>
+    </section>
   );
 };
 
