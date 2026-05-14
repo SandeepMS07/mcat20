@@ -8,9 +8,11 @@ import Link from "next/link";
 import fixtures1 from "@/utilis/fixtures/fixtures1.js";
 import fixtures2 from "@/utilis/fixtures/fixtures2.js";
 import fixtures3 from "@/utilis/fixtures/fixtures3.js";
+import fixtures4 from "@/utilis/fixtures/fixtures4.js";
 import FixturesSeason1 from "./components/FixturesSeason1";
 import FixturesSeason2 from "./components/FixturesSeason2";
 import FixturesSeason3 from "./components/FixturesSeason3";
+import FixturesSeason4 from "./components/FixturesSeason4";
 import FixtureWidget from "./components/FixtureWidget";
 
 function parseStaticDate(dateStr, timeStr = "") {
@@ -22,6 +24,7 @@ const TOURNAMENT_IDS = {
   "Season 1": fixtures1,
   "Season 2": fixtures2,
   "Season 3": fixtures3,
+  "Season 4": fixtures4,
 };
 
 function processMatches(jsonData) {
@@ -92,6 +95,14 @@ function getTeamsForSeason(season) {
         const lower = team.toLowerCase();
         return !blockedPatterns.some((pattern) => lower.includes(pattern));
       });
+  } else if (season === "Season 4") {
+    teams = Array.from(
+      new Set(
+        (fixtures4.matches || [])
+          .filter((m) => m.type === "match")
+          .flatMap((m) => [m.home_team, m.away_team])
+      )
+    ).filter(Boolean);
   }
 
   return ["All Teams", ...teams.sort()];
@@ -100,7 +111,7 @@ function getTeamsForSeason(season) {
 export default function Page() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const initialSeason = searchParams.get("season") || "Season 3";
+  const initialSeason = searchParams.get("season") || "Season 4";
   const initialTeam = searchParams.get("team") || "All Teams";
 
   const [season, setSeason] = React.useState(initialSeason);
@@ -131,8 +142,10 @@ export default function Page() {
         return <FixturesSeason2 {...commonProps} />;
       case "Season 3":
         return <FixturesSeason3 {...commonProps} />;
+      case "Season 4":
+        return <FixturesSeason4 {...commonProps} />;
       default:
-        return <FixturesSeason3 {...commonProps} />;
+        return <FixturesSeason4 {...commonProps} />;
     }
   };
 
@@ -216,6 +229,7 @@ export default function Page() {
                     <option value="Season 1">Season 1</option>
                     <option value="Season 2">Season 2</option>
                     <option value="Season 3">Season 3</option>
+                    <option value="Season 4">Season 4</option>
                   </select>
                 </div>
 
@@ -344,6 +358,7 @@ const FixtureFilter = ({
             <option value="Season 1">Season 1</option>
             <option value="Season 2">Season 2</option>
             <option value="Season 3">Season 3</option>
+            <option value="Season 4">Season 4</option>
           </select>
 
           {/* SVG down arrow */}
