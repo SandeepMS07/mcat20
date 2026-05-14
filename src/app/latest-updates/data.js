@@ -56,8 +56,7 @@ With the retention phase complete, focus now shifts to the upcoming player aucti
     Date__c: "2026-04-11",
     Image_URL__c: "/images/latestUpdates/Player-Registrations.png",
     path: "/latest-updates/t20-mumbai-league-player-registrations-close-with-over-2400-entries",
-    Sub_Title__c:
-      "",
+    Sub_Title__c: "",
     Content__c: `Player registrations for the upcoming season of the T20 Mumbai League officially closed on April 10th and received an overwhelming response from across the city.<br/><br/>
 A total of 2,411 players have registered for the league, underlining the continued enthusiasm and depth of cricketing talent in Mumbai. This includes 2,048 men registering for Season 4 of the men's competition and 363 women for the inaugural Women's T20 Mumbai League.<br/><br/>
 The strong participation numbers highlight the growing appeal of the league as a premier platform for aspiring cricketers to showcase their skills and progress in their careers.<br/><br/>
@@ -100,7 +99,8 @@ As the city prepares for another exciting cricket season, the league promises to
   },
   {
     Id: "local-2",
-    Title__c: "Bids Opened for Team Operating Rights - T20 Mumbai Women's League",
+    Title__c:
+      "Bids Opened for Team Operating Rights - T20 Mumbai Women's League",
     Date__c: "2026-03-21",
     Image_URL__c: "/images/latestUpdates/local-2-banner.jpeg",
     path: "/latest-updates/bids-opened-for-team-operating-rights-t20-mumbai-womens-league",
@@ -145,8 +145,6 @@ As the T20 Mumbai League prepares for its upcoming season, #ChanceSoduNako stand
     Order__c: 1001,
     bordered: true,
   },
-  
-
 ];
 
 export const CardData = [

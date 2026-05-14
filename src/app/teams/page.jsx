@@ -8,6 +8,8 @@ import fixtures3 from "@/utilis/fixtures/fixtures3";
 
 const MEN_TAB = "men";
 const WOMEN_TAB = "women";
+const TEAM_TYPE_QUERY_PARAM = "type";
+const ALLOWED_TEAM_TYPES = new Set([MEN_TAB, WOMEN_TAB]);
 
 const getTeamBucket = (teamType = "") =>
   `${teamType}`.toLowerCase().includes("women") ? WOMEN_TAB : MEN_TAB;
@@ -58,6 +60,9 @@ export default function Teams() {
     }
 
     const queryTeam = searchParams.get("team");
+    const queryType = (
+      searchParams.get(TEAM_TYPE_QUERY_PARAM) || ""
+    ).toLowerCase();
 
     if (queryTeam) {
       const decoded = decodeURIComponent(queryTeam);
@@ -75,6 +80,13 @@ export default function Teams() {
         hasInitializedRef.current = true;
         return;
       }
+    }
+
+    if (ALLOWED_TEAM_TYPES.has(queryType)) {
+      setActiveTeamType(queryType);
+      setSelectedTeamIndex(0);
+      hasInitializedRef.current = true;
+      return;
     }
 
     setActiveTeamType(MEN_TAB);
