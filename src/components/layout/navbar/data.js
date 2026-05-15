@@ -11,7 +11,7 @@ export const navLinks = [
   },
   {
     title: "Points Table",
-    path: `${"#"}`,
+    path: `${routes.pointsTable}`,
   },
   {
     title: "Gallery",

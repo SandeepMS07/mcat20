@@ -104,11 +104,11 @@ const PointsTablePage = () => {
 
   return (
     <div className="w-full bg-[#1E2F7D]">
-      <section className="relative overflow-hidden pb-14 pt-40">
+      <section className="relative overflow-hidden pb-14 pt-40 bg-[url('/images/texture-bg.png')] bg-cover bg-center bg-no-repeat">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,88,210,0.35),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(26,40,116,0.65),transparent_45%)]" />
         <div className="relative section-width">
           <div className="mb-8 flex flex-wrap items-center justify-center gap-4 border-b border-white/15 pt-5">
-            <div className="inline-flex rounded-full border border-white/40 bg-[#17317F] p-1 text-sm font-semibold uppercase">
+            <div className="inline-flex rounded-full border border-white/40 bg-[#17317F] p-1 text-sm font-semibold uppercase -mb-[23px]">
               <button
                 type="button"
                 onClick={() => setActiveStage("points")}
@@ -133,7 +133,7 @@ const PointsTablePage = () => {
               </button>
             </div>
 
-            <div className="inline-flex rounded-full bg-[#F68323] p-1 text-sm font-semibold uppercase">
+            <div className="inline-flex rounded-full bg-[#F68323] p-1 text-sm font-semibold uppercase -mb-[23px]">
               <button
                 type="button"
                 onClick={() => setActiveGroup("men")}
@@ -170,34 +170,36 @@ const PointsTablePage = () => {
               <span>{activeStage === "playoffs" ? "Chart" : "Table"}</span>
             </h1>
 
-            <div className="flex gap-3">
-              <select
-                value={activeTeam}
-                onChange={(e) => setActiveTeam(e.target.value)}
-                className="rounded-lg border border-white/20 bg-[#314A98] px-4 py-2 text-sm font-semibold text-white outline-none"
-              >
-                {teamsInSeason.map((team) => (
-                  <option key={team} value={team} className="text-black">
-                    {team}
-                  </option>
-                ))}
-              </select>
-              <select
-                value={activeSeason}
-                onChange={(e) => setActiveSeason(e.target.value)}
-                className="rounded-lg border border-white/20 bg-[#314A98] px-4 py-2 text-sm font-semibold text-white outline-none"
-              >
-                {SEASON_OPTIONS.map((option) => (
-                  <option
-                    key={option.value}
-                    value={option.value}
-                    className="text-black"
-                  >
-                    {option.label.toUpperCase()}
-                  </option>
-                ))}
-              </select>
-            </div>
+            {activeStage === "points" && (
+              <div className="flex gap-3">
+                <select
+                  value={activeTeam}
+                  onChange={(e) => setActiveTeam(e.target.value)}
+                  className="rounded-lg border border-white/20 bg-[#314A98] px-4 py-2 text-sm font-semibold text-white outline-none"
+                >
+                  {teamsInSeason.map((team) => (
+                    <option key={team} value={team} className="text-black">
+                      {team}
+                    </option>
+                  ))}
+                </select>
+                <select
+                  value={activeSeason}
+                  onChange={(e) => setActiveSeason(e.target.value)}
+                  className="rounded-lg border border-white/20 bg-[#314A98] px-4 py-2 text-sm font-semibold text-white outline-none"
+                >
+                  {SEASON_OPTIONS.map((option) => (
+                    <option
+                      key={option.value}
+                      value={option.value}
+                      className="text-black"
+                    >
+                      {option.label.toUpperCase()}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
           </div>
 
           {activeStage === "playoffs" ? (
@@ -215,7 +217,7 @@ const PointsTablePage = () => {
                   </BracketSlot>
                   <BracketSlot>TBD</BracketSlot>
 
-                  <div className="h-8" />
+                  <div className="h-16" />
 
                   <BracketSlot>TBD</BracketSlot>
                   <BracketSlot light>
@@ -229,7 +231,7 @@ const PointsTablePage = () => {
                   <BracketSlot>TBD</BracketSlot>
                 </div>
 
-                <div className="relative mt-14 space-y-5">
+                <div className="mt-36 space-y-5">
                   <BracketSlot>TBD</BracketSlot>
                   <BracketSlot light>
                     <div className="text-center">
@@ -240,15 +242,9 @@ const PointsTablePage = () => {
                     </div>
                   </BracketSlot>
                   <BracketSlot>TBD</BracketSlot>
-
-                  <div className="pointer-events-none absolute -left-5 top-[78px] h-[124px] w-5 border-b-2 border-l-2 border-[#FF5B1A]" />
-                  <span className="pointer-events-none absolute -left-[19px] top-[74px] h-2.5 w-2.5 rounded-full bg-[#FF5B1A]" />
-
-                  <div className="pointer-events-none absolute -left-5 top-[250px] h-[124px] w-5 border-t-2 border-l-2 border-[#FF5B1A]" />
-                  <span className="pointer-events-none absolute -left-[19px] top-[368px] h-2.5 w-2.5 rounded-full bg-[#FF5B1A]" />
                 </div>
 
-                <div className="relative mt-10 space-y-5">
+                <div className="mt-28 space-y-5">
                   <BracketSlot>TBD</BracketSlot>
                   <BracketSlot light>
                     <div className="text-center">
@@ -259,11 +255,25 @@ const PointsTablePage = () => {
                     </div>
                   </BracketSlot>
                   <BracketSlot>TBD</BracketSlot>
-
-                  <div className="pointer-events-none absolute -left-10 top-[82px] h-[56px] w-10 border-l-2 border-t-2 border-[#FF5B1A]" />
-                  <div className="pointer-events-none absolute -left-10 top-[138px] h-[56px] w-10 border-l-2 border-b-2 border-[#FF5B1A]" />
-                  <span className="pointer-events-none absolute -left-[44px] top-[134px] h-2.5 w-2.5 rounded-full bg-[#FF5B1A]" />
                 </div>
+
+                {/* <div className="pointer-events-none absolute inset-0">
+                  <span className="absolute left-[29%] top-[88px] h-2.5 w-2.5 rounded-full bg-[#FF5B1A]" />
+                  <div className="absolute left-[29%] top-[92px] h-0.5 w-[38%] bg-[#FF5B1A]" />
+                  <div className="absolute left-[66.8%] top-[92px] h-[145px] w-0.5 bg-[#FF5B1A]" />
+                  <div className="absolute left-[64.8%] top-[200px] h-0.5 w-[5.1%] bg-[#FF5B1A]" />
+                  <span className="absolute left-[70%] top-[200px] h-2.5 w-2.5 rounded-full bg-[#FF5B1A]" />
+
+                  <span className="absolute left-[32.6%] top-[338px] h-2.5 w-2.5 rounded-full bg-[#FF5B1A]" />
+                  <div className="absolute left-[33.2%] top-[342px] h-0.5 w-[6.2%] bg-[#FF5B1A]" />
+                  <div className="absolute left-[39.3%] top-[204px] h-[139px] w-0.5 bg-[#FF5B1A]" />
+                  <div className="absolute left-[39.3%] top-[204px] h-0.5 w-[1.1%] bg-[#FF5B1A]" />
+                  <span className="absolute left-[40%] top-[200px] h-2.5 w-2.5 rounded-full bg-[#FF5B1A]" />
+
+                  <span className="absolute left-[64.2%] top-[230px] h-2.5 w-2.5 rounded-full bg-[#FF5B1A]" />
+                  <div className="absolute left-[65%] top-[234px] h-0.5 w-[4.5%] bg-[#FF5B1A]" />
+                  <div className="absolute left-[69.7%] top-[118px] h-[64px] w-0.5 bg-[#FF5B1A]" />
+                </div> */}
               </div>
 
               <div className="space-y-4 lg:hidden">
@@ -313,7 +323,7 @@ const PointsTablePage = () => {
             </div>
           ) : (
             <div className="overflow-x-auto">
-              <table className="min-w-[1100px] w-full text-white border-separate border-spacing-y-3">
+              <table className="min-w-[1100px] w-full text-white border-separate border-spacing-y-3 italic">
                 <thead>
                   <tr className="text-left text-xs uppercase text-[#FFE24A] bg-[#1F43C5]">
                     <th className="rounded-l-full px-4 py-3">Pos</th>
@@ -325,21 +335,23 @@ const PointsTablePage = () => {
                     <th className="px-4 py-3">NRR</th>
                     <th className="px-4 py-3">For</th>
                     <th className="px-4 py-3">Against</th>
-                    <th className="px-4 py-3">Pts</th>
-                    <th className="rounded-r-full px-4 py-3">Recent Form</th>
+                    <th className="px-4 py-3 rounded-r-full">Pts</th>
+                    {/* <th className="rounded-r-full px-4 py-3">Recent Form</th> */}
                   </tr>
                 </thead>
                 <tbody>
                   {rows.map((row) => (
                     <tr key={`${row.name}-${row.rank}`} className="text-sm">
                       <td
-                        className="px-2 py-2 text-5xl font-black italic leading-none text-transparent [-webkit-text-stroke:2px_#7E93DB] w-12"
+                        className="px-2 text-5xl font-black italic leading-none text-transparent [-webkit-text-stroke:2px_#7E93DB] w-12"
                         style={{ WebkitTextStroke: "2px #7E93DB" }}
                       >
                         {row.rank}
                       </td>
-                      <td className="py-2 max-w-[180px] min-w-[150px] bg-[#1F43C5] rounded-l-full">
-                        <div className="relative flex items-center gap-2 overflow-hidden rounded-l-full bg-[#1F43C5] pr-6">
+                      <td className="bg-[#2447C6] rounded-l-full relative">
+                        <div class="w-[54.5px] h-[32px] bg-[#D18FDB] rounded-t-full absolute z-10 -rotate-90 -right-[11.5px] top-[11px]"></div>
+                        <div class="w-[54.5px] h-[32px] bg-[#192A66] rounded-t-full absolute z-10 -rotate-90 -right-[12px] top-[11px]"></div>
+                        <div className="relative flex items-center gap-2 overflow-hidden rounded-l-full bg-[#2447C6] pr-6">
                           <div className="z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white border border-[#AF313A] m-0.5">
                             {row.logo ? (
                               <img
@@ -352,36 +364,45 @@ const PointsTablePage = () => {
                           <span className="z-10 pr-5 text-xs font-extrabold uppercase text-[#FFE150]">
                             {row.shortName}
                           </span>
-                          <span className="absolute right-2 z-10 flex h-4 w-4 items-center justify-center rounded-full bg-[#FFE24A] text-[9px] font-black text-[#1A2C76]">
-                            q
+                          <span className="absolute right-[22px] z-10 flex h-4 w-4 items-center justify-center rounded-full bg-[#FFE24A] text-[9px] font-black text-[#1A2C76]">
+                            Q
                           </span>
                         </div>
                       </td>
-                      <td className="px-4 py-2 font-semibold bg-[#1F43C5] border-l border-[#983BD4]/60">
+                      <td className="px-4 py-2 font-semibold bg-[#192A66] relative">
+                        <div className="h-3/5 w-[.5px] bg-[#9F3BE3]/70 absolute top-0 bottom-0 my-auto right-0"></div>
                         {row.p}
                       </td>
-                      <td className="px-4 py-2 font-semibold bg-[#1F43C5] border-l border-[#983BD4]/60">
+                      <td className="px-4 py-2 font-semibold bg-[#192A66] relative">
+                        <div className="h-3/5 w-[.5px] bg-[#9F3BE3]/70 absolute top-0 bottom-0 my-auto right-0"></div>
                         {row.w}
                       </td>
-                      <td className="px-4 py-2 font-semibold bg-[#1F43C5] border-l border-[#983BD4]/60">
+                      <td className="px-4 py-2 font-semibold bg-[#192A66] relative">
+                        <div className="h-3/5 w-[.5px] bg-[#9F3BE3]/70 absolute top-0 bottom-0 my-auto right-0"></div>
                         {row.l}
                       </td>
-                      <td className="px-4 py-2 font-semibold bg-[#1F43C5] border-l border-[#983BD4]/60">
+                      <td className="px-4 py-2 font-semibold bg-[#192A66] relative">
+                        <div className="h-3/5 w-[.5px] bg-[#9F3BE3]/70 absolute top-0 bottom-0 my-auto right-0"></div>
                         {row.t}
                       </td>
-                      <td className="px-4 py-2 font-semibold bg-[#1F43C5] border-l border-[#983BD4]/60">
+                      <td className="px-4 py-2 font-semibold bg-[#192A66] relative">
+                        <div className="h-3/5 w-[.5px] bg-[#9F3BE3]/70 absolute top-0 bottom-0 my-auto right-0"></div>
                         {row.nrr}
                       </td>
-                      <td className="px-4 py-2 font-semibold bg-[#1F43C5] border-l border-[#983BD4]/60">
+                      <td className="px-4 py-2 font-semibold bg-[#192A66] relative">
+                        <div className="h-3/5 w-[.5px] bg-[#9F3BE3]/70 absolute top-0 bottom-0 my-auto right-0"></div>
                         {row.for}
                       </td>
-                      <td className="px-4 py-2 font-semibold bg-[#1F43C5] border-l border-[#983BD4]/60">
+                      <td className="px-4 py-2 font-semibold bg-[#192A66] relative">
+                        <div className="h-3/5 w-[.5px] bg-[#9F3BE3]/70 absolute top-0 bottom-0 my-auto right-0"></div>
                         {row.against}
                       </td>
-                      <td className="px-4 py-2 font-semibold bg-[#1F43C5] border-l border-[#983BD4]/60">
+                      <td className="px-4 py-2 font-semibold bg-[#192A66] rounded-r-full relative z-10 border-r border-[#2447C6]">
+                        {/* <div class="w-[54px] h-[32px] bg-[#D18FDB] rounded-t-full absolute z-10 rotate-90 -right-[10.5px] top-[11px]"></div> */}
                         {row.pts}
                       </td>
-                      <td className="px-2 py-2 bg-[#1F43C5] rounded-r-full border-l border-[#983BD4]/60">
+                      {/* <td className="px-2 py-2 bg-[#192A66] rounded-r-full relative">
+                        <div className="h-3/5 w-[.5px] bg-[#9F3BE3]/70 absolute top-0 bottom-0 my-auto right-0"></div>
                         <div className="flex items-center gap-1.5 rounded-r-full px-3 py-1.5 min-w-[190px] justify-end">
                           <div className="flex items-center gap-1.5">
                             {row.recentForm.map((result, idx) => {
@@ -401,7 +422,7 @@ const PointsTablePage = () => {
                             })}
                           </div>
                         </div>
-                      </td>
+                      </td> */}
                     </tr>
                   ))}
                 </tbody>
