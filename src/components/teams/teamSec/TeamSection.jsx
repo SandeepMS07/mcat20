@@ -30,6 +30,7 @@ const TeamSection = ({
   );
 
   const selectedTeam = data?.[selectedTeamIndex];
+  const useCompactStrip = (data?.length || 0) <= 4;
 
   if (!selectedTeam) {
     return null;
@@ -90,13 +91,19 @@ const TeamSection = ({
         {/* Team logo strip — extra width, breaks out of section-width */}
         <div className="mt-10 md:mt-14 px-4 sm:px-6 md:px-10 lg:px-14 xl:px-20">
           <div
-            className="rounded-2xl bg-[#1b2f93] ring-1 ring-white/10 p-4 md:p-6 lg:p-7"
+            className={`rounded-2xl bg-[#1b2f93] ring-1 ring-white/10 p-4 md:p-6 lg:p-7 ${
+              useCompactStrip ? "w-fit max-w-full mx-auto" : ""
+            }`}
             style={{
               boxShadow:
                 "0 12px 28px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06)",
             }}
           >
-            <ul className="flex gap-3 md:gap-4 overflow-x-auto md:overflow-visible scrollbar-hide snap-x snap-mandatory">
+            <ul
+              className={`flex gap-3 md:gap-4 overflow-x-auto md:overflow-visible scrollbar-hide snap-x snap-mandatory ${
+                useCompactStrip ? "md:justify-center" : ""
+              }`}
+            >
             {data.map((team, index) => {
               const isActive = index === selectedTeamIndex;
               const normalizedTeamName = getTeamNameKey(team?.Name);
@@ -110,7 +117,7 @@ const TeamSection = ({
               return (
                 <li
                   key={team?.Id || index}
-                  className="snap-start shrink-0 basis-[128px] md:shrink md:grow md:basis-0 md:min-w-0"
+                  className="snap-start shrink-0 basis-[128px] md:basis-[170px] lg:basis-[180px]"
                 >
                   <button
                     type="button"
@@ -144,7 +151,7 @@ const TeamSection = ({
                       <img
                         src={team.Logo_URL__c}
                         alt=""
-                        className="max-h-[85%] max-w-[85%] object-contain"
+                        className="max-h-[80%] max-w-[80%] object-contain"
                       />
                     </span>
                   </button>

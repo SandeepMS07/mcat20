@@ -42,6 +42,16 @@ const getRestOfName = (str) => {
   return str.split(" ").filter(Boolean).slice(1).join(" ").toUpperCase();
 };
 
+const splitSecondaryName = (restName = "") => {
+  const parts = restName.split(" ").filter(Boolean);
+  if (parts.length <= 1) return { outlined: "", solid: restName, isSingleWord: true };
+  return {
+    outlined: parts.slice(0, -1).join(" "),
+    solid: parts[parts.length - 1],
+    isSingleWord: false,
+  };
+};
+
 const SECTION_CONFIG = [
   { title: "Batters", roleKey: "Batsman" },
   { title: "Bowlers", roleKey: "Bowler" },
@@ -115,8 +125,8 @@ const MeetMyTeam = ({ data }) => {
       </div>
 
       {/* Player cards container — extra width */}
-      <div className="px-4 sm:px-6 md:px-10 lg:px-14 xl:px-20 pb-12 md:pb-16">
-        <div className="mtt-cards-panel rounded-2xl p-6 md:p-10 lg:p-12">
+      <div className="px-2 sm:px-6 md:px-10 lg:px-14 xl:px-20 pb-12 md:pb-16">
+        <div className="mtt-cards-panel rounded-xl md:rounded-2xl p-3 sm:p-6 md:p-10 lg:p-12">
           <div className="flex flex-col gap-20 md:gap-28">
             {sections.length === 0 ? (
               <p className="text-white/70 italic">
@@ -126,7 +136,7 @@ const MeetMyTeam = ({ data }) => {
               sections.map((section) => (
                 <section key={section.title}>
                   <h3 className="mtt-section-title px-2 md:px-3">{section.title}</h3>
-                  <div className="mt-6 md:mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 md:gap-x-10 lg:gap-x-12 gap-y-12 md:gap-y-14 pt-10 md:pt-12">
+                  <div className="mt-6 md:mt-8 pt-4 md:pt-10 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-x-3 sm:gap-x-8 md:gap-x-10 lg:gap-x-12 gap-y-4 sm:gap-y-8 md:gap-y-20">
                     {section.players.map((player) => (
                       <PlayerCard key={player.id} player={player} />
                     ))}
@@ -142,6 +152,8 @@ const MeetMyTeam = ({ data }) => {
 };
 
 const PlayerCard = ({ player }) => {
+  const { outlined, solid, isSingleWord } = splitSecondaryName(player.restName);
+
   return (
     <div className="mtt-card">
       <div className="mtt-card-gradient" aria-hidden />
@@ -163,7 +175,20 @@ const PlayerCard = ({ player }) => {
       <div className="mtt-card-name">
         <span className="mtt-firstname">{player.firstName.toUpperCase()}</span>
         {player.restName ? (
-          <span className="mtt-restname">{player.restName}</span>
+          <span className="mtt-restname">
+            {outlined ? <span className="mtt-restname-outline">{outlined}</span> : null}
+            {solid ? (
+              <span
+                className={
+                  isSingleWord
+                    ? "mtt-restname-outline mtt-restname-single"
+                    : "mtt-restname-solid"
+                }
+              >
+                {solid}
+              </span>
+            ) : null}
+          </span>
         ) : null}
       </div>
     </div>
