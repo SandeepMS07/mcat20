@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
-import Image from "next/image";
-import { FaP } from "react-icons/fa6";
 
 const matches = {
-    "Match 23": "Finals: MSC MR vs SMF",
+  "Match 23": "Finals: MSC MR vs SMF",
 
   "Match 23": "Finals: MSC MR vs SMF",
   "Match 22": "Semi Finals 2: SMF vs BB",
@@ -34,7 +32,7 @@ const matches = {
 const getMatchDetails = (key) => {
   // Find the key that starts with 'Match' and matches the passed key
   const matchKey = Object.keys(matches).find((matchKey) =>
-    matchKey.startsWith(key)
+    matchKey.startsWith(key),
   );
 
   // Return the match details or a default message if not found
@@ -198,7 +196,7 @@ const MediaAll = ({ items, type, selectedFolder, setSelectedFolder }) => {
   let renderedIndex = 0;
 
   return (
-    <div className="w-full flex flex-col gap-3 p-3">
+    <div className="w-full flex flex-col gap-3">
       {/* Folder structure for images */}
       {isImageType && !selectedFolder && (
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -213,28 +211,31 @@ const MediaAll = ({ items, type, selectedFolder, setSelectedFolder }) => {
             return (
               <div
                 key={key}
-                className="relative cursor-pointer bg-[#1A2447]/40 rounded-md shadow overflow-hidden border border-[#3A4878] "
+                className="group cursor-pointer overflow-hidden rounded-3xl bg-[#101F54] shadow-[0_10px_28px_rgba(13,30,80,0.18)]"
                 onClick={() => setSelectedFolder(key)}
               >
-                <div className="absolute top-0 right-0 text-md text-[#E07E27]  bg-[#1A2447] px-2 py-1 rounded-bl-md rounded-tr-md  font-semibold z-20">
-                  {images?.length}
-                </div>
                 {firstImage && (
-                  <div className="relative w-full h-60">
+                  <div className="relative h-56 w-full overflow-hidden">
                     <img
                       src={firstImage}
                       alt={images?.[0]?.title || "Folder Preview"}
-                      className="w-full h-full object-cover"
+                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                     />
+                    <div className="absolute inset-0 bg-black/25" />
                   </div>
                 )}
-                <div className="p-3 text-center font-semibold text-white">
-                  {key === "Match 23" ||
-                  key === "Match 22" ||
-                  key === "Match 21"
-                    ? ""
-                    : `${key} :`}{" "}
-                  {matchName !== "" && `${matchName}`}
+                <div className="flex items-start justify-between gap-3 p-4 text-white">
+                  <div>
+                    <p className="mb-1 text-base font-bold leading-snug">
+                      {key}
+                    </p>
+                    <p className="text-sm text-white/65">
+                      {matchName !== "" ? matchName : "Photo Folder"}
+                    </p>
+                  </div>
+                  <div className="rounded-full bg-white/15 px-3 py-1 text-sm font-semibold text-[#F8A24A]">
+                    {images?.length}
+                  </div>
                 </div>
               </div>
             );

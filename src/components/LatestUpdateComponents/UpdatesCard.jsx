@@ -1,46 +1,51 @@
-import Image from "next/image";
 import { truncateTextSpells } from "@/utilis/helper";
 
+const SEASON_LABEL = "T20 ML Season 4";
+
+const formatNewsDate = (dateString) => {
+  if (!dateString) return "";
+  return new Date(dateString).toLocaleDateString("en-IN", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+};
+
 const UpdatesCard = ({ data, onClick }) => {
+  const imageSrc =
+    data?.Order__c === 14
+      ? "/images/latestUpdates/update14-main.jpg"
+      : data?.Image_URL__c;
+
   return (
     <div
-      className="w-full h-[370px] rounded-md relative overflow-hidden"
+      className="group relative h-[420px] w-full cursor-pointer overflow-hidden rounded-2xl bg-[#143083] shadow-[0_10px_24px_rgba(20,48,131,0.18)] transition-transform hover:-translate-y-0.5"
       onClick={onClick}
     >
-      {/* Image */}
-      <img
-        src={
-          data.Order__c === 14
-            ? "/images/latestUpdates/update14-main.jpg"
-            : data?.Image_URL__c
-        }
-        width={1000}
-        height={1000}
-        className="w-full h-full object-cover absolute z-0 rounded-md"
-        alt="img"
-      />
+      {imageSrc ? (
+        <img
+          src={imageSrc}
+          width={1000}
+          height={1000}
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+          alt={data?.Title__c || "update image"}
+        />
+      ) : (
+        <div className="absolute inset-0 bg-[#0F2A8C]" />
+      )}
 
-      <div className="absolute inset-0 bg-black opacity-30 z-10 rounded-md" />
+      <div className="absolute h-60 w-full bottom-0  left-0 bg-gradient-to-t from-[#143083] to-transparent" />
 
-      {/* Content */}
-      <div className="w-full h-full flex items-end p-5 z-20 text-white justify-between relative">
-        <div className="w- flex flex-col justify-between">
-          <p className="font-bold xl:text-xl lg:text-lg text-base">
-            {truncateTextSpells(data?.Title__c, 50)}
-          </p>
-          {/* <p className="text-[#F6F9FF] text-base">
-            {truncateTextSpells(data?.subTitle, 30)}
-          </p> */}
+      <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col gap-3 px-5 pb-5 text-white">
+        {/* <span className="inline-flex w-fit items-center rounded-full bg-[#EEF2FF] px-3 py-1 text-[10px] font-semibold text-[#1F3B90]">
+          {SEASON_LABEL}
+        </span> */}
+        <div className="text-sm font-bold leading-tight sm:text-base">
+          {truncateTextSpells(data?.Title__c, 58)}
         </div>
-        {/* <div className="w-10 h-10 lg:w-12 lg:h-12 md:w-11 md:h-11 bg-[#D25F28E5] rounded-full flex items-center justify-center">
-          <Image
-            src={"/images/latestUpdates/arrow.svg"}
-            width={10}
-            height={10}
-            className="w-3 h-3 lg:w-5 lg:h-5 md:h-4 md:w-4 sm:h-3 sm:w-3"
-            alt="arrow"
-          />
-        </div> */}
+        <p className="text-[10px] font-medium text-white/85">
+          Mumbai, {formatNewsDate(data?.Date__c)}
+        </p>
       </div>
     </div>
   );

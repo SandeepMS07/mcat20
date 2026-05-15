@@ -1,0 +1,421 @@
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+import standingsData from "@/constant/oldSeason/standings/standings_data_v3.json";
+import { getStandings } from "../api/serverApi";
+import { season3TeamLogo, teamShortName } from "@/utilis/helper";
+import Sponsorship from "@/components/common/Sponsorship";
+
+const SEASON_OPTIONS = [
+  { label: "Season 3", value: "season_3" },
+  { label: "Season 2", value: "season_2" },
+  { label: "Season 1", value: "season_1" },
+];
+
+const RECENT_FORM_TEMPLATE = ["W", "L", "L", "W", "W"];
+
+const getSeasonData = (season, standingsSeason3) => {
+  if (season === "season_3") {
+    return Array.isArray(standingsSeason3) ? standingsSeason3 : [];
+  }
+  return standingsData[season] || [];
+};
+
+const buildTeamLabel = (team, isSeason3) => {
+  const name = isSeason3 ? team?.TeamName : team?.team_name || "Unknown";
+  const shortName = isSeason3 ? name : teamShortName[name] || name;
+  const logo = isSeason3 ? team?.TeamLogo : season3TeamLogo[name] || "";
+  return { name, shortName, logo };
+};
+
+const BracketSlot = ({ children, light = false }) => (
+  <div
+    className={`flex h-12 items-center justify-center rounded-lg border px-4 text-lg font-semibold italic ${
+      light
+        ? "border-white/40 bg-[#ECECEC] text-[#1C2440]"
+        : "border-[#2B58DD] bg-[#0D246A] text-white"
+    }`}
+  >
+    {children}
+  </div>
+);
+
+const PointsTablePage = () => {
+  const [activeSeason, setActiveSeason] = useState("season_3");
+  const [activeTeam, setActiveTeam] = useState("All Teams");
+  const [activeGroup, setActiveGroup] = useState("men");
+  const [activeStage, setActiveStage] = useState("points");
+  const [standingsSeason3, setStandingsSeason3] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const standingsRes = await getStandings();
+        setStandingsSeason3(standingsRes?.data?.season_3?.points || []);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const teamsInSeason = useMemo(() => {
+    const seasonData = getSeasonData(activeSeason, standingsSeason3);
+    const teamNames = seasonData.map((team) =>
+      activeSeason === "season_3"
+        ? team?.TeamName
+        : team?.team_name || "Unknown",
+    );
+    return ["All Teams", ...teamNames];
+  }, [activeSeason, standingsSeason3]);
+
+  const filteredData = useMemo(() => {
+    const seasonData = getSeasonData(activeSeason, standingsSeason3);
+    if (activeTeam === "All Teams") return seasonData;
+    return seasonData.filter((team) =>
+      activeSeason === "season_3"
+        ? team?.TeamName === activeTeam
+        : team?.team_name === activeTeam,
+    );
+  }, [activeSeason, activeTeam, standingsSeason3]);
+
+  const rows = useMemo(() => {
+    const isSeason3 = activeSeason === "season_3";
+    return filteredData.map((team, index) => {
+      const teamMeta = buildTeamLabel(team, isSeason3);
+      return {
+        rank: index + 1,
+        ...teamMeta,
+        p: isSeason3 ? team?.Matches : team?.played,
+        w: isSeason3 ? team?.Wins : team?.won,
+        l: isSeason3 ? team?.Loss : team?.lost,
+        t: isSeason3 ? team?.Tied : team?.tied,
+        nrr: isSeason3 ? team?.NetRunRate : team?.net_run_rate,
+        for: isSeason3 ? team?.ForTeams : "-",
+        against: isSeason3 ? team?.AgainstTeam : "-",
+        pts: isSeason3 ? team?.Points : team?.points,
+        recentForm: team?.recentForm || RECENT_FORM_TEMPLATE,
+      };
+    });
+  }, [filteredData, activeSeason]);
+
+  return (
+    <div className="w-full bg-[#1E2F7D]">
+      <section className="relative overflow-hidden pb-14 pt-40">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,88,210,0.35),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(26,40,116,0.65),transparent_45%)]" />
+        <div className="relative section-width">
+          <div className="mb-8 flex flex-wrap items-center justify-center gap-4 border-b border-white/15 pt-5">
+            <div className="inline-flex rounded-full border border-white/40 bg-[#17317F] p-1 text-sm font-semibold uppercase">
+              <button
+                type="button"
+                onClick={() => setActiveStage("points")}
+                className={`rounded-full px-6 py-2 ${
+                  activeStage === "points"
+                    ? "bg-white text-[#1A2C76]"
+                    : "text-white/85"
+                }`}
+              >
+                Points Table
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveStage("playoffs")}
+                className={`rounded-full px-6 py-2 ${
+                  activeStage === "playoffs"
+                    ? "bg-white text-[#1A2C76]"
+                    : "text-white/85"
+                }`}
+              >
+                Playoffs
+              </button>
+            </div>
+
+            <div className="inline-flex rounded-full bg-[#F68323] p-1 text-sm font-semibold uppercase">
+              <button
+                type="button"
+                onClick={() => setActiveGroup("men")}
+                className={`rounded-full px-8 py-2 ${
+                  activeGroup === "men"
+                    ? "bg-white text-[#1A2C76]"
+                    : "text-white"
+                }`}
+              >
+                Men
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveGroup("women")}
+                className={`rounded-full px-8 py-2 ${
+                  activeGroup === "women"
+                    ? "bg-white text-[#1A2C76]"
+                    : "text-white"
+                }`}
+              >
+                Women
+              </button>
+            </div>
+          </div>
+
+          <div className="mb-8 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+            <h1 className="flex flex-col text-5xl font-extrabold uppercase italic leading-[0.9] text-white sm:text-6xl">
+              <span
+                className="text-transparent [-webkit-text-stroke:2px_#7E93DB]"
+                style={{ WebkitTextStroke: "2px #7E93DB" }}
+              >
+                {activeStage === "playoffs" ? "Playoffs" : "Points"}
+              </span>
+              <span>{activeStage === "playoffs" ? "Chart" : "Table"}</span>
+            </h1>
+
+            <div className="flex gap-3">
+              <select
+                value={activeTeam}
+                onChange={(e) => setActiveTeam(e.target.value)}
+                className="rounded-lg border border-white/20 bg-[#314A98] px-4 py-2 text-sm font-semibold text-white outline-none"
+              >
+                {teamsInSeason.map((team) => (
+                  <option key={team} value={team} className="text-black">
+                    {team}
+                  </option>
+                ))}
+              </select>
+              <select
+                value={activeSeason}
+                onChange={(e) => setActiveSeason(e.target.value)}
+                className="rounded-lg border border-white/20 bg-[#314A98] px-4 py-2 text-sm font-semibold text-white outline-none"
+              >
+                {SEASON_OPTIONS.map((option) => (
+                  <option
+                    key={option.value}
+                    value={option.value}
+                    className="text-black"
+                  >
+                    {option.label.toUpperCase()}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {activeStage === "playoffs" ? (
+            <div className="rounded-2xl border border-white/10 bg-[#223783]/40 p-6 md:p-10">
+              <div className="relative hidden lg:grid lg:grid-cols-[1fr_1fr_1fr] lg:gap-16">
+                <div className="space-y-5">
+                  <BracketSlot>TBD</BracketSlot>
+                  <BracketSlot light>
+                    <div className="text-center">
+                      <p>Qualifier 1, May 26</p>
+                      <p className="text-xs not-italic text-[#FF5B1A]">
+                        D Y Patil Stadium, Navi Mumbai
+                      </p>
+                    </div>
+                  </BracketSlot>
+                  <BracketSlot>TBD</BracketSlot>
+
+                  <div className="h-8" />
+
+                  <BracketSlot>TBD</BracketSlot>
+                  <BracketSlot light>
+                    <div className="text-center">
+                      <p>Eliminator, May 27</p>
+                      <p className="text-xs not-italic text-[#FF5B1A]">
+                        D Y Patil Stadium, Navi Mumbai
+                      </p>
+                    </div>
+                  </BracketSlot>
+                  <BracketSlot>TBD</BracketSlot>
+                </div>
+
+                <div className="relative mt-14 space-y-5">
+                  <BracketSlot>TBD</BracketSlot>
+                  <BracketSlot light>
+                    <div className="text-center">
+                      <p>Qualifier 2, May 29</p>
+                      <p className="text-xs not-italic text-[#FF5B1A]">
+                        Wankhede Stadium, Mumbai
+                      </p>
+                    </div>
+                  </BracketSlot>
+                  <BracketSlot>TBD</BracketSlot>
+
+                  <div className="pointer-events-none absolute -left-5 top-[78px] h-[124px] w-5 border-b-2 border-l-2 border-[#FF5B1A]" />
+                  <span className="pointer-events-none absolute -left-[19px] top-[74px] h-2.5 w-2.5 rounded-full bg-[#FF5B1A]" />
+
+                  <div className="pointer-events-none absolute -left-5 top-[250px] h-[124px] w-5 border-t-2 border-l-2 border-[#FF5B1A]" />
+                  <span className="pointer-events-none absolute -left-[19px] top-[368px] h-2.5 w-2.5 rounded-full bg-[#FF5B1A]" />
+                </div>
+
+                <div className="relative mt-10 space-y-5">
+                  <BracketSlot>TBD</BracketSlot>
+                  <BracketSlot light>
+                    <div className="text-center">
+                      <p>Final, May 31</p>
+                      <p className="text-xs not-italic text-[#FF5B1A]">
+                        Wankhede Stadium, Mumbai
+                      </p>
+                    </div>
+                  </BracketSlot>
+                  <BracketSlot>TBD</BracketSlot>
+
+                  <div className="pointer-events-none absolute -left-10 top-[82px] h-[56px] w-10 border-l-2 border-t-2 border-[#FF5B1A]" />
+                  <div className="pointer-events-none absolute -left-10 top-[138px] h-[56px] w-10 border-l-2 border-b-2 border-[#FF5B1A]" />
+                  <span className="pointer-events-none absolute -left-[44px] top-[134px] h-2.5 w-2.5 rounded-full bg-[#FF5B1A]" />
+                </div>
+              </div>
+
+              <div className="space-y-4 lg:hidden">
+                <BracketSlot>TBD</BracketSlot>
+                <BracketSlot light>
+                  <div className="text-center">
+                    <p>Qualifier 1, May 26</p>
+                    <p className="text-xs not-italic text-[#FF5B1A]">
+                      D Y Patil Stadium, Navi Mumbai
+                    </p>
+                  </div>
+                </BracketSlot>
+                <BracketSlot>TBD</BracketSlot>
+                <BracketSlot light>
+                  <div className="text-center">
+                    <p>Eliminator, May 27</p>
+                    <p className="text-xs not-italic text-[#FF5B1A]">
+                      D Y Patil Stadium, Navi Mumbai
+                    </p>
+                  </div>
+                </BracketSlot>
+                <BracketSlot light>
+                  <div className="text-center">
+                    <p>Qualifier 2, May 29</p>
+                    <p className="text-xs not-italic text-[#FF5B1A]">
+                      Wankhede Stadium, Mumbai
+                    </p>
+                  </div>
+                </BracketSlot>
+                <BracketSlot light>
+                  <div className="text-center">
+                    <p>Final, May 31</p>
+                    <p className="text-xs not-italic text-[#FF5B1A]">
+                      Wankhede Stadium, Mumbai
+                    </p>
+                  </div>
+                </BracketSlot>
+              </div>
+            </div>
+          ) : loading ? (
+            <div className="rounded-2xl border border-white/10 bg-[#223783] p-8 text-center text-white/80">
+              Loading points table...
+            </div>
+          ) : rows.length === 0 ? (
+            <div className="rounded-2xl border border-white/10 bg-[#223783] p-8 text-center text-white/80">
+              No data available for selected filters.
+            </div>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="min-w-[1100px] w-full text-white border-separate border-spacing-y-3">
+                <thead>
+                  <tr className="text-left text-xs uppercase text-[#FFE24A] bg-[#1F43C5]">
+                    <th className="rounded-l-full px-4 py-3">Pos</th>
+                    <th className="px-4 py-3">Teams</th>
+                    <th className="px-4 py-3">P</th>
+                    <th className="px-4 py-3">W</th>
+                    <th className="px-4 py-3">L</th>
+                    <th className="px-4 py-3">T</th>
+                    <th className="px-4 py-3">NRR</th>
+                    <th className="px-4 py-3">For</th>
+                    <th className="px-4 py-3">Against</th>
+                    <th className="px-4 py-3">Pts</th>
+                    <th className="rounded-r-full px-4 py-3">Recent Form</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {rows.map((row) => (
+                    <tr key={`${row.name}-${row.rank}`} className="text-sm">
+                      <td
+                        className="px-2 py-2 text-5xl font-black italic leading-none text-transparent [-webkit-text-stroke:2px_#7E93DB] w-12"
+                        style={{ WebkitTextStroke: "2px #7E93DB" }}
+                      >
+                        {row.rank}
+                      </td>
+                      <td className="py-2 max-w-[180px] min-w-[150px] bg-[#1F43C5] rounded-l-full">
+                        <div className="relative flex items-center gap-2 overflow-hidden rounded-l-full bg-[#1F43C5] pr-6">
+                          <div className="z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white border border-[#AF313A] m-0.5">
+                            {row.logo ? (
+                              <img
+                                src={row.logo}
+                                alt={row.shortName}
+                                className="h-10 w-10 rounded-full object-contain"
+                              />
+                            ) : null}
+                          </div>
+                          <span className="z-10 pr-5 text-xs font-extrabold uppercase text-[#FFE150]">
+                            {row.shortName}
+                          </span>
+                          <span className="absolute right-2 z-10 flex h-4 w-4 items-center justify-center rounded-full bg-[#FFE24A] text-[9px] font-black text-[#1A2C76]">
+                            q
+                          </span>
+                        </div>
+                      </td>
+                      <td className="px-4 py-2 font-semibold bg-[#1F43C5] border-l border-[#983BD4]/60">
+                        {row.p}
+                      </td>
+                      <td className="px-4 py-2 font-semibold bg-[#1F43C5] border-l border-[#983BD4]/60">
+                        {row.w}
+                      </td>
+                      <td className="px-4 py-2 font-semibold bg-[#1F43C5] border-l border-[#983BD4]/60">
+                        {row.l}
+                      </td>
+                      <td className="px-4 py-2 font-semibold bg-[#1F43C5] border-l border-[#983BD4]/60">
+                        {row.t}
+                      </td>
+                      <td className="px-4 py-2 font-semibold bg-[#1F43C5] border-l border-[#983BD4]/60">
+                        {row.nrr}
+                      </td>
+                      <td className="px-4 py-2 font-semibold bg-[#1F43C5] border-l border-[#983BD4]/60">
+                        {row.for}
+                      </td>
+                      <td className="px-4 py-2 font-semibold bg-[#1F43C5] border-l border-[#983BD4]/60">
+                        {row.against}
+                      </td>
+                      <td className="px-4 py-2 font-semibold bg-[#1F43C5] border-l border-[#983BD4]/60">
+                        {row.pts}
+                      </td>
+                      <td className="px-2 py-2 bg-[#1F43C5] rounded-r-full border-l border-[#983BD4]/60">
+                        <div className="flex items-center gap-1.5 rounded-r-full px-3 py-1.5 min-w-[190px] justify-end">
+                          <div className="flex items-center gap-1.5">
+                            {row.recentForm.map((result, idx) => {
+                              const isWin = `${result}`.toUpperCase() === "W";
+                              return (
+                                <span
+                                  key={`${row.name}-${idx}`}
+                                  className={`flex h-5 w-5 items-center justify-center rounded-full border text-[9px] font-bold ${
+                                    isWin
+                                      ? "border-[#20D96A] text-[#20D96A]"
+                                      : "border-[#EF4444] text-[#EF4444]"
+                                  }`}
+                                >
+                                  {isWin ? "W" : "L"}
+                                </span>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
+      </section>
+
+      <div className="bg-[#F1F2F8]">
+        <Sponsorship />
+      </div>
+    </div>
+  );
+};
+
+export default PointsTablePage;

@@ -89,9 +89,9 @@ const Gallery = () => {
   };
 
   return (
-    <section className="bg-[#192a66] pt-6 pb-2 sm:pt-10 sm:pb-4">
+    <section className="pt-6 pb-2 sm:pt-10 sm:pb-4">
       <div className="section-width">
-        <div className="overflow-hidden rounded-3xl bg-[#143083] px-5 py-6 sm:px-8 sm:py-7 lg:px-10 lg:py-8">
+        <div className="overflow-hidden rounded-3xl px-5 py-6 sm:px-8 sm:py-7 lg:px-10 lg:py-8">
           <h2 className="mb-5 text-2xl font-extrabold italic text-white sm:mb-6 sm:text-3xl lg:mb-7 lg:text-4xl">
             Match Moments
           </h2>

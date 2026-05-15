@@ -8,7 +8,7 @@ const routes = {
   stats: "/stats",
   fixtures: "/fixtures",
   matchcentre: "/matchcentre",
-  latestUpdates: "/latest-updates",
+  latestUpdates: "/news",
   aboutUs: "/aboutUs",
   media: "/media",
   gallery: "/gallery",
@@ -24,6 +24,7 @@ const routes = {
   roadmap: "#",
   yourPhotos: "your-photos",
 
+  videos: "/videos",
 
   privacyPolicy: "/privacy_policy",
   // social links

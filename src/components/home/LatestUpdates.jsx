@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import routes from "@/utilis/route";
 import { getLatestUpdatesClient } from "@/app/api/clientApi";
 import LoadingPage from "@/app/loading";
-import { LocalLatestUpdates } from "@/app/latest-updates/data";
+import { LocalLatestUpdates } from "@/app/news/data";
 
 const SEASON_LABEL = "T20 ML Season 3";
 
@@ -91,28 +91,27 @@ const LatestUpdates = () => {
               <article
                 key={(item?.Title__c || "card") + index}
                 onClick={() => handleLatestUpdateClick(item)}
-                className="group cursor-pointer overflow-hidden rounded-2xl bg-[#143083] shadow-[0_10px_24px_rgba(20,48,131,0.18)] transition-transform hover:-translate-y-0.5"
+                className="group relative aspect-[4/5] cursor-pointer overflow-hidden rounded-2xl bg-[#143083] shadow-[0_10px_24px_rgba(20,48,131,0.18)] transition-transform hover:-translate-y-0.5"
               >
-                <div className="relative aspect-[4/3] w-full overflow-hidden">
-                  {imageSrc ? (
-                    <img
-                      src={imageSrc}
-                      alt={item?.Title__c || ""}
-                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div className="h-full w-full bg-[#0F2A8C]" />
-                  )}
-                  <span className="absolute bottom-3 left-3 inline-flex items-center rounded-full bg-white px-3 py-1 text-xs font-semibold text-[#143083]">
+                {imageSrc ? (
+                  <img
+                    src={imageSrc}
+                    alt={item?.Title__c || ""}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-[#0F2A8C]" />
+                )}
+                <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-[#143083] from-30% via-[#143083]/80 via-65% to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col gap-3 px-5 pb-5 lg:px-6 lg:pb-6">
+                  <span className="inline-flex w-fit items-center rounded-full bg-white px-3 py-1 text-xs font-semibold text-[#143083]">
                     {SEASON_LABEL}
                   </span>
-                </div>
-                <div className="px-5 py-5 lg:px-6 lg:py-6">
                   <h3 className="line-clamp-2 text-base font-bold leading-snug text-white sm:text-lg">
                     {truncateTextSpells(item?.Title__c, 80)}
                   </h3>
-                  <p className="mt-4 text-xs font-medium text-white/70 sm:text-sm">
+                  <p className="text-xs font-medium text-white/80 sm:text-sm">
                     Mumbai, {formatNewsDate(item?.Date__c)}
                   </p>
                 </div>

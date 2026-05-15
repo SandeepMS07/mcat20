@@ -7,31 +7,57 @@ import { useState } from "react";
 import routes from "@/utilis/route";
 import { redirect, usePathname } from "next/navigation";
 
+const TOP_MARQUEE_TEXT =
+  "Mumbai South Central Maratha Royals crowned T20 Mumbai League 2025 champions";
+
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathName = usePathname();
 
-  if (pathName === "/auction-info" ) return;
+  if (pathName === "/auction-info") return;
   return (
-   <div
+    <div
       className={
-        pathName.includes(routes.fixtures) || pathName.startsWith("/scores") || pathName.includes(routes.matchcentre) || pathName.includes(routes.yourPhotos)
+        pathName.includes(routes.fixtures) ||
+        pathName.startsWith("/scores") ||
+        pathName.includes(routes.matchcentre) ||
+        pathName.includes(routes.yourPhotos)
           ? "bg-gradient-to-r from-[#060A17] to-[#203376] lg:h-[120px] h-[85px]"
           : ""
       }
     >
-      <div className="z-50 absolute top-[20px] w-full flex justify-center">
+      <div className="absolute top-0 z-50 w-full overflow-hidden bg-[#F68323] py-1">
+        <div className="flex w-max animate-[topMarquee_25s_linear_infinite] items-center whitespace-nowrap">
+          {[...Array(2)].map((_, groupIdx) => (
+            <div key={groupIdx} className="flex shrink-0 items-center">
+              {[...Array(8)].map((_, idx) => (
+                <span
+                  key={`${groupIdx}-${idx}`}
+                  className="mx-6 inline-flex items-center gap-2 text-xs font-semibold text-white sm:text-xs lg:text-sm"
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-white" />
+                  {TOP_MARQUEE_TEXT}
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="z-50 absolute top-[40px] w-full flex justify-center ">
         <div className="relative w-[90%]">
           {/* Logo Section */}
 
-          <nav className="flex justify-between items-center section-width bg-[#ffffff1f] rounded-full relative overflow-visible w-full px-4 py-2.5">
-            <div className="-my-24" style={{ zIndex: 9999 }}>
+          <nav className="flex items-center section-width rounded-full relative overflow-visible w-full px-4  border border-white/30 bg-white/10 backdrop-blur-xl shadow-[0_8px_30px_rgba(0,0,0,0.25)]">
+            <div
+              className="px-10 border-r border-[#D18FDB40] py-1x"
+              style={{ zIndex: 9999 }}
+            >
               {!menuOpen && (
                 <Link href="/">
                   <Image
                     src={"/images/home/logo.svg"}
                     alt="logo"
-                    className="h-20 w-auto lg:h-28 cursor-pointer "
+                    className="h-20 w-auto lg:h-16 cursor-pointer "
                     width={100}
                     height={100}
                     onClick={() => redirect("/")}
@@ -40,46 +66,34 @@ const Navbar = () => {
               )}
             </div>
             {/* Navigation Links */}
-            <div className="items-center lg:flex hidden">
-              <div className="flex justify-center">
-                <ul className="flex items-center justify-between gap-8 xl:gap-10 bg-transparent  xl:pl-10 py-2 pr-2 rounded-full">
-                  {navLinks.map((item, i) => (
-                    <li key={i}>
-                      <Link
-                        href={item.path}
-                        className={`text-sm md:text-base xl:text-lg ${
-                          pathName === item.path
-                            ? "text-orange-500"
-                            : "text-white"
-                        }`}
-                      >
-                        {item.title}
-                      </Link>
-                    </li>
-                  ))}
+            <div className="items-center lg:flex hidden py-1  w-full">
+              <ul className="flex items-center justify-between gap-8 xl:gap-10 bg-transparent  xl:px-10 py-2 px-4 rounded-full w-full">
+                {navLinks.map((item, i) => (
+                  <li key={i}>
+                    <Link
+                      href={item.path}
+                      className={`text-sm md:text-base xl:text-lg ${
+                        pathName === item.path
+                          ? "text-orange-500"
+                          : "text-white"
+                      }`}
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
 
-                  {/* <a
-                    href={"/auction-info"}
-                    s
-                    className="px-4 py-2 md:px-6 md:py-3   rounded-full   text-white text-sm md:text-base text-center cursor-pointer flex gap-4 items-center"
-                    style={{
-                      backgroundImage:
-                        "linear-gradient(180deg, #142A7C -11.26%, #344CA2 44.6%, #243FA3 100.45%)",
-                    }}
-                  >
-                    Auction Info
-                    <span>
-                      <Image
-                        src="/images/home/hero/buttonIcon.svg"
-                        alt="button-icon"
-                        width={24}
-                        height={24}
-                        className="w-5 h-5"
-                      />
-                    </span>
-                  </a> */}
-                </ul>
-              </div>
+                <a
+                  href={"/auction-info"}
+                  s
+                  className="px-4 py-1.5 md:px-6 md:py-1.5   rounded-full   text-white text-sm md:text-base text-center cursor-pointer flex gap-4 items-center"
+                  style={{
+                    backgroundColor: "#F68323",
+                  }}
+                >
+                  Tickets
+                </a>
+              </ul>
             </div>
 
             {/* Mobile Menu Icon - Only visible on mobile */}
@@ -92,7 +106,7 @@ const Navbar = () => {
           </nav>
         </div>
         <div
-          className={`fixed top-0 right-0 h-full w-[75%] bg-[#0F0F0F] z-50 transform transition-transform duration-300 ${
+          className={`fixed top-0 right-0 h-full w-[75%] border-l border-white/20 bg-[#0c1334]/70 backdrop-blur-2xl z-50 transform transition-transform duration-300 ${
             menuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -148,7 +162,7 @@ const Navbar = () => {
         {/* Optional Backdrop */}
         {menuOpen && (
           <div
-            className="fixed inset-0 bg-black bg-opacity-50 z-40"
+            className="fixed inset-0 bg-black/45 backdrop-blur-[2px] z-40"
             onClick={() => setMenuOpen(false)}
           />
         )}

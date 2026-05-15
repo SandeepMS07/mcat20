@@ -1,75 +1,41 @@
 "use client";
 import { useEffect } from "react";
-import TitleComponent from "../common/TitleComponent";
+import FanPoll from "./FanPoll";
 
 const Socials = () => {
   useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://static.elfsight.com/platform/platform.js";
-    
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
+    const scriptSrc = "https://static.elfsight.com/platform/platform.js";
+    const existingScript = document.querySelector(`script[src="${scriptSrc}"]`);
 
-    return () => {
-      document.body.removeChild(script);
-    };
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.src = scriptSrc;
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
+    }
   }, []);
 
   return (
-    <div className="relative">
-      <img
-        src="/images/elements/section-element.png"
-        className="absolute right-0 top-0 md:block hidden"
-        alt="element"
-      />
-      <img
-        src="/images/elements/section-element.png"
-        className="absolute left-0 bottom-0 rotate-180  md:block hidden "
-        alt="element"
-      />
+    <div className="relative bg-gradient-to-bl from-[#1C398E] to-[#0E005A]">
       <div className="section-width section-padding">
-        <TitleComponent title={"Socials"} />
-        {/* <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8 max-sm:w-fit mx-auto"> */}
+        <h2 className="flex flex-col text-3xl font-extrabold uppercase italic leading-[0.95] text-[#ffffff] sm:text-4xl lg:text-6xl mb-6">
+          <span
+            className="text-transparent [-webkit-text-stroke:1.5px_#ffffff]"
+            style={{ WebkitTextStroke: "1.5px #ffffff" }}
+          >
+            THE
+          </span>
+          <span>SOCIALS</span>
+        </h2>
         <div>
           <div
             className="elfsight-app-699da6b2-483b-4520-a7cd-82f1db1898af"
             data-elfsight-app-lazy
           />
-
-          {/* <script
-          src="https://static.elfsight.com/platform/platform.js"
-          async
-        ></script>
-        <div
-          class="elfsight-app-699da6b2-483b-4520-a7cd-82f1db1898af"
-          data-elfsight-app-lazy
-        ></div> */}
-          {/* <Image
-          src={"/images/home/social1.png"}
-          width={400}
-          height={400}
-          alt="social img"
-        />
-        <Image
-          src={"/images/home/social2.png"}
-          width={400}
-          height={400}
-          alt="social img"
-        />
-        <Image
-          src={"/images/home/social3.png"}
-          width={400}
-          height={400}
-          alt="social img"
-        /> */}
-          {/* <div className="">
-          <div className="bg-[#E07E27] px-5 py-5 rounded-t-xl">
-            <p>@t20mumbai</p>
-          </div>
-        </div> */}
         </div>
       </div>
+      <FanPoll />
     </div>
   );
 };

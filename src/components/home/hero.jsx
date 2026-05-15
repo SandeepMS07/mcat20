@@ -197,7 +197,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative 2xl:h-[900px] xl:h-[800px] lg:h-[700px] md:h-[600px] h-[500px]">
+    <div className="relative 2xl:h-[100vh] xl:h-[800px] lg:h-[700px] md:h-[600px] h-[500px]">
       {showRegistrationPromo && (
         <div
           className={`hero-ticker absolute inset-x-0 ${heroTickerOffsetClass} z-20 overflow-hidden border-y border-[#f4a03b] bg-[#f4a03b] text-[#04184d]`}

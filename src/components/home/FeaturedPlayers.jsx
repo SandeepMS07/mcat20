@@ -162,21 +162,12 @@ const CARD_GRADIENTS = [
 const PlayerCard = ({ player, index }) => {
   if (!player) return null;
   return (
-    <div
-      className="relative overflow-hidden rounded-xl shadow-lg"
-      style={{ background: CARD_GRADIENTS[index % CARD_GRADIENTS.length] }}
-    >
+    <div className="relative overflow-hidden rounded-xl shadow-lg bg-gradient-to-b from-[#ED8E00] to-[#C93900]">
       <div className="flex items-start justify-between px-4 pt-3 text-white">
         <span className="rounded bg-black/30 px-2 py-1 text-[10px] font-bold uppercase tracking-wide sm:text-xs">
           {player.label}
         </span>
-        {player.teamLogo ? (
-          <img
-            src={player.teamLogo}
-            alt=""
-            className="h-8 w-8 rounded-full bg-white/80 object-contain p-0.5"
-          />
-        ) : null}
+        <img src={"/images/home/logo.svg"} alt="" className="h-14 w-auto" />
       </div>
       <div className="relative flex h-44 items-end justify-center sm:h-56">
         <img
@@ -220,24 +211,29 @@ const FeaturedPlayers = () => {
   const players = tab === "men" ? menPlayers : [];
 
   return (
-    <div className="bg-[url('/images/home/latestUpdateBg.png')] bg-cover bg-center bg-no-repeat">
+    <div
+      className="bg-[url('/images/home/player-section-texture.png')] bg-cover bg-center bg-no-repeat bg-[#192A66]
+    "
+    >
       <div className="section-width section-padding">
         <div className="flex items-end justify-between gap-3">
-          <TitleComponent
-            title="Featured Players"
-            button
-            buttonLink={routes.stats}
-            buttonText="View All"
-            hideButtonOnMobile
-          />
-          <div className="mb-12 hidden gap-1 self-center rounded-full bg-black/30 p-1 sm:flex">
+          <h2 className="flex flex-col text-3xl font-extrabold uppercase italic leading-[0.95] text-[#ffffff] sm:text-4xl lg:text-6xl mb-6">
+            <span
+              className="text-transparent [-webkit-text-stroke:1.5px_#ffffff]"
+              style={{ WebkitTextStroke: "1.5px #ffffff" }}
+            >
+              FEATURED
+            </span>
+            <span>PLAYERS</span>
+          </h2>
+          <div className="mb-12 hidden gap-1 self-center rounded-full bg-[#E07E27] p-1 sm:flex ">
             <button
               type="button"
               onClick={() => setTab("men")}
-              className={`rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wide transition ${
+              className={`rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wide transition  italic ${
                 tab === "men"
-                  ? "bg-[#E07E27] text-white"
-                  : "text-white/70 hover:text-white"
+                  ? "bg-[#fff] text-black"
+                  : "text-white hover:text-white"
               }`}
             >
               Men
@@ -245,10 +241,10 @@ const FeaturedPlayers = () => {
             <button
               type="button"
               onClick={() => setTab("women")}
-              className={`rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wide transition ${
+              className={`rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wide transition italic ${
                 tab === "women"
-                  ? "bg-[#E07E27] text-white"
-                  : "text-white/70 hover:text-white"
+                  ? "bg-[#fff] text-black"
+                  : "text-white hover:text-white"
               }`}
             >
               Women
