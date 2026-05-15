@@ -334,6 +334,42 @@ const Hero = () => {
         </SwiperSlide> */}
         <SwiperSlide className="h-full">
           <div
+            className={`relative flex h-full w-full items-end overflow-hidden bg-[url('https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778848274445-1d46orej99h-Home-(1).png')] bg-cover bg-center ${heroSlidePaddingClass}`}
+          >
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20" />
+            <div className="section-width relative z-10 pb-10 sm:pb-12 lg:pb-16">
+              <div className="max-w-5xl">
+                <h1 className="font-extrabold leading-[1.12] max-sm:text-center sm:max-w-4xl">
+                  30 high-voltage matches set to light up Wankhede Stadium from
+                  June 1-13
+                </h1>
+                <p className="mt-2 font-bold text-lg md:text-2xl xl:text-3xl max-sm:text-center">
+                  #ChanceSoduNako
+                </p>
+                <div className="mt-5 flex max-sm:justify-center">
+                  <button
+                    type="button"
+                    onClick={() => router.push(routes.fixtures)}
+                    className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md"
+                  >
+                    View Fixtures
+                    <span>
+                      <Image
+                        src="/images/home/hero/buttonIcon.svg"
+                        alt="button-icon"
+                        width={24}
+                        height={24}
+                        className="w-5 h-5"
+                      />
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide className="h-full">
+          <div
             className={`group w-full h-full bg-[url('/images/home/hero/rohit.jpeg')] bg-cover bg-right md:bg-top relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center cursor-pointer`}
             onMouseEnter={handleRohitHeroMouseEnter}
             onMouseLeave={handleRohitHeroMouseLeave}
