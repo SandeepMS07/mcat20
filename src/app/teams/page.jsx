@@ -4,7 +4,6 @@ import { useSearchParams } from "next/navigation";
 import TeamSection from "@/components/teams/teamSec/TeamSection";
 import MeetMyTeam from "@/components/teams/meetMyTeam/MeetMyTeam";
 import { getTeamDetailsClient } from "@/app/api/clientApi";
-import fixtures3 from "@/utilis/fixtures/fixtures3";
 
 const MEN_TAB = "men";
 const WOMEN_TAB = "women";
@@ -117,16 +116,11 @@ export default function Teams() {
     setSelectedTeamIndex(0);
   };
 
-  const LogoDetails = useMemo(
-    () => teams.map((team) => ({ name: team.Name, logo: team.Logo_URL__c })),
-    [teams]
-  );
-
   const teamDetails = teams[selectedTeamIndex] || null;
 
   if (isLoading) {
     return (
-      <div className="w-full py-20 text-center text-white bg-[#030b16]">
+      <div className="w-full min-h-screen py-32 text-center text-white bg-[#162362]">
         Loading teams...
       </div>
     );
@@ -134,21 +128,19 @@ export default function Teams() {
 
   if (error) {
     return (
-      <div className="w-full py-20 text-center text-white bg-[#030b16]">
+      <div className="w-full min-h-screen py-32 text-center text-white bg-[#162362]">
         {error}
       </div>
     );
   }
 
   return (
-    <div>
+    <div className="bg-[#101b52]">
       {teamDetails ? (
         <>
           <TeamSection
             data={teams}
-            fixtures={fixtures3}
             onTeamSelect={handleTeamSelect}
-            LogoDetails={LogoDetails}
             TeamIndex={selectedTeamIndex}
             activeTeamType={activeTeamType}
             onTeamTypeChange={handleTeamTypeChange}
@@ -158,7 +150,7 @@ export default function Teams() {
           <MeetMyTeam data={teamDetails} />
         </>
       ) : (
-        <div className="w-full py-20 text-center text-[#0F1A2D] bg-white">
+        <div className="w-full py-20 text-center text-white">
           No teams found for this category.
         </div>
       )}
