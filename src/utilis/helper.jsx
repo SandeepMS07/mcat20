@@ -128,6 +128,18 @@ export const teamGradients = {
   "Thane Skyrisers": { from: "#7BE7E3", to: "#142A6E" },
   "Triumph Knights Mumbai North East": { from: "#1A2454", to: "#6B4A1E" },
 };
+
+export const teamSubtitles = {
+  "Aakash Tigers MWS": { name: "Aakash Tigers", subtitle: "Mumbai Western Suburbs" },
+  "Arcs Andheri": { name: "ARCS", subtitle: "Andheri" },
+  "Eagle Thane Strikers": { name: "Eagle Thane Strikers", subtitle: "Thane" },
+  "Bandra Blasters": { name: "Bandra Blasters", subtitle: "Bandra" },
+  "North Mumbai Panthers": { name: "North Mumbai Panthers", subtitle: "North Mumbai" },
+  "MSC Maratha Royals": { name: "MSC Maratha Royals", subtitle: "Mumbai South Central" },
+  "SoBo Mumbai Falcons": { name: "SoBo Mumbai Falcons", subtitle: "South Bombay" },
+  "Thane Skyrisers": { name: "Thane Skyrisers", subtitle: "Thane" },
+  "Triumph Knights Mumbai North East": { name: "Triumph Knights", subtitle: "Mumbai North East" },
+};
 export const teamLogoBN = {
   "Aakash Tigers MWS":
     "https://turbostart.blob.core.windows.net/team-logos/Artboard%201.png",

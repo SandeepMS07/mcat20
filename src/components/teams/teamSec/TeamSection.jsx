@@ -1,9 +1,7 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
-import "swiper/css";
-import "swiper/css/autoplay";
 import { teamGradients } from "@/utilis/helper";
 
 const getTeamNameKey = (name = "") => name.replace(/\s*\(W\)\s*$/i, "").trim();
@@ -23,76 +21,91 @@ const TeamSection = ({
     setSelectedTeamIndex(TeamIndex);
   }, [TeamIndex]);
 
-  const handleLogoClick = (index) => {
-    setSelectedTeamIndex(index);
-    if (onTeamSelect) {
-      onTeamSelect(index);
-    }
-  };
-
-  useEffect(() => {
-    if (!data?.length) {
-      return;
-    }
-  }, [selectedTeamIndex, data]);
+  const handleLogoClick = useCallback(
+    (index) => {
+      setSelectedTeamIndex(index);
+      onTeamSelect?.(index);
+    },
+    [onTeamSelect]
+  );
 
   const selectedTeam = data?.[selectedTeamIndex];
+  const useCompactStrip = (data?.length || 0) <= 4;
 
   if (!selectedTeam) {
     return null;
   }
 
   return (
-    <div className="w-full ">
-      <div
-        className="w-full bg-cover bg-center pt-24  overflow-x-auto md:overflow-visible md:pt-40 flex flex-col gap-8 relative scrollbar-hide pb-32"
-        style={{ backgroundImage: "url('/images/teams/hero/teamsBg.svg')" }}
-      >
+    <div className="w-full">
+      {/* Top zone: toggle + team logo strip (royal blue) */}
+      <div className="w-full bg-[#101b52] pt-28 md:pt-32 lg:pt-36 pb-6">
         <div className="section-width">
-          <div className="w-full flex justify-start">
+          {/* MEN / WOMEN toggle */}
+          <div className="flex justify-center">
             <div
-              className="relative grid grid-cols-2 w-[220px] md:w-[240px] rounded-[43.5px] p-1 overflow-hidden"
+              role="tablist"
+              aria-label="Team type"
+              className="relative grid grid-cols-2 w-[260px] md:w-[300px] rounded-full p-1 overflow-hidden"
               style={{
                 background:
                   "radial-gradient(73.95% 52.29% at 49.38% 41.83%, #ECD815 0%, #F58220 70%, #F15A22 100%)",
               }}
             >
               <span
-                className={`pointer-events-none absolute top-1 left-1 h-[calc(100%-8px)] w-[calc(50%-4px)] rounded-[43.5px] bg-white transition-transform duration-300 ease-out ${
-                  activeTeamType === menTab
-                    ? "translate-x-0"
-                    : "translate-x-full"
+                aria-hidden
+                className={`pointer-events-none absolute top-1 left-1 h-[calc(100%-8px)] w-[calc(50%-4px)] rounded-full bg-white shadow-md transition-transform duration-300 ease-out ${
+                  activeTeamType === menTab ? "translate-x-0" : "translate-x-full"
                 }`}
               />
-
               <button
                 type="button"
+                role="tab"
+                aria-selected={activeTeamType === menTab}
                 onClick={() => onTeamTypeChange?.(menTab)}
-                className={`relative z-10 px-3 md:px-4 py-2 text-sm md:text-base font-bold leading-none transition-colors duration-300 ${
+                className={`relative z-10 py-1 md:py-1.5 text-sm md:text-base font-extrabold italic tracking-wide uppercase transition-colors duration-300 ${
                   activeTeamType === menTab
-                    ? "text-[#243874]"
+                    ? "text-[#162362]"
                     : "text-white hover:text-white/90"
                 }`}
               >
-                MEN
+                Men
               </button>
-
               <button
                 type="button"
+                role="tab"
+                aria-selected={activeTeamType === womenTab}
                 onClick={() => onTeamTypeChange?.(womenTab)}
-                className={`relative z-10 px-3 md:px-4 py-2 text-sm md:text-base font-bold leading-none transition-colors duration-300 ${
+                className={`relative z-10 py-1 md:py-1.5 text-sm md:text-base font-extrabold italic tracking-wide uppercase transition-colors duration-300 ${
                   activeTeamType === womenTab
-                    ? "text-[#243874]"
+                    ? "text-[#162362]"
                     : "text-white hover:text-white/90"
                 }`}
               >
-                WOMEN
+                Women
               </button>
             </div>
           </div>
+        </div>
 
-          <div className="w-full h-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 xl:flex xl:flex-row xl:flex-wrap xl:gap-6 justify-center xl:justify-start mt-4 mb-6 p-2 xl:p-8 bg-black bg-opacity-[0.6] rounded-md">
+        {/* Team logo strip — extra width, breaks out of section-width */}
+        <div className="mt-10 md:mt-14 px-4 sm:px-6 md:px-10 lg:px-14 xl:px-20">
+          <div
+            className={`rounded-2xl bg-[#1b2f93] ring-1 ring-white/10 p-4 md:p-6 lg:p-7 ${
+              useCompactStrip ? "w-fit max-w-full mx-auto" : ""
+            }`}
+            style={{
+              boxShadow:
+                "0 12px 28px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06)",
+            }}
+          >
+            <ul
+              className={`flex gap-3 md:gap-4 overflow-x-auto md:overflow-x-auto md:overflow-y-hidden scrollbar-hide snap-x snap-mandatory ${
+                useCompactStrip ? "md:justify-center" : ""
+              }`}
+            >
             {data.map((team, index) => {
+              const isActive = index === selectedTeamIndex;
               const normalizedTeamName = getTeamNameKey(team?.Name);
               const gradient = teamGradients[normalizedTeamName];
               const gradientStyle = gradient
@@ -102,317 +115,51 @@ const TeamSection = ({
                 : {};
 
               return (
-                <div
-                  key={index}
-                  onClick={() => handleLogoClick(index)}
-                  className={`relative w-full xl:w-[140px] xl:shrink-0 flex items-center justify-center rounded-[5.5px] p-1 cursor-pointer border border-white transition-transform duration-300
-                       ${
-                         index === selectedTeamIndex
-                           ? "border-gray-700 shadow-[0_2px_10px_rgba(224,126,39,0.6)] scale-[1.1]"
-                           : "border-none hover:border-none hover:shadow-[0_2px_10px_rgba(224,126,39,0.6)] hover:scale-[1.1]"
-                       }`}
-                  style={gradientStyle}
+                <li
+                  key={team?.Id || index}
+                  className="snap-start shrink-0 basis-[128px] md:basis-[170px] lg:basis-[180px]"
                 >
-                  {/*Background patterns and gradient for the team logo */}
-                  <Image
-                    src={"/images/elements/teamCardRoundElement.png"}
-                    width={100}
-                    height={100}
-                    className="w-full h-full absolute top-0 left-0 rounded-xl opacity-60"
-                    alt="Logo"
-                  />
-                  <Image
-                    src={"/images/elements/teamCardElement.png"}
-                    width={100}
-                    height={100}
-                    className="w-full h-full absolute top-0 left-0 rounded-xl"
-                    alt="Logo"
-                  />
-                  <div className="z-30 rounded-[5.5px]">
-                    <TeamLogo
-                      image={team.Logo_URL__c}
-                      isSelected={index === selectedTeamIndex}
-                      name={team.Name}
+                  <button
+                    type="button"
+                    onClick={() => handleLogoClick(index)}
+                    aria-pressed={isActive}
+                    aria-label={team?.Name}
+                    className={`group relative block w-full aspect-[4/3] md:aspect-[6/5] rounded-lg overflow-hidden border-0 transition-all duration-300 ${
+                      isActive
+                        ? "shadow-[0_8px_20px_rgba(0,0,0,0.45)] ring-2 ring-white/90"
+                        : "hover:ring-1 hover:ring-white/35"
+                    }`}
+                    style={gradientStyle}
+                  >
+                    <Image
+                      src="/images/elements/teamCardRoundElement.png"
+                      width={200}
+                      height={140}
+                      alt=""
+                      aria-hidden
+                      className="absolute inset-0 w-full h-full opacity-60 pointer-events-none"
                     />
-                  </div>
-                </div>
+                    <Image
+                      src="/images/elements/teamCardElement.png"
+                      width={200}
+                      height={140}
+                      alt=""
+                      aria-hidden
+                      className="absolute inset-0 w-full h-full pointer-events-none"
+                    />
+                    <span className="relative z-10 flex h-full w-full items-center justify-center p-3 md:p-4">
+                      <img
+                        src={team.Logo_URL__c}
+                        alt=""
+                        className="max-h-[80%] max-w-[80%] object-contain"
+                      />
+                    </span>
+                  </button>
+                </li>
               );
             })}
+            </ul>
           </div>
-
-          {/* Team Details */}
-          <div className="w-full flex flex-col lg:flex-row justify-between gap-6 my-6 p-4 bg-black bg-opacity-[0.6] rounded-md">
-            <div className="flex flex-col sm:flex-row justify-center items-center sm:items-center w-full lg:w-full">
-              <TeamDetailLogo image={selectedTeam.Logo_URL__c} />
-              <div className="hidden sm:block w-px h-12 sm:h-16 m-2 bg-gray-500"></div>
-              <div className="text-white sm:ml-4 mt-4 sm:mt-0 w-full">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-center md:text-start">
-                  {/* Break the team to two lines */}
-                  {selectedTeam.Name.split(" ").length > 4 ? (
-                    (() => {
-                      const words = selectedTeam.Name.split(" ");
-                      const firstLine = words.slice(0, 2).join(" ");
-                      const secondLine = words.slice(2).join(" ");
-                      return (
-                        <>
-                          <span>{firstLine}</span>
-                          <br />
-                          <span className="inline-block">{secondLine}</span>
-                        </>
-                      );
-                    })()
-                  ) : (
-                    <span>{selectedTeam.Name}</span>
-                  )}
-                </h2>
-              </div>
-            </div>
-
-            {/* Right side: Details Section */}
-            {/* <div className="flex  flex-col lg:flex-row justify-center gap-4 mt-6 lg:mt-0 items-center w-full lg:w-2/4">
-              
-              <div className="w-full flex flex-col   items-center p-4">
-                {[
-                  {
-                    label: "Icon",
-                    key: "Indian senior team",
-                    minPlayerCount: 1,
-                  },
-                  {
-                    label: "Senior",
-                    key: "First class, list A, BCCI Senior Men T20",
-                    minPlayerCount: 4,
-                  },
-                  {
-                    label: "Emerging",
-                    key: "Mumbai age group team (under 23 or under 19)",
-                    minPlayerCount: 5,
-                  },
-                  {
-                    label: "Development",
-                    key: "Local club team",
-                    minPlayerCount: 5,
-                  },
-                ].map((level, idx) => {
-                  const count = getCategoryCount(level.key);
-                  const label = level.label;
-
-                  return (
-                    <div
-                      key={label}
-                      className="flex flex-col w-full justify-center "
-                    >
-                      <div className="flex flex-row items-center justify-around gap-4 px-2 sm:px-6">
-                        <span className="w-[40%] text-sm sm:text-md font-semibold text-[#E07E27]">
-                          {label}
-                        </span>
-                        <span className="w-[20%] text-sm sm:text-md text-white pr-2">
-                          -
-                        </span>
-                        <span className="w-[20%] text-sm sm:text-md text-white">
-                          {count}/{level.minPlayerCount}
-                        </span>
-                      </div>
-
-                      {idx < 3 && (
-                        <div className="w-[80%] border-t border-gray-700 my-2  ml-4" />
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div> */}
-          </div>
-
-          {/* Upcoming Matches Heading */}
-          {/* <div className="text-xl sm:text-2xl font-semibold my-8 sm:my-16 text-white">
-            UPCOMING MATCHES
-          </div> */}
-        </div>
-      </div>
-      {/* <div className="md:-mt-40 -mt-32 section-width relative">
-        <UpcomingFixtures />
-      </div> */}
-
-      {/* Match Cards Section */}
-      {/* <div className="relative w-full bg-white pt-32 pb-16">
-        <div className="flex flex-col items-center gap-8 section-width -mt-[286px]">
-          <div className="block 2xl:hidden w-full">
-            <Swiper
-              modules={[Autoplay]}
-              spaceBetween={20}
-              slidesPerView={1}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-              }}
-              loop={true}
-            >
-              {upcomingMatches.map((match, index) => (
-                <SwiperSlide key={match.match_no}>
-                  <MatchCard
-                    key={match.match_no}
-                    headerText={`Match ${match.match_no}`}
-                    time={match.time}
-                    date={match.date}
-                    homeTeam={match.home_team}
-                    awayTeam={match.away_team}
-                    venue={match.venue}
-                    ticketLink={match.ticketLink}
-                    CurrentTeam={CurrentTeam}
-                    LogoDetails={LogoDetails}
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-
-          <div className="hidden 2xl:grid grid-cols-1 2xl:grid-cols-3 gap-6 sm:gap-8 2xl:gap-12 w-full">
-            {upcomingMatches.map((match) => (
-              <MatchCard
-                key={match.match_no}
-                headerText={`Match ${match.match_no}`}
-                time={match.time}
-                date={match.date}
-                homeTeam={match.home_team}
-                awayTeam={match.away_team}
-                venue={match.venue}
-                ticketLink={match.ticketLink}
-                CurrentTeam={CurrentTeam}
-                LogoDetails={LogoDetails}
-              />
-            ))}
-          </div>
-        </div>
-      </div> */}
-    </div>
-  );
-};
-
-const TeamLogo = ({ image, onClick, name }) => {
-  return (
-    <div
-      onClick={onClick}
-      className="w-full h-[92px] md:h-[110px] flex items-center justify-center rounded-[5.5px] border-1 border-white relative"
-    >
-      <img
-        src={image}
-        alt="team-logo"
-        className="h-[72px] md:h-[86px] w-auto max-w-[86%] object-contain cursor-pointer transition-all duration-300 z-30"
-      />
-    </div>
-  );
-};
-
-const TeamDetailLogo = ({ image }) => {
-  return (
-    <div className="flex items-center justify-center w-56 h-24 px-4">
-      <img
-        src={image}
-        alt="team-detail-logo"
-        className="max-h-full max-w-full object-contain"
-      />
-    </div>
-  );
-};
-
-const MatchCard = ({
-  headerText,
-  time,
-  date,
-  homeTeam,
-  awayTeam,
-  venue,
-  ticketLink,
-  CurrentTeam,
-  LogoDetails,
-}) => {
-  // Find the logos for the home and away teams
-  const homeTeamLogo = LogoDetails?.find(
-    (team) => team.name === CurrentTeam
-  ) || { logo: "" };
-
-  let opponentTeam = homeTeam === CurrentTeam ? awayTeam : homeTeam;
-  const awayTeamLogo = LogoDetails?.find(
-    (team) => team.name === opponentTeam
-  ) || { logo: "" };
-
-  const isAfter5PM = (() => {
-    if (!time) return false;
-    const match = time.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
-    if (!match) return false;
-
-    let [_, hours, minutes, meridiem] = match;
-    hours = parseInt(hours, 10);
-    minutes = parseInt(minutes, 10);
-    meridiem = meridiem.toUpperCase();
-
-    if (meridiem === "PM" && hours < 12) hours += 12;
-    if (meridiem === "AM" && hours === 12) hours = 0;
-
-    // Check if the match is scheduled after 5 PM (17:00)
-    return hours > 17 || (hours === 17 && minutes > 0);
-  })();
-
-  return (
-    <div className="bg-white shadow-lg  justify-between border-[rgba(194,194,194,1)] border-[2px] rounded-[10px] h-80 flex flex-col overflow-hidden">
-      {/* Header */}
-      <div className="relative h-1/4 w-full flex overflow-hidden ">
-        <div
-          className="flex flex-col justify-center  text-white w-[55%] h-full z-10 px-6 gap-1"
-          style={{
-            background:
-              "linear-gradient(90deg, #000000 0%, #000000 21.84%, #203376 101.04%)",
-            clipPath: "polygon(0% 0%, 80% 0%, 100% 100%, 0% 100%)",
-          }}
-        >
-          <span className="text-lg font-semibold">{date}</span>
-          <div className="flex flex-row gap-2">
-            <img
-              src={
-                isAfter5PM
-                  ? "/images/elements/moon.svg"
-                  : "/images/elements/sun.svg"
-              }
-              alt={isAfter5PM ? "moon" : "sun"}
-              style={{ height: "15px" }}
-            />
-            <span className="text-sm">{time}</span>
-          </div>
-        </div>
-
-        <div
-          className="absolute top-0 right-0 h-full flex items-center w-[60%] justify-center text-white text-lg font-semibold pl-8"
-          style={{
-            backgroundColor: "#003967",
-            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 20% 100%)",
-          }}
-        >
-          Upcoming
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className="flex h-3/4 flex-row justify-center gap-10 text-center items-center p-10">
-        <div className="w-[33%] flex flex-col justify-center items-center gap-6">
-          <img src={homeTeamLogo.logo} alt={homeTeam} />
-          <span className="text-sm font-semibold text-black">
-            {CurrentTeam}
-          </span>
-        </div>
-        <div className="w-[33%] flex flex-col justify-center items-center gap-6">
-          <span className="text-[rgba(224,126,39,1)] font-bold italic tracking-widest">
-            VS
-          </span>
-          <span className="text-[rgba(134,134,134,1)] text-xs font-semibold">
-            {headerText}
-          </span>
-        </div>
-        <div className="w-[33%] flex flex-col justify-center items-center gap-6">
-          <img src={awayTeamLogo.logo} alt={awayTeam} />
-          <span className="text-sm font-semibold text-black">
-            {awayTeam == CurrentTeam ? homeTeam : awayTeam}
-          </span>
         </div>
       </div>
     </div>
