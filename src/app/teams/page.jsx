@@ -3,7 +3,9 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import TeamSection from "@/components/teams/teamSec/TeamSection";
 import MeetMyTeam from "@/components/teams/meetMyTeam/MeetMyTeam";
+import Sponsorship from "@/components/common/Sponsorship";
 import { getTeamDetailsClient } from "@/app/api/clientApi";
+import LoadingPage from "@/app/loading";
 
 const MEN_TAB = "men";
 const WOMEN_TAB = "women";
@@ -119,11 +121,7 @@ export default function Teams() {
   const teamDetails = teams[selectedTeamIndex] || null;
 
   if (isLoading) {
-    return (
-      <div className="w-full min-h-screen py-32 text-center text-white bg-[#162362]">
-        Loading teams...
-      </div>
-    );
+    return <LoadingPage />;
   }
 
   if (error) {
@@ -148,6 +146,7 @@ export default function Teams() {
             womenTab={WOMEN_TAB}
           />
           <MeetMyTeam data={teamDetails} />
+          <Sponsorship />
         </>
       ) : (
         <div className="w-full py-20 text-center text-white">

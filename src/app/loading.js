@@ -17,7 +17,7 @@ export default function LoadingPage() {
   if (!showLoading) return null;
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-white fixed left-0 top-0 z-[1000] w-full">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-[#101b52] fixed left-0 top-0 z-[1000] w-full">
       <Lottie animationData={Animation} loop autoplay />
     </div>
   );
