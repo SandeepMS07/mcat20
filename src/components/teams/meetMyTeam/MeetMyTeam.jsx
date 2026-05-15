@@ -1,9 +1,16 @@
-import TitleComponent from "@/components/common/TitleComponent";
-import Image from "next/image";
 import React from "react";
+import { teamSubtitles } from "@/utilis/helper";
 import "./style.css";
 
-// To title case for player names
+const getTeamNameKey = (name = "") => name.replace(/\s*\(W\)\s*$/i, "").trim();
+
+const resolveTeamHeader = (rawName = "") => {
+  const key = getTeamNameKey(rawName);
+  const mapped = teamSubtitles[key];
+  if (mapped) return { name: mapped.name, subtitle: mapped.subtitle };
+  return { name: rawName, subtitle: "" };
+};
+
 const toTitleCaseWithInitials = (str) => {
   if (!str) return "";
 
@@ -16,7 +23,6 @@ const toTitleCaseWithInitials = (str) => {
     .slice(1)
     .map((word, index, arr) => {
       const initial = word.charAt(0).toUpperCase();
-      // Add dot only if it's NOT the last initial
       return index === arr.length - 1 ? initial : initial + ".";
     })
     .join(" ");
@@ -24,66 +30,120 @@ const toTitleCaseWithInitials = (str) => {
   return initials ? `${firstName} ${initials}` : firstName;
 };
 
-const MeetMyTeam = ({ data }) => {
-  const PlayerRecords = data?.Player_Registrations__r.records || [];
+const getFirstName = (str) => {
+  if (!str) return "";
+  const word = str.toLowerCase().split(" ").filter(Boolean)[0];
+  if (!word) return "";
+  return word.charAt(0).toUpperCase() + word.slice(1);
+};
 
-  // Group based on the role
+const getRestOfName = (str) => {
+  if (!str) return "";
+  return str.split(" ").filter(Boolean).slice(1).join(" ").toUpperCase();
+};
+
+const splitSecondaryName = (restName = "") => {
+  const parts = restName.split(" ").filter(Boolean);
+  if (parts.length <= 1) return { outlined: "", solid: restName, isSingleWord: true };
+  return {
+    outlined: parts.slice(0, -1).join(" "),
+    solid: parts[parts.length - 1],
+    isSingleWord: false,
+  };
+};
+
+const SECTION_CONFIG = [
+  { title: "Batters", roleKey: "Batsman" },
+  { title: "Bowlers", roleKey: "Bowler" },
+  { title: "All-Rounders", roleKey: "All - rounder" },
+  { title: "Wicket Keepers", roleKey: "Wicketkeeper" },
+];
+
+const MeetMyTeam = ({ data }) => {
+  const PlayerRecords = data?.Player_Registrations__r?.records || [];
+
   const groupedByRole = {};
 
   PlayerRecords.forEach((player) => {
     const role = player.Primary_Role__c;
     const id = player.Id;
-    const name = toTitleCaseWithInitials(player.Player__r?.Name) || "Unknown";
+    const fullName = player.Player__r?.Name || "";
+    const name = toTitleCaseWithInitials(fullName) || "Unknown";
+    const firstName = getFirstName(fullName);
+    const restName = getRestOfName(fullName);
     const rawImg = player.Player__r?.Photo_URL_1__c;
-    const img =
-      rawImg && rawImg.trim() !== ""
-        ? rawImg
-        : "";
+    const img = rawImg && rawImg.trim() !== "" ? rawImg : "";
 
-    const playerObj = {
-      id,
-      name,
-      img,
-      role,
-    };
+    const playerObj = { id, name, firstName, restName, img, role };
 
     if (!groupedByRole[role]) {
       groupedByRole[role] = [];
     }
-
     groupedByRole[role].push(playerObj);
   });
 
-  // console.log(groupedByRole);
+  const sections = SECTION_CONFIG.map((s) => ({
+    title: s.title,
+    players: groupedByRole[s.roleKey] || [],
+  })).filter((s) => s.players.length > 0);
+
+  const header = resolveTeamHeader(data?.Name || "");
 
   return (
-    <div className="bg-white relative ">
-      <img
-        src="/images/elements/section-element.png"
-        className="absolute right-0 top-0 md:block hidden"
-        alt="element"
-      />
-      <img
-        src="/images/elements/section-element.png"
-        className="absolute left-0 bottom-0 rotate-180 md:block hidden"
-        alt="element"
-      />
-      <div className="bg-white  pt-14 pb-10 section-width ">
-        <TitleComponent title="Meet the Team" />
-        <div className="w-full flex flex-col lg:flex-row justify-between">
-          <div className=" w-full lg:w-[48%] flex flex-col gap-10 mt-6">
-            <Table role="batsman" PlayerData={groupedByRole["Batsman"] || []} />
-            <Table role="bowlers" PlayerData={groupedByRole["Bowler"] || []} />
+    <div className="mtt-wrapper relative">
+      <div className="mtt-header-zone">
+        <div className="px-4 sm:px-6 md:px-10 lg:px-14 xl:px-20 pt-16 md:pt-24 pb-16 md:pb-24">
+          {/* Team header */}
+          <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-8 px-2 md:px-6 lg:px-10">
+            <div className="flex items-center justify-center w-[200px] h-[130px] md:w-[260px] md:h-[170px] shrink-0">
+              <img
+                src={data?.Logo_URL__c}
+                alt={`${header.name} logo`}
+                className="max-h-full max-w-full object-contain"
+              />
+            </div>
+            <div className="hidden sm:block w-px h-32 md:h-40 bg-white/30" />
+            <div className="text-white text-center sm:text-left">
+              <h2 className="text-2xl md:text-4xl font-bold leading-[1.15]">
+                {header.name}
+              </h2>
+              {header.subtitle ? (
+                <p className="mt-2 text-2xl md:text-4xl font-bold text-white leading-[1.15]">
+                  {header.subtitle}
+                </p>
+              ) : null}
+            </div>
           </div>
-          <div className=" w-full  lg:w-[48%] flex flex-col gap-10 mt-6">
-            <Table
-              role="All Rounder"
-              PlayerData={groupedByRole["All - rounder"] || []}
-            />
-            <Table
-              role="Wicket Keeper"
-              PlayerData={groupedByRole["Wicketkeeper"] || []}
-            />
+
+          <div className="mt-14 md:mt-20 h-px w-full bg-white/15" />
+
+          <h2 className="mtt-heading mt-14 md:mt-20 px-2 md:px-6 lg:px-10">
+            <span className="mtt-heading-thin">MEET</span>
+            <span className="mtt-heading-bold">THE TEAM</span>
+          </h2>
+        </div>
+      </div>
+
+      {/* Player cards container — extra width */}
+      <div className="px-2 sm:px-6 md:px-10 lg:px-14 xl:px-20 pb-12 md:pb-16">
+        <div className="mtt-cards-panel rounded-xl md:rounded-2xl p-3 sm:p-6 md:p-10 lg:p-12">
+          <div className="flex flex-col gap-20 md:gap-28">
+            {sections.length === 0 ? (
+              <p className="text-white/70 italic">
+                Players will be announced soon.
+              </p>
+            ) : (
+              sections.map((section) => (
+                <section key={section.title}>
+                  <h3 className="mtt-section-title px-2 md:px-3">{section.title}</h3>
+                  <div className="mt-6 md:mt-8 pt-4 md:pt-10 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-x-3 sm:gap-x-8 md:gap-x-10 lg:gap-x-12 gap-y-4 sm:gap-y-8 md:gap-y-20">
+                    {section.players.map((player) => (
+                      <PlayerCard key={player.id} player={player} />
+                    ))}
+                  </div>
+                </section>
+              ))
+            )}
           </div>
         </div>
       </div>
@@ -91,121 +151,45 @@ const MeetMyTeam = ({ data }) => {
   );
 };
 
-const Table = ({ role, PlayerData }) => {
+const PlayerCard = ({ player }) => {
+  const { outlined, solid, isSingleWord } = splitSecondaryName(player.restName);
+
   return (
-    <div className=" overflow-hidden">
-      <div className="relative ">
-        {/* This div goes below (behind) the pink one */}
-        <div
-          className="bg-[#001B31] w-full border-r-[25px] top-1  border-[#F15A22] h-10 sm:h-12 right-1 z-10 absolute"
-          style={{
-            clipPath: "polygon(0% 0%, 100% 0%, 97.8% 100%, 0% 100%)",
-          }}
-        ></div>
+    <div className="mtt-card">
+      <div className="mtt-card-gradient" aria-hidden />
+      <div className="mtt-card-stripes" aria-hidden />
 
-        {/* This is the pink/red top div */}
-        <div
-          className="bg-[#001B31] z-50 relative mr-2"
-          style={{
-            clipPath: "polygon(0% 0%, 100% 0%, 97.5% 100%, 0% 100%)",
-          }}
-        >
-          <h5
-            className="px-6 py-3 font-bold mb-3 uppercase text-transparent bg-clip-text"
-            style={{
-              backgroundImage:
-                "linear-gradient(180deg, #666666 14.89%, #FFFFFF 48.4%, #666666 81.91%)",
-            }}
-          >
-            {role}
-          </h5>
+      {player.img ? (
+        <img
+          src={player.img}
+          alt={player.name}
+          className="mtt-card-photo"
+          loading="lazy"
+        />
+      ) : (
+        <div className="mtt-card-photo-fallback">
+          <span>{player.firstName.charAt(0)}</span>
         </div>
-      </div>
+      )}
 
-      <div className=" text-white  space-y-3">
-        {(PlayerData || []).map((player, index) => (
-          <div
-            key={index}
-            className="flex items-center justify-between  relative "
-          >
-            {/* Number in separate div */}
-            <div className="flex z-50 pl-2   items-center">
-              <span className=" text-white">{index + 1}.</span>
-            </div>
-            <div
-              className="w-full border-r-[50px]  border-[#F15A22] h-10 z-20 absolute"
-              style={{
-                // backgroundColor: "#003967",
-                clipPath: "polygon(0% 0%, 100% 0%, 97.7% 100%, 0% 100%)",
-                background:
-                  "linear-gradient(to right, #E07E27 60%, #FFFFFF 71%, #E07E27 100%)",
-              }}
-            >
-              {/* Yellow border in separate div */}
-              <div className="custom-yellow-border"></div>
-
-              <div className="custom-black-gradient "></div>
-            </div>
-            {/* All other content in one div */}
-
-            <div
-              className="flex items-center justify-between bg-[#999FA4] border  z-50 px-10 py-2  relative w-[90%] custom-border-bg"
-              style={{
-                // backgroundColor: "#003967",
-
-                clipPath: "polygon(3% 0%, 100% 0%, 96% 100%, 0% 100%)",
-              }}
-            >
-              <div className="flex items-center gap-5 xl:gap-10">
-  <div className="h-11 w-11 rounded-full bg-[#c2bcbc] flex items-center justify-center overflow-hidden">
-     {player.img && player.img.trim() !== "" && (
-    <img
-      src={player.img}
-      alt="avatar"
-      width={50}
-      height={50}
-      className="w-full"
-    />
-    )}
-
-  </div>
-
-              </div>
-              <div className=" flex items-center justify-start w-[30%]">
-                <p className="text-[10px] md:text-base font-bold">
-                  {player.name}
-                </p>
-              </div>
-              <div className="w-[50%] flex items-center justify-between">
-                <img
-                  src={
-                    role == "batsman"
-                      ? "/images/teams/meetmyteam/Layer_1 (1).svg"
-                      : role == "bowlers"
-                      ? "/images/teams/meetmyteam/svg8.svg"
-                      : role == "All Rounder"
-                      ? "/images/teams/meetmyteam/Layer_1 (3).svg"
-                      : "/images/teams/meetmyteam/Layer_1 (4).svg"
-                  }
-                  alt="bat"
-                  width={350}
-                  height={350}
-                  className="mr-2 w-10 h-10"
-                />
-                <span className="text-[10px] md:text-base font-bold ">
-                  {player.role}
-                </span>
-                <img
-                  src="/images/teams/meetmyteam/uil_arrow.svg"
-                  alt="arrow"
-                  width={20}
-                  height={20}
-                  className="ml-2 w-7 h-7"
-                />
-              </div>
-            </div>
-          </div>
-        ))}
+      <div className="mtt-card-name">
+        <span className="mtt-firstname">{player.firstName.toUpperCase()}</span>
+        {player.restName ? (
+          <span className="mtt-restname">
+            {outlined ? <span className="mtt-restname-outline">{outlined}</span> : null}
+            {solid ? (
+              <span
+                className={
+                  isSingleWord
+                    ? "mtt-restname-outline mtt-restname-single"
+                    : "mtt-restname-solid"
+                }
+              >
+                {solid}
+              </span>
+            ) : null}
+          </span>
+        ) : null}
       </div>
     </div>
   );
