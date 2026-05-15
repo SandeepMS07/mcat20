@@ -100,7 +100,7 @@ const TeamSection = ({
             }}
           >
             <ul
-              className={`flex gap-3 md:gap-4 overflow-x-auto md:overflow-visible scrollbar-hide snap-x snap-mandatory ${
+              className={`flex gap-3 md:gap-4 overflow-x-auto md:overflow-x-auto md:overflow-y-hidden scrollbar-hide snap-x snap-mandatory ${
                 useCompactStrip ? "md:justify-center" : ""
               }`}
             >
@@ -124,10 +124,10 @@ const TeamSection = ({
                     onClick={() => handleLogoClick(index)}
                     aria-pressed={isActive}
                     aria-label={team?.Name}
-                    className={`group relative block w-full aspect-[4/3] md:aspect-[6/5] rounded-lg overflow-hidden border-2 transition-all duration-300 ${
+                    className={`group relative block w-full aspect-[4/3] md:aspect-[6/5] rounded-lg overflow-hidden border-0 transition-all duration-300 ${
                       isActive
-                        ? "border-white shadow-[0_8px_20px_rgba(0,0,0,0.45)] scale-[1.03]"
-                        : "border-transparent hover:border-white/40"
+                        ? "shadow-[0_8px_20px_rgba(0,0,0,0.45)] ring-2 ring-white/90"
+                        : "hover:ring-1 hover:ring-white/35"
                     }`}
                     style={gradientStyle}
                   >
