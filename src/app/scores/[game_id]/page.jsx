@@ -12,7 +12,7 @@ export async function generateStaticParams() {
 }
 
 export default async function MatchPage({ params }) {
-  const { game_id } = params;
+  const { game_id } = await params;
 
   // Dynamically build the file path
   // const filePath = path.resolve(
