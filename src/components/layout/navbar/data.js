@@ -31,7 +31,7 @@ export const navLinks = [
   },
   {
     title: "Fantasy",
-    path: `${"#"}`,
+    path: `${routes.fantasy}`,
   },
 
   // {

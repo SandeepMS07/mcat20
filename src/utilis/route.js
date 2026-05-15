@@ -26,6 +26,7 @@ const routes = {
   pointsTable: "/points-table",
 
   videos: "/videos",
+  fantasy: "/fantasy",
 
   privacyPolicy: "/privacy_policy",
   // social links
