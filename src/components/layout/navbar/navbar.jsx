@@ -94,17 +94,6 @@ const Navbar = () => {
                     </Link>
                   </li>
                 ))}
-
-                <a
-                  href={"/auction-info"}
-                  s
-                  className="px-4 py-1.5 md:px-6 md:py-1.5   rounded-full   text-white text-sm md:text-base text-center cursor-pointer flex gap-4 items-center"
-                  style={{
-                    backgroundColor: "#F68323",
-                  }}
-                >
-                  Tickets
-                </a>
               </ul>
             </div>
 
