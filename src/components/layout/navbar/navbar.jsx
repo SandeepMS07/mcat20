@@ -15,17 +15,29 @@ const Navbar = () => {
   const pathName = usePathname();
 
   if (pathName === "/auction-info") return;
+  const matchesPageBg =
+    pathName.includes(routes.fixtures) || pathName.startsWith("/scores");
   return (
     <div
       className={
-        pathName.includes(routes.fixtures) ||
-        pathName.startsWith("/scores") ||
-        pathName.includes(routes.matchcentre) ||
-        pathName.includes(routes.yourPhotos)
+        matchesPageBg
+          ? "relative bg-[#091d65] lg:h-[120px] h-[85px]"
+          : pathName.includes(routes.matchcentre) ||
+            pathName.includes(routes.yourPhotos)
           ? "bg-gradient-to-r from-[#060A17] to-[#203376] lg:h-[120px] h-[85px]"
           : ""
       }
     >
+      {matchesPageBg && (
+        <>
+          <div
+            className="pointer-events-none absolute inset-0 bg-no-repeat bg-cover bg-top opacity-90"
+            style={{ backgroundImage: "url('/images/fixtures/fixtures-bg.svg')" }}
+            aria-hidden="true"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-[rgba(13,55,169,0.55)]" />
+        </>
+      )}
       <div className="absolute top-0 z-50 w-full overflow-hidden bg-[#F68323] py-1">
         <div className="flex w-max animate-[topMarquee_25s_linear_infinite] items-center whitespace-nowrap">
           {[...Array(2)].map((_, groupIdx) => (

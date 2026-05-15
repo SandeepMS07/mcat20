@@ -1,717 +1,569 @@
-"use client"; // This is required to mark this as a client-side component
+"use client";
 import React, { useState } from "react";
-import Image from "next/image";
-import Hero from "@/components/hero/Hero";
-import "./styles.css";
-import routes from "@/utilis/route";
-import TitleComponent from "@/components/common/TitleComponent";
-function ScoreCard({ match }) {
+import { useRouter } from "next/navigation";
+
+const ArrowLeftIcon = ({ className = "w-4 h-4" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+    <path d="M19 12H5M12 19l-7-7 7-7" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const PinIcon = ({ className = "w-4 h-4" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+    <path d="M12 22s7-7.16 7-12a7 7 0 10-14 0c0 4.84 7 12 7 12z" strokeLinejoin="round" />
+    <circle cx="12" cy="10" r="2.5" />
+  </svg>
+);
+
+const ClockIcon = ({ className = "w-4 h-4" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M12 7v5l3 2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const teamLogoForName = (name) => {
+  if (!name) return "/images/fixtures/logoPlaceHolder.png";
+  return `/images/fixtures/${encodeURIComponent(name)}.svg`;
+};
+
+const InningsPillToggle = ({ home, away, homeShort, awayShort, value, onChange }) => (
+  <div className="flex items-center gap-1 rounded-full p-1 bg-[#091d65] border border-white/80 w-full max-w-full sm:w-auto sm:max-w-[640px] mx-auto overflow-hidden">
+    {[
+      { value: "home", label: home, short: homeShort || home },
+      { value: "away", label: away, short: awayShort || away },
+    ].map((opt) => {
+      const active = value === opt.value;
+      return (
+        <button
+          key={opt.value}
+          type="button"
+          onClick={() => onChange(opt.value)}
+          className={`flex-1 sm:flex-none min-w-0 px-3 sm:px-5 md:px-6 py-1.5 rounded-full text-[11px] sm:text-xs md:text-sm font-medium italic uppercase tracking-wide transition-colors truncate ${
+            active
+              ? "bg-white text-[#192a66]"
+              : "bg-transparent text-white hover:bg-white/10"
+          }`}
+          title={opt.label}
+        >
+          <span className="sm:hidden">{opt.short}</span>
+          <span className="hidden sm:inline">{opt.label}</span>
+        </button>
+      );
+    })}
+  </div>
+);
+
+const TeamColumn = ({ name, logo, score, overs, wickets, winner, align = "left" }) => {
+  const scoreStr =
+    score !== undefined && score !== null
+      ? wickets !== undefined && wickets !== null
+        ? `${score}/${wickets}`
+        : `${score}`
+      : "";
+  return (
+    <div className="flex flex-col gap-3 min-w-0">
+      <div
+        className={`flex items-center gap-3 sm:gap-4 min-w-0 ${
+          align === "right" ? "flex-row-reverse text-right" : "flex-row text-left"
+        }`}
+      >
+        <div
+          className={`shrink-0 size-14 sm:size-[64px] md:size-[72px] rounded-full bg-white border ${
+            winner ? "border-[#ef4123]" : "border-[#af313a]"
+          } flex items-center justify-center p-1 overflow-hidden`}
+        >
+          <img
+            src={logo}
+            alt={`${name} logo`}
+            onError={(e) => {
+              e.currentTarget.src = "/images/fixtures/logoPlaceHolder.png";
+            }}
+            className="size-full object-contain"
+          />
+        </div>
+        <div className="min-w-0 text-white font-extrabold uppercase text-[12px] sm:text-sm md:text-[15px] lg:text-base leading-tight tracking-wide line-clamp-2">
+          {name}
+        </div>
+      </div>
+      {scoreStr && (
+        <div className="flex flex-col items-center gap-0.5">
+          <span
+            className={`font-semibold text-2xl sm:text-3xl md:text-[34px] leading-none ${
+              winner ? "text-[#ef4123]" : "text-white"
+            }`}
+          >
+            {scoreStr}
+          </span>
+          {overs && (
+            <span className="text-[10px] sm:text-[11px] text-slate-400 font-medium">
+              ({overs} OV)
+            </span>
+          )}
+        </div>
+      )}
+    </div>
+  );
+};
+
+const SectionCard = ({ children, className = "" }) => (
+  <div
+    className={`rounded-lg bg-white/10 border-2 border-white/5 overflow-hidden ${className}`}
+  >
+    {children}
+  </div>
+);
+
+const StatsTable = ({ headers, rows, colGridClass }) => (
+  <div className="overflow-x-auto">
+    <div className="min-w-[720px]">
+      <div
+        className={`grid ${colGridClass} bg-white/5 px-4 sm:px-6 py-3 border-b border-white/10`}
+      >
+        {headers.map((h, i) => (
+          <div
+            key={i}
+            className={`text-[11px] sm:text-xs font-extrabold italic uppercase tracking-[0.1em] text-slate-400 ${
+              i === 0 || i === 1 ? "text-left" : "text-center"
+            }`}
+          >
+            {h}
+          </div>
+        ))}
+      </div>
+      <div className="divide-y divide-white/5">
+        {rows.map((row, i) => (
+          <div
+            key={i}
+            className={`grid ${colGridClass} px-4 sm:px-6 py-3 sm:py-4 items-center hover:bg-white/5 transition-colors`}
+          >
+            {row.map((cell, j) => (
+              <div
+                key={j}
+                className={`text-white text-[13px] sm:text-sm font-medium ${
+                  j === 0 || j === 1 ? "text-left" : "text-center"
+                } ${j === 0 ? "font-semibold" : ""} ${
+                  j === 1 ? "text-slate-400 text-[11px] sm:text-xs" : ""
+                }`}
+              >
+                {cell}
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+);
+
+export default function ScoreCard({ match }) {
+  const router = useRouter();
+  const handleBack = () => {
+    if (typeof window !== "undefined" && window.history.length > 1) {
+      router.back();
+    } else {
+      router.push("/fixtures");
+    }
+  };
+
   const homeId = match.Matchdetail.Team_Home;
   const awayId = match.Matchdetail.Team_Away;
   const teams = match.Teams;
   const innings = match.Innings || [];
-  const venue = match.Matchdetail.Venue.Name.toLowerCase()
-    .replace(/mumbai/i, "")
-    .replace(/,/g, "")
-    .trim()
-    .split(" ")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
-  const matchTime = match.Matchdetail.Match.Time;
-  const matchNumber = match.Matchdetail.Match.Number.replace(
-    "Match",
-    ""
-  ).trim();
-  const stauts = match.Matchdetail.Status;
-  const matchDate = match.Matchdetail.Match.Date;
-  // console.log(match.Matchdetail.Match.Date)
+
+  const venue = match.Matchdetail?.Venue?.Name || "";
 
   const homeTeam = teams[homeId];
   const awayTeam = teams[awayId];
-  const homeTeamName = homeTeam?.Name_Full ?? "Unknown Team";
-  const awayTeamName = awayTeam?.Name_Full ?? "Unknown Team";
+  const homeTeamName = homeTeam?.Name_Full ?? "Home Team";
+  const awayTeamName = awayTeam?.Name_Full ?? "Away Team";
+  const homeTeamShort = homeTeam?.Name_Short ?? homeTeamName;
+  const awayTeamShort = awayTeam?.Name_Short ?? awayTeamName;
 
-  const homeLogo = `/images/fixtures/${homeTeam?.Name_Short?.toLowerCase()}.svg`;
-  const awayLogo = `/images/fixtures/${awayTeam?.Name_Short?.toLowerCase()}.svg`;
+  const homeLogo = teamLogoForName(homeTeamName);
+  const awayLogo = teamLogoForName(awayTeamName);
 
   const homeInnings = innings.find((i) => i.Battingteam === homeId) || {};
   const awayInnings = innings.find((i) => i.Battingteam === awayId) || {};
 
-  const [activeInnings, setActiveInnings] = useState("home"); // 'home' or 'away'
+  const result = match.Matchdetail.Equation || "";
 
-  const batting =
-    (activeInnings === "home" ? homeInnings : awayInnings).Batsmen || [];
+  // Determine winner: the team mentioned BEFORE "beat/won" is the winner
+  const winnerName = (() => {
+    if (!result) return "";
+    const lower = result.toLowerCase();
+    const beatIdx = lower.search(/\b(beat|won)\b/);
+    if (beatIdx === -1) return "";
+    const winnerPart = result.slice(0, beatIdx).trim().toLowerCase();
+    if (winnerPart.includes(homeTeamName.toLowerCase())) return homeTeamName;
+    if (winnerPart.includes(awayTeamName.toLowerCase())) return awayTeamName;
+    return "";
+  })();
+  const homeWinner = winnerName === homeTeamName;
+  const awayWinner = winnerName === awayTeamName;
+
+  const [activeInnings, setActiveInnings] = useState("home");
+
+  const currentInnings = activeInnings === "home" ? homeInnings : awayInnings;
+  const currentTeamId = activeInnings === "home" ? homeId : awayId;
+  const opposingTeamId = activeInnings === "home" ? awayId : homeId;
+  const currentTeamName = activeInnings === "home" ? homeTeamName : awayTeamName;
+  const opposingTeamName = activeInnings === "home" ? awayTeamName : homeTeamName;
+  const currentTeamLogo = activeInnings === "home" ? homeLogo : awayLogo;
+  const opposingTeamLogo = activeInnings === "home" ? awayLogo : homeLogo;
+
+  const batting = currentInnings.Batsmen || [];
+  const bowlers = currentInnings.Bowlers || [];
+
   const extras = {
-    byes: Number(
-      (activeInnings === "home" ? homeInnings : awayInnings).Byes || 0
-    ),
-    legByes: Number(
-      (activeInnings === "home" ? homeInnings : awayInnings).Legbyes || 0
-    ),
-    wides: Number(
-      (activeInnings === "home" ? homeInnings : awayInnings).Wides || 0
-    ),
-    noBalls: Number(
-      (activeInnings === "home" ? homeInnings : awayInnings).Noballs || 0
-    ),
-    penalty: Number(
-      (activeInnings === "home" ? homeInnings : awayInnings).Penalty || 0
-    ),
+    byes: Number(currentInnings.Byes || 0),
+    legByes: Number(currentInnings.Legbyes || 0),
+    wides: Number(currentInnings.Wides || 0),
+    noBalls: Number(currentInnings.Noballs || 0),
+    penalty: Number(currentInnings.Penalty || 0),
   };
   extras.total = Object.values(extras).reduce((sum, v) => sum + v, 0);
 
-  const fallOfWickets =
-    (activeInnings === "home" ? homeInnings : awayInnings).FallofWickets || [];
-  const partnerships =
-    (activeInnings === "home" ? homeInnings : awayInnings).Partnerships || [];
-
-  const switchTab = (inningsType) => {
-    setActiveInnings(inningsType);
-  };
-
-  const getBowlerName = (bowlerId) => {
-    const bowlerPlayer = Object.values(
-      teams[activeInnings === "home" ? awayId : homeId].Players
-    ).find((player) => player.Position === bowlerId);
-    return bowlerPlayer?.Name_Full || "Unknown Bowler";
-  };
-
+  const fallOfWickets = currentInnings.FallofWickets || [];
   const didNotBat = batting.filter((p) => !p.Howout);
+  const dismissed = batting.filter((p) => p.Howout);
 
-  const oppositeTeamName =
-    activeInnings === "home" ? awayTeamName : homeTeamName;
+  const battingHeaders = ["Batter", "Dismissal", "R", "B", "4s", "6s", "S/R"];
+  const battingColGrid = "grid-cols-[2.5fr_3fr_0.7fr_0.7fr_0.7fr_0.7fr_0.9fr] gap-2";
+  const battingRows = dismissed.map((p) => {
+    const name = teams[currentTeamId]?.Players[p.Batsman]?.Name_Full || "—";
+    return [
+      name,
+      p.Howout || "",
+      p.Runs,
+      p.Balls,
+      p.Fours,
+      p.Sixes,
+      p.Strikerate,
+    ];
+  });
+
+  const bowlingHeaders = ["Bowler", "O", "M", "R", "W", "NB", "WD", "E/R"];
+  const bowlingColGrid = "grid-cols-[3fr_0.7fr_0.7fr_0.7fr_0.7fr_0.7fr_0.7fr_0.9fr] gap-2";
+  const bowlingRows = bowlers.map((b) => {
+    const name = teams[opposingTeamId]?.Players[b.Bowler]?.Name_Full || "—";
+    return [
+      name,
+      "", // empty cell for dismissal column alignment — actually bowling has different headers
+    ];
+  });
+  // Rebuild bowling rows properly (without dismissal column)
+  const bowlingRowsFinal = bowlers.map((b) => {
+    const name = teams[opposingTeamId]?.Players[b.Bowler]?.Name_Full || "—";
+    return [
+      name,
+      b.Overs,
+      b.Maidens,
+      b.Runs,
+      b.Wickets,
+      b.Noballs,
+      b.Wides,
+      b.Economyrate,
+    ];
+  });
 
   return (
-    <>
-      {/* <Hero
-        imgUrl="/images/scorecard/matchCentreBg.png"
-        heading="Match Centre"
-        subheading=""
-      /> */}
-      <div className="relative">
-        <img
-          src="/images/elements/section-element.png"
-          className="absolute right-0 top-0 md:block hidden"
-          alt="element"
-        />
-        <img
-          src="/images/elements/section-element.png"
-          className="absolute left-0 bottom-0 rotate-180 md:block hidden"
-          alt="element"
-        />
-        <div className="section-width pt-12">
-          <div>
-            <TitleComponent title={"Match Centre"} />
-          </div>
-          <div className="rounded-md border overflow-hidden text-black">
-            {/* Header */}
-            <div className="relative bg-[#001B31] text-white text-sm md:text-base lg:text-lg font-semibold px-4 py-2 flex justify-between items-center">
-              {/* <div
-              className="absolute top-0 right-0 h-full w-[200px] md:w-[250px] bg-gradient-to-r from-[#203376] via-black to-black flex items-center justify-center text-xs md:text-sm lg:text-base font-bold"
-              style={{
-                clipPath: "polygon(20% 0%,100% 0%,100% 100%,0% 100%)",
-              }}
-            >
-              {match.matchInfo.location
-                .toLowerCase()
-                .replace(/mumbai/i, "")
-                .replace(/,/g, "")
-                .trim()
-                .split(" ")
-                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                .join(" ")}
-            </div> */}
-            </div>
+    <div className="relative bg-[#091d65] min-h-screen w-full overflow-x-hidden">
+      <div
+        className="pointer-events-none absolute inset-0 bg-no-repeat bg-cover bg-top opacity-90"
+        style={{ backgroundImage: "url('/images/fixtures/fixtures-bg.svg')" }}
+        aria-hidden="true"
+      />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[480px] bg-gradient-to-b from-[rgba(13,55,169,0.55)] via-[rgba(13,55,169,0.25)] to-transparent" />
 
-            {/* Teams & Scores */}
-            <div className="flex flex-col lg:flex-row w-full">
-              <div className="lg:w-full  p-3">
-                {/* <div className="lg:w-[calc(100%-250px)]  p-3"> */}
-                {/* Team 1 */}
-                <div className="flex flex-row items-center justify-between">
-                  <div className="flex max-md:flex-1 lg:flex-row flex-col lg:justify-between justify-center items-center gap-3 md:w-[35%] text-center">
-                    <img
-                      src={
-                        `/images/scorecard/${homeTeamName}.svg` ||
-                        "/images/fixtures/logoPlaceHolder.png"
-                      }
-                      alt={`${homeTeamName} logo`}
-                      width={50}
-                      height={60}
-                      className="object-contain md:h-28 md:w-28 h-16 w-16"
-                    />
-                    <div className="text-center">
-                      <div className="text-[10px] lg:text-left text-center sm:text-base font-semibold uppercase">
-                        {homeTeamName}
-                      </div>
-                    </div>
+      <div className="section-width relative z-10 py-10 md:py-14 lg:py-16 w-full">
+        {/* Back button */}
+        <button
+          type="button"
+          onClick={handleBack}
+          className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/15 border border-white/30 text-white text-xs sm:text-sm font-extrabold italic uppercase tracking-wide rounded-full px-4 sm:px-5 py-2 mb-6 md:mb-8 transition-colors"
+        >
+          <ArrowLeftIcon className="w-4 h-4" />
+          Back
+        </button>
 
-                    {homeInnings.Total && (
-                      <div className="text-2xl font-bold">
-                        {homeInnings.Total} <br />
-                        {homeInnings.Total && `(${homeInnings.Overs})`}
-                      </div>
-                    )}
-                  </div>
-                  <div className="flex flex-col justify-center items-center">
-                    <div className="text-base sm:text-2xl font-semibold">
-                      vs
-                    </div>
-                    {match.status && (
-                      <div className="text-xs text-gray-600 mt-1">
-                        {match.status}
-                      </div>
-                    )}
-                  </div>
-                  {/* Team 2 */}
-                  <div className="flex max-md:flex-1 lg:flex-row flex-col lg:justify-between justify-center items-center gap-3 w-full md:w-[40%] text-center">
-                    {awayInnings.Total && (
-                      <div className="text-2xl font-bold">
-                        {awayInnings.Total} <br />
-                        {awayInnings.Overs && `(${awayInnings.Overs})`}
-                      </div>
-                    )}
+        {/* Page heading */}
+        <h2 className="font-extrabold italic uppercase leading-[0.95] tracking-tight mb-8 md:mb-10">
+          <span
+            className="block text-[36px] sm:text-[44px] md:text-[52px] lg:text-[56px]"
+            style={{
+              background:
+                "radial-gradient(80% 100% at 50% 50%, #FFF200 0%, #FBB040 95%)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              color: "transparent",
+            }}
+          >
+            MATCH
+          </span>
+          <span className="block text-white text-[36px] sm:text-[44px] md:text-[52px] lg:text-[56px]">
+            CENTRE
+          </span>
+        </h2>
 
-                    <img
-                      src={
-                        `/images/scorecard/${awayTeamName}.svg` ||
-                        "/images/fixtures/logoPlaceHolder.png"
-                      }
-                      alt={`${awayTeamName} logo`}
-                      width={50}
-                      height={60}
-                      className="object-contain md:h-28 h-16 w-16 md:w-28"
-                    />
-                    <div className="text-center">
-                      <div className="text-[10px] sm:text-base lg:text-left text-center font-semibold uppercase">
-                        {awayTeamName}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex justify-center py-4">
-                  <span className="md:text-sm text-xs font-medium uppercase bg-[#001B31] text-center py-2 rounded-lg  px-6 text-white">
-                    {match.Matchdetail.Equation}
-                  </span>
-                </div>
+        {/* Match summary card */}
+        <SectionCard className="mb-8 md:mb-10">
+          <div className="p-4 sm:p-6 md:p-8 flex flex-col gap-5 md:gap-6">
+            {venue && (
+              <div className="flex items-center gap-2 text-slate-400 pb-4 border-b border-white/10">
+                <PinIcon className="w-4 h-4 shrink-0" />
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.1em]">
+                  {venue}
+                </span>
               </div>
+            )}
 
-              {/* Match Info */}
-              {/* <div className="bg-[#F5F5F5] flex lg:flex-col items-center md:items-start text-left lg:px-12 lg:py-8 sm:p-6 p-4 lg:w-[250px] lg:justify-start justify-between">
-              <div className="flex lg:flex-col justify-between w-full">
-                <div className="">
-                  <p className="text-xs sm:text-base font-bold text-[#E07E27]">
-                    MATCH INFO
-                  </p>
-                  <p className="lg:hidden block">{matchDate}</p>
-                </div>
-                <div className="text-base font-semibold leading-tight mb-1 lg:pt-2 fl ex lg:flex-col flex-row gap-2">
-                  <div className="lg:block hidden">
-                     <p>{match.matchInfo.date}</p> 
+            <div className="grid grid-cols-[1fr_auto_1fr] items-start gap-3 sm:gap-6 w-full min-w-0">
+              <TeamColumn
+                name={homeTeamName}
+                logo={homeLogo}
+                score={homeInnings.Total}
+                overs={homeInnings.Overs}
+                wickets={homeInnings.Wickets}
+                winner={homeWinner}
+                align="left"
+              />
+              <div className="px-2 sm:px-4 shrink-0 flex flex-col items-center self-center">
+                <div className="-skew-x-12">
+                  <div className="font-black italic text-white text-2xl sm:text-3xl md:text-[34px] leading-none tracking-wider">
+                    V/S
                   </div>
                 </div>
               </div>
-            </div> */}
+              <TeamColumn
+                name={awayTeamName}
+                logo={awayLogo}
+                score={awayInnings.Total}
+                overs={awayInnings.Overs}
+                wickets={awayInnings.Wickets}
+                winner={awayWinner}
+                align="right"
+              />
             </div>
-          </div>
 
-          <div className="w-full overflow-x-auto ">
-            <div className="w-full">
-              <div className="min-w-[1000px]">
-                {/* Tabs for switching innings */}
-                <div className="flex justify-center mt-10 bg-transparent rounded-t-lg bg-gradient-to-r from-[#203376] via-black to-[#203376] min-w-[800px]">
-                  <button
-                    onClick={() => switchTab("home")}
-                    className={`flex-1 px-4 py-2 text-center ${
-                      activeInnings === "home"
-                        ? "text-orange-500 border-b-4 border-orange-500"
-                        : "bg-transparent text-white"
-                    }`}
-                  >
-                    {homeTeamName}
-                  </button>
-                  <button
-                    onClick={() => switchTab("away")}
-                    className={`flex-1 px-4 py-2 text-center ${
-                      activeInnings === "away"
-                        ? "text-orange-500 border-b-4 border-orange-500"
-                        : "bg-transparent text-white"
-                    }`}
-                  >
-                    {awayTeamName}
-                  </button>
-                </div>
-
-                {/* Scorecard */}
-                <div className="bg-white  shadow-md mb-8 ">
-                  <div className="flex items-center bg-[#0F1A2D] rounded-b-lg text-white px-6 py-4">
-                    <div className="flex items-center space-x-3 flex-1">
-                      <Image
-                        src={
-                          activeInnings === "home"
-                            ? `/images/scorecard/${homeTeamName}.svg`
-                            : `/images/scorecard/${awayTeamName}.svg`
-                        }
-                        alt={
-                          activeInnings === "home" ? homeTeamName : awayTeamName
-                        }
-                        width={100}
-                        height={100}
-                      />
-                      <span className="uppercase font-medium">
-                        {activeInnings === "home" ? homeTeamName : awayTeamName}
-                      </span>
-                    </div>
-                    <div className="text-sm">
-                      <span className="font-semibold">
-                        {
-                          (activeInnings === "home" ? homeInnings : awayInnings)
-                            .Total
-                        }
-                        /
-                        {
-                          (activeInnings === "home" ? homeInnings : awayInnings)
-                            .Wickets
-                        }
-                      </span>
-                      <span className="ml-2">
-                        (
-                        {
-                          (activeInnings === "home" ? homeInnings : awayInnings)
-                            .Overs
-                        }{" "}
-                        Overs)
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Batting Table */}
-                  <div className="overflow-x-auto  text-white  mt-3  py-4">
-                    <div className="w-full overflow-auto">
-                      <table className="w-full table-auto border-collapse text-sm relative min-w-[800px]">
-                        {/* Top decorative border */}
-                        <div
-                          className="bg-[#001B31] w-[100%] border-r-[50px] top-3 border-[#F15A22] h-10 z-10 absolute"
-                          style={{
-                            clipPath:
-                              "polygon(0% 0%, 100% 0%, 98% 100%, 0% 100%)",
-                          }}
-                        />
-
-                        {/* Custom styled header */}
-                        <thead
-                          className="bg-[#999FA4] m-1 italic z-50 relative mb-4 mr-2  custom-heading-border"
-                          style={{
-                            clipPath:
-                              "polygon(0% 0%, 100% 0%, 97% 100%, 0% 100%)",
-                          }}
-                        >
-                          <tr>
-                            <div className="grid grid-cols-[3fr_2.5fr_1fr_1fr_1fr_1fr_1fr] w-full ">
-                              <th
-                                className="py-4  pl-[2rem] text-left font-bold text-2xl  uppercase text-transparent bg-clip-text"
-                                style={{
-                                  backgroundImage:
-                                    "linear-gradient(180deg, #666666 20.89%, #FFFFFF 48.4%, #666666 80.91%)",
-                                  WebkitBackgroundClip: "text",
-                                  WebkitTextFillColor: "transparent",
-                                }}
-                              >
-                                Batting
-                              </th>
-                              <th
-                                className="py-4 text-left font-bold text-2xl text-transparent bg-clip-text whitespace-nowrap"
-                                style={{
-                                  backgroundImage:
-                                    "linear-gradient(180deg, #666666 20.89%, #FFFFFF 48.4%, #666666 80.91%)",
-                                  WebkitBackgroundClip: "text",
-                                  WebkitTextFillColor: "transparent",
-                                }}
-                              ></th>
-                              <th
-                                className="py-4 text-center font-bold text-2xl text-transparent  uppercase bg-clip-text"
-                                style={{
-                                  backgroundImage:
-                                    "linear-gradient(180deg, #666666 20.89%, #FFFFFF 48.4%, #666666 80.91%)",
-                                  WebkitBackgroundClip: "text",
-                                  WebkitTextFillColor: "transparent",
-                                }}
-                              >
-                                R
-                              </th>
-                              <th
-                                className="py-4 text-center font-bold text-2xl text-transparent  uppercase bg-clip-text"
-                                style={{
-                                  backgroundImage:
-                                    "linear-gradient(180deg, #666666 20.89%, #FFFFFF 48.4%, #666666 80.91%)",
-                                  WebkitBackgroundClip: "text",
-                                  WebkitTextFillColor: "transparent",
-                                }}
-                              >
-                                B
-                              </th>
-                              <th
-                                className="py-4 text-center font-bold text-2xl text-transparent  uppercase bg-clip-text"
-                                style={{
-                                  backgroundImage:
-                                    "linear-gradient(180deg, #666666 20.89%, #FFFFFF 48.4%, #666666 80.91%)",
-                                  WebkitBackgroundClip: "text",
-                                  WebkitTextFillColor: "transparent",
-                                }}
-                              >
-                                4S
-                              </th>
-                              <th
-                                className="py-4 text-center font-bold text-2xl  uppercase text-transparent bg-clip-text"
-                                style={{
-                                  backgroundImage:
-                                    "linear-gradient(180deg, #666666 20.89%, #FFFFFF 48.4%, #666666 80.91%)",
-                                  WebkitBackgroundClip: "text",
-                                  WebkitTextFillColor: "transparent",
-                                }}
-                              >
-                                6S
-                              </th>
-                              <th
-                                className="py-4 pr-[13px] text-center text-2xl  uppercase font-bold text-transparent bg-clip-text"
-                                style={{
-                                  backgroundImage:
-                                    "linear-gradient(180deg, #666666 20.89%, #FFFFFF 48.4%, #666666 80.91%)",
-                                  WebkitBackgroundClip: "text",
-                                  WebkitTextFillColor: "transparent",
-                                }}
-                              >
-                                S/R
-                              </th>
-                            </div>
-                          </tr>
-                        </thead>
-
-                        <tbody>
-                          {batting
-                            .filter((p) => p.Howout)
-                            .map((p, i) => (
-                              <tr key={i} className="relative mt-6 mb-6">
-                                {/* Background orange border div for data row */}
-                                <td colSpan="7" className="relative p-0">
-                                  <div
-                                    className="bg-[#001B31] w-[100%] border-r-[50px] border-[#F15A22] top-4 h-10 z-10 absolute"
-                                    style={{
-                                      clipPath:
-                                        "polygon(0% 0%, 100% 0%, 98% 100%, 0% 100%)",
-                                    }}
-                                  />
-
-                                  {/* Data row with same design as header */}
-                                  <div
-                                    className="bg-[#999FA4] my-1 italic z-50 relative custom-heading-border"
-                                    style={{
-                                      clipPath:
-                                        "polygon(0% 0%, 100% 0%, 97% 100%, 0% 100%)",
-                                    }}
-                                  >
-                                    <div className="grid grid-cols-[3fr_2.5fr_1fr_1fr_1fr_1fr_1fr] w-full">
-                                      <div className="py-4 pl-[2rem] text-left text-lg font-medium  text-white whitespace-nowrap overflow-hidden text-ellipsis">
-                                        {
-                                          teams[
-                                            activeInnings === "home"
-                                              ? homeId
-                                              : awayId
-                                          ].Players[p.Batsman]?.Name_Full
-                                        }
-                                      </div>
-                                      <div className="py-4 text-left text-lg font-medium  text-white whitespace-nowrap overflow-hidden text-ellipsis">
-                                        {p.Howout}
-                                      </div>
-                                      <div className="py-4 text-center text-lg font-medium text-white">
-                                        {p.Runs}
-                                      </div>
-                                      <div className="py-4 text-center text-lg font-medium text-white">
-                                        {p.Balls}
-                                      </div>
-                                      <div className="py-4 text-center text-lg font-medium text-white">
-                                        {p.Fours}
-                                      </div>
-                                      <div className="py-4 text-center text-lg font-medium text-white">
-                                        {p.Sixes}
-                                      </div>
-                                      <div className="py-4 pr-[13px] text-center text-lg font-medium text-white">
-                                        {p.Strikerate}
-                                      </div>
-                                    </div>
-                                  </div>
-                                </td>
-                              </tr>
-                            ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-
-                  {/* Did Not Bat */}
-                  {didNotBat.length > 0 && (
-                    <div className="bg-[#0F1A2D] mt-6 text-white  py-4 border rounded-lg border-gray-700 ">
-                      <div className="uppercase text-2xl border-b-[2px] px-6  font-bold pb-3">
-                        Did Not Bat
-                      </div>
-                      <ul className="text-sm px-6">
-                        {didNotBat.map((p, i) => (
-                          <li key={i} className="py-2 text-lg">
-                            {
-                              teams[activeInnings === "home" ? homeId : awayId]
-                                .Players[p.Batsman]?.Name_Full
-                            }
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="sm:my-20 my-10 ">
-            {fallOfWickets.length > 0 && (
-              <div className="bg-[#E5EBFF] px-4 border-[#0A3C7E] border-[2px] rounded-lg pb-5">
-                <div className="flex items-center">
-                  <Image
-                    src={
-                      activeInnings === "home"
-                        ? `/images/scorecard/${homeTeamName}.svg`
-                        : `/images/scorecard/${awayTeamName}.svg`
-                    }
-                    alt={activeInnings === "home" ? homeTeamName : awayTeamName}
-                    width={100}
-                    height={100}
-                    className="my-5"
-                  />
-                  <h3 className="text-2xl font-semibold text-black uppercase">
-                    Fall of Wickets
-                  </h3>
-                </div>
-                <div className="text-black">
-                  {fallOfWickets.map((wicket, index) => (
-                    <span key={index}>
-                      <span className="font-bold"> {wicket.Score}</span> (
-                      {
-                        teams[activeInnings === "home" ? homeId : awayId]
-                          .Players[wicket.Batsman]?.Name_Full
-                      }
-                      , {wicket.Overs} Overs),
-                    </span>
-                  ))}
-                </div>
+            {result && (
+              <div className="flex justify-center pt-2">
+                <span className="inline-block bg-[#ef4123] text-white text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.12em] rounded-md px-5 py-2.5 text-center">
+                  {result}
+                </span>
               </div>
             )}
           </div>
+        </SectionCard>
 
-          <div className="w-full overflow-x-auto">
-            <div className="w-full">
-              {/* Bowling Stats */}
-              <div className=" text-white rounded-lg mb-10 min-w-[1000px]">
-                <div className="flex items-center bg-[url('/images/scorecard/bgcard.svg')] rounded-lg mb-6">
-                  <Image
-                    src={
-                      activeInnings === "home"
-                        ? `/images/scorecard/${awayTeamName}.svg`
-                        : `/images/scorecard/${homeTeamName}.svg`
-                    }
-                    alt={activeInnings === "home" ? homeTeamName : awayTeamName}
-                    width={100}
-                    height={100}
-                    className="my-5"
-                  />
-                  <h3 className="text-xl font-semibold mb-4">
-                    {oppositeTeamName}
-                  </h3>
-                </div>
-                {/* Bowling Table */}
-                <div className="overflow-x-auto text-white mt-3 py-4">
-                  <div className="w-full overflow-auto">
-                    <table className="w-full table-auto border-collapse text-sm relative min-w-[800px]">
-                      {/* Top decorative border */}
-                      <div
-                        className="bg-[#001B31] w-[100%] border-r-[50px] top-3 border-[#F15A22] h-10 z-10 absolute"
-                        style={{
-                          clipPath:
-                            "polygon(0% 0%, 100% 0%, 98% 100%, 0% 100%)",
-                        }}
-                      />
+        {/* Innings tabs */}
+        <div className="flex justify-center mb-6 md:mb-8 w-full min-w-0">
+          <InningsPillToggle
+            home={homeTeamName}
+            away={awayTeamName}
+            homeShort={homeTeamShort}
+            awayShort={awayTeamShort}
+            value={activeInnings}
+            onChange={setActiveInnings}
+          />
+        </div>
 
-                      {/* Custom styled header */}
-                      <thead
-                        className="bg-[#999FA4] m-1 italic z-50 relative mb-4 mr-2 custom-heading-border"
-                        style={{
-                          clipPath:
-                            "polygon(0% 0%, 100% 0%, 97% 100%, 0% 100%)",
-                        }}
-                      >
-                        <tr>
-                          <div className="grid grid-cols-[3fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr] w-full">
-                            <th
-                              className="py-4 pl-[2rem] text-left text-2xl uppercase font-bold text-transparent bg-clip-text"
-                              style={{
-                                backgroundImage:
-                                  "linear-gradient(180deg, #666666 20.89%, #FFFFFF 48.4%, #666666 80.91%)",
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                              }}
-                            >
-                              Bowling
-                            </th>
-                            <th
-                              className="py-4 text-center font-bold text-2xl uppercase text-transparent bg-clip-text"
-                              style={{
-                                backgroundImage:
-                                  "linear-gradient(180deg, #666666 20.89%, #FFFFFF 48.4%, #666666 80.91%)",
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                              }}
-                            >
-                              O
-                            </th>
-                            <th
-                              className="py-4 text-center font-bold text-2xl uppercase text-transparent bg-clip-text"
-                              style={{
-                                backgroundImage:
-                                  "linear-gradient(180deg, #666666 20.89%, #FFFFFF 48.4%, #666666 80.91%)",
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                              }}
-                            >
-                              M
-                            </th>
-                            <th
-                              className="py-4 text-center font-bold text-2xl uppercase text-transparent bg-clip-text"
-                              style={{
-                                backgroundImage:
-                                  "linear-gradient(180deg, #666666 20.89%, #FFFFFF 48.4%, #666666 80.91%)",
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                              }}
-                            >
-                              R
-                            </th>
-                            <th
-                              className="py-4 text-center font-bold  text-2xl uppercase text-transparent bg-clip-text"
-                              style={{
-                                backgroundImage:
-                                  "linear-gradient(180deg, #666666 20.89%, #FFFFFF 48.4%, #666666 80.91%)",
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                              }}
-                            >
-                              W
-                            </th>
-                            <th
-                              className="py-4 text-center font-bold text-2xl uppercase text-transparent bg-clip-text"
-                              style={{
-                                backgroundImage:
-                                  "linear-gradient(180deg, #666666 20.89%, #FFFFFF 48.4%, #666666 80.91%)",
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                              }}
-                            >
-                              NB
-                            </th>
-                            <th
-                              className="py-4 text-center font-bold text-2xl uppercase text-transparent bg-clip-text"
-                              style={{
-                                backgroundImage:
-                                  "linear-gradient(180deg, #666666 20.89%, #FFFFFF 48.4%, #666666 80.91%)",
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                              }}
-                            >
-                              WD
-                            </th>
-                            <th
-                              className="py-4 pr-[13px] text-center text-2xl uppercase font-bold text-transparent bg-clip-text"
-                              style={{
-                                backgroundImage:
-                                  "linear-gradient(180deg, #666666 20.89%, #FFFFFF 48.4%, #666666 80.91%)",
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                              }}
-                            >
-                              E/R
-                            </th>
-                          </div>
-                        </tr>
-                      </thead>
-
-                      <tbody>
-                        {(activeInnings === "home"
-                          ? homeInnings
-                          : awayInnings
-                        ).Bowlers?.map((bowler, index) => (
-                          <tr key={index} className="relative mt-6 mb-6">
-                            {/* Background orange border div for data row */}
-                            <td colSpan="8" className="relative p-0">
-                              <div
-                                className="bg-[#001B31] w-[100%] border-r-[50px] border-[#F15A22] top-4 h-10 z-10 absolute"
-                                style={{
-                                  clipPath:
-                                    "polygon(0% 0%, 100% 0%, 98% 100%, 0% 100%)",
-                                }}
-                              />
-
-                              {/* Data row with same design as header */}
-                              <div
-                                className="bg-[#999FA4] my-1 italic z-50 relative custom-heading-border"
-                                style={{
-                                  clipPath:
-                                    "polygon(0% 0%, 100% 0%, 97% 100%, 0% 100%)",
-                                }}
-                              >
-                                <div className="grid grid-cols-[3fr_1fr_1fr_1fr_1fr_1fr_1fr_1fr] w-full">
-                                  <div className="py-4 pl-[2rem] text-left text-lg text-white whitespace-nowrap overflow-hidden text-ellipsis">
-                                    {
-                                      teams[
-                                        activeInnings === "home"
-                                          ? awayId
-                                          : homeId
-                                      ].Players[bowler.Bowler]?.Name_Full
-                                    }
-                                  </div>
-                                  <div className="py-4 text-center text-lg text-white">
-                                    {bowler.Overs}
-                                  </div>
-                                  <div className="py-4 text-center text-lg text-white">
-                                    {bowler.Maidens}
-                                  </div>
-                                  <div className="py-4 text-center text-lg text-white">
-                                    {bowler.Runs}
-                                  </div>
-                                  <div className="py-4 text-center text-lg text-white">
-                                    {bowler.Wickets}
-                                  </div>
-                                  <div className="py-4 text-center text-lg text-white">
-                                    {bowler.Noballs}
-                                  </div>
-                                  <div className="py-4 text-center text-lg text-white">
-                                    {bowler.Wides}
-                                  </div>
-                                  <div className="py-4 pr-[13px] text-center text-lg text-white">
-                                    {bowler.Economyrate}
-                                  </div>
-                                </div>
-                              </div>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+        {/* Innings summary header */}
+        <SectionCard className="mb-6 md:mb-8">
+          <div className="flex items-center justify-between gap-4 px-4 sm:px-6 py-4">
+            <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+              <div className="shrink-0 size-10 sm:size-12 rounded-full bg-white border border-[#af313a] flex items-center justify-center p-1 overflow-hidden">
+                <img
+                  src={currentTeamLogo}
+                  alt={`${currentTeamName} logo`}
+                  onError={(e) => {
+                    e.currentTarget.src = "/images/fixtures/logoPlaceHolder.png";
+                  }}
+                  className="size-full object-contain"
+                />
               </div>
+              <span className="text-white font-extrabold uppercase text-sm sm:text-base tracking-wide truncate">
+                {currentTeamName}
+              </span>
+            </div>
+            <div className="flex items-baseline gap-2 shrink-0">
+              <span className="font-semibold text-white text-xl sm:text-2xl md:text-3xl leading-none">
+                {currentInnings.Total ?? "-"}
+                {currentInnings.Wickets !== undefined &&
+                  currentInnings.Wickets !== null &&
+                  `/${currentInnings.Wickets}`}
+              </span>
+              {currentInnings.Overs && (
+                <span className="text-slate-400 text-[11px] sm:text-xs font-medium">
+                  ({currentInnings.Overs} Overs)
+                </span>
+              )}
             </div>
           </div>
-        </div>
+        </SectionCard>
+
+        {/* Batting table */}
+        {dismissed.length > 0 && (
+          <SectionCard className="mb-6 md:mb-8">
+            <div className="px-4 sm:px-6 py-4 border-b border-white/10 flex items-center gap-3">
+              <span
+                className="font-extrabold italic uppercase text-lg sm:text-xl tracking-wide"
+                style={{
+                  background:
+                    "radial-gradient(80% 100% at 50% 50%, #FFF200 0%, #FBB040 95%)",
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                  color: "transparent",
+                }}
+              >
+                Batting
+              </span>
+            </div>
+            <StatsTable
+              headers={battingHeaders}
+              rows={battingRows}
+              colGridClass={battingColGrid}
+            />
+            {/* Extras row */}
+            <div className="flex items-center justify-between gap-4 px-4 sm:px-6 py-3 border-t border-white/10 text-[12px] sm:text-sm">
+              <span className="text-slate-400 font-extrabold italic uppercase tracking-[0.1em]">
+                Extras
+              </span>
+              <span className="text-white font-medium">
+                {extras.total}
+                {extras.total > 0 && (
+                  <span className="text-slate-400 ml-2">
+                    (b {extras.byes}, lb {extras.legByes}, w {extras.wides}, nb{" "}
+                    {extras.noBalls}
+                    {extras.penalty ? `, p ${extras.penalty}` : ""})
+                  </span>
+                )}
+              </span>
+            </div>
+            {currentInnings.Total !== undefined && (
+              <div className="flex items-center justify-between gap-4 px-4 sm:px-6 py-3 border-t border-white/10 text-[12px] sm:text-sm bg-white/[0.03]">
+                <span className="text-white font-extrabold italic uppercase tracking-[0.1em]">
+                  Total
+                </span>
+                <span className="text-white font-extrabold">
+                  {currentInnings.Total}
+                  {currentInnings.Wickets !== undefined &&
+                    `/${currentInnings.Wickets}`}
+                  {currentInnings.Overs && (
+                    <span className="text-slate-400 font-medium ml-2">
+                      ({currentInnings.Overs} Overs)
+                    </span>
+                  )}
+                </span>
+              </div>
+            )}
+          </SectionCard>
+        )}
+
+        {/* Did Not Bat */}
+        {didNotBat.length > 0 && (
+          <SectionCard className="mb-6 md:mb-8">
+            <div className="px-4 sm:px-6 py-4 border-b border-white/10">
+              <span
+                className="font-extrabold italic uppercase text-base sm:text-lg tracking-wide"
+                style={{
+                  background:
+                    "radial-gradient(80% 100% at 50% 50%, #FFF200 0%, #FBB040 95%)",
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                  color: "transparent",
+                }}
+              >
+                Did Not Bat
+              </span>
+            </div>
+            <div className="px-4 sm:px-6 py-3 sm:py-4 flex flex-wrap gap-x-2 gap-y-1 text-white text-[12px] sm:text-sm">
+              {didNotBat.map((p, i) => {
+                const name =
+                  teams[currentTeamId]?.Players[p.Batsman]?.Name_Full || "—";
+                return (
+                  <span key={i} className="font-medium">
+                    {name}
+                    {i < didNotBat.length - 1 ? "," : ""}
+                  </span>
+                );
+              })}
+            </div>
+          </SectionCard>
+        )}
+
+        {/* Fall of Wickets */}
+        {fallOfWickets.length > 0 && (
+          <SectionCard className="mb-6 md:mb-8">
+            <div className="px-4 sm:px-6 py-4 border-b border-white/10">
+              <span
+                className="font-extrabold italic uppercase text-base sm:text-lg tracking-wide"
+                style={{
+                  background:
+                    "radial-gradient(80% 100% at 50% 50%, #FFF200 0%, #FBB040 95%)",
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                  color: "transparent",
+                }}
+              >
+                Fall of Wickets
+              </span>
+            </div>
+            <div className="px-4 sm:px-6 py-3 sm:py-4 flex flex-wrap gap-x-3 gap-y-2 text-[12px] sm:text-sm">
+              {fallOfWickets.map((wicket, idx) => {
+                const playerName =
+                  teams[currentTeamId]?.Players[wicket.Batsman]?.Name_Full || "—";
+                return (
+                  <span key={idx} className="text-white">
+                    <span className="font-extrabold text-[#ef4123]">
+                      {wicket.Score}
+                    </span>
+                    <span className="text-slate-300">
+                      {" "}
+                      ({playerName}, {wicket.Overs} ov){idx < fallOfWickets.length - 1 ? "," : ""}
+                    </span>
+                  </span>
+                );
+              })}
+            </div>
+          </SectionCard>
+        )}
+
+        {/* Bowling */}
+        {bowlingRowsFinal.length > 0 && (
+          <SectionCard className="mb-6 md:mb-8">
+            <div className="px-4 sm:px-6 py-4 border-b border-white/10 flex items-center gap-3">
+              <div className="shrink-0 size-8 sm:size-10 rounded-full bg-white border border-[#af313a] flex items-center justify-center p-1 overflow-hidden">
+                <img
+                  src={opposingTeamLogo}
+                  alt={`${opposingTeamName} logo`}
+                  onError={(e) => {
+                    e.currentTarget.src = "/images/fixtures/logoPlaceHolder.png";
+                  }}
+                  className="size-full object-contain"
+                />
+              </div>
+              <span
+                className="font-extrabold italic uppercase text-base sm:text-lg tracking-wide"
+                style={{
+                  background:
+                    "radial-gradient(80% 100% at 50% 50%, #FFF200 0%, #FBB040 95%)",
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                  color: "transparent",
+                }}
+              >
+                Bowling — {opposingTeamName}
+              </span>
+            </div>
+            <StatsTable
+              headers={bowlingHeaders}
+              rows={bowlingRowsFinal}
+              colGridClass={bowlingColGrid}
+            />
+          </SectionCard>
+        )}
       </div>
-    </>
+    </div>
   );
 }
-
-export default ScoreCard;
