@@ -12,57 +12,57 @@ const TEAM_LOGOS = [
   {
     Name: "Aakash Tigers MWS",
     Logo_URL__c:
-      "https://mcadirectory.blob.core.windows.net/dev/8336676908636103-Group 1.png",
+      "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778842478566-ezfc2ljp90o-akash-tigers.png",
   },
   {
     Name: "Arcs Andheri",
     Logo_URL__c:
-      "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1777280927562-td6b64hhl3-2.-Andheri-Arcs.jpg",
+      "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778842569141-45uzrai3pcd-arcs-andheri.png",
   },
   {
     Name: "Bandra Blasters",
     Logo_URL__c:
-      "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1777281105218-vwk5o4l4cl9-image-(6).png",
+      "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778842716680-g3173uqh5ht-bandra-blasters.png",
   },
   {
     Name: "Eagle Thane Strikers",
     Logo_URL__c:
-      "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1777281156152-ef3o1h11jv-Eagle-Thane-Strikers---LOGO-NEW---Final_18ver.png",
+      "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778842606667-rsb03v6i3ti-eagle-thane-strikers.png",
   },
   {
     Name: "MSC Maratha Royals",
     Logo_URL__c:
-      "https://mcadirectory.blob.core.windows.net/dev/7136799733975809-Group 2.png",
+      "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778842937458-mm7skn7fp9-maratha-royals.png",
   },
   {
     Name: "North Mumbai Panthers",
     Logo_URL__c:
-      "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1777281029981-rbd7do6v0ij-Artboard-1-(1).png",
+      "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778842431724-z2fgjqs7dcf-mumbai-panthers.png",
   },
   {
     Name: "SoBo Mumbai Falcons",
     Logo_URL__c:
-      "https://mcadirectory.blob.core.windows.net/dev/37496918971026827-Group 3.png",
+      "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778842647889-jnbsdkw5go9-sobo-mumbai-falcons.png",
   },
   {
     Name: "Triumph Knights Mumbai North East",
     Logo_URL__c:
-      "https://mcadirectory.blob.core.windows.net/dev/630539656646887-8. Triumph Knights Mumbai North East PNG v1 1.png",
+      "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778842830696-oq3rgu179n-triumph-knights.png",
   },
   {
     Name: "Aakash Tigers MWS (W)",
     Logo_URL__c:
-      "https://mcadirectory.blob.core.windows.net/dev/8336676908636103-Group 1.png",
+      "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778842478566-ezfc2ljp90o-akash-tigers.png",
   },
   {
     Name: "SoBo Mumbai Falcons (W)",
     Logo_URL__c:
-      "https://mcadirectory.blob.core.windows.net/dev/37496918971026827-Group 3.png",
+      "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778842647889-jnbsdkw5go9-sobo-mumbai-falcons.png",
   },
   {
     Name: "Thane Skyrisers (W)",
     Logo_URL__c:
-      "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1777550579538-2rnu5ffs2is-Vihang_Thane-Risers-Logo.png",
+      "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778842743856-v9mzpsye2s-Thane-Skyrises.png",
   },
 ];
 
