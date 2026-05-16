@@ -371,7 +371,7 @@ const Hero = () => {
             </SwiperSlide>
           );
         })}
-        {/* <SwiperSlide className="h-full">
+        <SwiperSlide className="h-full">
           <div
             className={`group w-full h-full bg-[url('/images/home/hero/rohit.jpeg')] bg-cover bg-right md:bg-top relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center cursor-pointer`}
             onMouseEnter={handleRohitHeroMouseEnter}
@@ -391,7 +391,8 @@ const Hero = () => {
               loop
               preload="auto"
             />
-            <div className="absolute inset-0 bg-black/10"></div>
+            <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
+            <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
             <div className="section-width py-2 relative z-10">
               <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
                 <p className="font-bold text-sm uppercase md:text-base bg-[#182769] px-3 py-2 xl:text-xl">
@@ -433,7 +434,8 @@ const Hero = () => {
           <div
             className={`w-full h-full bg-[url('/images/home/hero/power2.jpeg')] bg-cover bg-center relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center`}
           >
-            <div className="absolute inset-0 bg-black/10"></div>
+            <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
+            <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
             <div className="section-width py-2 relative z-10">
               <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
                 <p className="font-bold text-sm uppercase md:text-base bg-[#182769] px-3 py-2 xl:text-xl">
@@ -476,6 +478,8 @@ const Hero = () => {
             <div
               className={`relative flex h-full w-full items-center justify-center overflow-hidden bg-[url('/images/home/hero/Home.png')] bg-cover bg-center ${heroSlidePaddingClass}`}
             >
+              <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
+              <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
               <div className="section-width relative z-10 flex h-full items-center py-8">
                 <div className="flex w-full justify-center pt-10 text-center sm:justify-start sm:pt-14 sm:text-left">
                   <div className="flex max-w-3xl flex-col items-center gap-4 sm:items-start lg:gap-6">
@@ -525,7 +529,8 @@ const Hero = () => {
               backgroundImage: `url('${SQUADS_BANNER_IMAGE_URL}')`,
             }}
           >
-            <div className="absolute inset-0 bg-black/35"></div>
+            <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
+            <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
             <div className="section-width relative z-10 flex h-full items-center py-6">
               <div className="w-full max-w-3xl pt-11 sm:pt-[60px] lg:pt-[84px] text-center sm:text-left">
                 <p className="inline-block font-bold text-sm uppercase md:text-base bg-[#182769] px-3 py-2 xl:text-xl">
@@ -563,7 +568,8 @@ const Hero = () => {
           <div
             className={`w-full h-full bg-[url('/images/home/hero/new-hero2.jpg')] bg-cover bg-center relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center`}
           >
-            <div className="absolute inset-0 bg-black/30"></div>
+            <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
+            <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
             <div className="section-width py-2 relative z-10">
               <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
                 <p className="font-bold text-sm uppercase md:text-base bg-[#182769] px-3 py-2 xl:text-xl">
@@ -605,7 +611,9 @@ const Hero = () => {
           <div
             className={`w-full h-full bg-[url('/images/banner/banner4.png')] bg-cover bg-center relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center`}
           >
-            <div className="section-width ">
+            <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
+            <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
+            <div className="section-width relative z-10">
               <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
                 <p className="font-bold text-sm md:text-base xl:text-xl">
                   T20 MUMBAI SEASON 4
@@ -654,13 +662,9 @@ const Hero = () => {
                   </a>
                 </div>
               </div>
-
-         //      <div className="absolute bottom-40 -right-0 hidden md:block">
-           //     <CountdownTimer />
-            //  </div> 
             </div>
           </div>
-        </SwiperSlide> */}
+        </SwiperSlide>
       </Swiper>
 
       <div className="absolute bottom-5 right-4 z-30 flex items-center gap-3 sm:bottom-7 sm:right-8 sm:gap-4 lg:bottom-10 lg:right-12">
