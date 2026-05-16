@@ -61,7 +61,7 @@ const Navbar = () => {
 
           <nav className="flex items-center section-width rounded-full relative overflow-visible w-full px-4  border border-white/30 bg-white/10 backdrop-blur-xl shadow-[0_8px_30px_rgba(0,0,0,0.25)]">
             <div
-              className="px-10 border-r border-[#D18FDB40] py-1x"
+              className="px-3 lg:px-10 lg:border-r border-[#D18FDB40]"
               style={{ zIndex: 9999 }}
             >
               {!menuOpen && (
@@ -69,7 +69,7 @@ const Navbar = () => {
                   <Image
                     src={"/images/home/logo.svg"}
                     alt="logo"
-                    className="h-20 w-auto lg:h-16 cursor-pointer "
+                    className="h-12 w-auto lg:h-16 cursor-pointer "
                     width={100}
                     height={100}
                     onClick={() => redirect("/")}
@@ -98,7 +98,7 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Menu Icon - Only visible on mobile */}
-            <div className="lg:hidden block">
+            <div className="lg:hidden block ml-auto pr-2">
               <RxHamburgerMenu
                 className="text-white text-2xl cursor-pointer"
                 onClick={() => setMenuOpen(true)}

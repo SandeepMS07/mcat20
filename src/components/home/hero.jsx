@@ -13,6 +13,7 @@ import routes from "@/utilis/route";
 import fixtures3 from "@/utilis/fixtures/fixtures3";
 import { useRouter } from "next/navigation";
 import { PLAYER_REGISTRATION_SHARE_KEY } from "@/constant";
+import { getHeroBannerClient } from "@/app/api/clientApi";
 
 const REGISTRATION_PROMO_CUTOFF_TS = new Date(
   "2026-04-11T00:00:00+05:30",
@@ -24,6 +25,42 @@ const TEAM_TYPE_PARAM_KEY = "type";
 const TEAM_TYPE_MEN = "men";
 const TEAM_TYPE_WOMEN = "women";
 
+const BANNER_DATE_FORMATTER = new Intl.DateTimeFormat("en-GB", {
+  day: "2-digit",
+  month: "short",
+  year: "numeric",
+});
+
+const formatBannerDate = (iso) => {
+  if (!iso) return "";
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return "";
+  // "06 Apr 2026" -> "06 APR, 2026"
+  const parts = BANNER_DATE_FORMATTER.format(d).toUpperCase().split(" ");
+  return `${parts[0]} ${parts[1]}, ${parts[2]}`;
+};
+
+const stripHtml = (html) => {
+  if (!html) return "";
+  return html
+    .replace(/<br\s*\/?>(?!$)/gi, " ")
+    .replace(/<[^>]+>/g, "")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/﻿/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+};
+
+const titleToLines = (title) => {
+  if (!title) return [];
+  return title
+    .replace(/<br\s*\/?>/gi, "\n")
+    .split(/\r?\n/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+};
+
 const Hero = () => {
   const router = useRouter();
   const [showVideo, setShowVideo] = useState(false);
@@ -34,6 +71,7 @@ const Hero = () => {
   const [showRegistrationPromo, setShowRegistrationPromo] = useState(
     () => Date.now() < REGISTRATION_PROMO_CUTOFF_TS,
   );
+  const [banners, setBanners] = useState([]);
   const registrationUrl = `/player-registration/${PLAYER_REGISTRATION_SHARE_KEY}`;
   const registrationCloseDate = "10TH APRIL";
   const registrationTickerItems = [
@@ -158,6 +196,22 @@ const Hero = () => {
     };
   }, []);
 
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const res = await getHeroBannerClient();
+      if (cancelled) return;
+      const list = Array.isArray(res?.data) ? res.data : [];
+      const sorted = [...list].sort(
+        (a, b) => (a.Rank__c ?? 9999) - (b.Rank__c ?? 9999),
+      );
+      setBanners(sorted);
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   // Get the next match using the date and time from json
 
   // const nextTicketInfo = useMemo(() => {
@@ -234,6 +288,7 @@ const Hero = () => {
       )}
 
       <Swiper
+        key={`hero-${banners.length}`}
         modules={[Autoplay, Pagination, Navigation]}
         autoplay={{ delay: 5000 }}
         pagination={{
@@ -247,37 +302,75 @@ const Hero = () => {
           nextEl: ".hero-next",
         }}
         speed={200}
-        loop
+        loop={banners.length > 1}
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
         }}
         className="h-full"
       >
-        <SwiperSlide className="h-full">
-          <div className="w-full h-full bg-[url('/images/home/hero/hero-bg.jpg')] bg-cover bg-center relative overflow-hidden">
-            <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
-            <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
-            <div className="absolute inset-0 z-10 flex items-end pb-14 sm:pb-20 lg:pb-28">
-              <div className="section-width w-full">
-                <div className="flex max-w-3xl flex-col items-start gap-3 lg:gap-4">
-                  <p className="text-xs font-medium uppercase tracking-wide text-white/90 sm:text-sm">
-                    20 Feb, 2026
-                  </p>
-                  <h1 className="font-extrabold text-white">
-                    Mumbai South Central Maratha Royals crowned T20 Mumbai
-                    League 2025 champions
-                  </h1>
-                  <button
-                    type="button"
-                    className="btn-primary mt-2 inline-flex items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold"
-                  >
-                    Read More
-                  </button>
+        {banners.map((banner) => {
+          const titleLines = titleToLines(banner.Title__c);
+          const subtitle = stripHtml(banner.Description__c);
+          const dateLabel = formatBannerDate(banner.CreatedDate);
+          const actionLink = banner.Action_Link__c;
+          const isExternalAction =
+            !!actionLink && /^https?:\/\//i.test(actionLink);
+          const handleAction = () => {
+            if (!actionLink) return;
+            if (isExternalAction) {
+              window.open(actionLink, "_blank", "noopener,noreferrer");
+            } else {
+              router.push(actionLink);
+            }
+          };
+          return (
+            <SwiperSlide key={banner.Id} className="h-full">
+              <div
+                className="w-full h-full bg-cover bg-center relative overflow-hidden"
+                style={{
+                  backgroundImage: `url('${banner.Image_URL__c}')`,
+                }}
+              >
+                <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
+                <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
+                <div className="absolute inset-0 z-10 flex items-end pb-14 sm:pb-20 lg:pb-28">
+                  <div className="section-width w-full">
+                    <div className="flex max-w-3xl flex-col items-start gap-3 lg:gap-4">
+                      {dateLabel && (
+                        <p className="text-xs font-medium uppercase tracking-wide text-white/90 sm:text-sm">
+                          {dateLabel}
+                        </p>
+                      )}
+                      {titleLines.length > 0 && (
+                        <h1 className="font-extrabold text-white">
+                          {titleLines.map((line, i) => (
+                            <span key={i} className="block">
+                              {line}
+                            </span>
+                          ))}
+                        </h1>
+                      )}
+                      {subtitle && (
+                        <p className="text-base font-medium text-white/90 sm:text-lg">
+                          {subtitle}
+                        </p>
+                      )}
+                      {actionLink && (
+                        <button
+                          type="button"
+                          onClick={handleAction}
+                          className="btn-primary mt-2 inline-flex items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold"
+                        >
+                          Read More
+                        </button>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </SwiperSlide>
+            </SwiperSlide>
+          );
+        })}
         {/* <SwiperSlide className="h-full">
           <div
             className={`group w-full h-full bg-[url('/images/home/hero/rohit.jpeg')] bg-cover bg-right md:bg-top relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center cursor-pointer`}
