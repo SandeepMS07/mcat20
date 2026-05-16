@@ -1,23 +1,79 @@
 "use client";
-import { useEffect } from "react";
-import FanPoll from "./FanPoll";
+import Script from "next/script";
+import { useEffect, useRef, useState } from "react";
+
+const ELFSIGHT_APP_CLASS = "elfsight-app-699da6b2-483b-4520-a7cd-82f1db1898af";
+const LOAD_FALLBACK_MS = 8000;
+
+const SocialsSkeleton = () => (
+  <div>
+    <div className="mb-3 flex items-center gap-4 rounded-md bg-white px-4 py-3 sm:gap-6 sm:px-6 sm:py-4">
+      <div className="h-10 w-10 shrink-0 rounded-full bg-slate-200 sm:h-12 sm:w-12" />
+      <div className="flex flex-1 flex-col gap-1.5">
+        <div className="h-3 w-28 rounded bg-slate-200 sm:h-4 sm:w-40" />
+        <div className="h-2.5 w-20 rounded bg-slate-100 sm:h-3 sm:w-28" />
+      </div>
+      <div className="hidden gap-6 sm:flex">
+        <div className="flex flex-col items-center gap-1">
+          <div className="h-3 w-8 rounded bg-slate-200" />
+          <div className="h-2 w-10 rounded bg-slate-100" />
+        </div>
+        <div className="flex flex-col items-center gap-1">
+          <div className="h-3 w-8 rounded bg-slate-200" />
+          <div className="h-2 w-12 rounded bg-slate-100" />
+        </div>
+        <div className="flex flex-col items-center gap-1">
+          <div className="h-3 w-8 rounded bg-slate-200" />
+          <div className="h-2 w-12 rounded bg-slate-100" />
+        </div>
+      </div>
+      <div className="h-8 w-20 shrink-0 rounded-md bg-[#2186e3]/40 sm:h-9 sm:w-24" />
+    </div>
+    <div className="grid grid-cols-2 gap-1.5 sm:gap-2 md:grid-cols-3 lg:grid-cols-5">
+      {Array.from({ length: 15 }).map((_, i) => (
+        <div key={i} className="aspect-square rounded-sm bg-white/10" />
+      ))}
+    </div>
+  </div>
+);
 
 const Socials = () => {
-  useEffect(() => {
-    const scriptSrc = "https://static.elfsight.com/platform/platform.js";
-    const existingScript = document.querySelector(`script[src="${scriptSrc}"]`);
+  const containerRef = useRef(null);
+  const [loaded, setLoaded] = useState(false);
 
-    if (!existingScript) {
-      const script = document.createElement("script");
-      script.src = scriptSrc;
-      script.async = true;
-      script.defer = true;
-      document.body.appendChild(script);
+  useEffect(() => {
+    const node = containerRef.current;
+    if (!node) return;
+
+    if (node.childElementCount > 0) {
+      setLoaded(true);
+      return;
     }
+
+    const observer = new MutationObserver(() => {
+      if (node.childElementCount > 0) {
+        setLoaded(true);
+        observer.disconnect();
+      }
+    });
+    observer.observe(node, { childList: true, subtree: true });
+
+    const timer = window.setTimeout(() => setLoaded(true), LOAD_FALLBACK_MS);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(timer);
+    };
   }, []);
 
   return (
     <div className="relative bg-gradient-to-bl from-[#1C398E] to-[#0E005A]">
+      <link rel="preconnect" href="https://static.elfsight.com" />
+      <link rel="preconnect" href="https://core.service.elfsight.com" />
+      <Script
+        src="https://static.elfsight.com/platform/platform.js"
+        strategy="afterInteractive"
+      />
       <div className="section-width section-padding">
         <h2 className="flex flex-col text-3xl font-extrabold uppercase italic leading-[0.95] text-[#ffffff] sm:text-4xl lg:text-6xl mb-6">
           <span
@@ -28,14 +84,20 @@ const Socials = () => {
           </span>
           <span>SOCIALS</span>
         </h2>
-        <div>
+        <div className="relative min-h-[420px]">
+          {!loaded && (
+            <div className="absolute inset-0 z-0">
+              <SocialsSkeleton />
+            </div>
+          )}
           <div
-            className="elfsight-app-699da6b2-483b-4520-a7cd-82f1db1898af"
-            data-elfsight-app-lazy
+            ref={containerRef}
+            className={`${ELFSIGHT_APP_CLASS} relative z-10 transition-opacity duration-300 ${
+              loaded ? "opacity-100" : "opacity-0"
+            }`}
           />
         </div>
       </div>
-      <FanPoll />
     </div>
   );
 };

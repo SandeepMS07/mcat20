@@ -1,8 +1,9 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import routes from "@/utilis/route";
 
-const DRAFT_ROUTE = "#";
+const DRAFT_ROUTE = routes.fantasy;
 
 const DraftArena = () => {
   return (
