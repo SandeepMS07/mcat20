@@ -59,9 +59,9 @@ const Navbar = () => {
         <div className="relative w-[90%]">
           {/* Logo Section */}
 
-          <nav className="flex items-center section-width rounded-full relative overflow-visible w-full px-4  border border-white/30 bg-white/10 backdrop-blur-xl shadow-[0_8px_30px_rgba(0,0,0,0.25)]">
+          <nav className="flex items-center section-width rounded-full relative overflow-visible w-full px-4 border border-white/20 bg-gradient-to-b from-white/[0.18] via-white/[0.08] to-white/[0.04] backdrop-blur-xl shadow-[0_8px_30px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.35)]">
             <div
-              className="px-3 lg:px-10 lg:border-r border-[#D18FDB40]"
+              className="relative px-3 lg:px-10 lg:after:absolute lg:after:right-0 lg:after:inset-y-0 lg:after:w-[1.5px] lg:after:bg-white/40"
               style={{ zIndex: 9999 }}
             >
               {!menuOpen && (
@@ -79,12 +79,12 @@ const Navbar = () => {
             </div>
             {/* Navigation Links */}
             <div className="items-center lg:flex hidden py-1  w-full">
-              <ul className="flex items-center justify-between gap-8 xl:gap-10 bg-transparent  xl:px-10 py-2 px-4 rounded-full w-full">
+              <ul className="flex items-center justify-between gap-8 xl:gap-10 bg-transparent pl-8 xl:pl-12 pr-4 xl:pr-10 py-2 rounded-full w-full">
                 {navLinks.map((item, i) => (
                   <li key={i}>
                     <Link
                       href={item.path}
-                      className={`text-sm md:text-base xl:text-lg ${
+                      className={`text-sm md:text-base xl:text-lg font-medium transition-colors hover:text-orange-400 ${
                         pathName === item.path
                           ? "text-orange-500"
                           : "text-white"

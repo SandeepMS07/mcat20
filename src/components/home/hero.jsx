@@ -14,6 +14,7 @@ import fixtures3 from "@/utilis/fixtures/fixtures3";
 import { useRouter } from "next/navigation";
 import { PLAYER_REGISTRATION_SHARE_KEY } from "@/constant";
 import { getHeroBannerClient } from "@/app/api/clientApi";
+import HeroSlideContent from "./HeroSlideContent";
 
 const REGISTRATION_PROMO_CUTOFF_TS = new Date(
   "2026-04-11T00:00:00+05:30",
@@ -326,47 +327,48 @@ const Hero = () => {
           return (
             <SwiperSlide key={banner.Id} className="h-full">
               <div
-                className="w-full h-full bg-cover bg-center relative overflow-hidden"
+                className={`w-full h-full bg-cover bg-center relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center`}
                 style={{
                   backgroundImage: `url('${banner.Image_URL__c}')`,
                 }}
               >
                 <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
                 <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
-                <div className="absolute inset-0 z-10 flex items-end pb-14 sm:pb-20 lg:pb-28">
-                  <div className="section-width w-full">
-                    <div className="flex max-w-3xl flex-col items-start gap-3 lg:gap-4">
-                      {dateLabel && (
-                        <p className="text-xs font-medium uppercase tracking-wide text-white/90 sm:text-sm">
-                          {dateLabel}
-                        </p>
-                      )}
-                      {titleLines.length > 0 && (
-                        <h1 className="font-extrabold text-white">
-                          {titleLines.map((line, i) => (
-                            <span key={i} className="block">
-                              {line}
-                            </span>
-                          ))}
-                        </h1>
-                      )}
-                      {subtitle && (
-                        <p className="text-base font-medium text-white/90 sm:text-lg">
-                          {subtitle}
-                        </p>
-                      )}
-                      {actionLink && (
+                <HeroSlideContent
+                  eyebrow={dateLabel}
+                  title={
+                    titleLines.length > 0
+                      ? titleLines.map((line, i) => (
+                          <span key={i} className="block">
+                            {line}
+                          </span>
+                        ))
+                      : null
+                  }
+                  subtitle={subtitle}
+                  action={
+                    actionLink && (
+                      <div className="flex flex-row gap-2">
                         <button
                           type="button"
                           onClick={handleAction}
-                          className="btn-primary mt-2 inline-flex items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold"
+                          className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md"
                         >
                           Read More
+                          <span>
+                            <Image
+                              src="/images/home/hero/buttonIcon.svg"
+                              alt="button-icon"
+                              width={24}
+                              height={24}
+                              className="w-5 h-5"
+                            />
+                          </span>
                         </button>
-                      )}
-                    </div>
-                  </div>
-                </div>
+                      </div>
+                    )
+                  }
+                />
               </div>
             </SwiperSlide>
           );
@@ -393,20 +395,22 @@ const Hero = () => {
             />
             <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
             <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
-            <div className="section-width py-2 relative z-10">
-              <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
-                <p className="font-bold text-sm uppercase md:text-base bg-[#182769] px-3 py-2 xl:text-xl">
-                  T20 Mumbai Season 4
-                </p>
-                <h1 className="font-extrabold max-w-4xl max-sm:text-center">
+            <HeroSlideContent
+              eyebrow="T20 Mumbai Season 4"
+              title={
+                <>
                   An Exclusive Conversation <br /> with Rohit Sharma
-                </h1>
-                <p className="font-bold text-lg md:text-xl xl:text-2xl">
+                </>
+              }
+              subtitle={
+                <>
                   Only on the{" "}
                   <span className="bg-gradient-to-r from-[#F29C1D] via-[#EFBC19] to-[#EDCA17] bg-clip-text text-transparent">
                     T20 Mumbai App
                   </span>
-                </p>
+                </>
+              }
+              action={
                 <div className="flex flex-row gap-2">
                   <a
                     className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md"
@@ -426,8 +430,8 @@ const Hero = () => {
                     </span>
                   </a>
                 </div>
-              </div>
-            </div>
+              }
+            />
           </div>
         </SwiperSlide>
         <SwiperSlide className="h-full">
@@ -436,18 +440,16 @@ const Hero = () => {
           >
             <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
             <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
-            <div className="section-width py-2 relative z-10">
-              <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
-                <p className="font-bold text-sm uppercase md:text-base bg-[#182769] px-3 py-2 xl:text-xl">
-                  T20 Mumbai Season 4
-                </p>
-                <h1 className="font-extrabold max-w-4xl max-sm:text-center">
+            <HeroSlideContent
+              eyebrow="T20 Mumbai Season 4"
+              title={
+                <>
                   A Power-Packed Lineup <br /> Sets the Stage for Season 4
                   League
-                </h1>
-                <p className="font-bold text-lg md:text-xl xl:text-2xl">
-                  #ChanceSoduNako
-                </p>
+                </>
+              }
+              subtitle="#ChanceSoduNako"
+              action={
                 <div className="flex flex-row gap-2">
                   <a
                     className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md"
@@ -469,8 +471,8 @@ const Hero = () => {
                     </span>
                   </a>
                 </div>
-              </div>
-            </div>
+              }
+            />
           </div>
         </SwiperSlide>
         {showRegistrationPromo && (
@@ -480,45 +482,45 @@ const Hero = () => {
             >
               <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
               <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
-              <div className="section-width relative z-10 flex h-full items-center py-8">
-                <div className="flex w-full justify-center pt-10 text-center sm:justify-start sm:pt-14 sm:text-left">
-                  <div className="flex max-w-3xl flex-col items-center gap-4 sm:items-start lg:gap-6">
-                    <p className="text-lg font-bold uppercase md:text-xl xl:text-2xl">
-                      T20 Mumbai League 2026
-                    </p>
-                    <h1 className="max-w-3xl font-extrabold uppercase leading-tight">
-                      Registrations Open <br />
-                      For Men &amp; Women
-                    </h1>
-                    <div className="flex flex-col items-center gap-1 text-[#f9ae2d] sm:items-start">
-                      <p className="text-lg font-bold uppercase md:text-xl xl:text-2xl">
-                        Closes On
-                      </p>
-                      <h2 className="font-extrabold uppercase text-[#f9ae2d]">
-                        {registrationCloseDate}
-                      </h2>
-                    </div>
-                    <div className="flex flex-row justify-center gap-2 pt-2 sm:justify-start">
-                      <button
-                        type="button"
-                        className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md uppercase"
-                        onClick={handleRegistrationRedirect}
-                      >
-                        Register Now
-                        <span>
-                          <Image
-                            src="/images/home/hero/buttonIcon.svg"
-                            alt="button-icon"
-                            width={24}
-                            height={24}
-                            className="h-5 w-5"
-                          />
-                        </span>
-                      </button>
-                    </div>
+              <HeroSlideContent
+                eyebrow="T20 Mumbai League 2026"
+                title={
+                  <>
+                    Registrations Open <br />
+                    For Men &amp; Women
+                  </>
+                }
+                titleClassName="uppercase leading-tight"
+                action={
+                  <div className="flex flex-row gap-2">
+                    <button
+                      type="button"
+                      className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md uppercase"
+                      onClick={handleRegistrationRedirect}
+                    >
+                      Register Now
+                      <span>
+                        <Image
+                          src="/images/home/hero/buttonIcon.svg"
+                          alt="button-icon"
+                          width={24}
+                          height={24}
+                          className="h-5 w-5"
+                        />
+                      </span>
+                    </button>
                   </div>
+                }
+              >
+                <div className="flex flex-col items-center gap-1 text-[#f9ae2d] sm:items-start">
+                  <p className="text-lg font-bold uppercase md:text-xl xl:text-2xl">
+                    Closes On
+                  </p>
+                  <h2 className="font-extrabold uppercase text-[#f9ae2d]">
+                    {registrationCloseDate}
+                  </h2>
                 </div>
-              </div>
+              </HeroSlideContent>
             </div>
           </SwiperSlide>
         )}
@@ -531,21 +533,15 @@ const Hero = () => {
           >
             <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
             <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
-            <div className="section-width relative z-10 flex h-full items-center py-6">
-              <div className="w-full max-w-3xl pt-11 sm:pt-[60px] lg:pt-[84px] text-center sm:text-left">
-                <p className="inline-block font-bold text-sm uppercase md:text-base bg-[#182769] px-3 py-2 xl:text-xl">
-                  T20 Mumbai Season 4
-                </p>
-                <h1 className="text-[36px] font-extrabold leading-tight sm:text-[44px] lg:text-[72px]">
-                  Squads for the T20 Mumbai League are set
-                </h1>
-                <p className="mt-3 font-bold text-lg md:text-xl xl:text-2xl">
-                  #ChanceSoduNako
-                </p>
-                <div className="mt-5 flex flex-col items-center gap-3 sm:mt-8 sm:flex-row sm:items-start">
+            <HeroSlideContent
+              eyebrow="T20 Mumbai Season 4"
+              title="Squads for the T20 Mumbai League are set"
+              subtitle="#ChanceSoduNako"
+              action={
+                <div className="flex flex-row flex-wrap items-center gap-2 sm:gap-3 sm:items-start">
                   <button
                     type="button"
-                    className="btn-primary inline-flex items-center justify-center px-6 py-3 text-sm font-bold uppercase"
+                    className="btn-primary inline-flex items-center justify-center text-xs sm:text-sm font-bold uppercase"
                     onClick={() => handleSquadsRedirect(TEAM_TYPE_MEN)}
                     aria-label="View men's squads"
                   >
@@ -553,15 +549,15 @@ const Hero = () => {
                   </button>
                   <button
                     type="button"
-                    className="btn-primary inline-flex items-center justify-center px-6 py-3 text-sm font-bold uppercase"
+                    className="btn-primary inline-flex items-center justify-center text-xs sm:text-sm font-bold uppercase"
                     onClick={() => handleSquadsRedirect(TEAM_TYPE_WOMEN)}
                     aria-label="View women's squads"
                   >
                     Women&apos;s Squads
                   </button>
                 </div>
-              </div>
-            </div>
+              }
+            />
           </div>
         </SwiperSlide>
         <SwiperSlide className="h-full">
@@ -570,18 +566,16 @@ const Hero = () => {
           >
             <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
             <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
-            <div className="section-width py-2 relative z-10">
-              <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
-                <p className="font-bold text-sm uppercase md:text-base bg-[#182769] px-3 py-2 xl:text-xl">
-                  T20 Mumbai Season 4
-                </p>
-                <h1 className="font-extrabold max-w-3xl max-sm:text-center">
+            <HeroSlideContent
+              eyebrow="T20 Mumbai Season 4"
+              title={
+                <>
                   MCA announces Season 4 <br /> &amp; Inaugural Women&apos;s
                   League
-                </h1>
-                <p className="font-bold text-lg md:text-xl xl:text-2xl">
-                  #ChanceSoduNako
-                </p>
+                </>
+              }
+              subtitle="#ChanceSoduNako"
+              action={
                 <div className="flex flex-row gap-2">
                   <a
                     className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md"
@@ -603,8 +597,8 @@ const Hero = () => {
                     </span>
                   </a>
                 </div>
-              </div>
-            </div>
+              }
+            />
           </div>
         </SwiperSlide>
         <SwiperSlide className="h-full">
@@ -613,41 +607,36 @@ const Hero = () => {
           >
             <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
             <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
-            <div className="section-width relative z-10">
-              <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
-                <p className="font-bold text-sm md:text-base xl:text-xl">
-                  T20 MUMBAI SEASON 4
-                </p>
-
-                <h1 className="  font-extrabold max-w-3xl max-sm:text-center">
+            <HeroSlideContent
+              eyebrow="T20 Mumbai Season 4"
+              title={
+                <>
                   For Real Time Action and <br /> Behind the Scenes
-                </h1>
-                <p className="font-bold text-lg md:text-xl xl:text-2xl">
-                  Follow Us on Socials
-                </p>
+                </>
+              }
+              subtitle="Follow Us on Socials"
+              action={
                 <div className="flex gap-6">
                   <a target="_blank" href={routes.instagram}>
                     <Image
                       src="/images/footer/insta.svg"
-                      alt="Google"
+                      alt="Instagram"
                       width={40}
                       height={40}
                     />
                   </a>
-
                   <a target="_blank" href={routes.twitter}>
                     <Image
                       src="/images/footer/twitter.svg"
-                      alt="Google"
+                      alt="Twitter"
                       width={40}
                       height={40}
                     />
                   </a>
-
                   <a target="_blank" href={routes.youtube}>
                     <Image
                       src="/images/footer/youtube.svg"
-                      alt="Google"
+                      alt="YouTube"
                       width={40}
                       height={40}
                     />
@@ -655,14 +644,14 @@ const Hero = () => {
                   <a target="_blank" href={routes.facebook}>
                     <Image
                       src="/images/footer/facebook.svg"
-                      alt="Google"
+                      alt="Facebook"
                       width={40}
                       height={40}
                     />
                   </a>
                 </div>
-              </div>
-            </div>
+              }
+            />
           </div>
         </SwiperSlide>
       </Swiper>

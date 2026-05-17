@@ -6,19 +6,9 @@ import React from "react";
 
 const page = () => {
   return (
-    <div>
+    <div className="bg-[#101b52] overflow-x-hidden">
       <Hero imgUrl={"/images/about/about-bg.png"} heading={"About us"} />
-      <div className="flex flex-col gap-28 relative">
-        <img
-            src="/images/elements/section-element.png"
-            className="absolute right-0 top-0 md:block hidden"
-            alt="element"
-          />
-          <img
-            src="/images/elements/section-element.png"
-            className="absolute left-0 bottom-0 rotate-180 md:block hidden"
-            alt="element"
-          />
+      <div className="relative flex flex-col gap-16 md:gap-24 pb-14 md:pb-20">
         <T20Mumbai />
         <AboutMCA />
         {/* <AboutPS /> */}

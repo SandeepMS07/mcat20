@@ -31,7 +31,7 @@ const SEASON_VALUE = Object.fromEntries(SEASONS.map((s) => [s.label, s.value]));
 
 function formatBigDate(date) {
   if (!date) return "";
-  return `${MONTHS[date.getMonth()]}, ${DOWS[date.getDay()]} ${String(date.getDate()).padStart(2, "0")}`;
+  return `${DOWS[date.getDay()]}, ${String(date.getDate()).padStart(2, "0")} ${MONTHS[date.getMonth()]}`;
 }
 
 function formatTime(date) {
@@ -533,12 +533,6 @@ export default function FixturesPage() {
     return [ALL_TEAMS, ...Array.from(set).sort()];
   }, [genderFiltered]);
 
-  const venueOptions = useMemo(() => {
-    const set = new Set();
-    genderFiltered.forEach((m) => m.venueFull && set.add(m.venueFull));
-    return [ALL_VENUES, ...Array.from(set).sort()];
-  }, [genderFiltered]);
-
   const seasonOptions = useMemo(() => SEASONS.map((s) => s.label), []);
 
   const filtered = useMemo(() => {
@@ -572,18 +566,9 @@ export default function FixturesPage() {
       />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[480px] bg-gradient-to-b from-[rgba(13,55,169,0.55)] via-[rgba(13,55,169,0.25)] to-transparent" />
 
-      <div className="section-width relative z-10 py-10 md:py-14 lg:py-16 w-full">
+      <div className="relative z-10 py-10 md:py-14 lg:py-16 w-full px-6 sm:px-10 md:px-14 lg:px-20">
         {/* Top toggles */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-12 mb-8 md:mb-12">
-          <PillToggle
-            variant="outline"
-            value={status}
-            onChange={setStatus}
-            options={[
-              { label: "Upcoming", value: "upcoming" },
-              { label: "Completed", value: "completed" },
-            ]}
-          />
           {season === "season4" && (
             <PillToggle
               variant="filled"
@@ -602,6 +587,14 @@ export default function FixturesPage() {
           <Heading status={status} />
 
           <div className="flex flex-wrap gap-3 md:gap-5">
+            <FilterSelect
+              label="Filter by status"
+              value={status === "upcoming" ? "Upcoming" : "Completed"}
+              onChange={(label) =>
+                setStatus(label.toLowerCase() === "upcoming" ? "upcoming" : "completed")
+              }
+              options={["Upcoming", "Completed"]}
+            />
             {status === "completed" && (
               <FilterSelect
                 label="Filter by season"
@@ -616,14 +609,6 @@ export default function FixturesPage() {
               onChange={setTeam}
               options={teamOptions}
             />
-            {season === "season4" && (
-              <FilterSelect
-                label="Filter by venue"
-                value={venue}
-                onChange={setVenue}
-                options={venueOptions}
-              />
-            )}
           </div>
         </div>
 
@@ -646,7 +631,7 @@ export default function FixturesPage() {
             description="Stay tuned — schedule updates will appear here."
           />
         ) : (
-          <div className="flex flex-col gap-6 md:gap-8 lg:gap-10">
+          <div className="flex flex-col gap-3 md:gap-4">
             {visible.map((match, idx) => (
               <MatchCard
                 key={`${match.game_id || match.raw?.match_no || idx}-${idx}`}

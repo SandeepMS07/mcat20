@@ -9,31 +9,46 @@ const FOOTER_COLUMNS = [
   {
     title: "Match Highlights",
     links: [
-      "Team Schedules",
-      "Match Results",
-      "Fair Play Guidelines",
-      "Venue Information",
-      "Player Code of Conduct",
-      "Equipment Regulations",
-      "Fan Zone Community",
-      "Ticketing Support",
+      { label: "Team Schedules", href: routes.fixtures },
+      { label: "Match Results", href: routes.matchcentre },
+      { label: "Fair Play Guidelines" },
+      { label: "Venue Information" },
+      { label: "Player Code of Conduct" },
+      { label: "Equipment Regulations" },
+      { label: "Fan Zone Community" },
+      { label: "Ticketing Support" },
     ],
   },
   {
     title: "Tickets and Packages",
-    links: ["League News", "Stats and Records"],
+    links: [
+      { label: "League News", href: routes.latestUpdates },
+      { label: "Stats and Records", href: routes.stats },
+    ],
   },
   {
     title: "New League Initiatives",
-    links: ["Rules and Regulations", "Sponsorships", "Event Coordination"],
+    links: [
+      { label: "Rules and Regulations" },
+      { label: "Sponsorships" },
+      { label: "Event Coordination" },
+    ],
   },
   {
     title: "Downloads and Apps",
-    links: ["Breaking News", "Join Our Team", "Fan Testimonials"],
+    links: [
+      { label: "Breaking News", href: routes.latestUpdates },
+      { label: "Join Our Team" },
+      { label: "Fan Testimonials" },
+    ],
   },
   {
     title: "Match Day Guide",
-    links: ["Our Commitment to Privacy", "Terms of Use", "Legal Information"],
+    links: [
+      { label: "Our Commitment to Privacy", href: routes.privacyPolicy },
+      { label: "Terms of Use" },
+      { label: "Legal Information" },
+    ],
   },
 ];
 
@@ -93,8 +108,17 @@ const Footer = () => {
                 </h4>
                 <ul className="space-y-3">
                   {column.links.map((link) => (
-                    <li key={link} className="text-sm text-white/70">
-                      {link}
+                    <li key={link.label} className="text-sm text-white/70">
+                      {link.href ? (
+                        <Link
+                          href={link.href}
+                          className="transition-colors hover:text-white"
+                        >
+                          {link.label}
+                        </Link>
+                      ) : (
+                        link.label
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -107,8 +131,13 @@ const Footer = () => {
           <div className="flex flex-col gap-4 text-sm text-white/60 md:flex-row md:items-center md:justify-between">
             <p className="text-sm">All Rights Reserved © 2025 T20Mumbai</p>
             <div className="flex items-center gap-8">
-              <Link href={routes.privacyPolicy}>Privacy Policy</Link>
-              <a href="#">Terms of Service</a>
+              <Link
+                href={routes.privacyPolicy}
+                className="transition-colors hover:text-white"
+              >
+                Privacy Policy
+              </Link>
+              <span>Terms of Service</span>
             </div>
           </div>
         </div>

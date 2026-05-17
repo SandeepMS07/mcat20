@@ -6,7 +6,7 @@ export const navLinks = [
     path: `${routes.home}`,
   },
   {
-    title: "Matches",
+    title: "Fixtures",
     path: `${routes.fixtures}`,
   },
   {
@@ -30,9 +30,17 @@ export const navLinks = [
     path: `${routes.teams}`,
   },
   {
+    title: "Stats",
+    path: `${routes.stats}`,
+  },
+  {
     title: "Fantasy",
     path: `${routes.fantasy}`,
   },
+  // {
+  //   title: "About Us",
+  //   path: `${routes.aboutUs}`,
+  // },
 
   // {
   //   title: "Gallery",

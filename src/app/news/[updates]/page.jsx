@@ -1,14 +1,21 @@
 "use client";
 import TitleComponent from "@/components/common/TitleComponent";
-import Hero from "@/components/hero/Hero";
-import Image from "next/image";
 import { LocalLatestUpdates } from "../data";
 import UpdatesCard from "@/components/LatestUpdateComponents/UpdatesCard";
 import { useEffect, useState } from "react";
-import { formatTitleForURL,decodeHtml} from "@/utilis/helper";
+import { formatTitleForURL, decodeHtml } from "@/utilis/helper";
 import { useParams, useRouter } from "next/navigation";
 import routes from "@/utilis/route";
 import { getLatestUpdatesClient } from "@/app/api/clientApi";
+
+const formatNewsDate = (dateString) => {
+  if (!dateString) return "";
+  return new Date(dateString).toLocaleDateString("en-IN", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+};
 
 const page = () => {
   const params = useParams();
@@ -59,36 +66,48 @@ const page = () => {
     router.push(`${routes.latestUpdates}/${formatTitleForURL(title)}`);
   };
 
+  const heroImage =
+    selectedUpdate?.Image_URL__c || "/images/banner/latest-updates-bg.jpg";
+
   return (
     <>
-      <Hero
-        imgUrl={"/images/banner/latest-updates-bg.jpg"}
-        heading="Latest Updates"
-      />
+      <section className="relative min-h-[560px] w-full overflow-hidden">
+        <img
+          src={heroImage}
+          alt={selectedUpdate?.Title__c || "Latest Updates"}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0D236D]/92 via-[#0D236D]/65 to-[#0D236D]/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B1B57]/55 via-transparent to-transparent" />
+
+        <div className="relative z-10 flex min-h-[560px] items-end pb-14">
+          <div className="section-width">
+            <div className="max-w-4xl">
+              {selectedUpdate?.Date__c && (
+                <p className="mb-3 text-sm font-semibold text-white/90">
+                  {"Mumbai, "}
+                  {formatNewsDate(selectedUpdate.Date__c)}
+                </p>
+              )}
+              <h1 className="mb-4 text-3xl font-extrabold leading-tight text-white md:text-4xl">
+                {selectedUpdate?.Title__c || "Latest Updates"}
+              </h1>
+              {selectedUpdate?.Sub_Title__c && (
+                <p className="text-base font-medium text-white/85 md:text-lg">
+                  {selectedUpdate.Sub_Title__c}
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <div className="section-width section-padding text-black">
         <div>
           {loading ? (
             <div className="py-10 text-center text-black">Loading...</div>
           ) : selectedUpdate ? (
             <>
-              <div className="mb-8">
-                <p className="mb-2">
-                  {"Mumbai, "}
-                  {selectedUpdate?.Date__c
-                    ? new Date(selectedUpdate.Date__c).toLocaleDateString(
-                        "en-IN",
-                        {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                        }
-                      )
-                    : ""}
-                </p>
-                <h2 className=" max-w-7xl  mb-4">{selectedUpdate?.Title__c}</h2>
-                <p className="  ">{selectedUpdate?.Sub_Title__c}</p>
-              </div>
-
               <img
                 src={selectedUpdate?.Image_URL__c}
                 width={1000}
@@ -98,7 +117,7 @@ const page = () => {
               />
               <div className="section-padding">
                 <p
-                 dangerouslySetInnerHTML={{
+                  dangerouslySetInnerHTML={{
                     __html: decodeHtml(selectedUpdate?.Content__c || ""),
                   }}
                 ></p>

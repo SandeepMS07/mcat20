@@ -28,23 +28,9 @@ const buildTeamLabel = (team, isSeason3) => {
   return { name, shortName, logo };
 };
 
-const BracketSlot = ({ children, light = false }) => (
-  <div
-    className={`flex h-12 items-center justify-center rounded-lg border px-4 text-lg font-semibold italic ${
-      light
-        ? "border-white/40 bg-[#ECECEC] text-[#1C2440]"
-        : "border-[#2B58DD] bg-[#0D246A] text-white"
-    }`}
-  >
-    {children}
-  </div>
-);
-
 const PointsTablePage = () => {
   const [activeSeason, setActiveSeason] = useState("season_3");
   const [activeTeam, setActiveTeam] = useState("All Teams");
-  const [activeGroup, setActiveGroup] = useState("men");
-  const [activeStage, setActiveStage] = useState("points");
   const [standingsSeason3, setStandingsSeason3] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -72,22 +58,26 @@ const PointsTablePage = () => {
     return ["All Teams", ...teamNames];
   }, [activeSeason, standingsSeason3]);
 
-  const filteredData = useMemo(() => {
+  const rankedSeasonData = useMemo(() => {
     const seasonData = getSeasonData(activeSeason, standingsSeason3);
-    if (activeTeam === "All Teams") return seasonData;
-    return seasonData.filter((team) =>
+    return seasonData.map((team, index) => ({ team, rank: index + 1 }));
+  }, [activeSeason, standingsSeason3]);
+
+  const filteredData = useMemo(() => {
+    if (activeTeam === "All Teams") return rankedSeasonData;
+    return rankedSeasonData.filter(({ team }) =>
       activeSeason === "season_3"
         ? team?.TeamName === activeTeam
         : team?.team_name === activeTeam,
     );
-  }, [activeSeason, activeTeam, standingsSeason3]);
+  }, [activeSeason, activeTeam, rankedSeasonData]);
 
   const rows = useMemo(() => {
     const isSeason3 = activeSeason === "season_3";
-    return filteredData.map((team, index) => {
+    return filteredData.map(({ team, rank }) => {
       const teamMeta = buildTeamLabel(team, isSeason3);
       return {
-        rank: index + 1,
+        rank,
         ...teamMeta,
         p: isSeason3 ? team?.Matches : team?.played,
         w: isSeason3 ? team?.Wins : team?.won,
@@ -107,213 +97,48 @@ const PointsTablePage = () => {
       <section className="relative overflow-hidden pb-14 pt-40 bg-[url('/images/texture-bg.png')] bg-cover bg-center bg-no-repeat">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,88,210,0.35),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(26,40,116,0.65),transparent_45%)]" />
         <div className="relative section-width">
-          <div className="mb-8 flex flex-wrap items-center justify-center gap-4 border-b border-white/15 pt-5">
-            <div className="inline-flex rounded-full border border-white/40 bg-[#17317F] p-1 text-sm font-semibold uppercase -mb-[23px]">
-              <button
-                type="button"
-                onClick={() => setActiveStage("points")}
-                className={`rounded-full px-6 py-2 ${
-                  activeStage === "points"
-                    ? "bg-white text-[#1A2C76]"
-                    : "text-white/85"
-                }`}
-              >
-                Points Table
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveStage("playoffs")}
-                className={`rounded-full px-6 py-2 ${
-                  activeStage === "playoffs"
-                    ? "bg-white text-[#1A2C76]"
-                    : "text-white/85"
-                }`}
-              >
-                Playoffs
-              </button>
-            </div>
-
-            <div className="inline-flex rounded-full bg-[#F68323] p-1 text-sm font-semibold uppercase -mb-[23px]">
-              <button
-                type="button"
-                onClick={() => setActiveGroup("men")}
-                className={`rounded-full px-8 py-2 ${
-                  activeGroup === "men"
-                    ? "bg-white text-[#1A2C76]"
-                    : "text-white"
-                }`}
-              >
-                Men
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveGroup("women")}
-                className={`rounded-full px-8 py-2 ${
-                  activeGroup === "women"
-                    ? "bg-white text-[#1A2C76]"
-                    : "text-white"
-                }`}
-              >
-                Women
-              </button>
-            </div>
-          </div>
-
           <div className="mb-8 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <h1 className="flex flex-col text-5xl font-extrabold uppercase italic leading-[0.9] text-white sm:text-6xl">
               <span
                 className="text-transparent [-webkit-text-stroke:2px_#7E93DB]"
                 style={{ WebkitTextStroke: "2px #7E93DB" }}
               >
-                {activeStage === "playoffs" ? "Playoffs" : "Points"}
+                Points
               </span>
-              <span>{activeStage === "playoffs" ? "Chart" : "Table"}</span>
+              <span>Table</span>
             </h1>
 
-            {activeStage === "points" && (
-              <div className="flex gap-3">
-                <select
-                  value={activeTeam}
-                  onChange={(e) => setActiveTeam(e.target.value)}
-                  className="rounded-lg border border-white/20 bg-[#314A98] px-4 py-2 text-sm font-semibold text-white outline-none"
-                >
-                  {teamsInSeason.map((team) => (
-                    <option key={team} value={team} className="text-black">
-                      {team}
-                    </option>
-                  ))}
-                </select>
-                <select
-                  value={activeSeason}
-                  onChange={(e) => setActiveSeason(e.target.value)}
-                  className="rounded-lg border border-white/20 bg-[#314A98] px-4 py-2 text-sm font-semibold text-white outline-none"
-                >
-                  {SEASON_OPTIONS.map((option) => (
-                    <option
-                      key={option.value}
-                      value={option.value}
-                      className="text-black"
-                    >
-                      {option.label.toUpperCase()}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )}
+            <div className="flex gap-3">
+              <select
+                value={activeTeam}
+                onChange={(e) => setActiveTeam(e.target.value)}
+                className="rounded-lg border border-white/20 bg-[#314A98] px-4 py-2 text-sm font-semibold text-white outline-none"
+              >
+                {teamsInSeason.map((team) => (
+                  <option key={team} value={team} className="text-black">
+                    {team}
+                  </option>
+                ))}
+              </select>
+              <select
+                value={activeSeason}
+                onChange={(e) => setActiveSeason(e.target.value)}
+                className="rounded-lg border border-white/20 bg-[#314A98] px-4 py-2 text-sm font-semibold text-white outline-none"
+              >
+                {SEASON_OPTIONS.map((option) => (
+                  <option
+                    key={option.value}
+                    value={option.value}
+                    className="text-black"
+                  >
+                    {option.label.toUpperCase()}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
 
-          {activeStage === "playoffs" ? (
-            <div className="rounded-2xl border border-white/10 bg-[#223783]/40 p-6 md:p-10">
-              <div className="relative hidden lg:grid lg:grid-cols-[1fr_1fr_1fr] lg:gap-16">
-                <div className="space-y-5">
-                  <BracketSlot>TBD</BracketSlot>
-                  <BracketSlot light>
-                    <div className="text-center">
-                      <p>Qualifier 1, May 26</p>
-                      <p className="text-xs not-italic text-[#FF5B1A]">
-                        D Y Patil Stadium, Navi Mumbai
-                      </p>
-                    </div>
-                  </BracketSlot>
-                  <BracketSlot>TBD</BracketSlot>
-
-                  <div className="h-16" />
-
-                  <BracketSlot>TBD</BracketSlot>
-                  <BracketSlot light>
-                    <div className="text-center">
-                      <p>Eliminator, May 27</p>
-                      <p className="text-xs not-italic text-[#FF5B1A]">
-                        D Y Patil Stadium, Navi Mumbai
-                      </p>
-                    </div>
-                  </BracketSlot>
-                  <BracketSlot>TBD</BracketSlot>
-                </div>
-
-                <div className="mt-36 space-y-5">
-                  <BracketSlot>TBD</BracketSlot>
-                  <BracketSlot light>
-                    <div className="text-center">
-                      <p>Qualifier 2, May 29</p>
-                      <p className="text-xs not-italic text-[#FF5B1A]">
-                        Wankhede Stadium, Mumbai
-                      </p>
-                    </div>
-                  </BracketSlot>
-                  <BracketSlot>TBD</BracketSlot>
-                </div>
-
-                <div className="mt-28 space-y-5">
-                  <BracketSlot>TBD</BracketSlot>
-                  <BracketSlot light>
-                    <div className="text-center">
-                      <p>Final, May 31</p>
-                      <p className="text-xs not-italic text-[#FF5B1A]">
-                        Wankhede Stadium, Mumbai
-                      </p>
-                    </div>
-                  </BracketSlot>
-                  <BracketSlot>TBD</BracketSlot>
-                </div>
-
-                {/* <div className="pointer-events-none absolute inset-0">
-                  <span className="absolute left-[29%] top-[88px] h-2.5 w-2.5 rounded-full bg-[#FF5B1A]" />
-                  <div className="absolute left-[29%] top-[92px] h-0.5 w-[38%] bg-[#FF5B1A]" />
-                  <div className="absolute left-[66.8%] top-[92px] h-[145px] w-0.5 bg-[#FF5B1A]" />
-                  <div className="absolute left-[64.8%] top-[200px] h-0.5 w-[5.1%] bg-[#FF5B1A]" />
-                  <span className="absolute left-[70%] top-[200px] h-2.5 w-2.5 rounded-full bg-[#FF5B1A]" />
-
-                  <span className="absolute left-[32.6%] top-[338px] h-2.5 w-2.5 rounded-full bg-[#FF5B1A]" />
-                  <div className="absolute left-[33.2%] top-[342px] h-0.5 w-[6.2%] bg-[#FF5B1A]" />
-                  <div className="absolute left-[39.3%] top-[204px] h-[139px] w-0.5 bg-[#FF5B1A]" />
-                  <div className="absolute left-[39.3%] top-[204px] h-0.5 w-[1.1%] bg-[#FF5B1A]" />
-                  <span className="absolute left-[40%] top-[200px] h-2.5 w-2.5 rounded-full bg-[#FF5B1A]" />
-
-                  <span className="absolute left-[64.2%] top-[230px] h-2.5 w-2.5 rounded-full bg-[#FF5B1A]" />
-                  <div className="absolute left-[65%] top-[234px] h-0.5 w-[4.5%] bg-[#FF5B1A]" />
-                  <div className="absolute left-[69.7%] top-[118px] h-[64px] w-0.5 bg-[#FF5B1A]" />
-                </div> */}
-              </div>
-
-              <div className="space-y-4 lg:hidden">
-                <BracketSlot>TBD</BracketSlot>
-                <BracketSlot light>
-                  <div className="text-center">
-                    <p>Qualifier 1, May 26</p>
-                    <p className="text-xs not-italic text-[#FF5B1A]">
-                      D Y Patil Stadium, Navi Mumbai
-                    </p>
-                  </div>
-                </BracketSlot>
-                <BracketSlot>TBD</BracketSlot>
-                <BracketSlot light>
-                  <div className="text-center">
-                    <p>Eliminator, May 27</p>
-                    <p className="text-xs not-italic text-[#FF5B1A]">
-                      D Y Patil Stadium, Navi Mumbai
-                    </p>
-                  </div>
-                </BracketSlot>
-                <BracketSlot light>
-                  <div className="text-center">
-                    <p>Qualifier 2, May 29</p>
-                    <p className="text-xs not-italic text-[#FF5B1A]">
-                      Wankhede Stadium, Mumbai
-                    </p>
-                  </div>
-                </BracketSlot>
-                <BracketSlot light>
-                  <div className="text-center">
-                    <p>Final, May 31</p>
-                    <p className="text-xs not-italic text-[#FF5B1A]">
-                      Wankhede Stadium, Mumbai
-                    </p>
-                  </div>
-                </BracketSlot>
-              </div>
-            </div>
-          ) : loading ? (
+          {loading ? (
             <div className="rounded-2xl border border-white/10 bg-[#223783] p-8 text-center text-white/80">
               Loading points table...
             </div>
