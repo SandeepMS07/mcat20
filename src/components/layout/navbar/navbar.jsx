@@ -80,20 +80,25 @@ const Navbar = () => {
             {/* Navigation Links */}
             <div className="items-center lg:flex hidden py-1  w-full">
               <ul className="flex items-center justify-between gap-8 xl:gap-10 bg-transparent pl-8 xl:pl-12 pr-4 xl:pr-10 py-2 rounded-full w-full">
-                {navLinks.map((item, i) => (
-                  <li key={i}>
-                    <Link
-                      href={item.path}
-                      className={`text-sm md:text-base xl:text-lg font-medium transition-colors hover:text-orange-400 ${
-                        pathName === item.path
-                          ? "text-orange-500"
-                          : "text-white"
-                      }`}
-                    >
-                      {item.title}
-                    </Link>
-                  </li>
-                ))}
+                {navLinks.map((item, i) => {
+                  const isExternal = /^https?:\/\//.test(item.path);
+                  return (
+                    <li key={i}>
+                      <Link
+                        href={item.path}
+                        target={isExternal ? "_blank" : undefined}
+                        rel={isExternal ? "noopener noreferrer" : undefined}
+                        className={`text-sm md:text-base xl:text-lg font-medium transition-colors hover:text-orange-400 ${
+                          pathName === item.path
+                            ? "text-orange-500"
+                            : "text-white"
+                        }`}
+                      >
+                        {item.title}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
 
@@ -125,17 +130,22 @@ const Navbar = () => {
           </div>
 
           <ul className="flex flex-col gap-6 mt-10 px-6">
-            {navLinks.map((item, i) => (
-              <li key={i}>
-                <Link
-                  href={item.path}
-                  className="text-white text-base"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {item.title}
-                </Link>
-              </li>
-            ))}
+            {navLinks.map((item, i) => {
+              const isExternal = /^https?:\/\//.test(item.path);
+              return (
+                <li key={i}>
+                  <Link
+                    href={item.path}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noopener noreferrer" : undefined}
+                    className="text-white text-base"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
           {/* <div className="w-fit p-6">
             <a

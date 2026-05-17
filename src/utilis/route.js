@@ -26,7 +26,7 @@ const routes = {
   pointsTable: "/points-table",
 
   videos: "/videos",
-  fantasy: "/fantasy",
+  fantasy: "https://fantasy-mvp.turboverse.co/",
 
   privacyPolicy: "/privacy_policy",
   // social links

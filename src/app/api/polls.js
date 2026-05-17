@@ -1,0 +1,51 @@
+import axios from "axios";
+import { FANTASY_API_BASE } from "@/constant";
+
+const VOTER_KEY_STORAGE = "mca_voter_key";
+
+const fantasyAxios = axios.create({
+  baseURL: FANTASY_API_BASE,
+  timeout: 8000,
+});
+
+export const getVoterKey = () => {
+  if (typeof window === "undefined") return null;
+  try {
+    let k = window.localStorage.getItem(VOTER_KEY_STORAGE);
+    if (!k) {
+      k =
+        typeof crypto !== "undefined" && crypto.randomUUID
+          ? crypto.randomUUID()
+          : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+      window.localStorage.setItem(VOTER_KEY_STORAGE, k);
+    }
+    return k;
+  } catch {
+    return null;
+  }
+};
+
+export const listPolls = async () => {
+  const voterKey = getVoterKey();
+  const res = await fantasyAxios.get("/v1/polls", {
+    params: voterKey ? { voterKey } : undefined,
+  });
+  return res.data;
+};
+
+export const getPoll = async (slug) => {
+  const voterKey = getVoterKey();
+  const res = await fantasyAxios.get(`/v1/polls/${encodeURIComponent(slug)}`, {
+    params: voterKey ? { voterKey } : undefined,
+  });
+  return res.data;
+};
+
+export const votePoll = async (slug, optionId) => {
+  const voterKey = getVoterKey();
+  const res = await fantasyAxios.post(
+    `/v1/polls/${encodeURIComponent(slug)}/vote`,
+    { optionId, voterKey }
+  );
+  return res.data;
+};

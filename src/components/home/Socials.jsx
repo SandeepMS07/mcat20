@@ -67,7 +67,7 @@ const Socials = () => {
   }, []);
 
   return (
-    <div className="relative bg-gradient-to-bl from-[#1C398E] to-[#0E005A]">
+    <div className="relative">
       <link rel="preconnect" href="https://static.elfsight.com" />
       <link rel="preconnect" href="https://core.service.elfsight.com" />
       <Script
@@ -84,15 +84,15 @@ const Socials = () => {
           </span>
           <span>SOCIALS</span>
         </h2>
-        <div className="relative min-h-[420px]">
+        <div className="relative grid">
           {!loaded && (
-            <div className="absolute inset-0 z-0">
+            <div className="col-start-1 row-start-1 z-0">
               <SocialsSkeleton />
             </div>
           )}
           <div
             ref={containerRef}
-            className={`${ELFSIGHT_APP_CLASS} relative z-10 transition-opacity duration-300 ${
+            className={`${ELFSIGHT_APP_CLASS} col-start-1 row-start-1 z-10 transition-opacity duration-300 ${
               loaded ? "opacity-100" : "opacity-0"
             }`}
           />
