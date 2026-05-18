@@ -9,7 +9,7 @@ import routes from "@/utilis/route";
 import { redirect, usePathname } from "next/navigation";
 
 const TOP_MARQUEE_TEXT =
-  "Mumbai South Central Maratha Royals crowned T20 Mumbai League 2025 champions";
+  "T20 Mumbai & Women’s T20 Mumbai League begin 1 June 2026";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -49,7 +49,7 @@ const Navbar = () => {
         </>
       )}
       <div className="absolute top-0 z-50 w-full overflow-hidden bg-[#F68323] py-1">
-        <div className="flex w-max animate-[topMarquee_60s_linear_infinite] items-center whitespace-nowrap">
+        <div className="flex w-max animate-[topMarquee_80s_linear_infinite] items-center whitespace-nowrap">
           {[...Array(2)].map((_, groupIdx) => (
             <div key={groupIdx} className="flex shrink-0 items-center">
               {[...Array(8)].map((_, idx) => (
