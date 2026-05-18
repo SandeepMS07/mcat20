@@ -4,11 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import CountdownTimer from "./CountdownTimer";
 import HeroPoll from "./HeroPoll";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import routes from "@/utilis/route";
 import fixtures3 from "@/utilis/fixtures/fixtures3";
 import { useRouter } from "next/navigation";
@@ -252,7 +249,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative 2xl:h-[900px] xl:h-[800px] lg:h-[700px] md:h-[600px] h-[500px]">
+    <div className="relative 2xl:h-[720px] xl:h-[640px] lg:h-[560px] md:h-[500px] sm:h-[440px] h-[400px]">
       {showRegistrationPromo && (
         <div
           className={`hero-ticker absolute inset-x-0 ${heroTickerOffsetClass} z-20 overflow-hidden border-y border-[#f4a03b] bg-[#f4a03b] text-[#04184d]`}
@@ -290,18 +287,8 @@ const Hero = () => {
 
       <Swiper
         key={`hero-${banners.length}`}
-        modules={[Autoplay, Pagination, Navigation]}
+        modules={[Autoplay]}
         autoplay={{ delay: 5000 }}
-        pagination={{
-          el: ".hero-pagination",
-          clickable: true,
-          bulletClass: "hero-bullet",
-          bulletActiveClass: "hero-bullet-active",
-        }}
-        navigation={{
-          prevEl: ".hero-prev",
-          nextEl: ".hero-next",
-        }}
         speed={200}
         loop={banners.length > 1}
         onSwiper={(swiper) => {
@@ -655,30 +642,6 @@ const Hero = () => {
           </div>
         </SwiperSlide>
       </Swiper>
-
-      <div className="pointer-events-none absolute inset-x-0 bottom-[12%] z-30 sm:bottom-[14%] lg:bottom-[15%]">
-        <div className="section-width flex justify-end">
-          <div className="pointer-events-auto flex items-center gap-3 sm:gap-4">
-            <div className="hero-pagination flex items-center gap-1.5"></div>
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                aria-label="Previous slide"
-                className="hero-prev flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white/15 text-white backdrop-blur-sm transition-colors hover:bg-white/25 sm:h-9 sm:w-9"
-              >
-                <FaChevronLeft className="h-3 w-3" />
-              </button>
-              <button
-                type="button"
-                aria-label="Next slide"
-                className="hero-next flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white/15 text-white backdrop-blur-sm transition-colors hover:bg-white/25 sm:h-9 sm:w-9"
-              >
-                <FaChevronRight className="h-3 w-3" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* <div className="pointer-events-none absolute inset-x-0 bottom-6 z-30 flex justify-center px-3 sm:bottom-8 sm:right-6 sm:left-auto sm:justify-end sm:px-0 lg:bottom-12 lg:right-12">
         <HeroPoll />

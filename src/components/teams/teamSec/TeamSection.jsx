@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState, useCallback } from "react";
-import Image from "next/image";
 import { teamGradients, teamSubtitles } from "@/utilis/helper";
 
 const getTeamNameKey = (name = "") => name.replace(/\s*\(W\)\s*$/i, "").trim();
@@ -11,6 +10,108 @@ const resolveTeamHeader = (rawName = "") => {
   const mapped = teamSubtitles[key];
   if (mapped) return { name: mapped.name, subtitle: mapped.subtitle };
   return { name: rawName, subtitle: "" };
+};
+
+const Toggle = ({ activeTeamType, onTeamTypeChange, menTab, womenTab }) => (
+  <div
+    role="tablist"
+    aria-label="Team type"
+    className="relative inline-grid w-[160px] grid-cols-2 overflow-hidden rounded-full border border-white/15 bg-black/20 p-0.5 backdrop-blur-sm"
+  >
+    <span
+      aria-hidden
+      className={`pointer-events-none absolute top-0.5 left-0.5 h-[calc(100%-4px)] w-[calc(50%-2px)] rounded-full bg-[#F2A23A] shadow-[0_2px_10px_rgba(242,162,58,0.45)] transition-transform duration-300 ease-out ${
+        activeTeamType === menTab ? "translate-x-0" : "translate-x-full"
+      }`}
+    />
+    <button
+      type="button"
+      role="tab"
+      aria-selected={activeTeamType === menTab}
+      onClick={() => onTeamTypeChange?.(menTab)}
+      className={`relative z-10 cursor-pointer py-1 text-[11px] font-bold uppercase tracking-wider transition-colors duration-300 ${
+        activeTeamType === menTab ? "text-[#02103D]" : "text-white/75"
+      }`}
+    >
+      Men
+    </button>
+    <button
+      type="button"
+      role="tab"
+      aria-selected={activeTeamType === womenTab}
+      onClick={() => onTeamTypeChange?.(womenTab)}
+      className={`relative z-10 cursor-pointer py-1 text-[11px] font-bold uppercase tracking-wider transition-colors duration-300 ${
+        activeTeamType === womenTab ? "text-[#02103D]" : "text-white/75"
+      }`}
+    >
+      Women
+    </button>
+  </div>
+);
+
+const TeamCard = ({ team, isActive, onClick }) => {
+  const normalized = getTeamNameKey(team?.Name);
+  const gradient = teamGradients[normalized];
+  const gradientStyle = gradient
+    ? {
+        backgroundImage: `linear-gradient(135deg, ${gradient.from} 0%, ${gradient.to} 100%)`,
+      }
+    : { backgroundColor: "#1b2f93" };
+
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={isActive}
+      aria-label={team?.Name}
+      className={`group relative block aspect-[3/2] w-full cursor-pointer overflow-hidden rounded-lg transition-all duration-300 ${
+        isActive
+          ? "scale-[1.04] ring-2 ring-[#F2A23A] shadow-[0_8px_20px_rgba(0,0,0,0.4)]"
+          : "ring-1 ring-white/10 hover:ring-white/30 hover:-translate-y-0.5"
+      }`}
+      style={gradientStyle}
+    >
+      <span
+        aria-hidden
+        className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.18),transparent_55%)]"
+      />
+      <span
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30"
+      />
+      <span className="relative z-10 flex h-full w-full items-center justify-center p-1.5 sm:p-2">
+        <img
+          src={team.Logo_URL__c}
+          alt=""
+          className="max-h-[72%] max-w-[72%] object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.45)] transition-transform duration-300 group-hover:scale-105"
+        />
+      </span>
+    </button>
+  );
+};
+
+const SelectedTeamInline = ({ team, header }) => {
+  return (
+    <div className="relative flex items-center gap-4 px-1 py-2 sm:gap-5 sm:px-2 lg:border-l lg:border-white/10 lg:pl-6 lg:pt-10">
+      <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-xl border border-white/15 bg-white/[0.04] p-2 backdrop-blur-sm sm:h-24 sm:w-24 md:h-28 md:w-28">
+        <img
+          src={team?.Logo_URL__c}
+          alt={`${header.name} logo`}
+          className="max-h-full max-w-full object-contain drop-shadow-lg"
+        />
+      </div>
+      <div className="min-w-0 flex-1">
+        <h2 className="text-lg font-extrabold uppercase italic leading-tight text-white sm:text-xl md:text-2xl">
+          {header.name}
+        </h2>
+        {header.subtitle && (
+          <p className="mt-1 text-xs font-medium text-white/70 sm:text-sm">
+            {header.subtitle}
+          </p>
+        )}
+      </div>
+    </div>
+  );
 };
 
 const TeamSection = ({
@@ -37,152 +138,44 @@ const TeamSection = ({
   );
 
   const selectedTeam = data?.[selectedTeamIndex];
-
-  if (!selectedTeam) {
-    return null;
-  }
+  if (!selectedTeam) return null;
 
   const selectedHeader = resolveTeamHeader(selectedTeam?.Name || "");
 
   return (
     <div className="w-full">
-      {/* Top zone: team logo grid + selected team panel (royal blue) */}
-      <div className="w-full bg-[#101b52] pt-28 md:pt-32 lg:pt-36 pb-6">
-        {/* Logo grid (left) + selected team panel (right) */}
-        <div className="px-2 sm:px-6 md:px-10 lg:px-14 xl:px-20">
-          <div
-            className="rounded-xl md:rounded-2xl bg-[#1b2f93] ring-1 ring-white/10 p-4 md:p-6 lg:p-7"
-            style={{
-              boxShadow:
-                "0 12px 28px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06)",
-            }}
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-6 lg:gap-8 items-center">
-              {/* Left: Men/Women toggle + 4x2 logo grid */}
-              <div className="flex flex-col gap-3 md:gap-4">
-                <div
-                  role="tablist"
-                  aria-label="Team type"
-                  className="relative inline-grid grid-cols-2 w-[180px] md:w-[200px] rounded-full p-0.5 overflow-hidden self-start"
-                  style={{
-                    background:
-                      "radial-gradient(73.95% 52.29% at 49.38% 41.83%, #ECD815 0%, #F58220 70%, #F15A22 100%)",
-                  }}
-                >
-                  <span
-                    aria-hidden
-                    className={`pointer-events-none absolute top-0.5 left-0.5 h-[calc(100%-4px)] w-[calc(50%-2px)] rounded-full bg-white shadow-md transition-transform duration-300 ease-out ${
-                      activeTeamType === menTab
-                        ? "translate-x-0"
-                        : "translate-x-full"
-                    }`}
-                  />
-                  <button
-                    type="button"
-                    role="tab"
-                    aria-selected={activeTeamType === menTab}
-                    onClick={() => onTeamTypeChange?.(menTab)}
-                    className={`relative z-10 py-1 text-xs md:text-sm font-extrabold italic tracking-wide uppercase transition-colors duration-300 ${
-                      activeTeamType === menTab
-                        ? "text-[#162362]"
-                        : "text-white hover:text-white/90"
-                    }`}
-                  >
-                    Men
-                  </button>
-                  <button
-                    type="button"
-                    role="tab"
-                    aria-selected={activeTeamType === womenTab}
-                    onClick={() => onTeamTypeChange?.(womenTab)}
-                    className={`relative z-10 py-1 text-xs md:text-sm font-extrabold italic tracking-wide uppercase transition-colors duration-300 ${
-                      activeTeamType === womenTab
-                        ? "text-[#162362]"
-                        : "text-white hover:text-white/90"
-                    }`}
-                  >
-                    Women
-                  </button>
-                </div>
-
-                <ul className="grid grid-cols-4 grid-rows-2 gap-3 md:gap-4">
-                  {data.map((team, index) => {
-                    const isActive = index === selectedTeamIndex;
-                    const normalizedTeamName = getTeamNameKey(team?.Name);
-                    const gradient = teamGradients[normalizedTeamName];
-                    const gradientStyle = gradient
-                      ? {
-                          backgroundImage: `linear-gradient(to bottom, ${gradient.from}, ${gradient.to})`,
-                        }
-                      : {};
-
-                    return (
-                      <li key={team?.Id || index}>
-                        <button
-                          type="button"
-                          onClick={() => handleLogoClick(index)}
-                          aria-pressed={isActive}
-                          aria-label={team?.Name}
-                          className={`group relative block w-full aspect-[6/5] rounded-lg overflow-hidden border-0 transition-all duration-300 ${
-                            isActive
-                              ? "shadow-[0_8px_20px_rgba(0,0,0,0.45)] ring-2 ring-white/90"
-                              : "hover:ring-1 hover:ring-white/35"
-                          }`}
-                          style={gradientStyle}
-                        >
-                          <Image
-                            src="/images/elements/teamCardRoundElement.png"
-                            width={200}
-                            height={140}
-                            alt=""
-                            aria-hidden
-                            className="absolute inset-0 w-full h-full opacity-60 pointer-events-none"
-                          />
-                          <Image
-                            src="/images/elements/teamCardElement.png"
-                            width={200}
-                            height={140}
-                            alt=""
-                            aria-hidden
-                            className="absolute inset-0 w-full h-full pointer-events-none"
-                          />
-                          <span className="relative z-10 flex h-full w-full items-center justify-center p-2 md:p-3">
-                            <img
-                              src={team.Logo_URL__c}
-                              alt=""
-                              className="max-h-[82%] max-w-[82%] object-contain"
-                            />
-                          </span>
-                        </button>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-
-              {/* Divider (desktop only) */}
-              <div className="hidden lg:block w-px h-40 bg-white/20 justify-self-center" />
-
-              {/* Right (40%): selected team logo + name */}
-              <div className="flex flex-col sm:flex-row items-center text-center sm:text-left gap-4 sm:gap-5 px-2">
-                <div className="flex items-center justify-center w-[120px] h-[90px] md:w-[150px] md:h-[110px] shrink-0">
-                  <img
-                    src={selectedTeam?.Logo_URL__c}
-                    alt={`${selectedHeader.name} logo`}
-                    className="max-h-full max-w-full object-contain"
-                  />
-                </div>
-                <div className="text-white min-w-0">
-                  <h2 className="text-lg md:text-xl lg:text-2xl font-bold leading-[1.15] break-words">
-                    {selectedHeader.name}
-                  </h2>
-                  {selectedHeader.subtitle ? (
-                    <p className="mt-1 text-sm md:text-base lg:text-lg font-semibold text-white/90 leading-[1.2] break-words">
-                      {selectedHeader.subtitle}
-                    </p>
-                  ) : null}
-                </div>
-              </div>
+      <div className="w-full bg-[#101b52] pt-32 pb-4 sm:pt-36 md:pt-40 lg:pt-44">
+        <div className="px-4 sm:px-6 md:px-10 lg:px-14 xl:px-20">
+          <div className="relative overflow-hidden rounded-xl border border-white/10 bg-[#0c1850]/60 p-3 sm:p-4 lg:p-5">
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-0 opacity-40"
+              style={{
+                background:
+                  "radial-gradient(50% 70% at 85% 15%, rgba(242,162,58,0.18), transparent 60%), radial-gradient(50% 70% at 5% 100%, rgba(28,57,142,0.4), transparent 60%)",
+              }}
+            />
+            <div className="relative z-20 mb-3 flex justify-end lg:absolute lg:right-5 lg:top-5 lg:mb-0">
+              <Toggle
+                activeTeamType={activeTeamType}
+                onTeamTypeChange={onTeamTypeChange}
+                menTab={menTab}
+                womenTab={womenTab}
+              />
+            </div>
+            <div className="relative grid gap-4 lg:grid-cols-[6fr_4fr] lg:items-center lg:gap-6">
+              <ul className="grid grid-cols-4 gap-2 sm:gap-3">
+                {data.map((team, index) => (
+                  <li key={team?.Id || index}>
+                    <TeamCard
+                      team={team}
+                      isActive={index === selectedTeamIndex}
+                      onClick={() => handleLogoClick(index)}
+                    />
+                  </li>
+                ))}
+              </ul>
+              <SelectedTeamInline team={selectedTeam} header={selectedHeader} />
             </div>
           </div>
         </div>

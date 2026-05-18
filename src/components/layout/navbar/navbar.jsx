@@ -75,20 +75,20 @@ const Navbar = () => {
               style={{ zIndex: 9999 }}
             >
               {!menuOpen && (
-                <Link href="/" className="flex items-center gap-3 w-full">
+                <Link href="/" className="flex items-center gap-2 sm:gap-3 w-full">
                   <Image
                     src={"/images/home/logo.svg"}
                     alt="T20 Mumbai logo"
-                    className="h-20 w-auto lg:h-16 cursor-pointer"
+                    className="h-10 w-auto sm:h-12 md:h-14 lg:h-16 cursor-pointer"
                     width={100}
                     height={100}
                     onClick={() => redirect("/")}
                   />
-                  <span aria-hidden className="h-12 w-px bg-white/40 lg:h-10" />
+                  <span aria-hidden className="h-7 w-px bg-white/40 sm:h-8 md:h-9 lg:h-10" />
                   <Image
                     src={"/images/home/logo-w.png"}
                     alt="Women's league logo"
-                    className="h-20 w-auto lg:h-16 cursor-pointer"
+                    className="h-10 w-auto sm:h-12 md:h-14 lg:h-16 cursor-pointer"
                     width={100}
                     height={100}
                   />
@@ -184,12 +184,23 @@ const Navbar = () => {
           }`}
         >
           <div className="flex justify-between items-center p-5">
-            <Image
-              src="/images/home/logo.svg"
-              width={80}
-              height={80}
-              alt="logo"
-            />
+            <div className="flex items-center gap-2">
+              <Image
+                src="/images/home/logo.svg"
+                width={80}
+                height={80}
+                alt="T20 Mumbai logo"
+                className="h-12 w-auto"
+              />
+              <span aria-hidden className="h-8 w-px bg-white/40" />
+              <Image
+                src="/images/home/logo-w.png"
+                width={80}
+                height={80}
+                alt="Women's league logo"
+                className="h-12 w-auto"
+              />
+            </div>
             <RxCross2
               className="text-white text-2xl cursor-pointer transition-opacity hover:opacity-80"
               onClick={() => setMenuOpen(false)}

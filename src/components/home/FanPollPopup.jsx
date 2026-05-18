@@ -4,14 +4,7 @@ import { listPolls, votePoll } from "@/app/api/polls";
 
 const POPUP_DISMISSED_KEY = "mca_fanpoll_popup_dismissed";
 
-const RESULT_BAR_COLORS = [
-  "#3B82F6", // blue
-  "#F58220", // orange
-  "#F2C94C", // yellow
-  "#9CA3AF", // grey
-  "#34D399", // green
-  "#A78BFA", // purple
-];
+const DEFAULT_OPTION_IMAGE = "/images/stats/player-img.svg";
 
 const markDismissed = () => {
   if (typeof window === "undefined") return;
@@ -67,7 +60,11 @@ const FanPollPopup = ({ open, onClose }) => {
       if (e.key === "Escape") handleClose();
     };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
@@ -129,152 +126,199 @@ const FanPollPopup = ({ open, onClose }) => {
 
   return (
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 p-4"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
       onClick={handleClose}
     >
       <div
-        className="w-full max-w-3xl rounded-2xl border border-white/15 bg-[#1f2c70] p-5 sm:p-6 shadow-2xl"
+        className="relative w-full max-w-2xl overflow-hidden rounded-2xl border border-white/15 bg-[#02103D] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)]"
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
         aria-label={poll?.question || "Fan poll"}
       >
-        <div className="mb-4 flex flex-wrap items-center gap-3">
-          <span className="rounded-full bg-white px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#1A2C76]">
-            Todays Fanpoll
-          </span>
-          {hasVoted && (
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-[#F2A23A]">
-              {totalVotes.toLocaleString("en-IN")} votes
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-[#F2A23A]/15 blur-3xl"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-32 -left-20 h-64 w-64 rounded-full bg-[#1C398E]/40 blur-3xl"
+        />
+
+        <div className="relative p-5 sm:p-7">
+          <div className="mb-5 flex items-center gap-3">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F2A23A] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#02103D]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#02103D]" />
+              Today's Fan Poll
             </span>
-          )}
-          <button
-            type="button"
-            onClick={handleClose}
-            aria-label="Close poll"
-            className="ml-auto cursor-pointer rounded-full p-1.5 text-white/70 transition hover:bg-white/10 hover:text-white"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-5 w-5"
-              aria-hidden
+            {totalVotes > 0 && (
+              <span className="text-xs font-medium text-white/60">
+                {totalVotes.toLocaleString("en-IN")} votes
+              </span>
+            )}
+            <button
+              type="button"
+              onClick={handleClose}
+              aria-label="Close poll"
+              className="ml-auto cursor-pointer rounded-full p-1.5 text-white/60 transition hover:bg-white/10 hover:text-white"
             >
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
-        </div>
-
-        {loadError ? (
-          <p className="py-8 text-center text-sm italic text-white/70">
-            Could not load poll right now. Please try again later.
-          </p>
-        ) : !poll ? (
-          <div className="space-y-3 py-2">
-            <div className="h-5 w-3/5 animate-pulse rounded bg-white/15" />
-            <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-              {[0, 1, 2, 3].map((i) => (
-                <div
-                  key={i}
-                  className="h-10 animate-pulse rounded-full bg-white/10"
-                />
-              ))}
-            </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-5 w-5"
+                aria-hidden
+              >
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
           </div>
-        ) : (
-          <div className="grid gap-5 sm:grid-cols-[minmax(0,260px),1fr] sm:items-center">
-            <h3 className="text-base font-bold leading-snug text-white sm:text-lg">
-              {poll.question}
-            </h3>
 
-            {hasVoted ? (
-              <div className="flex flex-col gap-3">
-                {poll.options.map((opt, idx) => {
-                  const pct =
-                    totalVotes > 0
-                      ? Math.round(((opt.votes || 0) / totalVotes) * 100)
-                      : 0;
-                  const color = RESULT_BAR_COLORS[idx % RESULT_BAR_COLORS.length];
-                  const isMine = opt.id === poll.my_selection;
-                  const isLeading = opt.id === leadingOptionId;
-                  return (
-                    <div key={opt.id}>
-                      <div className="mb-1 flex items-center justify-between text-xs sm:text-sm">
-                        <span
-                          className={`${
-                            isMine ? "font-semibold text-white" : "text-white/90"
-                          }`}
-                        >
-                          {opt.label}
-                          {isMine && (
-                            <span className="ml-2 text-[10px] uppercase tracking-wide text-[#F2A23A]">
-                              Your pick
-                            </span>
-                          )}
-                        </span>
-                        <span
-                          className={`font-semibold ${
-                            isLeading ? "text-[#F2A23A]" : "text-white/85"
-                          }`}
-                        >
-                          {pct}%
-                        </span>
-                      </div>
-                      <div className="h-2 w-full overflow-hidden rounded-full bg-white/15">
-                        <div
-                          className="h-full rounded-full transition-[width] duration-500"
-                          style={{ width: `${pct}%`, backgroundColor: color }}
-                        />
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            ) : (
+          {loadError ? (
+            <p className="py-10 text-center text-sm italic text-white/70">
+              Could not load poll right now. Please try again later.
+            </p>
+          ) : !poll ? (
+            <div className="space-y-4">
+              <div className="h-6 w-3/4 animate-pulse rounded bg-white/10" />
               <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-                {poll.options.map((opt) => {
-                  const isPending = pendingOptionId === opt.id;
-                  return (
-                    <button
-                      key={opt.id}
-                      type="button"
-                      onClick={() => handleVote(opt.id)}
-                      disabled={pendingOptionId !== null}
-                      className={`flex cursor-pointer items-center gap-3 rounded-full border px-4 py-2.5 text-left text-sm font-medium transition disabled:cursor-not-allowed ${
-                        isPending
-                          ? "border-[#F2A23A] bg-[#F2A23A]/15 text-white opacity-70"
-                          : "border-white/20 bg-white/[0.04] text-white hover:border-white/40 hover:bg-white/[0.08]"
-                      }`}
-                    >
-                      <span
-                        className={`flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 ${
-                          isPending ? "border-[#F2A23A]" : "border-white/60"
+                {[0, 1, 2, 3].map((i) => (
+                  <div
+                    key={i}
+                    className="h-14 animate-pulse rounded-lg bg-white/[0.04]"
+                  />
+                ))}
+              </div>
+            </div>
+          ) : (
+            <>
+              <h3 className="mb-5 text-lg font-extrabold uppercase italic leading-tight text-white sm:text-2xl">
+                {poll.question}
+              </h3>
+
+              {hasVoted ? (
+                <div className="flex flex-col gap-3">
+                  {poll.options.map((opt) => {
+                    const pct =
+                      totalVotes > 0
+                        ? Math.round(((opt.votes || 0) / totalVotes) * 100)
+                        : 0;
+                    const isMine = opt.id === poll.my_selection;
+                    const isLeading = opt.id === leadingOptionId;
+                    return (
+                      <div
+                        key={opt.id}
+                        className={`relative overflow-hidden rounded-lg border px-3 py-2.5 ${
+                          isMine
+                            ? "border-[#F2A23A]/60 bg-[#F2A23A]/10"
+                            : "border-white/15 bg-white/[0.03]"
                         }`}
                       >
-                        {isPending && (
-                          <span className="h-2 w-2 rounded-full bg-[#F2A23A]" />
-                        )}
-                      </span>
-                      <span className="truncate">{opt.label}</span>
-                    </button>
-                  );
-                })}
-              </div>
-            )}
-          </div>
-        )}
+                        <div
+                          aria-hidden
+                          className={`absolute inset-y-0 left-0 transition-[width] duration-700 ${
+                            isLeading
+                              ? "bg-gradient-to-r from-[#F2A23A]/40 to-[#F2A23A]/10"
+                              : "bg-white/[0.07]"
+                          }`}
+                          style={{ width: `${pct}%` }}
+                        />
+                        <div className="relative flex items-center gap-3">
+                          <img
+                            src={opt.image_url || DEFAULT_OPTION_IMAGE}
+                            alt=""
+                            className="h-8 w-8 shrink-0 rounded-full object-cover ring-1 ring-white/20"
+                            loading="lazy"
+                          />
+                          <span
+                            className={`min-w-0 flex-1 truncate text-sm ${
+                              isMine
+                                ? "font-semibold text-white"
+                                : "text-white/90"
+                            }`}
+                          >
+                            {opt.label}
+                            {isMine && (
+                              <span className="ml-2 text-[10px] uppercase tracking-wider text-[#F2A23A]">
+                                Your pick
+                              </span>
+                            )}
+                          </span>
+                          <span
+                            className={`shrink-0 text-sm font-bold tabular-nums ${
+                              isLeading ? "text-[#F2A23A]" : "text-white/80"
+                            }`}
+                          >
+                            {pct}%
+                          </span>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+                  {poll.options.map((opt) => {
+                    const isPending = pendingOptionId === opt.id;
+                    return (
+                      <button
+                        key={opt.id}
+                        type="button"
+                        onClick={() => handleVote(opt.id)}
+                        disabled={pendingOptionId !== null}
+                        className={`group flex cursor-pointer items-center gap-3 rounded-lg border px-3 py-2.5 text-left text-sm font-medium transition disabled:cursor-not-allowed ${
+                          isPending
+                            ? "border-[#F2A23A] bg-[#F2A23A]/15 text-white"
+                            : "border-white/15 bg-white/[0.04] text-white hover:border-[#F2A23A]/60 hover:bg-white/[0.08]"
+                        }`}
+                        aria-pressed={isPending}
+                      >
+                        <img
+                          src={opt.image_url || DEFAULT_OPTION_IMAGE}
+                          alt=""
+                          className={`h-9 w-9 shrink-0 rounded-full object-cover ring-1 transition ${
+                            isPending
+                              ? "ring-[#F2A23A]"
+                              : "ring-white/20 group-hover:ring-[#F2A23A]/40"
+                          }`}
+                          loading="lazy"
+                        />
+                        <span className="min-w-0 flex-1 truncate">
+                          {opt.label}
+                        </span>
+                        <span
+                          aria-hidden
+                          className={`h-4 w-4 shrink-0 rounded-full border-2 transition ${
+                            isPending
+                              ? "border-[#F2A23A] bg-[#F2A23A]"
+                              : "border-white/40 group-hover:border-[#F2A23A]"
+                          }`}
+                        />
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
 
-        {voteError && (
-          <p className="mt-3 text-[11px] text-red-300" role="alert">
-            {voteError}
-          </p>
-        )}
+              {!hasVoted && (
+                <p className="mt-5 text-center text-[11px] uppercase tracking-wider text-white/40">
+                  Tap an option to cast your vote
+                </p>
+              )}
+            </>
+          )}
+
+          {voteError && (
+            <p className="mt-3 text-xs text-red-300" role="alert">
+              {voteError}
+            </p>
+          )}
+        </div>
       </div>
     </div>
   );

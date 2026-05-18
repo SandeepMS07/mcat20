@@ -71,7 +71,7 @@ const MeetMyTeam = ({ data }) => {
   return (
     <div className="mtt-wrapper relative">
       <div className="mtt-header-zone">
-        <div className="px-4 sm:px-6 md:px-10 lg:px-14 xl:px-20 pt-10 md:pt-14 pb-10 md:pb-14">
+        <div className="px-4 sm:px-6 md:px-10 lg:px-14 xl:px-20 pt-8 md:pt-10 pb-8 md:pb-10">
           <h2 className="mtt-heading px-2 md:px-6 lg:px-10">
             <span className="mtt-heading-thin">MEET</span>
             <span className="mtt-heading-bold">THE TEAM</span>
@@ -79,10 +79,9 @@ const MeetMyTeam = ({ data }) => {
         </div>
       </div>
 
-      {/* Player cards container — extra width */}
-      <div className="px-2 sm:px-6 md:px-10 lg:px-14 xl:px-20 pb-12 md:pb-16">
-        <div className="mtt-cards-panel rounded-xl md:rounded-2xl p-3 sm:p-6 md:p-10 lg:p-12">
-          <div className="flex flex-col gap-20 md:gap-28">
+      <div className="px-2 sm:px-6 md:px-10 lg:px-14 xl:px-20 pb-12 md:pb-16 pt-6 md:pt-8">
+        <div className="mtt-cards-panel rounded-xl md:rounded-2xl p-3 sm:p-6 md:p-8 lg:p-10">
+          <div className="flex flex-col gap-16 md:gap-24 lg:gap-28">
             {sections.length === 0 ? (
               <p className="text-white/70 italic">
                 Players will be announced soon.
@@ -93,7 +92,7 @@ const MeetMyTeam = ({ data }) => {
                   <h3 className="mtt-section-title px-2 md:px-3">
                     {section.title}
                   </h3>
-                  <div className="mt-6 md:mt-8 pt-4 md:pt-10 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-x-3 sm:gap-x-8 md:gap-x-10 lg:gap-x-12 gap-y-4 sm:gap-y-8 md:gap-y-20">
+                  <div className="mt-5 md:mt-6 pt-3 md:pt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 sm:gap-x-10 md:gap-x-14 lg:gap-x-16 gap-y-8 sm:gap-y-14 md:gap-y-20">
                     {section.players.map((player) => (
                       <PlayerCard key={player.id} player={player} />
                     ))}
