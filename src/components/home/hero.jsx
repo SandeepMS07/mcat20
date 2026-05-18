@@ -252,7 +252,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative 2xl:h-[100vh] xl:h-[800px] lg:h-[700px] md:h-[600px] h-[500px]">
+    <div className="relative 2xl:h-[900px] xl:h-[800px] lg:h-[700px] md:h-[600px] h-[500px]">
       {showRegistrationPromo && (
         <div
           className={`hero-ticker absolute inset-x-0 ${heroTickerOffsetClass} z-20 overflow-hidden border-y border-[#f4a03b] bg-[#f4a03b] text-[#04184d]`}
@@ -656,23 +656,27 @@ const Hero = () => {
         </SwiperSlide>
       </Swiper>
 
-      <div className="absolute bottom-5 right-4 z-30 flex items-center gap-3 sm:bottom-7 sm:right-8 sm:gap-4 lg:bottom-10 lg:right-12">
-        <div className="hero-pagination flex items-center gap-1.5"></div>
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            aria-label="Previous slide"
-            className="hero-prev flex h-7 w-7 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur-sm transition-colors hover:bg-white/25"
-          >
-            <FaChevronLeft className="h-2.5 w-2.5" />
-          </button>
-          <button
-            type="button"
-            aria-label="Next slide"
-            className="hero-next flex h-7 w-7 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur-sm transition-colors hover:bg-white/25"
-          >
-            <FaChevronRight className="h-2.5 w-2.5" />
-          </button>
+      <div className="pointer-events-none absolute inset-x-0 bottom-[12%] z-30 sm:bottom-[14%] lg:bottom-[15%]">
+        <div className="section-width flex justify-end">
+          <div className="pointer-events-auto flex items-center gap-3 sm:gap-4">
+            <div className="hero-pagination flex items-center gap-1.5"></div>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                aria-label="Previous slide"
+                className="hero-prev flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white/15 text-white backdrop-blur-sm transition-colors hover:bg-white/25 sm:h-9 sm:w-9"
+              >
+                <FaChevronLeft className="h-3 w-3" />
+              </button>
+              <button
+                type="button"
+                aria-label="Next slide"
+                className="hero-next flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white/15 text-white backdrop-blur-sm transition-colors hover:bg-white/25 sm:h-9 sm:w-9"
+              >
+                <FaChevronRight className="h-3 w-3" />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 

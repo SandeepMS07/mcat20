@@ -25,7 +25,7 @@ const AnthemBanner = () => {
   }, [open]);
 
   return (
-    <section className="bg-[#192A66] py-10 md:py-14">
+    <section className="bg-[#192A66] pb-10 md:pb-14">
       <div className="section-width">
         <div className="relative overflow-hidden   shadow-lg">
           {/* Background image — mobile (tall) */}
