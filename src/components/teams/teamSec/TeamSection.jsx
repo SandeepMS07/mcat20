@@ -47,7 +47,7 @@ const TeamSection = ({
   return (
     <div className="w-full">
       {/* Top zone: team logo grid + selected team panel (royal blue) */}
-      <div className="w-full bg-[#101b52] pt-28 md:pt-32 lg:pt-36 pb-6">
+      <div className="w-full bg-[#101b52] pt-40 sm:pt-36 md:pt-32 lg:pt-36 pb-6">
         {/* Logo grid (left) + selected team panel (right) */}
         <div className="px-2 sm:px-6 md:px-10 lg:px-14 xl:px-20 mx-auto">
           <div
@@ -164,8 +164,8 @@ const TeamSection = ({
               <div className="hidden lg:block w-px h-40 bg-white/20 justify-self-center" />
 
               {/* Right: selected team logo + name */}
-              <div className="flex flex-col sm:flex-row items-center text-center sm:text-left gap-5 sm:gap-8 lg:gap-10 px-2">
-                <div className="flex items-center justify-center w-[160px] h-[120px] md:w-[200px] md:h-[150px] lg:w-[240px] lg:h-[180px] shrink-0">
+              <div className="flex flex-col sm:flex-row items-center text-center sm:text-left gap-5 sm:gap-6 lg:gap-8 xl:gap-10 px-2">
+                <div className="flex items-center justify-center w-[160px] h-[120px] md:w-[180px] md:h-[135px] lg:w-[200px] lg:h-[150px] xl:w-[240px] xl:h-[180px] shrink-0">
                   <img
                     src={selectedTeam?.Logo_URL__c}
                     alt={`${selectedHeader.name} logo`}
@@ -173,11 +173,11 @@ const TeamSection = ({
                   />
                 </div>
                 <div className="text-white min-w-0">
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-[1.1] break-words">
+                  <h2 className="text-2xl md:text-[26px] lg:text-[28px] xl:text-4xl 2xl:text-5xl font-bold leading-[1.1] break-words">
                     {selectedHeader.name}
                   </h2>
                   {selectedHeader.subtitle ? (
-                    <p className="mt-2 text-base md:text-lg lg:text-xl xl:text-2xl font-semibold text-white/90 leading-[1.2] break-words">
+                    <p className="mt-1.5 text-base md:text-[15px] lg:text-base xl:text-lg 2xl:text-2xl font-semibold text-white/90 leading-[1.2] break-words">
                       {selectedHeader.subtitle}
                     </p>
                   ) : null}
