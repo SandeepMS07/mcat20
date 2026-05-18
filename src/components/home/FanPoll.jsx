@@ -65,7 +65,7 @@ const PollCard = ({ poll, onPollUpdate }) => {
               type="button"
               onClick={() => handleVote(opt.id)}
               disabled={pendingOptionId !== null}
-              className={`flex items-center gap-3 rounded-lg border px-3 py-2.5 text-left text-xs font-medium transition sm:text-sm disabled:cursor-not-allowed ${
+              className={`flex cursor-pointer items-center gap-3 rounded-lg border px-3 py-2.5 text-left text-xs font-medium transition sm:text-sm disabled:cursor-not-allowed ${
                 isSelected
                   ? "border-[#F2A23A] bg-[#F2A23A]/20 text-white"
                   : "border-white/20 bg-white/[0.05] text-white/90 hover:border-white/30 hover:bg-white/[0.08]"

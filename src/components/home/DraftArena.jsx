@@ -32,7 +32,7 @@ const DraftArena = () => {
               href={DRAFT_ROUTE}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-full bg-gradient-to-b from-[#d84800] to-[#f68323] px-6 py-2.5 text-xs font-medium uppercase italic tracking-wide text-white shadow-[0_4px_18px_rgba(216,72,0,0.4)] transition-opacity hover:opacity-90 sm:text-xs xl:text-sm"
+              className="inline-flex cursor-pointer items-center justify-center rounded-full bg-gradient-to-b from-[#d84800] to-[#f68323] px-6 py-2.5 text-xs font-medium uppercase italic tracking-wide text-white shadow-[0_4px_18px_rgba(216,72,0,0.4)] transition-opacity hover:opacity-90 sm:text-xs xl:text-sm"
             >
               Start your draft
             </Link>

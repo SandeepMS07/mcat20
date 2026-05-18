@@ -88,7 +88,7 @@ const Navbar = () => {
                         href={item.path}
                         target={isExternal ? "_blank" : undefined}
                         rel={isExternal ? "noopener noreferrer" : undefined}
-                        className={`text-sm md:text-base xl:text-lg font-medium transition-colors hover:text-orange-400 ${
+                        className={`cursor-pointer text-sm md:text-base xl:text-lg font-medium transition-colors hover:text-orange-400 ${
                           pathName === item.path
                             ? "text-orange-500"
                             : "text-white"
@@ -105,7 +105,7 @@ const Navbar = () => {
             {/* Mobile Menu Icon - Only visible on mobile */}
             <div className="lg:hidden block ml-auto pr-2">
               <RxHamburgerMenu
-                className="text-white text-2xl cursor-pointer"
+                className="text-white text-2xl cursor-pointer transition-opacity hover:opacity-80"
                 onClick={() => setMenuOpen(true)}
               />
             </div>
@@ -124,7 +124,7 @@ const Navbar = () => {
               alt="logo"
             />
             <RxCross2
-              className="text-white text-2xl cursor-pointer"
+              className="text-white text-2xl cursor-pointer transition-opacity hover:opacity-80"
               onClick={() => setMenuOpen(false)}
             />
           </div>
@@ -138,7 +138,7 @@ const Navbar = () => {
                     href={item.path}
                     target={isExternal ? "_blank" : undefined}
                     rel={isExternal ? "noopener noreferrer" : undefined}
-                    className="text-white text-base"
+                    className="cursor-pointer text-white text-base transition-colors hover:text-orange-400"
                     onClick={() => setMenuOpen(false)}
                   >
                     {item.title}
