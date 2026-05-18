@@ -5,6 +5,7 @@ import AboutT2C from "@/components/home/aboutT2C";
 import Gallery from "@/components/home/Gallery.jsx";
 import LatestUpdates from "@/components/home/LatestUpdates.jsx";
 import HomeTeamSection from "@/components/home/HomeTeamSection";
+import AnthemBanner from "@/components/home/AnthemBanner";
 import Socials from "@/components/home/Socials";
 import News from "@/components/home/News";
 import TopPlayers from "@/components/home/TopPlayers";
@@ -20,6 +21,7 @@ export default async function Home() {
       <div>
         <Hero />
         {/* <UpcomingFixturesSection /> */}
+        <AnthemBanner />
         <HomeTeamSection />
         <LatestUpdates />
         <TopPlayers />
