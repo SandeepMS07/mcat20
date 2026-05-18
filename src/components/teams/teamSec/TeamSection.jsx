@@ -33,7 +33,7 @@ const TeamSection = ({
       setSelectedTeamIndex(index);
       onTeamSelect?.(index);
     },
-    [onTeamSelect]
+    [onTeamSelect],
   );
 
   const selectedTeam = data?.[selectedTeamIndex];
@@ -49,9 +49,9 @@ const TeamSection = ({
       {/* Top zone: team logo grid + selected team panel (royal blue) */}
       <div className="w-full bg-[#101b52] pt-28 md:pt-32 lg:pt-36 pb-6">
         {/* Logo grid (left) + selected team panel (right) */}
-        <div className="section-width px-4 sm:px-6">
+        <div className="px-2 sm:px-6 md:px-10 lg:px-14 xl:px-20">
           <div
-            className="rounded-2xl bg-[#1b2f93] ring-1 ring-white/10 p-4 md:p-6 lg:p-7"
+            className="rounded-xl md:rounded-2xl bg-[#1b2f93] ring-1 ring-white/10 p-4 md:p-6 lg:p-7"
             style={{
               boxShadow:
                 "0 12px 28px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06)",
@@ -72,7 +72,9 @@ const TeamSection = ({
                   <span
                     aria-hidden
                     className={`pointer-events-none absolute top-0.5 left-0.5 h-[calc(100%-4px)] w-[calc(50%-2px)] rounded-full bg-white shadow-md transition-transform duration-300 ease-out ${
-                      activeTeamType === menTab ? "translate-x-0" : "translate-x-full"
+                      activeTeamType === menTab
+                        ? "translate-x-0"
+                        : "translate-x-full"
                     }`}
                   />
                   <button
@@ -104,57 +106,57 @@ const TeamSection = ({
                 </div>
 
                 <ul className="grid grid-cols-4 grid-rows-2 gap-3 md:gap-4">
-                {data.map((team, index) => {
-                  const isActive = index === selectedTeamIndex;
-                  const normalizedTeamName = getTeamNameKey(team?.Name);
-                  const gradient = teamGradients[normalizedTeamName];
-                  const gradientStyle = gradient
-                    ? {
-                        backgroundImage: `linear-gradient(to bottom, ${gradient.from}, ${gradient.to})`,
-                      }
-                    : {};
+                  {data.map((team, index) => {
+                    const isActive = index === selectedTeamIndex;
+                    const normalizedTeamName = getTeamNameKey(team?.Name);
+                    const gradient = teamGradients[normalizedTeamName];
+                    const gradientStyle = gradient
+                      ? {
+                          backgroundImage: `linear-gradient(to bottom, ${gradient.from}, ${gradient.to})`,
+                        }
+                      : {};
 
-                  return (
-                    <li key={team?.Id || index}>
-                      <button
-                        type="button"
-                        onClick={() => handleLogoClick(index)}
-                        aria-pressed={isActive}
-                        aria-label={team?.Name}
-                        className={`group relative block w-full aspect-[6/5] rounded-lg overflow-hidden border-0 transition-all duration-300 ${
-                          isActive
-                            ? "shadow-[0_8px_20px_rgba(0,0,0,0.45)] ring-2 ring-white/90"
-                            : "hover:ring-1 hover:ring-white/35"
-                        }`}
-                        style={gradientStyle}
-                      >
-                        <Image
-                          src="/images/elements/teamCardRoundElement.png"
-                          width={200}
-                          height={140}
-                          alt=""
-                          aria-hidden
-                          className="absolute inset-0 w-full h-full opacity-60 pointer-events-none"
-                        />
-                        <Image
-                          src="/images/elements/teamCardElement.png"
-                          width={200}
-                          height={140}
-                          alt=""
-                          aria-hidden
-                          className="absolute inset-0 w-full h-full pointer-events-none"
-                        />
-                        <span className="relative z-10 flex h-full w-full items-center justify-center p-2 md:p-3">
-                          <img
-                            src={team.Logo_URL__c}
+                    return (
+                      <li key={team?.Id || index}>
+                        <button
+                          type="button"
+                          onClick={() => handleLogoClick(index)}
+                          aria-pressed={isActive}
+                          aria-label={team?.Name}
+                          className={`group relative block w-full aspect-[6/5] rounded-lg overflow-hidden border-0 transition-all duration-300 ${
+                            isActive
+                              ? "shadow-[0_8px_20px_rgba(0,0,0,0.45)] ring-2 ring-white/90"
+                              : "hover:ring-1 hover:ring-white/35"
+                          }`}
+                          style={gradientStyle}
+                        >
+                          <Image
+                            src="/images/elements/teamCardRoundElement.png"
+                            width={200}
+                            height={140}
                             alt=""
-                            className="max-h-[82%] max-w-[82%] object-contain"
+                            aria-hidden
+                            className="absolute inset-0 w-full h-full opacity-60 pointer-events-none"
                           />
-                        </span>
-                      </button>
-                    </li>
-                  );
-                })}
+                          <Image
+                            src="/images/elements/teamCardElement.png"
+                            width={200}
+                            height={140}
+                            alt=""
+                            aria-hidden
+                            className="absolute inset-0 w-full h-full pointer-events-none"
+                          />
+                          <span className="relative z-10 flex h-full w-full items-center justify-center p-2 md:p-3">
+                            <img
+                              src={team.Logo_URL__c}
+                              alt=""
+                              className="max-h-[82%] max-w-[82%] object-contain"
+                            />
+                          </span>
+                        </button>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
 

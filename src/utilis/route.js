@@ -28,6 +28,7 @@ const routes = {
   videos: "/videos",
   fantasy: "https://fantasy-mvp.turboverse.co/",
   fanWall: "/fan-wall",
+  fanPoll: "/fan-poll",
   choice: "/choice",
 
   privacyPolicy: "/privacy_policy",

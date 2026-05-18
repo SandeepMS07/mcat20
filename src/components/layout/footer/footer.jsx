@@ -9,46 +9,51 @@ const FOOTER_COLUMNS = [
   {
     title: "Match Highlights",
     links: [
-      { label: "Team Schedules", href: routes.fixtures },
-      { label: "Match Results", href: routes.matchcentre },
-      { label: "Fair Play Guidelines" },
-      { label: "Venue Information" },
-      { label: "Player Code of Conduct" },
-      { label: "Equipment Regulations" },
-      { label: "Fan Zone Community" },
-      { label: "Ticketing Support" },
+      { label: "Home", href: routes.home },
+      { label: "Fixtures", href: routes.fixtures },
+      { label: "Points Table", href: routes.pointsTable },
+      { label: "Teams", href: routes.teams },
     ],
   },
   {
-    title: "Tickets and Packages",
+    title: "Latest Updates",
     links: [
-      { label: "League News", href: routes.latestUpdates },
-      { label: "Stats and Records", href: routes.stats },
+      { label: "Videos", href: routes.videos },
+      { label: "News", href: routes.latestUpdates },
+      { label: "Photos", href: routes.gallery },
     ],
   },
   {
-    title: "New League Initiatives",
+    title: "Fan Zone",
     links: [
-      { label: "Rules and Regulations" },
-      { label: "Sponsorships" },
-      { label: "Event Coordination" },
+      { label: "Fantasy", href: routes.fantasy, external: true },
+      { label: "Fanpoll", href: routes.fanPoll },
+      { label: "Fan Wall", href: routes.fanWall },
+      { label: "Viewers Choice", href: routes.choice },
     ],
   },
+];
+
+const SOCIAL_LINKS = [
   {
-    title: "Downloads and Apps",
-    links: [
-      { label: "Breaking News", href: routes.latestUpdates },
-      { label: "Join Our Team" },
-      { label: "Fan Testimonials" },
-    ],
+    label: "Instagram",
+    href: routes.instagram,
+    icon: "/images/footer/insta.svg",
   },
   {
-    title: "Match Day Guide",
-    links: [
-      { label: "Our Commitment to Privacy", href: routes.privacyPolicy },
-      { label: "Terms of Use" },
-      { label: "Legal Information" },
-    ],
+    label: "X",
+    href: routes.twitter,
+    icon: "/images/footer/twitter.svg",
+  },
+  {
+    label: "Facebook",
+    href: routes.facebook,
+    icon: "/images/footer/facebook.svg",
+  },
+  {
+    label: "YouTube",
+    href: routes.youtube,
+    icon: "/images/footer/youtube.svg",
   },
 ];
 
@@ -58,78 +63,86 @@ const Footer = () => {
   if (pathName === "/auction-info") return;
 
   return (
-    <footer className="w-full bg-[#1D2F78]">
-      <div className="section-width py-14 md:py-16">
-        <div className="grid gap-12 lg:grid-cols-[320px_1fr]">
-          <div className="flex flex-col items-start justify-between gap-10">
-            <Image
-              src="/images/footer/t20logo.svg"
-              alt="T20 Mumbai"
-              className="h-auto w-44 md:w-52"
-              width={210}
-              height={150}
-            />
-            <div>
-              <p className="mb-4 text-base font-semibold text-white">Social</p>
-              <div className="flex items-center gap-4">
-                <a target="_blank" rel="noreferrer" href={routes.instagram}>
-                  <Image
-                    src="/images/footer/insta.svg"
-                    alt="Instagram"
-                    width={20}
-                    height={20}
-                  />
-                </a>
-                <a target="_blank" rel="noreferrer" href={routes.twitter}>
-                  <Image
-                    src="/images/footer/twitter.svg"
-                    alt="X"
-                    width={20}
-                    height={20}
-                  />
-                </a>
-                <a target="_blank" rel="noreferrer" href={routes.facebook}>
-                  <Image
-                    src="/images/footer/facebook.svg"
-                    alt="Facebook"
-                    width={20}
-                    height={20}
-                  />
-                </a>
-              </div>
-            </div>
+    <footer className="w-full bg-[#192A66]">
+      <div className="section-width pt-14 pb-6 md:pt-16">
+        <div className="grid gap-10 lg:grid-cols-[260px_1fr]">
+          <div>
+            <Link href={routes.home} aria-label="T20 Mumbai home">
+              <Image
+                src="/images/footer/t20logo.svg"
+                alt="T20 Mumbai"
+                className="h-auto w-40 md:w-44"
+                width={210}
+                height={150}
+              />
+            </Link>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {FOOTER_COLUMNS.map((column) => (
               <div key={column.title}>
-                <h4 className="mb-4 text-lg font-semibold text-white">
+                <h4 className="mb-3.5 text-sm font-bold tracking-[0.01em] text-white">
                   {column.title}
                 </h4>
                 <ul className="space-y-3">
                   {column.links.map((link) => (
-                    <li key={link.label} className="text-sm text-white/70">
-                      {link.href ? (
+                    <li
+                      key={link.label}
+                      className="text-sm text-[#E6EDF6]/85"
+                    >
+                      {link.external ? (
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="transition-colors hover:text-white"
+                        >
+                          {link.label}
+                        </a>
+                      ) : (
                         <Link
                           href={link.href}
                           className="transition-colors hover:text-white"
                         >
                           {link.label}
                         </Link>
-                      ) : (
-                        link.label
                       )}
                     </li>
                   ))}
                 </ul>
               </div>
             ))}
+
+            <div>
+              <h4 className="mb-3.5 text-sm font-bold tracking-[0.01em] text-white">
+                Social
+              </h4>
+              <div className="flex items-center gap-3.5">
+                {SOCIAL_LINKS.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={social.label}
+                    className="opacity-90 transition-opacity hover:opacity-100"
+                  >
+                    <Image
+                      src={social.icon}
+                      alt={social.label}
+                      width={18}
+                      height={18}
+                    />
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-7">
-          <div className="flex flex-col gap-4 text-sm text-white/60 md:flex-row md:items-center md:justify-between">
-            <p className="text-sm">All Rights Reserved © 2025 T20Mumbai</p>
+        <div className="mt-14 border-t border-white/10 pt-5">
+          <div className="flex flex-col gap-3 text-xs text-white/40 md:flex-row md:items-center md:justify-between">
+            <p>All Rights Reserved © 2025 T20Mumbai</p>
             <div className="flex items-center gap-8">
               <Link
                 href={routes.privacyPolicy}
@@ -137,7 +150,7 @@ const Footer = () => {
               >
                 Privacy Policy
               </Link>
-              <span>Terms of Service</span>
+              <span className="cursor-default">Terms of Service</span>
             </div>
           </div>
         </div>

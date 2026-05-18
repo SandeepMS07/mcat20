@@ -16,14 +16,10 @@ export const navLinks = [
   {
     title: "Gallery",
     path: `${routes.gallery}`,
-  },
-  {
-    title: "Videos",
-    path: `${routes.videos}`,
-  },
-  {
-    title: "News",
-    path: `${routes.latestUpdates}`,
+    children: [
+      { title: "Images", path: `${routes.gallery}` },
+      { title: "Videos", path: `${routes.videos}` },
+    ],
   },
   {
     title: "Teams",
@@ -38,11 +34,11 @@ export const navLinks = [
     path: `${routes.fantasy}`,
   },
   {
-    title: "Fan Wall",
-    path: `${routes.fanWall}`,
+    title: "Fan Poll",
+    path: `${routes.fanPoll}`,
   },
   {
-    title: "Choice",
+    title: "Viewers Choice",
     path: `${routes.choice}`,
   },
   // {

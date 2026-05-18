@@ -90,7 +90,9 @@ const MeetMyTeam = ({ data }) => {
             ) : (
               sections.map((section) => (
                 <section key={section.title}>
-                  <h3 className="mtt-section-title px-2 md:px-3">{section.title}</h3>
+                  <h3 className="mtt-section-title px-2 md:px-3">
+                    {section.title}
+                  </h3>
                   <div className="mt-6 md:mt-8 pt-4 md:pt-10 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-x-3 sm:gap-x-8 md:gap-x-10 lg:gap-x-12 gap-y-4 sm:gap-y-8 md:gap-y-20">
                     {section.players.map((player) => (
                       <PlayerCard key={player.id} player={player} />

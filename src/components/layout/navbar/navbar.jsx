@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { navLinks } from "./data";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
+import { FiChevronDown } from "react-icons/fi";
 import { useState } from "react";
 import routes from "@/utilis/route";
 import { redirect, usePathname } from "next/navigation";
@@ -12,7 +13,14 @@ const TOP_MARQUEE_TEXT =
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [expandedItem, setExpandedItem] = useState(null);
   const pathName = usePathname();
+
+  const isPathActive = (path) => {
+    if (!path || /^https?:\/\//.test(path)) return false;
+    if (path === "/") return pathName === "/";
+    return pathName === path || pathName.startsWith(`${path}/`);
+  };
 
   if (pathName === "/auction-info") return;
   const matchesPageBg =
@@ -32,14 +40,16 @@ const Navbar = () => {
         <>
           <div
             className="pointer-events-none absolute inset-0 bg-no-repeat bg-cover bg-top opacity-90"
-            style={{ backgroundImage: "url('/images/fixtures/fixtures-bg.svg')" }}
+            style={{
+              backgroundImage: "url('/images/fixtures/fixtures-bg.svg')",
+            }}
             aria-hidden="true"
           />
           <div className="pointer-events-none absolute inset-0 bg-[rgba(13,55,169,0.55)]" />
         </>
       )}
       <div className="absolute top-0 z-50 w-full overflow-hidden bg-[#F68323] py-1">
-        <div className="flex w-max animate-[topMarquee_25s_linear_infinite] items-center whitespace-nowrap">
+        <div className="flex w-max animate-[topMarquee_60s_linear_infinite] items-center whitespace-nowrap">
           {[...Array(2)].map((_, groupIdx) => (
             <div key={groupIdx} className="flex shrink-0 items-center">
               {[...Array(8)].map((_, idx) => (
@@ -61,11 +71,11 @@ const Navbar = () => {
 
           <nav className="flex items-center section-width rounded-full relative overflow-visible w-full px-4 border border-white/20 bg-gradient-to-b from-white/[0.18] via-white/[0.08] to-white/[0.04] backdrop-blur-xl shadow-[0_8px_30px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.35)]">
             <div
-              className="relative px-3 lg:px-10 lg:after:absolute lg:after:right-0 lg:after:inset-y-0 lg:after:w-[1.5px] lg:after:bg-white/40"
+              className="relative shrink-0 pl-3 pr-3 lg:pl-6 lg:pr-8 xl:pl-10 xl:pr-12 lg:after:absolute lg:after:right-3 xl:after:right-4 lg:after:inset-y-3 lg:after:w-[1.5px] lg:after:bg-white/40"
               style={{ zIndex: 9999 }}
             >
               {!menuOpen && (
-                <Link href="/" className="flex items-center gap-3">
+                <Link href="/" className="flex items-center gap-3 w-full">
                   <Image
                     src={"/images/home/logo.svg"}
                     alt="T20 Mumbai logo"
@@ -74,10 +84,7 @@ const Navbar = () => {
                     height={100}
                     onClick={() => redirect("/")}
                   />
-                  <span
-                    aria-hidden
-                    className="h-12 w-px bg-white/40 lg:h-10"
-                  />
+                  <span aria-hidden className="h-12 w-px bg-white/40 lg:h-10" />
                   <Image
                     src={"/images/home/logo-w.png"}
                     alt="Women's league logo"
@@ -90,22 +97,67 @@ const Navbar = () => {
             </div>
             {/* Navigation Links */}
             <div className="items-center lg:flex hidden py-1  w-full">
-              <ul className="flex items-center justify-between gap-8 xl:gap-10 bg-transparent pl-8 xl:pl-12 pr-4 xl:pr-10 py-2 rounded-full w-full">
+              <ul className="flex items-center justify-between gap-3 xl:gap-4 bg-transparent pl-8 xl:pl-12 pr-4 xl:pr-10 py-2 rounded-full w-full">
                 {navLinks.map((item, i) => {
                   const isExternal = /^https?:\/\//.test(item.path);
-                  const isActive = isExternal
-                    ? false
-                    : item.path === "/"
-                    ? pathName === "/"
-                    : pathName === item.path ||
-                      pathName.startsWith(`${item.path}/`);
+                  const hasChildren =
+                    Array.isArray(item.children) && item.children.length > 0;
+                  const isActive =
+                    isPathActive(item.path) ||
+                    (hasChildren &&
+                      item.children.some((c) => isPathActive(c.path)));
+
+                  if (hasChildren) {
+                    return (
+                      <li key={i} className="relative group">
+                        <button
+                          type="button"
+                          className={`flex cursor-pointer items-center gap-1 text-xs md:text-sm xl:text-base font-medium transition-colors hover:text-orange-400 ${
+                            isActive ? "text-orange-500" : "text-white"
+                          }`}
+                          aria-haspopup="menu"
+                          aria-expanded="false"
+                        >
+                          {item.title}
+                          <FiChevronDown
+                            size={16}
+                            className="transition-transform group-hover:rotate-180"
+                          />
+                        </button>
+                        <ul
+                          role="menu"
+                          className="invisible absolute left-1/2 top-full z-50 mt-2 w-44 -translate-x-1/2 rounded-xl border border-white/15 bg-[#0c1334]/95 p-2 opacity-0 shadow-xl backdrop-blur-xl transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
+                        >
+                          {item.children.map((child, j) => {
+                            const childActive = isPathActive(child.path);
+                            return (
+                              <li key={j} role="none">
+                                <Link
+                                  href={child.path}
+                                  role="menuitem"
+                                  className={`block rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-white/10 hover:text-orange-400 ${
+                                    childActive
+                                      ? "text-orange-500"
+                                      : "text-white"
+                                  }`}
+                                >
+                                  {child.title}
+                                </Link>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </li>
+                    );
+                  }
+
                   return (
                     <li key={i}>
                       <Link
                         href={item.path}
                         target={isExternal ? "_blank" : undefined}
                         rel={isExternal ? "noopener noreferrer" : undefined}
-                        className={`cursor-pointer text-sm md:text-base xl:text-lg font-medium transition-colors hover:text-orange-400 ${
+                        className={`cursor-pointer text-xs md:text-sm xl:text-base font-medium transition-colors hover:text-orange-400 ${
                           isActive ? "text-orange-500" : "text-white"
                         }`}
                       >
@@ -147,6 +199,49 @@ const Navbar = () => {
           <ul className="flex flex-col gap-6 mt-10 px-6">
             {navLinks.map((item, i) => {
               const isExternal = /^https?:\/\//.test(item.path);
+              const hasChildren =
+                Array.isArray(item.children) && item.children.length > 0;
+
+              if (hasChildren) {
+                const isExpanded = expandedItem === i;
+                return (
+                  <li key={i}>
+                    <button
+                      type="button"
+                      onClick={() => setExpandedItem(isExpanded ? null : i)}
+                      className="flex w-full items-center justify-between text-white text-base transition-colors hover:text-orange-400"
+                      aria-expanded={isExpanded}
+                    >
+                      <span>{item.title}</span>
+                      <FiChevronDown
+                        size={18}
+                        className={`transition-transform ${
+                          isExpanded ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    {isExpanded ? (
+                      <ul className="mt-3 flex flex-col gap-3 border-l border-white/15 pl-4">
+                        {item.children.map((child, j) => (
+                          <li key={j}>
+                            <Link
+                              href={child.path}
+                              className="text-sm text-white/85 transition-colors hover:text-orange-400"
+                              onClick={() => {
+                                setMenuOpen(false);
+                                setExpandedItem(null);
+                              }}
+                            >
+                              {child.title}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </li>
+                );
+              }
+
               return (
                 <li key={i}>
                   <Link

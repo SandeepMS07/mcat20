@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import { getStandings } from "@/app/api/serverApi";
-import FanPollPopup from "./FanPollPopup";
 import "./style.css";
 
 const TOP_N = 4;
@@ -17,7 +16,6 @@ const getTeamAbbreviation = (teamName) => {
 const HomeStandingsSection = () => {
   const [standingsData, setStandingsData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [pollOpen, setPollOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -74,8 +72,7 @@ const HomeStandingsSection = () => {
 
             <button
               type="button"
-              onClick={() => setPollOpen(true)}
-              className="inline-flex h-10 w-fit items-center justify-center rounded-full border border-white/40 px-6 text-xs font-semibold uppercase italic tracking-wide text-white transition-colors hover:bg-white/10 sm:text-sm"
+              className="inline-flex h-10 w-fit cursor-pointer items-center justify-center rounded-full border border-white/40 px-6 text-xs font-semibold uppercase italic tracking-wide text-white transition-colors hover:bg-white/10 sm:text-sm"
             >
               View More
             </button>
@@ -173,7 +170,7 @@ const HomeStandingsSection = () => {
                         <div className="absolute right-0 top-0 bottom-0 my-auto h-3/5 w-px bg-[#9F3BE3]/70" />
                         {row.against}
                       </td>
-                      <td className="rounded-r-full bg-[#192A66] px-4 py-2 font-semibold">
+                      <td className="rounded-r-full bg-[#192A66] px-4 py-2 font-semibold border-r border-[#1F43C5]">
                         {row.pts}
                       </td>
                     </tr>
@@ -184,8 +181,6 @@ const HomeStandingsSection = () => {
           )}
         </div>
       </div>
-
-      <FanPollPopup open={pollOpen} onClose={() => setPollOpen(false)} />
     </section>
   );
 };
