@@ -1,5 +1,6 @@
 import Hero from "@/components/home/hero";
 import DraftArena from "@/components/home/DraftArena";
+import HomeStandingsSection from "@/components/home/HomeStandingsSection";
 import LatestUpdates from "@/components/home/LatestUpdates";
 import Socials from "@/components/home/Socials";
 import FanPoll from "@/components/home/FanPoll";
@@ -10,7 +11,7 @@ export default async function Home() {
     <div>
       <Hero />
       <DraftArena />
-      {/* <HomeStandingsSection />  */}
+      <HomeStandingsSection />
       {/* <Gallery /> */}
       <LatestUpdates />
       {/* <FeaturedPlayers /> */}

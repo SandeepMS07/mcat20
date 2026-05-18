@@ -170,3 +170,10 @@ body {
     transform: translateX(-50%);
   }
 }
+
+/* Hide elfsight Instagram feed profile banner inside scoped wrapper */
+.socials-hide-banner [class*="eapps-instagram-feed-header"],
+.socials-hide-banner [class*="eapps-instagram-feed-posts-header"],
+.socials-hide-banner [class*="eapps-instagram-feed-title"] {
+  display: none !important;
+}

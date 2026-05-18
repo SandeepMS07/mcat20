@@ -65,14 +65,25 @@ const Navbar = () => {
               style={{ zIndex: 9999 }}
             >
               {!menuOpen && (
-                <Link href="/">
+                <Link href="/" className="flex items-center gap-3">
                   <Image
                     src={"/images/home/logo.svg"}
-                    alt="logo"
-                    className="h-12 w-auto lg:h-16 cursor-pointer "
+                    alt="T20 Mumbai logo"
+                    className="h-20 w-auto lg:h-16 cursor-pointer"
                     width={100}
                     height={100}
                     onClick={() => redirect("/")}
+                  />
+                  <span
+                    aria-hidden
+                    className="h-12 w-px bg-white/40 lg:h-10"
+                  />
+                  <Image
+                    src={"/images/home/logo-w.png"}
+                    alt="Women's league logo"
+                    className="h-20 w-auto lg:h-16 cursor-pointer"
+                    width={100}
+                    height={100}
                   />
                 </Link>
               )}
@@ -82,6 +93,12 @@ const Navbar = () => {
               <ul className="flex items-center justify-between gap-8 xl:gap-10 bg-transparent pl-8 xl:pl-12 pr-4 xl:pr-10 py-2 rounded-full w-full">
                 {navLinks.map((item, i) => {
                   const isExternal = /^https?:\/\//.test(item.path);
+                  const isActive = isExternal
+                    ? false
+                    : item.path === "/"
+                    ? pathName === "/"
+                    : pathName === item.path ||
+                      pathName.startsWith(`${item.path}/`);
                   return (
                     <li key={i}>
                       <Link
@@ -89,9 +106,7 @@ const Navbar = () => {
                         target={isExternal ? "_blank" : undefined}
                         rel={isExternal ? "noopener noreferrer" : undefined}
                         className={`cursor-pointer text-sm md:text-base xl:text-lg font-medium transition-colors hover:text-orange-400 ${
-                          pathName === item.path
-                            ? "text-orange-500"
-                            : "text-white"
+                          isActive ? "text-orange-500" : "text-white"
                         }`}
                       >
                         {item.title}

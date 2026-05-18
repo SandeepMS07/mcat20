@@ -1,15 +1,6 @@
 import React from "react";
-import { teamSubtitles } from "@/utilis/helper";
 import "./style.css";
-
-const getTeamNameKey = (name = "") => name.replace(/\s*\(W\)\s*$/i, "").trim();
-
-const resolveTeamHeader = (rawName = "") => {
-  const key = getTeamNameKey(rawName);
-  const mapped = teamSubtitles[key];
-  if (mapped) return { name: mapped.name, subtitle: mapped.subtitle };
-  return { name: rawName, subtitle: "" };
-};
+import PlayerCard from "./PlayerCard";
 
 const toTitleCaseWithInitials = (str) => {
   if (!str) return "";
@@ -40,16 +31,6 @@ const getFirstName = (str) => {
 const getRestOfName = (str) => {
   if (!str) return "";
   return str.split(" ").filter(Boolean).slice(1).join(" ").toUpperCase();
-};
-
-const splitSecondaryName = (restName = "") => {
-  const parts = restName.split(" ").filter(Boolean);
-  if (parts.length <= 1) return { outlined: "", solid: restName, isSingleWord: true };
-  return {
-    outlined: parts.slice(0, -1).join(" "),
-    solid: parts[parts.length - 1],
-    isSingleWord: false,
-  };
 };
 
 const SECTION_CONFIG = [
@@ -87,37 +68,11 @@ const MeetMyTeam = ({ data }) => {
     players: groupedByRole[s.roleKey] || [],
   })).filter((s) => s.players.length > 0);
 
-  const header = resolveTeamHeader(data?.Name || "");
-
   return (
     <div className="mtt-wrapper relative">
       <div className="mtt-header-zone">
-        <div className="px-4 sm:px-6 md:px-10 lg:px-14 xl:px-20 pt-16 md:pt-24 pb-16 md:pb-24">
-          {/* Team header */}
-          <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-8 px-2 md:px-6 lg:px-10">
-            <div className="flex items-center justify-center w-[200px] h-[130px] md:w-[260px] md:h-[170px] shrink-0">
-              <img
-                src={data?.Logo_URL__c}
-                alt={`${header.name} logo`}
-                className="max-h-full max-w-full object-contain"
-              />
-            </div>
-            <div className="hidden sm:block w-px h-32 md:h-40 bg-white/30" />
-            <div className="text-white text-center sm:text-left">
-              <h2 className="text-2xl md:text-4xl font-bold leading-[1.15]">
-                {header.name}
-              </h2>
-              {header.subtitle ? (
-                <p className="mt-2 text-2xl md:text-4xl font-bold text-white leading-[1.15]">
-                  {header.subtitle}
-                </p>
-              ) : null}
-            </div>
-          </div>
-
-          <div className="mt-14 md:mt-20 h-px w-full bg-white/15" />
-
-          <h2 className="mtt-heading mt-14 md:mt-20 px-2 md:px-6 lg:px-10">
+        <div className="px-4 sm:px-6 md:px-10 lg:px-14 xl:px-20 pt-10 md:pt-14 pb-10 md:pb-14">
+          <h2 className="mtt-heading px-2 md:px-6 lg:px-10">
             <span className="mtt-heading-thin">MEET</span>
             <span className="mtt-heading-bold">THE TEAM</span>
           </h2>
@@ -146,50 +101,6 @@ const MeetMyTeam = ({ data }) => {
             )}
           </div>
         </div>
-      </div>
-    </div>
-  );
-};
-
-const PlayerCard = ({ player }) => {
-  const { outlined, solid, isSingleWord } = splitSecondaryName(player.restName);
-
-  return (
-    <div className="mtt-card">
-      <div className="mtt-card-gradient" aria-hidden />
-      <div className="mtt-card-stripes" aria-hidden />
-
-      {player.img ? (
-        <img
-          src={player.img}
-          alt={player.name}
-          className="mtt-card-photo"
-          loading="lazy"
-        />
-      ) : (
-        <div className="mtt-card-photo-fallback">
-          <span>{player.firstName.charAt(0)}</span>
-        </div>
-      )}
-
-      <div className="mtt-card-name">
-        <span className="mtt-firstname">{player.firstName.toUpperCase()}</span>
-        {player.restName ? (
-          <span className="mtt-restname">
-            {outlined ? <span className="mtt-restname-outline">{outlined}</span> : null}
-            {solid ? (
-              <span
-                className={
-                  isSingleWord
-                    ? "mtt-restname-outline mtt-restname-single"
-                    : "mtt-restname-solid"
-                }
-              >
-                {solid}
-              </span>
-            ) : null}
-          </span>
-        ) : null}
       </div>
     </div>
   );
