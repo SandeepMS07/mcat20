@@ -49,7 +49,7 @@ const TeamSection = ({
       {/* Top zone: team logo grid + selected team panel (royal blue) */}
       <div className="w-full bg-[#101b52] pt-28 md:pt-32 lg:pt-36 pb-6">
         {/* Logo grid (left) + selected team panel (right) */}
-        <div className="px-2 sm:px-6 md:px-10 lg:px-14 xl:px-20">
+        <div className="px-2 sm:px-6 md:px-10 lg:px-14 xl:px-20 mx-auto">
           <div
             className="rounded-xl md:rounded-2xl bg-[#1b2f93] ring-1 ring-white/10 p-4 md:p-6 lg:p-7"
             style={{
@@ -163,9 +163,9 @@ const TeamSection = ({
               {/* Divider (desktop only) */}
               <div className="hidden lg:block w-px h-40 bg-white/20 justify-self-center" />
 
-              {/* Right (40%): selected team logo + name */}
-              <div className="flex flex-col sm:flex-row items-center text-center sm:text-left gap-4 sm:gap-5 px-2">
-                <div className="flex items-center justify-center w-[120px] h-[90px] md:w-[150px] md:h-[110px] shrink-0">
+              {/* Right: selected team logo + name */}
+              <div className="flex flex-col sm:flex-row items-center text-center sm:text-left gap-5 sm:gap-8 lg:gap-10 px-2">
+                <div className="flex items-center justify-center w-[160px] h-[120px] md:w-[200px] md:h-[150px] lg:w-[240px] lg:h-[180px] shrink-0">
                   <img
                     src={selectedTeam?.Logo_URL__c}
                     alt={`${selectedHeader.name} logo`}
@@ -173,11 +173,11 @@ const TeamSection = ({
                   />
                 </div>
                 <div className="text-white min-w-0">
-                  <h2 className="text-lg md:text-xl lg:text-2xl font-bold leading-[1.15] break-words">
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-[1.1] break-words">
                     {selectedHeader.name}
                   </h2>
                   {selectedHeader.subtitle ? (
-                    <p className="mt-1 text-sm md:text-base lg:text-lg font-semibold text-white/90 leading-[1.2] break-words">
+                    <p className="mt-2 text-base md:text-lg lg:text-xl xl:text-2xl font-semibold text-white/90 leading-[1.2] break-words">
                       {selectedHeader.subtitle}
                     </p>
                   ) : null}
