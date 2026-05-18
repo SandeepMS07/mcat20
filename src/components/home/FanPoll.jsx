@@ -80,7 +80,7 @@ const PollCard = ({ poll, onPollUpdate, variant = "compact" }) => {
                 <p className="mb-1 text-[13px] font-medium text-white/95">
                   {opt.label}
                 </p>
-                <div className="relative h-3 w-full rounded-full bg-white/10">
+                <div className="relative h-5 w-full rounded-full bg-white/10 px-2">
                   <div
                     className="absolute inset-y-0 left-0 rounded-full transition-[width] duration-500"
                     style={{ width: `${pct}%`, backgroundColor: color }}
