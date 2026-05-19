@@ -2,6 +2,7 @@ import Hero from "@/components/home/hero";
 // import DraftArena from "@/components/home/DraftArena";
 import AnthemBanner from "@/components/home/AnthemBanner";
 import HomeStandingsSection from "@/components/home/HomeStandingsSection";
+import HomeTeamSection from "@/components/home/HomeTeamSection";
 import LatestUpdates from "@/components/home/LatestUpdates";
 import Socials from "@/components/home/Socials";
 import FanPoll from "@/components/home/FanPoll";
@@ -16,6 +17,7 @@ export default async function Home() {
       <AnthemBanner />
       {/* <HomeStandingsSection /> */}
       <Gallery />
+      <HomeTeamSection />
       <LatestUpdates />
       {/* <FeaturedPlayers /> */}
       <div className="relative bg-gradient-to-bl from-[#1C398E] to-[#0E005A]">

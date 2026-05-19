@@ -362,6 +362,43 @@ const Hero = () => {
         })}
         <SwiperSlide className="h-full">
           <div
+            className={`w-full h-full bg-[url('https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778848274445-1d46orej99h-Home-(1).png')] bg-cover bg-center relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center`}
+          >
+            <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
+            <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
+            <HeroSlideContent
+              title={
+                <>
+                  30 high-voltage matches set to light <br /> up Wankhede
+                  Stadium from June 1-13
+                </>
+              }
+              subtitle="#ChanceSoduNako"
+              action={
+                <div className="flex flex-row gap-2">
+                  <button
+                    type="button"
+                    onClick={() => router.push(routes.fixtures)}
+                    className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md"
+                  >
+                    View Fixtures
+                    <span>
+                      <Image
+                        src="/images/home/hero/buttonIcon.svg"
+                        alt="button-icon"
+                        width={24}
+                        height={24}
+                        className="w-5 h-5"
+                      />
+                    </span>
+                  </button>
+                </div>
+              }
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide className="h-full">
+          <div
             className={`group w-full h-full bg-[url('/images/home/hero/rohit.jpeg')] bg-cover bg-right md:bg-top relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center cursor-pointer`}
             onMouseEnter={handleRohitHeroMouseEnter}
             onMouseLeave={handleRohitHeroMouseLeave}
