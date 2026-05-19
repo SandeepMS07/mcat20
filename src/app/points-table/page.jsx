@@ -30,7 +30,6 @@ const buildTeamLabel = (team, isSeason3) => {
 
 const PointsTablePage = () => {
   const [activeSeason, setActiveSeason] = useState("season_3");
-  const [activeTeam, setActiveTeam] = useState("All Teams");
   const [standingsSeason3, setStandingsSeason3] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -48,33 +47,14 @@ const PointsTablePage = () => {
     fetchData();
   }, []);
 
-  const teamsInSeason = useMemo(() => {
-    const seasonData = getSeasonData(activeSeason, standingsSeason3);
-    const teamNames = seasonData.map((team) =>
-      activeSeason === "season_3"
-        ? team?.TeamName
-        : team?.team_name || "Unknown",
-    );
-    return ["All Teams", ...teamNames];
-  }, [activeSeason, standingsSeason3]);
-
   const rankedSeasonData = useMemo(() => {
     const seasonData = getSeasonData(activeSeason, standingsSeason3);
     return seasonData.map((team, index) => ({ team, rank: index + 1 }));
   }, [activeSeason, standingsSeason3]);
 
-  const filteredData = useMemo(() => {
-    if (activeTeam === "All Teams") return rankedSeasonData;
-    return rankedSeasonData.filter(({ team }) =>
-      activeSeason === "season_3"
-        ? team?.TeamName === activeTeam
-        : team?.team_name === activeTeam,
-    );
-  }, [activeSeason, activeTeam, rankedSeasonData]);
-
   const rows = useMemo(() => {
     const isSeason3 = activeSeason === "season_3";
-    return filteredData.map(({ team, rank }) => {
+    return rankedSeasonData.map(({ team, rank }) => {
       const teamMeta = buildTeamLabel(team, isSeason3);
       return {
         rank,
@@ -90,7 +70,7 @@ const PointsTablePage = () => {
         recentForm: team?.recentForm || RECENT_FORM_TEMPLATE,
       };
     });
-  }, [filteredData, activeSeason]);
+  }, [rankedSeasonData, activeSeason]);
 
   return (
     <div className="w-full bg-[#1E2F7D]">
@@ -109,17 +89,6 @@ const PointsTablePage = () => {
             </h1>
 
             <div className="flex gap-3">
-              <select
-                value={activeTeam}
-                onChange={(e) => setActiveTeam(e.target.value)}
-                className="rounded-lg border border-white/20 bg-[#314A98] px-4 py-2 text-sm font-semibold text-white outline-none"
-              >
-                {teamsInSeason.map((team) => (
-                  <option key={team} value={team} className="text-black">
-                    {team}
-                  </option>
-                ))}
-              </select>
               <select
                 value={activeSeason}
                 onChange={(e) => setActiveSeason(e.target.value)}
@@ -189,9 +158,11 @@ const PointsTablePage = () => {
                           <span className="z-10 pr-5 text-xs font-extrabold uppercase text-[#FFE150]">
                             {row.shortName}
                           </span>
-                          <span className="absolute right-[22px] z-10 flex h-4 w-4 items-center justify-center rounded-full bg-[#FFE24A] text-[9px] font-black text-[#1A2C76]">
-                            Q
-                          </span>
+                          {row.rank <= (activeSeason === "season_1" ? 2 : 4) && (
+                            <span className="absolute right-[22px] z-10 flex h-4 w-4 items-center justify-center rounded-full bg-[#FFE24A] text-[9px] font-black text-[#1A2C76]">
+                              Q
+                            </span>
+                          )}
                         </div>
                       </td>
                       <td className="px-4 py-2 font-semibold bg-[#192A66] relative">

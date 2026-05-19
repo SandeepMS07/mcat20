@@ -180,12 +180,11 @@ const AnthemBanner = () => {
             </button>
             <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-black shadow-2xl">
               <iframe
-                src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=1&controls=0&modestbranding=1&playsinline=1&rel=0&disablekb=1&iv_load_policy=3&fs=0`}
+                src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
                 title="T20 Mumbai League 2026 Anthem"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
-                className="pointer-events-none absolute inset-0 h-full w-full"
-                tabIndex={-1}
+                className="absolute inset-0 h-full w-full"
               />
             </div>
           </div>
