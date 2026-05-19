@@ -1,18 +1,17 @@
 "use client";
 import React, { useEffect, useMemo, useState } from "react";
-import TeamCard from "../common/TeamCard";
-import TitleComponent from "../common/TitleComponent";
-import { SwiperSlide } from "swiper/react";
-import { Carousel } from "../Carousel";
+import { useRouter } from "next/navigation";
+import { getTeamDetailsClient } from "@/app/api/clientApi";
+import { teamGradients, teamSubtitles } from "@/utilis/helper";
 import routes from "@/utilis/route";
 import teamDetailsDataSeason3 from "../../constant/team/teamDetailsDataSeason3.json";
-import { getTeamDetailsClient } from "@/app/api/clientApi";
-// import CountdownTimer from "./CountdownTimer";
 
 const MEN_TAB = "men";
 const WOMEN_TAB = "women";
 const FALLBACK_TEAMS = teamDetailsDataSeason3?.data || [];
 const WOMENS_TEAM_FALLBACK_NAMES = ["Aakash Tigers MWS", "SoBo Mumbai Falcons"];
+
+const getTeamNameKey = (name = "") => name.replace(/\s*\(W\)\s*$/i, "").trim();
 
 const getTeamBucket = (teamType = "") =>
   `${teamType}`.toLowerCase().includes("women") ? WOMEN_TAB : MEN_TAB;
@@ -22,44 +21,124 @@ const getFilteredTeams = (teams, bucket) =>
     .filter((team) => getTeamBucket(team?.Team_Type__c) === bucket)
     .sort((a, b) => (a?.Name || "").localeCompare(b?.Name || ""));
 
+const resolveTeamHeader = (rawName = "") => {
+  const key = getTeamNameKey(rawName);
+  const mapped = teamSubtitles[key];
+  if (mapped) return { name: mapped.name, subtitle: mapped.subtitle };
+  return { name: rawName, subtitle: "" };
+};
+
+const TeamLogoCard = ({ team, onClick }) => {
+  const normalized = getTeamNameKey(team?.Name);
+  const gradient = teamGradients[normalized];
+  const header = resolveTeamHeader(team?.Name || "");
+
+  const gradientStyle = gradient
+    ? {
+        backgroundImage: `linear-gradient(135deg, ${gradient.from} 0%, ${gradient.to} 100%)`,
+      }
+    : { backgroundColor: "#1b2f93" };
+
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={header.name}
+      className="group relative aspect-[5/4] w-full cursor-pointer overflow-hidden rounded-xl ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-1 hover:ring-2 hover:ring-[#F2A23A] hover:shadow-[0_10px_30px_rgba(0,0,0,0.45)]"
+      style={gradientStyle}
+    >
+      <span
+        aria-hidden
+        className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.22),transparent_55%)]"
+      />
+      <span
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/55"
+      />
+      <div className="relative z-10 flex h-full flex-col">
+        <div className="flex min-h-0 flex-1 items-center justify-center px-3 pt-3 sm:px-4 sm:pt-4">
+          <img
+            src={team?.Logo_URL__c}
+            alt=""
+            className="max-h-full max-w-[70%] object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)] transition-transform duration-300 group-hover:scale-105"
+          />
+        </div>
+        <div className="px-2 pb-2 pt-1 text-center sm:px-3 sm:pb-3">
+          <p className="line-clamp-1 text-[11px] font-bold uppercase tracking-wide text-white sm:text-sm md:text-base">
+            {header.name}
+          </p>
+          <p className="mt-0.5 line-clamp-1 min-h-[14px] text-[10px] font-medium text-white/80 sm:text-xs">
+            {header.subtitle || " "}
+          </p>
+        </div>
+      </div>
+    </button>
+  );
+};
+
+const SectionHeading = ({ eyebrow, line1, line2, variant = "dark" }) => {
+  const isLight = variant === "light";
+  const solidColorClass = isLight ? "text-[#02103D]" : "text-white";
+  const strokeColor = isLight ? "#02103D" : "#ffffff";
+  return (
+    <div>
+      <span className="mb-2 inline-block text-[11px] font-semibold uppercase tracking-[0.18em] text-[#F2A23A]">
+        {eyebrow}
+      </span>
+      <h2
+        className={`flex flex-col text-3xl font-extrabold uppercase italic leading-[0.95] sm:text-4xl lg:text-5xl ${solidColorClass}`}
+      >
+        <span
+          className="text-transparent"
+          style={{ WebkitTextStroke: `1.5px ${strokeColor}` }}
+        >
+          {line1}
+        </span>
+        <span>{line2}</span>
+      </h2>
+    </div>
+  );
+};
+
 const normalizeWomenName = (name = "") =>
   name.replace(/\s*\(w\)\s*$/i, "").trim().toLowerCase();
 
 const HomeTeamSection = () => {
+  const router = useRouter();
   const [allTeams, setAllTeams] = useState(FALLBACK_TEAMS);
 
   useEffect(() => {
-    const fetchTeams = async () => {
+    let cancelled = false;
+    (async () => {
       const response = await getTeamDetailsClient();
+      if (cancelled) return;
       const records = response?.data || [];
-
-      if (!Array.isArray(records) || records.length === 0) {
-        return;
+      if (Array.isArray(records) && records.length > 0) {
+        setAllTeams(records);
       }
-
-      setAllTeams(records);
+    })();
+    return () => {
+      cancelled = true;
     };
-
-    fetchTeams();
   }, []);
 
   const mensTeams = useMemo(
     () => getFilteredTeams(allTeams, MEN_TAB),
-    [allTeams]
+    [allTeams],
   );
 
   const womensTeams = useMemo(() => {
     const apiWomensTeams = getFilteredTeams(allTeams, WOMEN_TAB);
     const fallbackWomensTeams = WOMENS_TEAM_FALLBACK_NAMES.map((teamName) =>
       allTeams.find(
-        (team) => normalizeWomenName(team?.Name) === normalizeWomenName(teamName)
-      )
+        (team) =>
+          normalizeWomenName(team?.Name) === normalizeWomenName(teamName),
+      ),
     ).filter(Boolean);
 
     const baseWomensTeams =
       apiWomensTeams.length > 0 ? apiWomensTeams : fallbackWomensTeams;
 
-    // Handle variants like "Thane Skyrisers" and "Thane Skyrisers (W)" as one team.
     const dedupedByName = new Map();
     for (const team of baseWomensTeams) {
       const key = normalizeWomenName(team?.Name);
@@ -69,83 +148,95 @@ const HomeTeamSection = () => {
     }
 
     return [...dedupedByName.values()].sort((a, b) =>
-      (a?.Name || "").localeCompare(b?.Name || "")
+      (a?.Name || "").localeCompare(b?.Name || ""),
     );
   }, [allTeams]);
 
+  const handleTeamClick = (team, teamType) => {
+    const params = new URLSearchParams();
+    if (team?.Name) params.set("team", team.Name);
+    params.set("type", teamType);
+    router.push(`${routes.teams}?${params.toString()}`);
+  };
+
+  const handleViewAll = (teamType) => {
+    router.push(`${routes.teams}?type=${teamType}`);
+  };
+
   return (
     <>
-      {/* <div className="pl-5 mt-8 md:hidden block"><CountdownTimer/></div> */}
-      <div className="relative">
-        <img
-          src="/images/elements/section-element.png"
-          className="absolute right-0 top-0 md:block hidden"
-          alt="element"
-        />
-        <img
-          src="/images/elements/section-element.png"
-          className="absolute left-0 bottom-0 rotate-180 md:block hidden"
-          alt="element"
-        />
-
-        <div className="section-width padding-top padding-bottom">
-          <TitleComponent
-            title={"Men's Teams"}
-            button={false}
-            buttonLink={routes.teams}
+      {mensTeams.length > 0 && (
+        <section className="relative overflow-x-hidden bg-white pt-10 pb-12 sm:pt-14 sm:pb-16 lg:pt-20 lg:pb-24">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -right-24 top-0 h-72 w-72 rounded-full bg-[#F2A23A]/10 blur-3xl"
           />
-          <div className="w-full flex flex-col gap-7 relative">
-            <div className="w-full overflow-x-auto  scrollbar-hide">
-              <div className="sm:grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 2xl:gap-8 gap-5 hidden">
-                {mensTeams?.map((item, i) => {
-                  return <TeamCard data={item} key={i} />;
-                })}
-              </div>
-              <div className="w-full sm:hidden block">
-                <Carousel
-                  sectionName="clientLogo"
-                  sliderPerView={1}
-                  spaceBetween={50}
-                  loop={true}
-                >
-                  {mensTeams.map((item, i) => (
-                    <SwiperSlide key={i}>
-                      <TeamCard data={item} key={i} />
-                    </SwiperSlide>
-                  ))}
-                </Carousel>
-              </div>
+          <div className="section-width relative px-4 sm:px-6 lg:px-8">
+            <div className="mb-6 flex flex-wrap items-end justify-between gap-4 sm:mb-8">
+              <SectionHeading
+                eyebrow="The Squads"
+                line1="Men's"
+                line2="Teams"
+                variant="light"
+              />
+              <button
+                type="button"
+                onClick={() => handleViewAll(MEN_TAB)}
+                className="inline-flex h-10 items-center justify-center rounded-full bg-gradient-to-b from-[#d84800] to-[#f68323] px-6 text-xs font-medium uppercase italic tracking-wide text-white shadow-[0_4px_18px_rgba(216,72,0,0.3)] transition-opacity hover:opacity-90 sm:text-sm"
+              >
+                View all
+              </button>
+            </div>
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4 lg:gap-5">
+              {mensTeams.map((team, index) => (
+                <TeamLogoCard
+                  key={team?.Id || `men-${index}`}
+                  team={team}
+                  onClick={() => handleTeamClick(team, MEN_TAB)}
+                />
+              ))}
             </div>
           </div>
+        </section>
+      )}
 
-          <div className="mt-16">
-            <TitleComponent title={"Women's Teams"} button={false} />
-            <div className="w-full flex flex-col gap-7 relative mt-8">
-              <div className="w-full overflow-x-auto scrollbar-hide">
-                <div className="sm:grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 2xl:gap-8 gap-5 hidden">
-                  {womensTeams.map((item, i) => (
-                    <TeamCard data={item} key={i} />
-                  ))}
-                </div>
-                <div className="w-full sm:hidden block">
-                  <Carousel
-                    sectionName="womensTeam"
-                    sliderPerView={1}
-                    spaceBetween={50}
-                    loop={true}
-                  >
-                    {womensTeams.map((item, i) => (
-                      <SwiperSlide key={i}>
-                        <TeamCard data={item} key={i} />
-                      </SwiperSlide>
-                    ))}
-                  </Carousel>
-                </div>
-              </div>
+      {womensTeams.length > 0 && (
+        <section className="relative overflow-x-hidden bg-[#101b52] pt-10 pb-12 sm:pt-14 sm:pb-16 lg:pt-20 lg:pb-24">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -right-24 top-0 h-72 w-72 rounded-full bg-[#F2A23A]/10 blur-3xl"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-[#1C398E]/40 blur-3xl"
+          />
+          <div className="section-width relative px-4 sm:px-6 lg:px-8">
+            <div className="mb-6 flex flex-wrap items-end justify-between gap-4 sm:mb-8">
+              <SectionHeading
+                eyebrow="The Squads"
+                line1="Women's"
+                line2="Teams"
+              />
+              <button
+                type="button"
+                onClick={() => handleViewAll(WOMEN_TAB)}
+                className="inline-flex h-10 items-center justify-center rounded-full bg-gradient-to-b from-[#d84800] to-[#f68323] px-6 text-xs font-medium uppercase italic tracking-wide text-white shadow-[0_4px_18px_rgba(216,72,0,0.3)] transition-opacity hover:opacity-90 sm:text-sm"
+              >
+                View all
+              </button>
+            </div>
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4 lg:gap-5">
+              {womensTeams.map((team, index) => (
+                <TeamLogoCard
+                  key={team?.Id || `women-${index}`}
+                  team={team}
+                  onClick={() => handleTeamClick(team, WOMEN_TAB)}
+                />
+              ))}
             </div>
           </div>
-        </div>
-      </div>
+        </section>
+      )}
     </>
   );
 };
