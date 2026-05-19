@@ -1,75 +1,18 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 
 const YOUTUBE_VIDEO_ID = "nhblvoBIb0o";
-const YT_API_SRC = "https://www.youtube.com/iframe_api";
-const YT_NO_COOKIE_HOST = "https://www.youtube-nocookie.com";
-
-const loadYouTubeApi = () => {
-  if (typeof window === "undefined") return Promise.resolve(null);
-  if (window.YT && window.YT.Player) return Promise.resolve(window.YT);
-  return new Promise((resolve) => {
-    const prev = window.onYouTubeIframeAPIReady;
-    window.onYouTubeIframeAPIReady = () => {
-      if (typeof prev === "function") prev();
-      resolve(window.YT);
-    };
-    if (!document.querySelector(`script[src="${YT_API_SRC}"]`)) {
-      const tag = document.createElement("script");
-      tag.src = YT_API_SRC;
-      document.body.appendChild(tag);
-    }
-  });
-};
+const PREVIEW_SRC = `https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=1&controls=0&modestbranding=1&playsinline=1&rel=0&disablekb=1&iv_load_policy=3&fs=0&cc_load_policy=0&loop=1&playlist=${YOUTUBE_VIDEO_ID}`;
 
 const AnthemBanner = () => {
   const [open, setOpen] = useState(false);
   const [previewPlaying, setPreviewPlaying] = useState(false);
-  const previewContainerRef = useRef(null);
-  const playerRef = useRef(null);
 
   useEffect(() => {
-    let cancelled = false;
-    let player;
-    loadYouTubeApi().then((YT) => {
-      if (cancelled || !YT || !previewContainerRef.current) return;
-      player = new YT.Player(previewContainerRef.current, {
-        videoId: YOUTUBE_VIDEO_ID,
-        host: YT_NO_COOKIE_HOST,
-        playerVars: {
-          autoplay: 1,
-          mute: 1,
-          controls: 0,
-          modestbranding: 1,
-          playsinline: 1,
-          rel: 0,
-          disablekb: 1,
-          iv_load_policy: 3,
-          fs: 0,
-          cc_load_policy: 0,
-        },
-        events: {
-          onReady: (e) => {
-            try {
-              e.target.mute();
-              e.target.playVideo();
-            } catch (_) {}
-          },
-          onStateChange: (e) => {
-            if (e.data === YT.PlayerState.PLAYING) setPreviewPlaying(true);
-          },
-        },
-      });
-      playerRef.current = player;
-    });
-    return () => {
-      cancelled = true;
-      try {
-        playerRef.current?.destroy?.();
-      } catch (_) {}
-    };
+    const timeout = window.setTimeout(() => setPreviewPlaying(true), 1200);
+    return () => window.clearTimeout(timeout);
   }, []);
 
   useEffect(() => {
@@ -135,15 +78,22 @@ const AnthemBanner = () => {
             aria-hidden
             className="absolute inset-y-0 right-0 z-[5] hidden w-[44%] overflow-hidden sm:block lg:w-[40%]"
           >
-            {/* Player mount point — YT API mounts the iframe into this node.
-                pointer-events-none here is critical: it makes the iframe ignore mouse/touch entirely,
-                so YouTube never shows hover controls (play/pause/prev/next). */}
+            {/* Autoplaying preview — direct iframe so autoplay starts immediately.
+                pointer-events-none keeps YouTube hover controls from appearing. */}
             <div
               className={`pointer-events-none absolute left-1/2 top-1/2 h-[260%] w-[260%] -translate-x-1/2 -translate-y-1/2 transition-opacity duration-500 [&_iframe]:pointer-events-none ${
                 previewPlaying ? "opacity-100" : "opacity-0"
               }`}
             >
-              <div ref={previewContainerRef} className="h-full w-full" />
+              <iframe
+                src={PREVIEW_SRC}
+                title="T20 Mumbai anthem preview"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                allowFullScreen={false}
+                onLoad={() => setPreviewPlaying(true)}
+                tabIndex={-1}
+                className="h-full w-full border-0"
+              />
             </div>
 
             {/* Skeleton / thumbnail cover — sits ABOVE the iframe until playback truly begins. */}
