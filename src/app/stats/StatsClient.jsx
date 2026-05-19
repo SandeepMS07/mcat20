@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useMemo, useEffect } from "react";
-import PlayerDetailsHero from "@/components/stats/PlayerDetailsHero";
 import PaginationControls from "./components/PaginationControls";
 import { season3TeamLogo } from "@/utilis/helper";
 import "./style.css";
@@ -426,8 +425,7 @@ export default function StatsClient({ statsData }) {
 
   return (
     <div className="w-full bg-[#1E2F7D]">
-      <PlayerDetailsHero player={selectedPlayer} selectedTab={selected} />
-      <section className="relative overflow-hidden pb-14 pt-12 bg-[url('/images/texture-bg.png')] bg-cover bg-center bg-no-repeat">
+      <section className="relative overflow-hidden pb-14 pt-32 sm:pt-36 lg:pt-40 bg-[url('/images/texture-bg.png')] bg-cover bg-center bg-no-repeat">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,88,210,0.35),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(26,40,116,0.65),transparent_45%)]" />
         <div className="relative section-width">
           <div className="mb-8 flex flex-wrap items-center justify-center gap-4 border-b border-white/15 pt-5">

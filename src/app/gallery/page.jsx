@@ -2,9 +2,11 @@
 
 import React, { useState, useEffect } from "react";
 import MediaAll from "@/components/media/MediaAll";
-import Hero from "@/components/hero/Hero";
 import { getImagesClient } from "../api/clientApi";
 import { BsArrowLeftCircle } from "react-icons/bs";
+
+const GALLERY_HERO_IMAGE_URL =
+  "https://storage.googleapis.com/mca_images/website/banner_img/gallery.jpg";
 
 const PRIORITY_GALLERY_TAGS = [
   "T20 Mumbai S4 Auction 2026",
@@ -88,13 +90,24 @@ const GalleryPage = () => {
 
   return (
     <div className="min-h-screen w-full bg-[#ECEEF3] pb-16">
-      <Hero
-        imgUrl={
-          "https://storage.googleapis.com/mca_images/website/banner_img/gallery.jpg"
-        }
-        heading="Gallery"
-        subheading=""
-      />
+      <div className="relative flex h-[500px] w-full justify-end overflow-hidden bg-[#101b52] py-14">
+        <img
+          src={GALLERY_HERO_IMAGE_URL}
+          alt=""
+          className="absolute inset-0 z-0 h-full w-full object-cover object-top"
+        />
+        <div className="absolute inset-0 z-[1] bg-gradient-to-r from-[#101b52]/85 via-[#101b52]/40 to-transparent" />
+        <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[#101b52]/80 to-transparent" />
+        <div className="section-width relative z-10 flex h-full flex-col justify-end gap-24 overflow-hidden pt-8 text-white">
+          <div className="flex h-full w-full flex-col items-start justify-end gap-20 bg-transparent">
+            <div className="flex h-full flex-col justify-end gap-3">
+              <p className="text-5xl font-extrabold uppercase leading-snug">
+                Gallery
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="section-width pt-10 md:pt-14">
         <h1 className="mb-8 flex flex-col text-5xl font-extrabold uppercase italic leading-[0.92] text-[#1B2F7A] sm:text-6xl lg:text-7xl">
           <span

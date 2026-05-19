@@ -29,25 +29,24 @@ const MOCK_FAN_PHOTOS = [
 
 const FanWall = () => {
   return (
-    <section className="bg-[#192A66] py-12 sm:py-16">
+    <section className="bg-white py-12 sm:py-16">
       <div className="section-width">
         <div className="mb-6 flex flex-col gap-4 sm:mb-8 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 className="flex flex-row gap-2 text-3xl font-extrabold uppercase italic leading-[0.95] text-white sm:text-4xl lg:text-5xl">
+            <h2 className="flex flex-row gap-2 text-3xl font-extrabold uppercase italic leading-[0.95] text-[#1B2F7A] sm:text-4xl lg:text-5xl">
               <span
                 className="text-transparent"
-                style={{ WebkitTextStroke: "1.5px #ffffff" }}
+                style={{ WebkitTextStroke: "1.5px #1B2F7A" }}
               >
                 Fan
               </span>
               <span>Wall</span>
             </h2>
-            <p className="mt-2 text-xs italic text-white/60 sm:text-sm">
-              * Mock images shown for preview — real fan submissions will appear
-              here.
+            <p className="mt-2 text-xs italic text-[#1B2F7A]/60 sm:text-sm">
+             Capture your T20 Mumbai moment, upload on Instagram using #ChanceSoduNako and stand a chance to win free match tickets!
             </p>
           </div>
-          <span className="inline-flex w-fit items-center rounded-full border border-white/40 px-5 py-2 text-sm font-semibold italic text-white sm:text-base">
+          <span className="inline-flex w-fit items-center rounded-full border border-[#1B2F7A]/30 px-5 py-2 text-sm font-semibold italic text-[#1B2F7A] sm:text-base">
             #ChanceSoduNako
           </span>
         </div>
@@ -56,7 +55,7 @@ const FanWall = () => {
           {MOCK_FAN_PHOTOS.map((photo, i) => (
             <div
               key={i}
-              className="group relative aspect-square overflow-hidden bg-white/5"
+              className="group relative aspect-square overflow-hidden bg-[#1B2F7A]/5"
             >
               <img
                 src={photo.src}

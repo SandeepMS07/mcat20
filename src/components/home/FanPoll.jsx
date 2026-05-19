@@ -253,7 +253,7 @@ const FanPoll = ({
 
   return (
     <div className="relative">
-      <div className="section-width pb-14 md:pb-16 lg:pb-20">
+      <div className="section-width pt-14 pb-14 md:pt-16 md:pb-16 lg:pt-20 lg:pb-20">
         {headerSlot
           ? headerSlot
           : showDefaultHeading && (

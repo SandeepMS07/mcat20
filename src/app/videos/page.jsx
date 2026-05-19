@@ -1,10 +1,14 @@
 "use client";
 
-import { useMemo, useState, useEffect } from "react";
-import Hero from "@/components/hero/Hero";
+import { useMemo, useRef, useState, useEffect } from "react";
 import { getVideosClient } from "../api/clientApi";
 import LoadingPage from "../loading";
 import Sponsorship from "@/components/common/Sponsorship";
+
+const ROHIT_INTERVIEW_VIDEO_URL =
+  "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1777530746564-274btnl4nw8-bg-cover-(1).mp4";
+const ROHIT_INTERVIEW_POSTER_URL = "/images/home/hero/rohit.jpeg";
+const HOVER_PLAY_DELAY_MS = 300;
 
 const INITIAL_VISIBLE_COUNT = 6;
 
@@ -39,6 +43,61 @@ const VideosPage = () => {
   const [loading, setLoading] = useState(false);
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT);
   const [activeVideoIndex, setActiveVideoIndex] = useState(null);
+  const [isHoverVideoActive, setIsHoverVideoActive] = useState(false);
+  const hoverVideoRef = useRef(null);
+  const hoverDelayTimeoutRef = useRef(null);
+
+  const clearHoverDelay = () => {
+    if (!hoverDelayTimeoutRef.current) return;
+    window.clearTimeout(hoverDelayTimeoutRef.current);
+    hoverDelayTimeoutRef.current = null;
+  };
+
+  const startHoverPlayback = () => {
+    setIsHoverVideoActive(true);
+    const videoEl = hoverVideoRef.current;
+    if (!videoEl) return;
+    try {
+      videoEl.currentTime = 0;
+      const playPromise = videoEl.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(() => {});
+      }
+    } catch (_) {}
+  };
+
+  const handleHeroMouseEnter = () => {
+    clearHoverDelay();
+    hoverDelayTimeoutRef.current = window.setTimeout(() => {
+      hoverDelayTimeoutRef.current = null;
+      startHoverPlayback();
+    }, HOVER_PLAY_DELAY_MS);
+  };
+
+  const handleHeroMouseLeave = () => {
+    clearHoverDelay();
+    setIsHoverVideoActive(false);
+    const videoEl = hoverVideoRef.current;
+    if (!videoEl) return;
+    try {
+      videoEl.pause();
+      videoEl.currentTime = 0;
+    } catch (_) {}
+  };
+
+  useEffect(() => {
+    const videoEl = hoverVideoRef.current;
+    if (!videoEl) return;
+    try {
+      videoEl.load();
+    } catch (_) {}
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      clearHoverDelay();
+    };
+  }, []);
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -80,13 +139,41 @@ const VideosPage = () => {
   return (
     <>
       <div className="min-h-screen w-full bg-[#ECEEF3] pb-16">
-        <Hero
-          imgUrl={
-            "https://storage.googleapis.com/mca_images/website/banner_img/gallery.jpg"
-          }
-          heading="Videos"
-          subheading=""
-        />
+        <div
+          className="group relative flex h-[500px] w-full justify-end overflow-hidden bg-[#101b52] py-14"
+          onMouseEnter={handleHeroMouseEnter}
+          onMouseLeave={handleHeroMouseLeave}
+          onTouchStart={handleHeroMouseEnter}
+          onTouchEnd={handleHeroMouseLeave}
+        >
+          <img
+            src={ROHIT_INTERVIEW_POSTER_URL}
+            alt=""
+            className="absolute inset-0 z-0 h-full w-full object-cover object-top"
+          />
+          <video
+            ref={hoverVideoRef}
+            src={ROHIT_INTERVIEW_VIDEO_URL}
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className={`absolute inset-0 z-[1] h-full w-full object-cover object-top transition-opacity duration-300 ease-out ${
+              isHoverVideoActive ? "opacity-100" : "opacity-0"
+            }`}
+          />
+          <div className="absolute inset-0 z-[2] bg-gradient-to-r from-[#101b52]/85 via-[#101b52]/40 to-transparent" />
+          <div className="absolute inset-0 z-[2] bg-gradient-to-t from-[#101b52]/80 to-transparent" />
+          <div className="section-width relative z-10 flex h-full flex-col justify-end gap-24 overflow-hidden pt-8 text-white">
+            <div className="flex h-full w-full flex-col items-start justify-end gap-20 bg-transparent">
+              <div className="flex h-full flex-col justify-end gap-3">
+                <p className="text-5xl font-extrabold uppercase leading-snug">
+                  Videos
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="section-width pt-10 md:pt-14">
           <h1 className="mb-10 flex flex-col text-5xl font-extrabold uppercase italic leading-[0.92] text-[#1B2F7A] sm:text-6xl lg:text-7xl">
             <span
@@ -123,8 +210,8 @@ const VideosPage = () => {
                       />
                       <div className="absolute inset-0 bg-black/35" />
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/28 backdrop-blur-sm">
-                          <span className="ml-1 text-4xl text-white">▶</span>
+                        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[#F2A23A] shadow-[0_8px_24px_rgba(242,162,58,0.45)] transition-transform duration-300 group-hover:scale-110">
+                          <span className="ml-1 text-2xl text-[#02103D]">▶</span>
                         </div>
                       </div>
                     </button>

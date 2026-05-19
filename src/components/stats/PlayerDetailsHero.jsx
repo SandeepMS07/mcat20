@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import Hero from "../hero/Hero";
 
 
 const PlayerDetailsHero = ({ player, selectedTab }) => {
@@ -37,8 +36,22 @@ const PlayerDetailsHero = ({ player, selectedTab }) => {
 
   return (
     <>
-    <Hero imgUrl="/images/stats/statsBg.png" heading="STATS" subheading="" />
-    
+      <section className="relative w-full overflow-hidden bg-[#101b52] pt-32 pb-10 sm:pt-36 sm:pb-12 lg:pt-40 lg:pb-16">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-24 top-0 h-72 w-72 rounded-full bg-[#F2A23A]/10 blur-3xl"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-[#1C398E]/40 blur-3xl"
+        />
+        <div className="section-width relative px-4 sm:px-6 lg:px-8">
+          <h1 className="text-4xl font-extrabold uppercase italic leading-none text-white sm:text-5xl lg:text-6xl">
+            Stats
+          </h1>
+        </div>
+      </section>
+
     {/* <div className="relative w-full h-[28rem] bg-[url('/images/stats/statsBg.png')] bg-no-repeat bg-center bg-cover flex justify-center items-center overflow-hidden"> */}
     {/* Heading */}
        {/* <div className="text-white section-width"> */}

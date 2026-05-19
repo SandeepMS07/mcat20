@@ -124,9 +124,13 @@ const Navbar = () => {
                             className="transition-transform group-hover:rotate-180"
                           />
                         </button>
+                        <span
+                          aria-hidden
+                          className="absolute left-1/2 top-full z-40 h-6 w-[171px] -translate-x-1/2"
+                        />
                         <ul
                           role="menu"
-                          className="invisible absolute left-1/2 top-full z-50 mt-2 w-44 -translate-x-1/2 rounded-xl border border-white/15 bg-[#0c1334]/95 p-2 opacity-0 shadow-xl backdrop-blur-xl transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
+                          className="invisible absolute left-1/2 top-full z-50 mt-6 w-[171px] -translate-x-1/2 divide-y divide-white/20 overflow-hidden rounded-[14px] border border-white/10 bg-white/[0.16] opacity-0 shadow-[0_8px_30px_rgba(0,0,0,0.25)] backdrop-blur-xl transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
                         >
                           {item.children.map((child, j) => {
                             const childActive = isPathActive(child.path);
@@ -135,7 +139,7 @@ const Navbar = () => {
                                 <Link
                                   href={child.path}
                                   role="menuitem"
-                                  className={`block rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-white/10 hover:text-orange-400 ${
+                                  className={`block px-[22px] py-3 text-sm font-medium capitalize transition-colors hover:bg-white/10 hover:text-orange-400 ${
                                     childActive
                                       ? "text-orange-500"
                                       : "text-white"
