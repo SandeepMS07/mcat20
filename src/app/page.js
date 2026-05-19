@@ -8,6 +8,7 @@ import FanPoll from "@/components/home/FanPoll";
 import FanPollPopupAutoMount from "@/components/home/FanPollPopupAutoMount";
 import Sponsorship from "@/components/common/Sponsorship";
 import Gallery from "@/components/home/Gallery";
+import FanWall from "@/components/home/FanWall";
 
 export default async function Home() {
   return (
@@ -20,6 +21,7 @@ export default async function Home() {
       {/* <FeaturedPlayers /> */}
       <div className="relative bg-gradient-to-bl from-[#1C398E] to-[#0E005A]">
         <Socials />
+        <FanWall />
         <FanPoll />
       </div>
 

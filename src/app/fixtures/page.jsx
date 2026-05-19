@@ -118,32 +118,61 @@ const FilterSelect = ({ value, options, onChange, label }) => (
   </div>
 );
 
-const TeamSide = ({ name, logo, score, overs, winner, align = "left" }) => {
+const TeamSide = ({ name, logo, score, overs, winner, align = "left", category }) => {
   const hasScore = !!(score || overs);
+  const isLinkable = !!name && name !== "TBD";
+  const teamType = `${category || ""}`.toLowerCase().includes("women")
+    ? "women"
+    : "men";
+  const teamHref = isLinkable
+    ? `${routes.teams}?team=${encodeURIComponent(name)}&type=${teamType}`
+    : null;
+
+  const Wrapper = ({ children }) =>
+    teamHref ? (
+      <Link
+        href={teamHref}
+        className="group/team-link inline-flex min-w-0 items-center gap-2 sm:gap-3 md:gap-4 hover:opacity-90 transition-opacity"
+        aria-label={`View ${name}`}
+      >
+        {children}
+      </Link>
+    ) : (
+      <div className="inline-flex min-w-0 items-center gap-2 sm:gap-3 md:gap-4">
+        {children}
+      </div>
+    );
+
   return (
     <div className="flex flex-col gap-3 min-w-0">
       <div
-        className={`flex items-center gap-2 sm:gap-3 md:gap-4 min-w-0 ${
+        className={`flex items-center min-w-0 ${
           align === "right" ? "flex-row-reverse text-right" : "flex-row text-left"
         }`}
       >
-        <div
-          className={`shrink-0 size-11 sm:size-[56px] md:size-[60px] rounded-full bg-white border ${
-            winner ? "border-[#ef4123]" : "border-[#af313a]"
-          } flex items-center justify-center p-1 overflow-hidden`}
-        >
-          <img
-            src={logo || "/images/fixtures/logoPlaceHolder.png"}
-            alt={`${name} logo`}
-            onError={(e) => {
-              e.currentTarget.src = "/images/fixtures/logoPlaceHolder.png";
-            }}
-            className="size-full object-contain"
-          />
-        </div>
-        <div className="min-w-0 text-white font-extrabold uppercase text-[11px] sm:text-[13px] md:text-[14px] lg:text-[15px] leading-tight tracking-wide line-clamp-2">
-          {name}
-        </div>
+        <Wrapper>
+          <div
+            className={`shrink-0 size-11 sm:size-[56px] md:size-[60px] rounded-full bg-white border ${
+              winner ? "border-[#ef4123]" : "border-[#af313a]"
+            } flex items-center justify-center p-1 overflow-hidden`}
+          >
+            <img
+              src={logo || "/images/fixtures/logoPlaceHolder.png"}
+              alt={`${name} logo`}
+              onError={(e) => {
+                e.currentTarget.src = "/images/fixtures/logoPlaceHolder.png";
+              }}
+              className="size-full object-contain"
+            />
+          </div>
+          <div
+            className={`min-w-0 text-white font-extrabold uppercase text-[11px] sm:text-[13px] md:text-[14px] lg:text-[15px] leading-tight tracking-wide line-clamp-2 ${
+              teamHref ? "group-hover/team-link:underline" : ""
+            }`}
+          >
+            {name}
+          </div>
+        </Wrapper>
       </div>
       {hasScore && (
         <div className="flex flex-col items-center gap-0.5">
@@ -277,6 +306,7 @@ const MatchCard = ({ match }) => {
               overs={match.homeOvers}
               winner={match.homeWinner}
               align="left"
+              category={match.category}
             />
             <VsBadge subText={match.resultSubText} subTextItalic={match.resultSubTextItalic} />
             <TeamSide
@@ -286,6 +316,7 @@ const MatchCard = ({ match }) => {
               overs={match.awayOvers}
               winner={match.awayWinner}
               align="right"
+              category={match.category}
             />
           </div>
 

@@ -20,6 +20,13 @@ const getFilteredTeams = (teams, bucket) =>
     .filter((team) => getTeamBucket(team?.Team_Type__c) === bucket)
     .sort((a, b) => (a?.Name || "").localeCompare(b?.Name || ""));
 
+const normalizeTeamName = (name = "") =>
+  name
+    .toLowerCase()
+    .replace(/\s*\(w\)\s*$/i, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+
 export default function Teams() {
   const searchParams = useSearchParams();
   const hasInitializedRef = useRef(false);
@@ -67,7 +74,20 @@ export default function Teams() {
 
     if (queryTeam) {
       const decoded = decodeURIComponent(queryTeam);
-      const matchedTeam = allTeams.find((team) => team?.Name === decoded);
+      const normalizedQuery = normalizeTeamName(decoded);
+      const matchedTeam =
+        allTeams.find((team) => team?.Name === decoded) ||
+        allTeams.find(
+          (team) => normalizeTeamName(team?.Name || "") === normalizedQuery,
+        ) ||
+        allTeams.find((team) => {
+          const tokens = normalizedQuery
+            .split(" ")
+            .filter((t) => t.length > 2);
+          if (tokens.length < 2) return false;
+          const target = normalizeTeamName(team?.Name || "");
+          return tokens.every((tok) => target.includes(tok));
+        });
 
       if (matchedTeam) {
         const nextBucket = getTeamBucket(matchedTeam?.Team_Type__c);

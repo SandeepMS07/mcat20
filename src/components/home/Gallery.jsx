@@ -102,7 +102,7 @@ const Gallery = () => {
                 className="text-transparent [-webkit-text-stroke:1.5px_#ffffff]"
                 style={{ WebkitTextStroke: "1.5px #ffffff" }}
               >
-                Mumbai
+                T20 Mumbai
               </span>
               <span>Moments</span>
             </h2>
