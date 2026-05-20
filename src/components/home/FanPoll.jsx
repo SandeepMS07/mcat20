@@ -1,6 +1,7 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
 import { listPolls, votePoll } from "@/app/api/polls";
+import { trackEvent } from "@/utilis/mixpanelClient";
 
 const DEFAULT_OPTION_IMAGE = "/images/stats/player-img.svg";
 
@@ -51,6 +52,15 @@ const PollCard = ({ poll, onPollUpdate, variant = "compact" }) => {
     try {
       const res = await votePoll(poll.slug, optionId);
       if (res && res.poll) onPollUpdate(res.poll);
+
+      const chosenOption = poll.options.find((o) => o.id === optionId);
+      trackEvent("Fan Poll Voted", {
+        poll_slug: poll.slug,
+        poll_question: poll.question,
+        option_id: optionId,
+        option_label: chosenOption?.label,
+        is_change: selectedId != null,
+      });
     } catch (err) {
       onPollUpdate(prevPoll);
       const status = err?.response?.status;

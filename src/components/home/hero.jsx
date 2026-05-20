@@ -14,6 +14,7 @@ import { useRouter } from "next/navigation";
 import { PLAYER_REGISTRATION_SHARE_KEY } from "@/constant";
 import { getHeroBannerClient } from "@/app/api/clientApi";
 import HeroSlideContent from "./HeroSlideContent";
+import { trackEvent } from "@/utilis/mixpanelClient";
 
 const REGISTRATION_PROMO_CUTOFF_TS = new Date(
   "2026-04-11T00:00:00+05:30",
@@ -818,7 +819,13 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 transition hover:border-white/30 hover:bg-white/[0.08]"
-                  onClick={() => setAppStoresModalOpen(false)}
+                  onClick={() => {
+                    trackEvent("Get App Clicked", {
+                      surface: "home_hero_modal",
+                      store: "app_store",
+                    });
+                    setAppStoresModalOpen(false);
+                  }}
                 >
                   <img
                     src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
@@ -831,7 +838,13 @@ const Hero = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 transition hover:border-white/30 hover:bg-white/[0.08]"
-                  onClick={() => setAppStoresModalOpen(false)}
+                  onClick={() => {
+                    trackEvent("Get App Clicked", {
+                      surface: "home_hero_modal",
+                      store: "play_store",
+                    });
+                    setAppStoresModalOpen(false);
+                  }}
                 >
                   <img
                     src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"

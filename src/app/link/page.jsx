@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { trackEvent } from "@/utilis/mixpanelClient";
 
 export default function AppRedirectPage() {
   const [platform, setPlatform] = useState(null);
@@ -13,20 +14,31 @@ export default function AppRedirectPage() {
     const userAgent = navigator.userAgent || navigator.vendor;
     const isAndroid = /android/i.test(userAgent);
     const isIOS = /iPad|iPhone|iPod|Macintosh/i.test(userAgent);
+    const detected = isIOS ? "ios" : isAndroid ? "android" : "web";
 
-    if (isIOS) {
-      setPlatform("ios");
+    setPlatform(detected);
+    trackEvent("Get App Clicked", {
+      surface: "deep_link",
+      platform: detected,
+      trigger: "auto_redirect",
+    });
+
+    if (detected === "ios") {
       window.location.href = IOS_APP_URL;
-    } else if (isAndroid) {
-      setPlatform("android");
+    } else if (detected === "android") {
       window.location.href = ANDROID_APP_URL;
     } else {
-      setPlatform("web");
       window.location.href = WEB_FALLBACK_URL;
     }
   }, []);
 
   const handleManualRedirect = () => {
+    trackEvent("Get App Clicked", {
+      surface: "deep_link",
+      platform: platform || "unknown",
+      trigger: "manual_tap",
+    });
+
     if (platform === "ios") {
       window.location.href = IOS_APP_URL;
     } else if (platform === "android") {

@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { trackEvent } from "@/utilis/mixpanelClient";
 
 export default function AppNavbarBanner() {
   const [showBanner, setShowBanner] = useState(false);
@@ -32,6 +33,12 @@ export default function AppNavbarBanner() {
     const userAgent = navigator.userAgent || navigator.vendor;
     const isAndroid = /android/i.test(userAgent);
     const isIOS = /iPhone|iPad|iPod/i.test(userAgent);
+    const platform = isIOS ? "ios" : isAndroid ? "android" : "desktop";
+
+    trackEvent("Get App Clicked", {
+      surface: "bottom_banner",
+      platform,
+    });
 
     if (isIOS) {
       window.location.href = "https://t20mumbai.com/link";
