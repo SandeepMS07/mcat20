@@ -202,7 +202,10 @@ const Hero = () => {
       const res = await getHeroBannerClient();
       if (cancelled) return;
       const list = Array.isArray(res?.data) ? res.data : [];
-      const sorted = [...list].sort(
+      const filtered = list.filter(
+        (b) => !/for real time action/i.test(b?.Title__c || ""),
+      );
+      const sorted = [...filtered].sort(
         (a, b) => (a.Rank__c ?? 9999) - (b.Rank__c ?? 9999),
       );
       setBanners(sorted);
@@ -376,7 +379,7 @@ const Hero = () => {
             <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
             <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
             <HeroSlideContent
-              title="30 high-voltage matches set to light up Wankhede Stadium from June 1-13"
+              title="30 Matches Set to Light Up Wankhede Stadium from June 1-13"
               subtitle="#ChanceSoduNako"
               action={
                 <div className="flex flex-row gap-2">
@@ -563,7 +566,7 @@ const Hero = () => {
             <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
             <HeroSlideContent
               eyebrow="T20 Mumbai Season 4"
-              title="Squads for the T20 Mumbai League are set"
+              title="Squads for the T20 Mumbai League are Set"
               subtitle="#ChanceSoduNako"
               action={
                 <div className="flex flex-row flex-wrap items-center gap-2 sm:gap-3 sm:items-start">

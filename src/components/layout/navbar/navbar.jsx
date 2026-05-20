@@ -9,7 +9,7 @@ import routes from "@/utilis/route";
 import { redirect, usePathname } from "next/navigation";
 
 const TOP_MARQUEE_TEXT =
-  "T20 Mumbai & Women’s T20 Mumbai League begin 1 June 2026";
+  "T20 Mumbai Men’s & Women’s League | June 1-13 | Wankhede Stadium";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -97,7 +97,7 @@ const Navbar = () => {
             </div>
             {/* Navigation Links */}
             <div className="items-center lg:flex hidden py-1  w-full">
-              <ul className="flex items-center justify-end gap-6 xl:gap-10 bg-transparent pl-8 xl:pl-12 pr-4 xl:pr-10 py-2 rounded-full w-full">
+              <ul className="flex items-center justify-end gap-3 xl:gap-6 bg-transparent pl-4 xl:pl-8 pr-3 xl:pr-6 py-2 rounded-full w-full">
                 {navLinks.map((item, i) => {
                   const isExternal = /^https?:\/\//.test(item.path);
                   const hasChildren =
@@ -112,7 +112,7 @@ const Navbar = () => {
                       <li key={i} className="relative group">
                         <button
                           type="button"
-                          className={`flex cursor-pointer items-center gap-1 text-xs md:text-sm xl:text-base font-medium transition-colors hover:text-orange-400 ${
+                          className={`flex cursor-pointer items-center gap-1 whitespace-nowrap text-xs md:text-sm xl:text-[15px] font-medium transition-colors hover:text-orange-400 ${
                             isActive ? "text-orange-500" : "text-white"
                           }`}
                           aria-haspopup="menu"
@@ -126,11 +126,11 @@ const Navbar = () => {
                         </button>
                         <span
                           aria-hidden
-                          className="absolute left-1/2 top-full z-40 h-6 w-[171px] -translate-x-1/2"
+                          className="absolute left-1/2 top-full z-40 h-6 w-[200px] -translate-x-1/2"
                         />
                         <ul
                           role="menu"
-                          className="invisible absolute left-1/2 top-full z-50 mt-6 w-[171px] -translate-x-1/2 divide-y divide-white/20 overflow-hidden rounded-[14px] border border-white/10 bg-white/[0.16] opacity-0 shadow-[0_8px_30px_rgba(0,0,0,0.25)] backdrop-blur-xl transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
+                          className="invisible absolute left-1/2 top-full z-50 mt-6 w-[200px] -translate-x-1/2 divide-y divide-white/20 overflow-hidden rounded-[14px] border border-white/10 bg-white/[0.16] opacity-0 shadow-[0_8px_30px_rgba(0,0,0,0.25)] backdrop-blur-xl transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
                         >
                           {item.children.map((child, j) => {
                             const childActive = isPathActive(child.path);
@@ -139,13 +139,19 @@ const Navbar = () => {
                                 <Link
                                   href={child.path}
                                   role="menuitem"
-                                  className={`block px-[22px] py-3 text-sm font-medium capitalize transition-colors hover:bg-white/10 hover:text-orange-400 ${
+                                  className={`flex items-center justify-between gap-2 px-[22px] py-3 text-sm font-medium capitalize transition-colors hover:bg-white/10 hover:text-orange-400 ${
                                     childActive
                                       ? "text-orange-500"
                                       : "text-white"
                                   }`}
                                 >
-                                  {child.title}
+                                  <span>{child.title}</span>
+                                  {child.comingSoon && (
+                                    <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-[#F2A23A] to-[#FFD166] px-1.5 py-[2px] text-[8px] font-extrabold uppercase tracking-wider text-[#0B1545] shadow-[0_2px_6px_rgba(242,162,58,0.45)]">
+                                      <span className="h-1 w-1 rounded-full bg-[#0B1545]" />
+                                      Soon
+                                    </span>
+                                  )}
                                 </Link>
                               </li>
                             );
@@ -161,13 +167,14 @@ const Navbar = () => {
                         href={item.path}
                         target={isExternal ? "_blank" : undefined}
                         rel={isExternal ? "noopener noreferrer" : undefined}
-                        className={`inline-flex items-center gap-1.5 cursor-pointer text-xs md:text-sm xl:text-base font-medium transition-colors hover:text-orange-400 ${
+                        className={`inline-flex items-center gap-1.5 cursor-pointer whitespace-nowrap text-xs md:text-sm xl:text-[15px] font-medium transition-colors hover:text-orange-400 ${
                           isActive ? "text-orange-500" : "text-white"
                         }`}
                       >
                         {item.title}
                         {item.comingSoon && (
-                          <span className="rounded-full bg-[#F2A23A]/20 px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wide text-[#F2A23A] xl:text-[9px]">
+                          <span className="inline-flex items-center gap-1 whitespace-nowrap rounded-full bg-gradient-to-r from-[#F2A23A] to-[#FFD166] px-1.5 py-[2px] text-[8px] font-extrabold uppercase tracking-wider text-[#0B1545] shadow-[0_2px_6px_rgba(242,162,58,0.45)]">
+                            <span className="h-1 w-1 rounded-full bg-[#0B1545]" />
                             Coming Soon
                           </span>
                         )}
@@ -254,7 +261,7 @@ const Navbar = () => {
                             <li key={j}>
                               <Link
                                 href={child.path}
-                                className={`text-sm transition-colors hover:text-orange-400 ${
+                                className={`inline-flex items-center gap-2 text-sm transition-colors hover:text-orange-400 ${
                                   childActive
                                     ? "text-orange-500"
                                     : "text-white/85"
@@ -265,6 +272,11 @@ const Navbar = () => {
                                 }}
                               >
                                 {child.title}
+                                {child.comingSoon && (
+                                  <span className="rounded-full bg-[#F2A23A]/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#F2A23A]">
+                                    Coming Soon
+                                  </span>
+                                )}
                               </Link>
                             </li>
                           );

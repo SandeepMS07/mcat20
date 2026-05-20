@@ -26,10 +26,8 @@ const FOOTER_COLUMNS = [
   {
     title: "Fan Zone",
     links: [
-      { label: "Fantasy", href: routes.fantasy, external: true },
-      { label: "Fanpoll", href: routes.fanPoll },
-      { label: "Fan Wall", href: routes.fanWall },
-      { label: "Viewers Choice", href: routes.choice },
+      { label: "Fan Poll", href: routes.fanPoll },
+      { label: "Viewers' Choice", href: routes.choice },
     ],
   },
 ];

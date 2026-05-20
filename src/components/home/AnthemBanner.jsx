@@ -141,7 +141,7 @@ const AnthemBanner = () => {
             />
 
             <h2 className="font-extrabold leading-[1.15] tracking-tight text-white text-[18px] sm:text-base md:text-xl lg:text-2xl xl:text-3xl">
-              Introducing the anthem of the{" "}
+              Introducing the Anthem of the{" "}
               <span className="bg-gradient-to-r from-[#ffb058] via-[#f68323] to-[#d84800] bg-clip-text text-transparent">
                 T20 Mumbai
               </span>

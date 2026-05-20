@@ -630,7 +630,7 @@ export default function StatsClient({ statsData }) {
                         : "text-white/80 hover:text-white"
                     }`}
                   >
-                    {tab}
+                    {tab === "batting" ? "Batters" : "Bowlers"}
                   </button>
                 ))}
               </div>
@@ -676,7 +676,7 @@ export default function StatsClient({ statsData }) {
                         : "text-[#1A2C76]"
                     }`}
                   >
-                    {tab}
+                    {tab === "batting" ? "Batters" : "Bowlers"}
                   </button>
                 ))}
               </div>

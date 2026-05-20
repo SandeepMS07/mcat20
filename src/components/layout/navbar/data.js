@@ -35,12 +35,13 @@ export const navLinks = [
     comingSoon: true,
   },
   {
-    title: "Fan Poll",
+    title: "Fan Zone",
     path: `${routes.fanPoll}`,
-  },
-  {
-    title: "Viewers Choice",
-    path: `${routes.choice}`,
+    children: [
+      { title: "Fanpoll", path: `${routes.fanPoll}` },
+      { title: "Fan Wall", path: `${routes.fanWall}` },
+      { title: "Viewers Choice", path: `${routes.choice}` },
+    ],
   },
   // {
   //   title: "About Us",
