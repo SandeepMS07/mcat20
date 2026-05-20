@@ -152,7 +152,7 @@ const Footer = () => {
 
         <div className="mt-10 border-t border-white/10 pt-5 md:mt-14">
           <div className="flex flex-col gap-3 text-xs text-white/40 md:flex-row md:items-center md:justify-between">
-            <p>All Rights Reserved © 2025 T20Mumbai</p>
+            <p>All Rights Reserved © 2026 T20Mumbai</p>
             <div className="flex items-center gap-6 md:gap-8">
               <Link
                 href={routes.privacyPolicy}
@@ -160,7 +160,6 @@ const Footer = () => {
               >
                 Privacy Policy
               </Link>
-              <span className="cursor-default">Terms of Service</span>
             </div>
           </div>
         </div>
