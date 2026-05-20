@@ -114,11 +114,6 @@ const SelectedTeamInline = ({ team, header }) => {
         <h2 className="text-lg font-extrabold uppercase italic leading-tight text-white sm:text-xl md:text-2xl">
           {header.name}
         </h2>
-        {header.subtitle && (
-          <p className="mt-1 text-xs font-medium text-white/70 sm:text-sm">
-            {header.subtitle}
-          </p>
-        )}
       </div>
     </div>
   );

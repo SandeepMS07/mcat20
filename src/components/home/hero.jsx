@@ -65,6 +65,7 @@ const Hero = () => {
   const router = useRouter();
   const [showVideo, setShowVideo] = useState(false);
   const [isRohitHoverVideoActive, setIsRohitHoverVideoActive] = useState(false);
+  const [appStoresModalOpen, setAppStoresModalOpen] = useState(false);
   const rohitHoverVideoRef = useRef(null);
   const rohitHoverDelayTimeoutRef = useRef(null);
   const swiperRef = useRef(null);
@@ -141,27 +142,7 @@ const Hero = () => {
     router.push(registrationUrl);
   };
   const handleAppDownloadRedirect = () => {
-    const userAgent = navigator.userAgent || navigator.vendor;
-    const isAndroid = /android/i.test(userAgent);
-    const isIOS = /iPhone|iPad|iPod/i.test(userAgent);
-
-    if (isIOS) {
-      window.location.href = "https://t20mumbai.com/link";
-      return;
-    }
-
-    if (isAndroid) {
-      const fallbackUrl = "https://t20mumbai.com/link";
-      window.location.href = `intent://links#Intent;scheme=t20mumbai;package=com.mca.t20mumbai;S.browser_fallback_url=${encodeURIComponent(
-        fallbackUrl,
-      )};end`;
-      return;
-    }
-
-    window.open(
-      "https://play.google.com/store/apps/details?id=com.mca.t20mumbai",
-      "_blank",
-    );
+    setAppStoresModalOpen(true);
   };
 
   useEffect(() => {
@@ -449,7 +430,7 @@ const Hero = () => {
                       handleAppDownloadRedirect();
                     }}
                   >
-                    Watch now
+                    Watch Now
                     <span>
                       <Image
                         src="/images/home/hero/buttonIcon.svg"
@@ -486,7 +467,7 @@ const Hero = () => {
                     className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md"
                     onClick={() => {
                       router.push(
-                        "/latest-updates/suryakumar-yadav-shreyas-iyer-shivam-dube-headline-star-studded-line-up-as-mca-announces-retained-players-for-t20-mumbai-league-2026",
+                        "/news/suryakumar-yadav-shreyas-iyer-shivam-dube-headline-star-studded-line-up-as-mca-announces-retained-players-for-t20-mumbai-league-2026",
                       );
                     }}
                   >
@@ -612,7 +593,7 @@ const Hero = () => {
                     className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md"
                     onClick={() => {
                       router.push(
-                        "/latest-updates/mca-announces-t20-mumbai-league-season-4-and-launches-inaugural-womens-league",
+                        "/news/mca-announces-t20-mumbai-league-season-4-and-launches-inaugural-womens-league",
                       );
                     }}
                   >
@@ -781,6 +762,86 @@ const Hero = () => {
           }
         }
       `}</style>
+
+      {appStoresModalOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm"
+          onClick={() => setAppStoresModalOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Get the T20 Mumbai App"
+        >
+          <div
+            className="relative w-full max-w-md overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-br from-[#0E1A47] via-[#0C1845] to-[#091236] p-6 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)] sm:p-7"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#F68323]/[0.15] blur-3xl"
+            />
+            <button
+              type="button"
+              onClick={() => setAppStoresModalOpen(false)}
+              aria-label="Close"
+              className="absolute right-3 top-3 z-10 cursor-pointer rounded-full p-1.5 text-white/60 transition hover:bg-white/10 hover:text-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-5 w-5"
+                aria-hidden
+              >
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+
+            <div className="relative">
+              <h3 className="mb-1 text-lg font-extrabold uppercase italic text-white sm:text-xl">
+                Get the T20 Mumbai App
+              </h3>
+              <p className="mb-6 text-sm text-white/70">
+                Watch the full conversation with Rohit Sharma. Download the app
+                from your preferred store.
+              </p>
+
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <a
+                  href="https://apps.apple.com/app/id6746642031"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 transition hover:border-white/30 hover:bg-white/[0.08]"
+                  onClick={() => setAppStoresModalOpen(false)}
+                >
+                  <img
+                    src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                    alt="Download on the App Store"
+                    className="h-10 w-auto"
+                  />
+                </a>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.mca.t20mumbai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 transition hover:border-white/30 hover:bg-white/[0.08]"
+                  onClick={() => setAppStoresModalOpen(false)}
+                >
+                  <img
+                    src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                    alt="Get it on Google Play"
+                    className="h-12 w-auto"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

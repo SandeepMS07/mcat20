@@ -8,7 +8,7 @@ export const LocalLatestUpdates = [
       "30 high-voltage clashes set to light up Wankhede Stadium as MCA unveils fixtures for T20 Mumbai League 2026 (Men’s and Women’s)",
     Date__c: "2026-05-15",
     Image_URL__c: "/images/latestUpdates/fixtures-2026-main.jpg",
-    path: "/latest-updates/30-high-voltage-clashes-set-to-light-up-wankhede-stadium-as-mca-unveils-fixtures-for-t20-mumbai-league-2026",
+    path: "/news/30-high-voltage-clashes-set-to-light-up-wankhede-stadium-as-mca-unveils-fixtures-for-t20-mumbai-league-2026",
     Sub_Title__c:
       "Season 4 of the T20 Mumbai League and the inaugural T20 Mumbai Women’s League — featuring 30 matches across men’s and women’s competitions — will be played at the Wankhede Stadium from June 1 to 13.",
     Content__c: `The stage is set for a blockbuster cricket carnival as the Mumbai Cricket Association (MCA) today announced the fixtures for Season 4 of the T20 Mumbai League and the inaugural T20 Mumbai Women’s League, with 30 matches featuring international icons, IPL and WPL stars, and the city’s brightest emerging talent scheduled to be played at the iconic Wankhede Stadium from June 1 to 13.<br/><br/>
@@ -94,7 +94,7 @@ All matches will be played at the Wankhede Stadium and telecast live on Star Spo
       "Suryakumar Yadav, Shreyas Iyer, Shivam Dube headline star-studded line-up as MCA announces retained players for T20 Mumbai League 2026",
     Date__c: "2026-04-25",
     Image_URL__c: "/images/latestUpdates/Suryakumar.jpg",
-    path: "/latest-updates/suryakumar-yadav-shreyas-iyer-shivam-dube-headline-star-studded-line-up-as-mca-announces-retained-players-for-t20-mumbai-league-2026",
+    path: "/news/suryakumar-yadav-shreyas-iyer-shivam-dube-headline-star-studded-line-up-as-mca-announces-retained-players-for-t20-mumbai-league-2026",
     Sub_Title__c:
       "Shardul Thakur, Tushar Deshpande, Ayush Mhatre and Sarfaraz Khan among other key names retained, while Yashasvi Jaiswal and Ajinkya Rahane are allotted as Icon Players, with franchises locking core squads ahead of Season 4.",
     Content__c: `The Mumbai Cricket Association (MCA) has set the stage for a blockbuster T20 Mumbai League 2026, unveiling a star-studded list of player retentions featuring India captain Suryakumar Yadav, Shreyas Iyer and Shivam Dube.<br/><br/>
@@ -141,7 +141,7 @@ With the retention phase complete, focus now shifts to the upcoming player aucti
       "T20 Mumbai League Player Registrations Close with Over 2,400 Entries",
     Date__c: "2026-04-11",
     Image_URL__c: "/images/latestUpdates/Player-Registrations.png",
-    path: "/latest-updates/t20-mumbai-league-player-registrations-close-with-over-2400-entries",
+    path: "/news/t20-mumbai-league-player-registrations-close-with-over-2400-entries",
     Sub_Title__c: "",
     Content__c: `Player registrations for the upcoming season of the T20 Mumbai League officially closed on April 10th and received an overwhelming response from across the city.<br/><br/>
 A total of 2,411 players have registered for the league, underlining the continued enthusiasm and depth of cricketing talent in Mumbai. This includes 2,048 men registering for Season 4 of the men's competition and 363 women for the inaugural Women's T20 Mumbai League.<br/><br/>
@@ -157,7 +157,7 @@ The T20 Mumbai League continues to embody its central philosophy "Chance Sodu Na
       "MCA announces T20 Mumbai League Season 4 and launches Inaugural Women's League",
     Date__c: "2026-03-24",
     Image_URL__c: "/images/latestUpdates/local-3-banner.jpeg",
-    path: "/latest-updates/mca-announces-t20-mumbai-league-season-4-and-launches-inaugural-womens-league",
+    path: "/news/mca-announces-t20-mumbai-league-season-4-and-launches-inaugural-womens-league",
     Sub_Title__c:
       "Mumbai Cricket Association (MCA) announced the return of the T20 Mumbai League for Season 4 and launched the inaugural T20 Mumbai Women's League at a major event in Mumbai.",
     Content__c: `Mumbai Cricket Association (MCA) today announced the return of T20 Mumbai League with an exhilarating Season 4 and also launched the inaugural T20 Mumbai Women's League, pitted to be the most exciting domestic tournaments in the women's arena.<br/><br/>
@@ -189,7 +189,7 @@ As the city prepares for another exciting cricket season, the league promises to
       "Bids Opened for Team Operating Rights - T20 Mumbai Women's League",
     Date__c: "2026-03-21",
     Image_URL__c: "/images/latestUpdates/local-2-banner.jpeg",
-    path: "/latest-updates/bids-opened-for-team-operating-rights-t20-mumbai-womens-league",
+    path: "/news/bids-opened-for-team-operating-rights-t20-mumbai-womens-league",
     Sub_Title__c:
       "The bids for Team Operating Rights for three teams in the upcoming T20 Mumbai Women's League were officially opened today, drawing strong participation from reputed organizations.",
     Content__c: `The bids for Team Operating Rights for three teams in the upcoming T20 Mumbai Women's League were officially opened today.<br/><br/>
@@ -219,7 +219,7 @@ Further details regarding the teams, player auction, and tournament schedule wil
     Title__c: "#ChanceSoduNako: Defining the Spirit of the T20 Mumbai League",
     Date__c: "2026-03-18",
     Image_URL__c: "/images/latestUpdates/local-1.jpeg",
-    path: "/latest-updates/chance-sodunako-defining-the-spirit-of-the-t20-mumbai-league",
+    path: "/news/chance-sodunako-defining-the-spirit-of-the-t20-mumbai-league",
     Sub_Title__c:
       "The Mumbai Cricket Association (MCA) has unveiled #ChanceSoduNako as the central theme for the upcoming season of the T20 Mumbai League, encapsulating the core philosophy of Mumbai cricket: seizing opportunities when they arise.",
     Content__c: `The Mumbai Cricket Association (MCA) has unveiled #ChanceSoduNako as the central theme for the upcoming season of the T20 Mumbai League, encapsulating the core philosophy of Mumbai cricket: seizing opportunities when they arise.<br/><br/>

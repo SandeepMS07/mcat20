@@ -38,9 +38,8 @@ export const navLinks = [
     title: "Fan Zone",
     path: `${routes.fanPoll}`,
     children: [
-      { title: "Fanpoll", path: `${routes.fanPoll}` },
-      { title: "Fan Wall", path: `${routes.fanWall}` },
-      { title: "Viewers Choice", path: `${routes.choice}` },
+      { title: "Fan Poll", path: `${routes.fanPoll}` },
+      { title: "Viewers' Choice", path: `${routes.choice}` },
     ],
   },
   // {
