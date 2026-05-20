@@ -90,7 +90,7 @@ const GalleryPage = () => {
 
   return (
     <div className="min-h-screen w-full bg-[#ECEEF3] pb-16">
-      <div className="relative flex h-[500px] w-full justify-end overflow-hidden bg-[#101b52] py-14">
+      <div className="relative flex h-[220px] w-full justify-end overflow-hidden bg-[#101b52] py-6 sm:h-[360px] sm:py-10 lg:h-[500px] lg:py-14">
         <img
           src={GALLERY_HERO_IMAGE_URL}
           alt=""
@@ -98,10 +98,10 @@ const GalleryPage = () => {
         />
         <div className="absolute inset-0 z-[1] bg-gradient-to-r from-[#101b52]/85 via-[#101b52]/40 to-transparent" />
         <div className="absolute inset-0 z-[1] bg-gradient-to-t from-[#101b52]/80 to-transparent" />
-        <div className="section-width relative z-10 flex h-full flex-col justify-end gap-24 overflow-hidden pt-8 text-white">
-          <div className="flex h-full w-full flex-col items-start justify-end gap-20 bg-transparent">
+        <div className="section-width relative z-10 flex h-full flex-col justify-end overflow-hidden pt-8 text-white">
+          <div className="flex h-full w-full flex-col items-start justify-end bg-transparent">
             <div className="flex h-full flex-col justify-end gap-3">
-              <p className="text-5xl font-extrabold uppercase leading-snug">
+              <p className="text-3xl font-extrabold uppercase leading-snug sm:text-4xl lg:text-5xl">
                 Gallery
               </p>
             </div>

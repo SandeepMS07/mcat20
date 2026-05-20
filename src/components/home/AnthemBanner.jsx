@@ -38,7 +38,7 @@ const AnthemBanner = () => {
           className="relative overflow-hidden rounded-2xl shadow-lg ring-1 ring-white/15"
           style={{
             background:
-              "radial-gradient(120% 140% at 0% 50%, #1F3895 0%, #162468 45%, #0B144A 100%)",
+              "linear-gradient(135deg, #060A17 0%, #0E1A47 40%, #142A7C 70%, #1F3895 100%)",
           }}
         >
           {/* Diagonal orange light sweep (right side) */}
@@ -73,10 +73,10 @@ const AnthemBanner = () => {
           {/* Desktop horizontal spacer */}
           <div className="hidden aspect-[1697/300] sm:block" />
 
-          {/* Right-side video preview — fills the right side of the banner */}
+          {/* Right-side video preview — fills the right side of the banner (full-width on mobile) */}
           <div
             aria-hidden
-            className="absolute inset-y-0 right-0 z-[5] hidden w-[44%] overflow-hidden sm:block lg:w-[40%]"
+            className="absolute inset-0 z-[5] overflow-hidden sm:inset-y-0 sm:left-auto sm:right-0 sm:w-[44%] lg:w-[40%]"
           >
             {/* Autoplaying preview — direct iframe so autoplay starts immediately.
                 pointer-events-none keeps YouTube hover controls from appearing. */}
@@ -114,23 +114,37 @@ const AnthemBanner = () => {
               />
             </div>
 
-            {/* Left edge blend into the banner */}
+            {/* Mobile full overlay — darken video so text reads */}
             <div
-              className="pointer-events-none absolute inset-y-0 left-0 z-[12] w-24 sm:w-32"
+              className="pointer-events-none absolute inset-0 z-[12] sm:hidden"
               style={{
                 background:
-                  "linear-gradient(90deg, #162468 0%, rgba(22,36,104,0.4) 60%, transparent 100%)",
+                  "linear-gradient(180deg, rgba(6,10,23,0.85) 0%, rgba(14,26,71,0.55) 50%, rgba(6,10,23,0.85) 100%)",
+              }}
+            />
+            {/* Desktop left edge blend into the banner */}
+            <div
+              className="pointer-events-none absolute inset-y-0 left-0 z-[12] hidden w-24 sm:block sm:w-32"
+              style={{
+                background:
+                  "linear-gradient(90deg, #0E1A47 0%, rgba(14,26,71,0.4) 60%, transparent 100%)",
               }}
             />
           </div>
 
           {/* Content */}
-          <div className="absolute inset-0 z-10 flex flex-col items-start justify-center gap-[2vw] px-[4vw] py-[2vw] sm:gap-3 sm:px-8 sm:py-6 md:gap-4 md:px-12 md:py-8 lg:px-16 lg:py-10">
-            <h2
-              className="bg-gradient-to-b from-[#ff8000] via-[#e17100] to-[#ffae5c] bg-clip-text text-[3.6vw] font-extrabold italic leading-[1.2] tracking-tight text-transparent sm:text-base md:text-xl lg:text-2xl xl:text-3xl"
-              style={{ WebkitBackgroundClip: "text" }}
-            >
-              Introducing the anthem of the T20 Mumbai
+          <div className="absolute inset-0 z-10 flex flex-col items-start justify-end pb-[5vw] sm:justify-center sm:pb-0 gap-3 px-[4vw] py-[2vw] sm:gap-4 sm:px-8 sm:py-6 md:gap-5 md:px-12 md:py-8 lg:px-16 lg:py-10">
+            {/* Orange accent line */}
+            <span
+              aria-hidden
+              className="h-[3px] w-10 rounded-full bg-gradient-to-r from-[#f68323] to-[#d84800] sm:w-12 md:w-16"
+            />
+
+            <h2 className="font-extrabold leading-[1.15] tracking-tight text-white text-[18px] sm:text-base md:text-xl lg:text-2xl xl:text-3xl">
+              Introducing the anthem of the{" "}
+              <span className="bg-gradient-to-r from-[#ffb058] via-[#f68323] to-[#d84800] bg-clip-text text-transparent">
+                T20 Mumbai
+              </span>
               <br className="hidden sm:inline" /> Men&rsquo;s and Women&rsquo;s
               League 2026
             </h2>
@@ -138,21 +152,23 @@ const AnthemBanner = () => {
             <button
               type="button"
               onClick={() => setOpen(true)}
-              className="inline-flex w-fit cursor-pointer items-center gap-2 rounded-full bg-gradient-to-b from-[#d84800] to-[#f68323] px-[3.5vw] py-[1vw] text-[2.5vw] font-semibold italic uppercase text-white shadow-md transition hover:brightness-110 sm:px-5 sm:py-2 sm:text-xs md:px-6 md:text-sm"
+              className="group relative inline-flex w-fit cursor-pointer items-center gap-3 rounded-md bg-gradient-to-b from-[#d84800] to-[#f68323] px-4 py-2 text-[11px] font-bold uppercase tracking-wider text-white shadow-[0_8px_24px_rgba(216,72,0,0.4)] transition hover:brightness-110 sm:px-5 sm:py-2.5 sm:text-xs md:px-6 md:py-3 md:text-sm"
             >
               <span
                 aria-hidden
-                className="flex h-5 w-5 items-center justify-center rounded-full bg-white/95 text-[#d84800] sm:h-5 sm:w-5"
+                className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-[#d84800]"
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="h-3 w-3"
-                >
+                <svg viewBox="0 0 24 24" fill="currentColor" className="h-3 w-3">
                   <path d="M8 5v14l11-7z" />
                 </svg>
               </span>
               Watch now
+              <span
+                aria-hidden
+                className="inline-block translate-x-0 transition group-hover:translate-x-1"
+              >
+                →
+              </span>
             </button>
           </div>
         </div>

@@ -75,13 +75,13 @@ const LatestUpdates = () => {
           </h2>
           <Link
             href={routes.latestUpdates || "#"}
-            className="hidden h-10 items-center justify-center rounded-full bg-gradient-to-b from-[#d84800] to-[#f68323] px-6 text-xs font-medium uppercase italic tracking-wide text-white shadow-[0_4px_18px_rgba(216,72,0,0.3)] transition-opacity hover:opacity-90 sm:inline-flex sm:text-sm"
+            className="inline-flex h-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-b from-[#d84800] to-[#f68323] px-4 text-xs font-medium uppercase italic tracking-wide text-white shadow-[0_4px_18px_rgba(216,72,0,0.3)] transition-opacity hover:opacity-90 sm:px-6 sm:text-sm"
           >
             View More
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+        <div className="-mr-4 flex snap-x snap-mandatory gap-5 overflow-x-auto pl-1 pr-4 pb-4 md:mr-0 md:grid md:grid-cols-2 md:overflow-visible md:pl-0 md:pr-0 md:pb-0 lg:grid-cols-3 lg:gap-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {cards.map((item, index) => {
             const imageSrc =
               item?.Order__c === 14
@@ -91,7 +91,7 @@ const LatestUpdates = () => {
               <article
                 key={(item?.Title__c || "card") + index}
                 onClick={() => handleLatestUpdateClick(item)}
-                className="group relative aspect-[4/5] cursor-pointer overflow-hidden rounded-2xl bg-[#143083] shadow-[0_10px_24px_rgba(20,48,131,0.18)] transition-transform hover:-translate-y-0.5"
+                className="group relative aspect-[4/5] w-[82%] shrink-0 snap-start cursor-pointer overflow-hidden rounded-2xl bg-[#143083] shadow-[0_10px_24px_rgba(20,48,131,0.18)] transition-transform hover:-translate-y-0.5 md:w-auto md:shrink"
               >
                 {imageSrc ? (
                   <img
@@ -120,12 +120,6 @@ const LatestUpdates = () => {
           })}
         </div>
 
-        <Link
-          href={routes.latestUpdates || "#"}
-          className="mx-auto mt-8 inline-flex h-10 w-fit items-center justify-center rounded-full bg-gradient-to-b from-[#d84800] to-[#f68323] px-6 text-xs font-medium uppercase italic tracking-wide text-white sm:hidden"
-        >
-          View More
-        </Link>
       </div>
     </section>
   );

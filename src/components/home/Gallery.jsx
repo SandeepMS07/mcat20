@@ -185,11 +185,9 @@ const Gallery = () => {
                   Video
                 </span>
               </div>
-              {item.title && (
-                <p className="mt-3 line-clamp-2 text-sm font-medium leading-snug text-white/90 group-hover:text-white">
-                  {item.title}
-                </p>
-              )}
+              <p className="mt-3 line-clamp-2 min-h-[2.6em] text-sm font-medium leading-snug text-white/90 group-hover:text-white">
+                {item.title || ""}
+              </p>
             </button>
           ))}
         </div>

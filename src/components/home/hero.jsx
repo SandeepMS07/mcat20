@@ -4,8 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import CountdownTimer from "./CountdownTimer";
 import HeroPoll from "./HeroPoll";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 import routes from "@/utilis/route";
 import fixtures3 from "@/utilis/fixtures/fixtures3";
 import { useRouter } from "next/navigation";
@@ -81,7 +83,7 @@ const Hero = () => {
   const registrationTickerText = registrationTickerItems.join(" • ");
   const tickerLoopCopies = 4;
   const heroTickerOffsetClass = "top-0";
-  const heroSlidePaddingClass = "pt-[160px] sm:pt-[176px] lg:pt-[192px]";
+  const heroSlidePaddingClass = "pt-8 sm:pt-10 lg:pt-14";
 
   const openVideo = () => setShowVideo(true);
   const closeVideo = () => setShowVideo(false);
@@ -249,7 +251,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative 2xl:h-[720px] xl:h-[640px] lg:h-[560px] md:h-[500px] sm:h-[440px] h-[400px]">
+    <div className="hero-shell relative bg-[#192A66] pt-[110px] sm:pt-[110px] lg:pt-[120px] 2xl:h-[820px] xl:h-[740px] lg:h-[680px] md:h-[600px] sm:h-[520px] h-[500px]">
       {showRegistrationPromo && (
         <div
           className={`hero-ticker absolute inset-x-0 ${heroTickerOffsetClass} z-20 overflow-hidden border-y border-[#f4a03b] bg-[#f4a03b] text-[#04184d]`}
@@ -285,16 +287,23 @@ const Hero = () => {
         </div>
       )}
 
+      <div
+        className="pointer-events-none absolute inset-x-0 top-[110px] sm:top-[110px] lg:top-[120px] z-20 h-16 sm:h-20 lg:h-24 bg-gradient-to-b from-[#192A66] from-0% to-transparent to-100%"
+        aria-hidden="true"
+      />
+
       <Swiper
         key={`hero-${banners.length}`}
-        modules={[Autoplay]}
+        modules={[Autoplay, Pagination, Navigation]}
         autoplay={{ delay: 5000 }}
         speed={200}
         loop={banners.length > 1}
+        pagination={{ clickable: true }}
+        navigation
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
         }}
-        className="h-full"
+        className="hero-swiper h-full"
       >
         {banners.map((banner) => {
           const titleLines = titleToLines(banner.Title__c);
@@ -367,12 +376,7 @@ const Hero = () => {
             <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
             <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
             <HeroSlideContent
-              title={
-                <>
-                  30 high-voltage matches set to light <br /> up Wankhede
-                  Stadium from June 1-13
-                </>
-              }
+              title="30 high-voltage matches set to light up Wankhede Stadium from June 1-13"
               subtitle="#ChanceSoduNako"
               action={
                 <div className="flex flex-row gap-2">
@@ -726,6 +730,51 @@ const Hero = () => {
               0,
               0
             );
+          }
+        }
+      `}</style>
+      <style jsx global>{`
+        .hero-shell .hero-swiper .swiper-pagination {
+          bottom: 18px;
+          z-index: 30;
+        }
+        .hero-shell .hero-swiper .swiper-pagination-bullet {
+          width: 8px;
+          height: 8px;
+          background: rgba(255, 255, 255, 0.55);
+          opacity: 1;
+          transition: width 0.25s ease, background 0.25s ease;
+          border-radius: 999px;
+        }
+        .hero-shell .hero-swiper .swiper-pagination-bullet-active {
+          width: 26px;
+          background: #f4a03b;
+        }
+        .hero-shell .hero-swiper .swiper-button-next,
+        .hero-shell .hero-swiper .swiper-button-prev {
+          width: 44px;
+          height: 44px;
+          border-radius: 999px;
+          background: rgba(255, 255, 255, 0.12);
+          border: 1px solid rgba(255, 255, 255, 0.25);
+          backdrop-filter: blur(10px);
+          color: #ffffff;
+          transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .hero-shell .hero-swiper .swiper-button-next:hover,
+        .hero-shell .hero-swiper .swiper-button-prev:hover {
+          background: rgba(244, 160, 59, 0.85);
+          transform: scale(1.05);
+        }
+        .hero-shell .hero-swiper .swiper-button-next::after,
+        .hero-shell .hero-swiper .swiper-button-prev::after {
+          font-size: 16px;
+          font-weight: 800;
+        }
+        @media (max-width: 640px) {
+          .hero-shell .hero-swiper .swiper-button-next,
+          .hero-shell .hero-swiper .swiper-button-prev {
+            display: none;
           }
         }
       `}</style>

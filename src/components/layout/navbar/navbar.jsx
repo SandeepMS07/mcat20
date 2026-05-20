@@ -71,11 +71,11 @@ const Navbar = () => {
 
           <nav className="flex items-center section-width rounded-full relative overflow-visible w-full px-4 border border-white/20 bg-gradient-to-b from-white/[0.18] via-white/[0.08] to-white/[0.04] backdrop-blur-xl shadow-[0_8px_30px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.35)]">
             <div
-              className="relative shrink-0 pl-3 pr-3 lg:pl-6 lg:pr-8 xl:pl-10 xl:pr-12 lg:after:absolute lg:after:right-3 xl:after:right-4 lg:after:inset-y-3 lg:after:w-[1.5px] lg:after:bg-white/40"
+              className="relative shrink-0 mx-auto lg:mx-0 pl-3 pr-3 lg:pl-6 lg:pr-8 xl:pl-10 xl:pr-12 lg:after:absolute lg:after:right-3 xl:after:right-4 lg:after:inset-y-3 lg:after:w-[1.5px] lg:after:bg-white/40"
               style={{ zIndex: 9999 }}
             >
               {!menuOpen && (
-                <Link href="/" className="flex items-center gap-2 sm:gap-3 w-full">
+                <Link href="/" className="flex items-center justify-center gap-2 sm:gap-3 w-full">
                   <Image
                     src={"/images/home/logo.svg"}
                     alt="T20 Mumbai logo"
@@ -97,7 +97,7 @@ const Navbar = () => {
             </div>
             {/* Navigation Links */}
             <div className="items-center lg:flex hidden py-1  w-full">
-              <ul className="flex items-center justify-between gap-3 xl:gap-4 bg-transparent pl-8 xl:pl-12 pr-4 xl:pr-10 py-2 rounded-full w-full">
+              <ul className="flex items-center justify-end gap-6 xl:gap-10 bg-transparent pl-8 xl:pl-12 pr-4 xl:pr-10 py-2 rounded-full w-full">
                 {navLinks.map((item, i) => {
                   const isExternal = /^https?:\/\//.test(item.path);
                   const hasChildren =
@@ -161,11 +161,16 @@ const Navbar = () => {
                         href={item.path}
                         target={isExternal ? "_blank" : undefined}
                         rel={isExternal ? "noopener noreferrer" : undefined}
-                        className={`cursor-pointer text-xs md:text-sm xl:text-base font-medium transition-colors hover:text-orange-400 ${
+                        className={`inline-flex items-center gap-1.5 cursor-pointer text-xs md:text-sm xl:text-base font-medium transition-colors hover:text-orange-400 ${
                           isActive ? "text-orange-500" : "text-white"
                         }`}
                       >
                         {item.title}
+                        {item.comingSoon && (
+                          <span className="rounded-full bg-[#F2A23A]/20 px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wide text-[#F2A23A] xl:text-[9px]">
+                            Soon
+                          </span>
+                        )}
                       </Link>
                     </li>
                   );
@@ -174,7 +179,7 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Menu Icon - Only visible on mobile */}
-            <div className="lg:hidden block ml-auto pr-2">
+            <div className="lg:hidden absolute right-3 top-1/2 -translate-y-1/2">
               <RxHamburgerMenu
                 className="text-white text-2xl cursor-pointer transition-opacity hover:opacity-80"
                 onClick={() => setMenuOpen(true)}
@@ -216,6 +221,10 @@ const Navbar = () => {
               const isExternal = /^https?:\/\//.test(item.path);
               const hasChildren =
                 Array.isArray(item.children) && item.children.length > 0;
+              const isActive =
+                isPathActive(item.path) ||
+                (hasChildren &&
+                  item.children.some((c) => isPathActive(c.path)));
 
               if (hasChildren) {
                 const isExpanded = expandedItem === i;
@@ -224,7 +233,9 @@ const Navbar = () => {
                     <button
                       type="button"
                       onClick={() => setExpandedItem(isExpanded ? null : i)}
-                      className="flex w-full items-center justify-between text-white text-base transition-colors hover:text-orange-400"
+                      className={`flex w-full items-center justify-between text-base transition-colors hover:text-orange-400 ${
+                        isActive ? "text-orange-500" : "text-white"
+                      }`}
                       aria-expanded={isExpanded}
                     >
                       <span>{item.title}</span>
@@ -237,20 +248,27 @@ const Navbar = () => {
                     </button>
                     {isExpanded ? (
                       <ul className="mt-3 flex flex-col gap-3 border-l border-white/15 pl-4">
-                        {item.children.map((child, j) => (
-                          <li key={j}>
-                            <Link
-                              href={child.path}
-                              className="text-sm text-white/85 transition-colors hover:text-orange-400"
-                              onClick={() => {
-                                setMenuOpen(false);
-                                setExpandedItem(null);
-                              }}
-                            >
-                              {child.title}
-                            </Link>
-                          </li>
-                        ))}
+                        {item.children.map((child, j) => {
+                          const childActive = isPathActive(child.path);
+                          return (
+                            <li key={j}>
+                              <Link
+                                href={child.path}
+                                className={`text-sm transition-colors hover:text-orange-400 ${
+                                  childActive
+                                    ? "text-orange-500"
+                                    : "text-white/85"
+                                }`}
+                                onClick={() => {
+                                  setMenuOpen(false);
+                                  setExpandedItem(null);
+                                }}
+                              >
+                                {child.title}
+                              </Link>
+                            </li>
+                          );
+                        })}
                       </ul>
                     ) : null}
                   </li>
@@ -263,10 +281,17 @@ const Navbar = () => {
                     href={item.path}
                     target={isExternal ? "_blank" : undefined}
                     rel={isExternal ? "noopener noreferrer" : undefined}
-                    className="cursor-pointer text-white text-base transition-colors hover:text-orange-400"
+                    className={`inline-flex items-center gap-2 cursor-pointer text-base transition-colors hover:text-orange-400 ${
+                      isActive ? "text-orange-500" : "text-white"
+                    }`}
                     onClick={() => setMenuOpen(false)}
                   >
                     {item.title}
+                    {item.comingSoon && (
+                      <span className="rounded-full bg-[#F2A23A]/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#F2A23A]">
+                        Soon
+                      </span>
+                    )}
                   </Link>
                 </li>
               );

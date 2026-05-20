@@ -18,7 +18,7 @@ const HeroSlideContent = ({
       )}
       {title && (
         <h1
-          className={`font-extrabold text-white max-w-3xl text-[22px] sm:text-[26px] md:text-[32px] lg:text-[40px] xl:text-[48px] leading-tight ${titleClassName}`}
+          className={`font-extrabold text-white max-w-3xl text-[22px] sm:text-[26px] md:text-[32px] lg:text-[40px] xl:text-[48px] leading-tight [text-wrap:balance] ${titleClassName}`}
         >
           {title}
         </h1>

@@ -140,7 +140,7 @@ const VideosPage = () => {
     <>
       <div className="min-h-screen w-full bg-[#ECEEF3] pb-16">
         <div
-          className="group relative flex h-[500px] w-full justify-end overflow-hidden bg-[#101b52] py-14"
+          className="group relative flex h-[220px] w-full justify-end overflow-hidden bg-[#101b52] py-6 sm:h-[360px] sm:py-10 lg:h-[500px] lg:py-14"
           onMouseEnter={handleHeroMouseEnter}
           onMouseLeave={handleHeroMouseLeave}
           onTouchStart={handleHeroMouseEnter}
@@ -164,10 +164,10 @@ const VideosPage = () => {
           />
           <div className="absolute inset-0 z-[2] bg-gradient-to-r from-[#101b52]/85 via-[#101b52]/40 to-transparent" />
           <div className="absolute inset-0 z-[2] bg-gradient-to-t from-[#101b52]/80 to-transparent" />
-          <div className="section-width relative z-10 flex h-full flex-col justify-end gap-24 overflow-hidden pt-8 text-white">
-            <div className="flex h-full w-full flex-col items-start justify-end gap-20 bg-transparent">
+          <div className="section-width relative z-10 flex h-full flex-col justify-end overflow-hidden pt-8 text-white">
+            <div className="flex h-full w-full flex-col items-start justify-end bg-transparent">
               <div className="flex h-full flex-col justify-end gap-3">
-                <p className="text-5xl font-extrabold uppercase leading-snug">
+                <p className="text-3xl font-extrabold uppercase leading-snug sm:text-4xl lg:text-5xl">
                   Videos
                 </p>
               </div>
@@ -191,7 +191,49 @@ const VideosPage = () => {
             </div>
           ) : (
             <>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+              {/* Mobile: compact 2-column video grid */}
+              <div className="grid grid-cols-2 gap-3 sm:hidden">
+                {visibleVideos.map((video, index) => (
+                  <button
+                    type="button"
+                    key={`m-${video.Id || index}`}
+                    onClick={() => setActiveVideoIndex(index)}
+                    className="group overflow-hidden rounded-xl bg-[#101F54] text-left shadow-md ring-1 ring-white/10"
+                  >
+                    <div className="relative aspect-video w-full overflow-hidden">
+                      <img
+                        src={video.thumbnail}
+                        alt={video.title || "Video thumbnail"}
+                        className="h-full w-full object-cover"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent" />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F2A23A] text-[#02103D] shadow-lg">
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            className="ml-0.5 h-4 w-4"
+                          >
+                            <path d="M8 5v14l11-7L8 5z" />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                    <div className="px-2.5 py-2 text-white">
+                      <h3 className="line-clamp-2 min-h-[2.4em] text-[11px] font-semibold leading-snug">
+                        {video.title || "Untitled Video"}
+                      </h3>
+                      <p className="mt-1 text-[9px] text-white/55">
+                        {formatVideoDate(video.date)}
+                      </p>
+                    </div>
+                  </button>
+                ))}
+              </div>
+
+              {/* Tablet/Desktop: original layout */}
+              <div className="hidden gap-6 sm:grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
                 {visibleVideos.map((video, index) => (
                   <article
                     key={video.Id || `${video.title}-${index}`}

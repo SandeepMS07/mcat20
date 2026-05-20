@@ -26,7 +26,7 @@ const routes = {
   pointsTable: "/points-table",
 
   videos: "/videos",
-  fantasy: "https://fantasy-mvp.turboverse.co/",
+  fantasy: "/fantasy",
   fanWall: "/fan-wall",
   fanPoll: "/fan-poll",
   choice: "/choice",

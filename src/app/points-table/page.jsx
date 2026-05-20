@@ -5,8 +5,14 @@ import standingsData from "@/constant/oldSeason/standings/standings_data_v3.json
 import { getStandings } from "../api/serverApi";
 import { season3TeamLogo, teamShortName } from "@/utilis/helper";
 import Sponsorship from "@/components/common/Sponsorship";
+import CustomSelect from "@/components/common/CustomSelect";
+import {
+  SEASON4_TEAM_LOGO_MAP,
+  SEASON4_WOMEN_NAME_TO_LOGO_KEY,
+} from "@/utilis/fixtures/fixtures4";
 
 const SEASON_OPTIONS = [
+  { label: "Season 4", value: "season_4" },
   { label: "Season 3", value: "season_3" },
   { label: "Season 2", value: "season_2" },
   { label: "Season 1", value: "season_1" },
@@ -14,22 +20,64 @@ const SEASON_OPTIONS = [
 
 const RECENT_FORM_TEMPLATE = ["W", "L", "L", "W", "W"];
 
-const getSeasonData = (season, standingsSeason3) => {
+const SEASON4_MEN_TEAMS = [
+  "Aakash Tigers MWS",
+  "Arcs Andheri",
+  "Bandra Blasters",
+  "Eagle Thane Strikers",
+  "MSC Maratha Royals",
+  "North Mumbai Panthers",
+  "SoBo Mumbai Falcons",
+  "Triumph Knights Mumbai North East",
+];
+
+const SEASON4_WOMEN_TEAMS = Object.keys(SEASON4_WOMEN_NAME_TO_LOGO_KEY);
+
+const buildSeason4Row = (name, isWomen) => {
+  const logoKey = isWomen
+    ? SEASON4_WOMEN_NAME_TO_LOGO_KEY[name] || name
+    : name;
+  return {
+    TeamName: name,
+    TeamLogo: SEASON4_TEAM_LOGO_MAP[logoKey] || "",
+    Matches: 0,
+    Wins: 0,
+    Loss: 0,
+    Tied: 0,
+    NetRunRate: 0,
+    ForTeams: "0/0.0",
+    AgainstTeam: "0/0.0",
+    Points: 0,
+  };
+};
+
+const getSeason4Data = (gender) =>
+  (gender === "women" ? SEASON4_WOMEN_TEAMS : SEASON4_MEN_TEAMS).map((n) =>
+    buildSeason4Row(n, gender === "women"),
+  );
+
+const getSeasonData = (season, standingsSeason3, season4Gender) => {
+  if (season === "season_4") {
+    return getSeason4Data(season4Gender);
+  }
   if (season === "season_3") {
     return Array.isArray(standingsSeason3) ? standingsSeason3 : [];
   }
   return standingsData[season] || [];
 };
 
-const buildTeamLabel = (team, isSeason3) => {
-  const name = isSeason3 ? team?.TeamName : team?.team_name || "Unknown";
-  const shortName = isSeason3 ? name : teamShortName[name] || name;
-  const logo = isSeason3 ? team?.TeamLogo : season3TeamLogo[name] || "";
+const buildTeamLabel = (team, useSeason3Shape) => {
+  const name = useSeason3Shape ? team?.TeamName : team?.team_name || "Unknown";
+  const shortName = useSeason3Shape ? name : teamShortName[name] || name;
+  const logo = useSeason3Shape
+    ? team?.TeamLogo
+    : season3TeamLogo[name] || "";
   return { name, shortName, logo };
 };
 
 const PointsTablePage = () => {
-  const [activeSeason, setActiveSeason] = useState("season_3");
+  const [activeSeason, setActiveSeason] = useState("season_4");
+  const [season4Gender, setSeason4Gender] = useState("men");
   const [standingsSeason3, setStandingsSeason3] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -48,25 +96,30 @@ const PointsTablePage = () => {
   }, []);
 
   const rankedSeasonData = useMemo(() => {
-    const seasonData = getSeasonData(activeSeason, standingsSeason3);
+    const seasonData = getSeasonData(
+      activeSeason,
+      standingsSeason3,
+      season4Gender,
+    );
     return seasonData.map((team, index) => ({ team, rank: index + 1 }));
-  }, [activeSeason, standingsSeason3]);
+  }, [activeSeason, standingsSeason3, season4Gender]);
 
   const rows = useMemo(() => {
-    const isSeason3 = activeSeason === "season_3";
+    const useSeason3Shape =
+      activeSeason === "season_3" || activeSeason === "season_4";
     return rankedSeasonData.map(({ team, rank }) => {
-      const teamMeta = buildTeamLabel(team, isSeason3);
+      const teamMeta = buildTeamLabel(team, useSeason3Shape);
       return {
         rank,
         ...teamMeta,
-        p: isSeason3 ? team?.Matches : team?.played,
-        w: isSeason3 ? team?.Wins : team?.won,
-        l: isSeason3 ? team?.Loss : team?.lost,
-        t: isSeason3 ? team?.Tied : team?.tied,
-        nrr: isSeason3 ? team?.NetRunRate : team?.net_run_rate,
-        for: isSeason3 ? team?.ForTeams : "-",
-        against: isSeason3 ? team?.AgainstTeam : "-",
-        pts: isSeason3 ? team?.Points : team?.points,
+        p: useSeason3Shape ? team?.Matches : team?.played,
+        w: useSeason3Shape ? team?.Wins : team?.won,
+        l: useSeason3Shape ? team?.Loss : team?.lost,
+        t: useSeason3Shape ? team?.Tied : team?.tied,
+        nrr: useSeason3Shape ? team?.NetRunRate : team?.net_run_rate,
+        for: useSeason3Shape ? team?.ForTeams : "-",
+        against: useSeason3Shape ? team?.AgainstTeam : "-",
+        pts: useSeason3Shape ? team?.Points : team?.points,
         recentForm: team?.recentForm || RECENT_FORM_TEMPLATE,
       };
     });
@@ -77,7 +130,58 @@ const PointsTablePage = () => {
       <section className="relative overflow-hidden pb-14 pt-40 bg-[url('/images/texture-bg.png')] bg-cover bg-center bg-no-repeat">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,88,210,0.35),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(26,40,116,0.65),transparent_45%)]" />
         <div className="relative section-width">
-          <div className="mb-8 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+          {/* Mobile header — Stats-page style */}
+          <div className="md:hidden">
+            <div className="mb-6 flex flex-col items-center gap-4">
+              <h1 className="flex flex-col text-3xl font-extrabold uppercase italic leading-[0.9] text-white">
+                <span
+                  className="text-transparent"
+                  style={{ WebkitTextStroke: "1.5px #7E93DB" }}
+                >
+                  Points
+                </span>
+                <span>Table</span>
+              </h1>
+
+              {activeSeason === "season_4" && (
+                <div className="inline-flex rounded-full bg-white/10 p-1 text-xs font-semibold uppercase backdrop-blur-sm ring-1 ring-white/15">
+                  {[
+                    { label: "Men", value: "men" },
+                    { label: "Women", value: "women" },
+                  ].map((opt) => (
+                    <button
+                      key={opt.value}
+                      type="button"
+                      onClick={() => setSeason4Gender(opt.value)}
+                      className={`rounded-full px-5 py-1.5 transition-colors ${
+                        season4Gender === opt.value
+                          ? "bg-[#F68323] text-white shadow-[0_4px_14px_rgba(246,131,35,0.4)]"
+                          : "text-white/80 hover:text-white"
+                      }`}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div className="relative z-20 mb-6 rounded-2xl border border-white/10 bg-[#0E1A47]/60 p-2 backdrop-blur-sm">
+              <CustomSelect
+                label="Season"
+                value={activeSeason}
+                options={SEASON_OPTIONS.map((o) => o.value)}
+                onChange={setActiveSeason}
+                formatOption={(v) =>
+                  (SEASON_OPTIONS.find((o) => o.value === v)?.label ||
+                    v).toUpperCase()
+                }
+              />
+            </div>
+          </div>
+
+          {/* Desktop header — original layout */}
+          <div className="mb-8 hidden flex-col gap-5 md:flex md:flex-row md:items-end md:justify-between">
             <h1 className="flex flex-col text-5xl font-extrabold uppercase italic leading-[0.9] text-white sm:text-6xl">
               <span
                 className="text-transparent [-webkit-text-stroke:2px_#7E93DB]"
@@ -88,22 +192,42 @@ const PointsTablePage = () => {
               <span>Table</span>
             </h1>
 
-            <div className="flex gap-3">
-              <select
-                value={activeSeason}
-                onChange={(e) => setActiveSeason(e.target.value)}
-                className="rounded-lg border border-white/20 bg-[#314A98] px-4 py-2 text-sm font-semibold text-white outline-none"
-              >
-                {SEASON_OPTIONS.map((option) => (
-                  <option
-                    key={option.value}
-                    value={option.value}
-                    className="text-black"
-                  >
-                    {option.label.toUpperCase()}
-                  </option>
-                ))}
-              </select>
+            <div className="flex flex-wrap items-center gap-3">
+              {activeSeason === "season_4" && (
+                <div className="inline-flex rounded-full border border-white/20 bg-white/5 p-1 text-xs font-semibold uppercase tracking-wide">
+                  {[
+                    { label: "Men", value: "men" },
+                    { label: "Women", value: "women" },
+                  ].map((opt) => {
+                    const isActive = season4Gender === opt.value;
+                    return (
+                      <button
+                        key={opt.value}
+                        type="button"
+                        onClick={() => setSeason4Gender(opt.value)}
+                        className={`rounded-full px-4 py-1.5 transition-colors ${
+                          isActive
+                            ? "bg-[#F68323] text-white"
+                            : "text-white/80 hover:text-white"
+                        }`}
+                      >
+                        {opt.label}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+              <div className="min-w-[160px]">
+                <CustomSelect
+                  value={activeSeason}
+                  options={SEASON_OPTIONS.map((o) => o.value)}
+                  onChange={setActiveSeason}
+                  formatOption={(v) =>
+                    (SEASON_OPTIONS.find((o) => o.value === v)?.label ||
+                      v).toUpperCase()
+                  }
+                />
+              </div>
             </div>
           </div>
 
@@ -117,84 +241,83 @@ const PointsTablePage = () => {
             </div>
           ) : (
             <div className="overflow-x-auto">
-              <table className="min-w-[1100px] w-full text-white border-separate border-spacing-y-3 italic">
+              <table className="w-full md:min-w-[1100px] text-white border-separate border-spacing-y-3 italic">
                 <thead>
-                  <tr className="text-left text-xs uppercase text-[#FFE24A] bg-[#1F43C5]">
-                    <th className="rounded-l-full px-4 py-3">Pos</th>
-                    <th className="px-4 py-3">Teams</th>
-                    <th className="px-4 py-3">P</th>
-                    <th className="px-4 py-3">W</th>
-                    <th className="px-4 py-3">L</th>
-                    <th className="px-4 py-3">T</th>
-                    <th className="px-4 py-3">NRR</th>
-                    <th className="px-4 py-3">For</th>
-                    <th className="px-4 py-3">Against</th>
-                    <th className="px-4 py-3 rounded-r-full">Pts</th>
-                    {/* <th className="rounded-r-full px-4 py-3">Recent Form</th> */}
+                  <tr className="text-left text-[10px] sm:text-xs uppercase text-[#FFE24A] bg-[#1F43C5]">
+                    <th className="rounded-l-full px-2 py-2.5 sm:px-4 sm:py-3">Pos</th>
+                    <th className="px-2 py-2.5 sm:px-4 sm:py-3">Teams</th>
+                    <th className="px-2 py-2.5 sm:px-4 sm:py-3">P</th>
+                    <th className="px-2 py-2.5 sm:px-4 sm:py-3">W</th>
+                    <th className="px-2 py-2.5 sm:px-4 sm:py-3">L</th>
+                    <th className="hidden md:table-cell px-4 py-3">T</th>
+                    <th className="hidden md:table-cell px-4 py-3">NRR</th>
+                    <th className="hidden md:table-cell px-4 py-3">For</th>
+                    <th className="hidden md:table-cell px-4 py-3">Against</th>
+                    <th className="rounded-r-full px-2 py-2.5 sm:px-4 sm:py-3">Pts</th>
                   </tr>
                 </thead>
                 <tbody>
                   {rows.map((row) => (
-                    <tr key={`${row.name}-${row.rank}`} className="text-sm">
+                    <tr key={`${row.name}-${row.rank}`} className="text-xs sm:text-sm">
                       <td
-                        className="px-2 text-5xl font-black italic leading-none text-transparent [-webkit-text-stroke:2px_#7E93DB] w-12"
+                        className="px-1 sm:px-2 text-3xl sm:text-5xl font-black italic leading-none text-transparent [-webkit-text-stroke:2px_#7E93DB] w-8 sm:w-12"
                         style={{ WebkitTextStroke: "2px #7E93DB" }}
                       >
                         {row.rank}
                       </td>
                       <td className="bg-[#2447C6] rounded-l-full relative">
-                        <div class="w-[54.5px] h-[32px] bg-[#D18FDB] rounded-t-full absolute z-10 -rotate-90 -right-[11.5px] top-[11px]"></div>
-                        <div class="w-[54.5px] h-[32px] bg-[#192A66] rounded-t-full absolute z-10 -rotate-90 -right-[12px] top-[11px]"></div>
-                        <div className="relative flex items-center gap-2 overflow-hidden rounded-l-full bg-[#2447C6] pr-6">
-                          <div className="z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white border border-[#AF313A] m-0.5">
+                        <div class="hidden sm:block w-[54.5px] h-[32px] bg-[#D18FDB] rounded-t-full absolute z-10 -rotate-90 -right-[11.5px] top-[11px]"></div>
+                        <div class="hidden sm:block w-[54.5px] h-[32px] bg-[#192A66] rounded-t-full absolute z-10 -rotate-90 -right-[12px] top-[11px]"></div>
+                        <div className="relative flex items-center gap-1.5 sm:gap-2 overflow-hidden rounded-l-full bg-[#2447C6] pr-3 sm:pr-6">
+                          <div className="z-10 flex h-8 w-8 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-white border border-[#AF313A] m-0.5">
                             {row.logo ? (
                               <img
                                 src={row.logo}
                                 alt={row.shortName}
-                                className="h-10 w-10 rounded-full object-contain"
+                                className="h-6 w-6 sm:h-10 sm:w-10 rounded-full object-contain"
                               />
                             ) : null}
                           </div>
-                          <span className="z-10 pr-5 text-xs font-extrabold uppercase text-[#FFE150]">
+                          <span className="z-10 pr-2 sm:pr-5 text-[10px] sm:text-xs font-extrabold uppercase text-[#FFE150]">
                             {row.shortName}
                           </span>
-                          {row.rank <= (activeSeason === "season_1" ? 2 : 4) && (
-                            <span className="absolute right-[22px] z-10 flex h-4 w-4 items-center justify-center rounded-full bg-[#FFE24A] text-[9px] font-black text-[#1A2C76]">
-                              Q
-                            </span>
-                          )}
+                          {activeSeason !== "season_4" &&
+                            row.rank <= (activeSeason === "season_1" ? 2 : 4) && (
+                              <span className="absolute right-[10px] sm:right-[22px] z-10 flex h-4 w-4 items-center justify-center rounded-full bg-[#FFE24A] text-[9px] font-black text-[#1A2C76]">
+                                Q
+                              </span>
+                            )}
                         </div>
                       </td>
-                      <td className="px-4 py-2 font-semibold bg-[#192A66] relative">
+                      <td className="px-2 py-2 sm:px-4 font-semibold bg-[#192A66] relative text-center sm:text-left">
                         <div className="h-3/5 w-[.5px] bg-[#9F3BE3]/70 absolute top-0 bottom-0 my-auto right-0"></div>
                         {row.p}
                       </td>
-                      <td className="px-4 py-2 font-semibold bg-[#192A66] relative">
+                      <td className="px-2 py-2 sm:px-4 font-semibold bg-[#192A66] relative text-center sm:text-left">
                         <div className="h-3/5 w-[.5px] bg-[#9F3BE3]/70 absolute top-0 bottom-0 my-auto right-0"></div>
                         {row.w}
                       </td>
-                      <td className="px-4 py-2 font-semibold bg-[#192A66] relative">
+                      <td className="px-2 py-2 sm:px-4 font-semibold bg-[#192A66] relative text-center sm:text-left">
                         <div className="h-3/5 w-[.5px] bg-[#9F3BE3]/70 absolute top-0 bottom-0 my-auto right-0"></div>
                         {row.l}
                       </td>
-                      <td className="px-4 py-2 font-semibold bg-[#192A66] relative">
+                      <td className="hidden md:table-cell px-4 py-2 font-semibold bg-[#192A66] relative">
                         <div className="h-3/5 w-[.5px] bg-[#9F3BE3]/70 absolute top-0 bottom-0 my-auto right-0"></div>
                         {row.t}
                       </td>
-                      <td className="px-4 py-2 font-semibold bg-[#192A66] relative">
+                      <td className="hidden md:table-cell px-4 py-2 font-semibold bg-[#192A66] relative">
                         <div className="h-3/5 w-[.5px] bg-[#9F3BE3]/70 absolute top-0 bottom-0 my-auto right-0"></div>
                         {row.nrr}
                       </td>
-                      <td className="px-4 py-2 font-semibold bg-[#192A66] relative">
+                      <td className="hidden md:table-cell px-4 py-2 font-semibold bg-[#192A66] relative">
                         <div className="h-3/5 w-[.5px] bg-[#9F3BE3]/70 absolute top-0 bottom-0 my-auto right-0"></div>
                         {row.for}
                       </td>
-                      <td className="px-4 py-2 font-semibold bg-[#192A66] relative">
+                      <td className="hidden md:table-cell px-4 py-2 font-semibold bg-[#192A66] relative">
                         <div className="h-3/5 w-[.5px] bg-[#9F3BE3]/70 absolute top-0 bottom-0 my-auto right-0"></div>
                         {row.against}
                       </td>
-                      <td className="px-4 py-2 font-semibold bg-[#192A66] rounded-r-full relative z-10 border-r border-[#2447C6]">
-                        {/* <div class="w-[54px] h-[32px] bg-[#D18FDB] rounded-t-full absolute z-10 rotate-90 -right-[10.5px] top-[11px]"></div> */}
+                      <td className="px-2 py-2 sm:px-4 font-semibold bg-[#192A66] rounded-r-full relative z-10 border-r border-[#2447C6] text-center sm:text-left">
                         {row.pts}
                       </td>
                       {/* <td className="px-2 py-2 bg-[#192A66] rounded-r-full relative">

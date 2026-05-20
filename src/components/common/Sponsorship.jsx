@@ -2,24 +2,24 @@ const SPONSORS = [
   {
     img: "/images/home/sponsorship/hell.png",
     alt: "Hell Energy",
-    label: "Hell Energy - Energy Drink Partner",
+    label: "Energy Drink Partner",
   },
   {
     img: "/images/home/sponsorship/tyka.png",
     alt: "TYKA",
-    label: "TYKA - Kitting Partner",
+    label: "Kitting Partner",
   },
 ];
 
 const SponsorCard = ({ img, alt, label }) => (
   <div
-    className="flex w-full max-w-[420px] flex-col gap-4 rounded-2xl border border-white/0 px-6 pt-6 pb-3 shadow-md"
+    className="flex w-full max-w-[280px] flex-col gap-2 rounded-2xl border border-white/0 px-3 pt-3 pb-2 shadow-md sm:gap-3 sm:px-4 sm:pt-4"
     style={{
       backgroundImage:
         "linear-gradient(195deg, rgba(14, 0, 90, 0.4) 27.8%, rgba(28, 57, 142, 0.4) 84.9%), linear-gradient(90deg, #172476 0%, #172476 100%)",
     }}
   >
-    <h3 className="text-lg font-bold tracking-tight text-white sm:text-xl">
+    <h3 className="text-center text-[11px] font-bold tracking-tight text-white sm:text-base">
       {label}
     </h3>
     <div className="border-t border-white/10" />
@@ -50,7 +50,7 @@ const Sponsorship = () => {
           </h2>
         </div>
 
-        <div className="section-width flex flex-wrap items-center justify-center gap-8 md:gap-16 lg:gap-24">
+        <div className="section-width grid grid-cols-2 items-center justify-items-center gap-3 sm:flex sm:flex-wrap sm:justify-center sm:gap-8 md:gap-16 lg:gap-24">
           {SPONSORS.map((s) => (
             <SponsorCard key={s.alt} {...s} />
           ))}

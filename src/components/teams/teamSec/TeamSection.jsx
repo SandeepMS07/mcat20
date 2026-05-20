@@ -91,9 +91,19 @@ const TeamCard = ({ team, isActive, onClick }) => {
 };
 
 const SelectedTeamInline = ({ team, header }) => {
+  const normalized = getTeamNameKey(team?.Name || "");
+  const gradient = teamGradients[normalized];
+  const logoBgStyle = gradient
+    ? {
+        backgroundImage: `linear-gradient(135deg, ${gradient.from} 0%, ${gradient.to} 100%)`,
+      }
+    : { backgroundColor: "rgba(255,255,255,0.08)" };
   return (
     <div className="relative flex items-center gap-4 px-1 py-2 sm:gap-5 sm:px-2 lg:border-l lg:border-white/10 lg:pl-6 lg:pt-10">
-      <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-xl border border-white/15 bg-white/[0.04] p-2 backdrop-blur-sm sm:h-24 sm:w-24 md:h-28 md:w-28">
+      <div
+        className="flex h-20 w-20 shrink-0 items-center justify-center rounded-xl border border-white/15 p-2 sm:h-24 sm:w-24 md:h-28 md:w-28"
+        style={logoBgStyle}
+      >
         <img
           src={team?.Logo_URL__c}
           alt={`${header.name} logo`}

@@ -64,27 +64,39 @@ const Footer = () => {
 
   return (
     <footer className="w-full bg-[#192A66]">
-      <div className="section-width pt-14 pb-6 md:pt-16">
-        <div className="grid gap-10 lg:grid-cols-[260px_1fr]">
+      <div className="section-width pt-10 pb-6 md:pt-16">
+        <div className="grid gap-6 md:gap-10 lg:grid-cols-[260px_1fr]">
           <div>
-            <Link href={routes.home} aria-label="T20 Mumbai home">
+            <Link
+              href={routes.home}
+              aria-label="T20 Mumbai home"
+              className="inline-flex items-center gap-2 md:gap-3"
+            >
               <Image
-                src="/images/footer/t20logo.svg"
+                src="/images/home/logo.svg"
                 alt="T20 Mumbai"
-                className="h-auto w-40 md:w-44"
-                width={210}
-                height={150}
+                className="h-12 w-auto sm:h-16 md:h-20"
+                width={120}
+                height={120}
+              />
+              <span aria-hidden className="h-8 w-px bg-white/40 sm:h-10 md:h-12" />
+              <Image
+                src="/images/home/logo-w.png"
+                alt="Women's T20 Mumbai"
+                className="h-12 w-auto sm:h-16 md:h-20"
+                width={120}
+                height={120}
               />
             </Link>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-6 sm:gap-8 lg:grid-cols-4">
             {FOOTER_COLUMNS.map((column) => (
               <div key={column.title}>
-                <h4 className="mb-3.5 text-sm font-bold tracking-[0.01em] text-white">
+                <h4 className="mb-2.5 text-sm font-bold tracking-[0.01em] text-white md:mb-3.5">
                   {column.title}
                 </h4>
-                <ul className="space-y-3">
+                <ul className="space-y-2 md:space-y-3">
                   {column.links.map((link) => (
                     <li
                       key={link.label}
@@ -113,8 +125,8 @@ const Footer = () => {
               </div>
             ))}
 
-            <div>
-              <h4 className="mb-3.5 text-sm font-bold tracking-[0.01em] text-white">
+            <div className="col-span-2 lg:col-span-1">
+              <h4 className="mb-2.5 text-sm font-bold tracking-[0.01em] text-white md:mb-3.5">
                 Social
               </h4>
               <div className="flex items-center gap-3.5">
@@ -140,10 +152,10 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-14 border-t border-white/10 pt-5">
+        <div className="mt-10 border-t border-white/10 pt-5 md:mt-14">
           <div className="flex flex-col gap-3 text-xs text-white/40 md:flex-row md:items-center md:justify-between">
             <p>All Rights Reserved © 2025 T20Mumbai</p>
-            <div className="flex items-center gap-8">
+            <div className="flex items-center gap-6 md:gap-8">
               <Link
                 href={routes.privacyPolicy}
                 className="transition-colors hover:text-white"

@@ -32,6 +32,7 @@ export const navLinks = [
   {
     title: "Fantasy",
     path: `${routes.fantasy}`,
+    comingSoon: true,
   },
   {
     title: "Fan Poll",

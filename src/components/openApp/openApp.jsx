@@ -100,26 +100,38 @@ export default function AppNavbarBanner() {
       </style>
 
       <div style={{ display: "flex", alignItems: "center", flex: 1 }}>
-        <div style={{ marginRight: "12px" }}>
-          <div
+        <div
+          style={{
+            marginRight: "12px",
+            display: "flex",
+            alignItems: "center",
+            gap: "6px",
+            padding: "4px 10px",
+            borderRadius: "10px",
+            background:
+              "linear-gradient(135deg, #192A66 0%, #1F43C5 100%)",
+            boxShadow: "0 2px 8px rgba(25,42,102,0.25)",
+          }}
+        >
+          <img
+            src={"/images/home/logo.svg"}
+            style={{ height: "36px", width: "auto" }}
+            alt="T20 Mumbai"
+          />
+          <span
+            aria-hidden
             style={{
-              width: "40px",
-              height: "40px",
-              borderRadius: "8px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "white",
-              fontSize: "18px",
-              fontWeight: "bold",
+              display: "inline-block",
+              width: "1px",
+              height: "22px",
+              backgroundColor: "rgba(255,255,255,0.35)",
             }}
-          >
-            <img
-              src={"/images/home/mcaI20Logo.svg"}
-              style={{ height: "50px", width: "auto" }}
-              alt="logo"
-            />
-          </div>
+          />
+          <img
+            src={"/images/home/logo-w.png"}
+            style={{ height: "36px", width: "auto" }}
+            alt="Women's T20 Mumbai"
+          />
         </div>
         <div className="banner-content">
           <p

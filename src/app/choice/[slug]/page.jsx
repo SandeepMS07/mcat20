@@ -185,7 +185,7 @@ export default function ChoiceCategoryPage() {
 
   if (!category) {
     return (
-      <div className="min-h-screen bg-[#101b52] pt-32 pb-20 text-center text-white">
+      <div className="min-h-screen bg-[#1E2F7D] pt-32 pb-20 text-center text-white">
         <h1 className="text-2xl font-bold">Category not found</h1>
         <Link
           href="/choice"
@@ -200,26 +200,23 @@ export default function ChoiceCategoryPage() {
   if (isLoading) return <LoadingPage />;
 
   return (
-    <div>
-      <div className="relative bg-[#101b52] pt-[140px] lg:pt-[180px] pb-12 md:pb-16 overflow-hidden">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 h-[560px] bg-gradient-to-b from-[rgba(13,55,169,0.44)] to-[rgba(13,55,169,0)]"
-        />
+    <div className="w-full bg-[#1E2F7D]">
+      <section className="relative overflow-hidden pt-[100px] pb-12 lg:pt-[140px] md:pb-16 bg-[url('/images/texture-bg.png')] bg-cover bg-center bg-no-repeat">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,88,210,0.35),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(26,40,116,0.65),transparent_45%)]" />
 
         <div className="section-width section-padding relative">
           {/* Back + heading row */}
           <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3 sm:gap-4">
               <button
                 type="button"
                 onClick={() => router.push("/choice")}
                 aria-label="Back to Viewers Choice"
-                className="text-white/80 transition hover:text-white"
+                className="shrink-0 text-white/80 transition hover:text-white"
               >
-                <BsArrowLeftCircle size={28} />
+                <BsArrowLeftCircle size={26} />
               </button>
-              <h1 className="text-4xl font-extrabold italic uppercase leading-[0.95] tracking-tight sm:text-5xl lg:text-6xl">
+              <h1 className="text-3xl font-extrabold italic uppercase leading-[0.95] tracking-tight sm:text-5xl lg:text-6xl">
                 <span
                   className="text-transparent"
                   style={{ WebkitTextStroke: "1.5px #ffffff" }}
@@ -231,19 +228,19 @@ export default function ChoiceCategoryPage() {
             </div>
 
             {/* Team dropdown */}
-            <div ref={dropdownRef} className="relative">
+            <div ref={dropdownRef} className="relative w-full sm:w-auto">
               <button
                 type="button"
                 onClick={() => setDropdownOpen((v) => !v)}
                 aria-haspopup="listbox"
                 aria-expanded={dropdownOpen}
-                className="inline-flex items-center gap-2 rounded-md border border-white/40 bg-white/10 px-4 py-2 text-sm font-extrabold italic text-white hover:bg-white/15"
+                className="inline-flex w-full items-center justify-between gap-2 rounded-md border border-white/40 bg-white/10 px-4 py-2 text-sm font-extrabold italic text-white hover:bg-white/15 sm:w-auto sm:justify-start"
               >
-                <span>
+                <span className="truncate">
                   {selectedTeam === ALL_TEAMS ? "All Teams" : selectedTeam}
                 </span>
                 <FiChevronDown
-                  className={`transition-transform ${
+                  className={`shrink-0 transition-transform ${
                     dropdownOpen ? "rotate-180" : ""
                   }`}
                   size={16}
@@ -252,7 +249,7 @@ export default function ChoiceCategoryPage() {
               {dropdownOpen ? (
                 <ul
                   role="listbox"
-                  className="absolute right-0 z-30 mt-2 max-h-72 w-64 overflow-y-auto rounded-lg border border-white/15 bg-[#0f1b4d] shadow-xl"
+                  className="absolute left-0 z-30 mt-2 max-h-72 w-full overflow-y-auto rounded-lg border border-white/15 bg-[#0f1b4d] shadow-xl sm:left-auto sm:right-0 sm:w-64"
                 >
                   <li>
                     <button
@@ -261,7 +258,7 @@ export default function ChoiceCategoryPage() {
                         setSelectedTeam(ALL_TEAMS);
                         setDropdownOpen(false);
                       }}
-                      className={`block w-full px-4 py-2 text-left text-sm transition hover:bg-white/10 ${
+                      className={`block w-full truncate px-4 py-2 text-left text-sm transition hover:bg-white/10 ${
                         selectedTeam === ALL_TEAMS
                           ? "text-orange-400"
                           : "text-white"
@@ -278,7 +275,7 @@ export default function ChoiceCategoryPage() {
                           setSelectedTeam(name);
                           setDropdownOpen(false);
                         }}
-                        className={`block w-full px-4 py-2 text-left text-sm transition hover:bg-white/10 ${
+                        className={`block w-full truncate px-4 py-2 text-left text-sm transition hover:bg-white/10 ${
                           selectedTeam === name
                             ? "text-orange-400"
                             : "text-white"
@@ -306,7 +303,7 @@ export default function ChoiceCategoryPage() {
             </p>
           ) : (
             <>
-              <div className="mt-16 md:mt-20 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-x-3 sm:gap-x-8 md:gap-x-10 lg:gap-x-12 gap-y-8 sm:gap-y-12 md:gap-y-20">
+              <div className="mt-6 sm:mt-12 md:mt-20 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-x-3 sm:gap-x-8 md:gap-x-10 lg:gap-x-12 gap-y-8 sm:gap-y-12 md:gap-y-20">
                 {visiblePlayers.map((player, idx) => (
                   <PlayerCard
                     key={player.id || idx}
@@ -342,7 +339,7 @@ export default function ChoiceCategoryPage() {
             </>
           )}
         </div>
-      </div>
+      </section>
 
       <Sponsorship />
     </div>

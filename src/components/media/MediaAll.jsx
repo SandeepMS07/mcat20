@@ -39,6 +39,11 @@ const getMatchDetails = (key) => {
   return matchKey ? matches[matchKey] : "";
 };
 
+const FOLDER_INITIAL_COUNT = 8;
+const FOLDER_INCREMENT = 8;
+const IMAGE_INITIAL_COUNT = 12;
+const IMAGE_INCREMENT = 12;
+
 const MediaAll = ({ items, type, selectedFolder, setSelectedFolder }) => {
   const isImageType = type === "image";
   const isVideoType = type === "video";
@@ -47,6 +52,13 @@ const MediaAll = ({ items, type, selectedFolder, setSelectedFolder }) => {
   const [currentIndex, setCurrentIndex] = useState(null);
   // const [selectedFolder, setSelectedFolder] = useState(null);
   const [layoutConfig, setLayoutConfig] = useState([]);
+  const [folderVisibleCount, setFolderVisibleCount] = useState(FOLDER_INITIAL_COUNT);
+  const [imageVisibleCount, setImageVisibleCount] = useState(IMAGE_INITIAL_COUNT);
+
+  // Reset image visible count when folder changes
+  useEffect(() => {
+    setImageVisibleCount(IMAGE_INITIAL_COUNT);
+  }, [selectedFolder]);
 
   const folderKeys =
     isImageType && items && typeof items === "object" ? Object.keys(items) : [];
@@ -195,123 +207,246 @@ const MediaAll = ({ items, type, selectedFolder, setSelectedFolder }) => {
 
   let renderedIndex = 0;
 
+  const openModalAt = (index) => {
+    setCurrentIndex(index);
+    setShowModal(true);
+  };
+
   return (
     <div className="w-full flex flex-col gap-3">
-      {/* Folder structure for images */}
+      {/* === Folder structure for images === */}
       {isImageType && !selectedFolder && (
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {folderKeys.map((key) => {
-            const images = items[key];
-            const firstImage =
-              images?.[0]?.Tag__c == "Event"
-                ? "/images/gallery/auction.png"
-                : images?.[0]?.Image_URL__c;
+        <>
+          {/* Mobile: 2-column compact folder grid */}
+          <div className="grid grid-cols-2 gap-3 sm:hidden">
+            {folderKeys.slice(0, folderVisibleCount).map((key) => {
+              const images = items[key];
+              const firstImage =
+                images?.[0]?.Tag__c == "Event"
+                  ? "/images/gallery/auction.png"
+                  : images?.[0]?.Image_URL__c;
+              const matchName = getMatchDetails(key);
+              return (
+                <button
+                  type="button"
+                  key={key}
+                  onClick={() => setSelectedFolder(key)}
+                  className="group relative overflow-hidden rounded-xl bg-[#101F54] text-left shadow-md ring-1 ring-white/10"
+                >
+                  {firstImage && (
+                    <div className="relative aspect-square w-full overflow-hidden">
+                      <img
+                        src={firstImage}
+                        alt={images?.[0]?.title || "Folder Preview"}
+                        className="h-full w-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#101F54] via-[#101F54]/30 to-transparent" />
+                      <div className="absolute right-1.5 top-1.5 rounded-full bg-black/55 px-1.5 py-0.5 text-[10px] font-bold text-[#F8A24A] backdrop-blur-sm">
+                        {images?.length}
+                      </div>
+                      <div className="absolute inset-x-2 bottom-2 text-white">
+                        <p className="line-clamp-1 text-[12px] font-bold leading-tight">
+                          {key}
+                        </p>
+                        <p className="line-clamp-1 text-[10px] text-white/70">
+                          {matchName !== "" ? matchName : "Photo Folder"}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                </button>
+              );
+            })}
+          </div>
 
-            const matchName = getMatchDetails(key);
-            return (
-              <div
-                key={key}
-                className="group cursor-pointer overflow-hidden rounded-3xl bg-[#101F54] shadow-[0_10px_28px_rgba(13,30,80,0.18)]"
-                onClick={() => setSelectedFolder(key)}
-              >
-                {firstImage && (
-                  <div className="relative h-56 w-full overflow-hidden">
-                    <img
-                      src={firstImage}
-                      alt={images?.[0]?.title || "Folder Preview"}
-                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                    />
-                    <div className="absolute inset-0 bg-black/25" />
-                  </div>
-                )}
-                <div className="flex items-start justify-between gap-3 p-4 text-white">
-                  <div>
-                    <p className="mb-1 text-base font-bold leading-snug">
-                      {key}
-                    </p>
-                    <p className="text-sm text-white/65">
-                      {matchName !== "" ? matchName : "Photo Folder"}
-                    </p>
-                  </div>
-                  <div className="rounded-full bg-white/15 px-3 py-1 text-sm font-semibold text-[#F8A24A]">
-                    {images?.length}
+          {/* Tablet/Desktop: original folder grid */}
+          <div className="hidden grid-cols-1 gap-4 sm:grid md:grid-cols-3 lg:grid-cols-4">
+            {folderKeys.slice(0, folderVisibleCount).map((key) => {
+              const images = items[key];
+              const firstImage =
+                images?.[0]?.Tag__c == "Event"
+                  ? "/images/gallery/auction.png"
+                  : images?.[0]?.Image_URL__c;
+
+              const matchName = getMatchDetails(key);
+              return (
+                <div
+                  key={key}
+                  className="group cursor-pointer overflow-hidden rounded-3xl bg-[#101F54] shadow-[0_10px_28px_rgba(13,30,80,0.18)]"
+                  onClick={() => setSelectedFolder(key)}
+                >
+                  {firstImage && (
+                    <div className="relative h-56 w-full overflow-hidden">
+                      <img
+                        src={firstImage}
+                        alt={images?.[0]?.title || "Folder Preview"}
+                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                      />
+                      <div className="absolute inset-0 bg-black/25" />
+                    </div>
+                  )}
+                  <div className="flex items-start justify-between gap-3 p-4 text-white">
+                    <div>
+                      <p className="mb-1 text-base font-bold leading-snug">
+                        {key}
+                      </p>
+                      <p className="text-sm text-white/65">
+                        {matchName !== "" ? matchName : "Photo Folder"}
+                      </p>
+                    </div>
+                    <div className="rounded-full bg-white/15 px-3 py-1 text-sm font-semibold text-[#F8A24A]">
+                      {images?.length}
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+
+          {folderKeys.length > folderVisibleCount && (
+            <div className="mt-6 flex justify-center sm:mt-8">
+              <button
+                type="button"
+                onClick={() =>
+                  setFolderVisibleCount((c) => c + FOLDER_INCREMENT)
+                }
+                className="rounded-full bg-[#F68323] px-6 py-2.5 text-xs font-bold uppercase tracking-wide text-white shadow-[0_8px_24px_rgba(246,131,35,0.35)] transition-opacity hover:opacity-90 sm:px-8 sm:py-3 sm:text-sm"
+              >
+                View More
+              </button>
+            </div>
+          )}
+        </>
       )}
 
-      {/* Grid layout (images after folder selected OR videos) */}
-      {(isVideoType || (isImageType && selectedFolder)) &&
-        layoutConfig.map((row, rowIndex) => {
-          if (renderedIndex >= validItems.length) {
-            return null;
-          }
-
-          return (
-            <div key={rowIndex} className="h-[250px] w-full">
-              <div className="grid w-full h-full grid-cols-7 gap-2 md:gap-3 lg:gap-4">
-                {row.map((span, colIndex) => {
-                  if (renderedIndex >= validItems.length) return null;
-                  const item = validItems[renderedIndex];
-                  const indexForModal = renderedIndex++;
-                  if (isImageType && !item?.Image_URL__c) return null;
-                  if (isVideoType && !item?.img) return null;
-
-                  return (
-                    <div
-                      key={colIndex}
-                      className={`relative col-span-${span} overflow-hidden bg-white/30`}
-                      onClick={() => {
-                        setCurrentIndex(indexForModal);
-                        setShowModal(true);
-                      }}
-                    >
-                      <img
-                        src={item.img || ""}
-                        alt={item.title || "Gallery image"}
-                        className="w-full h-full object-cover"
-                        sizes="(max-width: 640px) 95vw, (max-width: 1024px) 45vw, 33vw"
-                      />
-
-                      {item.type === "video" && (
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <img
-                            src="/images/home/whyT2C/vidLogo.svg"
-                            width={100}
-                            height={100}
-                            className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16"
-                            alt="Video"
-                          />
-                        </div>
-                      )}
-
-                      {item.views && item.type === "image" && (
-                        <div className="absolute top-2 right-2">
-                          <img
-                            src="/images/home/whyT2C/imgIcon.svg"
-                            width={100}
-                            height={100}
-                            alt="Image"
-                            className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8"
-                          />
-                        </div>
-                      )}
-
-                      {item.type === "coming-soon" && (
-                        <div className="absolute top-2 left-2 bg-white text-black text-xs px-2 py-1 rounded font-semibold">
-                          COMING SOON
-                        </div>
-                      )}
+      {/* === Image grid after folder selected OR video grid === */}
+      {(isVideoType || (isImageType && selectedFolder)) && (
+        <>
+          {/* Mobile: 2-column square grid */}
+          <div className="grid grid-cols-2 gap-2 sm:hidden">
+            {validItems.slice(0, imageVisibleCount).map((item, idx) => {
+              if (isImageType && !item?.Image_URL__c) return null;
+              if (isVideoType && !item?.img) return null;
+              return (
+                <button
+                  type="button"
+                  key={`m-${idx}`}
+                  onClick={() => openModalAt(idx)}
+                  className="relative aspect-square overflow-hidden rounded-lg bg-white/10 ring-1 ring-white/10"
+                >
+                  <img
+                    src={item.img || ""}
+                    alt={item.title || "Gallery image"}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                    sizes="50vw"
+                  />
+                  {item.type === "video" && (
+                    <span className="absolute inset-0 flex items-center justify-center bg-black/25">
+                      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F2A23A] text-[#02103D] shadow-lg">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          className="ml-0.5 h-4 w-4"
+                        >
+                          <path d="M8 5v14l11-7L8 5z" />
+                        </svg>
+                      </span>
+                    </span>
+                  )}
+                  {item.type === "coming-soon" && (
+                    <div className="absolute left-1.5 top-1.5 rounded bg-white px-1.5 py-0.5 text-[9px] font-bold text-black">
+                      COMING SOON
                     </div>
-                  );
-                })}
-              </div>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Tablet/Desktop: original dynamic row layout */}
+          <div className="hidden flex-col gap-3 sm:flex">
+            {layoutConfig.map((row, rowIndex) => {
+              if (renderedIndex >= Math.min(validItems.length, imageVisibleCount)) {
+                return null;
+              }
+
+              return (
+                <div key={rowIndex} className="h-[250px] w-full">
+                  <div className="grid h-full w-full grid-cols-7 gap-2 md:gap-3 lg:gap-4">
+                    {row.map((span, colIndex) => {
+                      if (renderedIndex >= Math.min(validItems.length, imageVisibleCount)) return null;
+                      const item = validItems[renderedIndex];
+                      const indexForModal = renderedIndex++;
+                      if (isImageType && !item?.Image_URL__c) return null;
+                      if (isVideoType && !item?.img) return null;
+
+                      return (
+                        <div
+                          key={colIndex}
+                          className={`relative col-span-${span} overflow-hidden bg-white/30`}
+                          onClick={() => openModalAt(indexForModal)}
+                        >
+                          <img
+                            src={item.img || ""}
+                            alt={item.title || "Gallery image"}
+                            className="w-full h-full object-cover"
+                            sizes="(max-width: 1024px) 45vw, 33vw"
+                          />
+
+                          {item.type === "video" && (
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <img
+                                src="/images/home/whyT2C/vidLogo.svg"
+                                width={100}
+                                height={100}
+                                className="w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16"
+                                alt="Video"
+                              />
+                            </div>
+                          )}
+
+                          {item.views && item.type === "image" && (
+                            <div className="absolute top-2 right-2">
+                              <img
+                                src="/images/home/whyT2C/imgIcon.svg"
+                                width={100}
+                                height={100}
+                                alt="Image"
+                                className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8"
+                              />
+                            </div>
+                          )}
+
+                          {item.type === "coming-soon" && (
+                            <div className="absolute top-2 left-2 bg-white text-black text-xs px-2 py-1 rounded font-semibold">
+                              COMING SOON
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {validItems.length > imageVisibleCount && (
+            <div className="mt-6 flex justify-center sm:mt-8">
+              <button
+                type="button"
+                onClick={() =>
+                  setImageVisibleCount((c) => c + IMAGE_INCREMENT)
+                }
+                className="rounded-full bg-[#F68323] px-6 py-2.5 text-xs font-bold uppercase tracking-wide text-white shadow-[0_8px_24px_rgba(246,131,35,0.35)] transition-opacity hover:opacity-90 sm:px-8 sm:py-3 sm:text-sm"
+              >
+                View More
+              </button>
             </div>
-          );
-        })}
+          )}
+        </>
+      )}
 
       {/* Tailwind-safe classes for dynamic col-span */}
       <div className="hidden col-span-1 col-span-2 col-span-3 col-span-4 col-span-5 col-span-6 col-span-7" />

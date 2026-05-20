@@ -67,9 +67,6 @@ const TeamLogoCard = ({ team, onClick }) => {
           <p className="line-clamp-1 text-[11px] font-bold uppercase tracking-wide text-white sm:text-sm md:text-base">
             {header.name}
           </p>
-          <p className="mt-0.5 line-clamp-1 min-h-[14px] text-[10px] font-medium text-white/80 sm:text-xs">
-            {header.subtitle || " "}
-          </p>
         </div>
       </div>
     </button>

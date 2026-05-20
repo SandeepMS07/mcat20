@@ -10,6 +10,7 @@ import { teamShortName } from "@/utilis/helper";
 import routes from "@/utilis/route";
 import FixtureWidget from "./components/FixtureWidget";
 import Sponsorship from "@/components/common/Sponsorship";
+import CustomSelect from "@/components/common/CustomSelect";
 
 const MONTHS = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 const DOWS = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
@@ -101,20 +102,14 @@ const PillToggle = ({ options, value, onChange, variant = "outline" }) => (
 );
 
 const FilterSelect = ({ value, options, onChange, label }) => (
-  <div className="relative">
-    <select
+  <div className="min-w-[140px] sm:min-w-[160px]">
+    <CustomSelect
       value={value}
-      onChange={(e) => onChange(e.target.value)}
-      aria-label={label}
-      className="appearance-none bg-white/10 border border-gray-300/40 rounded-md text-white text-xs sm:text-sm font-extrabold italic uppercase tracking-wide pl-4 pr-9 py-2 min-w-[140px] sm:min-w-[160px] cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#f68323]/60 hover:bg-white/15"
-    >
-      {options.map((opt) => (
-        <option key={opt} value={opt} className="bg-[#091d65] text-white">
-          {opt.toUpperCase()}
-        </option>
-      ))}
-    </select>
-    <ChevronDown className="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 text-white pointer-events-none" />
+      options={options}
+      onChange={onChange}
+      formatOption={(v) => (v || "").toUpperCase()}
+      label={undefined}
+    />
   </div>
 );
 
@@ -347,7 +342,7 @@ const EmptyState = ({ title, description }) => (
 
 /* ===================== Data shapers ===================== */
 
-function normalizeSeason4Match(m) {
+function normalizeSeason4Match(m, displayMatchNo) {
   const date = parseSeason4Date(m.date, m.time);
   const isPlayoff = m.type === "playoff";
   const isReserve = m.type === "reserve";
@@ -355,7 +350,7 @@ function normalizeSeason4Match(m) {
     ? "RESERVE"
     : isPlayoff
     ? (m.label || "PLAYOFF").toUpperCase()
-    : `MATCH ${m.match_no}`;
+    : `MATCH ${displayMatchNo ?? m.match_no}`;
 
   return {
     raw: m,
@@ -542,8 +537,23 @@ export default function FixturesPage() {
   const sourceMatches = useMemo(() => {
     if (season === "season1") return processLegacyMatches(fixtures1);
     if (season === "season2") return processLegacyMatches(fixtures2);
-    if (season === "season4")
-      return fixtures4.matches.map(normalizeSeason4Match);
+    if (season === "season4") {
+      let menCount = 0;
+      let womenCount = 0;
+      return fixtures4.matches.map((m) => {
+        let displayNo;
+        if (m.type === "match") {
+          if (m.category === "Men") {
+            menCount += 1;
+            displayNo = menCount;
+          } else if (m.category === "Women") {
+            womenCount += 1;
+            displayNo = womenCount;
+          }
+        }
+        return normalizeSeason4Match(m, displayNo);
+      });
+    }
     return [];
   }, [season]);
 
@@ -598,48 +608,116 @@ export default function FixturesPage() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[480px] bg-gradient-to-b from-[rgba(13,55,169,0.55)] via-[rgba(13,55,169,0.25)] to-transparent" />
 
       <div className="relative z-10 py-10 md:py-14 lg:py-16 w-full px-6 sm:px-10 md:px-14 lg:px-20">
-        {/* Top toggles */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-12 mb-8 md:mb-12">
-          {season === "season4" && (
-            <PillToggle
-              variant="filled"
-              value={gender}
-              onChange={setGender}
-              options={[
-                { label: "Men", value: "men" },
-                { label: "Women", value: "women" },
-              ]}
-            />
-          )}
-        </div>
+        {/* Mobile header — Stats-page style */}
+        <div className="md:hidden">
+          <div className="mb-6 flex flex-col items-center gap-4">
+            <Heading status={status} />
 
-        {/* Heading + filters */}
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-8 md:mb-10">
-          <Heading status={status} />
+            {season === "season4" && (
+              <div className="inline-flex rounded-full bg-white/10 p-1 text-xs font-semibold uppercase backdrop-blur-sm ring-1 ring-white/15">
+                {[
+                  { label: "Men", value: "men" },
+                  { label: "Women", value: "women" },
+                ].map((opt) => (
+                  <button
+                    key={opt.value}
+                    type="button"
+                    onClick={() => setGender(opt.value)}
+                    className={`rounded-full px-5 py-1.5 transition-colors ${
+                      gender === opt.value
+                        ? "bg-[#F68323] text-white shadow-[0_4px_14px_rgba(246,131,35,0.4)]"
+                        : "text-white/80 hover:text-white"
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
 
-          <div className="flex flex-wrap gap-3 md:gap-5">
-            <FilterSelect
-              label="Filter by status"
+          <div className="relative z-20 mb-6 grid grid-cols-2 gap-2 rounded-2xl border border-white/10 bg-[#0E1A47]/60 p-2 backdrop-blur-sm">
+            <CustomSelect
+              label="Status"
               value={status === "upcoming" ? "Upcoming" : "Completed"}
+              options={["Upcoming", "Completed"]}
               onChange={(label) =>
                 setStatus(label.toLowerCase() === "upcoming" ? "upcoming" : "completed")
               }
-              options={["Upcoming", "Completed"]}
             />
-            {status === "completed" && (
-              <FilterSelect
-                label="Filter by season"
+            {status === "completed" ? (
+              <CustomSelect
+                label="Season"
                 value={SEASON_LABEL[season]}
-                onChange={(label) => setSeason(SEASON_VALUE[label])}
                 options={seasonOptions}
+                onChange={(label) => setSeason(SEASON_VALUE[label])}
+              />
+            ) : (
+              <CustomSelect
+                label="Team"
+                value={team}
+                options={teamOptions}
+                onChange={setTeam}
               />
             )}
-            <FilterSelect
-              label="Filter by team"
-              value={team}
-              onChange={setTeam}
-              options={teamOptions}
-            />
+            {status === "completed" && season !== "season3" && (
+              <div className="col-span-2">
+                <CustomSelect
+                  label="Team"
+                  value={team}
+                  options={teamOptions}
+                  onChange={setTeam}
+                />
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Desktop header — original layout */}
+        <div className="hidden md:block">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-12 mb-8 md:mb-12">
+            {season === "season4" && (
+              <PillToggle
+                variant="filled"
+                value={gender}
+                onChange={setGender}
+                options={[
+                  { label: "Men", value: "men" },
+                  { label: "Women", value: "women" },
+                ]}
+              />
+            )}
+          </div>
+
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-8 md:mb-10">
+            <Heading status={status} />
+
+            <div className="flex flex-wrap gap-3 md:gap-5">
+              <FilterSelect
+                label="Filter by status"
+                value={status === "upcoming" ? "Upcoming" : "Completed"}
+                onChange={(label) =>
+                  setStatus(label.toLowerCase() === "upcoming" ? "upcoming" : "completed")
+                }
+                options={["Upcoming", "Completed"]}
+              />
+              {status === "completed" && (
+                <FilterSelect
+                  label="Filter by season"
+                  value={SEASON_LABEL[season]}
+                  onChange={(label) => setSeason(SEASON_VALUE[label])}
+                  options={seasonOptions}
+                />
+              )}
+              {season !== "season3" && (
+                <FilterSelect
+                  label="Filter by team"
+                  value={team}
+                  onChange={setTeam}
+                  options={teamOptions}
+                />
+              )}
+            </div>
           </div>
         </div>
 
