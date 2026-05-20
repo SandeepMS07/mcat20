@@ -21,6 +21,13 @@
   letter-spacing: 0.01em;
 }
 
+.mtt-heading--responsive {
+  display: block;
+  font-size: clamp(1.5rem, 4.2vw, 3rem);
+  line-height: 1.05;
+  word-break: break-word;
+}
+
 .mtt-heading-thin {
   color: transparent;
   -webkit-text-stroke: 1.5px #ffffff;

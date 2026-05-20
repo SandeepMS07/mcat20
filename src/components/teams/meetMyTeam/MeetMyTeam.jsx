@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 import PlayerCard from "./PlayerCard";
+import { resolvePlayerPhotoOverride } from "@/utilis/playerPhotoOverrides";
 
 const toTitleCaseWithInitials = (str) => {
   if (!str) return "";
@@ -30,7 +31,16 @@ const getFirstName = (str) => {
 
 const getRestOfName = (str) => {
   if (!str) return "";
-  return str.split(" ").filter(Boolean).slice(1).join(" ").toUpperCase();
+  const rest = str.split(" ").filter(Boolean).slice(1);
+  if (rest.length === 0) return "";
+  // For long names (3+ middle/last words), keep the surname and initialize the middles
+  // e.g. "Ahmed Naushad Ahmed Khan" -> "A. N. A. KHAN"
+  if (rest.length >= 3) {
+    const last = rest[rest.length - 1];
+    const initials = rest.slice(0, -1).map((w) => `${w.charAt(0)}.`).join(" ");
+    return `${initials} ${last}`.toUpperCase();
+  }
+  return rest.join(" ").toUpperCase();
 };
 
 const SECTION_CONFIG = [
@@ -42,6 +52,10 @@ const SECTION_CONFIG = [
 
 const MeetMyTeam = ({ data }) => {
   const PlayerRecords = data?.Player_Registrations__r?.records || [];
+  const teamDisplayName = (data?.Name || "")
+    .replace(/\s*\(w\)\s*$/i, "")
+    .trim()
+    .toUpperCase();
 
   const groupedByRole = {};
 
@@ -53,7 +67,9 @@ const MeetMyTeam = ({ data }) => {
     const firstName = getFirstName(fullName);
     const restName = getRestOfName(fullName);
     const rawImg = player.Player__r?.Photo_URL_1__c;
-    const img = rawImg && rawImg.trim() !== "" ? rawImg : "";
+    const apiImg = rawImg && rawImg.trim() !== "" ? rawImg : "";
+    const overrideImg = resolvePlayerPhotoOverride(data?.Name, fullName);
+    const img = overrideImg || apiImg;
 
     const playerObj = { id, name, firstName, restName, img, role };
 
@@ -72,10 +88,23 @@ const MeetMyTeam = ({ data }) => {
     <div className="mtt-wrapper relative">
       <div className="mtt-header-zone">
         <div className="px-4 sm:px-6 md:px-10 lg:px-14 xl:px-20 pt-8 md:pt-10 pb-8 md:pb-10">
-          <h2 className="mtt-heading px-2 md:px-6 lg:px-10">
-            <span className="mtt-heading-thin">MEET</span>
-            <span className="mtt-heading-bold">THE TEAM</span>
-          </h2>
+          <div className="flex flex-col items-center gap-3 text-center sm:flex-row sm:items-center sm:gap-5 sm:text-left md:gap-6 md:px-6 lg:px-10">
+            {data?.Logo_URL__c ? (
+              <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-white p-2 shadow-[0_6px_20px_rgba(0,0,0,0.35)] ring-1 ring-white/20 sm:h-20 sm:w-20 md:h-24 md:w-24 md:p-2.5 lg:h-28 lg:w-28 lg:p-3">
+                <img
+                  src={data.Logo_URL__c}
+                  alt={`${teamDisplayName} logo`}
+                  className="h-full w-full object-contain"
+                />
+              </div>
+            ) : null}
+            <h2 className="mtt-heading mtt-heading--responsive flex-1">
+              <span className="mtt-heading-thin">MEET</span>{" "}
+              <span className="mtt-heading-bold">
+                {teamDisplayName || "THE TEAM"}
+              </span>
+            </h2>
+          </div>
         </div>
       </div>
 

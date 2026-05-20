@@ -384,18 +384,82 @@ const MediaAll = ({ items, type, selectedFolder, setSelectedFolder }) => {
                       return (
                         <div
                           key={colIndex}
-                          className={`relative col-span-${span} overflow-hidden bg-white/30`}
+                          className={`group relative col-span-${span} cursor-pointer overflow-hidden rounded-md bg-white/30 transition-all duration-300 hover:shadow-[0_10px_30px_rgba(0,0,0,0.35)]`}
                           onClick={() => openModalAt(indexForModal)}
+                          role="button"
+                          tabIndex={0}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter" || e.key === " ") {
+                              e.preventDefault();
+                              openModalAt(indexForModal);
+                            }
+                          }}
+                          aria-label="Open image"
                         >
                           <img
                             src={item.img || ""}
                             alt={item.title || "Gallery image"}
-                            className="w-full h-full object-cover"
+                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.06]"
                             sizes="(max-width: 1024px) 45vw, 33vw"
                           />
 
+                          {item.type !== "video" && item.type !== "coming-soon" && (
+                            <div
+                              aria-hidden
+                              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/0 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                            />
+                          )}
+
+                          {item.type !== "video" && item.type !== "coming-soon" && (
+                            <div
+                              aria-hidden
+                              className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                            >
+                              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/95 text-[#1B2F7A] shadow-[0_8px_22px_rgba(0,0,0,0.35)] backdrop-blur-sm">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2.2"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="h-5 w-5"
+                                >
+                                  <circle cx="11" cy="11" r="7" />
+                                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                                  <line x1="11" y1="8" x2="11" y2="14" />
+                                  <line x1="8" y1="11" x2="14" y2="11" />
+                                </svg>
+                              </span>
+                            </div>
+                          )}
+
+                          {item.type !== "video" && item.type !== "coming-soon" && (
+                            <span
+                              aria-hidden
+                              className="pointer-events-none absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-black/55 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                className="h-3 w-3"
+                                aria-hidden
+                              >
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z" />
+                                <circle cx="12" cy="12" r="3" />
+                              </svg>
+                              View
+                            </span>
+                          )}
+
                           {item.type === "video" && (
-                            <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="absolute inset-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                               <img
                                 src="/images/home/whyT2C/vidLogo.svg"
                                 width={100}

@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import TeamSection from "@/components/teams/teamSec/TeamSection";
+import TeamSection, { TeamTypeToggle } from "@/components/teams/teamSec/TeamSection";
 import MeetMyTeam from "@/components/teams/meetMyTeam/MeetMyTeam";
 import Sponsorship from "@/components/common/Sponsorship";
 import { getTeamDetailsClient } from "@/app/api/clientApi";
@@ -154,16 +154,24 @@ export default function Teams() {
 
   return (
     <div className="bg-[#101b52]">
+      <div className="bg-[#101b52] pt-32 sm:pt-36 md:pt-40 lg:pt-44">
+        <div className="px-4 sm:px-6 md:px-10 lg:px-14 xl:px-20">
+          <div className="flex justify-center">
+            <TeamTypeToggle
+              activeTeamType={activeTeamType}
+              onTeamTypeChange={handleTeamTypeChange}
+              menTab={MEN_TAB}
+              womenTab={WOMEN_TAB}
+            />
+          </div>
+        </div>
+      </div>
       {teamDetails ? (
         <>
           <TeamSection
             data={teams}
             onTeamSelect={handleTeamSelect}
             TeamIndex={selectedTeamIndex}
-            activeTeamType={activeTeamType}
-            onTeamTypeChange={handleTeamTypeChange}
-            menTab={MEN_TAB}
-            womenTab={WOMEN_TAB}
           />
           <MeetMyTeam data={teamDetails} />
           <Sponsorship />

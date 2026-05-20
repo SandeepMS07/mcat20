@@ -23,13 +23,13 @@ const FOOTER_COLUMNS = [
       { label: "Photos", href: routes.gallery },
     ],
   },
-  {
-    title: "Fan Zone",
-    links: [
-      { label: "Fan Poll", href: routes.fanPoll },
-      { label: "Viewers' Choice", href: routes.choice },
-    ],
-  },
+  // {
+  //   title: "Fan Zone",
+  //   links: [
+  //     { label: "Fan Poll", href: routes.fanPoll },
+  //     { label: "Viewers' Choice", href: routes.choice },
+  //   ],
+  // },
 ];
 
 const SOCIAL_LINKS = [

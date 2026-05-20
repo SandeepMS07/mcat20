@@ -1,18 +1,16 @@
 "use client";
 
 import React, { useEffect, useState, useCallback } from "react";
-import { teamGradients, teamSubtitles } from "@/utilis/helper";
+import { teamGradients } from "@/utilis/helper";
 
 const getTeamNameKey = (name = "") => name.replace(/\s*\(W\)\s*$/i, "").trim();
 
-const resolveTeamHeader = (rawName = "") => {
-  const key = getTeamNameKey(rawName);
-  const mapped = teamSubtitles[key];
-  if (mapped) return { name: mapped.name, subtitle: mapped.subtitle };
-  return { name: rawName, subtitle: "" };
-};
-
-const Toggle = ({ activeTeamType, onTeamTypeChange, menTab, womenTab }) => (
+export const TeamTypeToggle = ({
+  activeTeamType,
+  onTeamTypeChange,
+  menTab,
+  womenTab,
+}) => (
   <div
     role="tablist"
     aria-label="Team type"
@@ -64,7 +62,7 @@ const TeamCard = ({ team, isActive, onClick }) => {
       onClick={onClick}
       aria-pressed={isActive}
       aria-label={team?.Name}
-      className={`group relative block aspect-[3/2] w-full cursor-pointer overflow-hidden rounded-lg transition-all duration-300 ${
+      className={`group relative block aspect-square w-20 sm:w-24 md:w-28 lg:w-32 cursor-pointer overflow-hidden rounded-xl transition-all duration-300 ${
         isActive
           ? "scale-[1.04] ring-2 ring-[#F2A23A] shadow-[0_8px_20px_rgba(0,0,0,0.4)]"
           : "ring-1 ring-white/10 hover:ring-white/30 hover:-translate-y-0.5"
@@ -90,44 +88,7 @@ const TeamCard = ({ team, isActive, onClick }) => {
   );
 };
 
-const SelectedTeamInline = ({ team, header }) => {
-  const normalized = getTeamNameKey(team?.Name || "");
-  const gradient = teamGradients[normalized];
-  const logoBgStyle = gradient
-    ? {
-        backgroundImage: `linear-gradient(135deg, ${gradient.from} 0%, ${gradient.to} 100%)`,
-      }
-    : { backgroundColor: "rgba(255,255,255,0.08)" };
-  return (
-    <div className="relative flex items-center gap-4 px-1 py-2 sm:gap-5 sm:px-2 lg:border-l lg:border-white/10 lg:pl-6 lg:pt-10">
-      <div
-        className="flex h-20 w-20 shrink-0 items-center justify-center rounded-xl border border-white/15 p-2 sm:h-24 sm:w-24 md:h-28 md:w-28"
-        style={logoBgStyle}
-      >
-        <img
-          src={team?.Logo_URL__c}
-          alt={`${header.name} logo`}
-          className="max-h-full max-w-full object-contain drop-shadow-lg"
-        />
-      </div>
-      <div className="min-w-0 flex-1">
-        <h2 className="text-lg font-extrabold uppercase italic leading-tight text-white sm:text-xl md:text-2xl">
-          {header.name}
-        </h2>
-      </div>
-    </div>
-  );
-};
-
-const TeamSection = ({
-  data,
-  onTeamSelect,
-  TeamIndex = 0,
-  activeTeamType = "men",
-  onTeamTypeChange,
-  menTab = "men",
-  womenTab = "women",
-}) => {
+const TeamSection = ({ data, onTeamSelect, TeamIndex = 0 }) => {
   const [selectedTeamIndex, setSelectedTeamIndex] = useState(TeamIndex);
 
   useEffect(() => {
@@ -145,44 +106,21 @@ const TeamSection = ({
   const selectedTeam = data?.[selectedTeamIndex];
   if (!selectedTeam) return null;
 
-  const selectedHeader = resolveTeamHeader(selectedTeam?.Name || "");
-
   return (
     <div className="w-full">
-      <div className="w-full bg-[#101b52] pt-32 pb-4 sm:pt-36 md:pt-40 lg:pt-44">
+      <div className="w-full bg-[#101b52] pt-6 pb-6 sm:pt-8 sm:pb-8">
         <div className="px-4 sm:px-6 md:px-10 lg:px-14 xl:px-20">
-          <div className="relative overflow-hidden rounded-xl border border-white/10 bg-[#0c1850]/60 p-3 sm:p-4 lg:p-5">
-            <span
-              aria-hidden
-              className="pointer-events-none absolute inset-0 opacity-40"
-              style={{
-                background:
-                  "radial-gradient(50% 70% at 85% 15%, rgba(242,162,58,0.18), transparent 60%), radial-gradient(50% 70% at 5% 100%, rgba(28,57,142,0.4), transparent 60%)",
-              }}
-            />
-            <div className="relative z-20 mb-3 flex justify-end lg:absolute lg:right-5 lg:top-5 lg:mb-0">
-              <Toggle
-                activeTeamType={activeTeamType}
-                onTeamTypeChange={onTeamTypeChange}
-                menTab={menTab}
-                womenTab={womenTab}
-              />
-            </div>
-            <div className="relative grid gap-4 lg:grid-cols-[6fr_4fr] lg:items-center lg:gap-6">
-              <ul className="grid grid-cols-4 gap-2 sm:gap-3">
-                {data.map((team, index) => (
-                  <li key={team?.Id || index}>
-                    <TeamCard
-                      team={team}
-                      isActive={index === selectedTeamIndex}
-                      onClick={() => handleLogoClick(index)}
-                    />
-                  </li>
-                ))}
-              </ul>
-              <SelectedTeamInline team={selectedTeam} header={selectedHeader} />
-            </div>
-          </div>
+          <ul className="flex flex-wrap justify-center gap-3 sm:gap-4">
+            {data.map((team, index) => (
+              <li key={team?.Id || index}>
+                <TeamCard
+                  team={team}
+                  isActive={index === selectedTeamIndex}
+                  onClick={() => handleLogoClick(index)}
+                />
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>

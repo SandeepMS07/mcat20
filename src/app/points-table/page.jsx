@@ -244,8 +244,18 @@ const PointsTablePage = () => {
               <table className="w-full md:min-w-[1100px] text-white border-separate border-spacing-y-3 italic">
                 <thead>
                   <tr className="text-left text-[10px] sm:text-xs uppercase text-[#FFE24A] bg-[#1F43C5]">
-                    <th className="rounded-l-full px-2 py-2.5 sm:px-4 sm:py-3">Pos</th>
-                    <th className="px-2 py-2.5 sm:px-4 sm:py-3">Teams</th>
+                    {activeSeason !== "season_4" && (
+                      <th className="rounded-l-full px-2 py-2.5 sm:px-4 sm:py-3">
+                        Pos
+                      </th>
+                    )}
+                    <th
+                      className={`px-2 py-2.5 sm:px-4 sm:py-3 ${
+                        activeSeason === "season_4" ? "rounded-l-full" : ""
+                      }`}
+                    >
+                      Teams
+                    </th>
                     <th className="px-2 py-2.5 sm:px-4 sm:py-3">P</th>
                     <th className="px-2 py-2.5 sm:px-4 sm:py-3">W</th>
                     <th className="px-2 py-2.5 sm:px-4 sm:py-3">L</th>
@@ -259,12 +269,14 @@ const PointsTablePage = () => {
                 <tbody>
                   {rows.map((row) => (
                     <tr key={`${row.name}-${row.rank}`} className="text-xs sm:text-sm">
-                      <td
-                        className="px-1 sm:px-2 text-3xl sm:text-5xl font-black italic leading-none text-transparent [-webkit-text-stroke:2px_#7E93DB] w-8 sm:w-12"
-                        style={{ WebkitTextStroke: "2px #7E93DB" }}
-                      >
-                        {row.rank}
-                      </td>
+                      {activeSeason !== "season_4" && (
+                        <td
+                          className="px-1 sm:px-2 text-3xl sm:text-5xl font-black italic leading-none text-transparent [-webkit-text-stroke:2px_#7E93DB] w-8 sm:w-12"
+                          style={{ WebkitTextStroke: "2px #7E93DB" }}
+                        >
+                          {row.rank}
+                        </td>
+                      )}
                       <td className="bg-[#2447C6] rounded-l-full relative">
                         <div class="hidden sm:block w-[54.5px] h-[32px] bg-[#D18FDB] rounded-t-full absolute z-10 -rotate-90 -right-[11.5px] top-[11px]"></div>
                         <div class="hidden sm:block w-[54.5px] h-[32px] bg-[#192A66] rounded-t-full absolute z-10 -rotate-90 -right-[12px] top-[11px]"></div>

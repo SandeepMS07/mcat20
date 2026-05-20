@@ -22,6 +22,10 @@ export const navLinks = [
     ],
   },
   {
+    title: "Latest News",
+    path: `${routes.latestUpdates}`,
+  },
+  {
     title: "Teams",
     path: `${routes.teams}`,
   },
@@ -29,19 +33,19 @@ export const navLinks = [
     title: "Stats",
     path: `${routes.stats}`,
   },
-  {
-    title: "Fantasy",
-    path: `${routes.fantasy}`,
-    comingSoon: true,
-  },
-  {
-    title: "Fan Zone",
-    path: `${routes.fanPoll}`,
-    children: [
-      { title: "Fan Poll", path: `${routes.fanPoll}` },
-      { title: "Viewers' Choice", path: `${routes.choice}` },
-    ],
-  },
+  // {
+  //   title: "Fantasy",
+  //   path: `${routes.fantasy}`,
+  //   comingSoon: true,
+  // },
+  // {
+  //   title: "Fan Zone",
+  //   path: `${routes.fanPoll}`,
+  //   children: [
+  //     { title: "Fan Poll", path: `${routes.fanPoll}` },
+  //     { title: "Viewers' Choice", path: `${routes.choice}` },
+  //   ],
+  // },
   // {
   //   title: "About Us",
   //   path: `${routes.aboutUs}`,
