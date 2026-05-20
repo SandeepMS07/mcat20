@@ -168,7 +168,7 @@ const Navbar = () => {
                         {item.title}
                         {item.comingSoon && (
                           <span className="rounded-full bg-[#F2A23A]/20 px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wide text-[#F2A23A] xl:text-[9px]">
-                            Soon
+                            Coming Soon
                           </span>
                         )}
                       </Link>
@@ -289,7 +289,7 @@ const Navbar = () => {
                     {item.title}
                     {item.comingSoon && (
                       <span className="rounded-full bg-[#F2A23A]/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#F2A23A]">
-                        Soon
+                        Coming Soon
                       </span>
                     )}
                   </Link>

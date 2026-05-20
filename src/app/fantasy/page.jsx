@@ -102,9 +102,8 @@ const FantasyPage = () => {
           </h1>
 
           <p className="mt-6 max-w-xl text-sm text-white/75 sm:text-base lg:text-lg">
-            We&apos;re building something special. Pick your dream XI, take on
-            friends, and play the T20 Mumbai season alongside the action —
-            launching with Season 4.
+            Create your dream Fantasy XI, compete with friends, and own the T20
+            Mumbai Season 4.
           </p>
 
           <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-white/70 backdrop-blur-sm">
