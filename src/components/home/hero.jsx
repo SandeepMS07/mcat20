@@ -454,10 +454,12 @@ const Hero = () => {
             <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
             <HeroSlideContent
               eyebrow="T20 Mumbai Season 4"
+              containerClassName="lg:max-w-4xl xl:max-w-5xl"
+              titleClassName="lg:max-w-4xl xl:max-w-5xl"
               title={
                 <>
-                  A Power-Packed Lineup <br /> Sets the Stage for Season 4
-                  League
+                  A Power-Packed Lineup of Players <br /> Sets the Stage for
+                  the New Season
                 </>
               }
               subtitle="#ChanceSoduNako"

@@ -6,9 +6,12 @@ const HeroSlideContent = ({
   children,
   titleClassName = "",
   eyebrowClassName = "",
+  containerClassName = "",
 }) => (
   <div className="section-width relative z-10">
-    <div className="flex max-w-3xl flex-col items-center gap-2 sm:gap-3 sm:items-start lg:gap-6 text-center sm:text-left">
+    <div
+      className={`flex max-w-3xl flex-col items-center gap-2 sm:gap-3 sm:items-start lg:gap-6 text-center sm:text-left ${containerClassName}`}
+    >
       {eyebrow && (
         <span
           className={`inline-block bg-[#182769] px-2.5 py-1 sm:px-3 sm:py-2 text-[11px] sm:text-sm font-bold uppercase text-white md:text-base xl:text-xl ${eyebrowClassName}`}
