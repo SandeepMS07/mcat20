@@ -164,7 +164,7 @@ export const teamLogoStats = {
   "Shivaji Park Lions": "/images/logo/shivajiParkLions.png",
   "SoBo SuperSonics": "/images/logo/soboSuperSonics.png",
   "Aakash Tigers Mumbai Western Suburbs":
-    "https://turbostart.blob.core.windows.net/turbostart/48447191083078844-aakashTigers.png",
+    "https://turbostart.blob.core.windows.net/team-logos/Artboard%201.png",
   "ARCS Andheri":
     "https://turbostart.blob.core.windows.net/team-logos/2.%20Andheri%20Arcs.jpg",
   "Eagle Thane Strikers":
@@ -208,7 +208,7 @@ export const season3TeamLogo = {
   "Aakash Tigers MWS":
     "https://turbostart.blob.core.windows.net/team-logos/Artboard%201.png",
   "Aakash Tigers Mumbai Western Suburbs":
-    "https://turbostart.blob.core.windows.net/turbostart/48447191083078844-aakashTigers.png",
+    "https://turbostart.blob.core.windows.net/team-logos/Artboard%201.png",
   "ARCS Andheri":
     "https://turbostart.blob.core.windows.net/team-logos/2.%20Andheri%20Arcs.jpg",
   "Arcs Andheri":
