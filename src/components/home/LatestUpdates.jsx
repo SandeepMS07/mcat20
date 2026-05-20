@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import routes from "@/utilis/route";
 import { getLatestUpdatesClient } from "@/app/api/clientApi";
 import LoadingPage from "@/app/loading";
-import { LocalLatestUpdates } from "@/app/news/data";
 
 const SEASON_LABEL = "T20 ML Season 3";
 
@@ -28,18 +27,7 @@ const LatestUpdates = () => {
     const fetchUpdates = async () => {
       setLoading(true);
       const data = await getLatestUpdatesClient();
-      const apiUpdates = data?.data || [];
-      const merged = [
-        ...LocalLatestUpdates,
-        ...apiUpdates.filter(
-          (item) =>
-            !LocalLatestUpdates.some(
-              (local) => local.Title__c === item?.Title__c,
-            ),
-        ),
-      ];
-
-      setLatestUpdates(merged);
+      setLatestUpdates(Array.isArray(data?.data) ? data.data : []);
       setLoading(false);
     };
 
@@ -58,7 +46,11 @@ const LatestUpdates = () => {
     if (targetPath) router.push(targetPath);
   };
 
-  const cards = latestUpdates.slice(0, 3);
+  const cards = [...latestUpdates]
+    .sort(
+      (a, b) => (Number(b?.Order__c) || 0) - (Number(a?.Order__c) || 0),
+    )
+    .slice(0, 3);
 
   return (
     <section className="bg-white py-12 sm:py-16 lg:py-20">

@@ -102,11 +102,23 @@ export const getLatestUpdatesClient = async () => {
   try {
     return await fetchWithCache("api:latest-updates", async () => {
       const res = await axios.get("/v1/live/details/news/announcement");
-      return res.data;
+      const { LocalLatestUpdates } = await import("@/app/news/data");
+      const apiItems = Array.isArray(res?.data?.data) ? res.data.data : [];
+      const merged = [
+        ...LocalLatestUpdates,
+        ...apiItems.filter(
+          (item) =>
+            !LocalLatestUpdates.some(
+              (local) => local.Title__c === item?.Title__c,
+            ),
+        ),
+      ];
+      return { ...(res.data || {}), data: merged, apiData: apiItems };
     });
   } catch (err) {
     console.error("Client error fetching latest updates:", err);
-    return null;
+    const { LocalLatestUpdates } = await import("@/app/news/data");
+    return { data: LocalLatestUpdates, apiData: [] };
   }
 };
 export const getHeroBannerClient = async () => {

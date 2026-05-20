@@ -1,6 +1,5 @@
 "use client";
 import UpdatesCard from "@/components/LatestUpdateComponents/UpdatesCard";
-import { LocalLatestUpdates } from "./data";
 import { useRouter } from "next/navigation";
 import { formatTitleForURL } from "@/utilis/helper";
 import routes from "@/utilis/route";
@@ -29,18 +28,8 @@ const page = () => {
     const fetchUpdates = async () => {
       setLoading(true);
       const data = await getLatestUpdatesClient();
-      const fetchedApiUpdates = data?.data || [];
-      setApiUpdates(fetchedApiUpdates);
-      const merged = [
-        ...LocalLatestUpdates,
-        ...fetchedApiUpdates.filter(
-          (item) =>
-            !LocalLatestUpdates.some(
-              (local) => local.Title__c === item?.Title__c,
-            ),
-        ),
-      ];
-      setLatestUpdates({ data: merged });
+      setApiUpdates(Array.isArray(data?.apiData) ? data.apiData : []);
+      setLatestUpdates({ data: Array.isArray(data?.data) ? data.data : [] });
       setLoading(false);
     };
     fetchUpdates();

@@ -1,6 +1,5 @@
 "use client";
 import TitleComponent from "@/components/common/TitleComponent";
-import { LocalLatestUpdates } from "../data";
 import UpdatesCard from "@/components/LatestUpdateComponents/UpdatesCard";
 import { useEffect, useState } from "react";
 import { formatTitleForURL, decodeHtml } from "@/utilis/helper";
@@ -30,16 +29,7 @@ const page = () => {
     const fetchUpdates = async () => {
       setLoading(true);
       const data = await getLatestUpdatesClient();
-      const apiUpdates = data?.data || [];
-      const merged = [
-        ...LocalLatestUpdates,
-        ...apiUpdates.filter(
-          (item) =>
-            !LocalLatestUpdates.some(
-              (local) => local.Title__c === item?.Title__c
-            )
-        ),
-      ];
+      const merged = Array.isArray(data?.data) ? data.data : [];
 
       setUpdatesData(merged);
 
