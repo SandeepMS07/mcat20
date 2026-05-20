@@ -13,13 +13,13 @@ const SPONSORS = [
 
 const SponsorCard = ({ img, alt, label }) => (
   <div
-    className="flex w-full max-w-[280px] flex-col gap-2 rounded-2xl border border-white/0 px-3 pt-3 pb-2 shadow-md sm:gap-3 sm:px-4 sm:pt-4"
+    className="flex w-full max-w-[180px] flex-col gap-1.5 rounded-2xl border border-white/0 px-2.5 pt-2.5 pb-2 shadow-md sm:max-w-[200px] sm:gap-2 sm:px-3 sm:pt-3"
     style={{
       backgroundImage:
         "linear-gradient(195deg, rgba(14, 0, 90, 0.4) 27.8%, rgba(28, 57, 142, 0.4) 84.9%), linear-gradient(90deg, #172476 0%, #172476 100%)",
     }}
   >
-    <h3 className="text-center text-[11px] font-bold tracking-tight text-white sm:text-base">
+    <h3 className="text-center text-[10px] font-bold tracking-tight text-white sm:text-xs">
       {label}
     </h3>
     <div className="border-t border-white/10" />

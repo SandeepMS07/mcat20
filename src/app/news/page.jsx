@@ -36,11 +36,15 @@ const page = () => {
   }, []);
 
   const router = useRouter();
+  const toTime = (item) => {
+    const t = new Date(item?.Date__c || 0).getTime();
+    return Number.isFinite(t) ? t : 0;
+  };
   const sortedUpdates = [...(latestUpdates?.data || [])].sort(
-    (a, b) => b.Order__c - a.Order__c,
+    (a, b) => toTime(b) - toTime(a),
   );
   const featuredUpdate =
-    [...apiUpdates].sort((a, b) => b.Order__c - a.Order__c)[0] ||
+    [...apiUpdates].sort((a, b) => toTime(b) - toTime(a))[0] ||
     sortedUpdates[0];
   const featuredUpdatePath =
     featuredUpdate?.path ||

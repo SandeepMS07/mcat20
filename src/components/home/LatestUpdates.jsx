@@ -7,7 +7,7 @@ import routes from "@/utilis/route";
 import { getLatestUpdatesClient } from "@/app/api/clientApi";
 import LoadingPage from "@/app/loading";
 
-const SEASON_LABEL = "T20 ML Season 4";
+const SEASON_LABEL = "T20 Mumbai League 2026";
 
 const formatNewsDate = (dateString) => {
   if (!dateString) return "";
@@ -46,10 +46,12 @@ const LatestUpdates = () => {
     if (targetPath) router.push(targetPath);
   };
 
+  const toTime = (item) => {
+    const t = new Date(item?.Date__c || 0).getTime();
+    return Number.isFinite(t) ? t : 0;
+  };
   const cards = [...latestUpdates]
-    .sort(
-      (a, b) => (Number(b?.Order__c) || 0) - (Number(a?.Order__c) || 0),
-    )
+    .sort((a, b) => toTime(b) - toTime(a))
     .slice(0, 3);
 
   return (

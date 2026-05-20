@@ -3,6 +3,92 @@ import "./styles.css";
 
 export const LocalLatestUpdates = [
   {
+    Id: "local-6",
+    Title__c:
+      "30 high-voltage clashes set to light up Wankhede Stadium as MCA unveils fixtures for T20 Mumbai League 2026 (Men’s and Women’s)",
+    Date__c: "2026-05-15",
+    Image_URL__c: "/images/latestUpdates/fixtures-2026-main.jpg",
+    path: "/latest-updates/30-high-voltage-clashes-set-to-light-up-wankhede-stadium-as-mca-unveils-fixtures-for-t20-mumbai-league-2026",
+    Sub_Title__c:
+      "Season 4 of the T20 Mumbai League and the inaugural T20 Mumbai Women’s League — featuring 30 matches across men’s and women’s competitions — will be played at the Wankhede Stadium from June 1 to 13.",
+    Content__c: `The stage is set for a blockbuster cricket carnival as the Mumbai Cricket Association (MCA) today announced the fixtures for Season 4 of the T20 Mumbai League and the inaugural T20 Mumbai Women’s League, with 30 matches featuring international icons, IPL and WPL stars, and the city’s brightest emerging talent scheduled to be played at the iconic Wankhede Stadium from June 1 to 13.<br/><br/>
+<div class="centered-image">
+  <img src="/images/latestUpdates/fixtures-2026-main.jpg" alt="Wankhede Stadium ready to host T20 Mumbai League 2026" />
+</div>
+<br/><br/>
+Women’s league matches will begin at 9.30 AM, while the men’s tournament will feature afternoon matches at 2 PM and evening matches at 7 PM during the league stage.<br/><br/>
+The 14-day mega carnival will begin with a high-profile opening-day double-header on June 1. The afternoon clash will see Bandra Blasters, featuring Yashasvi Jaiswal, take on Shardul Thakur’s Eagle Thane Strikers, while the evening fixture will feature Tushar Deshpande’s Mumbai South Central Maratha Royals facing Sarfaraz Khan’s Aakash Tigers Mumbai Western Suburbs.<br/><br/>
+<div class="centered-image">
+  <img src="/images/latestUpdates/fixtures-2026-secondary.jpg" alt="Fans at Wankhede Stadium during T20 Mumbai League" />
+</div>
+<br/><br/>
+The league is expected to produce several marquee encounters featuring India stars including Suryakumar Yadav, Shreyas Iyer, Ajinkya Rahane, Shivam Dube, Yashasvi, Sarfaraz, Shardul and Tushar, alongside emerging talents such as Ayush Mhatre, Angkrish Raghuvanshi, Musheer Khan, Suryansh Shedge and Abhigyan Kundu. The tournament promises explosive contests, marquee rivalries and a showcase of the city’s unmatched cricketing depth.<br/><br/>
+The men’s competition will feature eight teams playing five league-stage matches each, with the top four sides progressing to the semi-finals scheduled on June 11.<br/><br/>
+The inaugural T20 Mumbai Women’s League will feature three teams, SoBo Mumbai Falcons, Thane Sky Risers and Aakash Tigers Mumbai Western Suburbs, with the competition beginning on June 2. The opening fixture will see Saima Thakor-led Thane Sky Risers face Sayali Satghare’s SoBo Mumbai Falcons. Each of the three teams will play four league-stage matches, with the top two teams qualifying for the final.<br/><br/>
+The women’s competition will also spotlight some of the most exciting cricketers, including Sayali, Saima, Humairaa Kaazi, teenage sensation Ira Jadhav, Simran Shaikh, Sanika Chalke, Vrushali Bhagat and several promising young talents from the domestic circuit.<br/><br/>
+The men’s and women’s tournaments will run simultaneously in a landmark moment for Mumbai cricket, reflecting the MCA’s vision of building a larger, more inclusive and professionally driven platform for talent development across categories.<br/><br/>
+The two finals will be played on June 13, with the T20 Mumbai Women’s League final scheduled at 2 PM and the T20 Mumbai League 2026 final at 7 PM.<br/><br/>
+MCA President Ajinkya Naik said: “The announcement of the fixtures sets the stage for what promises to be a world-class cricketing spectacle at the Wankhede Stadium. The league will bring together some of the finest players in the game alongside Mumbai’s emerging talent, giving young cricketers a valuable opportunity to compete and share the stage with established stars. At the same time, fans can look forward to two weeks of high-quality and exciting cricket as we continue to strengthen Mumbai’s cricketing ecosystem through both the men’s and women’s competitions.”<br/><br/>
+Rajdip Gupta, Chairman of the League Governing Council, added: “With 30 matches scheduled across the men’s and women’s competitions, the fixtures set the stage for an exciting and competitive season at the Wankhede Stadium. With a strong mix of experienced players and emerging talent, the league will continue to provide young cricketers with valuable exposure and an important platform for development. Fans can expect high-intensity cricket and several exciting contests throughout the tournament.”<br/><br/>
+Since its inception in 2018, the T20 Mumbai League has established itself as one of India’s leading domestic franchise-based T20 tournaments and has played an important role in the progression of several cricketers to the IPL, domestic cricket and the national team.<br/><br/>
+The launch of the T20 Mumbai Women’s League marks another significant milestone in strengthening Mumbai’s cricketing structure by creating a dedicated and competitive platform for women cricketers.<br/><br/>
+All matches will be played at the Wankhede Stadium and telecast live on Star Sports while also being streamed on JioHotstar, significantly expanding the tournament’s reach and providing players with valuable national exposure.<br/><br/>
+<strong>Complete Fixtures</strong><br/><br/>
+<strong>T20 Mumbai Men’s League</strong><br/><br/>
+<strong>June 1 (Monday)</strong><br/>
+2.00 PM – Bandra Blasters vs Eagle Thane Strikers<br/>
+7.00 PM – Mumbai South Central Maratha Royals vs Aakash Tigers Mumbai Western Suburbs<br/><br/>
+<strong>June 2 (Tuesday)</strong><br/>
+2.00 PM – North Mumbai Panthers vs Triumph Knights Mumbai North East<br/>
+7.00 PM – SoBo Mumbai Falcons vs Arcs Andheri<br/><br/>
+<strong>June 3 (Wednesday)</strong><br/>
+2.00 PM – North Mumbai Panthers vs Bandra Blasters<br/>
+7.00 PM – Aakash Tigers Mumbai Western Suburbs vs Eagle Thane Strikers<br/><br/>
+<strong>June 4 (Thursday)</strong><br/>
+2.00 PM – Mumbai South Central Maratha Royals vs SoBo Mumbai Falcons<br/>
+7.00 PM – Triumph Knights Mumbai North East vs Bandra Blasters<br/><br/>
+<strong>June 5 (Friday)</strong><br/>
+2.00 PM – Eagle Thane Strikers vs Arcs Andheri<br/>
+7.00 PM – Aakash Tigers Mumbai Western Suburbs vs North Mumbai Panthers<br/><br/>
+<strong>June 6 (Saturday)</strong><br/>
+2.00 PM – Bandra Blasters vs Mumbai South Central Maratha Royals<br/>
+7.00 PM – Triumph Knights Mumbai North East vs SoBo Mumbai Falcons<br/><br/>
+<strong>June 7 (Sunday)</strong><br/>
+2.00 PM – Arcs Andheri vs Aakash Tigers Mumbai Western Suburbs<br/>
+7.00 PM – Eagle Thane Strikers vs North Mumbai Panthers<br/><br/>
+<strong>June 8 (Monday)</strong><br/>
+2.00 PM – Mumbai South Central Maratha Royals vs Triumph Knights Mumbai North East<br/>
+7.00 PM – Arcs Andheri vs Bandra Blasters<br/><br/>
+<strong>June 9 (Tuesday)</strong><br/>
+2.00 PM – SoBo Mumbai Falcons vs Aakash Tigers Mumbai Western Suburbs<br/>
+7.00 PM – Triumph Knights Mumbai North East vs Eagle Thane Strikers<br/><br/>
+<strong>June 10 (Wednesday)</strong><br/>
+2.00 PM – SoBo Mumbai Falcons vs North Mumbai Panthers<br/>
+7.00 PM – Arcs Andheri vs Mumbai South Central Maratha Royals<br/><br/>
+<strong>June 11 (Thursday)</strong><br/>
+2.00 PM – Semi-final 1<br/>
+7.00 PM – Semi-final 2<br/><br/>
+<strong>June 13 (Saturday)</strong><br/>
+7.00 PM – Final<br/><br/>
+<strong>T20 Mumbai Women’s League</strong><br/><br/>
+<strong>June 2 (Tuesday)</strong><br/>
+9.30 AM – Thane Sky Risers vs SoBo Mumbai Falcons<br/><br/>
+<strong>June 3 (Wednesday)</strong><br/>
+9.30 AM – SoBo Mumbai Falcons vs Aakash Tigers Mumbai Western Suburbs<br/><br/>
+<strong>June 6 (Saturday)</strong><br/>
+9.30 AM – Aakash Tigers Mumbai Western Suburbs vs Thane Sky Risers<br/><br/>
+<strong>June 7 (Sunday)</strong><br/>
+9.30 AM – Aakash Tigers Mumbai Western Suburbs vs SoBo Mumbai Falcons<br/><br/>
+<strong>June 9 (Tuesday)</strong><br/>
+9.30 AM – SoBo Mumbai Falcons vs Thane Sky Risers<br/><br/>
+<strong>June 10 (Wednesday)</strong><br/>
+9.30 AM – Thane Sky Risers vs Aakash Tigers Mumbai Western Suburbs<br/><br/>
+<strong>June 13 (Saturday)</strong><br/>
+2.00 PM – Final`,
+    Order__c: 1006,
+    bordered: true,
+  },
+  {
     Id: "local-5",
     Title__c:
       "Suryakumar Yadav, Shreyas Iyer, Shivam Dube headline star-studded line-up as MCA announces retained players for T20 Mumbai League 2026",
