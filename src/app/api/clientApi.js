@@ -1,7 +1,20 @@
 import { getAxiosInstance } from "./axiosInstance";
+import teamDetailsStatic from "@/constant/team/teamDetailsDataSeason3.json";
 
 const axios = getAxiosInstance();
 const DEFAULT_TTL_MS = 5 * 60 * 1000;
+
+const withInferredTeamType = (payload) => {
+  const records = Array.isArray(payload?.data) ? payload.data : [];
+  const data = records.map((team) => {
+    if (team?.Team_Type__c) return team;
+    const isWomens = /\(\s*w\s*\)\s*$/i.test(team?.Name || "");
+    return { ...team, Team_Type__c: isWomens ? "Women's" : "Men's" };
+  });
+  return { ...payload, data };
+};
+
+const STATIC_TEAM_DETAILS = withInferredTeamType(teamDetailsStatic);
 
 const memoryCache = new Map();
 
@@ -62,17 +75,7 @@ const fetchWithCache = async (key, requestFn, ttlMs = DEFAULT_TTL_MS) => {
   return freshData;
 };
 
-export const getTeamDetailsClient = async () => {
-  try {
-    return await fetchWithCache("api:team-details", async () => {
-      const res = await axios.get("/v1/auction/teams");
-      return res.data;
-    });
-  } catch (err) {
-    console.error("Client error fetching team details:", err);
-    return null;
-  }
-};
+export const getTeamDetailsClient = async () => STATIC_TEAM_DETAILS;
 
 export const getVideosClient = async () => {
   try {
