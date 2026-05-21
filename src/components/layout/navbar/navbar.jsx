@@ -69,9 +69,9 @@ const Navbar = () => {
         <div className="relative w-full lg:w-auto">
           {/* Logo Section */}
 
-          <nav className="flex items-center justify-between gap-2 lg:gap-3 rounded-full relative overflow-visible w-full lg:w-auto px-2 lg:px-3 py-1 border border-white/20 bg-gradient-to-b from-white/[0.18] via-white/[0.08] to-white/[0.04] backdrop-blur-xl shadow-[0_8px_30px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.35)]">
+          <nav className="flex items-center justify-between gap-1.5 lg:gap-2 rounded-full relative overflow-visible w-full lg:w-auto pl-2 pr-2 lg:pl-3 lg:pr-2 py-1.5 border border-white/15 bg-[rgba(8,18,55,0.55)] backdrop-blur-2xl shadow-[0_10px_40px_-12px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.18)]">
             <div
-              className="relative shrink-0 mx-auto lg:mx-0 pl-3 pr-3 lg:pl-4 lg:pr-5 xl:pl-5 xl:pr-6 lg:after:absolute lg:after:right-0 lg:after:top-1/2 lg:after:-translate-y-1/2 lg:after:h-7 lg:after:w-px lg:after:bg-white/30"
+              className="relative shrink-0 mx-auto lg:mx-0 px-2 lg:px-3"
               style={{ zIndex: 9999 }}
             >
               {!menuOpen && (
@@ -79,16 +79,16 @@ const Navbar = () => {
                   <Image
                     src={"https://mca-cdn.ken42.com/mca-logos/t20-m.png"}
                     alt="T20 Mumbai logo"
-                    className="h-9 w-auto sm:h-10 md:h-11 lg:h-12 cursor-pointer"
+                    className="h-9 w-auto sm:h-10 md:h-11 lg:h-12 cursor-pointer drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]"
                     width={100}
                     height={100}
                     onClick={() => redirect("/")}
                   />
-                  <span aria-hidden className="h-6 w-px bg-white/40 sm:h-7 md:h-7 lg:h-8" />
+                  <span aria-hidden className="h-6 w-px bg-white/30 sm:h-7 md:h-7 lg:h-8" />
                   <Image
                     src={"/images/home/logo-w.png"}
                     alt="Women's league logo"
-                    className="h-9 w-auto sm:h-10 md:h-11 lg:h-12 cursor-pointer"
+                    className="h-9 w-auto sm:h-10 md:h-11 lg:h-12 cursor-pointer drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]"
                     width={100}
                     height={100}
                   />
@@ -96,8 +96,8 @@ const Navbar = () => {
               )}
             </div>
             {/* Navigation Links */}
-            <div className="items-center lg:flex hidden py-1">
-              <ul className="flex items-center gap-5 xl:gap-7 bg-transparent px-3 py-2 rounded-full">
+            <div className="items-center lg:flex hidden">
+              <ul className="flex items-center gap-1 xl:gap-1.5">
                 {navLinks.map((item, i) => {
                   const isExternal = /^https?:\/\//.test(item.path);
                   const hasChildren =
@@ -112,25 +112,27 @@ const Navbar = () => {
                       <li key={i} className="relative group">
                         <button
                           type="button"
-                          className={`flex cursor-pointer items-center gap-1 whitespace-nowrap text-xs md:text-sm xl:text-[15px] font-medium transition-colors hover:text-orange-400 ${
-                            isActive ? "text-orange-500" : "text-white"
+                          className={`flex cursor-pointer items-center gap-1 whitespace-nowrap rounded-full px-3 xl:px-4 py-2 text-xs md:text-sm xl:text-[14px] font-semibold tracking-wide transition-all duration-200 ${
+                            isActive
+                              ? "bg-gradient-to-b from-[#F68323] to-[#E07E27] text-white shadow-[0_4px_14px_-4px_rgba(246,131,35,0.65)]"
+                              : "text-white/85 hover:text-white hover:bg-white/10"
                           }`}
                           aria-haspopup="menu"
                           aria-expanded="false"
                         >
                           {item.title}
                           <FiChevronDown
-                            size={16}
-                            className="transition-transform group-hover:rotate-180"
+                            size={14}
+                            className="transition-transform duration-200 group-hover:rotate-180"
                           />
                         </button>
                         <span
                           aria-hidden
-                          className="absolute left-1/2 top-full z-40 h-6 w-[200px] -translate-x-1/2"
+                          className="absolute left-1/2 top-full z-40 h-3 w-[200px] -translate-x-1/2"
                         />
                         <ul
                           role="menu"
-                          className="invisible absolute left-1/2 top-full z-50 mt-6 w-[200px] -translate-x-1/2 divide-y divide-white/20 overflow-hidden rounded-[14px] border border-white/10 bg-white/[0.16] opacity-0 shadow-[0_8px_30px_rgba(0,0,0,0.25)] backdrop-blur-xl transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
+                          className="invisible absolute left-1/2 top-full z-50 mt-3 w-[210px] -translate-x-1/2 translate-y-1 overflow-hidden rounded-2xl border border-white/10 bg-[rgba(8,18,55,0.92)] p-1.5 opacity-0 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.6)] backdrop-blur-2xl transition-all duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
                         >
                           {item.children.map((child, j) => {
                             const childActive = isPathActive(child.path);
@@ -139,10 +141,10 @@ const Navbar = () => {
                                 <Link
                                   href={child.path}
                                   role="menuitem"
-                                  className={`flex items-center justify-between gap-2 px-[22px] py-3 text-sm font-medium capitalize transition-colors hover:bg-white/10 hover:text-orange-400 ${
+                                  className={`flex items-center justify-between gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold capitalize tracking-wide transition-all duration-150 ${
                                     childActive
-                                      ? "text-orange-500"
-                                      : "text-white"
+                                      ? "bg-gradient-to-b from-[#F68323] to-[#E07E27] text-white shadow-[0_4px_14px_-4px_rgba(246,131,35,0.55)]"
+                                      : "text-white/85 hover:bg-white/10 hover:text-white"
                                   }`}
                                 >
                                   <span>{child.title}</span>
@@ -167,8 +169,10 @@ const Navbar = () => {
                         href={item.path}
                         target={isExternal ? "_blank" : undefined}
                         rel={isExternal ? "noopener noreferrer" : undefined}
-                        className={`inline-flex items-center gap-1.5 cursor-pointer whitespace-nowrap text-xs md:text-sm xl:text-[15px] font-medium transition-colors hover:text-orange-400 ${
-                          isActive ? "text-orange-500" : "text-white"
+                        className={`inline-flex items-center gap-1.5 cursor-pointer whitespace-nowrap rounded-full px-3 xl:px-4 py-2 text-xs md:text-sm xl:text-[14px] font-semibold tracking-wide transition-all duration-200 ${
+                          isActive
+                            ? "bg-gradient-to-b from-[#F68323] to-[#E07E27] text-white shadow-[0_4px_14px_-4px_rgba(246,131,35,0.65)]"
+                            : "text-white/85 hover:text-white hover:bg-white/10"
                         }`}
                       >
                         {item.title}
