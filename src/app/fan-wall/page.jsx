@@ -1,4 +1,4 @@
-import Socials from "@/components/home/Socials";
+import FanWall from "@/components/home/FanWall";
 import Sponsorship from "@/components/common/Sponsorship";
 
 export const metadata = {
@@ -9,7 +9,7 @@ export default function FanWallPage() {
   return (
     <div>
       <div className="relative bg-gradient-to-bl from-[#1C398E] to-[#0E005A] pt-[100px] lg:pt-[140px]">
-        <Socials hideHeader title="FAN WALL" hashtag="#ChanceSoduNako" />
+        <FanWall />
       </div>
       <Sponsorship />
     </div>

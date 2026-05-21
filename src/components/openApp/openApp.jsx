@@ -3,6 +3,38 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { trackEvent } from "@/utilis/mixpanelClient";
 
+const DISMISS_KEY = "appBannerDismissed";
+const SESSION_KEY = "appBannerSessionHidden";
+const DISMISS_TTL_MS = 7 * 24 * 60 * 60 * 1000;
+
+const isDismissalActive = () => {
+  try {
+    const raw = localStorage.getItem(DISMISS_KEY);
+    if (!raw) return false;
+    const parsed = JSON.parse(raw);
+    if (parsed && typeof parsed.at === "number") {
+      if (Date.now() - parsed.at < DISMISS_TTL_MS) return true;
+      localStorage.removeItem(DISMISS_KEY);
+      return false;
+    }
+    return true;
+  } catch {
+    return Boolean(localStorage.getItem(DISMISS_KEY));
+  }
+};
+
+const persistDismissal = () => {
+  try {
+    localStorage.setItem(DISMISS_KEY, JSON.stringify({ at: Date.now() }));
+  } catch {}
+};
+
+const markSessionHidden = () => {
+  try {
+    sessionStorage.setItem(SESSION_KEY, "1");
+  } catch {}
+};
+
 export default function AppNavbarBanner() {
   const [showBanner, setShowBanner] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
@@ -14,8 +46,12 @@ export default function AppNavbarBanner() {
       setIsDismissed(true);
       return;
     }
-    const dismissed = localStorage.getItem("appBannerDismissed");
-    if (dismissed) {
+    if (sessionStorage.getItem(SESSION_KEY)) {
+      setIsDismissed(true);
+      setShowBanner(false);
+      return;
+    }
+    if (isDismissalActive()) {
       setIsDismissed(true);
       setShowBanner(false);
       return;
@@ -40,6 +76,11 @@ export default function AppNavbarBanner() {
       platform,
     });
 
+    persistDismissal();
+    markSessionHidden();
+    setShowBanner(false);
+    setIsDismissed(true);
+
     if (isIOS) {
       window.location.href = "https://t20mumbai.com/link";
     } else if (isAndroid) {
@@ -58,7 +99,8 @@ export default function AppNavbarBanner() {
   const dismissBanner = () => {
     setShowBanner(false);
     setIsDismissed(true);
-    localStorage.setItem("appBannerDismissed", "true");
+    persistDismissal();
+    markSessionHidden();
   };
 
   if (!showBanner || isDismissed) return null;
