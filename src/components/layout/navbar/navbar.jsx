@@ -69,26 +69,26 @@ const Navbar = () => {
         <div className="relative w-full lg:w-auto">
           {/* Logo Section */}
 
-          <nav className="flex items-center justify-between section-width rounded-full relative overflow-visible w-full lg:w-auto px-4 border border-white/20 bg-gradient-to-b from-white/[0.18] via-white/[0.08] to-white/[0.04] backdrop-blur-xl shadow-[0_8px_30px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.35)]">
+          <nav className="flex items-center justify-between gap-2 lg:gap-3 rounded-full relative overflow-visible w-full lg:w-auto px-2 lg:px-3 py-1 border border-white/20 bg-gradient-to-b from-white/[0.18] via-white/[0.08] to-white/[0.04] backdrop-blur-xl shadow-[0_8px_30px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.35)]">
             <div
-              className="relative shrink-0 mx-auto lg:mx-0 pl-3 pr-3 lg:pl-6 lg:pr-4 xl:pl-10 xl:pr-6 lg:after:absolute lg:after:right-1 xl:after:right-2 lg:after:inset-y-3 lg:after:w-[1.5px] lg:after:bg-white/40"
+              className="relative shrink-0 mx-auto lg:mx-0 pl-3 pr-3 lg:pl-4 lg:pr-5 xl:pl-5 xl:pr-6 lg:after:absolute lg:after:right-0 lg:after:top-1/2 lg:after:-translate-y-1/2 lg:after:h-7 lg:after:w-px lg:after:bg-white/30"
               style={{ zIndex: 9999 }}
             >
               {!menuOpen && (
-                <Link href="/" className="flex items-center justify-center gap-2 sm:gap-3 w-full">
+                <Link href="/" className="flex items-center justify-center gap-2.5 sm:gap-3 w-full">
                   <Image
                     src={"https://mca-cdn.ken42.com/mca-logos/t20-m.png"}
                     alt="T20 Mumbai logo"
-                    className="h-10 w-auto sm:h-12 md:h-14 lg:h-16 cursor-pointer"
+                    className="h-9 w-auto sm:h-10 md:h-11 lg:h-12 cursor-pointer"
                     width={100}
                     height={100}
                     onClick={() => redirect("/")}
                   />
-                  <span aria-hidden className="h-7 w-px bg-white/40 sm:h-8 md:h-9 lg:h-10" />
+                  <span aria-hidden className="h-6 w-px bg-white/40 sm:h-7 md:h-7 lg:h-8" />
                   <Image
                     src={"/images/home/logo-w.png"}
                     alt="Women's league logo"
-                    className="h-10 w-auto sm:h-12 md:h-14 lg:h-16 cursor-pointer"
+                    className="h-9 w-auto sm:h-10 md:h-11 lg:h-12 cursor-pointer"
                     width={100}
                     height={100}
                   />
@@ -96,8 +96,8 @@ const Navbar = () => {
               )}
             </div>
             {/* Navigation Links */}
-            <div className="items-center lg:flex hidden py-1 w-full justify-evenly">
-              <ul className="w-full flex justify-evenly items-center gap-3 xl:gap-6 bg-transparent pr-3 xl:pr-6 py-2 rounded-full">
+            <div className="items-center lg:flex hidden py-1">
+              <ul className="flex items-center gap-5 xl:gap-7 bg-transparent px-3 py-2 rounded-full">
                 {navLinks.map((item, i) => {
                   const isExternal = /^https?:\/\//.test(item.path);
                   const hasChildren =
