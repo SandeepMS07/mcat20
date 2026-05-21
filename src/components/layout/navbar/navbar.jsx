@@ -77,7 +77,7 @@ const Navbar = () => {
               {!menuOpen && (
                 <Link href="/" className="flex items-center justify-center gap-2 sm:gap-3 w-full">
                   <Image
-                    src={"/images/home/logo.svg"}
+                    src={"https://mca-cdn.ken42.com/mca-logos/t20-m.png"}
                     alt="T20 Mumbai logo"
                     className="h-10 w-auto sm:h-12 md:h-14 lg:h-16 cursor-pointer"
                     width={100}
@@ -202,7 +202,7 @@ const Navbar = () => {
           <div className="flex justify-between items-center p-5">
             <div className="flex items-center gap-2">
               <Image
-                src="/images/home/logo.svg"
+                src="https://mca-cdn.ken42.com/mca-logos/t20-m.png"
                 width={80}
                 height={80}
                 alt="T20 Mumbai logo"

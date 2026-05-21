@@ -71,7 +71,7 @@ const Footer = () => {
               className="inline-flex items-center gap-2 md:gap-3"
             >
               <Image
-                src="/images/home/logo.svg"
+                src="https://mca-cdn.ken42.com/mca-logos/t20-m.png"
                 alt="T20 Mumbai"
                 className="h-12 w-auto sm:h-16 md:h-20"
                 width={120}

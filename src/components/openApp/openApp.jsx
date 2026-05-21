@@ -121,7 +121,7 @@ export default function AppNavbarBanner() {
           }}
         >
           <img
-            src={"/images/home/logo.svg"}
+            src={"https://mca-cdn.ken42.com/mca-logos/t20-m.png"}
             style={{ height: "36px", width: "auto" }}
             alt="T20 Mumbai"
           />

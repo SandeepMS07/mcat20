@@ -167,7 +167,7 @@ const PlayerCard = ({ player, index }) => {
         <span className="rounded bg-black/30 px-2 py-1 text-[10px] font-bold uppercase tracking-wide sm:text-xs">
           {player.label}
         </span>
-        <img src={"/images/home/logo.svg"} alt="" className="h-14 w-auto" />
+        <img src={"https://mca-cdn.ken42.com/mca-logos/t20-m.png"} alt="" className="h-14 w-auto" />
       </div>
       <div className="relative flex h-44 items-end justify-center sm:h-56">
         <img
