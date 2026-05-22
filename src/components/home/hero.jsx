@@ -22,6 +22,8 @@ const REGISTRATION_PROMO_CUTOFF_TS = new Date(
 const ROHIT_HOVER_PLAY_DELAY_MS = 500;
 const SQUADS_BANNER_IMAGE_URL =
   "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778740165645-a3wx2p3720c-Home.png";
+const TROPHY_TOUR_BANNER_IMAGE_URL =
+  "https://mca-cdn.ken42.com/website/banner_img/banner-trophy.png";
 const TEAM_TYPE_PARAM_KEY = "type";
 const TEAM_TYPE_MEN = "men";
 const TEAM_TYPE_WOMEN = "women";
@@ -539,6 +541,45 @@ const Hero = () => {
             </div>
           </SwiperSlide>
         )}
+        <SwiperSlide className="h-full" data-swiper-autoplay={7000}>
+          <div
+            className={`relative flex h-full w-full items-center justify-center overflow-hidden bg-cover bg-center ${heroSlidePaddingClass}`}
+            style={{
+              backgroundImage: `url('${TROPHY_TOUR_BANNER_IMAGE_URL}')`,
+            }}
+          >
+            <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
+            <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
+            <HeroSlideContent
+              eyebrow="T20 Mumbai Season 4"
+              title="T20 Mumbai League Brings its Trophy Tour to the Streets of Mumbai"
+              subtitle="#ChanceSoduNako"
+              action={
+                <div className="flex flex-row gap-2">
+                  <a
+                    className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md"
+                    onClick={() => {
+                      router.push(
+                        "/news/t20-mumbai-league-brings-its-trophy-tour-to-the-streets-of-mumbai",
+                      );
+                    }}
+                  >
+                    Read More{" "}
+                    <span>
+                      <Image
+                        src="/images/home/hero/buttonIcon.svg"
+                        alt="button-icon"
+                        width={24}
+                        height={24}
+                        className="w-5 h-5"
+                      />
+                    </span>
+                  </a>
+                </div>
+              }
+            />
+          </div>
+        </SwiperSlide>
         <SwiperSlide className="h-full" data-swiper-autoplay={7000}>
           <div
             className={`relative flex h-full w-full items-center justify-center overflow-hidden bg-cover bg-center ${heroSlidePaddingClass}`}

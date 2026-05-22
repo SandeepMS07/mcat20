@@ -3,7 +3,6 @@ import UpdatesCard from "@/components/LatestUpdateComponents/UpdatesCard";
 import { useRouter } from "next/navigation";
 import { formatTitleForURL } from "@/utilis/helper";
 import routes from "@/utilis/route";
-import TitleComponent from "@/components/common/TitleComponent";
 import { getLatestUpdatesClient } from "@/app/api/clientApi";
 import { useEffect, useState } from "react";
 import LoadingPage from "../loading";
@@ -88,7 +87,7 @@ const page = () => {
                   onClick={() => router.push(featuredUpdatePath)}
                   className="rounded-full bg-[#F68323] px-6 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
                 >
-                  Read More
+                  View More
                 </button>
               )}
             </div>
