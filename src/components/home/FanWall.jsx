@@ -1,7 +1,10 @@
 "use client";
 
 import Script from "next/script";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import routes from "@/utilis/route";
 
 const ELFSIGHT_APP_CLASS = "elfsight-app-b9288b7b-ed2e-44f9-b830-6806675a82f1";
 const LOAD_FALLBACK_MS = 8000;
@@ -17,6 +20,8 @@ const FanWallSkeleton = () => (
 const FanWall = () => {
   const containerRef = useRef(null);
   const [loaded, setLoaded] = useState(false);
+  const pathname = usePathname();
+  const showViewAll = pathname !== routes.fanWall;
 
   useEffect(() => {
     const node = containerRef.current;
@@ -103,6 +108,28 @@ const FanWall = () => {
             }`}
           />
         </div>
+
+        {showViewAll && (
+          <div className="mt-10 flex justify-center">
+            <Link
+              href={routes.fanWall}
+              className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-b from-[#d84800] to-[#f68323] px-7 py-2.5 text-sm font-semibold uppercase tracking-wide text-white shadow-[0_4px_18px_rgba(216,72,0,0.3)] transition-opacity hover:opacity-90 sm:text-base"
+            >
+              View Fan Wall
+              <svg
+                viewBox="0 0 24 24"
+                className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 12h14M13 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

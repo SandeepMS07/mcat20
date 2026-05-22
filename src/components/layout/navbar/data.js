@@ -33,6 +33,10 @@ export const navLinks = [
     title: "Stats",
     path: `${routes.stats}`,
   },
+  {
+    title: "Fan Wall",
+    path: `${routes.fanWall}`,
+  },
   // {
   //   title: "Fantasy",
   //   path: `${routes.fantasy}`,

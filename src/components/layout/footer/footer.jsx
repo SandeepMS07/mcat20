@@ -13,6 +13,7 @@ const FOOTER_COLUMNS = [
       { label: "Fixtures", href: routes.fixtures },
       { label: "Points Table", href: routes.pointsTable },
       { label: "Teams", href: routes.teams },
+      { label: "Fan Wall", href: routes.fanWall },
     ],
   },
   {
