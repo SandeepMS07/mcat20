@@ -336,7 +336,7 @@ const fixtures4: Season4Fixtures = {
       type: "playoff",
       date: "2026-06-13",
       day: "Saturday",
-      time: "9:30 AM",
+      time: "2:00 PM",
       category: "Women",
       home_team: "TBD",
       away_team: "TBD",
