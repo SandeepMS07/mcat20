@@ -183,10 +183,29 @@ export default function ScoreCard({ match }) {
   const homeLogo = teamLogoForName(homeTeamName);
   const awayLogo = teamLogoForName(awayTeamName);
 
-  const homeInnings = innings.find((i) => i.Battingteam === homeId) || {};
-  const awayInnings = innings.find((i) => i.Battingteam === awayId) || {};
+  const isSuperOverInnings = (i) => {
+    if (!i) return false;
+    const number = Number(i.Number || i.Innings_Number || i.InningsNumber || 0);
+    if (number > 2) return true;
+    const flag = i.Issuperover ?? i.IsSuperover ?? i.SuperOver ?? i.Superover;
+    if (typeof flag === "string") return /^(yes|true|1)$/i.test(flag);
+    return Boolean(flag);
+  };
+
+  const regularInnings = innings.filter((i) => !isSuperOverInnings(i));
+  const superOverInnings = innings.filter(isSuperOverInnings);
+
+  const homeInnings =
+    regularInnings.find((i) => i.Battingteam === homeId) || {};
+  const awayInnings =
+    regularInnings.find((i) => i.Battingteam === awayId) || {};
+  const homeSuperOver = superOverInnings.find((i) => i.Battingteam === homeId);
+  const awaySuperOver = superOverInnings.find((i) => i.Battingteam === awayId);
+  const hasSuperOver = Boolean(homeSuperOver || awaySuperOver);
 
   const result = match.Matchdetail.Equation || "";
+  const wasSuperOver =
+    hasSuperOver || /super\s*over/i.test(result || "");
 
   // Determine winner: the team mentioned BEFORE "beat/won" is the winner
   const winnerName = (() => {
@@ -346,9 +365,100 @@ export default function ScoreCard({ match }) {
               />
             </div>
 
+            {hasSuperOver && (
+              <div className="rounded-lg border border-[#FFD166]/40 bg-gradient-to-r from-[#1B0F5C] via-[#192a66] to-[#1B0F5C] px-4 py-4 sm:px-6 sm:py-5">
+                <div className="mb-3 flex items-center justify-center gap-2">
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-3.5 w-3.5 text-[#FFD166]"
+                    fill="currentColor"
+                    aria-hidden
+                  >
+                    <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" />
+                  </svg>
+                  <span className="text-[10px] sm:text-[11px] font-extrabold uppercase italic tracking-[0.24em] text-[#FFD166]">
+                    Super Over
+                  </span>
+                  <svg
+                    viewBox="0 0 24 24"
+                    className="h-3.5 w-3.5 text-[#FFD166]"
+                    fill="currentColor"
+                    aria-hidden
+                  >
+                    <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" />
+                  </svg>
+                </div>
+                <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-6">
+                  <div className="text-left">
+                    <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wide text-slate-300 line-clamp-1">
+                      {homeTeamName}
+                    </div>
+                    <div
+                      className={`mt-1 text-xl sm:text-2xl font-extrabold leading-none ${
+                        homeWinner ? "text-[#FFD166]" : "text-white"
+                      }`}
+                    >
+                      {homeSuperOver?.Total ?? "-"}
+                      {homeSuperOver?.Wickets !== undefined &&
+                      homeSuperOver?.Wickets !== null
+                        ? `/${homeSuperOver.Wickets}`
+                        : ""}
+                    </div>
+                    {homeSuperOver?.Overs && (
+                      <div className="mt-0.5 text-[10px] sm:text-[11px] font-medium text-slate-400">
+                        ({homeSuperOver.Overs} OV)
+                      </div>
+                    )}
+                  </div>
+                  <div className="-skew-x-12">
+                    <span className="font-black italic text-white/80 text-base sm:text-lg leading-none tracking-wider">
+                      V/S
+                    </span>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wide text-slate-300 line-clamp-1">
+                      {awayTeamName}
+                    </div>
+                    <div
+                      className={`mt-1 text-xl sm:text-2xl font-extrabold leading-none ${
+                        awayWinner ? "text-[#FFD166]" : "text-white"
+                      }`}
+                    >
+                      {awaySuperOver?.Total ?? "-"}
+                      {awaySuperOver?.Wickets !== undefined &&
+                      awaySuperOver?.Wickets !== null
+                        ? `/${awaySuperOver.Wickets}`
+                        : ""}
+                    </div>
+                    {awaySuperOver?.Overs && (
+                      <div className="mt-0.5 text-[10px] sm:text-[11px] font-medium text-slate-400">
+                        ({awaySuperOver.Overs} OV)
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+
             {result && (
               <div className="flex justify-center pt-2">
-                <span className="inline-block bg-[#ef4123] text-white text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.12em] rounded-md px-5 py-2.5 text-center">
+                <span
+                  className={`inline-flex items-center gap-2 text-white text-[11px] sm:text-xs font-extrabold uppercase tracking-[0.12em] rounded-md px-5 py-2.5 text-center ${
+                    wasSuperOver
+                      ? "bg-gradient-to-r from-[#F2A23A] to-[#FFD166] text-[#0B1545]"
+                      : "bg-[#ef4123]"
+                  }`}
+                >
+                  {wasSuperOver && (
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="h-3 w-3"
+                      fill="currentColor"
+                      aria-hidden
+                    >
+                      <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" />
+                    </svg>
+                  )}
                   {result}
                 </span>
               </div>

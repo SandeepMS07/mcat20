@@ -5,10 +5,10 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import fixtures1 from "@/utilis/fixtures/fixtures1.js";
 import fixtures2 from "@/utilis/fixtures/fixtures2.js";
+import season3Results from "@/utilis/fixtures/season3-results.json";
 import fixtures4, { resolveSeason4Logo } from "@/utilis/fixtures/fixtures4";
 import { teamShortName } from "@/utilis/helper";
 import routes from "@/utilis/route";
-import FixtureWidget from "./components/FixtureWidget";
 import Sponsorship from "@/components/common/Sponsorship";
 import CustomSelect from "@/components/common/CustomSelect";
 
@@ -189,13 +189,28 @@ const TeamSide = ({ name, logo, score, overs, winner, align = "left", category }
   );
 };
 
-const VsBadge = ({ subText, subTextItalic }) => (
+const SuperOverBadge = () => (
+  <div className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-[#F2A23A] to-[#FFD166] px-2.5 py-[3px] text-[9px] font-extrabold uppercase italic tracking-[0.14em] text-[#0B1545] shadow-[0_2px_8px_rgba(242,162,58,0.45)]">
+    <svg
+      viewBox="0 0 24 24"
+      className="h-2.5 w-2.5"
+      fill="currentColor"
+      aria-hidden
+    >
+      <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z" />
+    </svg>
+    Super Over
+  </div>
+);
+
+const VsBadge = ({ subText, subTextItalic, wasSuperOver }) => (
   <div className="px-3 sm:px-4 shrink-0 flex flex-col items-center gap-2 self-center">
     <div className="-skew-x-12">
       <div className="font-black italic text-white text-2xl sm:text-3xl md:text-[34px] leading-none tracking-wider">
         V/S
       </div>
     </div>
+    {wasSuperOver && <SuperOverBadge />}
     {subText && (
       <div className="flex flex-col items-center gap-0.5 max-w-[180px]">
         <div className="text-[11px] sm:text-xs text-slate-400 text-center font-medium leading-tight">
@@ -303,7 +318,11 @@ const MatchCard = ({ match }) => {
               align="left"
               category={match.category}
             />
-            <VsBadge subText={match.resultSubText} subTextItalic={match.resultSubTextItalic} />
+            <VsBadge
+              subText={match.resultSubText}
+              subTextItalic={match.resultSubTextItalic}
+              wasSuperOver={match.wasSuperOver}
+            />
             <TeamSide
               name={match.awayName}
               logo={match.awayLogo}
@@ -400,19 +419,81 @@ function ballsLeftFromOvers(overs, maxOvers = 20) {
 }
 
 function buildResultSubText(m, h, a) {
-  if (!m.winning_margin) return { main: "", italic: "" };
+  if (!m.winning_margin) return { main: "", italic: "", wasSuperOver: false };
   const winnerSide = h.winner ? h : a.winner ? a : null;
-  if (!winnerSide) return { main: "", italic: "" };
+  if (!winnerSide) return { main: "", italic: "", wasSuperOver: false };
   const short = teamShortName[winnerSide.name];
   const who = short || winnerSide.name;
-  const main = `${who} won by ${m.winning_margin}`;
+  const wasSuperOver = /super\s*over/i.test(m.winning_margin);
+  const main = wasSuperOver
+    ? `${who} won via Super Over`
+    : `${who} won by ${m.winning_margin}`;
   // Show balls left only for "by N wickets" wins (chase scenario)
   let italic = "";
-  if (/wicket/i.test(m.winning_margin)) {
+  if (!wasSuperOver && /wicket/i.test(m.winning_margin)) {
     const balls = ballsLeftFromOvers(winnerSide.overs);
     if (balls) italic = `(${balls} ball${balls === 1 ? "" : "s"} left)`;
   }
-  return { main, italic };
+  return { main, italic, wasSuperOver };
+}
+
+function parseSeason3Score(value) {
+  if (!value) return { score: "", overs: "" };
+  const overMatch = value.match(/\(([^)]+)\)/);
+  const oversRaw = overMatch ? overMatch[1] : "";
+  const overs = oversRaw.replace(/\s*(Ov|Overs?)\s*$/i, "").trim();
+  const score = value.split(/\s*\(/)[0].trim();
+  return { score, overs };
+}
+
+function processSeason3Matches(jsonData) {
+  if (!Array.isArray(jsonData)) return [];
+  return jsonData.map((m) => {
+    const first = parseSeason3Score(m.FirstBattingSummary);
+    const second = parseSeason3Score(m.SecondBattingSummary);
+    const start = new Date(`${m.MatchDate}T${m.MatchTime || "00:00"}:00`);
+    const homeWinner =
+      String(m.WinningTeamID || "") === String(m.FirstBattingTeamID);
+    const awayWinner =
+      String(m.WinningTeamID || "") === String(m.SecondBattingTeamID);
+    const isCompleted = m.MatchStatus === "Post";
+
+    const commentary = (m.Commentss || m.Comments || "").trim();
+    const wasSuperOver = /super\s*over/i.test(commentary);
+    const main = commentary.replace(/\bWon by\b/i, "won by");
+    let italic = "";
+    if (!wasSuperOver && /wicket/i.test(commentary) && awayWinner) {
+      const balls = ballsLeftFromOvers(second.overs);
+      if (balls) italic = `(${balls} ball${balls === 1 ? "" : "s"} left)`;
+    }
+
+    return {
+      raw: m,
+      game_id: m.MatchID,
+      matchLabel: (m.ROUND_NAME || "").toUpperCase(),
+      bigDate: formatBigDate(start),
+      timeStr: formatTime(start),
+      venueFull: m.GroundName || "",
+      homeName: m.FirstBattingTeamName,
+      homeLogo: m.HomeTeamLogo,
+      homeScore: first.score,
+      homeOvers: first.overs,
+      homeWinner,
+      awayName: m.SecondBattingTeamName,
+      awayLogo: m.AwayTeamLogo,
+      awayScore: second.score,
+      awayOvers: second.overs,
+      awayWinner,
+      resultSubText: main,
+      resultSubTextItalic: italic,
+      wasSuperOver,
+      ticketLink: null,
+      matchCentreHref: m.MatchID ? `/scores/${m.MatchID}` : routes.matchcentre,
+      date: start,
+      isCompleted,
+      category: "Men",
+    };
+  });
 }
 
 function processLegacyMatches(jsonData) {
@@ -434,7 +515,7 @@ function processLegacyMatches(jsonData) {
     const a = fmt(p2);
     const isCompleted =
       m.event_status === "Match Ended" || !!m.event_sub_status;
-    const { main, italic } = buildResultSubText(m, h, a);
+    const { main, italic, wasSuperOver } = buildResultSubText(m, h, a);
     return {
       raw: m,
       game_id: m.game_id,
@@ -454,6 +535,7 @@ function processLegacyMatches(jsonData) {
       awayWinner: a.winner,
       resultSubText: main,
       resultSubTextItalic: italic,
+      wasSuperOver,
       ticketLink: null,
       matchCentreHref: m.game_id ? `/scores/${m.game_id}` : routes.matchcentre,
       date: start,
@@ -537,6 +619,7 @@ export default function FixturesPage() {
   const sourceMatches = useMemo(() => {
     if (season === "season1") return processLegacyMatches(fixtures1);
     if (season === "season2") return processLegacyMatches(fixtures2);
+    if (season === "season3") return processSeason3Matches(season3Results);
     if (season === "season4") {
       let menCount = 0;
       let womenCount = 0;
@@ -660,7 +743,7 @@ export default function FixturesPage() {
                 onChange={setTeam}
               />
             )}
-            {status === "completed" && season !== "season3" && (
+            {status === "completed" && (
               <div className="col-span-2">
                 <CustomSelect
                   label="Team"
@@ -709,24 +792,18 @@ export default function FixturesPage() {
                   options={seasonOptions}
                 />
               )}
-              {season !== "season3" && (
-                <FilterSelect
-                  label="Filter by team"
-                  value={team}
-                  onChange={setTeam}
-                  options={teamOptions}
-                />
-              )}
+              <FilterSelect
+                label="Filter by team"
+                value={team}
+                onChange={setTeam}
+                options={teamOptions}
+              />
             </div>
           </div>
         </div>
 
         {/* Content */}
-        {season === "season3" ? (
-          <div className="rounded-xl bg-white/5 border border-white/10 p-3 sm:p-4 md:p-6">
-            <FixtureWidget />
-          </div>
-        ) : visible.length === 0 ? (
+        {visible.length === 0 ? (
           <EmptyState
             title={
               status === "completed"
@@ -750,7 +827,7 @@ export default function FixturesPage() {
           </div>
         )}
 
-        {season !== "season3" && hasMore && (
+        {hasMore && (
           <div className="flex justify-center mt-10 md:mt-12">
             <button
               type="button"
