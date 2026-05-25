@@ -19,13 +19,6 @@ const TitleSponsorCard = () => (
       className="pointer-events-none absolute -inset-1 rounded-[20px] bg-gradient-to-br from-[#F68323]/30 via-transparent to-[#1C398E]/30 opacity-80 blur-[6px]"
     />
     <div className="relative flex flex-col overflow-hidden rounded-[18px] bg-gradient-to-br from-[#192A66] via-[#172476] to-[#0E005A] p-1.5 shadow-[0_18px_44px_-18px_rgba(14,0,90,0.5)] transition-all duration-300 hover:-translate-y-1">
-      <div className="flex items-center justify-center gap-2.5 px-4 pt-3 pb-2.5">
-        <span className="h-[2px] w-5 rounded-full bg-[#F68323]" />
-        <span className="text-[11px] font-bold uppercase tracking-[0.36em] text-white">
-          Title Sponsor
-        </span>
-        <span className="h-[2px] w-5 rounded-full bg-[#F68323]" />
-      </div>
       <div className="aspect-[1510/646] w-full overflow-hidden rounded-[14px] bg-white">
         <div className="flex h-full w-full items-center justify-center px-6">
           <img
@@ -115,16 +108,14 @@ const Sponsorship = () => {
 
           {/* ───────── Mobile layout (flat, label-above-logo) ───────── */}
           <div className="flex flex-col items-stretch gap-7 sm:hidden">
-            <MobileSponsorRow role="Title Sponsor" kind="title">
-              <div className="flex w-full items-center justify-center rounded-2xl bg-white px-6 py-5 shadow-[0_10px_28px_-12px_rgba(14,0,90,0.18)] ring-1 ring-[#192A66]/8">
-                <img
-                  src="/images/home/sponsorship/nuvama.svg"
-                  alt="Nuvama"
-                  className="h-12 w-auto max-w-[200px] object-contain"
-                  loading="lazy"
-                />
-              </div>
-            </MobileSponsorRow>
+            {/* <div className="flex w-full items-center justify-center rounded-2xl bg-white px-6 py-5 shadow-[0_10px_28px_-12px_rgba(14,0,90,0.18)] ring-1 ring-[#192A66]/8">
+              <img
+                src="/images/home/sponsorship/nuvama.svg"
+                alt="Nuvama"
+                className="h-12 w-auto max-w-[200px] object-contain"
+                loading="lazy"
+              />
+            </div> */}
 
             <div
               aria-hidden
@@ -149,9 +140,9 @@ const Sponsorship = () => {
 
           {/* ───────── Desktop layout (cards) ───────── */}
           <div className="hidden flex-col items-center gap-10 sm:flex">
-            <div className="flex w-full justify-center">
+            {/* <div className="flex w-full justify-center">
               <TitleSponsorCard />
-            </div>
+            </div> */}
 
             <div className="flex w-full flex-wrap items-stretch justify-center gap-8 md:gap-10">
               {SPONSORS.map((s) => (
