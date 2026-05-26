@@ -26,7 +26,11 @@ const routes = {
   pointsTable: "/points-table",
 
   videos: "/videos",
-  fantasy: "http://localhost:3010/",
+  // Fantasy is opened via the SSO hand-off in navbar.jsx (not a direct
+  // navigation), so the fantasy *app* URL doesn't live here — it lives in
+  // FANTASY_WEB_BASE (src/constant/index.ts) and is built with ?code= at
+  // hand-off time. This entry stays as the in-site "Coming Soon" teaser.
+  fantasy: "/fantasy",
   fanWall: "/fan-wall",
   fanPoll: "/fan-poll",
   choice: "/choice",

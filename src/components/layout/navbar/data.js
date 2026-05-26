@@ -38,10 +38,14 @@ export const navLinks = [
     path: `${routes.fanWall}`,
   },
   {
+    // SSO hand-off into the fantasy app. The navbar trades the user's
+    // access JWT for a 30-second one-time code via /v1/auth/sso-handoff,
+    // then redirects to FANTASY_WEB_BASE/?code=<code>. path is unused for
+    // this entry (kept for shape parity with the other nav items).
     title: "Fantasy",
-    path: `${routes.fantasy}`,
+    path: "#",
     requiresAuth: true,
-    appendToken: true,
+    ssoHandoff: true,
   },
   {
     title: "Fan Zone",

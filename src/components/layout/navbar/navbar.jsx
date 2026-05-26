@@ -3,11 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { navLinks } from "./data";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
-import { FiChevronDown } from "react-icons/fi";
+import { FiChevronDown, FiUser } from "react-icons/fi";
 import { useState } from "react";
 import routes from "@/utilis/route";
 import { redirect, usePathname } from "next/navigation";
 import { useAuth } from "@/components/auth/AuthContext";
+import { requestSsoHandoff } from "@/app/api/auth";
+import { FANTASY_WEB_BASE } from "@/constant";
 
 const TOP_MARQUEE_TEXT =
   "T20 Mumbai Men’s & Women’s League | June 1-13 | Wankhede Stadium";
@@ -27,7 +29,10 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [expandedItem, setExpandedItem] = useState(null);
   const pathName = usePathname();
-  const { isAuthed, token, user, openLogin, logout } = useAuth();
+  // `token` is no longer destructured: with the SSO hand-off pattern, the JWT
+  // never leaves the axios interceptor — we only forward a one-time exchange
+  // code to the fantasy app.
+  const { isAuthed, user, openLogin, logout } = useAuth();
 
   const isPathActive = (path) => {
     if (!path || /^https?:\/\//.test(path)) return false;
@@ -35,33 +40,99 @@ const Navbar = () => {
     return pathName === path || pathName.startsWith(`${path}/`);
   };
 
-  const buildAuthedUrl = (path, appendToken, authToken) => {
-    if (!appendToken || !authToken) return path;
-    const sep = path.includes("?") ? "&" : "?";
-    return `${path}${sep}token=${encodeURIComponent(authToken)}`;
-  };
-
   const openExternal = (url) => {
     if (typeof window === "undefined") return;
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
+  // Tiny "Opening Fantasy…" splash written into the popup while we wait for
+  // the /sso-handoff round-trip. Beats a blank tab if the network is slow.
+  // Self-contained string — no external assets, no fonts, dies the moment we
+  // navigate the popup to its real destination.
+  const POPUP_SPLASH_HTML = `<!doctype html><html><head><meta charset="utf-8"><title>Opening Fantasy…</title><meta name="viewport" content="width=device-width,initial-scale=1"><style>html,body{margin:0;height:100%;background:#0B1545;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.wrap{display:flex;height:100%;align-items:center;justify-content:center;flex-direction:column;gap:1rem}.spin{width:36px;height:36px;border:2px solid rgba(255,255,255,.12);border-top-color:#F68323;border-radius:50%;animation:r .8s linear infinite}@keyframes r{to{transform:rotate(360deg)}}.lbl{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.7)}</style></head><body><div class="wrap"><div class="spin"></div><div class="lbl">Opening Fantasy…</div></div></body></html>`;
+
+  // SSO hand-off into the fantasy app. Lazy by design (only on click) — codes
+  // expire in 30s, so prefetching is worse than useless. Never logs the code:
+  // it's a single-use credential, same hygiene as any other auth token.
+  //
+  // popup is OPENED synchronously inside the click handler — async work
+  // happens AFTER, navigating the already-open tab. If we awaited first then
+  // tried window.open(), Safari/Chrome would block it as a non-user-gesture
+  // popup.
+  const handoffToFantasy = async (popup) => {
+    try {
+      const { code } = await requestSsoHandoff();
+      if (!code) throw new Error("no_code_in_response");
+      const url = `${FANTASY_WEB_BASE}/?code=${encodeURIComponent(code)}`;
+      if (popup && !popup.closed) {
+        popup.location.replace(url);
+      } else {
+        // Popup blocked or user closed it during the fetch — fall back to a
+        // same-tab navigation so the click still does something.
+        window.location.href = url;
+      }
+    } catch (err) {
+      if (popup && !popup.closed) popup.close();
+      throw err;
+    }
+  };
+
   const handleGatedNavClick = (item, afterClick) => {
-    const isExternal = /^https?:\/\//.test(item.path);
-    const finish = (authToken) => {
-      const url = buildAuthedUrl(item.path, item.appendToken, authToken);
-      if (isExternal) openExternal(url);
-      else if (typeof window !== "undefined") window.location.href = url;
-      afterClick?.();
+    // SSO entry, AUTHED path: open a blank tab RIGHT NOW (synchronously,
+    // inside the click handler) so the browser counts it as a user-gesture-
+    // initiated popup. Seed it with a tiny splash so the user doesn't stare
+    // at "about:blank" during the network round-trip. The popup ref is then
+    // handed off to the async work below.
+    //
+    // UNAUTHED path: do NOT open a popup here. The user will go through the
+    // LoginModal first, and after their async OTP verify completes, the
+    // user-gesture window has already closed — any window.open at that point
+    // would be popup-blocked. Falling back to same-tab navigation post-login
+    // is the saner UX anyway (user logged in on this tab; finishing the
+    // journey here keeps things in one place).
+    let popup = null;
+    if (item.ssoHandoff && isAuthed && typeof window !== "undefined") {
+      popup = window.open("", "_blank");
+      if (popup) {
+        try { popup.document.write(POPUP_SPLASH_HTML); popup.document.close(); }
+        catch { /* cross-origin guard, can't write — fine, we still own it */ }
+      }
+    }
+
+    const finish = async () => {
+      try {
+        if (item.ssoHandoff) {
+          // popup === null here for the post-login path (handoffToFantasy
+          // falls back to window.location.href in that case).
+          await handoffToFantasy(popup);
+        } else if (/^https?:\/\//.test(item.path)) {
+          openExternal(item.path);
+        } else if (typeof window !== "undefined") {
+          window.location.href = item.path;
+        }
+      } catch (err) {
+        // SSO handoff failed — likely a 401 (session expired between mount and
+        // click) or a 5xx / network blip. Surface to the user instead of
+        // silently doing nothing. Replace with the project's toast system when
+        // one exists; alert() is the lowest-friction stand-in for now.
+        // eslint-disable-next-line no-console
+        console.error("[fantasy] hand-off failed", err?.response?.status, err?.response?.data || err?.message);
+        if (typeof window !== "undefined") {
+          if (err?.response?.status === 401) {
+            window.alert("Your session has expired. Please sign in again.");
+          } else {
+            window.alert("Couldn't open Fantasy right now. Please try again.");
+          }
+        }
+      } finally {
+        afterClick?.();
+      }
     };
     if (!isAuthed) {
-      openLogin(
-        ({ token: nextToken } = {}) => finish(nextToken),
-        { variant: "fantasy" }
-      );
+      openLogin(finish, { variant: "fantasy" });
       return;
     }
-    finish(token);
+    finish();
   };
 
   if (pathName === "/auction-info") return;
@@ -320,8 +391,11 @@ const Navbar = () => {
                     <button
                       type="button"
                       onClick={() => openLogin()}
-                      className="inline-flex cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-full bg-gradient-to-b from-[#F68323] to-[#E07E27] px-4 py-2 text-xs md:text-sm xl:text-[14px] font-semibold tracking-wide text-white shadow-[0_4px_14px_-4px_rgba(246,131,35,0.65)] transition hover:opacity-95"
+                      className="group/signin inline-flex cursor-pointer items-center gap-2 whitespace-nowrap rounded-full border border-white/25 bg-white/[0.06] px-4 py-1.5 text-xs md:text-sm xl:text-[14px] font-semibold tracking-wide text-white/90 backdrop-blur-sm transition-all duration-200 hover:border-[#F2A23A]/60 hover:bg-white/[0.1] hover:text-white"
                     >
+                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-white transition-colors group-hover/signin:bg-[#F2A23A]/20 group-hover/signin:text-[#F2A23A]">
+                        <FiUser className="h-3.5 w-3.5" aria-hidden />
+                      </span>
                       Sign in
                     </button>
                   )}
