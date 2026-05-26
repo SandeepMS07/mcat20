@@ -26,7 +26,7 @@ const routes = {
   pointsTable: "/points-table",
 
   videos: "/videos",
-  fantasy: "/fantasy",
+  fantasy: "http://localhost:3010/",
   fanWall: "/fan-wall",
   fanPoll: "/fan-poll",
   choice: "/choice",

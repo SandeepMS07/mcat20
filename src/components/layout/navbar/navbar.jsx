@@ -7,19 +7,61 @@ import { FiChevronDown } from "react-icons/fi";
 import { useState } from "react";
 import routes from "@/utilis/route";
 import { redirect, usePathname } from "next/navigation";
+import { useAuth } from "@/components/auth/AuthContext";
 
 const TOP_MARQUEE_TEXT =
   "T20 Mumbai Men’s & Women’s League | June 1-13 | Wankhede Stadium";
+
+const getInitials = (name) => {
+  if (!name) return "";
+  const parts = name.trim().split(/\s+/).slice(0, 2);
+  return parts.map((p) => p.charAt(0).toUpperCase()).join("");
+};
+
+const firstName = (name) => {
+  if (!name) return "";
+  return name.trim().split(/\s+/)[0];
+};
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [expandedItem, setExpandedItem] = useState(null);
   const pathName = usePathname();
+  const { isAuthed, token, user, openLogin, logout } = useAuth();
 
   const isPathActive = (path) => {
     if (!path || /^https?:\/\//.test(path)) return false;
     if (path === "/") return pathName === "/";
     return pathName === path || pathName.startsWith(`${path}/`);
+  };
+
+  const buildAuthedUrl = (path, appendToken, authToken) => {
+    if (!appendToken || !authToken) return path;
+    const sep = path.includes("?") ? "&" : "?";
+    return `${path}${sep}token=${encodeURIComponent(authToken)}`;
+  };
+
+  const openExternal = (url) => {
+    if (typeof window === "undefined") return;
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
+  const handleGatedNavClick = (item, afterClick) => {
+    const isExternal = /^https?:\/\//.test(item.path);
+    const finish = (authToken) => {
+      const url = buildAuthedUrl(item.path, item.appendToken, authToken);
+      if (isExternal) openExternal(url);
+      else if (typeof window !== "undefined") window.location.href = url;
+      afterClick?.();
+    };
+    if (!isAuthed) {
+      openLogin(
+        ({ token: nextToken } = {}) => finish(nextToken),
+        { variant: "fantasy" }
+      );
+      return;
+    }
+    finish(token);
   };
 
   if (pathName === "/auction-info") return;
@@ -163,6 +205,30 @@ const Navbar = () => {
                     );
                   }
 
+                  if (item.requiresAuth) {
+                    return (
+                      <li key={i}>
+                        <button
+                          type="button"
+                          onClick={() => handleGatedNavClick(item)}
+                          className={`inline-flex items-center gap-1.5 cursor-pointer whitespace-nowrap rounded-full px-3 xl:px-4 py-2 text-xs md:text-sm xl:text-[14px] font-semibold tracking-wide transition-all duration-200 ${
+                            isActive
+                              ? "bg-gradient-to-b from-[#F68323] to-[#E07E27] text-white shadow-[0_4px_14px_-4px_rgba(246,131,35,0.65)]"
+                              : "text-white/85 hover:text-white hover:bg-white/10"
+                          }`}
+                        >
+                          {item.title}
+                          {item.comingSoon && (
+                            <span className="inline-flex items-center gap-1 whitespace-nowrap rounded-full bg-gradient-to-r from-[#F2A23A] to-[#FFD166] px-1.5 py-[2px] text-[8px] font-extrabold uppercase tracking-wider text-[#0B1545] shadow-[0_2px_6px_rgba(242,162,58,0.45)]">
+                              <span className="h-1 w-1 rounded-full bg-[#0B1545]" />
+                              Coming Soon
+                            </span>
+                          )}
+                        </button>
+                      </li>
+                    );
+                  }
+
                   return (
                     <li key={i}>
                       <Link
@@ -186,6 +252,80 @@ const Navbar = () => {
                     </li>
                   );
                 })}
+                <li className="relative group ml-1">
+                  {isAuthed ? (
+                    <>
+                      <button
+                        type="button"
+                        className="flex cursor-pointer items-center gap-2 whitespace-nowrap rounded-full border border-white/15 bg-white/[0.06] py-1 pl-1 pr-3 text-xs md:text-sm font-semibold text-white/90 transition hover:border-[#F2A23A]/50 hover:bg-white/[0.1]"
+                        aria-haspopup="menu"
+                      >
+                        <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-b from-[#F68323] to-[#E07E27] text-[10px] font-extrabold text-white shadow-[0_4px_10px_-4px_rgba(246,131,35,0.7)]">
+                          {getInitials(user?.name || user?.team_name) || "U"}
+                        </span>
+                        <span className="max-w-[110px] truncate">
+                          {firstName(user?.name) || "Account"}
+                        </span>
+                        <FiChevronDown
+                          size={14}
+                          className="transition-transform duration-200 group-hover:rotate-180"
+                        />
+                      </button>
+                      <span
+                        aria-hidden
+                        className="absolute right-0 top-full z-40 h-3 w-[220px]"
+                      />
+                      <ul
+                        role="menu"
+                        className="invisible absolute right-0 top-full z-50 mt-3 w-[230px] translate-y-1 overflow-hidden rounded-2xl border border-white/10 bg-[rgba(8,18,55,0.92)] p-1.5 opacity-0 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.6)] backdrop-blur-2xl transition-all duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
+                      >
+                        <li className="px-3 pb-2 pt-1.5">
+                          <p className="truncate text-sm font-bold text-white">
+                            {user?.name || "Signed in"}
+                          </p>
+                          {user?.mobile && (
+                            <p className="truncate text-[11px] text-white/55">
+                              +91 {user.mobile}
+                            </p>
+                          )}
+                        </li>
+                        <li className="my-1 h-px bg-white/10" role="none" />
+                        <li role="none">
+                          <button
+                            type="button"
+                            onClick={() => logout()}
+                            className="flex w-full cursor-pointer items-center gap-2 rounded-xl px-3 py-2.5 text-sm font-semibold text-white/85 transition hover:bg-white/10 hover:text-white"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              className="h-4 w-4"
+                              aria-hidden
+                            >
+                              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                              <polyline points="16 17 21 12 16 7" />
+                              <line x1="21" y1="12" x2="9" y2="12" />
+                            </svg>
+                            Log out
+                          </button>
+                        </li>
+                      </ul>
+                    </>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => openLogin()}
+                      className="inline-flex cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-full bg-gradient-to-b from-[#F68323] to-[#E07E27] px-4 py-2 text-xs md:text-sm xl:text-[14px] font-semibold tracking-wide text-white shadow-[0_4px_14px_-4px_rgba(246,131,35,0.65)] transition hover:opacity-95"
+                    >
+                      Sign in
+                    </button>
+                  )}
+                </li>
               </ul>
             </div>
 
@@ -291,6 +431,29 @@ const Navbar = () => {
                 );
               }
 
+              if (item.requiresAuth) {
+                return (
+                  <li key={i}>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        handleGatedNavClick(item, () => setMenuOpen(false))
+                      }
+                      className={`inline-flex items-center gap-2 cursor-pointer text-base transition-colors hover:text-orange-400 ${
+                        isActive ? "text-orange-500" : "text-white"
+                      }`}
+                    >
+                      {item.title}
+                      {item.comingSoon && (
+                        <span className="rounded-full bg-[#F2A23A]/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#F2A23A]">
+                          Coming Soon
+                        </span>
+                      )}
+                    </button>
+                  </li>
+                );
+              }
+
               return (
                 <li key={i}>
                   <Link
@@ -313,6 +476,48 @@ const Navbar = () => {
               );
             })}
           </ul>
+          <div className="mt-8 border-t border-white/15 px-6 pt-6">
+            {isAuthed ? (
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-b from-[#F68323] to-[#E07E27] text-sm font-extrabold text-white shadow-[0_4px_10px_-4px_rgba(246,131,35,0.7)]">
+                    {getInitials(user?.name || user?.team_name) || "U"}
+                  </span>
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-bold text-white">
+                      {user?.name || "Signed in"}
+                    </p>
+                    {user?.mobile && (
+                      <p className="truncate text-[11px] text-white/55">
+                        +91 {user.mobile}
+                      </p>
+                    )}
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    logout();
+                    setMenuOpen(false);
+                  }}
+                  className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] py-2.5 text-sm font-semibold text-white/90 transition hover:bg-white/10"
+                >
+                  Log out
+                </button>
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={() => {
+                  setMenuOpen(false);
+                  openLogin();
+                }}
+                className="flex w-full cursor-pointer items-center justify-center rounded-full bg-gradient-to-b from-[#F68323] to-[#E07E27] py-2.5 text-sm font-bold uppercase tracking-wide text-white shadow-[0_4px_14px_-4px_rgba(246,131,35,0.65)]"
+              >
+                Sign in
+              </button>
+            )}
+          </div>
           {/* <div className="w-fit p-6">
             <a
               href={"/auction-info"}

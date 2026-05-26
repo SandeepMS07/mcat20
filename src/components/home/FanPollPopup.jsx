@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import { listPolls, votePoll } from "@/app/api/polls";
+import { useAuth } from "@/components/auth/AuthContext";
 
 const POPUP_DISMISSED_KEY = "mca_fanpoll_popup_dismissed";
 const POPUP_TIMER_KEY = "mca_fanpoll_popup_timer_start";
@@ -41,6 +42,7 @@ const FanPollPopup = ({ open, onClose }) => {
   const [pendingOptionId, setPendingOptionId] = useState(null);
   const [voteError, setVoteError] = useState(null);
   const [remainingMs, setRemainingMs] = useState(POPUP_TIMER_DURATION_MS);
+  const { isAuthed, openLogin } = useAuth();
 
   useEffect(() => {
     if (!open) return undefined;
@@ -127,6 +129,10 @@ const FanPollPopup = ({ open, onClose }) => {
 
   const handleVote = async (optionId) => {
     if (!poll || pendingOptionId !== null || hasVoted) return;
+    if (!isAuthed) {
+      openLogin(() => handleVote(optionId));
+      return;
+    }
 
     const prevPoll = poll;
     const optimistic = {

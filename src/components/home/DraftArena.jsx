@@ -1,11 +1,39 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import routes from "@/utilis/route";
+import { useAuth } from "@/components/auth/AuthContext";
 
 const DRAFT_ROUTE = routes.fantasy;
 
+const buildAuthedUrl = (path, authToken) => {
+  if (!authToken) return path;
+  const sep = path.includes("?") ? "&" : "?";
+  return `${path}${sep}token=${encodeURIComponent(authToken)}`;
+};
+
 const DraftArena = () => {
+  const { isAuthed, token, openLogin } = useAuth();
+
+  const openDraft = (authToken) => {
+    if (typeof window === "undefined") return;
+    window.open(
+      buildAuthedUrl(DRAFT_ROUTE, authToken),
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
+
+  const handleClick = () => {
+    if (!isAuthed) {
+      openLogin(
+        ({ token: nextToken } = {}) => openDraft(nextToken),
+        { variant: "fantasy" }
+      );
+      return;
+    }
+    openDraft(token);
+  };
+
   return (
     <div className="bg-[#192A66] lg:block hidden">
       <div className="section-width py-6 sm:py-10">
@@ -28,14 +56,13 @@ const DraftArena = () => {
                 Build your Dream XI. Share with friends. See who wins.
               </p>
             </div>
-            <Link
-              href={DRAFT_ROUTE}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
+              onClick={handleClick}
               className="inline-flex cursor-pointer items-center justify-center rounded-full bg-gradient-to-b from-[#d84800] to-[#f68323] px-6 py-2.5 text-xs font-medium uppercase italic tracking-wide text-white shadow-[0_4px_18px_rgba(216,72,0,0.4)] transition-opacity hover:opacity-90 sm:text-xs xl:text-sm"
             >
               Start your draft
-            </Link>
+            </button>
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import "./globals.css";
 import MixpanelProvider from "@/components/tracking/MixpanelProvider";
 import ClientChrome from "@/components/layout/ClientChrome";
+import AuthProvider from "@/components/auth/AuthProvider";
 export const metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "https://t20mumbai.in"
@@ -29,7 +30,9 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <MixpanelProvider />
-        <ClientChrome>{children}</ClientChrome>
+        <AuthProvider>
+          <ClientChrome>{children}</ClientChrome>
+        </AuthProvider>
       </body>
     </html>
   );

@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { listPolls, votePoll } from "@/app/api/polls";
 import { trackEvent } from "@/utilis/mixpanelClient";
+import { useAuth } from "@/components/auth/AuthContext";
 
 const DEFAULT_OPTION_IMAGE = "/images/stats/player-img.svg";
 
@@ -24,13 +25,11 @@ const CheckIcon = () => (
 const PollCard = ({ poll, onPollUpdate, variant = "compact" }) => {
   const [error, setError] = useState(null);
   const [pendingOptionId, setPendingOptionId] = useState(null);
+  const { isAuthed, openLogin } = useAuth();
 
   const selectedId = poll.my_selection;
 
-  const handleVote = async (optionId) => {
-    if (pendingOptionId !== null) return;
-    if (optionId === selectedId) return;
-
+  const submitVote = async (optionId) => {
     const prevPoll = poll;
     const optimistic = {
       ...poll,
@@ -74,6 +73,16 @@ const PollCard = ({ poll, onPollUpdate, variant = "compact" }) => {
     } finally {
       setPendingOptionId(null);
     }
+  };
+
+  const handleVote = (optionId) => {
+    if (pendingOptionId !== null) return;
+    if (optionId === selectedId) return;
+    if (!isAuthed) {
+      openLogin(() => submitVote(optionId));
+      return;
+    }
+    submitVote(optionId);
   };
 
   const hasVoted = selectedId != null;

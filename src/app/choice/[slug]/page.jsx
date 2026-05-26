@@ -9,6 +9,7 @@ import PlayerCard from "@/components/teams/meetMyTeam/PlayerCard";
 import Sponsorship from "@/components/common/Sponsorship";
 import LoadingPage from "@/app/loading";
 import { getTeamDetailsClient } from "@/app/api/clientApi";
+import { useAuth } from "@/components/auth/AuthContext";
 import { getCategoryBySlug } from "../categories";
 
 const INITIAL_PAGE_SIZE = 16;
@@ -114,6 +115,7 @@ export default function ChoiceCategoryPage() {
   const [visibleCount, setVisibleCount] = useState(INITIAL_PAGE_SIZE);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const { isAuthed, openLogin } = useAuth();
 
   useEffect(() => {
     let cancelled = false;
@@ -177,10 +179,18 @@ export default function ChoiceCategoryPage() {
     return () => document.removeEventListener("mousedown", onClickOutside);
   }, [dropdownOpen]);
 
-  const handleVote = (playerId) => {
-    if (hasVoted) return;
+  const recordVote = (playerId) => {
     setSelectedId(playerId);
     setHasVoted(true);
+  };
+
+  const handleVote = (playerId) => {
+    if (hasVoted) return;
+    if (!isAuthed) {
+      openLogin(() => recordVote(playerId), { variant: "viewersChoice" });
+      return;
+    }
+    recordVote(playerId);
   };
 
   if (!category) {
