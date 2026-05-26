@@ -32,7 +32,6 @@ const Page = () => {
               >
                 Creator's League
               </span>
-              <span>T&amp;C</span>
             </h1>
             <p className="text-sm text-white/80 sm:text-base">
               Please read these terms carefully before applying or participating
