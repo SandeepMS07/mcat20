@@ -4,7 +4,18 @@
     "details": [
       {
         "appID": "P2TB9SR8A2.com.mca.t20mumbai",
-        "paths": ["*"]
+        "paths": [
+          "NOT /creatorsleague",
+          "NOT /creatorsleague/*",
+          "NOT /go/*",
+          "*"
+        ],
+        "components": [
+          { "/": "/creatorsleague", "exclude": true },
+          { "/": "/creatorsleague/*", "exclude": true },
+          { "/": "/go/*", "exclude": true },
+          { "/": "*" }
+        ]
       }
     ]
   }

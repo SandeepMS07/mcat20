@@ -55,7 +55,7 @@ const Navbar = () => {
               {[...Array(8)].map((_, idx) => (
                 <Link
                   key={`${groupIdx}-${idx}`}
-                  href={routes.creatorsLeague}
+                  href="/go/cl"
                   className="mx-6 inline-flex items-center gap-2 text-xs font-semibold text-white transition-opacity hover:opacity-80 sm:text-xs lg:text-sm"
                 >
                   <span className="h-1.5 w-1.5 rounded-full bg-white" />
