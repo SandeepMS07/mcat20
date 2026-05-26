@@ -47,8 +47,21 @@ function formatTime(date) {
 
 function parseSeason4Date(dateStr, timeStr) {
   if (!dateStr) return null;
-  const t = (timeStr || "12:00 PM").trim();
-  const date = new Date(`${dateStr} ${t}`);
+  const [y, mo, d] = dateStr.split("-").map(Number);
+  if (!y || !mo || !d) return null;
+
+  let hours = 12;
+  let minutes = 0;
+  const match = (timeStr || "").trim().match(/^(\d{1,2}):(\d{2})\s*(AM|PM)?$/i);
+  if (match) {
+    hours = parseInt(match[1], 10);
+    minutes = parseInt(match[2], 10);
+    const meridiem = (match[3] || "").toUpperCase();
+    if (meridiem === "PM" && hours < 12) hours += 12;
+    if (meridiem === "AM" && hours === 12) hours = 0;
+  }
+
+  const date = new Date(y, mo - 1, d, hours, minutes);
   return isNaN(date.getTime()) ? null : date;
 }
 
