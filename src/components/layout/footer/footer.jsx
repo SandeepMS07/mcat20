@@ -161,6 +161,12 @@ const Footer = () => {
               >
                 Privacy Policy
               </Link>
+              <Link
+                href={routes.termsAndConditions}
+                className="transition-colors hover:text-white"
+              >
+                Terms and Conditions
+              </Link>
             </div>
           </div>
         </div>
