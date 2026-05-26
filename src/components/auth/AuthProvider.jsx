@@ -9,6 +9,7 @@ import {
   refreshSession,
   logoutSession,
 } from "@/app/api/auth";
+import { clearVoterKey } from "@/app/api/polls";
 import { AuthContext } from "./AuthContext";
 import LoginModal from "./LoginModal";
 
@@ -54,6 +55,7 @@ const AuthProvider = ({ children }) => {
     setTokenState(nextToken || null);
     setUser(nextUser || null);
     writeStoredUser(nextUser || null);
+    clearVoterKey();
   }, []);
 
   const clearAuth = useCallback(() => {
@@ -61,6 +63,7 @@ const AuthProvider = ({ children }) => {
     setTokenState(null);
     setUser(null);
     writeStoredUser(null);
+    clearVoterKey();
   }, []);
 
   const logout = useCallback(async () => {

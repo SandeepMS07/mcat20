@@ -295,6 +295,7 @@ const FanPoll = ({
   const [polls, setPolls] = useState(null);
   const [loadError, setLoadError] = useState(false);
   const [reloadKey, setReloadKey] = useState(0);
+  const { isAuthed: authedForFetch } = useAuth();
 
   useEffect(() => {
     let cancelled = false;
@@ -313,7 +314,7 @@ const FanPoll = ({
     return () => {
       cancelled = true;
     };
-  }, [reloadKey]);
+  }, [reloadKey, authedForFetch]);
 
   const handlePollUpdate = useCallback((updated) => {
     setPolls((curr) =>

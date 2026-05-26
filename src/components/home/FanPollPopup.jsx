@@ -48,6 +48,7 @@ const FanPollPopup = ({ open, onClose }) => {
     if (!open) return undefined;
     let cancelled = false;
     setLoadError(false);
+    setPoll(null);
     listPolls()
       .then((data) => {
         if (cancelled) return;
@@ -66,7 +67,7 @@ const FanPollPopup = ({ open, onClose }) => {
     return () => {
       cancelled = true;
     };
-  }, [open]);
+  }, [open, isAuthed]);
 
   useEffect(() => {
     if (!open) return undefined;

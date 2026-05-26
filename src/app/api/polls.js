@@ -2,6 +2,15 @@ import turboverseAxios from "./turboverseAxios";
 
 const VOTER_KEY_STORAGE = "mca_voter_key";
 
+export const clearVoterKey = () => {
+  if (typeof window === "undefined") return;
+  try {
+    window.localStorage.removeItem(VOTER_KEY_STORAGE);
+  } catch {
+    /* ignore */
+  }
+};
+
 export const getVoterKey = () => {
   if (typeof window === "undefined") return null;
   try {
