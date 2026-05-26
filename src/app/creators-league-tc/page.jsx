@@ -14,7 +14,7 @@ const Bullet = ({ children }) => (
 const Page = () => {
   return (
     <div className="w-full bg-[#1E2F7D]">
-      <Hero imgUrl="/images/banner/banner1.jpg" heading="Terms and Conditions" />
+      <Hero imgUrl="/images/banner/banner1.jpg" heading="Creator's League T&C" />
 
       <section className="relative overflow-hidden pb-14 pt-12 bg-[url('/images/texture-bg.png')] bg-cover bg-center bg-no-repeat">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,88,210,0.35),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(26,40,116,0.65),transparent_45%)]" />
@@ -25,14 +25,14 @@ const Page = () => {
             </span>
           </div>
           <div className="mb-8 flex flex-col gap-3 border-b border-white/15 pb-6">
-            <h1 className="flex flex-col text-5xl font-extrabold uppercase italic leading-[0.9] text-white sm:text-6xl">
+            <h1 className="flex flex-wrap items-baseline gap-x-3 text-4xl font-extrabold uppercase italic leading-[0.9] text-white sm:text-5xl md:text-6xl">
               <span
                 className="text-transparent"
                 style={{ WebkitTextStroke: "2px #7E93DB" }}
               >
-                Terms and
+                Creator's League
               </span>
-              <span>Conditions</span>
+              <span>T&amp;C</span>
             </h1>
             <p className="text-sm text-white/80 sm:text-base">
               Please read these terms carefully before applying or participating

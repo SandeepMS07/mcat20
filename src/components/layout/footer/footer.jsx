@@ -165,7 +165,7 @@ const Footer = () => {
                 href={routes.termsAndConditions}
                 className="transition-colors hover:text-white"
               >
-                Terms and Conditions
+                Creator's League T&C
               </Link>
             </div>
           </div>

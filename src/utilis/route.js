@@ -32,7 +32,7 @@ const routes = {
   choice: "/choice",
 
   privacyPolicy: "/privacy_policy",
-  termsAndConditions: "/terms-and-conditions",
+  termsAndConditions: "/creators-league-tc",
   // social links
   // linkedin: "https://www.linkedin.com/company/mca-sports/",
   instagram: "https://www.instagram.com/t20mumbai/",
