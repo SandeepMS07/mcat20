@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import FanPoll from "@/components/home/FanPoll";
+import MatchFanPollSection from "@/components/fan-poll/MatchFanPollSection";
 import Sponsorship from "@/components/common/Sponsorship";
 
 const TABS = [
@@ -62,6 +63,9 @@ export default function FanPollPage() {
       <section className="relative overflow-hidden pt-[110px] pb-14 lg:pt-[130px] lg:pb-20 bg-[url('/images/texture-bg.png')] bg-cover bg-center bg-no-repeat">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,88,210,0.35),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(26,40,116,0.65),transparent_45%)]" />
         <div className="relative">
+          <div className="section-width pt-14 pb-4 md:pt-16 lg:pt-20">
+            <MatchFanPollSection />
+          </div>
           <FanPoll
             headerSlot={headerSlot}
             variant={variant}

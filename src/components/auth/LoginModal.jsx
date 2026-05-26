@@ -11,6 +11,9 @@ const MOBILE_REGEX = /^\d{10}$/;
 const STEP_DETAILS = "details";
 const STEP_OTP = "otp";
 
+const MODE_SIGNUP = "signup";
+const MODE_SIGNIN = "signin";
+
 const VARIANTS = {
   fanPoll: {
     badge: "TODAYS FANPOLL",
@@ -39,6 +42,9 @@ const VARIANTS = {
 
 const initialState = {
   step: STEP_DETAILS,
+  // Default to sign-in — most opens of this modal are returning fans who
+  // already have an account. New users tap the "Sign up" link at the bottom.
+  mode: MODE_SIGNIN,
   name: "",
   email: "",
   mobile: "",
@@ -86,13 +92,19 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
 
   const update = (patch) => setState((s) => ({ ...s, ...patch }));
 
-  const detailsValid =
-    state.name.trim().length > 1 && MOBILE_REGEX.test(state.mobile);
+  const isSignIn = state.mode === MODE_SIGNIN;
+  const detailsValid = isSignIn
+    ? MOBILE_REGEX.test(state.mobile)
+    : state.name.trim().length > 1 && MOBILE_REGEX.test(state.mobile);
+
+  const switchMode = (mode) => {
+    update({ mode, error: null, hint: null });
+  };
 
   const handleDetailsSubmit = async (e) => {
     e.preventDefault();
     if (state.loading) return;
-    if (!state.name.trim()) {
+    if (!isSignIn && !state.name.trim()) {
       update({ error: "Please enter your full name." });
       return;
     }
@@ -131,28 +143,34 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
     }
     update({ loading: true, error: null });
     try {
-      const data = await verifyOtp({
+      // Sign-in mode = returning user. Don't send name/teamName so we don't
+      // accidentally overwrite their existing profile with a blank string.
+      // Sign-up mode = new account, so name + teamName get seeded.
+      const verifyArgs = {
         mobile: state.mobile.trim(),
         otp: state.otp.trim(),
-        name: state.name.trim(),
+      };
+      if (!isSignIn) {
+        verifyArgs.name = state.name.trim();
         // Modal has no dedicated team-name field; seed teamName with the
         // user's full name so the fantasy header / leaderboard has
         // something sensible to display until the user customises it
         // from the fantasy profile screen. Email (optional) is persisted
         // separately via PATCH /v1/me below — it's neither a name nor a
         // team name, and conflating them was the previous bug.
-        teamName: state.name.trim(),
-      });
+        verifyArgs.teamName = state.name.trim();
+      }
+      const data = await verifyOtp(verifyArgs);
 
-      // Best-effort: if the user filled in the optional email, save it on
-      // their profile. We have to seed setAccessToken first because the
-      // axios request interceptor reads the in-memory token, and onSuccess
+      // Best-effort: if the user filled in the optional email (sign-up only),
+      // save it on their profile. We have to seed setAccessToken first because
+      // the axios request interceptor reads the in-memory token, and onSuccess
       // (which is what AuthProvider uses to set it) hasn't fired yet —
       // without this, the PATCH would go out with no Authorization header
       // and 401. Fire-and-forget after that so a flaky PATCH doesn't
       // block the login UX.
       const email = state.email.trim();
-      if (email) {
+      if (!isSignIn && email) {
         setAccessToken(data.token);
         updateMe({ email }).catch((err) => {
           // eslint-disable-next-line no-console
@@ -179,6 +197,19 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
       } else if (status === 423 || code === "otp_locked") {
         msg = "Too many wrong attempts. Try again in 15 minutes.";
       } else if (status === 400 && code === "name_required") {
+        // Returning user flow tried to log in on a mobile that has no account
+        // yet — flip them to sign-up so they can register.
+        if (isSignIn) {
+          update({
+            loading: false,
+            step: STEP_DETAILS,
+            mode: MODE_SIGNUP,
+            otp: "",
+            error: "No account found for this number. Please sign up.",
+            hint: null,
+          });
+          return;
+        }
         msg = "Please go back and enter your name.";
       }
       update({ loading: false, error: msg });
@@ -188,35 +219,55 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
   const titleLast = config.titleLines[config.titleLines.length - 1];
   const titleHead = config.titleLines.slice(0, -1);
 
-  // Shared form fields used by both layouts.
+  // Discreet mode-switch link rendered below the submit button. Default flow
+  // is sign-in (mobile only); the link surfaces sign-up for new fans.
+  const modeSwitch = (
+    <p className="text-center text-xs text-[#C6C5D1]">
+      {isSignIn ? "New user?" : "Already have an account?"}{" "}
+      <button
+        type="button"
+        onClick={() => switchMode(isSignIn ? MODE_SIGNUP : MODE_SIGNIN)}
+        className="font-bold text-[#F9A607] underline-offset-2 hover:underline"
+      >
+        {isSignIn ? "Sign up" : "Sign in"}
+      </button>
+    </p>
+  );
+
+  // Shared form fields. In sign-in mode we only ask for the mobile number;
+  // sign-up keeps the full name + optional email + mobile.
   const formFields = (
     <>
-      <div className="flex items-center gap-3 rounded-full border border-white/20 bg-white/[0.05] px-5 py-[15px] focus-within:border-[#F2A23A]">
-        <FiUser className="h-4 w-4 shrink-0 text-[#C6C5D1]" aria-hidden />
-        <input
-          ref={nameRef}
-          type="text"
-          autoComplete="name"
-          maxLength={60}
-          value={state.name}
-          onChange={(e) => update({ name: e.target.value, error: null })}
-          placeholder="Full Name"
-          className="w-full bg-transparent text-base text-white placeholder:text-[#C6C5D1] focus:outline-none"
-        />
-      </div>
+      {!isSignIn ? (
+        <>
+          <div className="flex items-center gap-3 rounded-full border border-white/20 bg-white/[0.05] px-5 py-[15px] focus-within:border-[#F2A23A]">
+            <FiUser className="h-4 w-4 shrink-0 text-[#C6C5D1]" aria-hidden />
+            <input
+              ref={nameRef}
+              type="text"
+              autoComplete="name"
+              maxLength={60}
+              value={state.name}
+              onChange={(e) => update({ name: e.target.value, error: null })}
+              placeholder="Full Name"
+              className="w-full bg-transparent text-base text-white placeholder:text-[#C6C5D1] focus:outline-none"
+            />
+          </div>
 
-      <div className="flex items-center gap-3 rounded-full border border-white/20 bg-white/[0.05] px-5 py-[15px] focus-within:border-[#F2A23A]">
-        <FiMail className="h-4 w-4 shrink-0 text-[#C6C5D1]" aria-hidden />
-        <input
-          type="email"
-          autoComplete="email"
-          maxLength={100}
-          value={state.email}
-          onChange={(e) => update({ email: e.target.value })}
-          placeholder="Email (optional)"
-          className="w-full bg-transparent text-base text-white placeholder:text-[#C6C5D1] focus:outline-none"
-        />
-      </div>
+          <div className="flex items-center gap-3 rounded-full border border-white/20 bg-white/[0.05] px-5 py-[15px] focus-within:border-[#F2A23A]">
+            <FiMail className="h-4 w-4 shrink-0 text-[#C6C5D1]" aria-hidden />
+            <input
+              type="email"
+              autoComplete="email"
+              maxLength={100}
+              value={state.email}
+              onChange={(e) => update({ email: e.target.value })}
+              placeholder="Email (optional)"
+              className="w-full bg-transparent text-base text-white placeholder:text-[#C6C5D1] focus:outline-none"
+            />
+          </div>
+        </>
+      ) : null}
 
       <div className="flex items-center gap-3 rounded-full border border-white/20 bg-white/[0.05] px-5 py-[15px] focus-within:border-[#F2A23A]">
         <FiPhone className="h-4 w-4 shrink-0 text-[#C6C5D1]" aria-hidden />
@@ -250,7 +301,11 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
         disabled={state.loading || !detailsValid}
         className="relative flex w-full cursor-pointer items-center justify-center rounded-full bg-[#FF7A18] py-4 text-[18px] font-extrabold uppercase tracking-[1px] text-white shadow-[0_0_7.5px_rgba(255,122,24,0.3)] transition hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {state.loading ? "Sending OTP..." : "Verify & Proceed"}
+        {state.loading
+          ? "Sending OTP..."
+          : isSignIn
+          ? "Send OTP"
+          : "Verify & Proceed"}
       </button>
     </div>
   );
@@ -366,6 +421,7 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
                 )}
 
                 {submitButton}
+                {modeSwitch}
                 {termsFooter}
               </form>
             </div>
@@ -530,6 +586,7 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
                 )}
 
                 {submitButton}
+                {modeSwitch}
                 {termsFooter}
               </form>
             </div>
@@ -683,6 +740,7 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
                 )}
 
                 {submitButton}
+                {modeSwitch}
                 {termsFooter}
               </form>
             </>

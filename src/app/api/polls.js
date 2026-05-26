@@ -44,11 +44,45 @@ export const getPoll = async (slug) => {
   return res.data;
 };
 
+// Voting always requires an authenticated user (axios attaches the JWT).
+// The voterKey is still passed in the body for backwards compatibility with
+// older builds, but the backend ignores it for new votes.
 export const votePoll = async (slug, optionId) => {
+  const body = { optionId };
   const voterKey = getVoterKey();
+  if (voterKey) body.voterKey = voterKey;
   const res = await turboverseAxios.post(
     `/v1/polls/${encodeURIComponent(slug)}/vote`,
-    { optionId, voterKey }
+    body,
   );
+  return res.data;
+};
+
+// Fetches polls attached to a specific match plus the winner banner payload.
+// Shape: { polls: [...], winner: { firstName, fullName } | null }
+// Passes voterKey when present so the backend can claim any pre-login anon
+// votes from this device for the now-signed-in user.
+export const listMatchPolls = async (matchId) => {
+  const voterKey = getVoterKey();
+  const res = await turboverseAxios.get(
+    `/v1/polls/match/${encodeURIComponent(matchId)}`,
+    { params: voterKey ? { voterKey } : undefined },
+  );
+  return res.data;
+};
+
+// Public payload used by the TV-screen reveal animation.
+// Shape: { participants: string[], winner: { name } | null }
+export const getRevealPayload = async (matchId) => {
+  const res = await turboverseAxios.get(
+    `/v1/polls/reveal/${encodeURIComponent(matchId)}`,
+  );
+  return res.data;
+};
+
+// Public matches list — used by the fan-poll page to identify which match's
+// polls to render at the top of the page.
+export const listMatches = async () => {
+  const res = await turboverseAxios.get("/v1/matches");
   return res.data;
 };
