@@ -9,7 +9,7 @@ import routes from "@/utilis/route";
 import { redirect, usePathname } from "next/navigation";
 
 const TOP_MARQUEE_TEXT =
-  "T20 Mumbai Men’s & Women’s League | June 1-13 | Wankhede Stadium";
+  "T20 Mumbai Creators League | Your chance to win BIG | Participate Now";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -53,13 +53,14 @@ const Navbar = () => {
           {[...Array(2)].map((_, groupIdx) => (
             <div key={groupIdx} className="flex shrink-0 items-center">
               {[...Array(8)].map((_, idx) => (
-                <span
+                <Link
                   key={`${groupIdx}-${idx}`}
-                  className="mx-6 inline-flex items-center gap-2 text-xs font-semibold text-white sm:text-xs lg:text-sm"
+                  href={routes.creatorsLeague}
+                  className="mx-6 inline-flex items-center gap-2 text-xs font-semibold text-white transition-opacity hover:opacity-80 sm:text-xs lg:text-sm"
                 >
                   <span className="h-1.5 w-1.5 rounded-full bg-white" />
                   {TOP_MARQUEE_TEXT}
-                </span>
+                </Link>
               ))}
             </div>
           ))}
