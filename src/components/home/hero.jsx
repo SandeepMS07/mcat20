@@ -24,6 +24,8 @@ const SQUADS_BANNER_IMAGE_URL =
   "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778740165645-a3wx2p3720c-Home.png";
 const TROPHY_TOUR_BANNER_IMAGE_URL =
   "https://mca-cdn.ken42.com/website/banner_img/banner-trophy.png";
+const CREATORS_LEAGUE_BANNER_IMAGE_URL =
+  "https://mca-cdn.ken42.com/Banner%20Images/creator-league.png";
 const TEAM_TYPE_PARAM_KEY = "type";
 const TEAM_TYPE_MEN = "men";
 const TEAM_TYPE_WOMEN = "women";
@@ -381,6 +383,50 @@ const Hero = () => {
                         height={24}
                         className="w-5 h-5"
                       />
+                    </span>
+                  </button>
+                </div>
+              }
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide className="h-full" data-swiper-autoplay={7000}>
+          <div
+            className={`relative flex h-full w-full items-center justify-center overflow-hidden bg-cover bg-center ${heroSlidePaddingClass}`}
+            style={{
+              backgroundImage: `url('${CREATORS_LEAGUE_BANNER_IMAGE_URL}')`,
+            }}
+          >
+            <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
+            <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
+            <HeroSlideContent
+              title={
+                <>
+                  T20 Mumbai
+                  <br />
+                  <span className="text-[#E07E27]">Creators League</span>
+                </>
+              }
+              subtitle="The Games are about to begin!"
+              action={
+                <div className="flex flex-row gap-2">
+                  <button
+                    type="button"
+                    onClick={() => router.push(routes.creatorsLeague)}
+                    className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md uppercase"
+                  >
+                    Participate Now
+                    <span
+                      aria-hidden
+                      className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-[#E07E27]"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        className="h-3 w-3"
+                      >
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
                     </span>
                   </button>
                 </div>
