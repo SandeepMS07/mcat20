@@ -7,12 +7,22 @@
         "paths": [
           "NOT /creatorsleague",
           "NOT /creatorsleague/*",
+          "NOT /creators-league-tc",
+          "NOT /privacy_policy",
+          "NOT /fantasy",
+          "NOT /fantasy/*",
+          "NOT /points-table",
           "NOT /go/*",
           "*"
         ],
         "components": [
           { "/": "/creatorsleague", "exclude": true },
           { "/": "/creatorsleague/*", "exclude": true },
+          { "/": "/creators-league-tc", "exclude": true },
+          { "/": "/privacy_policy", "exclude": true },
+          { "/": "/fantasy", "exclude": true },
+          { "/": "/fantasy/*", "exclude": true },
+          { "/": "/points-table", "exclude": true },
           { "/": "/go/*", "exclude": true },
           { "/": "*" }
         ]
