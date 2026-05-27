@@ -17,6 +17,10 @@ const REGISTRATION_PROMO_CUTOFF_TS = new Date(
 ).getTime();
 const CREATORS_LEAGUE_BANNER_IMAGE_URL =
   "https://mca-cdn.ken42.com/Banner%20Images/creator-league.png";
+const TICKETS_BANNER_IMAGE_URL =
+  "https://mca-cdn.ken42.com/Banner%20Images/ticket-banner.svg";
+const TICKETS_BUY_URL =
+  "https://www.district.in/events/t20-mumbai-league-2025-finals-jun12-2025-buy-tickets";
 
 const BANNER_DATE_FORMATTER = new Intl.DateTimeFormat("en-GB", {
   day: "2-digit",
@@ -232,6 +236,56 @@ const Hero = () => {
             </SwiperSlide>
           );
         })}
+        <SwiperSlide className="h-full" data-swiper-autoplay={7000}>
+          <div
+            className={`relative flex h-full w-full items-center justify-center overflow-hidden bg-cover bg-center ${heroSlidePaddingClass}`}
+            style={{
+              backgroundImage: `url('${TICKETS_BANNER_IMAGE_URL}')`,
+            }}
+          >
+            <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
+            <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
+            <HeroSlideContent
+              title={
+                <>
+                  T20 Mumbai 2026
+                  <br />
+                  <span className="text-[#E07E27]">Get your Tickets Now</span>
+                </>
+              }
+              subtitle="#ChanceSoduNako"
+              action={
+                <div className="flex flex-row gap-2">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      window.open(
+                        TICKETS_BUY_URL,
+                        "_blank",
+                        "noopener,noreferrer",
+                      )
+                    }
+                    className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md uppercase"
+                  >
+                    Buy Tickets
+                    <span
+                      aria-hidden
+                      className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-[#E07E27]"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        className="h-3 w-3"
+                      >
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              }
+            />
+          </div>
+        </SwiperSlide>
         <SwiperSlide className="h-full">
           <div
             className={`w-full h-full bg-[url('https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778848274445-1d46orej99h-Home-(1).png')] bg-cover bg-center relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center`}
@@ -239,8 +293,8 @@ const Hero = () => {
             <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
             <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
             <HeroSlideContent
-              title="30 Matches Set to Light Up Wankhede Stadium from June 1-13"
-              subtitle="#ChanceSoduNako"
+              title="Mumbai's Biggest T20 Carnival Starts June 1"
+              subtitle="30 matches. 13 days. One iconic stadium. The T20 Mumbai League fixtures are live - catch all the action from June 1–13."
               action={
                 <div className="flex flex-row gap-2">
                   <button
@@ -276,12 +330,14 @@ const Hero = () => {
             <HeroSlideContent
               title={
                 <>
-                  T20 Mumbai
-                  <br />
-                  <span className="text-[#E07E27]">Creators League</span>
+                  Mumbai's Biggest{" "}
+                  <span className="text-[#E07E27]">
+                    Cricket Creator Hunt
+                  </span>{" "}
+                  Is Live
                 </>
               }
-              subtitle="The Games are about to begin!"
+              subtitle="Join the T20 Mumbai League Creator Program and win from a ₹10L prize pool - Match entry, guest tickets and season rewards."
               action={
                 <div className="flex flex-row gap-2">
                   <button
@@ -289,7 +345,7 @@ const Hero = () => {
                     onClick={() => router.push(routes.creatorsLeague)}
                     className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md uppercase"
                   >
-                    Participate Now
+                    Join The Action
                     <span
                       aria-hidden
                       className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-[#E07E27]"
