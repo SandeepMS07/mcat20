@@ -5,7 +5,7 @@
 // /public/images/home/sponsorship/ and reference them here.
 const TITLE_SPONSOR = {
   role: "Title Sponsor",
-  img: "/images/home/sponsorship/nuvama.png",
+  img: "https://storage.googleapis.com/mca_images_new/s4-sponsers/nuvama.svg",
   alt: "Nuvama",
   cardWidth: "w-full max-w-[200px] sm:max-w-[260px]",
 };
@@ -22,7 +22,7 @@ const PARTNER_ROWS = [
   [
     {
       role: "Energy Drink Partner",
-      img: "/images/home/sponsorship/hell.png",
+      img: "https://mca-cdn.ken42.com/s4-sponsers/hell.svg",
       alt: "Hell Energy",
       imgBg: "bg-transparent",
     },
@@ -34,7 +34,7 @@ const PARTNER_ROWS = [
     },
     {
       role: "Kitting Partner",
-      img: "/images/home/sponsorship/tyka.png",
+      img: "https://storage.googleapis.com/mca_images_new/s4-sponsers/tyka.svg",
       alt: "TYKA",
       imgBg: "bg-transparent",
     },
@@ -42,19 +42,19 @@ const PARTNER_ROWS = [
   [
     {
       role: "League Sponsor",
-      img: "/images/home/sponsorship/agribid.png",
+      img: "https://mca-cdn.ken42.com/s4-sponsers/Agribid_Varcas.svg",
       alt: "Agribid",
       imgBg: "bg-transparent",
     },
     {
       role: "League Sponsor",
-      img: "/images/home/sponsorship/atul-projects.png",
+      img: "https://mca-cdn.ken42.com/s4-sponsers/Atul%20Projects.svg",
       alt: "Atul Projects",
       imgBg: "bg-transparent",
     },
     {
       role: "Radio Partner",
-      img: "/images/home/sponsorship/red-fm.png",
+      img: "https://mca-cdn.ken42.com/s4-sponsers/Red%20FM.svg",
       alt: "RED FM",
       imgBg: "bg-transparent",
     },
