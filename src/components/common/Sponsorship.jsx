@@ -7,14 +7,14 @@ const TITLE_SPONSOR = {
   role: "Title Sponsor",
   img: "/images/home/sponsorship/nuvama.png",
   alt: "Nuvama",
-  cardWidth: "w-full max-w-[360px]",
+  cardWidth: "w-full max-w-[200px] sm:max-w-[260px]",
 };
 
 const CO_SPONSOR = {
   role: "Co-Sponsor",
   img: "/images/home/sponsorship/threeone-labels.png",
   alt: "3-1 Labels",
-  cardWidth: "w-full max-w-[360px]",
+  cardWidth: "w-full max-w-[200px] sm:max-w-[260px]",
   imgBg: "bg-transparent",
 };
 
@@ -65,22 +65,22 @@ const SponsorCard = ({
   role,
   img,
   alt,
-  cardWidth = "w-full max-w-[300px]",
+  cardWidth = "w-full max-w-[220px]",
   imgBg = "bg-white",
 }) => (
   <div
-    className={`relative flex flex-col gap-2 rounded-[12px] p-2 sm:gap-2.5 sm:p-3 ${cardWidth}`}
+    className={`relative flex flex-col gap-1.5 rounded-[10px] p-1.5 sm:gap-2.5 sm:rounded-[12px] sm:p-3 ${cardWidth}`}
     style={{
       backgroundImage:
         "linear-gradient(195deg, rgba(14,0,90,0.4) 28%, rgba(28,57,142,0.4) 85%), linear-gradient(90deg, #172476 0%, #172476 100%)",
     }}
   >
-    <p className="text-center text-[11px] font-bold tracking-tight text-white sm:text-[13px]">
+    <p className="text-center text-[9px] font-bold tracking-tight text-white sm:text-[13px]">
       {role}
     </p>
-    <div className="-mx-2 h-px bg-white/10 sm:-mx-3" />
+    <div className="-mx-1.5 h-px bg-white/10 sm:-mx-3" />
     <div
-      className={`relative mt-0.5 flex h-[80px] w-full items-center justify-center overflow-hidden rounded-lg px-2 py-2 sm:h-[120px] sm:px-3 ${imgBg}`}
+      className={`relative mt-0.5 flex h-[44px] w-full items-center justify-center overflow-hidden rounded-md px-1.5 py-1.5 sm:h-[88px] sm:rounded-lg sm:px-3 sm:py-2 ${imgBg}`}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
@@ -132,12 +132,12 @@ const Sponsorship = () => {
           {/* Partner rows */}
           {PARTNER_ROWS.map((row, i) => (
             <div key={i}>
-              <div className="mx-auto flex max-w-[1100px] flex-wrap items-stretch justify-center gap-3 sm:gap-8 lg:gap-10">
+              <div className="mx-auto grid max-w-[1100px] grid-cols-3 items-stretch justify-items-center gap-2 sm:flex sm:flex-wrap sm:justify-center sm:gap-8 lg:gap-10">
                 {row.map((s) => (
                   <SponsorCard
                     key={s.alt}
                     {...s}
-                    cardWidth="w-[calc(50%-6px)] max-w-[180px] sm:w-full sm:max-w-[300px]"
+                    cardWidth="w-full max-w-[120px] sm:max-w-[220px]"
                   />
                 ))}
               </div>

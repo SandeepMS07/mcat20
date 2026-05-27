@@ -22,10 +22,6 @@ export const navLinks = [
     ],
   },
   {
-    title: "Latest News",
-    path: `${routes.latestUpdates}`,
-  },
-  {
     title: "Teams",
     path: `${routes.teams}`,
   },
@@ -34,8 +30,8 @@ export const navLinks = [
     path: `${routes.stats}`,
   },
   {
-    title: "Fan Wall",
-    path: `${routes.fanWall}`,
+    title: "Buy Tickets",
+    path: "https://link.district.in/DSTRKT/t20mumbailandingpagesocials",
   },
   // {
   //   title: "Fantasy",
