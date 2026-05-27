@@ -293,8 +293,8 @@ const Hero = () => {
             <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
             <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
             <HeroSlideContent
-              title="30 Matches Set to Light Up Wankhede Stadium from June 1-13"
-              subtitle="#ChanceSoduNako"
+              title="Mumbai's Biggest T20 Carnival Starts June 1"
+              subtitle="30 matches. 13 days. One iconic stadium. The T20 Mumbai League fixtures are live - catch all the action from June 1–13."
               action={
                 <div className="flex flex-row gap-2">
                   <button
@@ -330,12 +330,14 @@ const Hero = () => {
             <HeroSlideContent
               title={
                 <>
-                  T20 Mumbai
-                  <br />
-                  <span className="text-[#E07E27]">Creators League</span>
+                  Mumbai's Biggest{" "}
+                  <span className="text-[#E07E27]">
+                    Cricket Creator Hunt
+                  </span>{" "}
+                  Is Live
                 </>
               }
-              subtitle="The Games are about to begin!"
+              subtitle="Join the T20 Mumbai League Creator Program and win from a ₹10L prize pool - Match entry, guest tickets and season rewards."
               action={
                 <div className="flex flex-row gap-2">
                   <button
@@ -343,7 +345,7 @@ const Hero = () => {
                     onClick={() => router.push(routes.creatorsLeague)}
                     className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md uppercase"
                   >
-                    Participate Now
+                    Join The Action
                     <span
                       aria-hidden
                       className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-[#E07E27]"
