@@ -6,7 +6,7 @@ import HomeTeamSection from "@/components/home/HomeTeamSection";
 import LatestUpdates from "@/components/home/LatestUpdates";
 import Socials from "@/components/home/Socials";
 // import FanPoll from "@/components/home/FanPoll";
-// import FanPollPopupAutoMount from "@/components/home/FanPollPopupAutoMount";
+import FanPollPopupAutoMount from "@/components/home/FanPollPopupAutoMount";
 import Sponsorship from "@/components/common/Sponsorship";
 import Gallery from "@/components/home/Gallery";
 import FanWall from "@/components/home/FanWall";
@@ -28,7 +28,7 @@ export default async function Home() {
       </div>
 
       <Sponsorship />
-      {/* <FanPollPopupAutoMount /> */}
+      <FanPollPopupAutoMount />
     </div>
   );
 }

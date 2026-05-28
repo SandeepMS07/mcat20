@@ -2,6 +2,7 @@ import "./globals.css";
 import MixpanelProvider from "@/components/tracking/MixpanelProvider";
 import ClientChrome from "@/components/layout/ClientChrome";
 import AuthProvider from "@/components/auth/AuthProvider";
+import { PollsProvider } from "@/components/polls/PollsProvider";
 export const metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "https://t20mumbai.in"
@@ -31,7 +32,9 @@ export default function RootLayout({ children }) {
       <body>
         <MixpanelProvider />
         <AuthProvider>
-          <ClientChrome>{children}</ClientChrome>
+          <PollsProvider>
+            <ClientChrome>{children}</ClientChrome>
+          </PollsProvider>
         </AuthProvider>
       </body>
     </html>

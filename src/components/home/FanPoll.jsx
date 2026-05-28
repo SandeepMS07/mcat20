@@ -1,8 +1,9 @@
 "use client";
-import { useCallback, useEffect, useState } from "react";
-import { listPolls, votePoll } from "@/app/api/polls";
+import { useState } from "react";
+import { votePoll } from "@/app/api/polls";
 import { trackEvent } from "@/utilis/mixpanelClient";
 import { useAuth } from "@/components/auth/AuthContext";
+import { usePollsContext } from "@/components/polls/PollsProvider";
 
 
 const CheckIcon = () => (
@@ -297,35 +298,8 @@ const FanPoll = ({
 }) => {
   const usingDefaultGrid = gridClassName === DEFAULT_GRID_CLASS;
   const cardWrapperClass = usingDefaultGrid ? DEFAULT_CARD_WRAPPER_CLASS : "";
-  const [polls, setPolls] = useState(null);
-  const [loadError, setLoadError] = useState(false);
-  const [reloadKey, setReloadKey] = useState(0);
-  const { isAuthed: authedForFetch } = useAuth();
+  const { polls, loadError, refetch, updatePoll } = usePollsContext();
 
-  useEffect(() => {
-    let cancelled = false;
-    setLoadError(false);
-    setPolls(null);
-    listPolls()
-      .then((data) => {
-        if (cancelled) return;
-        setPolls(Array.isArray(data) ? data : []);
-      })
-      .catch((err) => {
-        if (cancelled) return;
-        console.error("[FanPoll] failed to load polls:", err);
-        setLoadError(true);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [reloadKey, authedForFetch]);
-
-  const handlePollUpdate = useCallback((updated) => {
-    setPolls((curr) =>
-      curr ? curr.map((p) => (p.id === updated.id ? updated : p)) : curr
-    );
-  }, []);
 
   // On the home page (no headerSlot), keep prior behavior: hide silently on error.
   if (loadError && !headerSlot) return null;
@@ -341,7 +315,7 @@ const FanPoll = ({
         </p>
         <button
           type="button"
-          onClick={() => setReloadKey((k) => k + 1)}
+          onClick={refetch}
           className="rounded-full border border-white/30 bg-white/10 px-5 py-2 text-xs font-semibold text-white transition hover:bg-white/15"
         >
           Retry
@@ -365,7 +339,7 @@ const FanPoll = ({
       <div key={poll.id} className={cardWrapperClass}>
         <PollCard
           poll={poll}
-          onPollUpdate={handlePollUpdate}
+          onPollUpdate={updatePoll}
           variant={variant}
         />
       </div>

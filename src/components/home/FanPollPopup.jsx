@@ -1,13 +1,11 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
-import { listPolls, votePoll } from "@/app/api/polls";
+import { votePoll } from "@/app/api/polls";
 import { useAuth } from "@/components/auth/AuthContext";
+import { usePollsContext } from "@/components/polls/PollsProvider";
 
-const POPUP_DISMISSED_KEY = "mca_fanpoll_popup_dismissed";
 const POPUP_TIMER_KEY = "mca_fanpoll_popup_timer_start";
 const POPUP_TIMER_DURATION_MS = 60 * 60 * 1000;
-
-const DEFAULT_OPTION_IMAGE = "/images/stats/player-img.svg";
 
 const formatCountdown = (ms) => {
   const total = Math.max(0, Math.floor(ms / 1000));
@@ -18,61 +16,19 @@ const formatCountdown = (ms) => {
   return `${m}:${s}`;
 };
 
-const markDismissed = () => {
-  if (typeof window === "undefined") return;
-  try {
-    window.localStorage.setItem(POPUP_DISMISSED_KEY, "1");
-  } catch {
-    /* ignore */
-  }
-};
-
-export const hasFanPollPopupBeenDismissed = () => {
-  if (typeof window === "undefined") return true;
-  try {
-    return window.localStorage.getItem(POPUP_DISMISSED_KEY) === "1";
-  } catch {
-    return true;
-  }
-};
-
-const FanPollPopup = ({ open, onClose }) => {
-  const [poll, setPoll] = useState(null);
-  const [loadError, setLoadError] = useState(false);
+const FanPollPopup = ({ open, onClose, onVoted }) => {
+  const { polls, loadError, updatePoll } = usePollsContext();
+  const poll = polls && polls.length > 0 ? polls[polls.length - 1] : null;
   const [pendingOptionId, setPendingOptionId] = useState(null);
   const [voteError, setVoteError] = useState(null);
   const [remainingMs, setRemainingMs] = useState(POPUP_TIMER_DURATION_MS);
   const { isAuthed, openLogin } = useAuth();
 
-  useEffect(() => {
-    if (!open) return undefined;
-    let cancelled = false;
-    setLoadError(false);
-    setPoll(null);
-    listPolls()
-      .then((data) => {
-        if (cancelled) return;
-        const first = Array.isArray(data) && data.length > 0 ? data[0] : null;
-        if (!first) {
-          setLoadError(true);
-          return;
-        }
-        setPoll(first);
-      })
-      .catch((err) => {
-        if (cancelled) return;
-        console.error("[FanPollPopup] failed to load poll:", err);
-        setLoadError(true);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [open, isAuthed]);
 
   useEffect(() => {
     if (!open) return undefined;
     const onKey = (e) => {
-      if (e.key === "Escape") handleClose();
+      if (e.key === "Escape") onClose?.();
     };
     window.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
@@ -123,11 +79,6 @@ const FanPollPopup = ({ open, onClose }) => {
     )?.id;
   }, [poll]);
 
-  const handleClose = () => {
-    markDismissed();
-    onClose?.();
-  };
-
   const handleVote = async (optionId) => {
     if (!poll || pendingOptionId !== null || hasVoted) return;
     if (!isAuthed) {
@@ -146,14 +97,14 @@ const FanPollPopup = ({ open, onClose }) => {
     };
     setVoteError(null);
     setPendingOptionId(optionId);
-    setPoll(optimistic);
+    updatePoll(optimistic);
 
     try {
       const res = await votePoll(poll.slug, optionId);
-      if (res && res.poll) setPoll(res.poll);
-      markDismissed();
+      if (res && res.poll) updatePoll(res.poll);
+      onVoted?.(poll.id);
     } catch (err) {
-      setPoll(prevPoll);
+      updatePoll(prevPoll);
       const status = err?.response?.status;
       const code = err?.response?.data?.error || err?.response?.data?.code;
       let msg = "Something went wrong. Please try again.";
@@ -174,7 +125,7 @@ const FanPollPopup = ({ open, onClose }) => {
   return (
     <div
       className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
-      onClick={handleClose}
+      onClick={onClose}
     >
       <div
         className="relative w-full max-w-2xl overflow-hidden rounded-2xl border border-white/15 bg-[#02103D] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)]"
@@ -231,7 +182,7 @@ const FanPollPopup = ({ open, onClose }) => {
             )}
             <button
               type="button"
-              onClick={handleClose}
+              onClick={onClose}
               aria-label="Close poll"
               className="ml-auto cursor-pointer rounded-full p-1.5 text-white/60 transition hover:bg-white/10 hover:text-white"
             >
@@ -302,12 +253,14 @@ const FanPollPopup = ({ open, onClose }) => {
                           style={{ width: `${pct}%` }}
                         />
                         <div className="relative flex items-center gap-3">
-                          <img
-                            src={opt.image_url || DEFAULT_OPTION_IMAGE}
-                            alt=""
-                            className="h-8 w-8 shrink-0 rounded-full object-cover ring-1 ring-white/20"
-                            loading="lazy"
-                          />
+                          {opt.image_url && (
+                            <img
+                              src={opt.image_url}
+                              alt=""
+                              className="h-8 w-8 shrink-0 rounded-full object-cover ring-1 ring-white/20"
+                              loading="lazy"
+                            />
+                          )}
                           <span
                             className={`min-w-0 flex-1 truncate text-sm ${
                               isMine
@@ -351,16 +304,18 @@ const FanPollPopup = ({ open, onClose }) => {
                         }`}
                         aria-pressed={isPending}
                       >
-                        <img
-                          src={opt.image_url || DEFAULT_OPTION_IMAGE}
-                          alt=""
-                          className={`h-9 w-9 shrink-0 rounded-full object-cover ring-1 transition ${
-                            isPending
-                              ? "ring-[#F2A23A]"
-                              : "ring-white/20 group-hover:ring-[#F2A23A]/40"
-                          }`}
-                          loading="lazy"
-                        />
+                        {opt.image_url && (
+                          <img
+                            src={opt.image_url}
+                            alt=""
+                            className={`h-9 w-9 shrink-0 rounded-full object-cover ring-1 transition ${
+                              isPending
+                                ? "ring-[#F2A23A]"
+                                : "ring-white/20 group-hover:ring-[#F2A23A]/40"
+                            }`}
+                            loading="lazy"
+                          />
+                        )}
                         <span className="min-w-0 flex-1 truncate">
                           {opt.label}
                         </span>
