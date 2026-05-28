@@ -46,10 +46,10 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="w-full bg-white pb-24">
+    <div className="w-full bg-white">
       <div className="relative">
+        {/* Title Block */}
         <div className="section-width pt-10">
-          {/* Title Block */}
           <div className="relative mb-6">
             <Image
               src="/images/elements/small-title-bg.png"
@@ -83,22 +83,10 @@ export default function Page() {
               </h2>
             </div>
           </div>
-  {/* {iframeSrc ? (
-                    <iframe
-                    src={iframeSrc}
-                    title="Matchcentre Preview"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 'none' }}
-                    />
-                ) : (x
-                    <p>Loading match centre...</p> 
-                )} */}
-            {/* </div> */}
-          <div className="mt-8 min-h-[80vh]">
-            <app-matchcentre className={widgetLoaded ? "" : "opacity-0"}></app-matchcentre>
-            {!widgetLoaded && <p>Loading Match Centre Widget...</p>}
-          </div>
+        </div>
+        <div className="section-width mt-8">
+          <app-matchcentre style={{ display: "block", width: "100%" }} className={widgetLoaded ? "" : "opacity-0"}></app-matchcentre>
+          {!widgetLoaded && <p>Loading Match Centre Widget...</p>}
         </div>
       </div>
     </div>

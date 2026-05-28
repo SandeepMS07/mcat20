@@ -7,7 +7,7 @@ import Footer from "@/components/layout/footer/footer";
 import AppNavbarBanner from "@/components/openApp/openApp";
 
 const HIDE_HEADER_PREFIXES = ["/player-registration", "/live-auction"];
-const HIDE_FOOTER_PREFIXES = ["/player-registration", "/live-auction"];
+const HIDE_FOOTER_PREFIXES = ["/player-registration", "/live-auction", "/matchcentre"];
 
 const ClientChrome = ({ children }) => {
   const pathname = usePathname();
