@@ -749,15 +749,15 @@ export default function FixturesPage() {
                 options={seasonOptions}
                 onChange={(label) => setSeason(SEASON_VALUE[label])}
               />
-            ) : (
+            ) : season !== "season3" ? (
               <CustomSelect
                 label="Team"
                 value={team}
                 options={teamOptions}
                 onChange={setTeam}
               />
-            )}
-            {status === "completed" && (
+            ) : null}
+            {status === "completed" && season !== "season3" && (
               <div className="col-span-2">
                 <CustomSelect
                   label="Team"
@@ -806,12 +806,14 @@ export default function FixturesPage() {
                   options={seasonOptions}
                 />
               )}
-              <FilterSelect
-                label="Filter by team"
-                value={team}
-                onChange={setTeam}
-                options={teamOptions}
-              />
+              {season !== "season3" && (
+                <FilterSelect
+                  label="Filter by team"
+                  value={team}
+                  onChange={setTeam}
+                  options={teamOptions}
+                />
+              )}
             </div>
           </div>
         </div>
