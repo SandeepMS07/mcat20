@@ -4,7 +4,6 @@ import { listPolls, votePoll } from "@/app/api/polls";
 import { trackEvent } from "@/utilis/mixpanelClient";
 import { useAuth } from "@/components/auth/AuthContext";
 
-const DEFAULT_OPTION_IMAGE = "/images/stats/player-img.svg";
 
 const CheckIcon = () => (
   <svg
@@ -117,12 +116,14 @@ const PollCard = ({ poll, onPollUpdate, variant = "compact" }) => {
             return (
               <div key={opt.id}>
                 <div className="mb-1.5 flex items-center gap-2.5">
-                  <img
-                    src={opt.image_url || DEFAULT_OPTION_IMAGE}
-                    alt=""
-                    className="h-7 w-7 shrink-0 rounded-full object-cover ring-1 ring-white/15"
-                    loading="lazy"
-                  />
+                  {opt.image_url && (
+                    <img
+                      src={opt.image_url}
+                      alt=""
+                      className="h-7 w-7 shrink-0 rounded-full object-cover ring-1 ring-white/15"
+                      loading="lazy"
+                    />
+                  )}
                   <p className="flex-1 truncate text-[13px] font-semibold text-white/95">
                     {opt.label}
                   </p>
@@ -172,12 +173,14 @@ const PollCard = ({ poll, onPollUpdate, variant = "compact" }) => {
                   aria-pressed={isSelected}
                 >
                   <div className="relative">
-                    <img
-                      src={opt.image_url || DEFAULT_OPTION_IMAGE}
-                      alt=""
-                      className="h-12 w-12 rounded-full object-cover ring-2 ring-white/15"
-                      loading="lazy"
-                    />
+                    {opt.image_url && (
+                      <img
+                        src={opt.image_url}
+                        alt=""
+                        className="h-12 w-12 rounded-full object-cover ring-2 ring-white/15"
+                        loading="lazy"
+                      />
+                    )}
                     {isSelected && (
                       <span className="absolute -right-0.5 -bottom-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#F2A23A] text-white shadow-md">
                         <CheckIcon />
@@ -210,12 +213,14 @@ const PollCard = ({ poll, onPollUpdate, variant = "compact" }) => {
                   } ${isPending ? "opacity-70" : ""}`}
                   aria-pressed={isSelected}
                 >
-                  <img
-                    src={opt.image_url || DEFAULT_OPTION_IMAGE}
-                    alt=""
-                    className="h-8 w-8 shrink-0 rounded-full object-cover ring-1 ring-white/15"
-                    loading="lazy"
-                  />
+                  {opt.image_url && (
+                    <img
+                      src={opt.image_url}
+                      alt=""
+                      className="h-8 w-8 shrink-0 rounded-full object-cover ring-1 ring-white/15"
+                      loading="lazy"
+                    />
+                  )}
                   <span className="flex-1 truncate">{opt.label}</span>
                 </button>
               );
