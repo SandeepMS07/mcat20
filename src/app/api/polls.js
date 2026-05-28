@@ -58,6 +58,14 @@ export const votePoll = async (slug, optionId) => {
   return res.data;
 };
 
+// Viewers' Choice categories reuse the fan_poll infra: each category is a poll
+// with slug `vc-<category-slug>` (see backend seed-viewer-choice.ts). These thin
+// wrappers map a category slug (from app/choice/categories.js) onto that poll,
+// so the public Choice page gets real options + tallies + my_selection.
+export const getChoicePoll = (categorySlug) => getPoll(`vc-${categorySlug}`);
+export const voteChoice = (categorySlug, optionId) =>
+  votePoll(`vc-${categorySlug}`, optionId);
+
 // Fetches polls attached to a specific match plus the winner banner payload.
 // Shape: { polls: [...], winner: { firstName, fullName } | null }
 // Passes voterKey when present so the backend can claim any pre-login anon

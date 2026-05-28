@@ -116,7 +116,7 @@ export default function AdminMatchesListPage() {
                 onClick={() => setFilter(f.value)}
                 className={`rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-wide transition ${
                   filter === f.value
-                    ? "bg-[#F2A23A] text-[#02103D]"
+                    ? "bg-gradient-to-b from-[#F68323] to-[#E07E27] text-white shadow-[0_4px_12px_-4px_rgba(246,131,35,0.6)]"
                     : "border border-white/15 bg-white/[0.03] text-white/70 hover:border-white/40 hover:text-white"
                 }`}
               >
@@ -135,7 +135,7 @@ export default function AdminMatchesListPage() {
                 onClick={() => setCategory(c.value)}
                 className={`rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-wide transition ${
                   category === c.value
-                    ? "bg-[#F2A23A] text-[#02103D]"
+                    ? "bg-gradient-to-b from-[#F68323] to-[#E07E27] text-white shadow-[0_4px_12px_-4px_rgba(246,131,35,0.6)]"
                     : "border border-white/15 bg-white/[0.03] text-white/70 hover:border-white/40 hover:text-white"
                 }`}
               >

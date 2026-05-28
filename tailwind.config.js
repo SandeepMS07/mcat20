@@ -26,6 +26,10 @@ module.exports = {
         inter: ['Inter', 'sans-serif'],
         jakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
         sen: ['Sen', 'sans-serif'],
+        // Oswald is loaded globally in app/layout.js <head>. The admin uses
+        // `font-oswald` for its condensed display headings; without this entry
+        // that utility was a no-op and headings fell back to Jakarta.
+        oswald: ['Oswald', 'sans-serif'],
       },
     },
   },

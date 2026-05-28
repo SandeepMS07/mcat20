@@ -8,7 +8,7 @@ import Image from "next/image";
 // } from "@/utils/helper";
 // import { playerTeamLogo } from "@/assets";
 import { teamDetailsData } from "./data";
-import teamDetailsDataSeason3 from "../../constant/team/teamDetailsDataSeason3.json";
+import teamDetailsDataSeason4 from "../../constant/team/teamDetailsDataSeason4.json";
 import {
   formatToIndianCurrencyWords2,
   mapHighestLevelToCategory,
@@ -21,7 +21,7 @@ const page = () => {
   const teamId = searchParams.get("teamId");
   const setStepValue = searchParams.get("setStepValue");
   const [loading, setLoading] = useState(false);
-  const [teamDetails, setTeamDetails] = useState(teamDetailsDataSeason3.data);
+  const [teamDetails, setTeamDetails] = useState(teamDetailsDataSeason4.data);
   const [step, setStep] = useState(setStepValue || 1);
   const [selectedTeamIndex, setSelectedTeamIndex] = useState(0);
 

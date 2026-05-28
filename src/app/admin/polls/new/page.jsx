@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { createPoll, listMatches } from "@/app/api/admin/polls";
+import { createPoll, listMatches, listSquadPlayers } from "@/app/api/admin/polls";
 import PollForm from "@/components/admin/PollForm";
 import { Button, Card, PageHeader } from "@/components/admin/ui";
 
@@ -13,12 +13,16 @@ export default function NewPollPage() {
   const preselectMatch = search.get("matchId") || "";
 
   const [matches, setMatches] = useState([]);
+  const [players, setPlayers] = useState([]);
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
     listMatches()
       .then((res) => setMatches(res.matches || []))
       .catch(() => setMatches([]));
+    listSquadPlayers()
+      .then((rows) => setPlayers(rows))
+      .catch(() => setPlayers([]));
   }, []);
 
   const handleSubmit = async (body) => {
@@ -48,6 +52,7 @@ export default function NewPollPage() {
           <PollForm
             mode="create"
             matches={matches}
+            players={players}
             initial={preselectMatch ? { match_id: preselectMatch } : null}
             submitting={submitting}
             onSubmit={handleSubmit}

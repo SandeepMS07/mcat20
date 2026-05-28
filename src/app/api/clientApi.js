@@ -1,5 +1,5 @@
 import { getAxiosInstance } from "./axiosInstance";
-import teamDetailsStatic from "@/constant/team/teamDetailsDataSeason3.json";
+import teamDetailsStatic from "@/constant/team/teamDetailsDataSeason4.json";
 
 const axios = getAxiosInstance();
 const DEFAULT_TTL_MS = 5 * 60 * 1000;

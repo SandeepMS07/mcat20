@@ -29,12 +29,12 @@ export function PageHeader({ eyebrow, title, subtitle, actions }) {
 export function StatCard({ label, value, trend, accent = "default" }) {
   const accents = {
     default: "border-white/10 bg-[#0A1438]",
-    gold: "border-[#F2A23A]/30 bg-[#F2A23A]/[0.08]",
+    gold: "border-[#F68323]/30 bg-[#F68323]/[0.08]",
     emerald: "border-emerald-400/30 bg-emerald-400/[0.07]",
     blue: "border-sky-400/30 bg-sky-400/[0.07]",
   };
   return (
-    <div className={`rounded-2xl border p-5 ${accents[accent] ?? accents.default}`}>
+    <div className={`rounded-2xl border p-5 shadow-[0_18px_44px_-26px_rgba(0,0,0,0.75)] ${accents[accent] ?? accents.default}`}>
       <div className="text-[10px] font-bold uppercase tracking-[0.22em] text-white/55">
         {label}
       </div>
@@ -51,7 +51,7 @@ export function StatCard({ label, value, trend, accent = "default" }) {
 export function Card({ title, action, children, padding = "default" }) {
   const pad = padding === "tight" ? "p-4" : "p-5 sm:p-6";
   return (
-    <section className="rounded-2xl border border-white/10 bg-[#0A1438]/85">
+    <section className="rounded-2xl border border-white/10 bg-[#0A1438]/85 shadow-[0_18px_44px_-26px_rgba(0,0,0,0.75)] backdrop-blur-sm">
       {title || action ? (
         <div className="flex items-center justify-between border-b border-white/10 px-5 py-3 sm:px-6">
           {title ? (
@@ -81,19 +81,20 @@ export function Button({
     lg: "px-5 py-2.5 text-sm",
   };
   const variants = {
+    // Signature web CTA: warm orange gradient with a soft glow.
     primary:
-      "bg-[#F2A23A] text-[#02103D] hover:brightness-110 disabled:opacity-60",
+      "bg-gradient-to-b from-[#F68323] to-[#E07E27] text-white shadow-[0_6px_18px_-6px_rgba(246,131,35,0.7)] hover:brightness-110 hover:shadow-[0_8px_22px_-6px_rgba(246,131,35,0.85)] disabled:opacity-60 disabled:shadow-none",
     secondary:
       "border border-white/15 bg-white/[0.04] text-white/80 hover:border-white/40 hover:text-white disabled:opacity-60",
     ghost: "text-white/70 hover:bg-white/[0.06] hover:text-white",
     danger:
       "border border-red-400/40 bg-red-400/[0.08] text-red-200 hover:bg-red-400/15 disabled:opacity-60",
     success:
-      "bg-emerald-400 text-[#02103D] hover:brightness-110 disabled:opacity-60",
+      "bg-gradient-to-b from-emerald-400 to-emerald-500 text-[#04261B] shadow-[0_6px_18px_-6px_rgba(52,211,153,0.7)] hover:brightness-110 disabled:opacity-60",
   };
   return (
     <As
-      className={`inline-flex items-center justify-center gap-2 rounded-md font-bold uppercase tracking-wide transition ${sizes[size] ?? sizes.md} ${variants[variant] ?? variants.primary} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-lg font-bold uppercase tracking-wide transition ${sizes[size] ?? sizes.md} ${variants[variant] ?? variants.primary} ${className}`}
       {...rest}
     >
       {children}

@@ -52,14 +52,14 @@ export default function AdminLoginPage() {
       <aside className="relative hidden flex-col justify-between overflow-hidden border-r border-white/10 bg-gradient-to-br from-[#050C2A] via-[#02103D] to-[#02061A] p-12 lg:flex">
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-[#F2A23A]/15 blur-3xl"
+          className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-[#F68323]/15 blur-3xl"
         />
         <div
           aria-hidden
           className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-sky-500/10 blur-3xl"
         />
         <div className="relative flex items-center gap-3">
-          <span className="grid h-12 w-12 place-items-center rounded-xl bg-[#F2A23A] text-xl font-extrabold italic text-[#02103D]">
+          <span className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-b from-[#F68323] to-[#E07E27] text-xl font-extrabold italic text-white shadow-[0_6px_16px_-6px_rgba(246,131,35,0.7)]">
             M
           </span>
           <div className="leading-tight">
@@ -109,7 +109,7 @@ export default function AdminLoginPage() {
       <main className="flex items-center justify-center px-6 py-16">
         <div className="w-full max-w-md">
           <div className="mb-8 text-center lg:hidden">
-            <span className="inline-grid h-12 w-12 place-items-center rounded-xl bg-[#F2A23A] text-xl font-extrabold italic text-[#02103D]">
+            <span className="inline-grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-b from-[#F68323] to-[#E07E27] text-xl font-extrabold italic text-white shadow-[0_6px_16px_-6px_rgba(246,131,35,0.7)]">
               M
             </span>
             <h1 className="mt-4 font-oswald text-2xl font-extrabold uppercase italic text-white">
@@ -211,7 +211,7 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="flex w-full items-center justify-center gap-2 rounded-md bg-[#F2A23A] px-4 py-2.5 text-sm font-bold uppercase tracking-wide text-[#02103D] transition hover:brightness-110 disabled:opacity-60"
+              className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-b from-[#F68323] to-[#E07E27] px-4 py-2.5 text-sm font-bold uppercase tracking-wide text-white shadow-[0_6px_18px_-6px_rgba(246,131,35,0.7)] transition hover:brightness-110 hover:shadow-[0_8px_22px_-6px_rgba(246,131,35,0.85)] disabled:opacity-60 disabled:shadow-none"
             >
               {loading ? (
                 <>

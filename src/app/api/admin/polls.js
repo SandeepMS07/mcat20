@@ -51,6 +51,19 @@ export const listMatches = async () => {
   return res.data;
 };
 
+// Flat squad-player list for the poll-option picker. Returns the standalone
+// tournament_team_player rows (name + photo + SF contact id) so an option can
+// be auto-filled from a player instead of typing label + image by hand.
+// Response shape: { data: [...], message, success }.
+export const listSquadPlayers = async ({ season, category, teamId } = {}) => {
+  const params = {};
+  if (season) params.season = season;
+  if (category) params.category = category;
+  if (teamId) params.teamId = teamId;
+  const res = await turboverseAxios.get("/v1/squads/players", { params });
+  return res.data?.data || [];
+};
+
 export const matchVoters = async (matchId) => {
   const res = await turboverseAxios.get(`/v1/admin/matches/${matchId}/voters`);
   return res.data;

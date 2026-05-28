@@ -9,11 +9,13 @@ import {
   deletePoll,
   getPoll,
   listMatches,
+  listSquadPlayers,
   pollVoters,
   updateOption,
   updatePoll,
 } from "@/app/api/admin/polls";
 import PollForm from "@/components/admin/PollForm";
+import PlayerPicker from "@/components/admin/PlayerPicker";
 import {
   Button,
   Card,
@@ -29,13 +31,19 @@ export default function EditPollPage() {
   const { id } = useParams();
   const [data, setData] = useState(null);
   const [matches, setMatches] = useState([]);
+  const [players, setPlayers] = useState([]);
   const [voters, setVoters] = useState({
     voters: [],
     totals: { all: 0, correct: null },
   });
   const [submitting, setSubmitting] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [optionDraft, setOptionDraft] = useState({ label: "", imageUrl: "" });
+  const [optionDraft, setOptionDraft] = useState({
+    label: "",
+    imageUrl: "",
+    subjectType: null,
+    subjectId: null,
+  });
   const [voterSearch, setVoterSearch] = useState("");
   const [actionError, setActionError] = useState(null);
   // Tracks whether the component is still mounted so async handlers don't fire
@@ -50,15 +58,17 @@ export default function EditPollPage() {
   }, []);
 
   const reload = async () => {
-    const [pollRes, matchesRes, votersRes] = await Promise.all([
+    const [pollRes, matchesRes, votersRes, playersRes] = await Promise.all([
       getPoll(id),
       listMatches(),
       pollVoters(id),
+      listSquadPlayers().catch(() => []),
     ]);
     if (!mountedRef.current) return;
     setData(pollRes);
     setMatches(matchesRes.matches || []);
     setVoters(votersRes);
+    setPlayers(playersRes || []);
   };
 
   const safe = async (fn) => {
@@ -127,10 +137,12 @@ export default function EditPollPage() {
       await addOption(id, {
         label: optionDraft.label.trim(),
         imageUrl: optionDraft.imageUrl.trim() || null,
+        subjectType: optionDraft.subjectType ?? null,
+        subjectId: optionDraft.subjectId ?? null,
         sortOrder: data?.options?.length ?? 0,
       });
       if (!mountedRef.current) return;
-      setOptionDraft({ label: "", imageUrl: "" });
+      setOptionDraft({ label: "", imageUrl: "", subjectType: null, subjectId: null });
       await reload();
     });
 
@@ -272,6 +284,7 @@ export default function EditPollPage() {
             <PollForm
               mode="edit"
               matches={matches}
+              players={players}
               initial={poll}
               submitting={submitting}
               onSubmit={handleSubmit}
@@ -294,6 +307,7 @@ export default function EditPollPage() {
                 <OptionRow
                   key={o.id}
                   option={o}
+                  players={players}
                   isCorrect={correctId === o.id}
                   isLeader={(o.vote_count || 0) === maxVotes && maxVotes > 0}
                   totalVotes={totalVotes}
@@ -303,26 +317,48 @@ export default function EditPollPage() {
                 />
               ))}
             </div>
-            <div className="mt-5 grid grid-cols-1 gap-2 rounded-xl border border-dashed border-white/15 bg-white/[0.02] p-3 md:grid-cols-[1fr,1fr,auto]">
-              <input
-                value={optionDraft.label}
-                onChange={(e) =>
-                  setOptionDraft((d) => ({ ...d, label: e.target.value }))
-                }
-                placeholder="New option label"
-                className="rounded-md border border-white/15 bg-white/[0.04] px-3 py-2 text-sm text-white placeholder:text-white/35 focus:border-[#F2A23A] focus:outline-none"
-              />
-              <input
-                value={optionDraft.imageUrl}
-                onChange={(e) =>
-                  setOptionDraft((d) => ({ ...d, imageUrl: e.target.value }))
-                }
-                placeholder="Image URL (optional)"
-                className="rounded-md border border-white/15 bg-white/[0.04] px-3 py-2 text-sm text-white placeholder:text-white/35 focus:border-[#F2A23A] focus:outline-none"
-              />
-              <Button type="button" onClick={handleAddOption} size="md">
-                + Add option
-              </Button>
+            <div className="mt-5 rounded-xl border border-dashed border-white/15 bg-white/[0.02] p-3">
+              <div className="grid grid-cols-1 gap-2 md:grid-cols-[1fr,1fr,auto]">
+                <input
+                  value={optionDraft.label}
+                  onChange={(e) =>
+                    setOptionDraft((d) => ({ ...d, label: e.target.value }))
+                  }
+                  placeholder="New option label"
+                  className="rounded-md border border-white/15 bg-white/[0.04] px-3 py-2 text-sm text-white placeholder:text-white/35 focus:border-[#F2A23A] focus:outline-none"
+                />
+                <input
+                  value={optionDraft.imageUrl}
+                  onChange={(e) =>
+                    setOptionDraft((d) => ({ ...d, imageUrl: e.target.value }))
+                  }
+                  placeholder="Image URL (optional)"
+                  className="rounded-md border border-white/15 bg-white/[0.04] px-3 py-2 text-sm text-white placeholder:text-white/35 focus:border-[#F2A23A] focus:outline-none"
+                />
+                <Button type="button" onClick={handleAddOption} size="md">
+                  + Add option
+                </Button>
+              </div>
+              <div className="mt-2 flex items-center gap-2 text-[11px] text-white/45">
+                <span>Or fill from a player:</span>
+                <PlayerPicker
+                  players={players}
+                  selectedId={
+                    optionDraft.subjectType === "player" ? optionDraft.subjectId : null
+                  }
+                  onPick={(p) =>
+                    setOptionDraft({
+                      label: p.player_name ?? "",
+                      imageUrl: p.photo_url ?? "",
+                      subjectType: "player",
+                      subjectId: p.sf_player_id != null ? String(p.sf_player_id) : null,
+                    })
+                  }
+                  onClear={() =>
+                    setOptionDraft((d) => ({ ...d, subjectType: null, subjectId: null }))
+                  }
+                />
+              </div>
             </div>
           </Card>
         </div>
@@ -409,6 +445,7 @@ export default function EditPollPage() {
 
 function OptionRow({
   option,
+  players = [],
   isCorrect,
   isLeader,
   totalVotes,
@@ -418,8 +455,23 @@ function OptionRow({
 }) {
   const [label, setLabel] = useState(option.label);
   const [imageUrl, setImageUrl] = useState(option.image_url ?? "");
+  const [subjectType, setSubjectType] = useState(option.subject_type ?? null);
+  const [subjectId, setSubjectId] = useState(option.subject_id ?? null);
   const dirty =
-    label !== option.label || imageUrl !== (option.image_url ?? "");
+    label !== option.label ||
+    imageUrl !== (option.image_url ?? "") ||
+    subjectType !== (option.subject_type ?? null) ||
+    subjectId !== (option.subject_id ?? null);
+  const pickPlayer = (p) => {
+    setLabel(p.player_name ?? "");
+    setImageUrl(p.photo_url ?? "");
+    setSubjectType("player");
+    setSubjectId(p.sf_player_id != null ? String(p.sf_player_id) : null);
+  };
+  const clearPlayer = () => {
+    setSubjectType(null);
+    setSubjectId(null);
+  };
   const pct =
     totalVotes > 0 ? Math.round(((option.vote_count || 0) / totalVotes) * 100) : 0;
   return (
@@ -455,7 +507,12 @@ function OptionRow({
             type="button"
             disabled={!dirty}
             onClick={() =>
-              onSave({ label: label.trim(), imageUrl: imageUrl.trim() || null })
+              onSave({
+                label: label.trim(),
+                imageUrl: imageUrl.trim() || null,
+                subjectType,
+                subjectId,
+              })
             }
             variant="secondary"
             size="sm"
@@ -471,6 +528,15 @@ function OptionRow({
             Remove
           </Button>
         </div>
+      </div>
+      <div className="mt-2 flex items-center gap-2 text-[11px] text-white/45">
+        <span>Or fill from a player:</span>
+        <PlayerPicker
+          players={players}
+          selectedId={subjectType === "player" ? subjectId : null}
+          onPick={pickPlayer}
+          onClear={clearPlayer}
+        />
       </div>
       <div className="mt-3 flex items-center gap-3">
         <div className="relative h-2 flex-1 overflow-hidden rounded-full bg-white/[0.06]">
