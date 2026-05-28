@@ -11,6 +11,7 @@ import { teamShortName } from "@/utilis/helper";
 import routes from "@/utilis/route";
 import Sponsorship from "@/components/common/Sponsorship";
 import CustomSelect from "@/components/common/CustomSelect";
+import FixtureWidget from "./components/FixtureWidget";
 
 const MONTHS = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 const DOWS = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
@@ -816,7 +817,9 @@ export default function FixturesPage() {
         </div>
 
         {/* Content */}
-        {visible.length === 0 ? (
+        {season === "season3" ? (
+          <FixtureWidget />
+        ) : visible.length === 0 ? (
           <EmptyState
             title={
               status === "completed"
@@ -840,7 +843,7 @@ export default function FixturesPage() {
           </div>
         )}
 
-        {hasMore && (
+        {season !== "season3" && hasMore && (
           <div className="flex justify-center mt-10 md:mt-12">
             <button
               type="button"
