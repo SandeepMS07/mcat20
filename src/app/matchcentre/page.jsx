@@ -45,11 +45,11 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="w-full pb-24">
+    <div className="w-full bg-white pb-24">
       <div className="relative">
         {/* Title Block */}
         <div className="w-full bg-[#091d65] py-10">
-          <div className="section-width ">
+          <div className="section-width">
             <h1 className="flex flex-col text-5xl font-extrabold uppercase italic leading-[0.92] sm:text-6xl lg:text-7xl">
               <span
                 className="text-transparent"
