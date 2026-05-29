@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 
 const MATCHCENTRE_CSS = "https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/app.css";
 const MATCHCENTRE_SCRIPT = "https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/app_matchcentre.js";
@@ -48,41 +47,21 @@ export default function Page() {
   return (
     <div className="w-full bg-white pb-24">
       <div className="relative">
-        <div className="section-width pt-10">
-          {/* Title Block */}
-          <div className="relative mb-6">
-            <Image
-              src="/images/elements/small-title-bg.png"
-              alt="Mobile Title"
-              className="block md:hidden w-full"
-              width={200}
-              height={0}
-              priority
-            />
-            <Image
-              src="/images/elements/title-bg.png"
-              alt="Desktop Title"
-              className="hidden md:block w-full"
-              width={700}
-              height={200}
-              priority
-            />
-            <div className="absolute top-0 left-0 h-full z-10 flex flex-col md:flex-row md:items-center md:justify-between justify-center w-full">
-              <h2
-                className="uppercase max-sm:text-base md:text-lg lg:text-xl xl:text-2xl xl:ml-16 ml-12 italic text-black"
-                style={{
-                  background:
-                    "radial-gradient(43.3% 61.24% at 50% 50%, #FFF200 0%, #FFF200 26%, #FBB040 97%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                  color: "transparent",
-                }}
+        {/* Title Block */}
+        <div className="w-full bg-[#091d65] py-10">
+          <div className="section-width">
+            <h1 className="flex flex-col text-5xl font-extrabold uppercase italic leading-[0.92] sm:text-6xl lg:text-7xl">
+              <span
+                className="text-transparent"
+                style={{ WebkitTextStroke: "2px white" }}
               >
-                Match Centre
-              </h2>
-            </div>
+                Match
+              </span>
+              <span className="text-white">Centre</span>
+            </h1>
           </div>
+        </div>
+        <div className="section-width pt-10">
   {/* {iframeSrc ? (
                     <iframe
                     src={iframeSrc}

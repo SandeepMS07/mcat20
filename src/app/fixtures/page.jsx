@@ -85,35 +85,6 @@ const ChevronDown = ({ className = "w-4 h-4" }) => (
   </svg>
 );
 
-const PillToggle = ({ options, value, onChange, variant = "outline" }) => (
-  <div
-    className={`flex items-center gap-1 rounded-full p-1 w-full max-w-full sm:w-auto sm:inline-flex overflow-hidden ${
-      variant === "filled"
-        ? "bg-[#f68323] border border-[#f68323]"
-        : "bg-[#091d65] border border-white/80"
-    }`}
-  >
-    {options.map((opt) => {
-      const active = value === opt.value;
-      return (
-        <button
-          key={opt.value}
-          type="button"
-          onClick={() => onChange(opt.value)}
-          className={`flex-1 sm:flex-none min-w-0 px-3 sm:px-7 py-1.5 rounded-full text-[12px] sm:text-sm font-medium italic uppercase tracking-wide transition-colors truncate ${
-            active
-              ? "bg-white text-[#192a66]"
-              : "bg-transparent text-white hover:bg-white/10"
-          }`}
-          title={opt.label}
-        >
-          {opt.label}
-        </button>
-      );
-    })}
-  </div>
-);
-
 const FilterSelect = ({ value, options, onChange, label }) => (
   <div className="min-w-[140px] sm:min-w-[160px]">
     <CustomSelect
@@ -560,6 +531,29 @@ function processLegacyMatches(jsonData) {
 
 /* ===================== Heading ===================== */
 
+const WIDGET_SCRIPT_SRC =
+  "https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/app.js";
+
+const Season4Widget = () => {
+  useEffect(() => {
+    const existing = document.querySelector(
+      `script[src="${WIDGET_SCRIPT_SRC}"]`
+    );
+    if (!existing) {
+      const script = document.createElement("script");
+      script.src = WIDGET_SCRIPT_SRC;
+      script.type = "text/javascript";
+      document.body.appendChild(script);
+    }
+    return () => {
+      const el = document.querySelector(`script[src="${WIDGET_SCRIPT_SRC}"]`);
+      if (el) el.remove();
+    };
+  }, []);
+
+  return <div className="smmumbaiwidget" />;
+};
+
 const Heading = ({ status }) => {
   const word = status === "completed" ? "RESULTS" : "FIXTURES";
   return (
@@ -596,7 +590,7 @@ export default function FixturesPage() {
     SEASONS.some((s) => s.value === initialSeason) ? initialSeason : "season4"
   );
   const [status, setStatus] = useState(initialStatus);
-  const [gender, setGender] = useState(initialGender);
+  const [gender] = useState(initialGender);
   const [team, setTeam] = useState(initialTeam);
   const [venue, setVenue] = useState(initialVenue);
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
@@ -703,155 +697,47 @@ export default function FixturesPage() {
       />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[480px] bg-gradient-to-b from-[rgba(13,55,169,0.55)] via-[rgba(13,55,169,0.25)] to-transparent" />
 
+      <Season4Widget />
+
+      {/* Other seasons UI — commented out while widget is active
       <div className="relative z-10 py-10 md:py-14 lg:py-16 w-full px-6 sm:px-10 md:px-14 lg:px-20">
-        {/* Mobile header — Stats-page style */}
+        Mobile header — Stats-page style
         <div className="md:hidden">
           <div className="mb-6 flex flex-col items-center gap-4">
             <Heading status={status} />
-
-            {season === "season4" && (
-              <div className="inline-flex rounded-full bg-white/10 p-1 text-xs font-semibold uppercase backdrop-blur-sm ring-1 ring-white/15">
-                {[
-                  { label: "Men", value: "men" },
-                  { label: "Women", value: "women" },
-                ].map((opt) => (
-                  <button
-                    key={opt.value}
-                    type="button"
-                    onClick={() => setGender(opt.value)}
-                    className={`rounded-full px-5 py-1.5 transition-colors ${
-                      gender === opt.value
-                        ? "bg-[#F68323] text-white shadow-[0_4px_14px_rgba(246,131,35,0.4)]"
-                        : "text-white/80 hover:text-white"
-                    }`}
-                  >
-                    {opt.label}
-                  </button>
-                ))}
-              </div>
-            )}
           </div>
-
           <div className="relative z-20 mb-6 grid grid-cols-2 gap-2 rounded-2xl border border-white/10 bg-[#0E1A47]/60 p-2 backdrop-blur-sm">
-            <CustomSelect
-              label="Status"
-              value={status === "upcoming" ? "Upcoming" : "Completed"}
-              options={["Upcoming", "Completed"]}
-              onChange={(label) =>
-                setStatus(label.toLowerCase() === "upcoming" ? "upcoming" : "completed")
-              }
-            />
-            {status === "completed" ? (
-              <CustomSelect
-                label="Season"
-                value={SEASON_LABEL[season]}
-                options={seasonOptions}
-                onChange={(label) => setSeason(SEASON_VALUE[label])}
-              />
-            ) : (
-              <CustomSelect
-                label="Team"
-                value={team}
-                options={teamOptions}
-                onChange={setTeam}
-              />
-            )}
-            {status === "completed" && (
-              <div className="col-span-2">
-                <CustomSelect
-                  label="Team"
-                  value={team}
-                  options={teamOptions}
-                  onChange={setTeam}
-                />
-              </div>
-            )}
+            <CustomSelect label="Status" value={status === "upcoming" ? "Upcoming" : "Completed"} options={["Upcoming", "Completed"]} onChange={(label) => setStatus(label.toLowerCase() === "upcoming" ? "upcoming" : "completed")} />
+            {status === "completed" ? (<CustomSelect label="Season" value={SEASON_LABEL[season]} options={seasonOptions} onChange={(label) => setSeason(SEASON_VALUE[label])} />) : (<CustomSelect label="Team" value={team} options={teamOptions} onChange={setTeam} />)}
+            {status === "completed" && (<div className="col-span-2"><CustomSelect label="Team" value={team} options={teamOptions} onChange={setTeam} /></div>)}
           </div>
         </div>
-
-        {/* Desktop header — original layout */}
+        Desktop header — original layout
         <div className="hidden md:block">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-12 mb-8 md:mb-12">
-            {season === "season4" && (
-              <PillToggle
-                variant="filled"
-                value={gender}
-                onChange={setGender}
-                options={[
-                  { label: "Men", value: "men" },
-                  { label: "Women", value: "women" },
-                ]}
-              />
-            )}
-          </div>
-
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-8 md:mb-10">
             <Heading status={status} />
-
             <div className="flex flex-wrap gap-3 md:gap-5">
-              <FilterSelect
-                label="Filter by status"
-                value={status === "upcoming" ? "Upcoming" : "Completed"}
-                onChange={(label) =>
-                  setStatus(label.toLowerCase() === "upcoming" ? "upcoming" : "completed")
-                }
-                options={["Upcoming", "Completed"]}
-              />
-              {status === "completed" && (
-                <FilterSelect
-                  label="Filter by season"
-                  value={SEASON_LABEL[season]}
-                  onChange={(label) => setSeason(SEASON_VALUE[label])}
-                  options={seasonOptions}
-                />
-              )}
-              <FilterSelect
-                label="Filter by team"
-                value={team}
-                onChange={setTeam}
-                options={teamOptions}
-              />
+              <FilterSelect label="Filter by status" value={status === "upcoming" ? "Upcoming" : "Completed"} onChange={(label) => setStatus(label.toLowerCase() === "upcoming" ? "upcoming" : "completed")} options={["Upcoming", "Completed"]} />
+              {status === "completed" && (<FilterSelect label="Filter by season" value={SEASON_LABEL[season]} onChange={(label) => setSeason(SEASON_VALUE[label])} options={seasonOptions} />)}
+              <FilterSelect label="Filter by team" value={team} onChange={setTeam} options={teamOptions} />
             </div>
           </div>
         </div>
-
-        {/* Content */}
+        Content
         {visible.length === 0 ? (
-          <EmptyState
-            title={
-              status === "completed"
-                ? "No completed matches yet"
-                : season !== "season4"
-                ? "No upcoming matches in this season"
-                : gender === "women"
-                ? "No women's matches found"
-                : "No matches found"
-            }
-            description="Stay tuned — schedule updates will appear here."
-          />
+          <EmptyState title={status === "completed" ? "No completed matches yet" : "No upcoming matches in this season"} description="Stay tuned — schedule updates will appear here." />
         ) : (
           <div className="flex flex-col gap-3 md:gap-4">
-            {visible.map((match, idx) => (
-              <MatchCard
-                key={`${match.game_id || match.raw?.match_no || idx}-${idx}`}
-                match={match}
-              />
-            ))}
+            {visible.map((match, idx) => (<MatchCard key={`${match.game_id || match.raw?.match_no || idx}-${idx}`} match={match} />))}
           </div>
         )}
-
         {hasMore && (
           <div className="flex justify-center mt-10 md:mt-12">
-            <button
-              type="button"
-              onClick={() => setVisibleCount((c) => c + PAGE_INCREMENT)}
-              className="bg-white/10 border border-white/30 hover:bg-white/15 transition-colors text-white text-sm font-semibold rounded-[10px] px-6 py-3"
-            >
-              View More &gt;
-            </button>
+            <button type="button" onClick={() => setVisibleCount((c) => c + PAGE_INCREMENT)} className="bg-white/10 border border-white/30 hover:bg-white/15 transition-colors text-white text-sm font-semibold rounded-[10px] px-6 py-3">View More &gt;</button>
           </div>
         )}
       </div>
+      */}
 
       <div className="relative z-10 bg-white">
         <Sponsorship />

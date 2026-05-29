@@ -142,14 +142,14 @@ const Navbar = () => {
     <div
       className={
         matchesPageBg
-          ? "relative bg-[#091d65] lg:h-[120px] h-[85px]"
+          ? "relative bg-[#081d65] lg:h-[120px] h-[85px]"
           : pathName.includes(routes.matchcentre) ||
             pathName.includes(routes.yourPhotos)
           ? "bg-gradient-to-r from-[#060A17] to-[#203376] lg:h-[120px] h-[85px]"
           : ""
       }
     >
-      {matchesPageBg && (
+      {matchesPageBg && !pathName.includes(routes.fixtures) && (
         <>
           <div
             className="pointer-events-none absolute inset-0 bg-no-repeat bg-cover bg-top opacity-90"
