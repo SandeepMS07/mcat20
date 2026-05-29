@@ -3,7 +3,14 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { FANTASY_API_BASE } from "@/constant";
 import { useAdminAuth } from "./AdminAuthProvider";
+
+// Bull Board lives on the backend at /admin/queues (NOT under /v1). The
+// admin_rt cookie set at login is scoped to .turboverse.co in prod and to
+// localhost in dev, so navigating to FANTASY_API_BASE/admin/queues in the
+// same browser carries the cookie automatically — no separate login flow.
+const BULL_BOARD_URL = `${FANTASY_API_BASE.replace(/\/$/, "")}/admin/queues`;
 
 const NAV = [
   {
@@ -50,6 +57,23 @@ const NAV = [
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         <path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4z" />
         <path d="M5 9a3 3 0 0 1-3-3V5h3M19 9a3 3 0 0 0 3-3V5h-3" />
+      </svg>
+    ),
+  },
+  {
+    // Bull Board is hosted on the backend — open in a new tab rather than
+    // routing client-side. external=true skips the Next <Link> wrapper and
+    // adds target/rel for cross-origin safety.
+    href: BULL_BOARD_URL,
+    label: "Queues",
+    external: true,
+    icon: (
+      // Stacked-bars icon (3 layered job rows) — reads as "queue / jobs"
+      // without overlap with the Polls bar-chart icon.
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+        <rect x="3" y="4" width="18" height="4" rx="1" />
+        <rect x="3" y="10" width="18" height="4" rx="1" />
+        <rect x="3" y="16" width="18" height="4" rx="1" />
       </svg>
     ),
   },
@@ -134,17 +158,35 @@ export default function AdminShell({ children }) {
         </div>
         <nav className="space-y-1 p-3">
           {NAV.map((item) => {
-            const active = pathname?.startsWith(item.href);
+            // External items (e.g. Bull Board on the backend) are never
+            // "active" by pathname match — they live on a different origin.
+            const active = !item.external && pathname?.startsWith(item.href);
+            const cls = `flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition ${
+              active
+                ? "bg-gradient-to-b from-[#F68323] to-[#E07E27] text-white shadow-[0_4px_14px_-4px_rgba(246,131,35,0.6)]"
+                : "text-white/70 hover:bg-white/[0.06] hover:text-white"
+            }`;
+            if (item.external) {
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cls}
+                >
+                  {item.icon}
+                  <span className="flex-1">{item.label}</span>
+                  {/* Open-in-new-tab affordance so users know it leaves the
+                      admin shell. Small enough not to compete with the label. */}
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="text-white/40">
+                    <path d="M7 17L17 7M9 7h8v8" />
+                  </svg>
+                </a>
+              );
+            }
             return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition ${
-                  active
-                    ? "bg-gradient-to-b from-[#F68323] to-[#E07E27] text-white shadow-[0_4px_14px_-4px_rgba(246,131,35,0.6)]"
-                    : "text-white/70 hover:bg-white/[0.06] hover:text-white"
-                }`}
-              >
+              <Link key={item.href} href={item.href} className={cls}>
                 {item.icon}
                 <span>{item.label}</span>
               </Link>
