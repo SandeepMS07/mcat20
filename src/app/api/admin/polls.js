@@ -87,6 +87,22 @@ export const getMatchWinner = async (matchId) => {
   return res.data;
 };
 
+// Per-poll winner picking — each poll question gets its own independent draw.
+export const pickPollWinner = async (pollId) => {
+  const res = await turboverseAxios.post(`/v1/admin/polls/${pollId}/pick-winner`);
+  return res.data;
+};
+
+export const getPollWinner = async (pollId) => {
+  const res = await turboverseAxios.get(`/v1/admin/polls/${pollId}/winner`);
+  return res.data;
+};
+
+export const closePoll = async (pollId) => {
+  const res = await turboverseAxios.patch(`/v1/admin/polls/${pollId}`, { status: "closed" });
+  return res.data;
+};
+
 // Delete one tournament fixture row. Distinct URL space from /admin/matches/*
 // because fixture ids are numeric (BIGSERIAL) whereas the legacy match endpoints
 // expected the TEXT iSportz match id.

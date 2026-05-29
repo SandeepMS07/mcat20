@@ -221,10 +221,12 @@ export default function EditPollPage() {
   const totalVotes = voters.totals?.all ?? poll.vote_count ?? 0;
   const correctCount = voters.totals?.correct ?? null;
 
+  const isClosed = poll.status === "closed";
+
   return (
     <>
       <PageHeader
-        eyebrow="Edit poll"
+        eyebrow={isClosed ? "Closed poll" : "Edit poll"}
         title={poll.question}
         subtitle={
           <span className="flex flex-wrap items-center gap-2">
@@ -240,9 +242,14 @@ export default function EditPollPage() {
           </span>
         }
         actions={
-          <Button as={Link} href="/admin/polls" variant="ghost" size="sm">
-            ← All polls
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button as={Link} href={`/admin/polls/${id}/winner`} variant="secondary" size="sm">
+              🏆 Pick winner
+            </Button>
+            <Button as={Link} href="/admin/polls" variant="ghost" size="sm">
+              ← All polls
+            </Button>
+          </div>
         }
       />
 
@@ -278,92 +285,9 @@ export default function EditPollPage() {
         />
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-3">
-        <div className="space-y-6 lg:col-span-2">
-          <Card title="Poll details">
-            <PollForm
-              mode="edit"
-              matches={matches}
-              players={players}
-              initial={poll}
-              submitting={submitting}
-              onSubmit={handleSubmit}
-              onDelete={handleDelete}
-            />
-          </Card>
-
-          <Card
-            title="Options"
-            action={
-              correctId == null ? (
-                <span className="text-[10px] text-white/50">
-                  After the match, mark the correct option to enable result tracking.
-                </span>
-              ) : null
-            }
-          >
-            <div className="space-y-3">
-              {options.map((o) => (
-                <OptionRow
-                  key={o.id}
-                  option={o}
-                  players={players}
-                  isCorrect={correctId === o.id}
-                  isLeader={(o.vote_count || 0) === maxVotes && maxVotes > 0}
-                  totalVotes={totalVotes}
-                  onSave={(patch) => handleUpdateOption(o.id, patch)}
-                  onDelete={() => handleDeleteOption(o.id)}
-                  onMarkCorrect={() => handleSetCorrect(o.id)}
-                />
-              ))}
-            </div>
-            <div className="mt-5 rounded-xl border border-dashed border-white/15 bg-white/[0.02] p-3">
-              <div className="grid grid-cols-1 gap-2 md:grid-cols-[1fr,1fr,auto]">
-                <input
-                  value={optionDraft.label}
-                  onChange={(e) =>
-                    setOptionDraft((d) => ({ ...d, label: e.target.value }))
-                  }
-                  placeholder="New option label"
-                  className="rounded-md border border-white/15 bg-white/[0.04] px-3 py-2 text-sm text-white placeholder:text-white/35 focus:border-[#F2A23A] focus:outline-none"
-                />
-                <input
-                  value={optionDraft.imageUrl}
-                  onChange={(e) =>
-                    setOptionDraft((d) => ({ ...d, imageUrl: e.target.value }))
-                  }
-                  placeholder="Image URL (optional)"
-                  className="rounded-md border border-white/15 bg-white/[0.04] px-3 py-2 text-sm text-white placeholder:text-white/35 focus:border-[#F2A23A] focus:outline-none"
-                />
-                <Button type="button" onClick={handleAddOption} size="md">
-                  + Add option
-                </Button>
-              </div>
-              <div className="mt-2 flex items-center gap-2 text-[11px] text-white/45">
-                <span>Or fill from a player:</span>
-                <PlayerPicker
-                  players={players}
-                  selectedId={
-                    optionDraft.subjectType === "player" ? optionDraft.subjectId : null
-                  }
-                  onPick={(p) =>
-                    setOptionDraft({
-                      label: p.player_name ?? "",
-                      imageUrl: p.photo_url ?? "",
-                      subjectType: "player",
-                      subjectId: p.sf_player_id != null ? String(p.sf_player_id) : null,
-                    })
-                  }
-                  onClear={() =>
-                    setOptionDraft((d) => ({ ...d, subjectType: null, subjectId: null }))
-                  }
-                />
-              </div>
-            </div>
-          </Card>
-        </div>
-
-        <aside id="voters" className="scroll-mt-8">
+      {isClosed ? (
+        /* Closed poll — voters list full-width, no edit form */
+        <div id="voters" className="scroll-mt-8">
           <Card
             title="Voters"
             action={
@@ -375,8 +299,8 @@ export default function EditPollPage() {
           >
             {voters.voters.length === 0 ? (
               <EmptyState
-                title="No votes yet"
-                hint="Votes show up here in real time once fans start voting."
+                title="No votes recorded"
+                hint="No one voted on this poll before it closed."
               />
             ) : (
               <>
@@ -396,49 +320,210 @@ export default function EditPollPage() {
                     sign-in was required — not eligible for the winner draw).
                   </div>
                 ) : null}
-                <div className="max-h-[520px] overflow-y-auto">
-                  <ul className="divide-y divide-white/5">
-                    {filteredVoters.map((v, idx) => (
-                      <li
-                        key={`${v.user_id}-${v.voted_at}-${idx}`}
-                        className="flex items-start gap-3 px-3 py-3"
-                      >
-                        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/[0.06] text-xs font-bold text-white/80">
-                          {initialsOf(v.name, v.mobile)}
-                        </span>
-                        <div className="min-w-0 flex-1">
-                          <div className="flex items-center justify-between gap-2">
-                            <span className="truncate text-sm font-semibold text-white">
-                              {v.name || `User #${v.user_id}`}
-                            </span>
-                            {correctId != null ? (
-                              v.is_correct ? (
-                                <Pill tone="emerald">✓</Pill>
-                              ) : (
-                                <Pill tone="red">✗</Pill>
-                              )
-                            ) : null}
-                          </div>
-                          <div className="mt-0.5 truncate font-mono text-[11px] text-white/55">
-                            {v.mobile}
-                          </div>
-                          <div className="mt-1 flex items-center gap-1.5 text-[11px] text-white/65">
-                            <span className="rounded-full bg-white/[0.06] px-2 py-0.5 text-white/80">
-                              {v.option_label}
-                            </span>
-                            <span>·</span>
-                            <span>{relativeTime(v.voted_at)}</span>
-                          </div>
+                <ul className="divide-y divide-white/5">
+                  {filteredVoters.map((v, idx) => (
+                    <li
+                      key={`${v.user_id}-${v.voted_at}-${idx}`}
+                      className="flex items-start gap-3 px-3 py-3"
+                    >
+                      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/[0.06] text-xs font-bold text-white/80">
+                        {initialsOf(v.name, v.mobile)}
+                      </span>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="truncate text-sm font-semibold text-white">
+                            {v.name || `User #${v.user_id}`}
+                          </span>
+                          {correctId != null ? (
+                            v.is_correct ? (
+                              <Pill tone="emerald">✓</Pill>
+                            ) : (
+                              <Pill tone="red">✗</Pill>
+                            )
+                          ) : null}
                         </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                        <div className="mt-0.5 truncate font-mono text-[11px] text-white/55">
+                          {v.mobile}
+                        </div>
+                        <div className="mt-1 flex items-center gap-1.5 text-[11px] text-white/65">
+                          <span className="rounded-full bg-white/[0.06] px-2 py-0.5 text-white/80">
+                            {v.option_label}
+                          </span>
+                          <span>·</span>
+                          <span>{relativeTime(v.voted_at)}</span>
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
               </>
             )}
           </Card>
-        </aside>
-      </div>
+        </div>
+      ) : (
+        /* Active / draft poll — full edit UI */
+        <div className="grid gap-6 lg:grid-cols-3">
+          <div className="space-y-6 lg:col-span-2">
+            <Card title="Poll details">
+              <PollForm
+                mode="edit"
+                matches={matches}
+                players={players}
+                initial={poll}
+                submitting={submitting}
+                onSubmit={handleSubmit}
+                onDelete={handleDelete}
+              />
+            </Card>
+
+            <Card
+              title="Options"
+              action={
+                correctId == null ? (
+                  <span className="text-[10px] text-white/50">
+                    After the match, mark the correct option to enable result tracking.
+                  </span>
+                ) : null
+              }
+            >
+              <div className="space-y-3">
+                {options.map((o) => (
+                  <OptionRow
+                    key={o.id}
+                    option={o}
+                    players={players}
+                    isCorrect={correctId === o.id}
+                    isLeader={(o.vote_count || 0) === maxVotes && maxVotes > 0}
+                    totalVotes={totalVotes}
+                    onSave={(patch) => handleUpdateOption(o.id, patch)}
+                    onDelete={() => handleDeleteOption(o.id)}
+                    onMarkCorrect={() => handleSetCorrect(o.id)}
+                  />
+                ))}
+              </div>
+              <div className="mt-5 rounded-xl border border-dashed border-white/15 bg-white/[0.02] p-3">
+                <div className="grid grid-cols-1 gap-2 md:grid-cols-[1fr,1fr,auto]">
+                  <input
+                    value={optionDraft.label}
+                    onChange={(e) =>
+                      setOptionDraft((d) => ({ ...d, label: e.target.value }))
+                    }
+                    placeholder="New option label"
+                    className="rounded-md border border-white/15 bg-white/[0.04] px-3 py-2 text-sm text-white placeholder:text-white/35 focus:border-[#F2A23A] focus:outline-none"
+                  />
+                  <input
+                    value={optionDraft.imageUrl}
+                    onChange={(e) =>
+                      setOptionDraft((d) => ({ ...d, imageUrl: e.target.value }))
+                    }
+                    placeholder="Image URL (optional)"
+                    className="rounded-md border border-white/15 bg-white/[0.04] px-3 py-2 text-sm text-white placeholder:text-white/35 focus:border-[#F2A23A] focus:outline-none"
+                  />
+                  <Button type="button" onClick={handleAddOption} size="md">
+                    + Add option
+                  </Button>
+                </div>
+                <div className="mt-2 flex items-center gap-2 text-[11px] text-white/45">
+                  <span>Or fill from a player:</span>
+                  <PlayerPicker
+                    players={players}
+                    selectedId={
+                      optionDraft.subjectType === "player" ? optionDraft.subjectId : null
+                    }
+                    onPick={(p) =>
+                      setOptionDraft({
+                        label: p.player_name ?? "",
+                        imageUrl: p.photo_url ?? "",
+                        subjectType: "player",
+                        subjectId: p.sf_player_id != null ? String(p.sf_player_id) : null,
+                      })
+                    }
+                    onClear={() =>
+                      setOptionDraft((d) => ({ ...d, subjectType: null, subjectId: null }))
+                    }
+                  />
+                </div>
+              </div>
+            </Card>
+          </div>
+
+          <aside id="voters" className="scroll-mt-8">
+            <Card
+              title="Voters"
+              action={
+                <span className="text-[10px] uppercase tracking-[0.22em] text-white/55">
+                  {voters.totals?.all ?? voters.voters.length} total
+                </span>
+              }
+              padding="tight"
+            >
+              {voters.voters.length === 0 ? (
+                <EmptyState
+                  title="No votes yet"
+                  hint="Votes show up here in real time once fans start voting."
+                />
+              ) : (
+                <>
+                  <div className="px-3 pb-3">
+                    <input
+                      value={voterSearch}
+                      onChange={(e) => setVoterSearch(e.target.value)}
+                      placeholder="Search name, mobile, or pick…"
+                      className="w-full rounded-md border border-white/15 bg-white/[0.04] px-3 py-2 text-sm text-white placeholder:text-white/35 focus:border-[#F2A23A] focus:outline-none"
+                    />
+                  </div>
+                  {voters.totals?.legacyAnonymous > 0 ? (
+                    <div className="mx-3 mb-3 rounded-md border border-white/10 bg-white/[0.03] px-3 py-2 text-[11px] text-white/55">
+                      Plus <b className="text-white">{voters.totals.legacyAnonymous}</b>{" "}
+                      legacy anonymous vote
+                      {voters.totals.legacyAnonymous === 1 ? "" : "s"} (cast before
+                      sign-in was required — not eligible for the winner draw).
+                    </div>
+                  ) : null}
+                  <div className="max-h-[520px] overflow-y-auto">
+                    <ul className="divide-y divide-white/5">
+                      {filteredVoters.map((v, idx) => (
+                        <li
+                          key={`${v.user_id}-${v.voted_at}-${idx}`}
+                          className="flex items-start gap-3 px-3 py-3"
+                        >
+                          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/[0.06] text-xs font-bold text-white/80">
+                            {initialsOf(v.name, v.mobile)}
+                          </span>
+                          <div className="min-w-0 flex-1">
+                            <div className="flex items-center justify-between gap-2">
+                              <span className="truncate text-sm font-semibold text-white">
+                                {v.name || `User #${v.user_id}`}
+                              </span>
+                              {correctId != null ? (
+                                v.is_correct ? (
+                                  <Pill tone="emerald">✓</Pill>
+                                ) : (
+                                  <Pill tone="red">✗</Pill>
+                                )
+                              ) : null}
+                            </div>
+                            <div className="mt-0.5 truncate font-mono text-[11px] text-white/55">
+                              {v.mobile}
+                            </div>
+                            <div className="mt-1 flex items-center gap-1.5 text-[11px] text-white/65">
+                              <span className="rounded-full bg-white/[0.06] px-2 py-0.5 text-white/80">
+                                {v.option_label}
+                              </span>
+                              <span>·</span>
+                              <span>{relativeTime(v.voted_at)}</span>
+                            </div>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </>
+              )}
+            </Card>
+          </aside>
+        </div>
+      )}
     </>
   );
 }

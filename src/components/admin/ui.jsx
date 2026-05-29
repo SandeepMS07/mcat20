@@ -1,5 +1,7 @@
 "use client";
 
+import { forwardRef, useEffect, useRef } from "react";
+
 // Shared admin-UI primitives. Imported by every /admin/* page so the visual
 // language stays consistent.
 
@@ -67,14 +69,14 @@ export function Card({ title, action, children, padding = "default" }) {
   );
 }
 
-export function Button({
+export const Button = forwardRef(function Button({
   as: As = "button",
   variant = "primary",
   size = "md",
   className = "",
   children,
   ...rest
-}) {
+}, ref) {
   const sizes = {
     sm: "px-3 py-1.5 text-xs",
     md: "px-4 py-2 text-xs",
@@ -94,13 +96,14 @@ export function Button({
   };
   return (
     <As
+      ref={ref}
       className={`inline-flex items-center justify-center gap-2 rounded-lg font-bold uppercase tracking-wide transition ${sizes[size] ?? sizes.md} ${variants[variant] ?? variants.primary} ${className}`}
       {...rest}
     >
       {children}
     </As>
   );
-}
+});
 
 export function Pill({ tone = "default", children }) {
   const tones = {
@@ -158,6 +161,56 @@ function Dot({ pulse }) {
     <span
       className={`h-1.5 w-1.5 rounded-full bg-current ${pulse ? "animate-pulse" : ""}`}
     />
+  );
+}
+
+export function ConfirmDialog({ open, title, message, confirmLabel = "Confirm", confirmVariant = "danger", onConfirm, onCancel }) {
+  const cancelRef = useRef(null);
+
+  useEffect(() => {
+    if (open) cancelRef.current?.focus();
+  }, [open]);
+
+  useEffect(() => {
+    if (!open) return;
+    const handler = (e) => { if (e.key === "Escape") onCancel(); };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [open, onCancel]);
+
+  if (!open) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      aria-modal="true"
+      role="dialog"
+      aria-labelledby="confirm-dialog-title"
+    >
+      <div
+        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+        onClick={onCancel}
+      />
+      <div className="relative w-full max-w-sm rounded-2xl border border-white/15 bg-[#0A1438] p-6 shadow-[0_32px_64px_-12px_rgba(0,0,0,0.9)]">
+        <h2
+          id="confirm-dialog-title"
+          className="font-oswald text-xl font-extrabold uppercase italic text-white"
+        >
+          {title}
+        </h2>
+        {message ? (
+          <p className="mt-2 text-sm text-white/65">{message}</p>
+        ) : null}
+        <div className="mt-6 flex items-center justify-end gap-3">
+          <Button ref={cancelRef} type="button" variant="secondary" size="md" onClick={onCancel}>
+            Cancel
+          </Button>
+          <Button type="button" variant={confirmVariant} size="md" onClick={onConfirm}>
+            {confirmLabel}
+          </Button>
+        </div>
+      </div>
+    </div>
   );
 }
 
