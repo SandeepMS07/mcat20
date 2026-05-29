@@ -2,235 +2,235 @@ import schedule from "../../../public/images/latestUpdates/schedule.jpeg";
 import "./styles.css";
 
 export const LocalLatestUpdates = [
-  {
-    Id: "local-6",
-    Title__c:
-      "30 high-voltage clashes set to light up Wankhede Stadium as MCA unveils fixtures for T20 Mumbai League 2026 (Men’s and Women’s)",
-    Date__c: "2026-05-15",
-    Image_URL__c: "/images/latestUpdates/fixtures-2026-main.jpg",
-    path: "/news/30-high-voltage-clashes-set-to-light-up-wankhede-stadium-as-mca-unveils-fixtures-for-t20-mumbai-league-2026",
-    Sub_Title__c:
-      "Season 4 of the T20 Mumbai League and the inaugural T20 Mumbai Women’s League — featuring 30 matches across men’s and women’s competitions — will be played at the Wankhede Stadium from June 1 to 13.",
-    Content__c: `The stage is set for a blockbuster cricket carnival as the Mumbai Cricket Association (MCA) today announced the fixtures for Season 4 of the T20 Mumbai League and the inaugural T20 Mumbai Women’s League, with 30 matches featuring international icons, IPL and WPL stars, and the city’s brightest emerging talent scheduled to be played at the iconic Wankhede Stadium from June 1 to 13.<br/><br/>
-<div class="centered-image">
-  <img src="/images/latestUpdates/fixtures-2026-main.jpg" alt="Wankhede Stadium ready to host T20 Mumbai League 2026" />
-</div>
-<br/><br/>
-Women’s league matches will begin at 9.30 AM, while the men’s tournament will feature afternoon matches at 2 PM and evening matches at 7 PM during the league stage.<br/><br/>
-The 14-day mega carnival will begin with a high-profile opening-day double-header on June 1. The afternoon clash will see Bandra Blasters, featuring Yashasvi Jaiswal, take on Shardul Thakur’s Eagle Thane Strikers, while the evening fixture will feature Tushar Deshpande’s Mumbai South Central Maratha Royals facing Sarfaraz Khan’s Aakash Tigers Mumbai Western Suburbs.<br/><br/>
-<div class="centered-image">
-  <img src="/images/latestUpdates/fixtures-2026-secondary.jpg" alt="Fans at Wankhede Stadium during T20 Mumbai League" />
-</div>
-<br/><br/>
-The league is expected to produce several marquee encounters featuring India stars including Suryakumar Yadav, Shreyas Iyer, Ajinkya Rahane, Shivam Dube, Yashasvi, Sarfaraz, Shardul and Tushar, alongside emerging talents such as Ayush Mhatre, Angkrish Raghuvanshi, Musheer Khan, Suryansh Shedge and Abhigyan Kundu. The tournament promises explosive contests, marquee rivalries and a showcase of the city’s unmatched cricketing depth.<br/><br/>
-The men’s competition will feature eight teams playing five league-stage matches each, with the top four sides progressing to the semi-finals scheduled on June 11.<br/><br/>
-The inaugural T20 Mumbai Women’s League will feature three teams, SoBo Mumbai Falcons, Thane Sky Risers and Aakash Tigers Mumbai Western Suburbs, with the competition beginning on June 2. The opening fixture will see Saima Thakor-led Thane Sky Risers face Sayali Satghare’s SoBo Mumbai Falcons. Each of the three teams will play four league-stage matches, with the top two teams qualifying for the final.<br/><br/>
-The women’s competition will also spotlight some of the most exciting cricketers, including Sayali, Saima, Humairaa Kaazi, teenage sensation Ira Jadhav, Simran Shaikh, Sanika Chalke, Vrushali Bhagat and several promising young talents from the domestic circuit.<br/><br/>
-The men’s and women’s tournaments will run simultaneously in a landmark moment for Mumbai cricket, reflecting the MCA’s vision of building a larger, more inclusive and professionally driven platform for talent development across categories.<br/><br/>
-The two finals will be played on June 13, with the T20 Mumbai Women’s League final scheduled at 2 PM and the T20 Mumbai League 2026 final at 7 PM.<br/><br/>
-MCA President Ajinkya Naik said: “The announcement of the fixtures sets the stage for what promises to be a world-class cricketing spectacle at the Wankhede Stadium. The league will bring together some of the finest players in the game alongside Mumbai’s emerging talent, giving young cricketers a valuable opportunity to compete and share the stage with established stars. At the same time, fans can look forward to two weeks of high-quality and exciting cricket as we continue to strengthen Mumbai’s cricketing ecosystem through both the men’s and women’s competitions.”<br/><br/>
-Rajdip Gupta, Chairman of the League Governing Council, added: “With 30 matches scheduled across the men’s and women’s competitions, the fixtures set the stage for an exciting and competitive season at the Wankhede Stadium. With a strong mix of experienced players and emerging talent, the league will continue to provide young cricketers with valuable exposure and an important platform for development. Fans can expect high-intensity cricket and several exciting contests throughout the tournament.”<br/><br/>
-Since its inception in 2018, the T20 Mumbai League has established itself as one of India’s leading domestic franchise-based T20 tournaments and has played an important role in the progression of several cricketers to the IPL, domestic cricket and the national team.<br/><br/>
-The launch of the T20 Mumbai Women’s League marks another significant milestone in strengthening Mumbai’s cricketing structure by creating a dedicated and competitive platform for women cricketers.<br/><br/>
-All matches will be played at the Wankhede Stadium and telecast live on Star Sports while also being streamed on JioHotstar, significantly expanding the tournament’s reach and providing players with valuable national exposure.<br/><br/>
-<strong>Complete Fixtures</strong><br/><br/>
-<strong>T20 Mumbai Men’s League</strong><br/><br/>
-<strong>June 1 (Monday)</strong><br/>
-2.00 PM – Bandra Blasters vs Eagle Thane Strikers<br/>
-7.00 PM – Mumbai South Central Maratha Royals vs Aakash Tigers Mumbai Western Suburbs<br/><br/>
-<strong>June 2 (Tuesday)</strong><br/>
-2.00 PM – North Mumbai Panthers vs Triumph Knights Mumbai North East<br/>
-7.00 PM – SoBo Mumbai Falcons vs Arcs Andheri<br/><br/>
-<strong>June 3 (Wednesday)</strong><br/>
-2.00 PM – North Mumbai Panthers vs Bandra Blasters<br/>
-7.00 PM – Aakash Tigers Mumbai Western Suburbs vs Eagle Thane Strikers<br/><br/>
-<strong>June 4 (Thursday)</strong><br/>
-2.00 PM – Mumbai South Central Maratha Royals vs SoBo Mumbai Falcons<br/>
-7.00 PM – Triumph Knights Mumbai North East vs Bandra Blasters<br/><br/>
-<strong>June 5 (Friday)</strong><br/>
-2.00 PM – Eagle Thane Strikers vs Arcs Andheri<br/>
-7.00 PM – Aakash Tigers Mumbai Western Suburbs vs North Mumbai Panthers<br/><br/>
-<strong>June 6 (Saturday)</strong><br/>
-2.00 PM – Bandra Blasters vs Mumbai South Central Maratha Royals<br/>
-7.00 PM – Triumph Knights Mumbai North East vs SoBo Mumbai Falcons<br/><br/>
-<strong>June 7 (Sunday)</strong><br/>
-2.00 PM – Arcs Andheri vs Aakash Tigers Mumbai Western Suburbs<br/>
-7.00 PM – Eagle Thane Strikers vs North Mumbai Panthers<br/><br/>
-<strong>June 8 (Monday)</strong><br/>
-2.00 PM – Mumbai South Central Maratha Royals vs Triumph Knights Mumbai North East<br/>
-7.00 PM – Arcs Andheri vs Bandra Blasters<br/><br/>
-<strong>June 9 (Tuesday)</strong><br/>
-2.00 PM – SoBo Mumbai Falcons vs Aakash Tigers Mumbai Western Suburbs<br/>
-7.00 PM – Triumph Knights Mumbai North East vs Eagle Thane Strikers<br/><br/>
-<strong>June 10 (Wednesday)</strong><br/>
-2.00 PM – SoBo Mumbai Falcons vs North Mumbai Panthers<br/>
-7.00 PM – Arcs Andheri vs Mumbai South Central Maratha Royals<br/><br/>
-<strong>June 11 (Thursday)</strong><br/>
-2.00 PM – Semi-final 1<br/>
-7.00 PM – Semi-final 2<br/><br/>
-<strong>June 13 (Saturday)</strong><br/>
-7.00 PM – Final<br/><br/>
-<strong>T20 Mumbai Women’s League</strong><br/><br/>
-<strong>June 2 (Tuesday)</strong><br/>
-9.30 AM – Thane Sky Risers vs SoBo Mumbai Falcons<br/><br/>
-<strong>June 3 (Wednesday)</strong><br/>
-9.30 AM – SoBo Mumbai Falcons vs Aakash Tigers Mumbai Western Suburbs<br/><br/>
-<strong>June 6 (Saturday)</strong><br/>
-9.30 AM – Aakash Tigers Mumbai Western Suburbs vs Thane Sky Risers<br/><br/>
-<strong>June 7 (Sunday)</strong><br/>
-9.30 AM – Aakash Tigers Mumbai Western Suburbs vs SoBo Mumbai Falcons<br/><br/>
-<strong>June 9 (Tuesday)</strong><br/>
-9.30 AM – SoBo Mumbai Falcons vs Thane Sky Risers<br/><br/>
-<strong>June 10 (Wednesday)</strong><br/>
-9.30 AM – Thane Sky Risers vs Aakash Tigers Mumbai Western Suburbs<br/><br/>
-<strong>June 13 (Saturday)</strong><br/>
-2.00 PM – Final`,
-    Order__c: 1006,
-    bordered: true,
-  },
-  {
-    Id: "local-5",
-    Title__c:
-      "Suryakumar Yadav, Shreyas Iyer, Shivam Dube headline star-studded line-up as MCA announces retained players for T20 Mumbai League 2026",
-    Date__c: "2026-04-25",
-    Image_URL__c: "/images/latestUpdates/Suryakumar.jpg",
-    path: "/news/suryakumar-yadav-shreyas-iyer-shivam-dube-headline-star-studded-line-up-as-mca-announces-retained-players-for-t20-mumbai-league-2026",
-    Sub_Title__c:
-      "Shardul Thakur, Tushar Deshpande, Ayush Mhatre and Sarfaraz Khan among other key names retained, while Yashasvi Jaiswal and Ajinkya Rahane are allotted as Icon Players, with franchises locking core squads ahead of Season 4.",
-    Content__c: `The Mumbai Cricket Association (MCA) has set the stage for a blockbuster T20 Mumbai League 2026, unveiling a star-studded list of player retentions featuring India captain Suryakumar Yadav, Shreyas Iyer and Shivam Dube.<br/><br/>
-<div class="centered-image">
-  <img src="/images/latestUpdates/Suryakumar2.jpg" alt="Suryakumar Yadav at T20 Mumbai League announcement" />
-</div>
-<br/><br/>
-With elite performers such as U-19 World Cup-winning captain Ayush Mhatre, Shardul Thakur, Tushar Deshpande and Sarfaraz Khan retained, and Yashasvi Jaiswal and Ajinkya Rahane allotted as Icon Players, franchises have secured a formidable core, underlining the league's growing stature and competitive edge.<br/><br/>
-Each of the eight teams retained three players, striking a strategic balance between international experience and emerging domestic talent as the league builds towards a high-octane fourth season.<br/><br/>
-Triumph Knights Mumbai North East have retained Suryakumar (Icon Player), who led India to the T20 World Cup 2026 title, alongside Ayush and Suryansh Shedge, while last season's runners-up SoBo Mumbai Falcons have secured Shreyas (Icon Player), Angkrish Raghuvanshi and Harsh Aghav. Defending champions Mumbai South Central Maratha Royals have retained Tushar (Icon Player), with Siddhesh Lad and Rohan Raje forming a settled core.<br/><br/>
-<div class="centered-image">
-  <img src="/images/latestUpdates/Bandra.jpg" alt="T20 Mumbai League retained players event" />
-</div>
-<br/><br/>
-Bandra Blasters have been allotted Yashasvi as their Icon Player, with Suved Parkar and Dhrumil Matkar also retained, while ARCS Andheri have retained Shivam (Icon Player) alongside Pragnesh Kanpillewar and Deepak Shetty. Aakash Tigers Mumbai Western Suburbs have secured Sarfaraz (Icon Player), supported by Shams Mulani and Jay Bista. North Mumbai Panthers have been allotted Icon Player Ajinkya, joined by retained players Abhigyan Kundu and Tanush Kotian, while Eagle Thane Strikers have placed their faith in Shardul (Icon Player) alongside Atharva Ankolekar and Sairaj Patil.<br/><br/>
-<div class="centered-image">
-  <img src="/images/latestUpdates/Bandra2.jpg" alt="T20 Mumbai League team retentions" />
-</div>
-<br/><br/>
-With some of India's most dynamic T20 performers spread across teams, the league is primed for intense rivalries, explosive contests and high-quality cricket. Several of the retained players are proven performers in the Indian Premier League and on the international stage, adding significant depth and star appeal to the competition.<br/><br/>
-Mumbai's unmatched cricketing pipeline once again comes to the fore, with franchises blending established stars and exciting young talent. Fans can expect a fast-paced, fiercely competitive season featuring marquee clashes, emerging rivalries and breakthrough performances that could shape the next generation of Indian cricket.<br/><br/>
-Season 4 promises to be bigger, faster and more competitive, further cementing the T20 Mumbai League's position as a leading tournament in India's domestic cricket landscape.<br/><br/>
-MCA President Ajinkya Naik said: "This is a strong statement of intent from all franchises. The retention of some of the biggest names in Indian cricket reflects the strength and credibility the T20 Mumbai League has built over the years. At the same time, the opportunity for young and emerging players to share the dressing room with such established stars is invaluable for their growth and development. With such a high-quality core in place, we are set for a season that will raise the bar in terms of competitiveness and overall standard of cricket."<br/><br/>
-Rajdip Gupta, Chairman of the League Governing Council, added: "These retentions underline the strategic clarity of franchises and the depth of talent available in Mumbai. The mix of established stars and emerging players will make this one of the most exciting seasons yet. The retention strategy clearly reflects the intent of teams to build continuity while maintaining a high-performance environment."<br/><br/>
-Since its inception in 2018, the T20 Mumbai League has emerged as a key platform for talent identification and progression, with several players going on to represent Mumbai, feature in the Indian Premier League and earn national honours.<br/><br/>
-With the retention phase complete, focus now shifts to the upcoming player auction, as franchises look to build on their strong core and assemble squads capable of competing for the title in what promises to be a blockbuster 2026 season. The dates and details for the auction will be announced soon.<br/><br/>
-<strong>List of Retained Players:</strong><br/><br/>
-<ul>
-  <li>Aakash Tigers Mumbai Western Suburbs: Sarfaraz Khan (Icon Player), Shams Mulani and Jay Bista</li>
-  <li>ARCS Andheri: Shivam Dube (Icon Player), Pragnesh Kanpillewar and Deepak Shetty</li>
-  <li>Bandra Blasters: Yashasvi Jaiswal (Icon Player), Suved Parkar and Dhrumil Matkar</li>
-  <li>Mumbai South Central Maratha Royals: Tushar Deshpande (Icon Player), Siddhesh Lad and Rohan Raje</li>
-  <li>North Mumbai Panthers: Ajinkya Rahane (Icon Player), Abhigyan Kundu and Tanush Kotian</li>
-  <li>SoBo Mumbai Falcons: Shreyas Iyer (Icon Player), Angkrish Raghuvanshi and Harsh Aghav</li>
-  <li>Eagle Thane Strikers: Shardul Thakur (Icon Player), Atharva Ankolekar and Sairaj Patil</li>
-  <li>Triumph Knights Mumbai North East: Suryakumar Yadav (Icon Player), Ayush Mhatre and Suryansh Shedge</li>
-</ul>`,
-    Order__c: 1005,
-    bordered: true,
-  },
-  {
-    Id: "local-4",
-    Title__c:
-      "T20 Mumbai League Player Registrations Close with Over 2,400 Entries",
-    Date__c: "2026-04-11",
-    Image_URL__c: "/images/latestUpdates/Player-Registrations.png",
-    path: "/news/t20-mumbai-league-player-registrations-close-with-over-2400-entries",
-    Sub_Title__c: "",
-    Content__c: `Player registrations for the upcoming season of the T20 Mumbai League officially closed on April 10th and received an overwhelming response from across the city.<br/><br/>
-A total of 2,411 players have registered for the league, underlining the continued enthusiasm and depth of cricketing talent in Mumbai. This includes 2,048 men registering for Season 4 of the men's competition and 363 women for the inaugural Women's T20 Mumbai League.<br/><br/>
-The strong participation numbers highlight the growing appeal of the league as a premier platform for aspiring cricketers to showcase their skills and progress in their careers.<br/><br/>
-The introduction of the Women's T20 Mumbai League has also marked a significant step forward, with encouraging participation reflecting the increasing interest and development of women's cricket in the city.<br/><br/>
-The T20 Mumbai League continues to embody its central philosophy "Chance Sodu Nako", offering players a platform to seize their moment and take a step forward in their cricketing journey.`,
-    Order__c: 1004,
-    bordered: true,
-  },
-  {
-    Id: "local-1",
-    Title__c:
-      "MCA announces T20 Mumbai League Season 4 and launches Inaugural Women's League",
-    Date__c: "2026-03-24",
-    Image_URL__c: "/images/latestUpdates/local-3-banner.jpeg",
-    path: "/news/mca-announces-t20-mumbai-league-season-4-and-launches-inaugural-womens-league",
-    Sub_Title__c:
-      "Mumbai Cricket Association (MCA) announced the return of the T20 Mumbai League for Season 4 and launched the inaugural T20 Mumbai Women's League at a major event in Mumbai.",
-    Content__c: `Mumbai Cricket Association (MCA) today announced the return of T20 Mumbai League with an exhilarating Season 4 and also launched the inaugural T20 Mumbai Women's League, pitted to be the most exciting domestic tournaments in the women's arena.<br/><br/>
-The trophies for both tournaments were unveiled by Rohit Sharma, face of the league, at a glittering event in Mumbai that was also attended by Mumbai star and India players Sayali Satghare, MCA President Ajinkya Naik, Cabinet Minister and former MCA President Ashish Shelar, and Rajdip Gupta, Chairman of the League Governing Council, joined by members of the Apex Council and the League Governing Council along with team operators.<br/><br/>
-<div class="centered-image">
-  <img src="/images/latestUpdates/local-3-inner1.jpeg" alt="T20 Mumbai League launch event" />
-</div>
-<br/><br/>
-Speaking at the launch of the T20 Mumbai League and T20 Mumbai Women's League, Rohit Sharma said: "I'm very happy with how Mumbai cricket is shaping up-not just in the IPL team, but also with what the T20 Mumbai League has done for many young cricketers. We saw so many cricketers who played in the T20 Mumbai now go on to play for IPL teams and the national team as well. It is a big platform. I'm happy that we are doing this again after a very successful last season, I was involved last season. I saw it was a very tough task. I have to give credit to each and every member of the MCA for pulling it through. This year, there are three women's teams as well, so it's getting bigger."<br/><br/>
-Elaborating on the significance of the T20 Mumbai Women's League, Sayali Satghare said: "Mumbai has always been a city that lives and breathes cricket, and it means a lot to see a dedicated platform now being created for women as well. I would like to thank the Mumbai Cricket Association for taking this important step and investing in the future of women's cricket. The T20 Mumbai Women's League will give many young girls the opportunity to dream bigger, compete at a high level and believe that they too can represent Mumbai and India one day."<br/><br/>
-MCA President Ajinkya Naik added: "Mumbai's cricketing legacy has always been built on a strong grassroots structure and a culture that encourages players to push themselves and aim higher. The T20 Mumbai League reflects that philosophy by providing talented cricketers from across the city a professional stage to showcase their abilities. The launch of the T20 Mumbai Women's League is an important milestone for us. Women's cricket is growing rapidly, and it is essential that we create strong platforms that allow talented players to compete, develop and progress to higher levels of the game."<br/><br/>
-Former MCA President and Cabinet Minister Ashish Shelar said: "I congratulate the entire MCA team, especially Ajinkya [Naik], Rajdip [Gupta], and all the MCA members, for such a wonderful T20 Mumbai launch. I still remember the day in 2018 when we were here and thought that we should have a league where we could give an opportunity to our young talent to showcase their abilities in a bigger way. And it has been demonstrated here, Ajinkya has rightly given that space. So the league has its own legacy. I welcome all the franchise owners who have shown confidence in our entire team. Wherever it is needed, the Government of Maharashtra and I, as an individual, will always be there because our Chief Minister always tells me to push the best. There are three women's teams coming, so I think that is the best thing that has been done, the launch of the women's league."<br/><br/>
-Rajdip Gupta, Chairman of the League Governing Council, stated: "The T20 Mumbai League has consistently showcased the depth of talent in the city. With the addition of the women's competition, the league enters an exciting new phase. Our aim is to create a professionally run tournament that not only delivers high-quality cricket but also strengthens the pathway for emerging players."<br/><br/>
-<div style="text-align:center;">
-  <img src="/images/latestUpdates/local3-inner2.jpeg" alt="T20 Mumbai League launch stage" style="max-width:720px;width:100%;height:auto;display:inline-block;" />
-</div>
-<br/><br/>
-An insightful and engaging panel discussion featuring Rohit Sharma and Sayali Satghare highlighted the significance of the women's league and Mumbai's deep cricketing culture.<br/><br/>
-The inaugural T20 Mumbai Women's League will witness competition between three teams, operated by PRS Infraprojects LLP, Roadway Solution India Infra Ltd and World Star Sporting Private Limited.<br/><br/>
-Season 4 of the men's competition will continue to feature eight franchises representing different regions of the city: Aakash Tigers Mumbai Western Suburbs (World Star Premier League LLP), ARCS Andheri (ARCS Sports & Entertainment Private Limited), Bandra Blasters (PK Sports Ventures Private Limited), Eagle Thane Strikers (Eagle Infra India Ltd), Mumbai South Central Maratha Royals (Royal Edge Sports & Entertainment), North Mumbai Panthers (Horizon Sports India Private Limited), SoBo Mumbai Falcons (Roadway Solutions India Infra Ltd.) and Triumph Knights Mumbai North East (Transcon Triumph Knights Private Limited).<br/><br/>
-Since its launch in 2018, the T20 Mumbai League has established itself as one of India's most competitive domestic T20 tournaments, providing a platform for emerging players to showcase their abilities. Several cricketers who featured in the league, including Shivam Dube and Tushar Deshpande, have gone on to represent Mumbai and India, and to play in the Indian Premier League, underlining the league's importance in the country's cricketing ecosystem.<br/><br/>
-As the city prepares for another exciting cricket season, the league promises to celebrate the depth of Mumbai's cricketing talent while bringing high-voltage action for the fans.`,
-    Order__c: 1003,
-    bordered: true,
-  },
-  {
-    Id: "local-2",
-    Title__c:
-      "Bids Opened for Team Operating Rights - T20 Mumbai Women's League",
-    Date__c: "2026-03-21",
-    Image_URL__c: "/images/latestUpdates/local-2-banner.jpeg",
-    path: "/news/bids-opened-for-team-operating-rights-t20-mumbai-womens-league",
-    Sub_Title__c:
-      "The bids for Team Operating Rights for three teams in the upcoming T20 Mumbai Women's League were officially opened today, drawing strong participation from reputed organizations.",
-    Content__c: `The bids for Team Operating Rights for three teams in the upcoming T20 Mumbai Women's League were officially opened today.<br/><br/>
-The bidding process witnessed enthusiastic participation from reputed organizations, reflecting the growing interest and confidence in women's cricket in Mumbai.<br/><br/>
-<div class="responsive-image-wrapper">
-  <img src="/images/latestUpdates/local-2-inner1.jpeg" alt="T20 Mumbai Women's League bidding - 1" />
-  <img src="/images/latestUpdates/local-2-inner2.jpeg" alt="T20 Mumbai Women's League bidding - 2" />
-</div>
-<br/>
-Based on the financial bids received, the following bidders have secured the Team Operating Rights:<br/><br/>
-<ul>
-  <li>PRS Infraprojects LLP - Rs. 2,25,00,000/- (Rank 1)</li>
-  <li>Roadway Solution India Infra Ltd - Rs. 1,09,00,000/- (Rank 2)</li>
-  <li>World Star Sporting Private Limited - Rs. 79,00,000/- (Rank 3)</li>
-</ul>
-<br/>
-The successful bidders (Rank 1 to 3) will be awarded the rights to operate the three teams, subject to completion of the necessary formalities and execution of agreements.<br/><br/>
-The strong response to the bidding process underlines the rising stature of the T20 Mumbai Women's League and the Association's continued commitment to strengthening the women's cricketing ecosystem.<br/><br/>
-MCA President, Ajinkya Naik, says, "The overwhelming response to the bidding process for the T20 Mumbai Women's League is a strong endorsement of our vision to elevate women's cricket in Mumbai. The participation of reputed corporate groups reflects the growing commercial confidence in the women's game. We are committed to building a competitive and professionally managed league that provides a robust platform for emerging talent."<br/><br/>
-T20 Mumbai League Governing Council Chairman, Rajdip Gupta, expresses, "The successful conclusion of the bidding process marks an important milestone for the T20 Mumbai Women's League. The strong bids received underline the league's credibility and potential. We look forward to working closely with the franchise owners to deliver a high-quality tournament that showcases the depth of women's cricketing talent in Mumbai."<br/><br/>
-Further details regarding the teams, player auction, and tournament schedule will be announced shortly.`,
-    Order__c: 1002,
-    bordered: true,
-  },
-  {
-    Id: "local-3",
-    Title__c: "#ChanceSoduNako: Defining the Spirit of the T20 Mumbai League",
-    Date__c: "2026-03-18",
-    Image_URL__c: "/images/latestUpdates/local-1.jpeg",
-    path: "/news/chance-sodunako-defining-the-spirit-of-the-t20-mumbai-league",
-    Sub_Title__c:
-      "The Mumbai Cricket Association (MCA) has unveiled #ChanceSoduNako as the central theme for the upcoming season of the T20 Mumbai League, encapsulating the core philosophy of Mumbai cricket: seizing opportunities when they arise.",
-    Content__c: `The Mumbai Cricket Association (MCA) has unveiled #ChanceSoduNako as the central theme for the upcoming season of the T20 Mumbai League, encapsulating the core philosophy of Mumbai cricket: seizing opportunities when they arise.<br/><br/>
-Derived from the local ethos, #ChanceSoduNako, which translates to "don't let go of the opportunity," reflects the competitive and resilient mindset that has long defined the city's cricketing culture.<br/><br/>
-For players, the message is clear. In a highly competitive ecosystem, opportunities are limited and often decisive. A single performance - whether with the bat, ball, or in the field - can significantly influence a player's trajectory. The T20 Mumbai League continues to serve as a key platform where such opportunities are created, enabling emerging talent to showcase their abilities on a prominent stage.<br/><br/>
-With the return of Season 4 of the men's league and the introduction of the inaugural Women's T20 Mumbai League, the scope of opportunity expands further. The inclusion of the women's competition marks a significant step towards building a more inclusive and comprehensive cricketing ecosystem in Mumbai.<br/><br/>
-Beyond the field, #ChanceSoduNako also resonates with fans, encouraging them to be active participants in the league by supporting teams and experiencing high-quality cricket at iconic venues.<br/><br/>
-As the T20 Mumbai League prepares for its upcoming season, #ChanceSoduNako stands as a unifying message, reinforcing the importance of readiness, ambition, and making every opportunity count.`,
-    Order__c: 1001,
-    bordered: true,
-  },
+//   {
+//     Id: "local-6",
+//     Title__c:
+//       "30 high-voltage clashes set to light up Wankhede Stadium as MCA unveils fixtures for T20 Mumbai League 2026 (Men’s and Women’s)",
+//     Date__c: "2026-05-15",
+//     Image_URL__c: "/images/latestUpdates/fixtures-2026-main.jpg",
+//     path: "/news/30-high-voltage-clashes-set-to-light-up-wankhede-stadium-as-mca-unveils-fixtures-for-t20-mumbai-league-2026",
+//     Sub_Title__c:
+//       "Season 4 of the T20 Mumbai League and the inaugural T20 Mumbai Women’s League — featuring 30 matches across men’s and women’s competitions — will be played at the Wankhede Stadium from June 1 to 13.",
+//     Content__c: `The stage is set for a blockbuster cricket carnival as the Mumbai Cricket Association (MCA) today announced the fixtures for Season 4 of the T20 Mumbai League and the inaugural T20 Mumbai Women’s League, with 30 matches featuring international icons, IPL and WPL stars, and the city’s brightest emerging talent scheduled to be played at the iconic Wankhede Stadium from June 1 to 13.<br/><br/>
+// <div class="centered-image">
+//   <img src="/images/latestUpdates/fixtures-2026-main.jpg" alt="Wankhede Stadium ready to host T20 Mumbai League 2026" />
+// </div>
+// <br/><br/>
+// Women’s league matches will begin at 9.30 AM, while the men’s tournament will feature afternoon matches at 2 PM and evening matches at 7 PM during the league stage.<br/><br/>
+// The 14-day mega carnival will begin with a high-profile opening-day double-header on June 1. The afternoon clash will see Bandra Blasters, featuring Yashasvi Jaiswal, take on Shardul Thakur’s Eagle Thane Strikers, while the evening fixture will feature Tushar Deshpande’s Mumbai South Central Maratha Royals facing Sarfaraz Khan’s Aakash Tigers Mumbai Western Suburbs.<br/><br/>
+// <div class="centered-image">
+//   <img src="/images/latestUpdates/fixtures-2026-secondary.jpg" alt="Fans at Wankhede Stadium during T20 Mumbai League" />
+// </div>
+// <br/><br/>
+// The league is expected to produce several marquee encounters featuring India stars including Suryakumar Yadav, Shreyas Iyer, Ajinkya Rahane, Shivam Dube, Yashasvi, Sarfaraz, Shardul and Tushar, alongside emerging talents such as Ayush Mhatre, Angkrish Raghuvanshi, Musheer Khan, Suryansh Shedge and Abhigyan Kundu. The tournament promises explosive contests, marquee rivalries and a showcase of the city’s unmatched cricketing depth.<br/><br/>
+// The men’s competition will feature eight teams playing five league-stage matches each, with the top four sides progressing to the semi-finals scheduled on June 11.<br/><br/>
+// The inaugural T20 Mumbai Women’s League will feature three teams, SoBo Mumbai Falcons, Thane Sky Risers and Aakash Tigers Mumbai Western Suburbs, with the competition beginning on June 2. The opening fixture will see Saima Thakor-led Thane Sky Risers face Sayali Satghare’s SoBo Mumbai Falcons. Each of the three teams will play four league-stage matches, with the top two teams qualifying for the final.<br/><br/>
+// The women’s competition will also spotlight some of the most exciting cricketers, including Sayali, Saima, Humairaa Kaazi, teenage sensation Ira Jadhav, Simran Shaikh, Sanika Chalke, Vrushali Bhagat and several promising young talents from the domestic circuit.<br/><br/>
+// The men’s and women’s tournaments will run simultaneously in a landmark moment for Mumbai cricket, reflecting the MCA’s vision of building a larger, more inclusive and professionally driven platform for talent development across categories.<br/><br/>
+// The two finals will be played on June 13, with the T20 Mumbai Women’s League final scheduled at 2 PM and the T20 Mumbai League 2026 final at 7 PM.<br/><br/>
+// MCA President Ajinkya Naik said: “The announcement of the fixtures sets the stage for what promises to be a world-class cricketing spectacle at the Wankhede Stadium. The league will bring together some of the finest players in the game alongside Mumbai’s emerging talent, giving young cricketers a valuable opportunity to compete and share the stage with established stars. At the same time, fans can look forward to two weeks of high-quality and exciting cricket as we continue to strengthen Mumbai’s cricketing ecosystem through both the men’s and women’s competitions.”<br/><br/>
+// Rajdip Gupta, Chairman of the League Governing Council, added: “With 30 matches scheduled across the men’s and women’s competitions, the fixtures set the stage for an exciting and competitive season at the Wankhede Stadium. With a strong mix of experienced players and emerging talent, the league will continue to provide young cricketers with valuable exposure and an important platform for development. Fans can expect high-intensity cricket and several exciting contests throughout the tournament.”<br/><br/>
+// Since its inception in 2018, the T20 Mumbai League has established itself as one of India’s leading domestic franchise-based T20 tournaments and has played an important role in the progression of several cricketers to the IPL, domestic cricket and the national team.<br/><br/>
+// The launch of the T20 Mumbai Women’s League marks another significant milestone in strengthening Mumbai’s cricketing structure by creating a dedicated and competitive platform for women cricketers.<br/><br/>
+// All matches will be played at the Wankhede Stadium and telecast live on Star Sports while also being streamed on JioHotstar, significantly expanding the tournament’s reach and providing players with valuable national exposure.<br/><br/>
+// <strong>Complete Fixtures</strong><br/><br/>
+// <strong>T20 Mumbai Men’s League</strong><br/><br/>
+// <strong>June 1 (Monday)</strong><br/>
+// 2.00 PM – Bandra Blasters vs Eagle Thane Strikers<br/>
+// 7.00 PM – Mumbai South Central Maratha Royals vs Aakash Tigers Mumbai Western Suburbs<br/><br/>
+// <strong>June 2 (Tuesday)</strong><br/>
+// 2.00 PM – North Mumbai Panthers vs Triumph Knights Mumbai North East<br/>
+// 7.00 PM – SoBo Mumbai Falcons vs Arcs Andheri<br/><br/>
+// <strong>June 3 (Wednesday)</strong><br/>
+// 2.00 PM – North Mumbai Panthers vs Bandra Blasters<br/>
+// 7.00 PM – Aakash Tigers Mumbai Western Suburbs vs Eagle Thane Strikers<br/><br/>
+// <strong>June 4 (Thursday)</strong><br/>
+// 2.00 PM – Mumbai South Central Maratha Royals vs SoBo Mumbai Falcons<br/>
+// 7.00 PM – Triumph Knights Mumbai North East vs Bandra Blasters<br/><br/>
+// <strong>June 5 (Friday)</strong><br/>
+// 2.00 PM – Eagle Thane Strikers vs Arcs Andheri<br/>
+// 7.00 PM – Aakash Tigers Mumbai Western Suburbs vs North Mumbai Panthers<br/><br/>
+// <strong>June 6 (Saturday)</strong><br/>
+// 2.00 PM – Bandra Blasters vs Mumbai South Central Maratha Royals<br/>
+// 7.00 PM – Triumph Knights Mumbai North East vs SoBo Mumbai Falcons<br/><br/>
+// <strong>June 7 (Sunday)</strong><br/>
+// 2.00 PM – Arcs Andheri vs Aakash Tigers Mumbai Western Suburbs<br/>
+// 7.00 PM – Eagle Thane Strikers vs North Mumbai Panthers<br/><br/>
+// <strong>June 8 (Monday)</strong><br/>
+// 2.00 PM – Mumbai South Central Maratha Royals vs Triumph Knights Mumbai North East<br/>
+// 7.00 PM – Arcs Andheri vs Bandra Blasters<br/><br/>
+// <strong>June 9 (Tuesday)</strong><br/>
+// 2.00 PM – SoBo Mumbai Falcons vs Aakash Tigers Mumbai Western Suburbs<br/>
+// 7.00 PM – Triumph Knights Mumbai North East vs Eagle Thane Strikers<br/><br/>
+// <strong>June 10 (Wednesday)</strong><br/>
+// 2.00 PM – SoBo Mumbai Falcons vs North Mumbai Panthers<br/>
+// 7.00 PM – Arcs Andheri vs Mumbai South Central Maratha Royals<br/><br/>
+// <strong>June 11 (Thursday)</strong><br/>
+// 2.00 PM – Semi-final 1<br/>
+// 7.00 PM – Semi-final 2<br/><br/>
+// <strong>June 13 (Saturday)</strong><br/>
+// 7.00 PM – Final<br/><br/>
+// <strong>T20 Mumbai Women’s League</strong><br/><br/>
+// <strong>June 2 (Tuesday)</strong><br/>
+// 9.30 AM – Thane Sky Risers vs SoBo Mumbai Falcons<br/><br/>
+// <strong>June 3 (Wednesday)</strong><br/>
+// 9.30 AM – SoBo Mumbai Falcons vs Aakash Tigers Mumbai Western Suburbs<br/><br/>
+// <strong>June 6 (Saturday)</strong><br/>
+// 9.30 AM – Aakash Tigers Mumbai Western Suburbs vs Thane Sky Risers<br/><br/>
+// <strong>June 7 (Sunday)</strong><br/>
+// 9.30 AM – Aakash Tigers Mumbai Western Suburbs vs SoBo Mumbai Falcons<br/><br/>
+// <strong>June 9 (Tuesday)</strong><br/>
+// 9.30 AM – SoBo Mumbai Falcons vs Thane Sky Risers<br/><br/>
+// <strong>June 10 (Wednesday)</strong><br/>
+// 9.30 AM – Thane Sky Risers vs Aakash Tigers Mumbai Western Suburbs<br/><br/>
+// <strong>June 13 (Saturday)</strong><br/>
+// 2.00 PM – Final`,
+//     Order__c: 1006,
+//     bordered: true,
+//   },
+//   {
+//     Id: "local-5",
+//     Title__c:
+//       "Suryakumar Yadav, Shreyas Iyer, Shivam Dube headline star-studded line-up as MCA announces retained players for T20 Mumbai League 2026",
+//     Date__c: "2026-04-25",
+//     Image_URL__c: "/images/latestUpdates/Suryakumar.jpg",
+//     path: "/news/suryakumar-yadav-shreyas-iyer-shivam-dube-headline-star-studded-line-up-as-mca-announces-retained-players-for-t20-mumbai-league-2026",
+//     Sub_Title__c:
+//       "Shardul Thakur, Tushar Deshpande, Ayush Mhatre and Sarfaraz Khan among other key names retained, while Yashasvi Jaiswal and Ajinkya Rahane are allotted as Icon Players, with franchises locking core squads ahead of Season 4.",
+//     Content__c: `The Mumbai Cricket Association (MCA) has set the stage for a blockbuster T20 Mumbai League 2026, unveiling a star-studded list of player retentions featuring India captain Suryakumar Yadav, Shreyas Iyer and Shivam Dube.<br/><br/>
+// <div class="centered-image">
+//   <img src="/images/latestUpdates/Suryakumar2.jpg" alt="Suryakumar Yadav at T20 Mumbai League announcement" />
+// </div>
+// <br/><br/>
+// With elite performers such as U-19 World Cup-winning captain Ayush Mhatre, Shardul Thakur, Tushar Deshpande and Sarfaraz Khan retained, and Yashasvi Jaiswal and Ajinkya Rahane allotted as Icon Players, franchises have secured a formidable core, underlining the league's growing stature and competitive edge.<br/><br/>
+// Each of the eight teams retained three players, striking a strategic balance between international experience and emerging domestic talent as the league builds towards a high-octane fourth season.<br/><br/>
+// Triumph Knights Mumbai North East have retained Suryakumar (Icon Player), who led India to the T20 World Cup 2026 title, alongside Ayush and Suryansh Shedge, while last season's runners-up SoBo Mumbai Falcons have secured Shreyas (Icon Player), Angkrish Raghuvanshi and Harsh Aghav. Defending champions Mumbai South Central Maratha Royals have retained Tushar (Icon Player), with Siddhesh Lad and Rohan Raje forming a settled core.<br/><br/>
+// <div class="centered-image">
+//   <img src="/images/latestUpdates/Bandra.jpg" alt="T20 Mumbai League retained players event" />
+// </div>
+// <br/><br/>
+// Bandra Blasters have been allotted Yashasvi as their Icon Player, with Suved Parkar and Dhrumil Matkar also retained, while ARCS Andheri have retained Shivam (Icon Player) alongside Pragnesh Kanpillewar and Deepak Shetty. Aakash Tigers Mumbai Western Suburbs have secured Sarfaraz (Icon Player), supported by Shams Mulani and Jay Bista. North Mumbai Panthers have been allotted Icon Player Ajinkya, joined by retained players Abhigyan Kundu and Tanush Kotian, while Eagle Thane Strikers have placed their faith in Shardul (Icon Player) alongside Atharva Ankolekar and Sairaj Patil.<br/><br/>
+// <div class="centered-image">
+//   <img src="/images/latestUpdates/Bandra2.jpg" alt="T20 Mumbai League team retentions" />
+// </div>
+// <br/><br/>
+// With some of India's most dynamic T20 performers spread across teams, the league is primed for intense rivalries, explosive contests and high-quality cricket. Several of the retained players are proven performers in the Indian Premier League and on the international stage, adding significant depth and star appeal to the competition.<br/><br/>
+// Mumbai's unmatched cricketing pipeline once again comes to the fore, with franchises blending established stars and exciting young talent. Fans can expect a fast-paced, fiercely competitive season featuring marquee clashes, emerging rivalries and breakthrough performances that could shape the next generation of Indian cricket.<br/><br/>
+// Season 4 promises to be bigger, faster and more competitive, further cementing the T20 Mumbai League's position as a leading tournament in India's domestic cricket landscape.<br/><br/>
+// MCA President Ajinkya Naik said: "This is a strong statement of intent from all franchises. The retention of some of the biggest names in Indian cricket reflects the strength and credibility the T20 Mumbai League has built over the years. At the same time, the opportunity for young and emerging players to share the dressing room with such established stars is invaluable for their growth and development. With such a high-quality core in place, we are set for a season that will raise the bar in terms of competitiveness and overall standard of cricket."<br/><br/>
+// Rajdip Gupta, Chairman of the League Governing Council, added: "These retentions underline the strategic clarity of franchises and the depth of talent available in Mumbai. The mix of established stars and emerging players will make this one of the most exciting seasons yet. The retention strategy clearly reflects the intent of teams to build continuity while maintaining a high-performance environment."<br/><br/>
+// Since its inception in 2018, the T20 Mumbai League has emerged as a key platform for talent identification and progression, with several players going on to represent Mumbai, feature in the Indian Premier League and earn national honours.<br/><br/>
+// With the retention phase complete, focus now shifts to the upcoming player auction, as franchises look to build on their strong core and assemble squads capable of competing for the title in what promises to be a blockbuster 2026 season. The dates and details for the auction will be announced soon.<br/><br/>
+// <strong>List of Retained Players:</strong><br/><br/>
+// <ul>
+//   <li>Aakash Tigers Mumbai Western Suburbs: Sarfaraz Khan (Icon Player), Shams Mulani and Jay Bista</li>
+//   <li>ARCS Andheri: Shivam Dube (Icon Player), Pragnesh Kanpillewar and Deepak Shetty</li>
+//   <li>Bandra Blasters: Yashasvi Jaiswal (Icon Player), Suved Parkar and Dhrumil Matkar</li>
+//   <li>Mumbai South Central Maratha Royals: Tushar Deshpande (Icon Player), Siddhesh Lad and Rohan Raje</li>
+//   <li>North Mumbai Panthers: Ajinkya Rahane (Icon Player), Abhigyan Kundu and Tanush Kotian</li>
+//   <li>SoBo Mumbai Falcons: Shreyas Iyer (Icon Player), Angkrish Raghuvanshi and Harsh Aghav</li>
+//   <li>Eagle Thane Strikers: Shardul Thakur (Icon Player), Atharva Ankolekar and Sairaj Patil</li>
+//   <li>Triumph Knights Mumbai North East: Suryakumar Yadav (Icon Player), Ayush Mhatre and Suryansh Shedge</li>
+// </ul>`,
+//     Order__c: 1005,
+//     bordered: true,
+//   },
+//   {
+//     Id: "local-4",
+//     Title__c:
+//       "T20 Mumbai League Player Registrations Close with Over 2,400 Entries",
+//     Date__c: "2026-04-11",
+//     Image_URL__c: "/images/latestUpdates/Player-Registrations.png",
+//     path: "/news/t20-mumbai-league-player-registrations-close-with-over-2400-entries",
+//     Sub_Title__c: "",
+//     Content__c: `Player registrations for the upcoming season of the T20 Mumbai League officially closed on April 10th and received an overwhelming response from across the city.<br/><br/>
+// A total of 2,411 players have registered for the league, underlining the continued enthusiasm and depth of cricketing talent in Mumbai. This includes 2,048 men registering for Season 4 of the men's competition and 363 women for the inaugural Women's T20 Mumbai League.<br/><br/>
+// The strong participation numbers highlight the growing appeal of the league as a premier platform for aspiring cricketers to showcase their skills and progress in their careers.<br/><br/>
+// The introduction of the Women's T20 Mumbai League has also marked a significant step forward, with encouraging participation reflecting the increasing interest and development of women's cricket in the city.<br/><br/>
+// The T20 Mumbai League continues to embody its central philosophy "Chance Sodu Nako", offering players a platform to seize their moment and take a step forward in their cricketing journey.`,
+//     Order__c: 1004,
+//     bordered: true,
+//   },
+//   {
+//     Id: "local-1",
+//     Title__c:
+//       "MCA announces T20 Mumbai League Season 4 and launches Inaugural Women's League",
+//     Date__c: "2026-03-24",
+//     Image_URL__c: "/images/latestUpdates/local-3-banner.jpeg",
+//     path: "/news/mca-announces-t20-mumbai-league-season-4-and-launches-inaugural-womens-league",
+//     Sub_Title__c:
+//       "Mumbai Cricket Association (MCA) announced the return of the T20 Mumbai League for Season 4 and launched the inaugural T20 Mumbai Women's League at a major event in Mumbai.",
+//     Content__c: `Mumbai Cricket Association (MCA) today announced the return of T20 Mumbai League with an exhilarating Season 4 and also launched the inaugural T20 Mumbai Women's League, pitted to be the most exciting domestic tournaments in the women's arena.<br/><br/>
+// The trophies for both tournaments were unveiled by Rohit Sharma, face of the league, at a glittering event in Mumbai that was also attended by Mumbai star and India players Sayali Satghare, MCA President Ajinkya Naik, Cabinet Minister and former MCA President Ashish Shelar, and Rajdip Gupta, Chairman of the League Governing Council, joined by members of the Apex Council and the League Governing Council along with team operators.<br/><br/>
+// <div class="centered-image">
+//   <img src="/images/latestUpdates/local-3-inner1.jpeg" alt="T20 Mumbai League launch event" />
+// </div>
+// <br/><br/>
+// Speaking at the launch of the T20 Mumbai League and T20 Mumbai Women's League, Rohit Sharma said: "I'm very happy with how Mumbai cricket is shaping up-not just in the IPL team, but also with what the T20 Mumbai League has done for many young cricketers. We saw so many cricketers who played in the T20 Mumbai now go on to play for IPL teams and the national team as well. It is a big platform. I'm happy that we are doing this again after a very successful last season, I was involved last season. I saw it was a very tough task. I have to give credit to each and every member of the MCA for pulling it through. This year, there are three women's teams as well, so it's getting bigger."<br/><br/>
+// Elaborating on the significance of the T20 Mumbai Women's League, Sayali Satghare said: "Mumbai has always been a city that lives and breathes cricket, and it means a lot to see a dedicated platform now being created for women as well. I would like to thank the Mumbai Cricket Association for taking this important step and investing in the future of women's cricket. The T20 Mumbai Women's League will give many young girls the opportunity to dream bigger, compete at a high level and believe that they too can represent Mumbai and India one day."<br/><br/>
+// MCA President Ajinkya Naik added: "Mumbai's cricketing legacy has always been built on a strong grassroots structure and a culture that encourages players to push themselves and aim higher. The T20 Mumbai League reflects that philosophy by providing talented cricketers from across the city a professional stage to showcase their abilities. The launch of the T20 Mumbai Women's League is an important milestone for us. Women's cricket is growing rapidly, and it is essential that we create strong platforms that allow talented players to compete, develop and progress to higher levels of the game."<br/><br/>
+// Former MCA President and Cabinet Minister Ashish Shelar said: "I congratulate the entire MCA team, especially Ajinkya [Naik], Rajdip [Gupta], and all the MCA members, for such a wonderful T20 Mumbai launch. I still remember the day in 2018 when we were here and thought that we should have a league where we could give an opportunity to our young talent to showcase their abilities in a bigger way. And it has been demonstrated here, Ajinkya has rightly given that space. So the league has its own legacy. I welcome all the franchise owners who have shown confidence in our entire team. Wherever it is needed, the Government of Maharashtra and I, as an individual, will always be there because our Chief Minister always tells me to push the best. There are three women's teams coming, so I think that is the best thing that has been done, the launch of the women's league."<br/><br/>
+// Rajdip Gupta, Chairman of the League Governing Council, stated: "The T20 Mumbai League has consistently showcased the depth of talent in the city. With the addition of the women's competition, the league enters an exciting new phase. Our aim is to create a professionally run tournament that not only delivers high-quality cricket but also strengthens the pathway for emerging players."<br/><br/>
+// <div style="text-align:center;">
+//   <img src="/images/latestUpdates/local3-inner2.jpeg" alt="T20 Mumbai League launch stage" style="max-width:720px;width:100%;height:auto;display:inline-block;" />
+// </div>
+// <br/><br/>
+// An insightful and engaging panel discussion featuring Rohit Sharma and Sayali Satghare highlighted the significance of the women's league and Mumbai's deep cricketing culture.<br/><br/>
+// The inaugural T20 Mumbai Women's League will witness competition between three teams, operated by PRS Infraprojects LLP, Roadway Solution India Infra Ltd and World Star Sporting Private Limited.<br/><br/>
+// Season 4 of the men's competition will continue to feature eight franchises representing different regions of the city: Aakash Tigers Mumbai Western Suburbs (World Star Premier League LLP), ARCS Andheri (ARCS Sports & Entertainment Private Limited), Bandra Blasters (PK Sports Ventures Private Limited), Eagle Thane Strikers (Eagle Infra India Ltd), Mumbai South Central Maratha Royals (Royal Edge Sports & Entertainment), North Mumbai Panthers (Horizon Sports India Private Limited), SoBo Mumbai Falcons (Roadway Solutions India Infra Ltd.) and Triumph Knights Mumbai North East (Transcon Triumph Knights Private Limited).<br/><br/>
+// Since its launch in 2018, the T20 Mumbai League has established itself as one of India's most competitive domestic T20 tournaments, providing a platform for emerging players to showcase their abilities. Several cricketers who featured in the league, including Shivam Dube and Tushar Deshpande, have gone on to represent Mumbai and India, and to play in the Indian Premier League, underlining the league's importance in the country's cricketing ecosystem.<br/><br/>
+// As the city prepares for another exciting cricket season, the league promises to celebrate the depth of Mumbai's cricketing talent while bringing high-voltage action for the fans.`,
+//     Order__c: 1003,
+//     bordered: true,
+//   },
+//   {
+//     Id: "local-2",
+//     Title__c:
+//       "Bids Opened for Team Operating Rights - T20 Mumbai Women's League",
+//     Date__c: "2026-03-21",
+//     Image_URL__c: "/images/latestUpdates/local-2-banner.jpeg",
+//     path: "/news/bids-opened-for-team-operating-rights-t20-mumbai-womens-league",
+//     Sub_Title__c:
+//       "The bids for Team Operating Rights for three teams in the upcoming T20 Mumbai Women's League were officially opened today, drawing strong participation from reputed organizations.",
+//     Content__c: `The bids for Team Operating Rights for three teams in the upcoming T20 Mumbai Women's League were officially opened today.<br/><br/>
+// The bidding process witnessed enthusiastic participation from reputed organizations, reflecting the growing interest and confidence in women's cricket in Mumbai.<br/><br/>
+// <div class="responsive-image-wrapper">
+//   <img src="/images/latestUpdates/local-2-inner1.jpeg" alt="T20 Mumbai Women's League bidding - 1" />
+//   <img src="/images/latestUpdates/local-2-inner2.jpeg" alt="T20 Mumbai Women's League bidding - 2" />
+// </div>
+// <br/>
+// Based on the financial bids received, the following bidders have secured the Team Operating Rights:<br/><br/>
+// <ul>
+//   <li>PRS Infraprojects LLP - Rs. 2,25,00,000/- (Rank 1)</li>
+//   <li>Roadway Solution India Infra Ltd - Rs. 1,09,00,000/- (Rank 2)</li>
+//   <li>World Star Sporting Private Limited - Rs. 79,00,000/- (Rank 3)</li>
+// </ul>
+// <br/>
+// The successful bidders (Rank 1 to 3) will be awarded the rights to operate the three teams, subject to completion of the necessary formalities and execution of agreements.<br/><br/>
+// The strong response to the bidding process underlines the rising stature of the T20 Mumbai Women's League and the Association's continued commitment to strengthening the women's cricketing ecosystem.<br/><br/>
+// MCA President, Ajinkya Naik, says, "The overwhelming response to the bidding process for the T20 Mumbai Women's League is a strong endorsement of our vision to elevate women's cricket in Mumbai. The participation of reputed corporate groups reflects the growing commercial confidence in the women's game. We are committed to building a competitive and professionally managed league that provides a robust platform for emerging talent."<br/><br/>
+// T20 Mumbai League Governing Council Chairman, Rajdip Gupta, expresses, "The successful conclusion of the bidding process marks an important milestone for the T20 Mumbai Women's League. The strong bids received underline the league's credibility and potential. We look forward to working closely with the franchise owners to deliver a high-quality tournament that showcases the depth of women's cricketing talent in Mumbai."<br/><br/>
+// Further details regarding the teams, player auction, and tournament schedule will be announced shortly.`,
+//     Order__c: 1002,
+//     bordered: true,
+//   },
+//   {
+//     Id: "local-3",
+//     Title__c: "#ChanceSoduNako: Defining the Spirit of the T20 Mumbai League",
+//     Date__c: "2026-03-18",
+//     Image_URL__c: "/images/latestUpdates/local-1.jpeg",
+//     path: "/news/chance-sodunako-defining-the-spirit-of-the-t20-mumbai-league",
+//     Sub_Title__c:
+//       "The Mumbai Cricket Association (MCA) has unveiled #ChanceSoduNako as the central theme for the upcoming season of the T20 Mumbai League, encapsulating the core philosophy of Mumbai cricket: seizing opportunities when they arise.",
+//     Content__c: `The Mumbai Cricket Association (MCA) has unveiled #ChanceSoduNako as the central theme for the upcoming season of the T20 Mumbai League, encapsulating the core philosophy of Mumbai cricket: seizing opportunities when they arise.<br/><br/>
+// Derived from the local ethos, #ChanceSoduNako, which translates to "don't let go of the opportunity," reflects the competitive and resilient mindset that has long defined the city's cricketing culture.<br/><br/>
+// For players, the message is clear. In a highly competitive ecosystem, opportunities are limited and often decisive. A single performance - whether with the bat, ball, or in the field - can significantly influence a player's trajectory. The T20 Mumbai League continues to serve as a key platform where such opportunities are created, enabling emerging talent to showcase their abilities on a prominent stage.<br/><br/>
+// With the return of Season 4 of the men's league and the introduction of the inaugural Women's T20 Mumbai League, the scope of opportunity expands further. The inclusion of the women's competition marks a significant step towards building a more inclusive and comprehensive cricketing ecosystem in Mumbai.<br/><br/>
+// Beyond the field, #ChanceSoduNako also resonates with fans, encouraging them to be active participants in the league by supporting teams and experiencing high-quality cricket at iconic venues.<br/><br/>
+// As the T20 Mumbai League prepares for its upcoming season, #ChanceSoduNako stands as a unifying message, reinforcing the importance of readiness, ambition, and making every opportunity count.`,
+//     Order__c: 1001,
+//     bordered: true,
+//   },
 ];
 
 export const CardData = [
