@@ -1,9 +1,28 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { votePoll } from "@/app/api/polls";
 import { trackEvent } from "@/utilis/mixpanelClient";
 import { useAuth } from "@/components/auth/AuthContext";
 import { usePollsContext } from "@/components/polls/PollsProvider";
+
+function Toast({ message, onDone }) {
+  useEffect(() => {
+    const id = setTimeout(onDone, 3500);
+    return () => clearTimeout(id);
+  }, [onDone]);
+  return (
+    <>
+      <style>{`@keyframes toastSlideUp{from{opacity:0;transform:translate(-50%,12px)}to{opacity:1;transform:translate(-50%,0)}}`}</style>
+      <div
+        role="alert"
+        className="fixed bottom-6 left-1/2 z-[9999] -translate-x-1/2 rounded-xl border border-white/15 bg-[#0E1A47] px-5 py-3 text-sm font-semibold text-white shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+        style={{ whiteSpace: "nowrap", animation: "toastSlideUp 0.25s ease" }}
+      >
+        {message}
+      </div>
+    </>
+  );
+}
 
 
 const CheckIcon = () => (
@@ -22,7 +41,7 @@ const CheckIcon = () => (
   </svg>
 );
 
-const PollCard = ({ poll, onPollUpdate, variant = "compact" }) => {
+const PollCard = ({ poll, onPollUpdate, onPollClosed, variant = "compact" }) => {
   const [error, setError] = useState(null);
   const [pendingOptionId, setPendingOptionId] = useState(null);
   const { isAuthed, openLogin } = useAuth();
@@ -64,12 +83,15 @@ const PollCard = ({ poll, onPollUpdate, variant = "compact" }) => {
       onPollUpdate(prevPoll);
       const status = err?.response?.status;
       const code = err?.response?.data?.error || err?.response?.data?.code;
-      let msg = "Something went wrong. Please try again.";
-      if (status === 429 || code === "rate_limited")
-        msg = "Too many votes. Please slow down and try again in a minute.";
-      else if (code === "poll_closed") msg = "This poll is no longer accepting votes.";
-      else if (code === "invalid_option") msg = "That option is no longer available.";
-      setError(msg);
+      if (code === "poll_closed") {
+        onPollClosed?.("This poll has closed. Refreshing…");
+      } else {
+        let msg = "Something went wrong. Please try again.";
+        if (status === 429 || code === "rate_limited")
+          msg = "Too many votes. Please slow down and try again in a minute.";
+        else if (code === "invalid_option") msg = "That option is no longer available.";
+        setError(msg);
+      }
     } finally {
       setPendingOptionId(null);
     }
@@ -299,6 +321,12 @@ const FanPoll = ({
   const usingDefaultGrid = gridClassName === DEFAULT_GRID_CLASS;
   const cardWrapperClass = usingDefaultGrid ? DEFAULT_CARD_WRAPPER_CLASS : "";
   const { polls, loadError, refetch, updatePoll } = usePollsContext();
+  const [toast, setToast] = useState(null);
+
+  const handlePollClosed = (msg) => {
+    setToast(msg);
+    refetch(false);
+  };
 
 
   // On the home page (no headerSlot), keep prior behavior: hide silently on error.
@@ -340,6 +368,7 @@ const FanPoll = ({
         <PollCard
           poll={poll}
           onPollUpdate={updatePoll}
+          onPollClosed={handlePollClosed}
           variant={variant}
         />
       </div>
@@ -348,6 +377,7 @@ const FanPoll = ({
 
   return (
     <div className="relative">
+      {toast ? <Toast message={toast} onDone={() => setToast(null)} /> : null}
       <div className="section-width pt-14 pb-14 md:pt-16 md:pb-16 lg:pt-20 lg:pb-20">
         {headerSlot
           ? headerSlot
