@@ -535,6 +535,8 @@ const WIDGET_SCRIPT_SRC =
   "https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/app.js";
 
 const Season4Widget = () => {
+  const router = useRouter();
+
   useEffect(() => {
     const existing = document.querySelector(
       `script[src="${WIDGET_SCRIPT_SRC}"]`
@@ -550,6 +552,28 @@ const Season4Widget = () => {
       if (el) el.remove();
     };
   }, []);
+
+  // The widget JS (loaded from CDN) hardcodes its Match Centre links to
+  // https://t20mumbai.com/matchcentre?... — intercept those clicks and route
+  // to the local /matchcentre page instead, preserving the query string.
+  useEffect(() => {
+    const container = document.querySelector(".smmumbaiwidget");
+    if (!container) return;
+
+    const onClick = (e) => {
+      const anchor = e.target.closest("a[href]");
+      if (!anchor) return;
+      const href = anchor.getAttribute("href") || "";
+      if (!href.includes("t20mumbai.com/matchcentre")) return;
+      e.preventDefault();
+      const qIdx = href.indexOf("?");
+      const search = qIdx >= 0 ? href.slice(qIdx) : "";
+      router.push(`/matchcentre${search}`);
+    };
+
+    container.addEventListener("click", onClick);
+    return () => container.removeEventListener("click", onClick);
+  }, [router]);
 
   return <div className="smmumbaiwidget" />;
 };

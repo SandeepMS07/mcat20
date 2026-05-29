@@ -137,19 +137,22 @@ const Navbar = () => {
 
   if (pathName === "/auction-info") return;
   const matchesPageBg =
-    pathName.includes(routes.fixtures) || pathName.startsWith("/scores");
+    pathName.includes(routes.fixtures) ||
+    pathName.startsWith("/scores") ||
+    pathName.includes(routes.matchcentre);
   return (
     <div
       className={
         matchesPageBg
           ? "relative bg-[#081d65] lg:h-[120px] h-[85px]"
-          : pathName.includes(routes.matchcentre) ||
-            pathName.includes(routes.yourPhotos)
+          : pathName.includes(routes.yourPhotos)
           ? "bg-gradient-to-r from-[#060A17] to-[#203376] lg:h-[120px] h-[85px]"
           : ""
       }
     >
-      {matchesPageBg && !pathName.includes(routes.fixtures) && (
+      {matchesPageBg &&
+        !pathName.includes(routes.fixtures) &&
+        !pathName.includes(routes.matchcentre) && (
         <>
           <div
             className="pointer-events-none absolute inset-0 bg-no-repeat bg-cover bg-top opacity-90"

@@ -45,7 +45,7 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="w-full bg-white pb-24">
+    <div className="w-full bg-[#091d65] pb-24">
       <div className="relative">
         {/* Title Block */}
         <div className="w-full bg-[#091d65] py-10">
@@ -74,9 +74,12 @@ export default function Page() {
                     <p>Loading match centre...</p> 
                 )} */}
             {/* </div> */}
-          <div className="mt-8 min-h-[80vh]">
-            <app-matchcentre className={widgetLoaded ? "" : "opacity-0"}></app-matchcentre>
-            {!widgetLoaded && <p>Loading Match Centre Widget...</p>}
+          <div className="relative mt-8 overflow-hidden">
+            <app-matchcentre
+              className={widgetLoaded ? "block" : "opacity-0"}
+              style={{ display: "block", position: "relative" }}
+            ></app-matchcentre>
+            {!widgetLoaded && <p className="text-white">Loading Match Centre Widget...</p>}
           </div>
         </div>
       </div>
