@@ -29,12 +29,41 @@ const NAV = [
     ),
   },
   {
+    href: "/admin/fantasy",
+    label: "Fantasy",
+    icon: (
+      // Fantasy-side ops live under a separate top-level entry to keep them
+      // visibly distinct from the polls/match flows. A trophy mark works as
+      // a "competition + leaderboard" shorthand and isn't already used by
+      // Viewers' Choice (graduation cap).
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+        <path d="M8 21h8M12 17v4" />
+        <path d="M7 4h10v5a5 5 0 0 1-10 0V4z" />
+        <path d="M5 5H3v3a3 3 0 0 0 4 2.83M19 5h2v3a3 3 0 0 1-4 2.83" />
+      </svg>
+    ),
+  },
+  {
     href: "/admin/choice",
     label: "Viewers' Choice",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         <path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4z" />
         <path d="M5 9a3 3 0 0 1-3-3V5h3M19 9a3 3 0 0 0 3-3V5h-3" />
+      </svg>
+    ),
+  },
+  {
+    href: "/admin/support",
+    label: "Support",
+    icon: (
+      // Life-ring / support badge — distinct from the trophy + chart icons
+      // already in the nav. Used today only for the OTP rate-limit escape
+      // hatch; more support tools will land here.
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+        <circle cx="12" cy="12" r="9" />
+        <circle cx="12" cy="12" r="4" />
+        <path d="M4.93 4.93l3.54 3.54M15.54 15.54l3.54 3.54M19.07 4.93l-3.54 3.54M8.46 15.54l-3.54 3.54" />
       </svg>
     ),
   },

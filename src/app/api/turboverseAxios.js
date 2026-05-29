@@ -33,9 +33,13 @@ export const registerAuthHandlers = ({ onRefresh, onLogout }) => {
   logoutHandler = typeof onLogout === "function" ? onLogout : null;
 };
 
+// 8s was tight for transactional admin endpoints (Playing XI publish runs
+// FOR UPDATE + multi-row updates against Cloud SQL with ~50ms RTT). 30s
+// leaves headroom for the slow path without letting a wedged backend
+// hang the UI forever.
 const turboverseAxios = axios.create({
   baseURL: FANTASY_API_BASE,
-  timeout: 8000,
+  timeout: 30000,
   withCredentials: true,
 });
 

@@ -38,9 +38,12 @@ export const listPolls = async () => {
 
 export const getPoll = async (slug) => {
   const voterKey = getVoterKey();
-  const res = await turboverseAxios.get(`/v1/polls/${encodeURIComponent(slug)}`, {
-    params: voterKey ? { voterKey } : undefined,
-  });
+  const res = await turboverseAxios.get(
+    `/v1/polls/${encodeURIComponent(slug)}`,
+    {
+      params: voterKey ? { voterKey } : undefined,
+    },
+  );
   return res.data;
 };
 
@@ -91,6 +94,8 @@ export const getRevealPayload = async (matchId) => {
 // Public matches list — used by the fan-poll page to identify which match's
 // polls to render at the top of the page.
 export const listMatches = async () => {
+  // const res = await turboverseAxios.get("/v1/admin/matches");
+  // return res.data?.matches ?? res.data;
   const res = await turboverseAxios.get("/v1/matches");
   return res.data;
 };

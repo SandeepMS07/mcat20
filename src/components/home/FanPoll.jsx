@@ -1,10 +1,10 @@
 "use client";
-import { useCallback, useEffect, useState } from "react";
-import { listPolls, votePoll } from "@/app/api/polls";
+import { useState } from "react";
+import { votePoll } from "@/app/api/polls";
 import { trackEvent } from "@/utilis/mixpanelClient";
 import { useAuth } from "@/components/auth/AuthContext";
+import { usePollsContext } from "@/components/polls/PollsProvider";
 
-const DEFAULT_OPTION_IMAGE = "/images/stats/player-img.svg";
 
 const CheckIcon = () => (
   <svg
@@ -117,12 +117,14 @@ const PollCard = ({ poll, onPollUpdate, variant = "compact" }) => {
             return (
               <div key={opt.id}>
                 <div className="mb-1.5 flex items-center gap-2.5">
-                  <img
-                    src={opt.image_url || DEFAULT_OPTION_IMAGE}
-                    alt=""
-                    className="h-7 w-7 shrink-0 rounded-full object-cover ring-1 ring-white/15"
-                    loading="lazy"
-                  />
+                  {opt.image_url && (
+                    <img
+                      src={opt.image_url}
+                      alt=""
+                      className="h-7 w-7 shrink-0 rounded-full object-cover ring-1 ring-white/15"
+                      loading="lazy"
+                    />
+                  )}
                   <p className="flex-1 truncate text-[13px] font-semibold text-white/95">
                     {opt.label}
                   </p>
@@ -172,12 +174,14 @@ const PollCard = ({ poll, onPollUpdate, variant = "compact" }) => {
                   aria-pressed={isSelected}
                 >
                   <div className="relative">
-                    <img
-                      src={opt.image_url || DEFAULT_OPTION_IMAGE}
-                      alt=""
-                      className="h-12 w-12 rounded-full object-cover ring-2 ring-white/15"
-                      loading="lazy"
-                    />
+                    {opt.image_url && (
+                      <img
+                        src={opt.image_url}
+                        alt=""
+                        className="h-12 w-12 rounded-full object-cover ring-2 ring-white/15"
+                        loading="lazy"
+                      />
+                    )}
                     {isSelected && (
                       <span className="absolute -right-0.5 -bottom-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#F2A23A] text-white shadow-md">
                         <CheckIcon />
@@ -210,12 +214,14 @@ const PollCard = ({ poll, onPollUpdate, variant = "compact" }) => {
                   } ${isPending ? "opacity-70" : ""}`}
                   aria-pressed={isSelected}
                 >
-                  <img
-                    src={opt.image_url || DEFAULT_OPTION_IMAGE}
-                    alt=""
-                    className="h-8 w-8 shrink-0 rounded-full object-cover ring-1 ring-white/15"
-                    loading="lazy"
-                  />
+                  {opt.image_url && (
+                    <img
+                      src={opt.image_url}
+                      alt=""
+                      className="h-8 w-8 shrink-0 rounded-full object-cover ring-1 ring-white/15"
+                      loading="lazy"
+                    />
+                  )}
                   <span className="flex-1 truncate">{opt.label}</span>
                 </button>
               );
@@ -292,35 +298,8 @@ const FanPoll = ({
 }) => {
   const usingDefaultGrid = gridClassName === DEFAULT_GRID_CLASS;
   const cardWrapperClass = usingDefaultGrid ? DEFAULT_CARD_WRAPPER_CLASS : "";
-  const [polls, setPolls] = useState(null);
-  const [loadError, setLoadError] = useState(false);
-  const [reloadKey, setReloadKey] = useState(0);
-  const { isAuthed: authedForFetch } = useAuth();
+  const { polls, loadError, refetch, updatePoll } = usePollsContext();
 
-  useEffect(() => {
-    let cancelled = false;
-    setLoadError(false);
-    setPolls(null);
-    listPolls()
-      .then((data) => {
-        if (cancelled) return;
-        setPolls(Array.isArray(data) ? data : []);
-      })
-      .catch((err) => {
-        if (cancelled) return;
-        console.error("[FanPoll] failed to load polls:", err);
-        setLoadError(true);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [reloadKey, authedForFetch]);
-
-  const handlePollUpdate = useCallback((updated) => {
-    setPolls((curr) =>
-      curr ? curr.map((p) => (p.id === updated.id ? updated : p)) : curr
-    );
-  }, []);
 
   // On the home page (no headerSlot), keep prior behavior: hide silently on error.
   if (loadError && !headerSlot) return null;
@@ -336,7 +315,7 @@ const FanPoll = ({
         </p>
         <button
           type="button"
-          onClick={() => setReloadKey((k) => k + 1)}
+          onClick={refetch}
           className="rounded-full border border-white/30 bg-white/10 px-5 py-2 text-xs font-semibold text-white transition hover:bg-white/15"
         >
           Retry
@@ -360,7 +339,7 @@ const FanPoll = ({
       <div key={poll.id} className={cardWrapperClass}>
         <PollCard
           poll={poll}
-          onPollUpdate={handlePollUpdate}
+          onPollUpdate={updatePoll}
           variant={variant}
         />
       </div>

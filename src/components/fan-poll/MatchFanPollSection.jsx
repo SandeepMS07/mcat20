@@ -6,7 +6,6 @@ import { useAuth } from "@/components/auth/AuthContext";
 import { listMatchPolls, listMatches, votePoll } from "@/app/api/polls";
 import { trackEvent } from "@/utilis/mixpanelClient";
 
-const DEFAULT_OPTION_IMAGE = "/images/stats/player-img.svg";
 
 function chooseActiveMatch(matches) {
   if (!Array.isArray(matches) || matches.length === 0) return null;
@@ -187,12 +186,14 @@ function MatchPollCard({ poll, isAuthed, openLogin, onUpdated }) {
             return (
               <div key={opt.id}>
                 <div className="mb-1.5 flex items-center gap-2.5">
-                  <img
-                    src={opt.image_url || DEFAULT_OPTION_IMAGE}
-                    alt=""
-                    className="h-7 w-7 shrink-0 rounded-full object-cover ring-1 ring-white/15"
-                    loading="lazy"
-                  />
+                  {opt.image_url && (
+                    <img
+                      src={opt.image_url}
+                      alt=""
+                      className="h-7 w-7 shrink-0 rounded-full object-cover ring-1 ring-white/15"
+                      loading="lazy"
+                    />
+                  )}
                   <p className="flex-1 truncate text-[13px] font-semibold text-white/95">
                     {opt.label}
                   </p>
@@ -235,12 +236,14 @@ function MatchPollCard({ poll, isAuthed, openLogin, onUpdated }) {
                   isPending ? "opacity-70" : ""
                 }`}
               >
-                <img
-                  src={opt.image_url || DEFAULT_OPTION_IMAGE}
-                  alt=""
-                  className="h-7 w-7 shrink-0 rounded-full object-cover ring-1 ring-white/15"
-                  loading="lazy"
-                />
+                {opt.image_url && (
+                  <img
+                    src={opt.image_url}
+                    alt=""
+                    className="h-7 w-7 shrink-0 rounded-full object-cover ring-1 ring-white/15"
+                    loading="lazy"
+                  />
+                )}
                 <span className="flex-1 truncate">{opt.label}</span>
               </button>
             );
