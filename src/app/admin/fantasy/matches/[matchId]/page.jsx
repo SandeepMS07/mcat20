@@ -8,6 +8,7 @@ import {
   getFantasyMatch,
   lockMatch,
   listContestsForMatch,
+  rescheduleMatch,
 } from "@/app/api/admin/fantasy";
 import {
   Button,
@@ -30,6 +31,12 @@ export default function FantasyMatchDetailPage() {
   const [actionBusy, setActionBusy] = useState(null);
   const [actionMsg, setActionMsg] = useState(null);
   const [tick, setTick] = useState(0);
+  // Schedule edit panel — collapsed by default; opens inline below Actions
+  // when the admin clicks "Edit schedule". Values held in datetime-local
+  // shape (YYYY-MM-DDTHH:MM, local time) so they bind directly to the
+  // native input; converted to ISO at submit time.
+  const [scheduleOpen, setScheduleOpen] = useState(false);
+  const [scheduleForm, setScheduleForm] = useState({ scheduledAt: "", lockAt: "" });
 
   useEffect(() => {
     let cancelled = false;
@@ -78,6 +85,52 @@ export default function FantasyMatchDetailPage() {
         ok: false,
         text: e?.response?.data?.error ?? e?.message ?? "lock_failed",
       });
+    } finally {
+      setActionBusy(null);
+    }
+  };
+
+  const openScheduleEditor = () => {
+    setScheduleForm({
+      scheduledAt: toLocalInputValue(match?.scheduled_at),
+      lockAt:      toLocalInputValue(match?.lock_at),
+    });
+    setScheduleOpen(true);
+    setActionMsg(null);
+  };
+
+  const handleScheduleSave = async () => {
+    const { scheduledAt, lockAt } = scheduleForm;
+    if (!scheduledAt && !lockAt) {
+      setActionMsg({ ok: false, text: "Enter at least one of scheduled / lock time." });
+      return;
+    }
+    // datetime-local has no timezone — Date() reads it as LOCAL time, then
+    // toISOString() emits UTC. That round-trip is what the backend expects.
+    const body = {};
+    if (scheduledAt) body.scheduledAt = new Date(scheduledAt).toISOString();
+    if (lockAt)      body.lockAt      = new Date(lockAt).toISOString();
+    // Quick client-side guard so the user sees the error without a 400
+    // round-trip. Backend still enforces this — this is just polish.
+    if (body.scheduledAt && body.lockAt && body.lockAt > body.scheduledAt) {
+      setActionMsg({ ok: false, text: "Lock time must be at or before scheduled start." });
+      return;
+    }
+    setActionBusy("schedule");
+    setActionMsg(null);
+    try {
+      await rescheduleMatch(matchId, body);
+      setActionMsg({ ok: true, text: "Schedule updated." });
+      setScheduleOpen(false);
+      setTick((n) => n + 1);
+    } catch (e) {
+      const code = e?.response?.data?.error;
+      const friendly =
+        code === "match_not_upcoming" ? "Match is already live or completed — can't reschedule." :
+        code === "lock_after_start"   ? "Lock time must be at or before scheduled start." :
+        code === "match_not_found"    ? "Match not found." :
+        code || e?.message || "reschedule_failed";
+      setActionMsg({ ok: false, text: friendly });
     } finally {
       setActionBusy(null);
     }
@@ -222,6 +275,25 @@ export default function FantasyMatchDetailPage() {
             Manage contests ({contests.length})
           </Button>
           <span className="ml-auto flex flex-wrap gap-2">
+            {/* Reschedule — only meaningful for upcoming matches; the
+                backend rejects PATCH /schedule on live/completed rows. */}
+            <Button
+              onClick={openScheduleEditor}
+              variant="secondary"
+              size="md"
+              disabled={actionBusy === "schedule" || isLive || isAbandoned || match.status === "completed"}
+              title={
+                isLive
+                  ? "Match is live — schedule is fixed"
+                  : isAbandoned
+                    ? "Match abandoned"
+                    : match.status === "completed"
+                      ? "Match completed — schedule is fixed"
+                      : "Edit scheduled / lock time"
+              }
+            >
+              Edit schedule
+            </Button>
             <Button
               onClick={handleLock}
               variant="secondary"
@@ -249,6 +321,26 @@ export default function FantasyMatchDetailPage() {
           </span>
         </div>
       </Card>
+
+      {/* Schedule editor — collapsed panel. Opens when admin clicks
+          "Edit schedule" in the Actions row. Backend publishes a
+          schedule:updated WS event on save so consumer frontends refresh
+          without a page reload. */}
+      {scheduleOpen ? (
+        <ScheduleEditor
+          form={scheduleForm}
+          setForm={setScheduleForm}
+          // Pass the current persisted values so the live invariant check
+          // can resolve a one-sided patch: if the admin clears either
+          // input we fall back to what's already in the DB, so the
+          // comparison matches what the backend will enforce.
+          currentScheduledAtIso={match.scheduled_at}
+          currentLockAtIso={match.lock_at}
+          busy={actionBusy === "schedule"}
+          onSave={handleScheduleSave}
+          onCancel={() => setScheduleOpen(false)}
+        />
+      ) : null}
 
       {/* Playing XI summary */}
       <div className="mt-6">
@@ -291,5 +383,109 @@ export default function FantasyMatchDetailPage() {
         </Card>
       </div>
     </>
+  );
+}
+
+// Convert an ISO timestamp into the YYYY-MM-DDTHH:MM string that the
+// <input type="datetime-local"> control expects, in local time. Returns
+// "" for null/invalid input so the comparison logic can treat absence as
+// "no client-side value entered yet".
+function toLocalInputValue(iso) {
+  if (!iso) return "";
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return "";
+  const pad = (n) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+}
+
+// Inline editor for the match's scheduled_at / lock_at. Lives in this
+// file because the wiring is small and tightly coupled to the parent's
+// form state. Surfaces live invariant feedback (red border + helper line
+// + disabled Save) by comparing against the admin's intended end-state —
+// which means falling back to the *currently persisted* values when the
+// admin only edits one side. Without that fallback a lockAt-only patch
+// that pushes past the existing scheduled_at would silently pass client
+// validation and only fail server-side.
+function ScheduleEditor({
+  form,
+  setForm,
+  currentScheduledAtIso,
+  currentLockAtIso,
+  busy,
+  onSave,
+  onCancel,
+}) {
+  // Effective end-state after this save: form value if entered, otherwise
+  // the persisted value the backend will keep as-is. datetime-local
+  // strings are lexicographically ordered as long as the format is
+  // consistent — and we normalize both sides to the same toLocalInputValue
+  // format, so string compare here matches the backend's Date() compare.
+  const effectiveScheduledAt = form.scheduledAt || toLocalInputValue(currentScheduledAtIso);
+  const effectiveLockAt      = form.lockAt      || toLocalInputValue(currentLockAtIso);
+  const lockAfterStart =
+    effectiveScheduledAt && effectiveLockAt && effectiveLockAt > effectiveScheduledAt;
+  const inputBase =
+    "rounded-md border bg-white/[0.04] px-3 py-2 text-sm text-white outline-none";
+  const lockInputClass = lockAfterStart
+    ? `${inputBase} border-red-400/70 focus:border-red-400`
+    : `${inputBase} border-white/15 focus:border-amber-400/60`;
+  return (
+    <div className="mt-4">
+      <Card title="Edit schedule" padding="tight">
+        <div className="flex flex-col gap-4 px-4 py-4">
+          <div className="grid gap-3 sm:grid-cols-2">
+            <label className="flex flex-col gap-1.5 text-xs text-white/65">
+              <span className="font-semibold uppercase tracking-wider">Scheduled start</span>
+              <input
+                type="datetime-local"
+                value={form.scheduledAt}
+                onChange={(e) =>
+                  setForm((f) => ({ ...f, scheduledAt: e.target.value }))
+                }
+                className={`${inputBase} border-white/15 focus:border-amber-400/60`}
+              />
+            </label>
+            <label className="flex flex-col gap-1.5 text-xs text-white/65">
+              <span className="font-semibold uppercase tracking-wider">Lock at</span>
+              <input
+                type="datetime-local"
+                value={form.lockAt}
+                onChange={(e) =>
+                  setForm((f) => ({ ...f, lockAt: e.target.value }))
+                }
+                className={lockInputClass}
+              />
+              {lockAfterStart ? (
+                <span className="text-[11px] font-semibold text-red-300">
+                  Must be at or before {new Date(effectiveScheduledAt).toLocaleString()}.
+                </span>
+              ) : null}
+            </label>
+          </div>
+          <p className="text-[11px] leading-relaxed text-white/45">
+            Lock must be at or before scheduled start. Both fields use your local timezone; the
+            backend stores UTC. Only allowed while the match is still upcoming.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <Button
+              onClick={onSave}
+              size="md"
+              disabled={busy || lockAfterStart}
+              title={lockAfterStart ? "Lock at must be ≤ Scheduled start" : undefined}
+            >
+              {busy ? "Saving…" : "Save schedule"}
+            </Button>
+            <Button
+              onClick={onCancel}
+              variant="secondary"
+              size="md"
+              disabled={busy}
+            >
+              Cancel
+            </Button>
+          </div>
+        </div>
+      </Card>
+    </div>
   );
 }

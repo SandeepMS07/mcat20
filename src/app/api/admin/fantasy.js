@@ -95,6 +95,28 @@ export const lockMatch = async (matchId) => {
   return res.data;
 };
 
+// Rebase a match's scheduled_at and/or lock_at. Both fields optional — a
+// one-sided patch (e.g. only `lockAt`) is fine, the backend keeps the
+// other value as-is. Restricted to upcoming matches.
+//
+// Backend error codes the UI should map:
+//   404 match_not_found        — no fantasy_match row for this id
+//   409 match_not_upcoming     — already live/completed, can't reschedule
+//   400 lock_after_start       — lockAt > scheduledAt (invariant violation)
+//
+// On success the backend publishes a "schedule:updated" WS event on
+// match:<id>, so any connected consumer frontends refresh automatically.
+export const rescheduleMatch = async (matchId, { scheduledAt, lockAt }) => {
+  const body = {};
+  if (scheduledAt) body.scheduledAt = scheduledAt; // ISO string
+  if (lockAt)      body.lockAt      = lockAt;
+  const res = await turboverseAxios.patch(
+    `/v1/admin/matches/${encodeURIComponent(matchId)}/schedule`,
+    body,
+  );
+  return res.data;
+};
+
 // Force-mark a match abandoned (refund hook lands later for paid contests).
 export const abandonMatch = async (matchId) => {
   const res = await turboverseAxios.post(
