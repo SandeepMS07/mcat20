@@ -36,7 +36,7 @@ export default function FantasyMatchDetailPage() {
   // shape (YYYY-MM-DDTHH:MM, local time) so they bind directly to the
   // native input; converted to ISO at submit time.
   const [scheduleOpen, setScheduleOpen] = useState(false);
-  const [scheduleForm, setScheduleForm] = useState({ scheduledAt: "", lockAt: "" });
+  const [scheduleForm, setScheduleForm] = useState({ scheduledAt: "", lockAt: "", resetStatus: false });
 
   useEffect(() => {
     let cancelled = false;
@@ -92,8 +92,9 @@ export default function FantasyMatchDetailPage() {
 
   const openScheduleEditor = () => {
     setScheduleForm({
-      scheduledAt: toLocalInputValue(match?.scheduled_at),
-      lockAt:      toLocalInputValue(match?.lock_at),
+      scheduledAt:  toLocalInputValue(match?.scheduled_at),
+      lockAt:       toLocalInputValue(match?.lock_at),
+      resetStatus:  false,
     });
     setScheduleOpen(true);
     setActionMsg(null);
@@ -108,8 +109,9 @@ export default function FantasyMatchDetailPage() {
     // datetime-local has no timezone — Date() reads it as LOCAL time, then
     // toISOString() emits UTC. That round-trip is what the backend expects.
     const body = {};
-    if (scheduledAt) body.scheduledAt = new Date(scheduledAt).toISOString();
-    if (lockAt)      body.lockAt      = new Date(lockAt).toISOString();
+    if (scheduledAt)              body.scheduledAt  = new Date(scheduledAt).toISOString();
+    if (lockAt)                   body.lockAt       = new Date(lockAt).toISOString();
+    if (scheduleForm.resetStatus) body.resetStatus  = true;
     // Quick client-side guard so the user sees the error without a 400
     // round-trip. Backend still enforces this — this is just polish.
     if (body.scheduledAt && body.lockAt && body.lockAt > body.scheduledAt) {
@@ -120,15 +122,15 @@ export default function FantasyMatchDetailPage() {
     setActionMsg(null);
     try {
       await rescheduleMatch(matchId, body);
-      setActionMsg({ ok: true, text: "Schedule updated." });
+      setActionMsg({ ok: true, text: scheduleForm.resetStatus ? "Schedule updated and match reset to upcoming — team creation is now open." : "Schedule updated." });
       setScheduleOpen(false);
       setTick((n) => n + 1);
     } catch (e) {
       const code = e?.response?.data?.error;
       const friendly =
-        code === "match_not_upcoming" ? "Match is already live or completed — can't reschedule." :
-        code === "lock_after_start"   ? "Lock time must be at or before scheduled start." :
-        code === "match_not_found"    ? "Match not found." :
+        code === "match_already_finished" ? "Match is completed or abandoned — can't reschedule." :
+        code === "lock_after_start"        ? "Lock time must be at or before scheduled start." :
+        code === "match_not_found"         ? "Match not found." :
         code || e?.message || "reschedule_failed";
       setActionMsg({ ok: false, text: friendly });
     } finally {
@@ -275,20 +277,21 @@ export default function FantasyMatchDetailPage() {
             Manage contests ({contests.length})
           </Button>
           <span className="ml-auto flex flex-wrap gap-2">
-            {/* Reschedule — only meaningful for upcoming matches; the
-                backend rejects PATCH /schedule on live/completed rows. */}
+            {/* Reschedule — allowed on upcoming and live matches.
+                For live matches the editor exposes a "Reset to upcoming"
+                toggle so team creation can be reopened (demo use). */}
             <Button
               onClick={openScheduleEditor}
               variant="secondary"
               size="md"
-              disabled={actionBusy === "schedule" || isLive || isAbandoned || match.status === "completed"}
+              disabled={actionBusy === "schedule" || isAbandoned || match.status === "completed"}
               title={
-                isLive
-                  ? "Match is live — schedule is fixed"
-                  : isAbandoned
-                    ? "Match abandoned"
-                    : match.status === "completed"
-                      ? "Match completed — schedule is fixed"
+                isAbandoned
+                  ? "Match abandoned"
+                  : match.status === "completed"
+                    ? "Match completed — schedule is fixed"
+                    : isLive
+                      ? "Edit schedule (enable Reset to upcoming to reopen team creation)"
                       : "Edit scheduled / lock time"
               }
             >
@@ -330,12 +333,9 @@ export default function FantasyMatchDetailPage() {
         <ScheduleEditor
           form={scheduleForm}
           setForm={setScheduleForm}
-          // Pass the current persisted values so the live invariant check
-          // can resolve a one-sided patch: if the admin clears either
-          // input we fall back to what's already in the DB, so the
-          // comparison matches what the backend will enforce.
           currentScheduledAtIso={match.scheduled_at}
           currentLockAtIso={match.lock_at}
+          isLive={isLive}
           busy={actionBusy === "schedule"}
           onSave={handleScheduleSave}
           onCancel={() => setScheduleOpen(false)}
@@ -411,6 +411,7 @@ function ScheduleEditor({
   setForm,
   currentScheduledAtIso,
   currentLockAtIso,
+  isLive,
   busy,
   onSave,
   onCancel,
@@ -462,9 +463,23 @@ function ScheduleEditor({
               ) : null}
             </label>
           </div>
+          {isLive ? (
+            <label className="flex cursor-pointer items-start gap-2.5 rounded-lg border border-amber-400/20 bg-amber-400/5 px-3 py-2.5 text-xs text-amber-200">
+              <input
+                type="checkbox"
+                checked={form.resetStatus}
+                onChange={(e) => setForm((f) => ({ ...f, resetStatus: e.target.checked }))}
+                className="mt-0.5 accent-amber-400"
+              />
+              <span>
+                <span className="font-semibold">Reset to upcoming</span> — reopens team creation and
+                prevents the status-cron from auto-completing this match. Set both times to the future.
+              </span>
+            </label>
+          ) : null}
           <p className="text-[11px] leading-relaxed text-white/45">
             Lock must be at or before scheduled start. Both fields use your local timezone; the
-            backend stores UTC. Only allowed while the match is still upcoming.
+            backend stores UTC.
           </p>
           <div className="flex flex-wrap gap-2">
             <Button
