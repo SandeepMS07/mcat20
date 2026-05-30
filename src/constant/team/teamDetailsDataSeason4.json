@@ -42,7 +42,7 @@
                             "Name": "Prince Devang Badiani",
                             "Age__c": 22,
                             "Birthdate": "2003-12-17",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Aakash%20Tigers/prince-devang-badiani-m00081.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Aakash%20Tigers/prince-devang-badiani-m00081.png",
                             "MCA_Registration_Number__c": "M00081"
                         },
                         "Base_Price_Absolute__c": 300000,
@@ -75,7 +75,7 @@
                             "Name": "Kruthik Shankarappa Hanagavadi",
                             "Age__c": 30,
                             "Birthdate": "1996-01-16",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Aakash%20Tigers/kruthik-shankarappa-hanagavadi-m01374.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Aakash%20Tigers/kruthik-shankarappa-hanagavadi-m01374.png",
                             "MCA_Registration_Number__c": "M01374"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -108,7 +108,7 @@
                             "Name": "Akash Anand",
                             "Age__c": 30,
                             "Birthdate": "1995-10-23",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Aakash%20Tigers/akash-anand-m00301.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Aakash%20Tigers/akash-anand-m00301.png",
                             "MCA_Registration_Number__c": "M00301"
                         },
                         "Base_Price_Absolute__c": 500000,
@@ -138,10 +138,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2G7cYAE"
                             },
-                            "Name": "Varun Lavande",
+                            "Name": "Varun Sameer Lavande",
                             "Age__c": 25,
                             "Birthdate": "2000-12-05",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Aakash%20Tigers/varun-lavande-m01442.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Aakash%20Tigers/varun-lavande-m01442.png",
                             "MCA_Registration_Number__c": "M01442"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -207,7 +207,7 @@
                             "Name": "Naman Pushpak",
                             "Age__c": 19,
                             "Birthdate": "2006-12-17",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Aakash%20Tigers/naman-pushpak-m05252.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Aakash%20Tigers/naman-pushpak-m05252.png",
                             "MCA_Registration_Number__c": "M05252"
                         },
                         "Base_Price_Absolute__c": 300000,
@@ -237,10 +237,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2FvPYAU"
                             },
-                            "Name": "Shams Mulani",
+                            "Name": "Shams Zakir Mulani",
                             "Age__c": 29,
                             "Birthdate": "1997-03-13",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Aakash%20Tigers/shams-mulani-m00328.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Aakash%20Tigers/shams-mulani-m00328.png",
                             "MCA_Registration_Number__c": "M00328"
                         },
                         "Base_Price_Absolute__c": null,
@@ -273,7 +273,7 @@
                             "Name": "Saksham Swayam Parashar",
                             "Age__c": 26,
                             "Birthdate": "1999-10-19",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Aakash%20Tigers/saksham-swayam-parashar-m00331.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Aakash%20Tigers/saksham-swayam-parashar-m00331.png",
                             "MCA_Registration_Number__c": "M00331"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -306,7 +306,7 @@
                             "Name": "Jay Prasad Dhatrak",
                             "Age__c": 22,
                             "Birthdate": "2003-10-26",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Aakash%20Tigers/jay-prasad-dhatrak-m00852.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Aakash%20Tigers/jay-prasad-dhatrak-m00852.png",
                             "MCA_Registration_Number__c": "M00852"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -369,10 +369,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2LnHYAU"
                             },
-                            "Name": "SHASHANK VINAYAK ATTARDE",
+                            "Name": "Shashank Vinayak Attarde",
                             "Age__c": 34,
                             "Birthdate": "1991-11-04",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Aakash%20Tigers/shashank-vinayak-attarde-mcas0021.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Aakash%20Tigers/shashank-vinayak-attarde-mcas0021.png",
                             "MCA_Registration_Number__c": "MCAS0021"
                         },
                         "Base_Price_Absolute__c": 300000,
@@ -402,10 +402,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2G90YAE"
                             },
-                            "Name": "VINAYAK NARAYAN BHOIR",
+                            "Name": "Vinayak Narayan Bhoir",
                             "Age__c": 37,
                             "Birthdate": "1988-09-02",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Aakash%20Tigers/vinayak-narayan-bhoir-m01535.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Aakash%20Tigers/vinayak-narayan-bhoir-m01535.png",
                             "MCA_Registration_Number__c": "M01535"
                         },
                         "Base_Price_Absolute__c": 500000,
@@ -438,7 +438,7 @@
                             "Name": "Jay Gokul Bista",
                             "Age__c": 30,
                             "Birthdate": "1995-12-22",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Aakash%20Tigers/jay-gokul-bista-m04624.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Aakash%20Tigers/jay-gokul-bista-m04624.png",
                             "MCA_Registration_Number__c": "M04624"
                         },
                         "Base_Price_Absolute__c": null,
@@ -504,7 +504,7 @@
                             "Name": "Sagar Vinod Patil",
                             "Age__c": 18,
                             "Birthdate": "2007-09-15",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Aakash%20Tigers/sagar-vinod-patil-m10478.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Aakash%20Tigers/sagar-vinod-patil-m10478.png",
                             "MCA_Registration_Number__c": "M10478"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -537,7 +537,7 @@
                             "Name": "Sarfaraz Ahmed Naushad Ahmed Khan",
                             "Age__c": 28,
                             "Birthdate": "1997-10-22",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Aakash%20Tigers/sarfaraz-ahmed-naushad-ahmed-m00013.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Aakash%20Tigers/sarfaraz-ahmed-naushad-ahmed-khan-m00013.png",
                             "MCA_Registration_Number__c": "M00013"
                         },
                         "Base_Price_Absolute__c": 2000000,
@@ -570,7 +570,7 @@
                             "Name": "Harsh Rohit Rane",
                             "Age__c": 23,
                             "Birthdate": "2002-11-26",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Aakash%20Tigers/harsh-rohit-rane-m00734.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Aakash%20Tigers/harsh-rohit-rane-m00734.png",
                             "MCA_Registration_Number__c": "M00734"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -603,7 +603,7 @@
                             "Name": "Ankur Singh",
                             "Age__c": 33,
                             "Birthdate": "1992-06-23",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Aakash%20Tigers/ankur-singh-m00205.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Aakash%20Tigers/ankur-singh-m00205.png",
                             "MCA_Registration_Number__c": "M00205"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -633,10 +633,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003e200000UsrAoAAJ"
                             },
-                            "Name": "MD JAMSHED ALAM",
+                            "Name": "Jamshed Alam",
                             "Age__c": 23,
                             "Birthdate": "2002-12-13",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Aakash%20Tigers/md-jamshed-alam-mcam0467.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Aakash%20Tigers/JAMSHED%20ALAM04%201.png",
                             "MCA_Registration_Number__c": "MCAM0467"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -666,10 +666,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003e200000VcUjrAAF"
                             },
-                            "Name": "ARNAV ASHISH DHOLE",
+                            "Name": "Arnav Ashish Dhole",
                             "Age__c": 17,
                             "Birthdate": "2009-04-03",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Aakash%20Tigers/arnav-ashish-dhole-mcaa1731.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Aakash%20Tigers/arnav-ashish-dhole-mcaa1731.png",
                             "MCA_Registration_Number__c": "MCAA1731"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -725,7 +725,7 @@
                             "Name": "Humaira Yusuf Zameer Kazi",
                             "Age__c": 32,
                             "Birthdate": "1993-10-04",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ak/humaira-yusuf-zameer-kazi-w00168.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Aakash%20Tigers/humaira-yusuf-zameer-kazi-w00168.png",
                             "MCA_Registration_Number__c": "W00168"
                         },
                         "Base_Price_Absolute__c": 500000,
@@ -758,7 +758,7 @@
                             "Name": "Mulla Alina Farid",
                             "Age__c": 19,
                             "Birthdate": "2007-04-23",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ak/mulla-alina-farid-w00096.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Aakash%20Tigers/mulla-alina-farid-w00096.png",
                             "MCA_Registration_Number__c": "W00096"
                         },
                         "Base_Price_Absolute__c": 100000,
@@ -791,7 +791,7 @@
                             "Name": "Jagravi Rajendra Pawar",
                             "Age__c": 26,
                             "Birthdate": "1999-12-12",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ak/jagravi-rajendra-pawar-w00200.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Aakash%20Tigers/jagravi-rajendra-pawar-w00200.png",
                             "MCA_Registration_Number__c": "W00200"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -824,7 +824,7 @@
                             "Name": "Sanika Vinod Chalke",
                             "Age__c": 20,
                             "Birthdate": "2006-01-22",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ak/sanika-vinod-chalke-w00438.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Aakash%20Tigers/sanika-vinod-chalke-w00438.png",
                             "MCA_Registration_Number__c": "W00438"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -857,7 +857,7 @@
                             "Name": "Mitali Harshad Mhatre",
                             "Age__c": 20,
                             "Birthdate": "2006-01-07",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ak/mitali-harshad-mhatre-w00063.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Aakash%20Tigers/mitali-harshad-mhatre-w00063.png",
                             "MCA_Registration_Number__c": "W00063"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -890,7 +890,7 @@
                             "Name": "Batul Ronald Pereira",
                             "Age__c": 23,
                             "Birthdate": "2002-11-09",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ak/batul-ronald-pereira-w00151.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Aakash%20Tigers/batul-ronald-pereira-w00151.png",
                             "MCA_Registration_Number__c": "W00151"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -923,7 +923,7 @@
                             "Name": "Kimaya Arun Rane",
                             "Age__c": 18,
                             "Birthdate": "2007-10-02",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ak/kimaya-arun-rane-w00073.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Aakash%20Tigers/kimaya-arun-rane-w00073.png",
                             "MCA_Registration_Number__c": "W00073"
                         },
                         "Base_Price_Absolute__c": 100000,
@@ -956,7 +956,7 @@
                             "Name": "Siddhi Sanket Pawar",
                             "Age__c": 18,
                             "Birthdate": "2007-08-20",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ak/siddhi-sanket-pawar-w00432.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Aakash%20Tigers/siddhi-sanket-pawar-w00432.png",
                             "MCA_Registration_Number__c": "W00432"
                         },
                         "Base_Price_Absolute__c": 100000,
@@ -1022,7 +1022,7 @@
                             "Name": "Ritika Rammani Yadav",
                             "Age__c": 17,
                             "Birthdate": "2009-01-05",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ak/ritika-rammani-yadav-w00367.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Aakash%20Tigers/ritika-rammani-yadav-w00367.png",
                             "MCA_Registration_Number__c": "W00367"
                         },
                         "Base_Price_Absolute__c": 100000,
@@ -1055,7 +1055,7 @@
                             "Name": "Manali Kishor Dakshini",
                             "Age__c": 28,
                             "Birthdate": "1997-09-29",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ak/manali-kishor-dakshini-w00434.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Aakash%20Tigers/manali-kishor-dakshini-w00434.png",
                             "MCA_Registration_Number__c": "W00434"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -1088,7 +1088,7 @@
                             "Name": "Gargee Sandesh Warang",
                             "Age__c": 19,
                             "Birthdate": "2007-05-10",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ak/gargee-sandesh-warang-w00258.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Aakash%20Tigers/gargee-sandesh-warang-w00258.png",
                             "MCA_Registration_Number__c": "W00258"
                         },
                         "Base_Price_Absolute__c": 100000,
@@ -1121,7 +1121,7 @@
                             "Name": "Samruddhi Sumant Rawool",
                             "Age__c": 27,
                             "Birthdate": "1999-02-14",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ak/samruddhi-sumant-rawool-w00416.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Aakash%20Tigers/samruddhi-sumant-rawool-w00416.png",
                             "MCA_Registration_Number__c": "W00416"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -1154,7 +1154,7 @@
                             "Name": "Siddhi Rakhamaji Kamthe",
                             "Age__c": 18,
                             "Birthdate": "2007-09-18",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ak/siddhi-rakhamaji-kamthe-w00157.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Aakash%20Tigers/siddhi-rakhamaji-kamthe-w00157.png",
                             "MCA_Registration_Number__c": "W00157"
                         },
                         "Base_Price_Absolute__c": 100000,
@@ -1184,10 +1184,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001l8WhVYAU"
                             },
-                            "Name": "Jeeya MandrawaDKAR",
+                            "Name": "Jeeya Guruprasad Mandrawa",
                             "Age__c": 18,
                             "Birthdate": "2007-06-07",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ak/jeeya-mandrawadkar-w00253.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Aakash%20Tigers/jeeya-mandrawadkar-w00253.png",
                             "MCA_Registration_Number__c": "W00253"
                         },
                         "Base_Price_Absolute__c": 100000,
@@ -1217,10 +1217,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001l8WXmYAM"
                             },
-                            "Name": "Fatima Kalim Jaffer",
+                            "Name": "Fatima Kalim Jaffar",
                             "Age__c": 23,
                             "Birthdate": "2002-09-09",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ak/fatima-kalim-jaffer-w00452.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Aakash%20Tigers/fatima-kalim-jaffer-w00452.png",
                             "MCA_Registration_Number__c": "W00452"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -1238,7 +1238,7 @@
         },
         {
             "Id": "001IR00001xeRnyYAE",
-            "Name": "Arcs Andheri",
+            "Name": "ARCS Andheri",
             "Team_Type__c": "Men's",
             "Logo_URL__c": "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778842569141-45uzrai3pcd-arcs-andheri.png",
             "Team_Purse__c": "a0Be200000OWxVbEAL",
@@ -1276,7 +1276,7 @@
                             "Name": "Kiaan Dipen Parekh",
                             "Age__c": 18,
                             "Birthdate": "2008-03-15",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/ARCS%20Andheri/kiaan-dipen-parekh-m02058.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Arcs%20Andheri/kiaan-dipen-parekh-m02058.png",
                             "MCA_Registration_Number__c": "M02058"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -1309,7 +1309,7 @@
                             "Name": "Deepak Bhaskar Shetty",
                             "Age__c": 34,
                             "Birthdate": "1991-08-28",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/ARCS%20Andheri/deepak-bhaskar-shetty-m01479.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Arcs%20Andheri/deepak-bhaskar-shetty-m01479.png",
                             "MCA_Registration_Number__c": "M01479"
                         },
                         "Base_Price_Absolute__c": null,
@@ -1342,7 +1342,7 @@
                             "Name": "Hrishikesh Bhushan Gore",
                             "Age__c": 20,
                             "Birthdate": "2005-10-18",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/ARCS%20Andheri/hrishikesh-bhushan-gore-m01883.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Arcs%20Andheri/hrishikesh-bhushan-gore-m01883.png",
                             "MCA_Registration_Number__c": "M01883"
                         },
                         "Base_Price_Absolute__c": 300000,
@@ -1375,7 +1375,7 @@
                             "Name": "Ashutosh Ghagre",
                             "Age__c": 34,
                             "Birthdate": "1991-12-25",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/ARCS%20Andheri/ashutosh-ghagre-m01460.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Arcs%20Andheri/ashutosh-ghagre-m01460.png",
                             "MCA_Registration_Number__c": "M01460"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -1408,7 +1408,7 @@
                             "Name": "Himanshu Vinod Singh",
                             "Age__c": 17,
                             "Birthdate": "2008-09-18",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/ARCS%20Andheri/himanshu-vinod-singh-m10722.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Arcs%20Andheri/himanshu-vinod-singh-m10722.png",
                             "MCA_Registration_Number__c": "M10722"
                         },
                         "Base_Price_Absolute__c": 300000,
@@ -1438,10 +1438,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2H2YYAU"
                             },
-                            "Name": "Arjun Sachin Tendulkar",
+                            "Name": "Arjun Tendulkar",
                             "Age__c": 26,
                             "Birthdate": "1999-09-24",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/ARCS%20Andheri/arjun-sachin-tendulkar-m05908.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Arcs%20Andheri/arjun-sachin-tendulkar-m05908.png",
                             "MCA_Registration_Number__c": "M05908"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -1471,10 +1471,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2G7xYAE"
                             },
-                            "Name": "AJAY BAINKTESHWAR MISHRA",
+                            "Name": "Ajay Bainkteshwar Mishra",
                             "Age__c": 30,
                             "Birthdate": "1995-07-01",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/ARCS%20Andheri/ajay-bainkteshwar-mishra-m01465.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Arcs%20Andheri/ajay-bainkteshwar-mishra-m01465.png",
                             "MCA_Registration_Number__c": "M01465"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -1507,7 +1507,7 @@
                             "Name": "Gaurav Ashok Jathar",
                             "Age__c": 35,
                             "Birthdate": "1991-01-30",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/ARCS%20Andheri/gaurav-ashok-jathar-m01383.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Arcs%20Andheri/gaurav-ashok-jathar-m01383.png",
                             "MCA_Registration_Number__c": "M01383"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -1570,10 +1570,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2GIPYA2"
                             },
-                            "Name": "SIDDID TIWARI",
+                            "Name": "Siddid Tiwari",
                             "Age__c": 22,
                             "Birthdate": "2004-02-21",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/ARCS%20Andheri/siddid-tiwari-m01942.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Arcs%20Andheri/siddid-tiwari-m01942.png",
                             "MCA_Registration_Number__c": "M01942"
                         },
                         "Base_Price_Absolute__c": 300000,
@@ -1606,7 +1606,7 @@
                             "Name": "Ayush Jethwa",
                             "Age__c": 22,
                             "Birthdate": "2004-01-29",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/ARCS%20Andheri/ayush-jethwa-m04242.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Arcs%20Andheri/ayush-jethwa-m04242.png",
                             "MCA_Registration_Number__c": "M04242"
                         },
                         "Base_Price_Absolute__c": 300000,
@@ -1636,10 +1636,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2J6JYAU"
                             },
-                            "Name": "PRASAD YASHWANT PAWAR",
+                            "Name": "Prasad Yashwant Pawar",
                             "Age__c": 31,
                             "Birthdate": "1995-01-31",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/ARCS%20Andheri/prasad-yashwant-pawar-mcap0026.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Arcs%20Andheri/prasad-yashwant-pawar-mcap0026.png",
                             "MCA_Registration_Number__c": "MCAP0026"
                         },
                         "Base_Price_Absolute__c": 500000,
@@ -1669,10 +1669,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2G8nYAE"
                             },
-                            "Name": "Pragnesh Durgesh Kanpillewar",
+                            "Name": "Pragnesh Durgesh Kanpille",
                             "Age__c": 24,
                             "Birthdate": "2001-09-29",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/ARCS%20Andheri/pragnesh-durgesh-kanpillewar-m01521.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Arcs%20Andheri/pragnesh-durgesh-kanpillewar-m01521.png",
                             "MCA_Registration_Number__c": "M01521"
                         },
                         "Base_Price_Absolute__c": null,
@@ -1705,7 +1705,7 @@
                             "Name": "Prasoon Angad Singh",
                             "Age__c": 17,
                             "Birthdate": "2008-10-10",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/ARCS%20Andheri/prasoon-angad-singh-m05047.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Arcs%20Andheri/prasoon-angad-singh-m05047.png",
                             "MCA_Registration_Number__c": "M05047"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -1738,7 +1738,7 @@
                             "Name": "Moin Ahmed Naushad Ahmed",
                             "Age__c": 27,
                             "Birthdate": "1998-08-21",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/ARCS%20Andheri/moin-ahmed-naushad-ahmed-m01502.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Arcs%20Andheri/moin-ahmed-naushad-ahmed-m01502.png",
                             "MCA_Registration_Number__c": "M01502"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -1771,7 +1771,7 @@
                             "Name": "Musheer Ahmed Naushad Ahmed Khan",
                             "Age__c": 21,
                             "Birthdate": "2005-02-26",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/ARCS%20Andheri/musheer-ahmed-naushad-ahmed-khan-m00026.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Arcs%20Andheri/musheer-ahmed-naushad-ahmed-khan-m00026.png",
                             "MCA_Registration_Number__c": "M00026"
                         },
                         "Base_Price_Absolute__c": 500000,
@@ -1801,10 +1801,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2FsIYAU"
                             },
-                            "Name": "Divyaansh Sksena",
+                            "Name": "Divyaansh Saxena",
                             "Age__c": 25,
                             "Birthdate": "2001-02-12",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/ARCS%20Andheri/divyaansh-sksena-m00078.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Arcs%20Andheri/divyaansh-sksena-m00078.png",
                             "MCA_Registration_Number__c": "M00078"
                         },
                         "Base_Price_Absolute__c": 500000,
@@ -1837,7 +1837,7 @@
                             "Name": "Rishi Sandip Shah",
                             "Age__c": 23,
                             "Birthdate": "2002-06-20",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/ARCS%20Andheri/rishi-sandip-shah-m00872.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Arcs%20Andheri/rishi-sandip-shah-m00872.png",
                             "MCA_Registration_Number__c": "M00872"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -1926,7 +1926,7 @@
                             "Name": "Atif Habib Attarwala",
                             "Age__c": 33,
                             "Birthdate": "1992-10-15",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Bandra%20Blasters/atif-habib-attarwala-m01598.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Bandra%20Blasters/atif-habib-attarwala-m01598.png",
                             "MCA_Registration_Number__c": "M01598"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -1959,7 +1959,7 @@
                             "Name": "Suved Vijay Parkar",
                             "Age__c": 25,
                             "Birthdate": "2001-04-05",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Bandra%20Blasters/suved-vijay-parkar-m01431.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Bandra%20Blasters/suved-vijay-parkar-m01431.png",
                             "MCA_Registration_Number__c": "M01431"
                         },
                         "Base_Price_Absolute__c": null,
@@ -1992,7 +1992,7 @@
                             "Name": "Royston Harold Dias",
                             "Age__c": 32,
                             "Birthdate": "1993-06-29",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Bandra%20Blasters/royston-harold-dias-m04258.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Bandra%20Blasters/royston-harold-dias-m04258.png",
                             "MCA_Registration_Number__c": "M04258"
                         },
                         "Base_Price_Absolute__c": 500000,
@@ -2025,7 +2025,7 @@
                             "Name": "Jay Sanjay Jain",
                             "Age__c": 23,
                             "Birthdate": "2003-01-30",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Bandra%20Blasters/jay-sanjay-jain-m00654.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Bandra%20Blasters/jay-sanjay-jain-m00654.png",
                             "MCA_Registration_Number__c": "M00654"
                         },
                         "Base_Price_Absolute__c": 300000,
@@ -2058,7 +2058,7 @@
                             "Name": "Aashray Dharmendra Sajnani",
                             "Age__c": 26,
                             "Birthdate": "1999-07-26",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Bandra%20Blasters/aashray-dharmendra-sajnani-m01470.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Bandra%20Blasters/aashray-dharmendra-sajnani-m01470.png",
                             "MCA_Registration_Number__c": "M01470"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -2121,10 +2121,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2GfVYAU"
                             },
-                            "Name": "DHRUMIL ULHAS MATKAR",
+                            "Name": "Dhrumil Ulhas Matkar",
                             "Age__c": 29,
                             "Birthdate": "1996-06-03",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Bandra%20Blasters/dhrumil-ulhas-matkar-m03859.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Bandra%20Blasters/dhrumil-ulhas-matkar-m03859.png",
                             "MCA_Registration_Number__c": "M03859"
                         },
                         "Base_Price_Absolute__c": null,
@@ -2154,10 +2154,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2G9LYAU"
                             },
-                            "Name": "Om shyamsundar keshkamat",
+                            "Name": "Om Shyamsundar Keshkamat",
                             "Age__c": 23,
                             "Birthdate": "2002-06-04",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Bandra%20Blasters/om-shyamsundar-keshkamat-m01557.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Bandra%20Blasters/om-shyamsundar-keshkamat-m01557.png",
                             "MCA_Registration_Number__c": "M01557"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -2187,10 +2187,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2JVaYAM"
                             },
-                            "Name": "Virendra Harishchandra Yadav",
+                            "Name": "Virendra Yadav",
                             "Age__c": 36,
                             "Birthdate": "1990-04-09",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Bandra%20Blasters/virendra-harishchandra-yadav-m03997.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Bandra%20Blasters/virendra-harishchandra-yadav-m03997.png",
                             "MCA_Registration_Number__c": "M03997"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -2223,7 +2223,7 @@
                             "Name": "Parag Prakash Khanapurkar",
                             "Age__c": 40,
                             "Birthdate": "1986-03-31",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Bandra%20Blasters/parag-prakash-khanapurkar-m01256.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Bandra%20Blasters/parag-prakash-khanapurkar-m01256.png",
                             "MCA_Registration_Number__c": "M01256"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -2253,10 +2253,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2GHEYA2"
                             },
-                            "Name": "Tatsat Singh",
+                            "Name": "Tatsat Shankar Dayal Singh",
                             "Age__c": 23,
                             "Birthdate": "2003-03-10",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Bandra%20Blasters/tatsat-singh-m01865.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Bandra%20Blasters/tatsat-singh-m01865.png",
                             "MCA_Registration_Number__c": "M01865"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -2286,10 +2286,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2IxYYAU"
                             },
-                            "Name": "KARSH MANISH KOTHARI",
+                            "Name": "Karsh Manish Kothari",
                             "Age__c": 30,
                             "Birthdate": "1996-02-29",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Bandra%20Blasters/karsh-manish-kothari-mcak0009.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Bandra%20Blasters/karsh-manish-kothari-mcak0009.png",
                             "MCA_Registration_Number__c": "MCAK0009"
                         },
                         "Base_Price_Absolute__c": 500000,
@@ -2319,10 +2319,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2GL9YAM"
                             },
-                            "Name": "SOHUM CHANDRASHEKHAR SABNIS",
+                            "Name": "Sohum Chandrashekhar Sabnis",
                             "Age__c": 23,
                             "Birthdate": "2002-12-08",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Bandra%20Blasters/sohum-chandrashekhar-sabnis-m02124.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Bandra%20Blasters/sohum-chandrashekhar-sabnis-m02124.png",
                             "MCA_Registration_Number__c": "M02124"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -2352,10 +2352,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2G0PYAU"
                             },
-                            "Name": "Prateekkumar Ravishankar yadav",
+                            "Name": "Prateekkumar Ravishankar",
                             "Age__c": 20,
                             "Birthdate": "2005-09-20",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Bandra%20Blasters/prateekkumar-ravishankar-yadav-m00717.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Bandra%20Blasters/prateekkumar-ravishankar-yadav-m00717.png",
                             "MCA_Registration_Number__c": "M00717"
                         },
                         "Base_Price_Absolute__c": 300000,
@@ -2385,10 +2385,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2GiHYAU"
                             },
-                            "Name": "SAIRAJ SANJEEV NAIR",
+                            "Name": "Sairaj Sanjeev Nair",
                             "Age__c": 19,
                             "Birthdate": "2006-12-07",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Bandra%20Blasters/sairaj-sanjeev-nair-m04238.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Bandra%20Blasters/sairaj-sanjeev-nair-m04238.png",
                             "MCA_Registration_Number__c": "M04238"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -2418,10 +2418,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2FveYAE"
                             },
-                            "Name": "SAGARR CHHABRIAA",
+                            "Name": "Sagarr Prakash Chhabriaa",
                             "Age__c": 26,
                             "Birthdate": "2000-01-12",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Bandra%20Blasters/sagarr-chhabriaa-m00351.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Bandra%20Blasters/sagarr-chhabriaa-m00351.png",
                             "MCA_Registration_Number__c": "M00351"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -2451,10 +2451,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2GDuYAM"
                             },
-                            "Name": "Hersh Uday Tank",
+                            "Name": "Hersh Uday Tank M",
                             "Age__c": 37,
                             "Birthdate": "1988-11-28",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Bandra%20Blasters/hersh-uday-tank-m01645.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Bandra%20Blasters/hersh-uday-tank-m01645.png",
                             "MCA_Registration_Number__c": "M01645"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -2487,7 +2487,7 @@
                             "Name": "Dhanit Vijay Raut",
                             "Age__c": 24,
                             "Birthdate": "2001-09-06",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Bandra%20Blasters/dhanit-vijay-raut-m01591.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Bandra%20Blasters/dhanit-vijay-raut-m01591.png",
                             "MCA_Registration_Number__c": "M01591"
                         },
                         "Base_Price_Absolute__c": 300000,
@@ -2520,7 +2520,7 @@
                             "Name": "Aditya Anand",
                             "Age__c": 23,
                             "Birthdate": "2003-05-08",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Bandra%20Blasters/aditya-anand-m01477.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Bandra%20Blasters/aditya-anand-m01477.png",
                             "MCA_Registration_Number__c": "M01477"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -3292,7 +3292,7 @@
                             "Name": "Shreyas Gurav",
                             "Age__c": 26,
                             "Birthdate": "2000-02-29",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Maratha%20Royals/shreyas-gurav-m00773.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Maratha%20Royals/shreyas-gurav-m00773.png",
                             "MCA_Registration_Number__c": "M00773"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -3325,7 +3325,7 @@
                             "Name": "Aryan Rajesh Patni",
                             "Age__c": 23,
                             "Birthdate": "2002-09-16",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Maratha%20Royals/aryan-rajesh-patni-m01495.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Maratha%20Royals/aryan-rajesh-patni-m01495.png",
                             "MCA_Registration_Number__c": "M01495"
                         },
                         "Base_Price_Absolute__c": 300000,
@@ -3358,7 +3358,7 @@
                             "Name": "Yash Ajay Gadia",
                             "Age__c": 26,
                             "Birthdate": "1999-11-12",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Maratha%20Royals/yash-ajay-gadia-m01482.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Maratha%20Royals/yash-ajay-gadia-m01482.png",
                             "MCA_Registration_Number__c": "M01482"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -3388,10 +3388,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2FsiYAE"
                             },
-                            "Name": "ADITYA SANJAY DHUMAL",
+                            "Name": "Aditya Sanjay Dhumal",
                             "Age__c": 31,
                             "Birthdate": "1994-07-12",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Maratha%20Royals/aditya-sanjay-dhumal-m00112.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Maratha%20Royals/aditya-sanjay-dhumal-m00112.png",
                             "MCA_Registration_Number__c": "M00112"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -3424,7 +3424,7 @@
                             "Name": "Arjun Amit Dani",
                             "Age__c": 22,
                             "Birthdate": "2003-10-14",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Maratha%20Royals/arjun-amit-dani-m01352.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Maratha%20Royals/arjun-amit-dani-m01352.png",
                             "MCA_Registration_Number__c": "M01352"
                         },
                         "Base_Price_Absolute__c": 300000,
@@ -3454,10 +3454,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2FwUYAU"
                             },
-                            "Name": "Ayaz Ahmed Afzal Ahmed Kh",
+                            "Name": "Ayaz Ahmed Afzal Ahmed Khan",
                             "Age__c": 23,
                             "Birthdate": "2002-09-09",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Maratha%20Royals/ayaz-ahmed-afzal-ahmed-kh-m00423.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Maratha%20Royals/ayaz-ahmed-afzal-ahmed-khan-m00423.png",
                             "MCA_Registration_Number__c": "M00423"
                         },
                         "Base_Price_Absolute__c": 300000,
@@ -3490,7 +3490,7 @@
                             "Name": "Maxwell David Swaminathan",
                             "Age__c": 27,
                             "Birthdate": "1999-01-18",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Maratha%20Royals/maxwell-david-swaminathan-m00713.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Maratha%20Royals/maxwell-david-swaminathan-m00713.png",
                             "MCA_Registration_Number__c": "M00713"
                         },
                         "Base_Price_Absolute__c": 300000,
@@ -3523,7 +3523,7 @@
                             "Name": "Chinmay Rajesh Sutar",
                             "Age__c": 29,
                             "Birthdate": "1997-05-03",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Maratha%20Royals/chinmay-rajesh-sutar-m03825.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Maratha%20Royals/chinmay-rajesh-sutar-m03825.png",
                             "MCA_Registration_Number__c": "M03825"
                         },
                         "Base_Price_Absolute__c": 500000,
@@ -3556,7 +3556,7 @@
                             "Name": "Atharva Sanjay Bhosale",
                             "Age__c": 21,
                             "Birthdate": "2004-06-23",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Maratha%20Royals/atharva-sanjay-bhosale-m01230.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Maratha%20Royals/atharva-sanjay-bhosale-m01230.png",
                             "MCA_Registration_Number__c": "M01230"
                         },
                         "Base_Price_Absolute__c": 300000,
@@ -3586,10 +3586,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2FxyYAE"
                             },
-                            "Name": "SAHIL BHAGWANTA JADHAV",
+                            "Name": "Sahil Bhagwanta Jadhav",
                             "Age__c": 24,
                             "Birthdate": "2001-09-28",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Maratha%20Royals/sahil-bhagwanta-jadhav-m00542.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Maratha%20Royals/sahil-bhagwanta-jadhav-m00542.png",
                             "MCA_Registration_Number__c": "M00542"
                         },
                         "Base_Price_Absolute__c": 300000,
@@ -3622,7 +3622,7 @@
                             "Name": "Swaraj Parulkar",
                             "Age__c": 22,
                             "Birthdate": "2003-10-10",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Maratha%20Royals/swaraj-parulkar-m05057.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Maratha%20Royals/swaraj-parulkar-m05057.png",
                             "MCA_Registration_Number__c": "M05057"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -3655,7 +3655,7 @@
                             "Name": "Irfan Umair",
                             "Age__c": 29,
                             "Birthdate": "1996-07-27",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Maratha%20Royals/irfan-umair-m01031.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Maratha%20Royals/irfan-umair-m01031.png",
                             "MCA_Registration_Number__c": "M01031"
                         },
                         "Base_Price_Absolute__c": 500000,
@@ -3688,7 +3688,7 @@
                             "Name": "Pratik Praveen Shukla",
                             "Age__c": 22,
                             "Birthdate": "2003-07-04",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Maratha%20Royals/pratik-praveen-shukla-m00723.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Maratha%20Royals/pratik-praveen-shukla-m00723.png",
                             "MCA_Registration_Number__c": "M00723"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -3721,7 +3721,7 @@
                             "Name": "Rohan Ravindra Raje",
                             "Age__c": 39,
                             "Birthdate": "1986-09-03",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Maratha%20Royals/rohan-ravindra-raje-m01549.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Maratha%20Royals/rohan-ravindra-raje-m01549.png",
                             "MCA_Registration_Number__c": "M01549"
                         },
                         "Base_Price_Absolute__c": null,
@@ -3751,10 +3751,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2IvzYAE"
                             },
-                            "Name": "JITENDRA RAJENDRA PALIWAL",
+                            "Name": "Jitendra Rajendra Paliwal",
                             "Age__c": 34,
                             "Birthdate": "1991-10-15",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Maratha%20Royals/jitendra-rajendra-paliwal-mcaj0007.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Maratha%20Royals/jitendra-rajendra-paliwal-mcaj0007.png",
                             "MCA_Registration_Number__c": "MCAJ0007"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -3784,10 +3784,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2LnVYAU"
                             },
-                            "Name": "SACHIN MADHUKAR YADAV",
+                            "Name": "Sachin Madhukar Yadav",
                             "Age__c": 32,
                             "Birthdate": "1994-04-07",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Maratha%20Royals/sachin-madhukar-yadav-mcas0043.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Maratha%20Royals/sachin-madhukar-yadav-mcas0043.png",
                             "MCA_Registration_Number__c": "MCAS0043"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -3817,10 +3817,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2JpFYAU"
                             },
-                            "Name": "SHREYANSSH RAI",
+                            "Name": "Shreyanssh Rai",
                             "Age__c": 18,
                             "Birthdate": "2008-02-08",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Maratha%20Royals/shreyanssh-rai-m09449.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Maratha%20Royals/shreyanssh-rai-m09449.png",
                             "MCA_Registration_Number__c": "M09449"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -3853,7 +3853,7 @@
                             "Name": "Om Ramdas Bangar",
                             "Age__c": 16,
                             "Birthdate": "2009-09-18",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Maratha%20Royals/om-ramdas-bangar-m10170.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Maratha%20Royals/om-ramdas-bangar-m10170.png",
                             "MCA_Registration_Number__c": "M10170"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -3919,7 +3919,7 @@
                             "Name": "Siddhessh Dinesh Lad",
                             "Age__c": 33,
                             "Birthdate": "1992-05-22",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Maratha%20Royals/siddhessh-dinesh-lad-m01599.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Maratha%20Royals/siddhessh-dinesh-lad-m01599.png",
                             "MCA_Registration_Number__c": "M01599"
                         },
                         "Base_Price_Absolute__c": null,
@@ -3975,7 +3975,7 @@
                             "Name": "Anish Mukund Chaudhery",
                             "Age__c": 28,
                             "Birthdate": "1997-08-24",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/North%20Mumbai%20Panthers/anish-mukund-chaudhery-m00326.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Mumbai%20Panthers/anish-mukund-chaudhery-m00326.png",
                             "MCA_Registration_Number__c": "M00326"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -4008,7 +4008,7 @@
                             "Name": "Rahul Deepak Sawant",
                             "Age__c": 35,
                             "Birthdate": "1990-08-11",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/North%20Mumbai%20Panthers/rahul-deepak-sawant-m00044.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Mumbai%20Panthers/rahul-deepak-sawant-m00044.png",
                             "MCA_Registration_Number__c": "M00044"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -4071,10 +4071,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2GEeYAM"
                             },
-                            "Name": "Pravesh Dayaram pal",
+                            "Name": "Pravesh Dayaram Pal",
                             "Age__c": 23,
                             "Birthdate": "2003-03-27",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/North%20Mumbai%20Panthers/pravesh-dayaram-pal-m01697.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Mumbai%20Panthers/pravesh-dayaram-pal-m01697.png",
                             "MCA_Registration_Number__c": "M01697"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -4104,10 +4104,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2G7pYAE"
                             },
-                            "Name": "HARSH VIKAS TANNA",
+                            "Name": "Harsh Vikas Tanna",
                             "Age__c": 27,
                             "Birthdate": "1998-11-08",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/North%20Mumbai%20Panthers/harsh-vikas-tanna-m01456.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Mumbai%20Panthers/harsh-vikas-tanna-m01456.png",
                             "MCA_Registration_Number__c": "M01456"
                         },
                         "Base_Price_Absolute__c": 500000,
@@ -4140,7 +4140,7 @@
                             "Name": "Mohit Anil Avasthi",
                             "Age__c": 33,
                             "Birthdate": "1992-11-17",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/North%20Mumbai%20Panthers/mohit-anil-avasthi-m00049.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Mumbai%20Panthers/mohit-anil-avasthi-m00049.png",
                             "MCA_Registration_Number__c": "M00049"
                         },
                         "Base_Price_Absolute__c": 500000,
@@ -4173,7 +4173,7 @@
                             "Name": "Aaryaraj Sanjay Nikam",
                             "Age__c": 20,
                             "Birthdate": "2005-06-05",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/North%20Mumbai%20Panthers/aaryaraj-sanjay-nikam-m00735.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Mumbai%20Panthers/aaryaraj-sanjay-nikam-m00735.png",
                             "MCA_Registration_Number__c": "M00735"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -4206,7 +4206,7 @@
                             "Name": "Rohit Prakash Pol",
                             "Age__c": 35,
                             "Birthdate": "1990-11-25",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/North%20Mumbai%20Panthers/rohit-prakash-pol-m00019.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Mumbai%20Panthers/rohit-prakash-pol-m00019.png",
                             "MCA_Registration_Number__c": "M00019"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -4236,10 +4236,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2KIdYAM"
                             },
-                            "Name": "ABHIGYAN ABHISHEK KUNDU",
+                            "Name": "Abhigyan Abhishek Kundu",
                             "Age__c": 18,
                             "Birthdate": "2008-04-30",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/North%20Mumbai%20Panthers/abhigyan-abhishek-kundu-mcaa0051.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Mumbai%20Panthers/abhigyan-abhishek-kundu-mcaa0051.png",
                             "MCA_Registration_Number__c": "MCAA0051"
                         },
                         "Base_Price_Absolute__c": 300000,
@@ -4302,10 +4302,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2ItkYAE"
                             },
-                            "Name": "HARDIK JITENDRA TAMORE",
+                            "Name": "Hardik Jitendra Tamore",
                             "Age__c": 28,
                             "Birthdate": "1997-10-20",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/North%20Mumbai%20Panthers/hardik-jitendra-tamore-mcah0012.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Mumbai%20Panthers/hardik-jitendra-tamore-mcah0012.png",
                             "MCA_Registration_Number__c": "MCAH0012"
                         },
                         "Base_Price_Absolute__c": 500000,
@@ -4335,10 +4335,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2LneYAE"
                             },
-                            "Name": "SIDDHARTH NITIN AKRE",
+                            "Name": "Siddharth Nitin Akre",
                             "Age__c": 28,
                             "Birthdate": "1997-11-04",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/North%20Mumbai%20Panthers/siddharth-nitin-akre-mcas0055.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Mumbai%20Panthers/siddharth-nitin-akre-mcas0055.png",
                             "MCA_Registration_Number__c": "MCAS0055"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -4368,10 +4368,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2G6mYAE"
                             },
-                            "Name": "Kevin Gregory DAlmeida",
+                            "Name": "Kevin Gregory Dalmeida",
                             "Age__c": 36,
                             "Birthdate": "1989-12-21",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/North%20Mumbai%20Panthers/kevin-gregory-dalmeida-m01384.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Mumbai%20Panthers/kevin-gregory-dalmeida-m01384.png",
                             "MCA_Registration_Number__c": "M01384"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -4404,7 +4404,7 @@
                             "Name": "Pratik Suresh Mishra",
                             "Age__c": 26,
                             "Birthdate": "2000-01-25",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/North%20Mumbai%20Panthers/pratik-suresh-mishra-m01488.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Mumbai%20Panthers/pratik-suresh-mishra-m01488.png",
                             "MCA_Registration_Number__c": "M01488"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -4434,10 +4434,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2GgyYAE"
                             },
-                            "Name": "AAYUSH NISHIGANDH ZIMARE",
+                            "Name": "Aayush Nishigandh Zimare",
                             "Age__c": 23,
                             "Birthdate": "2003-01-12",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/North%20Mumbai%20Panthers/aayush-nishigandh-zimare-m04157.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Mumbai%20Panthers/aayush-nishigandh-zimare-m04157.png",
                             "MCA_Registration_Number__c": "M04157"
                         },
                         "Base_Price_Absolute__c": 300000,
@@ -4470,7 +4470,7 @@
                             "Name": "Ayush Sachin Vartak",
                             "Age__c": 21,
                             "Birthdate": "2004-10-29",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/North%20Mumbai%20Panthers/ayush-sachin-vartak-m00817.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Mumbai%20Panthers/ayush-sachin-vartak-m00817.png",
                             "MCA_Registration_Number__c": "M00817"
                         },
                         "Base_Price_Absolute__c": 300000,
@@ -4500,10 +4500,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2G9RYAU"
                             },
-                            "Name": "Aaditya Singh",
+                            "Name": "Aaditya Satyaprakash Singh",
                             "Age__c": 25,
                             "Birthdate": "2000-12-03",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/North%20Mumbai%20Panthers/aaditya-singh-m01563.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Mumbai%20Panthers/aaditya-singh-m01563.png",
                             "MCA_Registration_Number__c": "M01563"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -4536,7 +4536,7 @@
                             "Name": "Ajinkya Rahane",
                             "Age__c": 37,
                             "Birthdate": "1988-06-06",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/North%20Mumbai%20Panthers/ajinkya-rahane.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Mumbai%20Panthers/ajinkya-rahane.png",
                             "MCA_Registration_Number__c": null
                         },
                         "Base_Price_Absolute__c": 2000000,
@@ -4569,7 +4569,7 @@
                             "Name": "Tanush Karunakar Kotian",
                             "Age__c": 27,
                             "Birthdate": "1998-10-16",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/North%20Mumbai%20Panthers/tanush-karunakar-kotian-m04892.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Mumbai%20Panthers/tanush-karunakar-kotian-m04892.png",
                             "MCA_Registration_Number__c": "M04892"
                         },
                         "Base_Price_Absolute__c": null,
@@ -4587,7 +4587,7 @@
         },
         {
             "Id": "001IR00001xeRo1YAE",
-            "Name": "SoBo Mumbai Falcons",
+            "Name": "SOBO Mumbai Falcons",
             "Team_Type__c": "Men's",
             "Logo_URL__c": "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778842647889-jnbsdkw5go9-sobo-mumbai-falcons.png",
             "Team_Purse__c": "a0Be200000OWxVeEAL",
@@ -4622,10 +4622,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2FsHYAU"
                             },
-                            "Name": "Khan Awais Naushad",
+                            "Name": "Awais Khan",
                             "Age__c": 20,
                             "Birthdate": "2005-11-25",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/SoBo%20Mumbai%20Falcons/khan-awais-naushad-m00077.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Sobo%20Mumbai%20Falcons/awais-khan-m00077.png",
                             "MCA_Registration_Number__c": "M00077"
                         },
                         "Base_Price_Absolute__c": 300000,
@@ -4658,7 +4658,7 @@
                             "Name": "Akash Pravin Parkar",
                             "Age__c": 32,
                             "Birthdate": "1994-05-19",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/SoBo%20Mumbai%20Falcons/akash-pravin-parkar-m01318.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Sobo%20Mumbai%20Falcons/akash-pravin-parkar-m01318.png",
                             "MCA_Registration_Number__c": "M01318"
                         },
                         "Base_Price_Absolute__c": 500000,
@@ -4691,7 +4691,7 @@
                             "Name": "Gautam Bharat Waghela",
                             "Age__c": 24,
                             "Birthdate": "2001-08-07",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/SoBo%20Mumbai%20Falcons/gautam-bharat-waghela-m00582.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Sobo%20Mumbai%20Falcons/gautam-bharat-waghela-m00582.png",
                             "MCA_Registration_Number__c": "M00582"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -4721,10 +4721,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2KUZYA2"
                             },
-                            "Name": "YASH PRAKASH DICHOLKAR",
+                            "Name": "Yash Prakash Dicholkar",
                             "Age__c": 29,
                             "Birthdate": "1996-07-15",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/SoBo%20Mumbai%20Falcons/yash-prakash-dicholkar-mcay0005.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Sobo%20Mumbai%20Falcons/yash-prakash-dicholkar-mcay0005.png",
                             "MCA_Registration_Number__c": "MCAY0005"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -4757,7 +4757,7 @@
                             "Name": "Aditya Tare",
                             "Age__c": 38,
                             "Birthdate": "1987-11-06",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/SoBo%20Mumbai%20Falcons/aditya-tare-m04651.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Sobo%20Mumbai%20Falcons/aditya-tare-m04651.png",
                             "MCA_Registration_Number__c": "M04651"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -4787,10 +4787,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2JZ6YAM"
                             },
-                            "Name": "Muhammad Taha",
+                            "Name": "Muhammad Taha Muhammad Samir",
                             "Age__c": 18,
                             "Birthdate": "2007-07-16",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/SoBo%20Mumbai%20Falcons/muhammad-taha-m05229.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Sobo%20Mumbai%20Falcons/muhammad-taha-m05229.png",
                             "MCA_Registration_Number__c": "M05229"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -4823,7 +4823,7 @@
                             "Name": "Yash Manohar Ramchandani",
                             "Age__c": 24,
                             "Birthdate": "2001-06-06",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/SoBo%20Mumbai%20Falcons/yash-manohar-ramchandani-m00540.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Sobo%20Mumbai%20Falcons/yash-manohar-ramchandani-m00540.png",
                             "MCA_Registration_Number__c": "M00540"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -4889,7 +4889,7 @@
                             "Name": "Prathamesh Ganesh Dake",
                             "Age__c": 35,
                             "Birthdate": "1991-01-01",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/SoBo%20Mumbai%20Falcons/prathamesh-ganesh-dake-m00419.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Sobo%20Mumbai%20Falcons/prathamesh-ganesh-dake-m00419.png",
                             "MCA_Registration_Number__c": "M00419"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -4922,7 +4922,7 @@
                             "Name": "Nikhil Angad Giri",
                             "Age__c": 21,
                             "Birthdate": "2004-07-10",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/SoBo%20Mumbai%20Falcons/nikhil-angad-giri-m00370.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Sobo%20Mumbai%20Falcons/nikhil-angad-giri-m00370.png",
                             "MCA_Registration_Number__c": "M00370"
                         },
                         "Base_Price_Absolute__c": 300000,
@@ -4952,10 +4952,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2J0WYAU"
                             },
-                            "Name": "MAYURESH KAILAS TANDEL",
+                            "Name": "Mayuresh Kailas Tandel",
                             "Age__c": 32,
                             "Birthdate": "1993-07-22",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/SoBo%20Mumbai%20Falcons/mayuresh-kailas-tandel-mcam0022.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Sobo%20Mumbai%20Falcons/mayuresh-kailas-tandel-mcam0022.png",
                             "MCA_Registration_Number__c": "MCAM0022"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -4985,10 +4985,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003e200000UsURpAAN"
                             },
-                            "Name": "ARHAN MANISH MAKER",
+                            "Name": "Arhan Manish Maker",
                             "Age__c": 20,
                             "Birthdate": "2005-06-17",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/SoBo%20Mumbai%20Falcons/arhan-manish-maker-mcaa0873.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Sobo%20Mumbai%20Falcons/arhan-manish-maker-mcaa0873.png",
                             "MCA_Registration_Number__c": "MCAA0873"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -5021,7 +5021,7 @@
                             "Name": "Siddharth Jayesh Raut",
                             "Age__c": 32,
                             "Birthdate": "1993-06-23",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/SoBo%20Mumbai%20Falcons/siddharth-jayesh-raut-m01085.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Sobo%20Mumbai%20Falcons/siddharth-jayesh-raut-m01085.png",
                             "MCA_Registration_Number__c": "M01085"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -5054,7 +5054,7 @@
                             "Name": "Kavya Suresh Gori",
                             "Age__c": 19,
                             "Birthdate": "2007-02-27",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/SoBo%20Mumbai%20Falcons/kavya-suresh-gori-m02588.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Sobo%20Mumbai%20Falcons/kavya-suresh-gori-m02588.png",
                             "MCA_Registration_Number__c": "M02588"
                         },
                         "Base_Price_Absolute__c": 300000,
@@ -5087,7 +5087,7 @@
                             "Name": "Ishan Simran Mulchandani",
                             "Age__c": 26,
                             "Birthdate": "2000-03-28",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/SoBo%20Mumbai%20Falcons/ishan-simran-mulchandani-m04896.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Sobo%20Mumbai%20Falcons/ishan-simran-mulchandani-m04896.png",
                             "MCA_Registration_Number__c": "M04896"
                         },
                         "Base_Price_Absolute__c": 500000,
@@ -5204,7 +5204,7 @@
         },
         {
             "Id": "001e200000QVGEVAA5",
-            "Name": "SoBo Mumbai Falcons (W)",
+            "Name": "SOBO Mumbai Falcons",
             "Team_Type__c": "Women's",
             "Logo_URL__c": "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778842647889-jnbsdkw5go9-sobo-mumbai-falcons.png",
             "Team_Purse__c": "a0Be200000OWxVUEA1",
@@ -5242,7 +5242,7 @@
                             "Name": "Siddheshwari Hitendra Pagdhare",
                             "Age__c": 23,
                             "Birthdate": "2002-06-27",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/sobo/siddheshwari-hitendra-pagdhare-w00034.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Sobo%20Mumbai%20Falcons/siddheshwari-hitendra-pagdhare-w00034.png",
                             "MCA_Registration_Number__c": "W00034"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -5275,7 +5275,7 @@
                             "Name": "Sayali Ganesh Satghare",
                             "Age__c": 25,
                             "Birthdate": "2000-07-01",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/sobo/sayali-ganesh-satghare-w00229.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Sobo%20Mumbai%20Falcons/sayali-ganesh-satghare-w00229.png",
                             "MCA_Registration_Number__c": "W00229"
                         },
                         "Base_Price_Absolute__c": 500000,
@@ -5338,10 +5338,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001l8WgKYAU"
                             },
-                            "Name": "Riya SurendrA Chaudhari",
+                            "Name": "Riya Surendra Chaudhari",
                             "Age__c": 24,
                             "Birthdate": "2001-10-17",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/sobo/riya-surendra-chaudhari-w00170.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Sobo%20Mumbai%20Falcons/riya-surendra-chaudhari-w00170.png",
                             "MCA_Registration_Number__c": "W00170"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -5374,7 +5374,7 @@
                             "Name": "Yashika Vibhash Rawat",
                             "Age__c": 19,
                             "Birthdate": "2006-10-26",
-                            "Photo_URL_1__c": "",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Sobo%20Mumbai%20Falcons/yashika-vibhash-rawat-w00217.png",
                             "MCA_Registration_Number__c": "W00217"
                         },
                         "Base_Price_Absolute__c": 100000,
@@ -5407,7 +5407,7 @@
                             "Name": "Akshaya Abhijeet Shinde",
                             "Age__c": 18,
                             "Birthdate": "2007-10-30",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/sobo/akshaya-abhijeet-shinde-w00366.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Sobo%20Mumbai%20Falcons/akshaya-abhijeet-shinde-w00366.png",
                             "MCA_Registration_Number__c": "W00366"
                         },
                         "Base_Price_Absolute__c": 100000,
@@ -5440,7 +5440,7 @@
                             "Name": "Hurley Tanmay Gala",
                             "Age__c": 19,
                             "Birthdate": "2006-09-19",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/sobo/hurley-tanmay-gala-w00062.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Sobo%20Mumbai%20Falcons/hurley-tanmay-gala-w00062.png",
                             "MCA_Registration_Number__c": "W00062"
                         },
                         "Base_Price_Absolute__c": 100000,
@@ -5473,7 +5473,7 @@
                             "Name": "Sanmaya Sanjay Upadhyay",
                             "Age__c": 18,
                             "Birthdate": "2008-02-25",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/sobo/sanmaya-sanjay-upadhyay-w00378.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Sobo%20Mumbai%20Falcons/sanmaya-sanjay-upadhyay-w00378.png",
                             "MCA_Registration_Number__c": "W00378"
                         },
                         "Base_Price_Absolute__c": 100000,
@@ -5506,7 +5506,7 @@
                             "Name": "Simran Bano Shaikh",
                             "Age__c": 24,
                             "Birthdate": "2002-01-11",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/sobo/simran-bano-shaikh-w00500.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Sobo%20Mumbai%20Falcons/simran-bano-shaikh-w00500.png",
                             "MCA_Registration_Number__c": "W00500"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -5539,7 +5539,7 @@
                             "Name": "Sarika Milind Koli",
                             "Age__c": 31,
                             "Birthdate": "1994-12-05",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/sobo/sarika-milind-koli-w00828.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Sobo%20Mumbai%20Falcons/sarika-milind-koli-w00828.png",
                             "MCA_Registration_Number__c": "W00828"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -5572,7 +5572,7 @@
                             "Name": "Vedika Nitin Nikam",
                             "Age__c": 15,
                             "Birthdate": "2010-11-01",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/sobo/vedika-nitin-nikam-w00703.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Sobo%20Mumbai%20Falcons/vedika-nitin-nikam-w00703.png",
                             "MCA_Registration_Number__c": "W00703"
                         },
                         "Base_Price_Absolute__c": 100000,
@@ -5602,10 +5602,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001l8WcxYAE"
                             },
-                            "Name": "Saumyaa Tamang",
+                            "Name": "Saumyaa Aida Tamang",
                             "Age__c": 16,
                             "Birthdate": "2010-02-16",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/sobo/saumyaa-tamang-w00775.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Sobo%20Mumbai%20Falcons/saumyaa-tamang-w00775.png",
                             "MCA_Registration_Number__c": "W00775"
                         },
                         "Base_Price_Absolute__c": 100000,
@@ -5638,7 +5638,7 @@
                             "Name": "Vanshika Hitendra Kothakar",
                             "Age__c": 15,
                             "Birthdate": "2011-04-08",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/sobo/vanshika-hitendra-kothakar-w00942.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Sobo%20Mumbai%20Falcons/vanshika-hitendra-kothakar-w00942.png",
                             "MCA_Registration_Number__c": "W00942"
                         },
                         "Base_Price_Absolute__c": 100000,
@@ -5671,7 +5671,7 @@
                             "Name": "Reshma Rajendra Nayak",
                             "Age__c": 27,
                             "Birthdate": "1998-07-09",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/sobo/reshma-rajendra-nayak-w00423.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Sobo%20Mumbai%20Falcons/reshma-rajendra-nayak-w00423.png",
                             "MCA_Registration_Number__c": "W00423"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -5701,10 +5701,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003e200000VcUjZAAV"
                             },
-                            "Name": "AAROHI SANJAY BAMBODE",
+                            "Name": "Aarohi Sanjay Bambode",
                             "Age__c": 18,
                             "Birthdate": "2007-06-02",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/sobo/aarohi-sanjay-bambode-mcaa1709.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Sobo%20Mumbai%20Falcons/aarohi-sanjay-bambode-mcaa1709.png",
                             "MCA_Registration_Number__c": "MCAA1709"
                         },
                         "Base_Price_Absolute__c": 100000,
@@ -5737,7 +5737,7 @@
                             "Name": "Swara Sudip Jadhav",
                             "Age__c": 13,
                             "Birthdate": "2012-09-12",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/sobo/swara-sudip-jadhav-w00606.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Sobo%20Mumbai%20Falcons/swara-sudip-jadhav-w00606.png",
                             "MCA_Registration_Number__c": "W00606"
                         },
                         "Base_Price_Absolute__c": 100000,
@@ -5770,7 +5770,7 @@
                             "Name": "Megan Renee Rodrigues",
                             "Age__c": 16,
                             "Birthdate": "2009-07-14",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/sobo/megan-renee-rodrigues-w00412.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Sobo%20Mumbai%20Falcons/megan-renee-rodrigues-w00412.png",
                             "MCA_Registration_Number__c": "W00412"
                         },
                         "Base_Price_Absolute__c": 100000,
@@ -5788,7 +5788,7 @@
         },
         {
             "Id": "001e200000QW70zAAD",
-            "Name": "Thane Skyrisers (W)",
+            "Name": "Thane Sky Risers",
             "Team_Type__c": "Women's",
             "Logo_URL__c": "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778842743856-v9mzpsye2s-Thane-Skyrises.png",
             "Team_Purse__c": "a0Be200000OWxVWEA1",
@@ -5823,10 +5823,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001l8WgtYAE"
                             },
-                            "Name": "Vrushali Vikas Bhagat",
+                            "Name": "Vruushali Vikas Bhagat",
                             "Age__c": 27,
                             "Birthdate": "1998-10-25",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ts/vrushali-vikas-bhagat-w00210.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/Thane%20Sky%20Risers/vrushali-vikas-bhagat-w00210.png",
                             "MCA_Registration_Number__c": "W00210"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -5859,7 +5859,7 @@
                             "Name": "Trisha Dharmendra Parmar",
                             "Age__c": 18,
                             "Birthdate": "2007-10-13",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ts/trisha-dharmendra-parmar-w00211.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/Thane%20Sky%20Risers/trisha-dharmendra-parmar-w00211.png",
                             "MCA_Registration_Number__c": "W00211"
                         },
                         "Base_Price_Absolute__c": 100000,
@@ -5892,7 +5892,7 @@
                             "Name": "Zeal Rajesh Dmello",
                             "Age__c": 21,
                             "Birthdate": "2005-01-01",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ts/zeal-rajesh-dmello-w00191.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/Thane%20Sky%20Risers/zeal-rajesh-dmello-w00191.png",
                             "MCA_Registration_Number__c": "W00191"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -5925,7 +5925,7 @@
                             "Name": "Mansi Mohan Patil",
                             "Age__c": 24,
                             "Birthdate": "2002-03-02",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ts/mansi-mohan-patil-w00190.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/Thane%20Sky%20Risers/mansi-mohan-patil-w00190.png",
                             "MCA_Registration_Number__c": "W00190"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -5958,7 +5958,7 @@
                             "Name": "Saima Zakirhussain Thakor",
                             "Age__c": 29,
                             "Birthdate": "1996-09-12",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ts/saima-zakirhussain-thakor-w00262.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/Thane%20Sky%20Risers/saima-zakirhussain-thakor-w00262.png",
                             "MCA_Registration_Number__c": "W00262"
                         },
                         "Base_Price_Absolute__c": 500000,
@@ -5991,7 +5991,7 @@
                             "Name": "Prakashika Prakash Naik",
                             "Age__c": 28,
                             "Birthdate": "1997-10-29",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ts/prakashika-prakash-naik-w00228.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/Thane%20Sky%20Risers/prakashika-prakash-naik-w00228.png",
                             "MCA_Registration_Number__c": "W00228"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -6024,7 +6024,7 @@
                             "Name": "Ashwini Rajendra Nishad",
                             "Age__c": 21,
                             "Birthdate": "2004-11-05",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ts/ashwini-rajendra-nishad-w00730.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/Thane%20Sky%20Risers/ashwini-rajendra-nishad-w00730.png",
                             "MCA_Registration_Number__c": "W00730"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -6057,7 +6057,7 @@
                             "Name": "Mahek Pokar",
                             "Age__c": 21,
                             "Birthdate": "2005-05-15",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ts/mahek-pokar-w00184.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/Thane%20Sky%20Risers/mahek-pokar-w00184.png",
                             "MCA_Registration_Number__c": "W00184"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -6090,7 +6090,7 @@
                             "Name": "Diya Dattaprasad Chalwad",
                             "Age__c": 19,
                             "Birthdate": "2007-02-17",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ts/diya-dattaprasad-chalwad-w00810.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/Thane%20Sky%20Risers/diya-dattaprasad-chalwad-w00810.png",
                             "MCA_Registration_Number__c": "W00810"
                         },
                         "Base_Price_Absolute__c": 100000,
@@ -6123,7 +6123,7 @@
                             "Name": "Kashish Umesh Nirmal",
                             "Age__c": 21,
                             "Birthdate": "2005-05-19",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ts/kashish-umesh-nirmal-w00027.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/Thane%20Sky%20Risers/kashish-umesh-nirmal-w00027.png",
                             "MCA_Registration_Number__c": "W00027"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -6156,7 +6156,7 @@
                             "Name": "Heeya Aashish Pandit",
                             "Age__c": 18,
                             "Birthdate": "2008-03-13",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ts/heeya-aashish-pandit-w00382.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/Thane%20Sky%20Risers/heeya-aashish-pandit-w00382.png",
                             "MCA_Registration_Number__c": "W00382"
                         },
                         "Base_Price_Absolute__c": 100000,
@@ -6186,10 +6186,10 @@
                                 "type": "Contact",
                                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001l8WOLYA2"
                             },
-                            "Name": "NiVya Ambre",
+                            "Name": "Niviya Umesh Ambre",
                             "Age__c": 22,
                             "Birthdate": "2003-06-13",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ts/nivya-ambre-w00033.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/Thane%20Sky%20Risers/nivya-ambre-w00033.png",
                             "MCA_Registration_Number__c": "W00033"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -6222,7 +6222,7 @@
                             "Name": "Kinjal Kumari",
                             "Age__c": 16,
                             "Birthdate": "2009-11-15",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ts/kinjal-kumari-w01104.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/Thane%20Sky%20Risers/kinjal-kumari-w01104.png",
                             "MCA_Registration_Number__c": "W01104"
                         },
                         "Base_Price_Absolute__c": 100000,
@@ -6255,7 +6255,7 @@
                             "Name": "Rianna Rose Nikhil",
                             "Age__c": 15,
                             "Birthdate": "2011-04-07",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ts/rianna-rose-nikhil-w00611.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/Thane%20Sky%20Risers/rianna-rose-nikhil-w00611.png",
                             "MCA_Registration_Number__c": "W00611"
                         },
                         "Base_Price_Absolute__c": 100000,
@@ -6288,7 +6288,7 @@
                             "Name": "Shaurya Prashant Kadam",
                             "Age__c": 16,
                             "Birthdate": "2009-12-19",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ts/shaurya-prashant-kadam-w00637.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/Thane%20Sky%20Risers/shaurya-prashant-kadam-w00637.png",
                             "MCA_Registration_Number__c": "W00637"
                         },
                         "Base_Price_Absolute__c": 100000,
@@ -6321,7 +6321,7 @@
                             "Name": "Soumya Prabhakar Singh",
                             "Age__c": 25,
                             "Birthdate": "2000-11-05",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ts/soumya-prabhakar-singh-w00125.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/Thane%20Sky%20Risers/soumya-prabhakar-singh-w00125.png",
                             "MCA_Registration_Number__c": "W00125"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -6354,7 +6354,7 @@
                             "Name": "Khushi S Bhatia",
                             "Age__c": 24,
                             "Birthdate": "2002-04-26",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ts/khushi-s-bhatia-w00250.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/Thane%20Sky%20Risers/khushi-s-bhatia-w00250.png",
                             "MCA_Registration_Number__c": "W00250"
                         },
                         "Base_Price_Absolute__c": 200000,

@@ -81,7 +81,8 @@ export default function AdminPollsListPage() {
           matchId: matchId === "all" ? undefined : matchId,
         });
         if (cancelled) return;
-        setPolls(pollsRes.polls || []);
+        const fetchedPolls = pollsRes.polls || [];
+        setPolls(fetchedPolls);
       } catch {
         if (!cancelled) setPolls([]);
       } finally {
@@ -212,6 +213,7 @@ export default function AdminPollsListPage() {
                 <th className="px-5 py-3 text-left">Status</th>
                 <th className="px-5 py-3 text-right">Votes</th>
                 <th className="px-5 py-3 text-left">Closes</th>
+                <th className="px-5 py-3 text-left">Winner</th>
                 <th className="px-5 py-3" />
               </tr>
             </thead>
@@ -219,14 +221,14 @@ export default function AdminPollsListPage() {
               {loading ? (
                 Array.from({ length: 4 }).map((_, i) => (
                   <tr key={i} className="border-t border-white/5">
-                    <td colSpan={6} className="px-5 py-4">
+                    <td colSpan={7} className="px-5 py-4">
                       <div className="h-3 w-2/3 animate-pulse rounded bg-white/10" />
                     </td>
                   </tr>
                 ))
               ) : filtered.length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="p-0">
+                  <td colSpan={7} className="p-0">
                     <EmptyState
                       title="No polls yet"
                       hint="Create your first poll to start collecting fan predictions."
@@ -246,8 +248,8 @@ export default function AdminPollsListPage() {
                       key={p.id}
                       className="group border-t border-white/5 transition hover:bg-white/[0.025]"
                     >
-                      <td className="max-w-md px-5 py-4">
-                        <div className="truncate text-sm font-semibold text-white">
+                      <td className="w-64 max-w-xs px-5 py-4">
+                        <div className="truncate text-sm font-semibold text-white" title={p.question}>
                           {p.question}
                         </div>
                         <div className="mt-0.5 font-mono text-[11px] text-white/40">
@@ -280,6 +282,21 @@ export default function AdminPollsListPage() {
                         {p.ends_at
                           ? new Date(p.ends_at).toLocaleString()
                           : "—"}
+                      </td>
+                      <td className="px-5 py-4">
+                        {p.status === "closed" ? (
+                          p.has_winner ? (
+                            <span className="inline-flex flex-row items-center gap-1.5 rounded-full bg-[#F2A23A]/15 px-2.5 py-1 text-[11px] font-bold text-[#F2A23A]">
+                              <span>🏆</span><span>Selected</span>
+                            </span>
+                          ) : (
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/[0.06] px-2.5 py-1 text-[11px] font-bold text-white/40">
+                              Pending
+                            </span>
+                          )
+                        ) : (
+                          <span className="text-white/20 text-xs">—</span>
+                        )}
                       </td>
                       <td className="px-5 py-4 text-right">
                         <div className="inline-flex items-center gap-2">

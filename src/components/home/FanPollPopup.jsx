@@ -14,8 +14,9 @@ const formatCountdown = (ms) => {
 
 const FanPollPopup = ({ open, onClose, onVoted }) => {
   const { polls, loadError, updatePoll } = usePollsContext();
-  const poll = Array.isArray(polls) && polls.length > 0
-    ? polls.reduce((max, p) => (p.id > max.id ? p : max), polls[0])
+  const activePolls = Array.isArray(polls) ? polls.filter((p) => p.status !== "closed") : [];
+  const poll = activePolls.length > 0
+    ? activePolls.reduce((max, p) => (p.id > max.id ? p : max), activePolls[0])
     : null;
   const [pendingOptionId, setPendingOptionId] = useState(null);
   const [voteError, setVoteError] = useState(null);

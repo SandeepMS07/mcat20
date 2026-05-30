@@ -69,7 +69,7 @@ export default function FanPollPage() {
           <FanPoll
             headerSlot={headerSlot}
             variant={variant}
-            gridClassName="grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
+            gridClassName="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
             skeletonCount={8}
             filter={filter}
           />

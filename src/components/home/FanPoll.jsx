@@ -49,7 +49,7 @@ const PollTimer = ({ endsAt }) => {
 
   return (
     <span
-      className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-bold tabular-nums ${
+      className={`inline-flex w-fit items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-bold tabular-nums ${
         remainingMs > 0
           ? "border-[#F2A23A]/40 bg-[#F2A23A]/10 text-[#F2A23A]"
           : "border-white/15 bg-white/5 text-white/50"
@@ -161,14 +161,21 @@ const PollCard = ({ poll, onPollUpdate, onPollClosed, variant = "compact" }) => 
         className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-[#F68323]/[0.08] blur-3xl"
       />
 
-      <div className="mb-5 flex items-start gap-3">
-        <span
-          aria-hidden
-          className="mt-1 h-5 w-1 shrink-0 rounded-full bg-gradient-to-b from-[#F68323] to-[#F2A23A]"
-        />
-        <h3 className="text-sm font-bold leading-snug text-white sm:text-[15px]">
-          {poll.question}
-        </h3>
+      <div className="mb-5 flex flex-col gap-1.5">
+        {poll.ends_at && poll.status !== "closed" && new Date(poll.ends_at).getTime() > Date.now() && (
+          <div>
+            <PollTimer endsAt={poll.ends_at} />
+          </div>
+        )}
+        <div className="flex items-start gap-3">
+          <span
+            aria-hidden
+            className="mt-1 h-5 w-1 shrink-0 rounded-full bg-gradient-to-b from-[#F68323] to-[#F2A23A]"
+          />
+          <h3 className="text-sm font-bold leading-snug text-white sm:text-[15px]">
+            {poll.question}
+          </h3>
+        </div>
       </div>
 
       {showResults ? (
@@ -295,12 +302,9 @@ const PollCard = ({ poll, onPollUpdate, onPollClosed, variant = "compact" }) => 
       )}
 
       <div className="mt-5 flex items-center justify-between border-t border-white/10 pt-3 text-[11px] sm:text-xs">
-        <div className="flex items-center gap-2">
-          <span className="text-white/55">
-            {totalVotes.toLocaleString("en-IN")} {totalVotes === 1 ? "vote" : "votes"}
-          </span>
-          {poll.ends_at && <PollTimer endsAt={poll.ends_at} />}
-        </div>
+        <span className="text-white/55">
+          {totalVotes.toLocaleString("en-IN")} {totalVotes === 1 ? "vote" : "votes"}
+        </span>
         {hasVoted ? (
           <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F68323]/15 px-2.5 py-1 font-bold uppercase tracking-wide text-[#F2A23A]">
             <CheckIcon />
@@ -364,7 +368,7 @@ const FanPoll = ({
   showDefaultHeading = true,
 }) => {
   const usingDefaultGrid = gridClassName === DEFAULT_GRID_CLASS;
-  const cardWrapperClass = usingDefaultGrid ? DEFAULT_CARD_WRAPPER_CLASS : "";
+  const cardWrapperClass = usingDefaultGrid ? DEFAULT_CARD_WRAPPER_CLASS : "min-w-0";
   const { polls, loadError, refetch, updatePoll } = usePollsContext();
   const [toast, setToast] = useState(null);
 
