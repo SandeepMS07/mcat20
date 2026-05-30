@@ -82,11 +82,20 @@ export const listMatchPolls = async (matchId) => {
   return res.data;
 };
 
-// Public payload used by the TV-screen reveal animation.
+// Public payload used by the TV-screen reveal animation (match-level).
 // Shape: { participants: string[], winner: { name } | null }
 export const getRevealPayload = async (matchId) => {
   const res = await turboverseAxios.get(
     `/v1/polls/reveal/${encodeURIComponent(matchId)}`,
+  );
+  return res.data;
+};
+
+// Per-poll reveal payload — used by /fan-poll/reveal/[pollId].
+// Shape: { participants: string[], pollQuestion: string, winner: { name, pickedAt } | null }
+export const getPollRevealPayload = async (pollId) => {
+  const res = await turboverseAxios.get(
+    `/v1/polls/${encodeURIComponent(pollId)}/reveal`,
   );
   return res.data;
 };

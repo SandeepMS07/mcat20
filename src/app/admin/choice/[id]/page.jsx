@@ -8,6 +8,7 @@ import {
   deleteOption,
   getPoll,
   listSquadPlayers,
+  pollVoters,
   updateOption,
   updatePoll,
 } from "@/app/api/admin/choice";
@@ -33,6 +34,8 @@ export default function AdminChoiceCategoryPage() {
   const [loading, setLoading] = useState(true);
   const [busy, setBusy] = useState(false);
   const [actionError, setActionError] = useState(null);
+  const [voters, setVoters] = useState(null);
+  const [votersLoading, setVotersLoading] = useState(false);
   const [draft, setDraft] = useState({
     label: "",
     imageUrl: "",
@@ -49,11 +52,32 @@ export default function AdminChoiceCategoryPage() {
     setPlayers(playersRes || []);
   };
 
+  const reloadVoters = async (pollId) => {
+    setVotersLoading(true);
+    try {
+      const res = await pollVoters(pollId);
+      setVoters(res?.voters ?? []);
+    } catch {
+      setVoters([]);
+    } finally {
+      setVotersLoading(false);
+    }
+  };
+
   useEffect(() => {
     let cancelled = false;
     (async () => {
       try {
-        await reload();
+        const [pollRes, playersRes] = await Promise.all([
+          getPoll(id),
+          listSquadPlayers().catch(() => []),
+        ]);
+        if (cancelled) return;
+        setData(pollRes);
+        setPlayers(playersRes || []);
+        if (pollRes?.poll?.id) {
+          reloadVoters(pollRes.poll.id);
+        }
       } catch {
         if (!cancelled) setData(null);
       } finally {
@@ -203,7 +227,15 @@ export default function AdminChoiceCategoryPage() {
         />
       </div>
 
-      <Card title="Nominees">
+      <Card title="Nominees" action={
+        <button
+          type="button"
+          onClick={() => reloadVoters(poll.id)}
+          className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/45 hover:text-white/70 transition"
+        >
+          ↻ Refresh voters
+        </button>
+      }>
         {options.length === 0 ? (
           <EmptyState
             title="No nominees yet"
@@ -263,7 +295,155 @@ export default function AdminChoiceCategoryPage() {
           </div>
         </div>
       </Card>
+
+      <div className="mt-6">
+        <Card
+          title={`Voters${voters ? ` · ${voters.length.toLocaleString("en-IN")}` : ""}`}
+          padding="tight"
+        >
+          {votersLoading || voters === null ? (
+            <div className="space-y-2 px-1 py-2">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="h-10 animate-pulse rounded-lg bg-white/[0.05]" />
+              ))}
+            </div>
+          ) : voters.length === 0 ? (
+            <EmptyState title="No votes yet" hint="Voters will appear here once people start voting." />
+          ) : (
+            <VotersSection voters={voters} options={options} />
+          )}
+        </Card>
+      </div>
     </>
+  );
+}
+
+function initialsOf(name) {
+  if (!name) return "?";
+  return name
+    .split(/\s+/)
+    .map((s) => s[0])
+    .filter(Boolean)
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+}
+
+function relativeTime(iso) {
+  const t = new Date(iso).getTime();
+  if (Number.isNaN(t)) return "";
+  const diff = Date.now() - t;
+  const sec = Math.floor(diff / 1000);
+  if (sec < 60) return `${sec}s ago`;
+  const min = Math.floor(sec / 60);
+  if (min < 60) return `${min}m ago`;
+  const hr = Math.floor(min / 60);
+  if (hr < 24) return `${hr}h ago`;
+  const day = Math.floor(hr / 24);
+  if (day < 7) return `${day}d ago`;
+  return new Date(iso).toLocaleDateString();
+}
+
+function VotersSection({ voters, options }) {
+  const [search, setSearch] = useState("");
+
+  const grouped = useMemo(() => {
+    const map = new Map();
+    options.forEach((o) =>
+      map.set(o.id, { id: o.id, label: o.label, voters: [] }),
+    );
+    voters.forEach((v) => {
+      if (map.has(v.option_id)) {
+        map.get(v.option_id).voters.push(v);
+      } else {
+        if (!map.has("__other__"))
+          map.set("__other__", { id: "__other__", label: "Other", voters: [] });
+        map.get("__other__").voters.push(v);
+      }
+    });
+    return Array.from(map.values()).filter((g) => g.voters.length > 0);
+  }, [voters, options]);
+
+  const filtered = useMemo(() => {
+    if (!search.trim()) return grouped;
+    const q = search.toLowerCase();
+    return grouped
+      .map((g) => ({
+        ...g,
+        voters: g.voters.filter(
+          (v) =>
+            (v.name || "").toLowerCase().includes(q) ||
+            (v.mobile || "").includes(q),
+        ),
+      }))
+      .filter((g) => g.voters.length > 0);
+  }, [grouped, search]);
+
+  return (
+    <div>
+      {voters.length > 6 ? (
+        <div className="relative px-1 py-2">
+          <svg
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40"
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden
+          >
+            <circle cx="11" cy="11" r="7" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <input
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search by name or mobile…"
+            className="w-full max-w-sm rounded-md border border-white/15 bg-white/[0.04] py-2 pl-9 pr-3 text-sm text-white placeholder:text-white/35 focus:border-[#F2A23A] focus:outline-none"
+          />
+        </div>
+      ) : null}
+
+      {filtered.length === 0 ? (
+        <p className="px-1 py-4 text-sm italic text-white/45">No matching voters.</p>
+      ) : (
+        <div className="divide-y divide-white/5">
+          {filtered.map((g) => (
+            <div key={g.id} className="px-1 py-4">
+              <h3 className="mb-3 text-[11px] font-bold uppercase tracking-[0.2em] text-[#F2A23A]">
+                {g.label}{" "}
+                <span className="font-normal text-white/45">· {g.voters.length}</span>
+              </h3>
+              <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                {g.voters.map((v, idx) => (
+                  <li
+                    key={`${v.user_id}-${v.voted_at}-${idx}`}
+                    className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2.5"
+                  >
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/[0.08] text-xs font-bold text-white/80">
+                      {initialsOf(v.name)}
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <div className="truncate text-sm font-semibold text-white">
+                        {v.name || `User #${v.user_id}`}
+                      </div>
+                      <div className="flex items-center gap-2 text-[11px] text-white/45">
+                        {v.mobile ? <span>{v.mobile}</span> : null}
+                        {v.mobile && v.voted_at ? <span>·</span> : null}
+                        {v.voted_at ? <span>{relativeTime(v.voted_at)}</span> : null}
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
   );
 }
 
