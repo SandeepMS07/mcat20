@@ -239,3 +239,20 @@ export const getContestPreview = async (contestId) => {
   );
   return res.data;
 };
+
+// Flat list of every entry across every contest for this match, with
+// total_points + rank-within-contest. Powers the "Live entries" admin
+// card so operators can see who's playing and their current score at a
+// glance without expanding each contest. Voided entries appear at the
+// bottom with rank=null and status="voided".
+// Response: Array<{
+//   entry_id, contest_id, contest_name, contest_type,
+//   user_id, user_name, user_team_name, template_name,
+//   total_points, rank, status
+// }>
+export const listMatchEntries = async (matchId) => {
+  const res = await turboverseAxios.get(
+    `/v1/admin/matches/${encodeURIComponent(matchId)}/entries`,
+  );
+  return res.data;
+};

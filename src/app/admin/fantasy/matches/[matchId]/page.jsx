@@ -12,6 +12,7 @@ import {
   getFantasyMatch,
   getIngestStatus,
   listContestsForMatch,
+  listMatchEntries,
   lockMatch,
   rescheduleMatch,
   updateWidgetMatchId,
@@ -60,6 +61,14 @@ export default function FantasyMatchDetailPage() {
   const [previewLoading, setPreviewLoading] = useState({});
   const [expandedContestId, setExpandedContestId] = useState(null);
 
+  // Flat list of every entry for the match — populates the "Live entries"
+  // table. Loaded alongside the match metadata and refreshed on the main
+  // 10s tick so points stay current during a live match without an extra
+  // poll cadence.
+  const [entries, setEntries] = useState([]);
+  const [entriesLoading, setEntriesLoading] = useState(true);
+  const [entryFilter, setEntryFilter] = useState("");
+
   useEffect(() => {
     let cancelled = false;
     (async () => {
@@ -89,6 +98,25 @@ export default function FantasyMatchDetailPage() {
     const id = setInterval(() => setTick((n) => n + 1), REFRESH_MS);
     return () => clearInterval(id);
   }, []);
+
+  // Live entries — every active+voided entry across every contest for this
+  // match, with current points. Re-fetches on the same 10s tick as the main
+  // load so the table tracks the live score without a separate cadence.
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const list = await listMatchEntries(matchId);
+        if (cancelled) return;
+        setEntries(Array.isArray(list) ? list : []);
+      } catch {
+        if (!cancelled) setEntries([]);
+      } finally {
+        if (!cancelled) setEntriesLoading(false);
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [matchId, tick]);
 
   // Ingest health poll — faster than the main 10s tick so the "last update"
   // pill on the live card stays meaningful. Paused while the widget_match_id
@@ -629,6 +657,102 @@ export default function FantasyMatchDetailPage() {
           onCancel={() => setScheduleOpen(false)}
         />
       ) : null}
+
+      {/* Live entries — flat list across every contest for this match with
+          current points + within-contest rank. Refreshes on the 10s tick.
+          Lets an operator answer "who's playing and what are they scoring"
+          in one glance instead of expanding each contest. Voided entries
+          sort to the bottom and carry a pill. */}
+      <div className="mt-6">
+        <Card title="Live entries" padding="tight">
+          <div className="flex items-center justify-between gap-3 border-b border-white/5 px-4 py-3">
+            <div className="text-xs text-white/60">
+              {entriesLoading
+                ? "Loading…"
+                : `${entries.filter((e) => e.status === "active").length} active`}
+              {!entriesLoading && entries.some((e) => e.status === "voided") ? (
+                <span className="ml-2 text-red-300/80">
+                  · {entries.filter((e) => e.status === "voided").length} voided
+                </span>
+              ) : null}
+            </div>
+            <input
+              value={entryFilter}
+              onChange={(e) => setEntryFilter(e.target.value)}
+              placeholder="Filter by user, team, or contest…"
+              className="w-64 max-w-[60%] rounded-md border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-white outline-none placeholder:text-white/40 focus:border-white/30"
+            />
+          </div>
+          {entriesLoading ? (
+            <div className="px-4 py-8 text-center text-xs text-white/50">
+              Loading entries…
+            </div>
+          ) : entries.length === 0 ? (
+            <div className="px-4 py-8 text-center text-xs text-white/50">
+              No entries yet for this match.
+            </div>
+          ) : (
+            <div className="max-h-[480px] overflow-y-auto">
+              <table className="w-full text-xs">
+                <thead className="sticky top-0 bg-[#0b1f4a]/95 text-[10px] uppercase tracking-wider text-white/50">
+                  <tr>
+                    <th className="px-4 py-2 text-left">Rank</th>
+                    <th className="px-4 py-2 text-left">User</th>
+                    <th className="px-4 py-2 text-left">Team</th>
+                    <th className="px-4 py-2 text-left">Contest</th>
+                    <th className="px-4 py-2 text-right">Points</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-white/5">
+                  {entries
+                    .filter((e) => {
+                      const q = entryFilter.trim().toLowerCase();
+                      if (!q) return true;
+                      return (
+                        (e.user_name || "").toLowerCase().includes(q) ||
+                        (e.user_team_name || "").toLowerCase().includes(q) ||
+                        (e.template_name || "").toLowerCase().includes(q) ||
+                        (e.contest_name || "").toLowerCase().includes(q)
+                      );
+                    })
+                    .map((e) => (
+                      <tr
+                        key={e.entry_id}
+                        className={e.status === "voided" ? "opacity-55" : ""}
+                      >
+                        <td className="px-4 py-2 tabular-nums text-white/80">
+                          {e.rank ?? "—"}
+                        </td>
+                        <td className="px-4 py-2 text-white">
+                          {e.user_name || `User #${e.user_id}`}
+                          {e.status === "voided" ? (
+                            <span className="ml-2 rounded bg-red-400/15 px-1.5 py-0.5 text-[9px] uppercase tracking-wider text-red-200">
+                              voided
+                            </span>
+                          ) : null}
+                        </td>
+                        <td className="px-4 py-2 text-white/75">
+                          {e.template_name || e.user_team_name || "—"}
+                        </td>
+                        <td className="px-4 py-2 text-white/65">
+                          {e.contest_name || `#${e.contest_id}`}
+                          {e.contest_type && e.contest_type !== "public" ? (
+                            <span className="ml-1 text-[10px] uppercase tracking-wider text-white/40">
+                              · {e.contest_type}
+                            </span>
+                          ) : null}
+                        </td>
+                        <td className="px-4 py-2 text-right tabular-nums font-semibold text-white">
+                          {Number(e.total_points ?? 0).toFixed(1)}
+                        </td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </Card>
+      </div>
 
       {/* Contest preview — entry counts (active / voided) + top-10 board per
           contest for admin QA. Voided entries are shown here (with a pill)
