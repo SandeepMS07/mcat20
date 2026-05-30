@@ -4,16 +4,12 @@ import { votePoll } from "@/app/api/polls";
 import { useAuth } from "@/components/auth/AuthContext";
 import { usePollsContext } from "@/components/polls/PollsProvider";
 
-const POPUP_TIMER_KEY = "mca_fanpoll_popup_timer_start";
-const POPUP_TIMER_DURATION_MS = 60 * 60 * 1000;
-
 const formatCountdown = (ms) => {
   const total = Math.max(0, Math.floor(ms / 1000));
-  const m = Math.floor(total / 60)
-    .toString()
-    .padStart(2, "0");
+  const h = Math.floor(total / 3600);
+  const m = Math.floor((total % 3600) / 60).toString().padStart(2, "0");
   const s = (total % 60).toString().padStart(2, "0");
-  return `${m}:${s}`;
+  return h > 0 ? `${h}:${m}:${s}` : `${m}:${s}`;
 };
 
 const FanPollPopup = ({ open, onClose, onVoted }) => {
@@ -21,7 +17,7 @@ const FanPollPopup = ({ open, onClose, onVoted }) => {
   const poll = polls && polls.length > 0 ? polls[polls.length - 1] : null;
   const [pendingOptionId, setPendingOptionId] = useState(null);
   const [voteError, setVoteError] = useState(null);
-  const [remainingMs, setRemainingMs] = useState(POPUP_TIMER_DURATION_MS);
+  const [remainingMs, setRemainingMs] = useState(null);
   const { isAuthed, openLogin } = useAuth();
 
 
@@ -40,32 +36,21 @@ const FanPollPopup = ({ open, onClose, onVoted }) => {
   }, [open]);
 
   useEffect(() => {
-    if (!open) return undefined;
-    let start;
-    try {
-      const stored = window.localStorage.getItem(POPUP_TIMER_KEY);
-      const parsed = stored ? parseInt(stored, 10) : NaN;
-      if (
-        Number.isFinite(parsed) &&
-        Date.now() - parsed < POPUP_TIMER_DURATION_MS
-      ) {
-        start = parsed;
-      } else {
-        start = Date.now();
-        window.localStorage.setItem(POPUP_TIMER_KEY, String(start));
-      }
-    } catch {
-      start = Date.now();
+    if (!open || !poll?.ends_at) {
+      setRemainingMs(null);
+      return undefined;
     }
 
+    const endsAt = new Date(poll.ends_at).getTime();
+
     const tick = () => {
-      const remaining = POPUP_TIMER_DURATION_MS - (Date.now() - start);
+      const remaining = endsAt - Date.now();
       setRemainingMs(remaining > 0 ? remaining : 0);
     };
     tick();
     const id = window.setInterval(tick, 1000);
     return () => window.clearInterval(id);
-  }, [open]);
+  }, [open, poll?.ends_at]);
 
   const hasVoted = poll?.my_selection != null;
   const totalVotes = poll?.total_votes || 0;
@@ -149,32 +134,34 @@ const FanPollPopup = ({ open, onClose, onVoted }) => {
               <span className="h-1.5 w-1.5 rounded-full bg-[#02103D]" />
               Today's Fan Poll
             </span>
-            <span
-              className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-bold tabular-nums ${
-                remainingMs > 0
-                  ? "border-[#F2A23A]/40 bg-[#F2A23A]/10 text-[#F2A23A]"
-                  : "border-white/15 bg-white/5 text-white/60"
-              }`}
-              aria-live="polite"
-              title={remainingMs > 0 ? "Time left to vote" : "Voting closed"}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-3 w-3"
-                aria-hidden
+            {remainingMs !== null && (
+              <span
+                className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-bold tabular-nums ${
+                  remainingMs > 0
+                    ? "border-[#F2A23A]/40 bg-[#F2A23A]/10 text-[#F2A23A]"
+                    : "border-white/15 bg-white/5 text-white/60"
+                }`}
+                aria-live="polite"
+                title={remainingMs > 0 ? "Time left to vote" : "Voting closed"}
               >
-                <circle cx="12" cy="13" r="8" />
-                <path d="M12 9v4l2.5 2" />
-                <path d="M9 2h6" />
-              </svg>
-              {remainingMs > 0 ? formatCountdown(remainingMs) : "Closed"}
-            </span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-3 w-3"
+                  aria-hidden
+                >
+                  <circle cx="12" cy="13" r="8" />
+                  <path d="M12 9v4l2.5 2" />
+                  <path d="M9 2h6" />
+                </svg>
+                {remainingMs > 0 ? formatCountdown(remainingMs) : "Closed"}
+              </span>
+            )}
             {totalVotes > 0 && (
               <span className="text-xs font-medium text-white/60">
                 {totalVotes.toLocaleString("en-IN")} votes
