@@ -5,6 +5,26 @@ export const sendOtp = async (mobile) => {
   return res.data;
 };
 
+// Pure existence check on the public auth backend — used before /send-otp to
+// avoid burning an SMS on a mobile that's in the wrong mode (sign-in with no
+// account, or sign-up on an already-registered number). Returns { exists }.
+export const mobileExists = async (mobile) => {
+  const res = await turboverseAxios.get("/v1/auth/mobile-exists", {
+    params: { mobile },
+  });
+  return res.data;
+};
+
+// Team-name uniqueness check used by the signup form to surface
+// available/taken inline before the user hits submit. Returns
+// { available, normalized }.
+export const checkTeamName = async (name) => {
+  const res = await turboverseAxios.get("/v1/auth/team-name-available", {
+    params: { name },
+  });
+  return res.data;
+};
+
 export const verifyOtp = async ({ mobile, otp, name, teamName }) => {
   const body = { mobile, otp };
   if (name) body.name = name;

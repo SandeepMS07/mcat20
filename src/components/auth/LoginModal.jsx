@@ -2,14 +2,30 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { FiUser, FiMail, FiPhone } from "react-icons/fi";
-import { sendOtp, verifyOtp, updateMe } from "@/app/api/auth";
+import {
+  sendOtp,
+  verifyOtp,
+  updateMe,
+  mobileExists,
+  checkTeamName,
+} from "@/app/api/auth";
 import { setAccessToken } from "@/app/api/turboverseAxios";
 import routes from "@/utilis/route";
 
 const MOBILE_REGEX = /^\d{10}$/;
+// Mirrors the fantasy frontend's TeamNameModal: 3–24 chars, uppercase letters,
+// numbers, spaces, and underscores. Server still re-validates on PATCH /me.
+const TEAM_NAME_ALLOWED = /^[A-Z0-9 _]+$/;
+const TEAM_NAME_MIN = 3;
+const TEAM_NAME_MAX = 24;
 
 const STEP_DETAILS = "details";
 const STEP_OTP = "otp";
+// Only entered on first-time signup (the backend's verify-otp creates the user
+// row with team_name = NULL, and the fantasy frontend blocks the app behind a
+// "Name Your Fantasy Team" gate until it's set). We collect it here so the
+// user never sees that gate.
+const STEP_TEAM = "team";
 
 const MODE_SIGNUP = "signup";
 const MODE_SIGNIN = "signin";
@@ -49,6 +65,13 @@ const initialState = {
   email: "",
   mobile: "",
   otp: "",
+  // Team-name step state. teamStatus mirrors TeamNameModal: idle | checking |
+  // available | taken | error.
+  teamName: "",
+  teamStatus: "idle",
+  // Auth payload held between verify-otp success and the team-name save so we
+  // can pass it to onSuccess once the user finishes signup.
+  pendingAuth: null,
   loading: false,
   error: null,
   hint: null,
@@ -58,6 +81,7 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
   const [state, setState] = useState(initialState);
   const nameRef = useRef(null);
   const otpRef = useRef(null);
+  const teamRef = useRef(null);
 
   const config = VARIANTS[variant] || VARIANTS.fanPoll;
   const isJersey = config.layout === "jersey";
@@ -84,9 +108,38 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
     const t = setTimeout(() => {
       if (state.step === STEP_DETAILS) nameRef.current?.focus();
       else if (state.step === STEP_OTP) otpRef.current?.focus();
+      else if (state.step === STEP_TEAM) teamRef.current?.focus();
     }, 60);
     return () => clearTimeout(t);
   }, [open, state.step]);
+
+  // Debounced team-name availability check, only active on the team step.
+  // Mirrors fantasy-frontend/TeamNameModal.jsx so the user sees the same
+  // available/taken pill while typing.
+  useEffect(() => {
+    if (!open || state.step !== STEP_TEAM) return undefined;
+    const trimmed = state.teamName.trim();
+    if (trimmed.length < TEAM_NAME_MIN || trimmed.length > TEAM_NAME_MAX) {
+      if (state.teamStatus !== "idle") update({ teamStatus: "idle" });
+      return undefined;
+    }
+    let cancelled = false;
+    update({ teamStatus: "checking" });
+    const t = setTimeout(async () => {
+      try {
+        const data = await checkTeamName(trimmed);
+        if (cancelled) return;
+        update({ teamStatus: data?.available ? "available" : "taken" });
+      } catch {
+        if (!cancelled) update({ teamStatus: "error" });
+      }
+    }, 400);
+    return () => {
+      cancelled = true;
+      clearTimeout(t);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open, state.step, state.teamName]);
 
   if (!open) return null;
 
@@ -113,8 +166,44 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
       return;
     }
     update({ loading: true, error: null, hint: null });
+
+    // Mirror the fantasy-frontend pattern: precheck mobile-exists before
+    // sending an OTP, so we don't burn an SMS on a number that's in the
+    // wrong mode. Sign-in without an account → flip to sign-up. Sign-up
+    // on an already-registered mobile → flip to sign-in. If the precheck
+    // itself fails (network / rate-limit), fall through to send-otp so
+    // the user isn't left at a dead end — the backend still enforces the
+    // real rules at verify time.
+    const mobile = state.mobile.trim();
     try {
-      const data = await sendOtp(state.mobile.trim());
+      const existsResp = await mobileExists(mobile);
+      const exists = !!existsResp?.exists;
+      if (isSignIn && !exists) {
+        update({
+          loading: false,
+          mode: MODE_SIGNUP,
+          error: "No account found for this number. Please sign up.",
+          hint: null,
+        });
+        return;
+      }
+      if (!isSignIn && exists) {
+        update({
+          loading: false,
+          mode: MODE_SIGNIN,
+          name: "",
+          email: "",
+          error: "An account already exists for this mobile. Please sign in.",
+          hint: null,
+        });
+        return;
+      }
+    } catch {
+      /* precheck unreachable — fall through */
+    }
+
+    try {
+      const data = await sendOtp(mobile);
       update({
         loading: false,
         step: STEP_OTP,
@@ -143,43 +232,62 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
     }
     update({ loading: true, error: null });
     try {
-      // Sign-in mode = returning user. Don't send name/teamName so we don't
-      // accidentally overwrite their existing profile with a blank string.
-      // Sign-up mode = new account, so name + teamName get seeded.
+      // Sign-in mode = returning user. Don't send name so we don't accidentally
+      // overwrite their existing profile. Sign-up mode = new account, so name
+      // is sent for the INSERT. teamName is NOT sent — verify-otp ignores it
+      // anyway; we collect it in the next step and save via PATCH /me, which
+      // matches the fantasy-frontend signup flow.
       const verifyArgs = {
         mobile: state.mobile.trim(),
         otp: state.otp.trim(),
       };
       if (!isSignIn) {
         verifyArgs.name = state.name.trim();
-        // Modal has no dedicated team-name field; seed teamName with the
-        // user's full name so the fantasy header / leaderboard has
-        // something sensible to display until the user customises it
-        // from the fantasy profile screen. Email (optional) is persisted
-        // separately via PATCH /v1/me below — it's neither a name nor a
-        // team name, and conflating them was the previous bug.
-        verifyArgs.teamName = state.name.trim();
       }
       const data = await verifyOtp(verifyArgs);
 
-      // Best-effort: if the user filled in the optional email (sign-up only),
-      // save it on their profile. We have to seed setAccessToken first because
-      // the axios request interceptor reads the in-memory token, and onSuccess
-      // (which is what AuthProvider uses to set it) hasn't fired yet —
-      // without this, the PATCH would go out with no Authorization header
-      // and 401. Fire-and-forget after that so a flaky PATCH doesn't
-      // block the login UX.
+      // verify-otp returns the user row including team_name. The "needs team
+      // name" decision is on the SERVER state, not on the form mode — an
+      // existing user who signed up before this step existed has
+      // team_name = NULL and must be routed to STEP_TEAM on sign-in too,
+      // otherwise the fantasy app shows its own "Name Your Fantasy Team"
+      // gate after the SSO handoff.
+      const teamName =
+        data?.user?.teamName ?? data?.user?.team_name ?? null;
+      const needsTeamName = !teamName;
+
+      if (!needsTeamName) {
+        update({ loading: false });
+        onSuccess?.({ token: data.token, user: data.user });
+        return;
+      }
+
+      // Seed the access token so the upcoming PATCH /me calls (email +
+      // teamName) authenticate. AuthProvider's setAuth would normally do
+      // this, but we delay onSuccess until after team name is saved.
+      setAccessToken(data.token);
+
+      // Best-effort email save (sign-up only, optional field).
       const email = state.email.trim();
       if (!isSignIn && email) {
-        setAccessToken(data.token);
         updateMe({ email }).catch((err) => {
           // eslint-disable-next-line no-console
-          console.warn("[auth] couldn't save email on profile:", err?.response?.status, err?.response?.data || err?.message);
+          console.warn(
+            "[auth] couldn't save email on profile:",
+            err?.response?.status,
+            err?.response?.data || err?.message,
+          );
         });
       }
 
-      update({ loading: false });
-      onSuccess?.({ token: data.token, user: data.user });
+      update({
+        loading: false,
+        step: STEP_TEAM,
+        pendingAuth: { token: data.token, user: data.user },
+        error: null,
+        hint: null,
+      });
+      return;
     } catch (err) {
       const status = err?.response?.status;
       const code = err?.response?.data?.error;
@@ -211,6 +319,47 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
           return;
         }
         msg = "Please go back and enter your name.";
+      }
+      update({ loading: false, error: msg });
+    }
+  };
+
+  const handleTeamSubmit = async (e) => {
+    e.preventDefault();
+    if (state.loading) return;
+    const trimmed = state.teamName.trim();
+    if (trimmed.length < TEAM_NAME_MIN || trimmed.length > TEAM_NAME_MAX) {
+      update({ error: `Team name must be ${TEAM_NAME_MIN}–${TEAM_NAME_MAX} characters.` });
+      return;
+    }
+    if (!TEAM_NAME_ALLOWED.test(trimmed)) {
+      update({ error: "Use uppercase letters, numbers, spaces, and underscores only." });
+      return;
+    }
+    if (state.teamStatus === "taken") {
+      update({ error: "That team name is taken — pick another." });
+      return;
+    }
+    if (state.teamStatus === "checking") return;
+
+    update({ loading: true, error: null });
+    try {
+      // Access token was already seeded after verify-otp, so this PATCH
+      // carries Authorization correctly.
+      await updateMe({ teamName: trimmed });
+      const auth = state.pendingAuth;
+      update({ loading: false });
+      // Hand the fully-formed user (with team name set) to AuthProvider.
+      // We don't have the freshly-patched user object on hand, but the
+      // fantasy app re-fetches /v1/me on mount, so passing the verify-otp
+      // payload is fine.
+      onSuccess?.(auth);
+    } catch (err) {
+      const code = err?.response?.data?.error;
+      let msg = "Couldn't save team name. Please try again.";
+      if (code === "team_name_taken") {
+        update({ teamStatus: "taken" });
+        msg = "That team name was just taken — pick another.";
       }
       update({ loading: false, error: msg });
     }
@@ -310,17 +459,112 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
     </div>
   );
 
+  // Shared team-name step. Identical across all three layouts so the user
+  // gets the same UX whether they opened the modal from the fan poll, the
+  // jersey, or the centered fantasy variant.
+  const teamStep = (
+    <form onSubmit={handleTeamSubmit} className="space-y-4">
+      <div className="text-center">
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/65">
+          One last step
+        </p>
+        <h3 className="mt-2 text-xl font-extrabold italic text-white sm:text-2xl">
+          Name Your{" "}
+          <span className="text-[#F9A607]">Fantasy Team</span>
+        </h3>
+        <p className="mx-auto mt-2 max-w-[340px] text-xs leading-relaxed text-white/65">
+          This is how you'll appear on every leaderboard. Once locked in it
+          can't be changed.
+        </p>
+      </div>
+
+      <div
+        className={`flex items-center gap-2 rounded-full border bg-white/[0.05] pl-5 pr-3 py-[12px] transition ${
+          state.teamStatus === "available"
+            ? "border-emerald-400/60"
+            : state.teamStatus === "taken"
+            ? "border-red-400/60"
+            : state.teamStatus === "checking"
+            ? "border-[#F2A23A]/60"
+            : "border-white/20 focus-within:border-[#F2A23A]"
+        }`}
+      >
+        <input
+          ref={teamRef}
+          type="text"
+          value={state.teamName}
+          maxLength={TEAM_NAME_MAX}
+          onChange={(e) =>
+            update({
+              teamName: e.target.value
+                .toUpperCase()
+                .replace(/[^A-Z0-9 _]/g, "")
+                .slice(0, TEAM_NAME_MAX),
+              error: null,
+            })
+          }
+          placeholder="E.G. WANKHEDE WARRIORS"
+          className="w-full bg-transparent text-base font-semibold uppercase tracking-wide text-white placeholder:font-normal placeholder:text-[#C6C5D1] focus:outline-none"
+        />
+        {state.teamStatus === "checking" && (
+          <span className="shrink-0 rounded-full bg-white/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white/70">
+            Checking
+          </span>
+        )}
+        {state.teamStatus === "available" && (
+          <span className="shrink-0 rounded-full bg-emerald-400/20 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-300">
+            Available
+          </span>
+        )}
+        {state.teamStatus === "taken" && (
+          <span className="shrink-0 rounded-full bg-red-400/20 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-red-300">
+            Taken
+          </span>
+        )}
+      </div>
+      <p className="text-[11px] text-white/45">
+        {state.teamName.length}/{TEAM_NAME_MAX} · Uppercase letters, numbers,
+        spaces, and underscores only.
+      </p>
+
+      {state.error && (
+        <p className="text-center text-xs text-red-300" role="alert">
+          {state.error}
+        </p>
+      )}
+
+      <div className="relative pt-2">
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-x-6 inset-y-3 rounded-full bg-[#FF7A18]/15 blur-md"
+        />
+        <button
+          type="submit"
+          disabled={
+            state.loading ||
+            state.teamStatus === "checking" ||
+            state.teamStatus === "taken" ||
+            state.teamName.trim().length < TEAM_NAME_MIN
+          }
+          className="relative flex w-full cursor-pointer items-center justify-center rounded-full bg-[#FF7A18] py-4 text-[18px] font-extrabold uppercase tracking-[1px] text-white shadow-[0_0_7.5px_rgba(255,122,24,0.3)] transition hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-60"
+        >
+          {state.loading ? "Saving…" : "Lock In & Continue"}
+        </button>
+      </div>
+    </form>
+  );
+
   const termsFooter = (
     <p className="text-center text-xs text-[#C6C5D1]">
       By joining, you agree to the{" "}
       <Link
-        href={routes.termsAndConditions}
+        href={routes.privacyPolicy}
         target="_blank"
         rel="noopener noreferrer"
         onClick={onClose}
         className="font-medium text-[#B5C4FF] underline-offset-2 hover:underline"
       >
-        Terms of Play
+        Privacy Policy
       </Link>
     </p>
   );
@@ -508,6 +752,12 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
               </form>
             </div>
           )}
+
+          {state.step === STEP_TEAM && (
+            <div className="relative px-8 pb-8 pt-8 sm:px-10 sm:pb-10 sm:pt-10">
+              {teamStep}
+            </div>
+          )}
         </div>
       </div>
     );
@@ -659,6 +909,12 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
               </form>
             </div>
           )}
+
+          {state.step === STEP_TEAM && (
+            <div className="relative px-7 pb-7 pt-7 sm:px-8 sm:pb-8 sm:pt-8">
+              {teamStep}
+            </div>
+          )}
         </div>
       </div>
     );
@@ -795,6 +1051,10 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
                 Change details
               </button>
             </form>
+          )}
+
+          {state.step === STEP_TEAM && (
+            <div className="mt-5">{teamStep}</div>
           )}
         </div>
       </div>

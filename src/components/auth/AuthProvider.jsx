@@ -12,6 +12,7 @@ import {
 import { clearVoterKey } from "@/app/api/polls";
 import { AuthContext } from "./AuthContext";
 import LoginModal from "./LoginModal";
+import TeamNameGate from "./TeamNameGate";
 
 const USER_STORAGE = "mca_user";
 
@@ -41,6 +42,11 @@ const AuthProvider = ({ children }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalVariant, setModalVariant] = useState("fanPoll");
   const pendingActionRef = useRef(null);
+  // Mirror auth state in a ref so openLogin (memoized with [] deps) can read
+  // the current token without re-creating itself. Without this, openLogin
+  // sees stale auth and opens the OTP modal for already-logged-in users,
+  // burning SMS credits.
+  const authRef = useRef({ token: null, user: null });
 
   // Hydrate from localStorage on mount
   useEffect(() => {
@@ -48,7 +54,12 @@ const AuthProvider = ({ children }) => {
     const storedToken = getAccessToken();
     if (storedUser) setUser(storedUser);
     if (storedToken) setTokenState(storedToken);
+    authRef.current = { token: storedToken || null, user: storedUser || null };
   }, []);
+
+  useEffect(() => {
+    authRef.current = { token, user };
+  }, [token, user]);
 
   const setAuth = useCallback(({ token: nextToken, user: nextUser }) => {
     setAccessToken(nextToken || null);
@@ -122,6 +133,20 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const openLogin = useCallback((onSuccess, options) => {
+    // Short-circuit if already authed — never open the OTP modal (and burn
+    // an SMS) when a valid session exists. Run the pending action directly
+    // so the caller's "after login" flow still fires.
+    const current = authRef.current;
+    if (current.token) {
+      if (typeof onSuccess === "function") {
+        try {
+          onSuccess({ token: current.token, user: current.user });
+        } catch (err) {
+          console.error("[Auth] post-auth action failed:", err);
+        }
+      }
+      return;
+    }
     pendingActionRef.current = typeof onSuccess === "function" ? onSuccess : null;
     setModalVariant(options?.variant || "fanPoll");
     setModalOpen(true);
@@ -131,6 +156,23 @@ const AuthProvider = ({ children }) => {
     pendingActionRef.current = null;
     setModalOpen(false);
   }, []);
+
+  // If the user becomes authed (e.g. /auth/refresh hydrated a stored cookie)
+  // while the login modal happens to be open, close it before they tap
+  // "Send OTP" and we waste an SMS.
+  useEffect(() => {
+    if (!token || !modalOpen) return;
+    const action = pendingActionRef.current;
+    pendingActionRef.current = null;
+    setModalOpen(false);
+    if (action) {
+      try {
+        action({ token, user });
+      } catch (err) {
+        console.error("[Auth] post-auth action failed:", err);
+      }
+    }
+  }, [token, modalOpen, user]);
 
   const handleLoginSuccess = useCallback(
     ({ token: nextToken, user: nextUser }) => {
@@ -149,6 +191,11 @@ const AuthProvider = ({ children }) => {
     [setAuth]
   );
 
+  const updateUser = useCallback((nextUser) => {
+    setUser(nextUser || null);
+    writeStoredUser(nextUser || null);
+  }, []);
+
   const value = useMemo(
     () => ({
       user,
@@ -156,8 +203,9 @@ const AuthProvider = ({ children }) => {
       isAuthed: !!token,
       openLogin,
       logout,
+      updateUser,
     }),
-    [user, token, openLogin, logout]
+    [user, token, openLogin, logout, updateUser]
   );
 
   return (
@@ -169,6 +217,7 @@ const AuthProvider = ({ children }) => {
         onSuccess={handleLoginSuccess}
         variant={modalVariant}
       />
+      <TeamNameGate />
     </AuthContext.Provider>
   );
 };

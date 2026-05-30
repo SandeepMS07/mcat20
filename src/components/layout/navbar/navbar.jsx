@@ -81,15 +81,15 @@ const Navbar = () => {
     // SSO entry, AUTHED path: open a blank tab RIGHT NOW (synchronously,
     // inside the click handler) so the browser counts it as a user-gesture-
     // initiated popup. Seed it with a tiny splash so the user doesn't stare
-    // at "about:blank" during the network round-trip. The popup ref is then
-    // handed off to the async work below.
+    // at "about:blank" during the network round-trip.
     //
-    // UNAUTHED path: do NOT open a popup here. The user will go through the
-    // LoginModal first, and after their async OTP verify completes, the
-    // user-gesture window has already closed — any window.open at that point
-    // would be popup-blocked. Falling back to same-tab navigation post-login
-    // is the saner UX anyway (user logged in on this tab; finishing the
-    // journey here keeps things in one place).
+    // UNAUTHED path: we can't open a tab now (no token yet), but we want
+    // the post-login navigation to also land in a new tab — not replace
+    // the t20 web tab. The modal's submit button is itself a user gesture,
+    // so a window.open() inside the post-success callback chain is allowed
+    // by Chrome/Safari. We open the tab there (see `finish` below) instead
+    // of here so we don't sit on an empty about:blank while the user is
+    // still typing their mobile number.
     let popup = null;
     if (item.ssoHandoff && isAuthed && typeof window !== "undefined") {
       popup = window.open("", "_blank");
@@ -99,11 +99,28 @@ const Navbar = () => {
       }
     }
 
-    const finish = async () => {
+    const finish = async ({ postLogin = false } = {}) => {
+      // Post-login path: try to open the fantasy app in a new tab so the
+      // user's t20 web tab stays put. Done inside the success callback
+      // (which fires from the modal's submit handler) so the browser still
+      // counts the action as a user-initiated popup.
+      if (
+        postLogin &&
+        item.ssoHandoff &&
+        !popup &&
+        typeof window !== "undefined"
+      ) {
+        popup = window.open("", "_blank");
+        if (popup) {
+          try { popup.document.write(POPUP_SPLASH_HTML); popup.document.close(); }
+          catch { /* cross-origin — fine */ }
+        }
+      }
+
       try {
         if (item.ssoHandoff) {
-          // popup === null here for the post-login path (handoffToFantasy
-          // falls back to window.location.href in that case).
+          // popup may still be null if the browser blocked it; handoffToFantasy
+          // falls back to window.location.href in that case.
           await handoffToFantasy(popup);
         } else if (/^https?:\/\//.test(item.path)) {
           openExternal(item.path);
@@ -129,7 +146,7 @@ const Navbar = () => {
       }
     };
     if (!isAuthed) {
-      openLogin(finish, { variant: "fantasy" });
+      openLogin(() => finish({ postLogin: true }), { variant: "fantasy" });
       return;
     }
     finish();

@@ -7,6 +7,7 @@ export const AuthContext = createContext({
   isAuthed: false,
   openLogin: () => {},
   logout: () => {},
+  updateUser: () => {},
 });
 
 export const useAuth = () => useContext(AuthContext);
