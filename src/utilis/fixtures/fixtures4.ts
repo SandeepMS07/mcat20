@@ -262,7 +262,7 @@ const fixtures4: Season4Fixtures = {
       time: "7:00 PM",
       category: "Men",
       home_team: "Triumph Knights MNE",
-      away_team: "MSC Maratha Royals",
+      away_team: "Eagle Thane Strikers",
     },
 
     {
