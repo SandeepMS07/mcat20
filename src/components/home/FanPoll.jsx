@@ -24,6 +24,48 @@ function Toast({ message, onDone }) {
   );
 }
 
+const formatCountdown = (ms) => {
+  const total = Math.max(0, Math.floor(ms / 1000));
+  const h = Math.floor(total / 3600);
+  const m = Math.floor((total % 3600) / 60).toString().padStart(2, "0");
+  const s = (total % 60).toString().padStart(2, "0");
+  return h > 0 ? `${h}:${m}:${s}` : `${m}:${s}`;
+};
+
+const PollTimer = ({ endsAt }) => {
+  const [remainingMs, setRemainingMs] = useState(() =>
+    Math.max(0, new Date(endsAt).getTime() - Date.now())
+  );
+
+  useEffect(() => {
+    const tick = () => {
+      const ms = new Date(endsAt).getTime() - Date.now();
+      setRemainingMs(ms > 0 ? ms : 0);
+    };
+    tick();
+    const id = window.setInterval(tick, 1000);
+    return () => window.clearInterval(id);
+  }, [endsAt]);
+
+  return (
+    <span
+      className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-bold tabular-nums ${
+        remainingMs > 0
+          ? "border-[#F2A23A]/40 bg-[#F2A23A]/10 text-[#F2A23A]"
+          : "border-white/15 bg-white/5 text-white/50"
+      }`}
+      aria-live="polite"
+      title={remainingMs > 0 ? "Time left to vote" : "Voting closed"}
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="h-2.5 w-2.5" aria-hidden>
+        <circle cx="12" cy="13" r="8" />
+        <path d="M12 9v4l2.5 2" />
+        <path d="M9 2h6" />
+      </svg>
+      {remainingMs > 0 ? formatCountdown(remainingMs) : "Closed"}
+    </span>
+  );
+};
 
 const CheckIcon = () => (
   <svg
@@ -253,9 +295,12 @@ const PollCard = ({ poll, onPollUpdate, onPollClosed, variant = "compact" }) => 
       )}
 
       <div className="mt-5 flex items-center justify-between border-t border-white/10 pt-3 text-[11px] sm:text-xs">
-        <span className="text-white/55">
-          {totalVotes.toLocaleString("en-IN")} {totalVotes === 1 ? "vote" : "votes"}
-        </span>
+        <div className="flex items-center gap-2">
+          <span className="text-white/55">
+            {totalVotes.toLocaleString("en-IN")} {totalVotes === 1 ? "vote" : "votes"}
+          </span>
+          {poll.ends_at && <PollTimer endsAt={poll.ends_at} />}
+        </div>
         {hasVoted ? (
           <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F68323]/15 px-2.5 py-1 font-bold uppercase tracking-wide text-[#F2A23A]">
             <CheckIcon />
@@ -357,10 +402,22 @@ const FanPoll = ({
       </div>
     ));
   } else if (visiblePolls.length === 0) {
+    const isHistory = variant === "results";
     body = (
-      <p className="col-span-full text-center text-sm italic text-white/70">
-        No polls to show.
-      </p>
+      <div className="col-span-full flex flex-col items-center gap-4 py-16 text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-12 w-12 text-white/15" aria-hidden>
+          <path d="M9 11l3 3L22 4" />
+          <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+        </svg>
+        <div>
+          <p className="text-base font-bold text-white/50">
+            {isHistory ? "No closed polls yet" : "No active polls right now"}
+          </p>
+          <p className="mt-1 text-sm text-white/30">
+            {isHistory ? "Closed polls will appear here once a poll ends." : "Check back soon for the next fan poll!"}
+          </p>
+        </div>
+      </div>
     );
   } else {
     body = visiblePolls.map((poll) => (

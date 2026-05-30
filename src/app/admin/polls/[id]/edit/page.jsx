@@ -103,14 +103,13 @@ export default function EditPollPage() {
     setActionError(null);
     try {
       await updatePoll(id, patch);
-      await reload();
+      router.replace("/admin/polls?toast=Poll+saved+successfully");
     } catch (err) {
       if (!mountedRef.current) return;
       const msg = err?.response?.data?.error || "Failed to save changes.";
       setActionError(msg);
-      throw err; // let PollForm surface the inline error too
-    } finally {
       if (mountedRef.current) setSubmitting(false);
+      throw err;
     }
   };
 

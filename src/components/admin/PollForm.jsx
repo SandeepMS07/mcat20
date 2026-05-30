@@ -130,6 +130,7 @@ export default function PollForm({
     e.preventDefault();
     setError(null);
     if (!question.trim()) return setError("Question is required.");
+    if (!endsAt) return setError("Closes at is required.");
     if (mode === "create") {
       if (!slug.trim()) return setError("Slug is required.");
       // Filter first so the correct-answer index matches the options array we
@@ -165,6 +166,7 @@ export default function PollForm({
 
     // edit mode — submit only poll metadata; option editing happens via the
     // dedicated option rows on the edit page itself.
+    if (!endsAt) return setError("Closes at is required.");
     try {
       await onSubmit({
         matchId: matchId || null,
@@ -243,14 +245,6 @@ export default function PollForm({
             <input value={initial?.slug ?? ""} disabled className="input opacity-60" />
           </Field>
         )}
-        <Field label="Sort order">
-          <input
-            type="number"
-            value={sortOrder}
-            onChange={(e) => setSortOrder(e.target.value)}
-            className="input"
-          />
-        </Field>
         <Field label="Opens at (optional)">
           <input
             type="datetime-local"
@@ -259,12 +253,13 @@ export default function PollForm({
             className="input"
           />
         </Field>
-        <Field label="Closes at (optional)">
+        <Field label="Closes at *">
           <input
             type="datetime-local"
             value={endsAt}
             onChange={(e) => setEndsAt(e.target.value)}
             className="input"
+            required
           />
         </Field>
       </div>

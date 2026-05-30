@@ -14,7 +14,7 @@ export default function FanPollPage() {
   const [tab, setTab] = useState("active");
 
   const filter =
-    tab === "history" ? (p) => p.my_selection != null : undefined;
+    tab === "history" ? (p) => p.status === "closed" : (p) => p.status === "active";
   const variant = tab === "history" ? "results" : "compact";
 
   const headerSlot = (

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { listMatches, listPolls } from "@/app/api/admin/polls";
 import {
   Button,
@@ -27,6 +28,9 @@ function fmtMatch(m) {
 }
 
 export default function AdminPollsListPage() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const [toast, setToast] = useState(searchParams.get("toast") || null);
   const [polls, setPolls] = useState([]);
   const [allPolls, setAllPolls] = useState([]);
   const [matches, setMatches] = useState([]);
@@ -34,6 +38,15 @@ export default function AdminPollsListPage() {
   const [matchId, setMatchId] = useState("all");
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!toast) return;
+    const id = setTimeout(() => {
+      setToast(null);
+      router.replace("/admin/polls", { scroll: false });
+    }, 3500);
+    return () => clearTimeout(id);
+  }, [toast, router]);
 
   // Stats + matches list don't depend on the active filters, so fetch them
   // once on mount instead of on every filter change.
@@ -106,6 +119,12 @@ export default function AdminPollsListPage() {
 
   return (
     <>
+      {toast && (
+        <div className="fixed bottom-6 left-1/2 z-[9999] -translate-x-1/2 animate-[toastSlideUp_0.25s_ease] whitespace-nowrap rounded-xl border border-emerald-400/30 bg-[#0E1A47] px-5 py-3 text-sm font-semibold text-emerald-300 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+          <style>{`@keyframes toastSlideUp{from{opacity:0;transform:translate(-50%,12px)}to{opacity:1;transform:translate(-50%,0)}}`}</style>
+          ✓ {toast}
+        </div>
+      )}
       <PageHeader
         eyebrow="Fan polls"
         title="Polls"

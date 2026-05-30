@@ -14,7 +14,9 @@ const formatCountdown = (ms) => {
 
 const FanPollPopup = ({ open, onClose, onVoted }) => {
   const { polls, loadError, updatePoll } = usePollsContext();
-  const poll = polls && polls.length > 0 ? polls[polls.length - 1] : null;
+  const poll = Array.isArray(polls) && polls.length > 0
+    ? polls.reduce((max, p) => (p.id > max.id ? p : max), polls[0])
+    : null;
   const [pendingOptionId, setPendingOptionId] = useState(null);
   const [voteError, setVoteError] = useState(null);
   const [remainingMs, setRemainingMs] = useState(null);
@@ -40,12 +42,10 @@ const FanPollPopup = ({ open, onClose, onVoted }) => {
       setRemainingMs(null);
       return undefined;
     }
-
     const endsAt = new Date(poll.ends_at).getTime();
-
     const tick = () => {
-      const remaining = endsAt - Date.now();
-      setRemainingMs(remaining > 0 ? remaining : 0);
+      const ms = endsAt - Date.now();
+      setRemainingMs(ms > 0 ? ms : 0);
     };
     tick();
     const id = window.setInterval(tick, 1000);
@@ -194,7 +194,7 @@ const FanPollPopup = ({ open, onClose, onVoted }) => {
             <p className="py-10 text-center text-sm italic text-white/70">
               Could not load poll right now. Please try again later.
             </p>
-          ) : !poll ? (
+          ) : polls === null ? (
             <div className="space-y-4">
               <div className="h-6 w-3/4 animate-pulse rounded bg-white/10" />
               <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
@@ -205,6 +205,15 @@ const FanPollPopup = ({ open, onClose, onVoted }) => {
                   />
                 ))}
               </div>
+            </div>
+          ) : !poll ? (
+            <div className="flex flex-col items-center gap-3 py-10 text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10 text-white/20" aria-hidden>
+                <path d="M9 11l3 3L22 4" />
+                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+              </svg>
+              <p className="text-sm font-semibold text-white/50">No active poll right now</p>
+              <p className="text-xs text-white/30">Check back soon for the next fan poll!</p>
             </div>
           ) : (
             <>

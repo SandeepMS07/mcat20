@@ -28,8 +28,8 @@ export default function NewPollPage() {
   const handleSubmit = async (body) => {
     setSubmitting(true);
     try {
-      const res = await createPoll(body);
-      router.replace(`/admin/polls/${res.id}/edit`);
+      await createPoll(body);
+      router.replace("/admin/polls?toast=Poll+created+successfully");
     } finally {
       setSubmitting(false);
     }
