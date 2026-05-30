@@ -216,6 +216,20 @@ export const forceRescore = async (matchId) => {
   return res.data;
 };
 
+// Wipe every Redis cache scoped to one match (response caches, the live
+// ingest resolver caches widget:idmap / widget:snap, and the per-contest
+// leaderboard ZSETs). Does NOT touch Postgres rows — combine with a force
+// tick (or rescore) when stats also need to recompute. Use after fixing a
+// player-mapping / feed-mapping / widget id mid-match so the next tick
+// resolves against fresh DB state instead of a 24h-stale cache.
+// Returns { ok, matchId, widgetMatchId, contestsCleared }.
+export const clearMatchCache = async (matchId) => {
+  const res = await turboverseAxios.post(
+    `/v1/admin/matches/${encodeURIComponent(matchId)}/clear-cache`,
+  );
+  return res.data;
+};
+
 // GET per-contest entry counts (active vs voided) + top-10 board for admin
 // QA. Shows voided entries too so admin can see what was hidden from the
 // public leaderboard.

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import {
   abandonMatch,
+  clearMatchCache,
   forceIngestTick,
   forceRescore,
   getContestPreview,
@@ -283,6 +284,38 @@ export default function FantasyMatchDetailPage() {
     }
   };
 
+  // Nuke every Redis cache scoped to this match — response caches, the live
+  // ingest resolver caches (widget:idmap, widget:snap), and the per-contest
+  // leaderboard ZSETs. The follow-up action is usually Force tick (to re-
+  // resolve and re-populate stats) or Force rescore (to recompute from
+  // existing player_match_stats with a fixed mapping).
+  const handleClearCache = async () => {
+    if (!window.confirm(
+      "Clear all Redis caches for this match? Stats in Postgres aren't touched. " +
+      "Use this after fixing a player or widget mapping — then click Force tick.",
+    )) {
+      return;
+    }
+    setActionBusy("clear_cache");
+    setActionMsg(null);
+    try {
+      const res = await clearMatchCache(matchId);
+      setActionMsg({
+        ok: true,
+        text: `Caches cleared. ${res?.contestsCleared ?? 0} leaderboard ZSETs dropped.`,
+      });
+      setTick((n) => n + 1);
+    } catch (e) {
+      const code = e?.response?.data?.error;
+      const friendly =
+        code === "match_not_found" ? "Match not found." :
+        code || e?.message || "clear_cache_failed";
+      setActionMsg({ ok: false, text: friendly });
+    } finally {
+      setActionBusy(null);
+    }
+  };
+
   const toggleContestPreview = async (contestId) => {
     if (expandedContestId === contestId) {
       setExpandedContestId(null);
@@ -540,6 +573,44 @@ export default function FantasyMatchDetailPage() {
           onForceTick={handleForceTick}
           busyKey={actionBusy}
         />
+      </div>
+
+      {/* Support — rarely-used, destructive-feeling levers we don't want
+          buried in Actions. Right now: Clear cache (drops the live ingest
+          resolver caches so a corrected vendor↔fantasy player mapping
+          actually takes effect on the next tick — see the S4-M0 misattribution
+          incident for the kind of bug this fixes). Add more support tools
+          here (export entries, dump leaderboard, etc.) instead of growing
+          the Actions row. */}
+      <div className="mt-4">
+        <Card title="Support" padding="tight">
+          <div className="flex flex-col gap-3 px-4 py-4">
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <div className="max-w-xl text-xs leading-relaxed text-white/60">
+                <span className="block text-sm font-semibold text-white">Clear Redis caches</span>
+                Drops <code className="rounded bg-white/[0.06] px-1 py-0.5 text-[10px]">widget:idmap</code>,
+                {" "}<code className="rounded bg-white/[0.06] px-1 py-0.5 text-[10px]">widget:snap</code>,
+                {" "}leaderboard ZSETs, and API response caches for this match. Stats in Postgres are
+                not touched. Use this after correcting a player or widget mapping mid-match —
+                otherwise the next ingest tick will re-resolve from the 24h-cached entries and
+                keep mis-attributing.
+                <span className="mt-1 block text-[11px] text-white/45">
+                  Typical recipe: fix the mapping in <code className="rounded bg-white/[0.06] px-1 py-0.5 text-[10px]">tournament_team_player</code> →
+                  click <span className="font-semibold">Clear cache</span> → click <span className="font-semibold">Force tick</span>.
+                </span>
+              </div>
+              <Button
+                onClick={handleClearCache}
+                variant="secondary"
+                size="md"
+                disabled={actionBusy === "clear_cache"}
+                title="Clear all Redis caches scoped to this match"
+              >
+                {actionBusy === "clear_cache" ? "Clearing…" : "Clear cache"}
+              </Button>
+            </div>
+          </div>
+        </Card>
       </div>
 
       {/* Schedule editor — collapsed panel. Opens when admin clicks
