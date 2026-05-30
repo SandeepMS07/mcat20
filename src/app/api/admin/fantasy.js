@@ -122,10 +122,15 @@ export const rescheduleMatch = async (matchId, { scheduledAt, lockAt, resetStatu
   return res.data;
 };
 
-// Force-mark a match abandoned (refund hook lands later for paid contests).
-export const abandonMatch = async (matchId) => {
+// Force-mark a match abandoned. Pass voidEntries=true to also mark every
+// entry on every contest in this match as 'voided' — voided entries stay in
+// the DB (audit trail, user can see why) but drop off the public leaderboard.
+//
+// Response: { ok: true, voidedEntries: number }
+export const abandonMatch = async (matchId, { voidEntries = false } = {}) => {
   const res = await turboverseAxios.post(
     `/v1/admin/matches/${encodeURIComponent(matchId)}/abandon`,
+    { voidEntries },
   );
   return res.data;
 };
@@ -165,5 +170,58 @@ export const createContest = async (body) => {
 
 export const updateContest = async (id, patch) => {
   const res = await turboverseAxios.patch(`/v1/admin/contests/${id}`, patch);
+  return res.data;
+};
+
+// ─── Ingest health / match-day ops ─────────────────────────────────────────
+// All four endpoints below are admin-only and live in routes/admin.ts. They
+// power the "Ingest health" card on the fantasy match detail page.
+
+// GET ingest health snapshot — widget id, last tick timestamp, staleness,
+// recent event count. UI auto-refreshes this every ~5s during a live match.
+export const getIngestStatus = async (matchId) => {
+  const res = await turboverseAxios.get(
+    `/v1/admin/matches/${encodeURIComponent(matchId)}/ingest-status`,
+  );
+  return res.data;
+};
+
+// Set or clear fantasy_match.widget_match_id. Pass null/"" to clear. The
+// vendor id pattern is enforced server-side ([A-Za-z0-9_-]{1,64}).
+// Errors: 400 invalid_widget_match_id · 409 widget_match_id_in_use
+export const updateWidgetMatchId = async (matchId, widgetMatchId) => {
+  const res = await turboverseAxios.patch(
+    `/v1/admin/matches/${encodeURIComponent(matchId)}/widget-id`,
+    { widgetMatchId: widgetMatchId || null },
+  );
+  return res.data;
+};
+
+// Trigger one ingest tick manually. Backend runs the exact same code path
+// the worker uses (lib/ingest-tick.ts), idempotent against any concurrent
+// worker tick. Errors: 409 no_widget_match_id (set the id first).
+export const forceIngestTick = async (matchId) => {
+  const res = await turboverseAxios.post(
+    `/v1/admin/matches/${encodeURIComponent(matchId)}/force-tick`,
+  );
+  return res.data;
+};
+
+// Re-run scoring from existing player_match_stats. Use after a scoring
+// formula fix to retro-apply. Idempotent. Returns { ok, players }.
+export const forceRescore = async (matchId) => {
+  const res = await turboverseAxios.post(
+    `/v1/admin/matches/${encodeURIComponent(matchId)}/rescore`,
+  );
+  return res.data;
+};
+
+// GET per-contest entry counts (active vs voided) + top-10 board for admin
+// QA. Shows voided entries too so admin can see what was hidden from the
+// public leaderboard.
+export const getContestPreview = async (contestId) => {
+  const res = await turboverseAxios.get(
+    `/v1/admin/contests/${encodeURIComponent(contestId)}/preview`,
+  );
   return res.data;
 };

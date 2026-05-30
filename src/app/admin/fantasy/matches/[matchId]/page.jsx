@@ -5,10 +5,15 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import {
   abandonMatch,
+  forceIngestTick,
+  forceRescore,
+  getContestPreview,
   getFantasyMatch,
-  lockMatch,
+  getIngestStatus,
   listContestsForMatch,
+  lockMatch,
   rescheduleMatch,
+  updateWidgetMatchId,
 } from "@/app/api/admin/fantasy";
 import {
   Button,
@@ -37,6 +42,22 @@ export default function FantasyMatchDetailPage() {
   // native input; converted to ISO at submit time.
   const [scheduleOpen, setScheduleOpen] = useState(false);
   const [scheduleForm, setScheduleForm] = useState({ scheduledAt: "", lockAt: "", resetStatus: false });
+  // Ingest health — refreshed on its own faster cadence (5s) so the "last
+  // tick" timestamp stays useful during a live match. Polling stops while
+  // the editor for widget_match_id is open so a refresh doesn't clobber the
+  // admin's in-progress edit.
+  const [ingest, setIngest] = useState(null);
+  const [widgetIdDraft, setWidgetIdDraft] = useState("");
+  const [editingWidgetId, setEditingWidgetId] = useState(false);
+  // Abandon confirmation panel — replaces the old window.confirm so we can
+  // surface a "also void all entries" choice in the same UI.
+  const [abandonOpen, setAbandonOpen] = useState(false);
+  const [abandonVoid, setAbandonVoid] = useState(false);
+  // Contest preview cache — entry counts + top 10 per contest. Lazy-loaded
+  // when the admin expands a contest row; keyed by contest id.
+  const [contestPreviews, setContestPreviews] = useState({});
+  const [previewLoading, setPreviewLoading] = useState({});
+  const [expandedContestId, setExpandedContestId] = useState(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -67,6 +88,31 @@ export default function FantasyMatchDetailPage() {
     const id = setInterval(() => setTick((n) => n + 1), REFRESH_MS);
     return () => clearInterval(id);
   }, []);
+
+  // Ingest health poll — faster than the main 10s tick so the "last update"
+  // pill on the live card stays meaningful. Paused while the widget_match_id
+  // editor is open so a fetch doesn't overwrite the admin's typed value.
+  useEffect(() => {
+    let cancelled = false;
+    let timer = null;
+    const load = async () => {
+      if (editingWidgetId) return;
+      try {
+        const s = await getIngestStatus(matchId);
+        if (!cancelled) setIngest(s);
+      } catch {
+        // Swallow — the card just shows the previous value with no fresh
+        // staleness counter. A persistent failure is visible because the
+        // "last updated Ns ago" stops advancing.
+      }
+    };
+    load();
+    timer = setInterval(load, 5_000);
+    return () => {
+      cancelled = true;
+      if (timer) clearInterval(timer);
+    };
+  }, [matchId, tick, editingWidgetId]);
 
   const handleLock = async () => {
     if (!window.confirm(
@@ -138,17 +184,27 @@ export default function FantasyMatchDetailPage() {
     }
   };
 
-  const handleAbandon = async () => {
-    if (!window.confirm(
-      "Mark this match abandoned? Scoring stops; contests stay (no auto-refund yet).",
-    )) {
-      return;
-    }
+  const openAbandon = () => {
+    setAbandonVoid(false);
+    setAbandonOpen(true);
+    setActionMsg(null);
+  };
+
+  // Confirm panel uses an explicit "Void all entries" checkbox instead of
+  // window.confirm so the admin has to make the void choice deliberately —
+  // a true second action, not buried in a confirm-dialog message body.
+  const handleAbandonConfirm = async () => {
     setActionBusy("abandon");
     setActionMsg(null);
     try {
-      await abandonMatch(matchId);
-      setActionMsg({ ok: true, text: "Match marked abandoned." });
+      const res = await abandonMatch(matchId, { voidEntries: abandonVoid });
+      setActionMsg({
+        ok: true,
+        text: abandonVoid
+          ? `Match abandoned. ${res?.voidedEntries ?? 0} entries voided.`
+          : "Match abandoned.",
+      });
+      setAbandonOpen(false);
       setTick((n) => n + 1);
     } catch (e) {
       setActionMsg({
@@ -157,6 +213,91 @@ export default function FantasyMatchDetailPage() {
       });
     } finally {
       setActionBusy(null);
+    }
+  };
+
+  const handleSaveWidgetId = async () => {
+    setActionBusy("widget_id");
+    setActionMsg(null);
+    try {
+      await updateWidgetMatchId(matchId, widgetIdDraft);
+      setActionMsg({ ok: true, text: "Widget match id saved." });
+      setEditingWidgetId(false);
+      setTick((n) => n + 1);
+    } catch (e) {
+      const code = e?.response?.data?.error;
+      const friendly =
+        code === "invalid_widget_match_id" ? "Invalid format — letters, digits, dash, underscore only." :
+        code === "widget_match_id_in_use"  ? "Another match already owns this widget id." :
+        code || e?.message || "save_failed";
+      setActionMsg({ ok: false, text: friendly });
+    } finally {
+      setActionBusy(null);
+    }
+  };
+
+  const handleForceTick = async () => {
+    setActionBusy("force_tick");
+    setActionMsg(null);
+    try {
+      const res = await forceIngestTick(matchId);
+      const summary = res?.reason === "no_change"
+        ? "Tick ran — no new deltas."
+        : res?.reason === "no_fantasy_match_row"
+          ? "No fantasy_match row matched the widget id."
+          : `Tick ran — ${res?.deltas ?? 0} deltas, ${res?.snapshotPlayers ?? 0} players in snapshot.`;
+      setActionMsg({ ok: true, text: summary });
+      setTick((n) => n + 1);
+    } catch (e) {
+      const code = e?.response?.data?.error;
+      const friendly =
+        code === "no_widget_match_id" ? "Set widget_match_id first." :
+        code === "match_not_found"    ? "Match not found." :
+        code || e?.message || "tick_failed";
+      setActionMsg({ ok: false, text: friendly });
+    } finally {
+      setActionBusy(null);
+    }
+  };
+
+  const handleRescore = async () => {
+    if (!window.confirm(
+      "Re-run scoring from current player_match_stats? Idempotent — safe to repeat.",
+    )) {
+      return;
+    }
+    setActionBusy("rescore");
+    setActionMsg(null);
+    try {
+      const res = await forceRescore(matchId);
+      setActionMsg({ ok: true, text: `Rescore enqueued for ${res?.players ?? 0} players.` });
+    } catch (e) {
+      const code = e?.response?.data?.error;
+      const friendly =
+        code === "no_stats_to_rescore" ? "No player_match_stats rows for this match yet." :
+        code === "match_not_found"     ? "Match not found." :
+        code || e?.message || "rescore_failed";
+      setActionMsg({ ok: false, text: friendly });
+    } finally {
+      setActionBusy(null);
+    }
+  };
+
+  const toggleContestPreview = async (contestId) => {
+    if (expandedContestId === contestId) {
+      setExpandedContestId(null);
+      return;
+    }
+    setExpandedContestId(contestId);
+    if (contestPreviews[contestId]) return; // cached
+    setPreviewLoading((m) => ({ ...m, [contestId]: true }));
+    try {
+      const data = await getContestPreview(contestId);
+      setContestPreviews((m) => ({ ...m, [contestId]: data }));
+    } catch {
+      setContestPreviews((m) => ({ ...m, [contestId]: { error: true } }));
+    } finally {
+      setPreviewLoading((m) => ({ ...m, [contestId]: false }));
     }
   };
 
@@ -313,17 +454,93 @@ export default function FantasyMatchDetailPage() {
               {actionBusy === "lock" ? "Locking…" : "Force lock"}
             </Button>
             <Button
-              onClick={handleAbandon}
+              onClick={handleRescore}
+              variant="secondary"
+              size="md"
+              disabled={actionBusy === "rescore"}
+              title="Re-run scoring from current player_match_stats. Use after a scoring fix."
+            >
+              {actionBusy === "rescore" ? "Rescoring…" : "Force rescore"}
+            </Button>
+            <Button
+              onClick={openAbandon}
               variant="secondary"
               size="md"
               disabled={actionBusy === "abandon" || isAbandoned}
-              title={isAbandoned ? "Already abandoned" : "Mark as abandoned"}
+              title={isAbandoned ? "Already abandoned" : "Mark as abandoned (optionally void entries)"}
             >
               {actionBusy === "abandon" ? "Abandoning…" : "Abandon"}
             </Button>
           </span>
         </div>
       </Card>
+
+      {/* Abandon confirmation — replaces window.confirm so the "void entries"
+          choice is an explicit second action, not buried in dialog text. */}
+      {abandonOpen ? (
+        <div className="mt-4">
+          <Card title="Confirm abandon" padding="tight">
+            <div className="flex flex-col gap-3 px-4 py-4">
+              <p className="text-sm text-white/75">
+                Mark <span className="font-semibold text-white">{teamA} vs {teamB}</span> as
+                abandoned. The status flips to <code className="rounded bg-white/[0.06] px-1.5 py-0.5 text-[11px]">abandoned</code> and
+                scoring stops. Contests stay in place.
+              </p>
+              <label className="flex cursor-pointer items-start gap-2.5 rounded-lg border border-red-400/25 bg-red-400/5 px-3 py-2.5 text-xs text-red-200">
+                <input
+                  type="checkbox"
+                  checked={abandonVoid}
+                  onChange={(e) => setAbandonVoid(e.target.checked)}
+                  className="mt-0.5 accent-red-400"
+                />
+                <span>
+                  <span className="font-semibold">Also void all entries</span> — every entry on every
+                  contest in this match is marked voided. Voided entries are hidden from public
+                  leaderboards but stay in the DB. Reversible by editing the row directly.
+                </span>
+              </label>
+              <div className="flex flex-wrap gap-2">
+                <Button
+                  onClick={handleAbandonConfirm}
+                  size="md"
+                  disabled={actionBusy === "abandon"}
+                >
+                  {actionBusy === "abandon"
+                    ? "Abandoning…"
+                    : abandonVoid ? "Abandon and void entries" : "Abandon match"}
+                </Button>
+                <Button
+                  onClick={() => setAbandonOpen(false)}
+                  variant="secondary"
+                  size="md"
+                  disabled={actionBusy === "abandon"}
+                >
+                  Cancel
+                </Button>
+              </div>
+            </div>
+          </Card>
+        </div>
+      ) : null}
+
+      {/* Ingest health — single-most-important card on this page during a
+          live match. Live values refresh every 5s. */}
+      <div className="mt-4">
+        <IngestHealthCard
+          ingest={ingest}
+          editing={editingWidgetId}
+          draft={widgetIdDraft}
+          setDraft={setWidgetIdDraft}
+          onEdit={() => {
+            setWidgetIdDraft(ingest?.widgetMatchId ?? "");
+            setEditingWidgetId(true);
+          }}
+          onCancelEdit={() => setEditingWidgetId(false)}
+          onSave={handleSaveWidgetId}
+          onForceTick={handleForceTick}
+          busyKey={actionBusy}
+        />
+      </div>
 
       {/* Schedule editor — collapsed panel. Opens when admin clicks
           "Edit schedule" in the Actions row. Backend publishes a
@@ -340,6 +557,103 @@ export default function FantasyMatchDetailPage() {
           onSave={handleScheduleSave}
           onCancel={() => setScheduleOpen(false)}
         />
+      ) : null}
+
+      {/* Contest preview — entry counts (active / voided) + top-10 board per
+          contest for admin QA. Voided entries are shown here (with a pill)
+          even though they're hidden from the public board. */}
+      {contests.length > 0 ? (
+        <div className="mt-6">
+          <Card title="Contests" padding="tight">
+            <div className="divide-y divide-white/5">
+              {contests.map((c) => {
+                const expanded = expandedContestId === c.id;
+                const preview = contestPreviews[c.id];
+                const loading = previewLoading[c.id];
+                return (
+                  <div key={c.id} className="px-4 py-3">
+                    <button
+                      type="button"
+                      onClick={() => toggleContestPreview(c.id)}
+                      className="flex w-full items-center justify-between gap-3 text-left"
+                    >
+                      <span className="flex flex-col gap-0.5">
+                        <span className="text-sm font-semibold text-white">
+                          {c.name || c.contest_name || `Contest #${c.id}`}
+                        </span>
+                        <span className="text-[11px] uppercase tracking-wider text-white/45">
+                          {c.contest_type || "public"}
+                          {c.entries_per_user ? ` · ${c.entries_per_user}/user` : ""}
+                          {c.max_entries ? ` · cap ${c.max_entries}` : ""}
+                        </span>
+                      </span>
+                      <span className="flex items-center gap-2">
+                        {preview && !preview.error ? (
+                          <span className="text-xs tabular-nums text-white/70">
+                            {preview.entries.active}
+                            {preview.entries.voided > 0 ? (
+                              <span className="ml-1 text-red-300/80">
+                                +{preview.entries.voided} voided
+                              </span>
+                            ) : null}
+                            <span className="ml-1 text-white/40">entries</span>
+                          </span>
+                        ) : null}
+                        <span className="text-[10px] uppercase tracking-wider text-white/40">
+                          {expanded ? "Hide" : "Preview"}
+                        </span>
+                      </span>
+                    </button>
+                    {expanded ? (
+                      <div className="mt-3 rounded-lg border border-white/5 bg-white/[0.02] p-3">
+                        {loading ? (
+                          <div className="text-xs text-white/55">Loading…</div>
+                        ) : preview?.error ? (
+                          <div className="text-xs text-red-300">Failed to load preview.</div>
+                        ) : preview && preview.top.length === 0 ? (
+                          <div className="text-xs text-white/55">No entries yet.</div>
+                        ) : preview ? (
+                          <table className="w-full text-xs">
+                            <thead className="text-[10px] uppercase tracking-wider text-white/45">
+                              <tr>
+                                <th className="w-10 px-2 py-1 text-left">#</th>
+                                <th className="px-2 py-1 text-left">Player</th>
+                                <th className="px-2 py-1 text-left">Team</th>
+                                <th className="px-2 py-1 text-right">Points</th>
+                                <th className="w-16 px-2 py-1 text-right">Status</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {preview.top.map((row) => (
+                                <tr key={row.entryId} className="border-t border-white/5">
+                                  <td className="px-2 py-1.5 tabular-nums text-amber-300">
+                                    #{row.rank}
+                                  </td>
+                                  <td className="px-2 py-1.5 text-white">{row.name ?? "—"}</td>
+                                  <td className="px-2 py-1.5 text-white/65">{row.teamName ?? ""}</td>
+                                  <td className="px-2 py-1.5 text-right tabular-nums font-semibold text-white">
+                                    {row.totalPoints}
+                                  </td>
+                                  <td className="px-2 py-1.5 text-right">
+                                    {row.status === "voided" ? (
+                                      <Pill tone="default">voided</Pill>
+                                    ) : (
+                                      <span className="text-emerald-300/80">·</span>
+                                    )}
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        ) : null}
+                      </div>
+                    ) : null}
+                  </div>
+                );
+              })}
+            </div>
+          </Card>
+        </div>
       ) : null}
 
       {/* Playing XI summary */}
@@ -384,6 +698,165 @@ export default function FantasyMatchDetailPage() {
       </div>
     </>
   );
+}
+
+// Ingest health card — the "is this match scoring?" panel. Renders the
+// widget_match_id (with inline edit), last successful tick + staleness,
+// player_event volume in the last 5 minutes, and a "force tick" button. The
+// `ingest` shape comes verbatim from GET /v1/admin/matches/:id/ingest-status.
+function IngestHealthCard({
+  ingest,
+  editing,
+  draft,
+  setDraft,
+  onEdit,
+  onCancelEdit,
+  onSave,
+  onForceTick,
+  busyKey,
+}) {
+  if (!ingest) {
+    return (
+      <Card title="Ingest health" padding="tight">
+        <div className="px-4 py-4 text-sm text-white/55">Loading ingest status…</div>
+      </Card>
+    );
+  }
+
+  const stale = !!ingest.stale;
+  const widgetSet = !!ingest.widgetMatchId;
+  const staleText = formatStaleness(ingest.stalenessSeconds);
+
+  return (
+    <Card
+      title={
+        <span className="flex items-center gap-2">
+          <span>Ingest health</span>
+          {ingest.shouldIngest ? (
+            stale ? (
+              <Pill tone="default">
+                <span className="text-red-300">stale · {staleText}</span>
+              </Pill>
+            ) : (
+              <Pill tone="emerald">live · {staleText}</Pill>
+            )
+          ) : (
+            <Pill tone="default">outside ingest window</Pill>
+          )}
+        </span>
+      }
+      padding="tight"
+    >
+      <div className="grid gap-4 px-4 py-4 sm:grid-cols-2">
+        {/* widget_match_id — editable */}
+        <div className="flex flex-col gap-1.5">
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-white/55">
+            widget_match_id
+          </span>
+          {editing ? (
+            <div className="flex flex-wrap items-center gap-2">
+              <input
+                type="text"
+                value={draft}
+                onChange={(e) => setDraft(e.target.value)}
+                placeholder="e.g. 1666"
+                className="w-32 rounded-md border border-white/15 bg-white/[0.04] px-3 py-1.5 text-sm font-mono text-white outline-none focus:border-amber-400/60"
+              />
+              <Button
+                onClick={onSave}
+                size="sm"
+                disabled={busyKey === "widget_id"}
+              >
+                {busyKey === "widget_id" ? "Saving…" : "Save"}
+              </Button>
+              <Button onClick={onCancelEdit} size="sm" variant="secondary">
+                Cancel
+              </Button>
+            </div>
+          ) : (
+            <div className="flex flex-wrap items-center gap-2">
+              <span className={`font-mono text-sm ${widgetSet ? "text-white" : "text-red-300"}`}>
+                {ingest.widgetMatchId || "— not set —"}
+              </span>
+              <Button onClick={onEdit} size="sm" variant="secondary">
+                {widgetSet ? "Edit" : "Set"}
+              </Button>
+            </div>
+          )}
+          {!widgetSet ? (
+            <span className="text-[11px] text-red-300/85">
+              Worker can&apos;t ingest until this is set to the vendor MatchID.
+            </span>
+          ) : null}
+        </div>
+
+        {/* Activity counters */}
+        <div className="flex flex-col gap-1.5">
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-white/55">
+            Events (last 5 min)
+          </span>
+          <span className="text-sm tabular-nums text-white">
+            {ingest.eventsLast5m ?? 0}
+          </span>
+          <span className="text-[11px] text-white/45">
+            Last event:{" "}
+            {ingest.lastEventAt
+              ? new Date(ingest.lastEventAt).toLocaleTimeString()
+              : "never"}
+          </span>
+        </div>
+
+        {/* Last tick */}
+        <div className="flex flex-col gap-1.5">
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-white/55">
+            Last ingest tick
+          </span>
+          <span className={`text-sm tabular-nums ${stale ? "text-red-300" : "text-white"}`}>
+            {ingest.ingestedAt
+              ? `${staleText} (${new Date(ingest.ingestedAt).toLocaleTimeString()})`
+              : "never"}
+          </span>
+        </div>
+
+        {/* Should-ingest flag explanation */}
+        <div className="flex flex-col gap-1.5">
+          <span className="text-[10px] font-semibold uppercase tracking-wider text-white/55">
+            Auto-discovery window
+          </span>
+          <span className="text-sm text-white/75">
+            {ingest.shouldIngest
+              ? "Worker should be polling this match now."
+              : ingest.status === "completed" || ingest.status === "abandoned"
+                ? `Match ${ingest.status} — worker has dropped it.`
+                : "Outside the live window (or widget_match_id unset)."}
+          </span>
+        </div>
+      </div>
+
+      <div className="flex flex-wrap items-center gap-2 border-t border-white/5 px-4 py-3">
+        <Button
+          onClick={onForceTick}
+          size="md"
+          disabled={busyKey === "force_tick" || !widgetSet}
+          title={!widgetSet ? "Set widget_match_id first" : "Manually run one ingest tick"}
+        >
+          {busyKey === "force_tick" ? "Ticking…" : "Force tick"}
+        </Button>
+        <span className="text-[11px] text-white/45">
+          Safe to race against the worker — dedup is on player_event.event_hash.
+        </span>
+      </div>
+    </Card>
+  );
+}
+
+// "12s ago", "3m ago", "2h ago" — friendlier than raw seconds counters once
+// staleness blows past a minute. Returns "—" for null.
+function formatStaleness(seconds) {
+  if (seconds == null) return "—";
+  if (seconds < 60)  return `${seconds}s ago`;
+  if (seconds < 3600) return `${Math.round(seconds / 60)}m ago`;
+  return `${Math.round(seconds / 3600)}h ago`;
 }
 
 // Convert an ISO timestamp into the YYYY-MM-DDTHH:MM string that the
