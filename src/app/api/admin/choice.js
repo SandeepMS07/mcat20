@@ -16,4 +16,5 @@ export {
   updateOption,
   deleteOption,
   listSquadPlayers,
+  pollVoters,
 } from "./polls";
