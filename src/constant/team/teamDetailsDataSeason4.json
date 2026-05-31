@@ -157,39 +157,6 @@
           {
             "attributes": {
               "type": "Player_Registration__c",
-              "url": "/services/data/v62.0/sobjects/Player_Registration__c/a04e200000FyHN7AAN"
-            },
-            "Id": "a04e200000FyHN7AAN",
-            "Name": "PR-0003540",
-            "Reserve_Bid_Amount__c": 300000,
-            "Kitty_Bid_Amount__c": 0,
-            "Primary_Role__c": "All - rounder",
-            "Category__c": "Emerging Player",
-            "Player__c": "003IR00001k2G80YAE",
-            "Player__r": {
-              "attributes": {
-                "type": "Contact",
-                "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2G80YAE"
-              },
-              "Name": "Akshat Kishor Jain",
-              "Age__c": 24,
-              "Birthdate": "2001-11-01",
-              "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Aakash%20Tigers/akshat-kishor-jain-m01468.png",
-              "MCA_Registration_Number__c": "M01468"
-            },
-            "Base_Price_Absolute__c": 300000,
-            "Winning_Bid__c": 300000,
-            "kitty_allocated__c": 0,
-            "Recent_Competitive_Level__c": "Mumbai age group team (under 23 or under 19)",
-            "Sold_To__c": "001IR00001xeRnzYAE",
-            "playerAge": 24,
-            "birthData": "2001-11-01",
-            "playerId": "003IR00001k2G80YAE",
-            "category": "Emerging Player"
-          },
-          {
-            "attributes": {
-              "type": "Player_Registration__c",
               "url": "/services/data/v62.0/sobjects/Player_Registration__c/a04e200000FyKHlAAN"
             },
             "Id": "a04e200000FyKHlAAN",
@@ -1656,39 +1623,6 @@
           {
             "attributes": {
               "type": "Player_Registration__c",
-              "url": "/services/data/v62.0/sobjects/Player_Registration__c/a04e200000FyugDAAR"
-            },
-            "Id": "a04e200000FyugDAAR",
-            "Name": "PR-0003947",
-            "Reserve_Bid_Amount__c": 300000,
-            "Kitty_Bid_Amount__c": 0,
-            "Primary_Role__c": "All - rounder",
-            "Category__c": "Emerging Player",
-            "Player__c": "003IR00001k2GQRYA2",
-            "Player__r": {
-              "attributes": {
-                "type": "Contact",
-                "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2GQRYA2"
-              },
-              "Name": "KartHik Shaji Kumar",
-              "Age__c": 16,
-              "Birthdate": "2009-12-22",
-              "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/ARCS%20Andheri/karthik-shaji-kumar-m02701.png",
-              "MCA_Registration_Number__c": "M02701"
-            },
-            "Base_Price_Absolute__c": 300000,
-            "Winning_Bid__c": 300000,
-            "kitty_allocated__c": 0,
-            "Recent_Competitive_Level__c": "Mumbai age group team (under 23 or under 19)",
-            "Sold_To__c": "001IR00001xeRnyYAE",
-            "playerAge": 16,
-            "birthData": "2009-12-22",
-            "playerId": "003IR00001k2GQRYA2",
-            "category": "Emerging Player"
-          },
-          {
-            "attributes": {
-              "type": "Player_Registration__c",
               "url": "/services/data/v62.0/sobjects/Player_Registration__c/a04e200000Fz1WPAAZ"
             },
             "Id": "a04e200000Fz1WPAAZ",
@@ -1802,7 +1736,7 @@
                 "type": "Contact",
                 "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2G8nYAE"
               },
-              "Name": "Pragnesh Durgesh Kanpille",
+              "Name": "Pragnesh Durgesh Kanpillewar",
               "Age__c": 24,
               "Birthdate": "2001-09-29",
               "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Arcs%20Andheri/pragnesh-durgesh-kanpillewar-m01521.png",
@@ -6658,39 +6592,6 @@
           {
             "attributes": {
               "type": "Player_Registration__c",
-              "url": "/services/data/v62.0/sobjects/Player_Registration__c/a04e200000FxtkbAAB"
-            },
-            "Id": "a04e200000FxtkbAAB",
-            "Name": "PR-0003363",
-            "Reserve_Bid_Amount__c": 225000,
-            "Kitty_Bid_Amount__c": 0,
-            "Primary_Role__c": "All - rounder",
-            "Category__c": "Development Player",
-            "Player__c": "003IR00001k2GIfYAM",
-            "Player__r": {
-              "attributes": {
-                "type": "Contact",
-                "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2GIfYAM"
-              },
-              "Name": "Prasann Shukla",
-              "Age__c": 19,
-              "Birthdate": "2007-01-07",
-              "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Triumph%20Knights/prasann-shukla-m01958.png",
-              "MCA_Registration_Number__c": "M01958"
-            },
-            "Base_Price_Absolute__c": 200000,
-            "Winning_Bid__c": 225000,
-            "kitty_allocated__c": 25000,
-            "Recent_Competitive_Level__c": "Local club team",
-            "Sold_To__c": "001IR00001xeRnuYAE",
-            "playerAge": 19,
-            "birthData": "2007-01-07",
-            "playerId": "003IR00001k2GIfYAM",
-            "category": "Development Player"
-          },
-          {
-            "attributes": {
-              "type": "Player_Registration__c",
               "url": "/services/data/v62.0/sobjects/Player_Registration__c/a04e200000FyHADAA3"
             },
             "Id": "a04e200000FyHADAA3",
@@ -7087,39 +6988,6 @@
           {
             "attributes": {
               "type": "Player_Registration__c",
-              "url": "/services/data/v62.0/sobjects/Player_Registration__c/a04e200000GRHDFAA5"
-            },
-            "Id": "a04e200000GRHDFAA5",
-            "Name": "PR-0005883",
-            "Reserve_Bid_Amount__c": null,
-            "Kitty_Bid_Amount__c": null,
-            "Primary_Role__c": "All - rounder",
-            "Category__c": "NA",
-            "Player__c": "003IR00001k2G8BYAU",
-            "Player__r": {
-              "attributes": {
-                "type": "Contact",
-                "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2G8BYAU"
-              },
-              "Name": "Suryansh Prashant Shedge",
-              "Age__c": 23,
-              "Birthdate": "2003-01-28",
-              "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Triumph%20Knights/suryansh-prashant-shedge-m01480.png",
-              "MCA_Registration_Number__c": "M01480"
-            },
-            "Base_Price_Absolute__c": null,
-            "Winning_Bid__c": 1375000,
-            "kitty_allocated__c": -625000,
-            "Recent_Competitive_Level__c": "Indian senior team",
-            "Sold_To__c": "001IR00001xeRnuYAE",
-            "playerAge": 23,
-            "birthData": "2003-01-28",
-            "playerId": "003IR00001k2G8BYAU",
-            "category": "NA"
-          },
-          {
-            "attributes": {
-              "type": "Player_Registration__c",
               "url": "/services/data/v62.0/sobjects/Player_Registration__c/a04e200000HIRj7AAH"
             },
             "Id": "a04e200000HIRj7AAH",
@@ -7149,39 +7017,6 @@
             "birthData": "1990-09-14",
             "playerId": "003IR00001l9mABYAY",
             "category": "Icon Player"
-          },
-          {
-            "attributes": {
-              "type": "Player_Registration__c",
-              "url": "/services/data/v62.0/sobjects/Player_Registration__c/a04e200000HIRrBAAX"
-            },
-            "Id": "a04e200000HIRrBAAX",
-            "Name": "PR-0005914",
-            "Reserve_Bid_Amount__c": null,
-            "Kitty_Bid_Amount__c": null,
-            "Primary_Role__c": "All - rounder",
-            "Category__c": "NA",
-            "Player__c": "003IR00001k2KIjYAM",
-            "Player__r": {
-              "attributes": {
-                "type": "Contact",
-                "url": "/services/data/v62.0/sobjects/Contact/003IR00001k2KIjYAM"
-              },
-              "Name": "AYUSH YOGESH MHATRE",
-              "Age__c": 18,
-              "Birthdate": "2007-07-16",
-              "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Triumph%20Knights/ayush-yogesh-mhatre-mcaa0061.png",
-              "MCA_Registration_Number__c": "MCAA0061"
-            },
-            "Base_Price_Absolute__c": null,
-            "Winning_Bid__c": 1475000,
-            "kitty_allocated__c": 975000,
-            "Recent_Competitive_Level__c": "First class, list A, BCCI Senior Men T20",
-            "Sold_To__c": "001IR00001xeRnuYAE",
-            "playerAge": 18,
-            "birthData": "2007-07-16",
-            "playerId": "003IR00001k2KIjYAM",
-            "category": "NA"
           },
           {
             "attributes": {
@@ -7226,18 +7061,51 @@
             "Reserve_Bid_Amount__c": 0,
             "Kitty_Bid_Amount__c": 0,
             "Primary_Role__c": "All - rounder",
-            "Category__c": "Senior Player",
+            "Category__c": "Emerging Player",
             "Player__c": "",
             "Player__r": {
               "attributes": {
                 "type": "Contact",
                 "url": ""
               },
-              "Name": "Yaseen Saudagar",
+              "Name": "Yaseen Soudagar",
               "Age__c": null,
               "Birthdate": null,
               "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Triumph%20Knights/yaseen-saudagar-m01960.png",
               "MCA_Registration_Number__c": "M01960"
+            },
+            "Base_Price_Absolute__c": 0,
+            "Winning_Bid__c": 0,
+            "kitty_allocated__c": 0,
+            "Recent_Competitive_Level__c": "",
+            "Sold_To__c": "001IR00001xeRnuYAE",
+            "playerAge": null,
+            "birthData": null,
+            "playerId": "",
+            "category": "Emerging Player"
+          },
+          {
+            "attributes": {
+              "type": "Player_Registration__c",
+              "url": ""
+            },
+            "Id": "",
+            "Name": "",
+            "Reserve_Bid_Amount__c": 0,
+            "Kitty_Bid_Amount__c": 0,
+            "Primary_Role__c": "All - rounder",
+            "Category__c": "",
+            "Player__c": "",
+            "Player__r": {
+              "attributes": {
+                "type": "Contact",
+                "url": ""
+              },
+              "Name": "Jayesh Bharat Pokhare",
+              "Age__c": null,
+              "Birthdate": null,
+              "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Triumph%20Knights/jayesh-bharat-pokhare-m04161.png",
+              "MCA_Registration_Number__c": "M04161"
             },
             "Base_Price_Absolute__c": 0,
             "Winning_Bid__c": 0,
