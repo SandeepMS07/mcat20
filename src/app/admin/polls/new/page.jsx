@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { createPoll, listMatches, listSquadPlayers } from "@/app/api/admin/polls";
+import { createPoll, listMatches } from "@/app/api/admin/polls";
+import { getLocalSquadPlayers } from "@/app/api/admin/localPlayers";
 import PollForm from "@/components/admin/PollForm";
 import { Button, Card, PageHeader } from "@/components/admin/ui";
 
@@ -20,9 +21,7 @@ export default function NewPollPage() {
     listMatches()
       .then((res) => setMatches(res.matches || []))
       .catch(() => setMatches([]));
-    listSquadPlayers()
-      .then((rows) => setPlayers(rows))
-      .catch(() => setPlayers([]));
+    setPlayers(getLocalSquadPlayers());
   }, []);
 
   const handleSubmit = async (body) => {

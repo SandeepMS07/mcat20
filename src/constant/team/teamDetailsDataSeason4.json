@@ -7215,6 +7215,39 @@
             "birthData": "1987-05-05",
             "playerId": "003IR00001k2G8dYAE",
             "category": "Development Player"
+          },
+          {
+            "attributes": {
+              "type": "Player_Registration__c",
+              "url": ""
+            },
+            "Id": "",
+            "Name": "",
+            "Reserve_Bid_Amount__c": 0,
+            "Kitty_Bid_Amount__c": 0,
+            "Primary_Role__c": "All - rounder",
+            "Category__c": "Senior Player",
+            "Player__c": "",
+            "Player__r": {
+              "attributes": {
+                "type": "Contact",
+                "url": ""
+              },
+              "Name": "Yaseen Saudagar",
+              "Age__c": null,
+              "Birthdate": null,
+              "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Triumph%20Knights/yaseen-saudagar-m01960.png",
+              "MCA_Registration_Number__c": "M01960"
+            },
+            "Base_Price_Absolute__c": 0,
+            "Winning_Bid__c": 0,
+            "kitty_allocated__c": 0,
+            "Recent_Competitive_Level__c": "",
+            "Sold_To__c": "001IR00001xeRnuYAE",
+            "playerAge": null,
+            "birthData": null,
+            "playerId": "",
+            "category": ""
           }
         ]
       }

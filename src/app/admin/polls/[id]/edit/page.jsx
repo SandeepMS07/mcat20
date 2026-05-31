@@ -9,11 +9,11 @@ import {
   deletePoll,
   getPoll,
   listMatches,
-  listSquadPlayers,
   pollVoters,
   updateOption,
   updatePoll,
 } from "@/app/api/admin/polls";
+import { getLocalSquadPlayers } from "@/app/api/admin/localPlayers";
 import PollForm from "@/components/admin/PollForm";
 import PlayerPicker from "@/components/admin/PlayerPicker";
 import {
@@ -58,17 +58,16 @@ export default function EditPollPage() {
   }, []);
 
   const reload = async () => {
-    const [pollRes, matchesRes, votersRes, playersRes] = await Promise.all([
+    const [pollRes, matchesRes, votersRes] = await Promise.all([
       getPoll(id),
       listMatches(),
       pollVoters(id),
-      listSquadPlayers().catch(() => []),
     ]);
     if (!mountedRef.current) return;
     setData(pollRes);
     setMatches(matchesRes.matches || []);
     setVoters(votersRes);
-    setPlayers(playersRes || []);
+    setPlayers(getLocalSquadPlayers());
   };
 
   const safe = async (fn) => {
