@@ -14,6 +14,7 @@ import {
   listContestsForMatch,
   listMatchEntries,
   lockMatch,
+  rebuildMatchScoring,
   rescheduleMatch,
   updateWidgetMatchId,
 } from "@/app/api/admin/fantasy";
@@ -312,6 +313,58 @@ export default function FantasyMatchDetailPage() {
     }
   };
 
+  // DESTRUCTIVE: wipe player_event / player_match_stats /
+  // entry_player_points / entry.total_points for this match, then force
+  // one ingest tick to rebuild from the vendor feed. Use only when
+  // player_event has wrong attributions baked in from before the
+  // canonical-id resolver was hardened. Force rescore can't fix that
+  // because it recomputes FROM the corrupted data.
+  //
+  // Type-to-confirm the matchId in the dialog because mistakenly running
+  // this on the wrong match wipes its scoring derived data — recoverable
+  // (next tick rebuilds) but disruptive while it runs.
+  const handleRebuildScoring = async () => {
+    const typed = window.prompt(
+      `DESTRUCTIVE: rebuild scoring for ${matchId}.\n\n` +
+      `This will:\n` +
+      `  • DELETE every player_event row for this match\n` +
+      `  • DELETE every player_match_stats row\n` +
+      `  • DELETE every entry_player_points row for affected entries\n` +
+      `  • Zero entry.total_points\n` +
+      `  • Drop Redis keys and run one ingest tick to rebuild\n\n` +
+      `Use only when player_event was written with wrong player_ids ` +
+      `(pre-fix mis-attribution).\n\n` +
+      `Type the match id "${matchId}" exactly to confirm:`,
+    );
+    if (typed == null) return; // cancelled
+    if (typed.trim() !== matchId) {
+      setActionMsg({ ok: false, text: "Match id didn't match — rebuild cancelled." });
+      return;
+    }
+    setActionBusy("rebuild");
+    setActionMsg(null);
+    try {
+      const res = await rebuildMatchScoring(matchId);
+      setActionMsg({
+        ok: true,
+        text:
+          `Rebuilt: wiped ${res?.eventsDeleted ?? 0} events, ${res?.statsDeleted ?? 0} stats, ` +
+          `${res?.eppDeleted ?? 0} epp rows across ${res?.entries ?? 0} entries. ` +
+          `Tick replayed ${res?.tick?.deltas ?? 0} deltas in ${res?.durationMs ?? 0}ms.`,
+      });
+      setTick((n) => n + 1);
+    } catch (e) {
+      const code = e?.response?.data?.error;
+      const friendly =
+        code === "no_widget_match_id" ? "Set widget_match_id first — the rebuild needs a vendor feed." :
+        code === "match_not_found"    ? "Match not found." :
+        code || e?.message || "rebuild_failed";
+      setActionMsg({ ok: false, text: friendly });
+    } finally {
+      setActionBusy(null);
+    }
+  };
+
   // Nuke every Redis cache scoped to this match — response caches, the live
   // ingest resolver caches (widget:idmap, widget:snap), and the per-contest
   // leaderboard ZSETs. The follow-up action is usually Force tick (to re-
@@ -522,6 +575,15 @@ export default function FantasyMatchDetailPage() {
               title="Re-run scoring from current player_match_stats. Use after a scoring fix."
             >
               {actionBusy === "rescore" ? "Rescoring…" : "Force rescore"}
+            </Button>
+            <Button
+              onClick={handleRebuildScoring}
+              variant="secondary"
+              size="md"
+              disabled={actionBusy === "rebuild"}
+              title="DESTRUCTIVE: wipe player_event / stats / EPP and rebuild from the vendor feed. Use only when player_event was written with wrong player_ids."
+            >
+              {actionBusy === "rebuild" ? "Rebuilding…" : "Rebuild scoring"}
             </Button>
             <Button
               onClick={openAbandon}

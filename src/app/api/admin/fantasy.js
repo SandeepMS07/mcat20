@@ -251,6 +251,38 @@ export const forceRescore = async (matchId) => {
   return res.data;
 };
 
+// DESTRUCTIVE — wipe and rebuild scoring for one match from scratch.
+//
+// Use ONLY when player_event has wrong attributions baked in (i.e. the
+// audit log itself was written before the canonical-id resolver was
+// hardened, and now points to wrong player_ids). Force rescore can't
+// help here because it rebuilds entry_player_points FROM the corrupted
+// player_match_stats / player_event.
+//
+// What it does, atomically server-side:
+//   1. DELETE player_event for this match
+//   2. DELETE player_match_stats for this match
+//   3. DELETE entry_player_points + zero entry.total_points for every
+//      entry in this match's contests
+//   4. Flush widget:idmap, widget:snap, lb:contest:* keys
+//   5. Run one ingest tick → rebuilds everything from the vendor feed
+//      through the now-hardened resolver
+//
+// Idempotent on a clean match — running twice yields the same totals
+// the second time. Backend errors:
+//   404 match_not_found       — no fantasy_match row for this id
+//   409 no_widget_match_id    — can't rebuild without a vendor feed
+// Returns:
+//   { ok, matchId, eventsDeleted, statsDeleted, eppDeleted, entries,
+//     contestIds, tick, durationMs }
+export const rebuildMatchScoring = async (matchId) => {
+  const res = await turboverseAxios.post(
+    `/v1/admin/matches/${encodeURIComponent(matchId)}/rebuild-scoring`,
+    {},
+  );
+  return res.data;
+};
+
 // Wipe every Redis cache scoped to one match (response caches, the live
 // ingest resolver caches widget:idmap / widget:snap, and the per-contest
 // leaderboard ZSETs). Does NOT touch Postgres rows — combine with a force
