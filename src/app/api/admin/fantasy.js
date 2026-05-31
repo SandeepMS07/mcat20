@@ -174,9 +174,13 @@ export const reconcileRosters = async ({ matchIds, dryRun } = {}) => {
   const params = {};
   if (Array.isArray(matchIds) && matchIds.length) params.matchIds = matchIds.join(",");
   if (dryRun) params.dryRun = "1";
+  // Send `{}` as the body (not `null`) — axios serializes `null` as
+  // application/x-www-form-urlencoded, which Fastify's JSON-only content
+  // parser rejects with 415 Unsupported Media Type. An empty JSON object
+  // forces Content-Type: application/json with a valid body.
   const res = await turboverseAxios.post(
     "/v1/admin/matches/reconcile-rosters",
-    null,
+    {},
     { params },
   );
   return res.data;
