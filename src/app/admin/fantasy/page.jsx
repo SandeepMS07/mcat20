@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import {
   getAdminStats,
   listFantasyMatches,
+  reconcileRosters,
   seedDemoMatch,
   seedFixtures,
 } from "@/app/api/admin/fantasy";
@@ -46,6 +47,14 @@ export default function FantasyHubPage() {
   const [seedMsg, setSeedMsg] = useState(null);
   const [seedingDemo, setSeedingDemo] = useState(false);
   const [demoMsg, setDemoMsg] = useState(null);
+  // Roster-reconciliation state. Two-step UX: first click runs a dry-run
+  // (read-only ghost-player scan), surfaces a per-match summary, and only
+  // then offers an "Apply fix" button to actually write the bench flags
+  // and back out the bogus points. Skipping the dry-run would let a tired
+  // operator nuke is_playing_xi flags on a healthy match by accident.
+  const [reconciling, setReconciling] = useState(false);
+  const [reconcileResult, setReconcileResult] = useState(null);
+  const [reconcileApplied, setReconcileApplied] = useState(false);
   const [statusFilter, setStatusFilter] = useState("all");
   const [categoryFilter, setCategoryFilter] = useState("all");
   const [tick, setTick] = useState(0);
@@ -127,6 +136,55 @@ export default function FantasyHubPage() {
     }
   };
 
+  const runReconcileScan = async () => {
+    if (reconciling) return;
+    setReconciling(true);
+    setReconcileApplied(false);
+    try {
+      const res = await reconcileRosters({ dryRun: true });
+      setReconcileResult({ ok: true, ...res });
+    } catch (err) {
+      setReconcileResult({
+        ok: false,
+        error:
+          err?.response?.data?.error ??
+          err?.message ??
+          "Roster scan failed — check backend logs.",
+      });
+    } finally {
+      setReconciling(false);
+    }
+  };
+
+  const applyReconcile = async () => {
+    if (reconciling) return;
+    const ghosts = reconcileResult?.totalGhosts ?? 0;
+    if (
+      !window.confirm(
+        `Apply roster reconciliation? This will bench ${ghosts} ghost player rows across ${reconcileResult?.matchesWithGhosts ?? 0} match(es), zero out any points those ghosts absorbed, and recompute affected entry totals. The action is idempotent but writes to live data.`,
+      )
+    ) {
+      return;
+    }
+    setReconciling(true);
+    try {
+      const res = await reconcileRosters({ dryRun: false });
+      setReconcileResult({ ok: true, ...res });
+      setReconcileApplied(true);
+      setTick((n) => n + 1);
+    } catch (err) {
+      setReconcileResult({
+        ok: false,
+        error:
+          err?.response?.data?.error ??
+          err?.message ??
+          "Roster reconcile failed — check backend logs.",
+      });
+    } finally {
+      setReconciling(false);
+    }
+  };
+
   const handleSeedDemo = async () => {
     if (seedingDemo) return;
     setSeedingDemo(true);
@@ -167,6 +225,19 @@ export default function FantasyHubPage() {
         actions={
           <>
             <Button
+              onClick={runReconcileScan}
+              disabled={reconciling}
+              variant="secondary"
+              size="md"
+              title="Scan every match's fantasy_match_player roster against squad.js and report ghost-player rows"
+            >
+              {reconciling
+                ? "Scanning…"
+                : reconcileResult?.ok && !reconcileApplied
+                ? "Re-scan rosters"
+                : "Scan rosters"}
+            </Button>
+            <Button
               onClick={handleSeedDemo}
               disabled={seedingDemo}
               variant="secondary"
@@ -206,6 +277,19 @@ export default function FantasyHubPage() {
             </>
           )}
         </div>
+      ) : null}
+
+      {reconcileResult ? (
+        <ReconcilePanel
+          result={reconcileResult}
+          applied={reconcileApplied}
+          busy={reconciling}
+          onApply={applyReconcile}
+          onDismiss={() => {
+            setReconcileResult(null);
+            setReconcileApplied(false);
+          }}
+        />
       ) : null}
 
       {seedMsg ? (
@@ -365,6 +449,126 @@ function FantasyMatchCard({ match }) {
         Manage →
       </div>
     </Link>
+  );
+}
+
+// Result panel for the roster-reconciliation scan/apply flow. Renders the
+// per-match diff so the operator can verify what would change before they
+// apply, and the same shape post-apply with a green "Applied" header.
+function ReconcilePanel({ result, applied, busy, onApply, onDismiss }) {
+  if (!result.ok) {
+    return (
+      <div className="mb-6 rounded-xl border border-red-400/30 bg-red-400/10 px-4 py-3 text-sm text-red-200">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <span className="font-semibold">Roster scan failed</span>{" "}
+            — <span className="font-mono text-xs">{result.error}</span>
+          </div>
+          <button
+            type="button"
+            onClick={onDismiss}
+            className="shrink-0 text-xs font-bold uppercase tracking-wide text-red-200/80 hover:text-red-100"
+          >
+            Dismiss
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  const { dryRun, processed, matchesWithGhosts, totalGhosts, durationMs, results: rows = [] } = result;
+  const tainted = rows.filter((r) => r.ghostCount > 0 || r.error);
+  const cleanCount = processed - tainted.length;
+  // Color-key the header: green when there's nothing to fix or we just
+  // applied; amber when ghosts were detected and still need applying.
+  const headerTone =
+    applied || matchesWithGhosts === 0
+      ? "border-emerald-400/30 bg-emerald-400/10 text-emerald-100"
+      : "border-amber-400/30 bg-amber-400/10 text-amber-100";
+
+  return (
+    <div className={`mb-6 rounded-xl border px-4 py-3 text-sm ${headerTone}`}>
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div className="min-w-0">
+          <div className="font-semibold">
+            {applied
+              ? "Reconciliation applied"
+              : dryRun
+              ? matchesWithGhosts === 0
+                ? "Rosters are clean — no ghosts detected"
+                : "Ghost players detected (dry-run, nothing written yet)"
+              : "Reconciliation complete"}
+          </div>
+          <div className="mt-1 text-xs text-white/65">
+            Scanned <b className="text-white">{processed}</b> match
+            {processed === 1 ? "" : "es"} in <b className="text-white">{durationMs}ms</b>
+            {" · "}
+            <b className="text-white">{matchesWithGhosts}</b> with ghosts
+            {" · "}
+            <b className="text-white">{totalGhosts}</b> ghost row
+            {totalGhosts === 1 ? "" : "s"} total
+            {cleanCount > 0 ? (
+              <>
+                {" · "}
+                <b className="text-white">{cleanCount}</b> clean
+              </>
+            ) : null}
+          </div>
+        </div>
+        <div className="flex shrink-0 items-center gap-2">
+          {dryRun && matchesWithGhosts > 0 && !applied ? (
+            <button
+              type="button"
+              onClick={onApply}
+              disabled={busy}
+              className="rounded-full bg-gradient-to-b from-[#F68323] to-[#E07E27] px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-white shadow-[0_4px_12px_-4px_rgba(246,131,35,0.6)] disabled:opacity-50"
+            >
+              {busy ? "Applying…" : "Apply fix"}
+            </button>
+          ) : null}
+          <button
+            type="button"
+            onClick={onDismiss}
+            className="text-xs font-bold uppercase tracking-wide text-white/65 hover:text-white"
+          >
+            Dismiss
+          </button>
+        </div>
+      </div>
+
+      {tainted.length > 0 ? (
+        <div className="mt-3 max-h-64 overflow-y-auto rounded-lg border border-white/10 bg-black/20 p-2">
+          <table className="w-full text-xs">
+            <thead className="text-[10px] uppercase tracking-wider text-white/55">
+              <tr>
+                <th className="px-2 py-1.5 text-left">Match</th>
+                <th className="px-2 py-1.5 text-left">Status</th>
+                <th className="px-2 py-1.5 text-right">Ghosts</th>
+                <th className="px-2 py-1.5 text-left">Sample names</th>
+              </tr>
+            </thead>
+            <tbody>
+              {tainted.map((r) => (
+                <tr key={r.matchId} className="border-t border-white/5">
+                  <td className="px-2 py-1.5 font-mono text-white">{r.matchId}</td>
+                  <td className="px-2 py-1.5 capitalize text-white/65">{r.status}</td>
+                  <td className="px-2 py-1.5 text-right font-bold tabular-nums text-amber-200">
+                    {r.ghostCount}
+                  </td>
+                  <td className="px-2 py-1.5 text-white/70">
+                    {r.error ? (
+                      <span className="font-mono text-red-300">{r.error}</span>
+                    ) : (
+                      r.ghostSample?.join(", ") || "—"
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : null}
+    </div>
   );
 }
 

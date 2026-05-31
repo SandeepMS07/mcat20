@@ -151,6 +151,37 @@ export const seedDemoMatch = async () => {
   return res.data;
 };
 
+// Retroactive roster reconciliation across every match with a widget_match_id
+// (live, upcoming, AND completed). Same routine the ingest worker now runs
+// per tick — surfaced as an admin endpoint so completed matches that the
+// worker has stopped polling can still be cleaned up.
+//
+// Use this once after deploying the resolver hardening to back out any
+// ghost-player points that landed before the fix went live.
+//
+// Args:
+//   matchIds  — optional array of fantasy_match ids to limit the sweep
+//   dryRun    — boolean, counts ghosts without writing
+//
+// Response shape:
+//   { ok, dryRun, processed, matchesWithGhosts, totalGhosts, durationMs,
+//     results: Array<{
+//       matchId, status, ghostCount, ghostSample: string[],
+//       reconciled: boolean, error?: string
+//     }>
+//   }
+export const reconcileRosters = async ({ matchIds, dryRun } = {}) => {
+  const params = {};
+  if (Array.isArray(matchIds) && matchIds.length) params.matchIds = matchIds.join(",");
+  if (dryRun) params.dryRun = "1";
+  const res = await turboverseAxios.post(
+    "/v1/admin/matches/reconcile-rosters",
+    null,
+    { params },
+  );
+  return res.data;
+};
+
 // ─── Contests ───────────────────────────────────────────────────────────────
 // /v1/contests?matchId=... is the public list — same shape returned, we
 // reuse it for the admin contest section since there's no admin-specific
