@@ -137,6 +137,7 @@ export default function PollForm({
       // actually send (empty rows are dropped and could shift the index).
       const filled = options.filter((o) => o.label.trim());
       if (filled.length < 2) return setError("Add at least 2 options.");
+      if (!filled.some((o) => o.correct)) return setError("Mark at least one option as the correct answer.");
       const cleanOptions = filled.map((o, idx) => ({
         label: o.label.trim(),
         imageUrl: o.imageUrl?.trim() || null,

@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { FiUser, FiMail, FiPhone } from "react-icons/fi";
 import {
@@ -13,6 +13,7 @@ import { setAccessToken } from "@/app/api/turboverseAxios";
 import routes from "@/utilis/route";
 
 const MOBILE_REGEX = /^\d{10}$/;
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // Mirrors the fantasy frontend's TeamNameModal: 3–24 chars, uppercase letters,
 // numbers, spaces, and underscores. Server still re-validates on PATCH /me.
 const TEAM_NAME_ALLOWED = /^[A-Z0-9 _]+$/;
@@ -56,32 +57,48 @@ const VARIANTS = {
   },
 };
 
-const initialState = {
+function Toast({ message, onDone }) {
+  useEffect(() => {
+    const id = setTimeout(onDone, 3500);
+    return () => clearTimeout(id);
+  }, [onDone]);
+  return (
+    <>
+      <style>{`@keyframes toastSlideUp{from{opacity:0;transform:translate(-50%,12px)}to{opacity:1;transform:translate(-50%,0)}}`}</style>
+      <div
+        role="alert"
+        className="fixed bottom-6 left-1/2 z-[99999] -translate-x-1/2 rounded-xl border border-red-400/30 bg-[#1a0a0a] px-5 py-3 text-sm font-semibold text-red-300 shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+        style={{ whiteSpace: "nowrap", animation: "toastSlideUp 0.25s ease" }}
+      >
+        {message}
+      </div>
+    </>
+  );
+}
+
+const makeInitialState = (mode = MODE_SIGNIN) => ({
   step: STEP_DETAILS,
-  // Default to sign-in — most opens of this modal are returning fans who
-  // already have an account. New users tap the "Sign up" link at the bottom.
-  mode: MODE_SIGNIN,
+  mode,
   name: "",
   email: "",
   mobile: "",
   otp: "",
-  // Team-name step state. teamStatus mirrors TeamNameModal: idle | checking |
-  // available | taken | error.
   teamName: "",
   teamStatus: "idle",
-  // Auth payload held between verify-otp success and the team-name save so we
-  // can pass it to onSuccess once the user finishes signup.
   pendingAuth: null,
   loading: false,
   error: null,
   hint: null,
-};
+});
 
-const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
-  const [state, setState] = useState(initialState);
+const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll", initialMode = MODE_SIGNIN }) => {
+  const [state, setState] = useState(() => makeInitialState(initialMode));
+  const [toast, setToast] = useState(null);
   const nameRef = useRef(null);
   const otpRef = useRef(null);
   const teamRef = useRef(null);
+
+  const showToast = useCallback((msg) => setToast(msg), []);
 
   const config = VARIANTS[variant] || VARIANTS.fanPoll;
   const isJersey = config.layout === "jersey";
@@ -89,9 +106,10 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
 
   useEffect(() => {
     if (!open) {
-      setState(initialState);
+      setState(makeInitialState(initialMode));
       return undefined;
     }
+    setState(makeInitialState(initialMode));
     const onKey = (e) => {
       if (e.key === "Escape") onClose?.();
     };
@@ -101,7 +119,7 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
     };
-  }, [open, onClose]);
+  }, [open, onClose, initialMode]);
 
   useEffect(() => {
     if (!open) return;
@@ -148,7 +166,9 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
   const isSignIn = state.mode === MODE_SIGNIN;
   const detailsValid = isSignIn
     ? MOBILE_REGEX.test(state.mobile)
-    : state.name.trim().length > 1 && MOBILE_REGEX.test(state.mobile);
+    : state.name.trim().length > 1 &&
+      EMAIL_REGEX.test(state.email.trim()) &&
+      MOBILE_REGEX.test(state.mobile);
 
   const switchMode = (mode) => {
     update({ mode, error: null, hint: null });
@@ -158,11 +178,15 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
     e.preventDefault();
     if (state.loading) return;
     if (!isSignIn && !state.name.trim()) {
-      update({ error: "Please enter your full name." });
+      showToast("Please enter your full name.");
+      return;
+    }
+    if (!isSignIn && !EMAIL_REGEX.test(state.email.trim())) {
+      showToast("Please enter a valid email address.");
       return;
     }
     if (!MOBILE_REGEX.test(state.mobile)) {
-      update({ error: "Enter a valid 10-digit mobile number." });
+      showToast("Enter a valid 10-digit mobile number.");
       return;
     }
     update({ loading: true, error: null, hint: null });
@@ -179,23 +203,13 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
       const existsResp = await mobileExists(mobile);
       const exists = !!existsResp?.exists;
       if (isSignIn && !exists) {
-        update({
-          loading: false,
-          mode: MODE_SIGNUP,
-          error: "No account found for this number. Please sign up.",
-          hint: null,
-        });
+        update({ loading: false, mode: MODE_SIGNUP, hint: null });
+        showToast("No account found for this number. Please sign up.");
         return;
       }
       if (!isSignIn && exists) {
-        update({
-          loading: false,
-          mode: MODE_SIGNIN,
-          name: "",
-          email: "",
-          error: "An account already exists for this mobile. Please sign in.",
-          hint: null,
-        });
+        update({ loading: false, mode: MODE_SIGNIN, name: "", email: "", hint: null });
+        showToast("An account already exists for this mobile. Please sign in.");
         return;
       }
     } catch {
@@ -219,7 +233,8 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
       if (status === 429 || code === "rate_limited")
         msg = "Too many attempts. Try again in 10 minutes.";
       else if (code === "send_failed") msg = "Couldn't send OTP, retry.";
-      update({ loading: false, error: msg });
+      update({ loading: false });
+      showToast(msg);
     }
   };
 
@@ -227,7 +242,7 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
     e.preventDefault();
     if (state.loading) return;
     if (!state.otp.trim()) {
-      update({ error: "Enter the OTP you received." });
+      showToast("Enter the OTP you received.");
       return;
     }
     update({ loading: true, error: null });
@@ -243,6 +258,7 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
       };
       if (!isSignIn) {
         verifyArgs.name = state.name.trim();
+        verifyArgs.email = state.email.trim();
       }
       const data = await verifyOtp(verifyArgs);
 
@@ -254,30 +270,17 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
       // gate after the SSO handoff.
       const teamName =
         data?.user?.teamName ?? data?.user?.team_name ?? null;
-      const needsTeamName = !teamName;
+      // Only block on missing team name for the fantasy portal — fan poll and
+      // viewers choice don't use the fantasy leaderboard so they don't need it.
+      const needsTeamName = !teamName && variant === "fantasy";
+
+      // Seed the access token so PATCH /me (team name step) authenticates.
+      setAccessToken(data.token);
 
       if (!needsTeamName) {
         update({ loading: false });
         onSuccess?.({ token: data.token, user: data.user });
         return;
-      }
-
-      // Seed the access token so the upcoming PATCH /me calls (email +
-      // teamName) authenticate. AuthProvider's setAuth would normally do
-      // this, but we delay onSuccess until after team name is saved.
-      setAccessToken(data.token);
-
-      // Best-effort email save (sign-up only, optional field).
-      const email = state.email.trim();
-      if (!isSignIn && email) {
-        updateMe({ email }).catch((err) => {
-          // eslint-disable-next-line no-console
-          console.warn(
-            "[auth] couldn't save email on profile:",
-            err?.response?.status,
-            err?.response?.data || err?.message,
-          );
-        });
       }
 
       update({
@@ -308,19 +311,14 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
         // Returning user flow tried to log in on a mobile that has no account
         // yet — flip them to sign-up so they can register.
         if (isSignIn) {
-          update({
-            loading: false,
-            step: STEP_DETAILS,
-            mode: MODE_SIGNUP,
-            otp: "",
-            error: "No account found for this number. Please sign up.",
-            hint: null,
-          });
+          update({ loading: false, step: STEP_DETAILS, mode: MODE_SIGNUP, otp: "", hint: null });
+          showToast("No account found for this number. Please sign up.");
           return;
         }
         msg = "Please go back and enter your name.";
       }
-      update({ loading: false, error: msg });
+      update({ loading: false });
+      showToast(msg);
     }
   };
 
@@ -329,15 +327,15 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
     if (state.loading) return;
     const trimmed = state.teamName.trim();
     if (trimmed.length < TEAM_NAME_MIN || trimmed.length > TEAM_NAME_MAX) {
-      update({ error: `Team name must be ${TEAM_NAME_MIN}–${TEAM_NAME_MAX} characters.` });
+      showToast(`Team name must be ${TEAM_NAME_MIN}–${TEAM_NAME_MAX} characters.`);
       return;
     }
     if (!TEAM_NAME_ALLOWED.test(trimmed)) {
-      update({ error: "Use uppercase letters, numbers, spaces, and underscores only." });
+      showToast("Use uppercase letters, numbers, spaces, and underscores only.");
       return;
     }
     if (state.teamStatus === "taken") {
-      update({ error: "That team name is taken — pick another." });
+      showToast("That team name is taken — pick another.");
       return;
     }
     if (state.teamStatus === "checking") return;
@@ -361,7 +359,8 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
         update({ teamStatus: "taken" });
         msg = "That team name was just taken — pick another.";
       }
-      update({ loading: false, error: msg });
+      update({ loading: false });
+      showToast(msg);
     }
   };
 
@@ -384,7 +383,7 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
   );
 
   // Shared form fields. In sign-in mode we only ask for the mobile number;
-  // sign-up keeps the full name + optional email + mobile.
+  // sign-up keeps the full name + required email + mobile.
   const formFields = (
     <>
       {!isSignIn ? (
@@ -408,10 +407,11 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
             <input
               type="email"
               autoComplete="email"
+              required
               maxLength={100}
               value={state.email}
-              onChange={(e) => update({ email: e.target.value })}
-              placeholder="Email (optional)"
+              onChange={(e) => update({ email: e.target.value, error: null })}
+              placeholder="Email Address"
               className="w-full bg-transparent text-base text-white placeholder:text-[#C6C5D1] focus:outline-none"
             />
           </div>
@@ -526,12 +526,6 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
         {state.teamName.length}/{TEAM_NAME_MAX} · Uppercase letters, numbers,
         spaces, and underscores only.
       </p>
-
-      {state.error && (
-        <p className="text-center text-xs text-red-300" role="alert">
-          {state.error}
-        </p>
-      )}
 
       <div className="relative pt-2">
         <span
@@ -658,12 +652,6 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
               <form onSubmit={handleDetailsSubmit} className="space-y-5">
                 {formFields}
 
-                {state.error && (
-                  <p className="text-center text-xs text-red-300" role="alert">
-                    {state.error}
-                  </p>
-                )}
-
                 {submitButton}
                 {modeSwitch}
                 {termsFooter}
@@ -706,25 +694,20 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
                   type="text"
                   inputMode="numeric"
                   autoComplete="one-time-code"
-                  maxLength={6}
+                  maxLength={4}
                   value={state.otp}
                   onChange={(e) =>
                     update({
-                      otp: e.target.value.replace(/\D/g, "").slice(0, 6),
+                      otp: e.target.value.replace(/\D/g, "").slice(0, 4),
                       error: null,
                     })
                   }
                   placeholder="------"
                   className="w-full rounded-full border border-white/20 bg-white/[0.05] px-5 py-[15px] text-center text-lg font-bold tracking-[0.6em] text-white placeholder:tracking-[0.4em] placeholder:text-[#C6C5D1] focus:border-[#F2A23A] focus:outline-none"
                 />
-                {state.hint && !state.error && (
+                {state.hint && (
                   <p className="text-center text-xs text-[#F2A23A]" role="status">
                     {state.hint}
-                  </p>
-                )}
-                {state.error && (
-                  <p className="text-center text-xs text-red-300" role="alert">
-                    {state.error}
                   </p>
                 )}
                 <div className="relative pt-2">
@@ -759,6 +742,7 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
             </div>
           )}
         </div>
+      {toast && <Toast message={toast} onDone={() => setToast(null)} />}
       </div>
     );
   }
@@ -829,12 +813,6 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
               <form onSubmit={handleDetailsSubmit} className="mt-6 space-y-5">
                 {formFields}
 
-                {state.error && (
-                  <p className="text-center text-xs text-red-300" role="alert">
-                    {state.error}
-                  </p>
-                )}
-
                 {submitButton}
                 {modeSwitch}
                 {termsFooter}
@@ -863,25 +841,20 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
                   type="text"
                   inputMode="numeric"
                   autoComplete="one-time-code"
-                  maxLength={6}
+                  maxLength={4}
                   value={state.otp}
                   onChange={(e) =>
                     update({
-                      otp: e.target.value.replace(/\D/g, "").slice(0, 6),
+                      otp: e.target.value.replace(/\D/g, "").slice(0, 4),
                       error: null,
                     })
                   }
                   placeholder="------"
                   className="w-full rounded-full border border-white/20 bg-white/[0.05] px-5 py-[15px] text-center text-lg font-bold tracking-[0.6em] text-white placeholder:tracking-[0.4em] placeholder:text-[#C6C5D1] focus:border-[#F2A23A] focus:outline-none"
                 />
-                {state.hint && !state.error && (
+                {state.hint && (
                   <p className="text-center text-xs text-[#F2A23A]" role="status">
                     {state.hint}
-                  </p>
-                )}
-                {state.error && (
-                  <p className="text-center text-xs text-red-300" role="alert">
-                    {state.error}
                   </p>
                 )}
                 <div className="relative pt-2">
@@ -916,6 +889,7 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
             </div>
           )}
         </div>
+      {toast && <Toast message={toast} onDone={() => setToast(null)} />}
       </div>
     );
   }
@@ -989,12 +963,6 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
               <form onSubmit={handleDetailsSubmit} className="mt-5 space-y-3">
                 {formFields}
 
-                {state.error && (
-                  <p className="text-center text-xs text-red-300" role="alert">
-                    {state.error}
-                  </p>
-                )}
-
                 {submitButton}
                 {modeSwitch}
                 {termsFooter}
@@ -1013,25 +981,20 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
                 type="text"
                 inputMode="numeric"
                 autoComplete="one-time-code"
-                maxLength={6}
+                maxLength={4}
                 value={state.otp}
                 onChange={(e) =>
                   update({
-                    otp: e.target.value.replace(/\D/g, "").slice(0, 6),
+                    otp: e.target.value.replace(/\D/g, "").slice(0, 4),
                     error: null,
                   })
                 }
                 placeholder="------"
                 className="w-full rounded-full border border-white/15 bg-white/[0.04] px-4 py-3.5 text-center text-lg font-bold tracking-[0.6em] text-white placeholder:tracking-[0.4em] placeholder:text-white/30 focus:border-[#F2A23A] focus:outline-none"
               />
-              {state.hint && !state.error && (
+              {state.hint && (
                 <p className="text-center text-xs text-[#F2A23A]" role="status">
                   {state.hint}
-                </p>
-              )}
-              {state.error && (
-                <p className="text-center text-xs text-red-300" role="alert">
-                  {state.error}
                 </p>
               )}
               <button
@@ -1058,6 +1021,7 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll" }) => {
           )}
         </div>
       </div>
+      {toast && <Toast message={toast} onDone={() => setToast(null)} />}
     </div>
   );
 };

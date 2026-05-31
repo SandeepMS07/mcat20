@@ -57,7 +57,10 @@ export default function PlayerPicker({ players = [], selectedId = null, onPick, 
   }, [open]);
 
   const selected = useMemo(
-    () => players.find((p) => String(p.sf_player_id) === String(selectedId)) || null,
+    () =>
+      selectedId != null
+        ? players.find((p) => String(p.sf_player_id) === String(selectedId)) || null
+        : null,
     [players, selectedId],
   );
 

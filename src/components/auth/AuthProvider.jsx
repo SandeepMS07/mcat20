@@ -12,7 +12,6 @@ import {
 import { clearVoterKey } from "@/app/api/polls";
 import { AuthContext } from "./AuthContext";
 import LoginModal from "./LoginModal";
-import TeamNameGate from "./TeamNameGate";
 
 const USER_STORAGE = "mca_user";
 
@@ -41,6 +40,7 @@ const AuthProvider = ({ children }) => {
   const [token, setTokenState] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalVariant, setModalVariant] = useState("fanPoll");
+  const [modalMode, setModalMode] = useState("signup");
   const pendingActionRef = useRef(null);
   // Mirror auth state in a ref so openLogin (memoized with [] deps) can read
   // the current token without re-creating itself. Without this, openLogin
@@ -149,6 +149,7 @@ const AuthProvider = ({ children }) => {
     }
     pendingActionRef.current = typeof onSuccess === "function" ? onSuccess : null;
     setModalVariant(options?.variant || "fanPoll");
+    setModalMode(options?.mode || "signup");
     setModalOpen(true);
   }, []);
 
@@ -216,8 +217,8 @@ const AuthProvider = ({ children }) => {
         onClose={closeLogin}
         onSuccess={handleLoginSuccess}
         variant={modalVariant}
+        initialMode={modalMode}
       />
-      <TeamNameGate />
     </AuthContext.Provider>
   );
 };

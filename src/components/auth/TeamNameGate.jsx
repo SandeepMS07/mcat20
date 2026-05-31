@@ -15,12 +15,12 @@ import TeamNameModal from "./TeamNameModal";
 //      AuthProvider.openLogin short-circuits, so the modal flow is skipped
 //      entirely and the user would otherwise sneak past without a team name.
 
-export default function TeamNameGate() {
+export default function TeamNameGate({ suppress = false }) {
   const { isAuthed, user, updateUser } = useAuth();
   const [needed, setNeeded] = useState(false);
 
   useEffect(() => {
-    if (!isAuthed) {
+    if (!isAuthed || suppress) {
       setNeeded(false);
       return undefined;
     }

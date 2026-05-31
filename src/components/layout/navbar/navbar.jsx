@@ -410,7 +410,7 @@ const Navbar = () => {
                   ) : (
                     <button
                       type="button"
-                      onClick={() => openLogin()}
+                      onClick={() => openLogin(null, { mode: "signin" })}
                       className="group/signin inline-flex cursor-pointer items-center gap-2 whitespace-nowrap rounded-full border border-white/25 bg-white/[0.06] px-4 py-1.5 text-xs md:text-sm xl:text-[14px] font-semibold tracking-wide text-white/90 backdrop-blur-sm transition-all duration-200 hover:border-[#F2A23A]/60 hover:bg-white/[0.1] hover:text-white"
                     >
                       <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-white transition-colors group-hover/signin:bg-[#F2A23A]/20 group-hover/signin:text-[#F2A23A]">
@@ -604,7 +604,7 @@ const Navbar = () => {
                 type="button"
                 onClick={() => {
                   setMenuOpen(false);
-                  openLogin();
+                  openLogin(null, { mode: "signin" });
                 }}
                 className="flex w-full cursor-pointer items-center justify-center rounded-full bg-gradient-to-b from-[#F68323] to-[#E07E27] py-2.5 text-sm font-bold uppercase tracking-wide text-white shadow-[0_4px_14px_-4px_rgba(246,131,35,0.65)]"
               >

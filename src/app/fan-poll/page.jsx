@@ -60,10 +60,10 @@ export default function FanPollPage() {
 
   return (
     <div className="w-full bg-[#1E2F7D]">
-      <section className="relative overflow-hidden pt-[110px] pb-14 lg:pt-[130px] lg:pb-20 bg-[url('/images/texture-bg.png')] bg-cover bg-center bg-no-repeat">
+      <section className="relative overflow-hidden pt-[80px] pb-14 lg:pt-[90px] lg:pb-20 bg-[url('/images/texture-bg.png')] bg-cover bg-center bg-no-repeat">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,88,210,0.35),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(26,40,116,0.65),transparent_45%)]" />
         <div className="relative">
-          <div className="section-width pt-14 pb-4 md:pt-16 lg:pt-20">
+          <div className="section-width pb-4">
             <MatchFanPollSection />
           </div>
           <FanPoll

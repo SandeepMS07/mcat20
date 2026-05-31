@@ -25,10 +25,11 @@ export const checkTeamName = async (name) => {
   return res.data;
 };
 
-export const verifyOtp = async ({ mobile, otp, name, teamName }) => {
+export const verifyOtp = async ({ mobile, otp, name, teamName, email }) => {
   const body = { mobile, otp };
   if (name) body.name = name;
   if (teamName) body.teamName = teamName;
+  if (email) body.email = email;
   const res = await turboverseAxios.post("/v1/auth/verify-otp", body);
   return res.data;
 };
