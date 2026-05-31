@@ -636,7 +636,7 @@
                             "Name": "Jamshed Alam",
                             "Age__c": 23,
                             "Birthdate": "2002-12-13",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/men/Aakash%20Tigers/JAMSHED%20ALAM04%201.png",
+                            "Photo_URL_1__c": "https://storage.googleapis.com/mca_images_new/players/men/Aakash%20Tigers/jamshed-alam-mcam0467.png",
                             "MCA_Registration_Number__c": "MCAM0467"
                         },
                         "Base_Price_Absolute__c": 200000,
@@ -1000,7 +1000,8 @@
                         "playerAge": 16,
                         "birthData": "2010-02-18",
                         "playerId": "003IR00001l8WZgYAM",
-                        "category": "Under-19 Player"
+                        "category": "Under-19 Player",
+                        "hidden": true
                     },
                     {
                         "attributes": {
@@ -1231,6 +1232,105 @@
                         "playerAge": 23,
                         "birthData": "2002-09-09",
                         "playerId": "003IR00001l8WXmYAM",
+                        "category": "General Player"
+                    },
+                    {
+                        "attributes": {
+                            "type": "Player_Registration__c",
+                            "url": ""
+                        },
+                        "Id": "",
+                        "Name": "",
+                        "Reserve_Bid_Amount__c": 0,
+                        "Kitty_Bid_Amount__c": 0,
+                        "Primary_Role__c": "All - rounder",
+                        "Category__c": "General Player",
+                        "Player__c": "",
+                        "Player__r": {
+                            "attributes": {
+                                "type": "Contact",
+                                "url": ""
+                            },
+                            "Name": "Mahi Thakkar",
+                            "Age__c": null,
+                            "Birthdate": null,
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Aakash%20Tigers/mahi-thakkar-w00448.png",
+                            "MCA_Registration_Number__c": "W00448"
+                        },
+                        "Base_Price_Absolute__c": 0,
+                        "Winning_Bid__c": 0,
+                        "kitty_allocated__c": 0,
+                        "Recent_Competitive_Level__c": null,
+                        "Sold_To__c": "001e200000QVJHJAA5",
+                        "playerAge": null,
+                        "birthData": null,
+                        "playerId": "",
+                        "category": "General Player"
+                    },
+                    {
+                        "attributes": {
+                            "type": "Player_Registration__c",
+                            "url": ""
+                        },
+                        "Id": "",
+                        "Name": "",
+                        "Reserve_Bid_Amount__c": 0,
+                        "Kitty_Bid_Amount__c": 0,
+                        "Primary_Role__c": "Batsman",
+                        "Category__c": "General Player",
+                        "Player__c": "",
+                        "Player__r": {
+                            "attributes": {
+                                "type": "Contact",
+                                "url": ""
+                            },
+                            "Name": "Sejal Raut",
+                            "Age__c": null,
+                            "Birthdate": null,
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Aakash%20Tigers/sejal-raut-w00448.png",
+                            "MCA_Registration_Number__c": "W00449"
+                        },
+                        "Base_Price_Absolute__c": 0,
+                        "Winning_Bid__c": 0,
+                        "kitty_allocated__c": 0,
+                        "Recent_Competitive_Level__c": null,
+                        "Sold_To__c": "001e200000QVJHJAA5",
+                        "playerAge": null,
+                        "birthData": null,
+                        "playerId": "",
+                        "category": "General Player"
+                    },
+                    {
+                        "attributes": {
+                            "type": "Player_Registration__c",
+                            "url": ""
+                        },
+                        "Id": "",
+                        "Name": "",
+                        "Reserve_Bid_Amount__c": 0,
+                        "Kitty_Bid_Amount__c": 0,
+                        "Primary_Role__c": "Wicketkeeper",
+                        "Category__c": "General Player",
+                        "Player__c": "",
+                        "Player__r": {
+                            "attributes": {
+                                "type": "Contact",
+                                "url": ""
+                            },
+                            "Name": "Kimaya Santosh Rane",
+                            "Age__c": null,
+                            "Birthdate": null,
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Aakash%20Tigers/kimaya-santosh-rane-w00343.png",
+                            "MCA_Registration_Number__c": "W00343"
+                        },
+                        "Base_Price_Absolute__c": 0,
+                        "Winning_Bid__c": 0,
+                        "kitty_allocated__c": 0,
+                        "Recent_Competitive_Level__c": null,
+                        "Sold_To__c": "001e200000QVJHJAA5",
+                        "playerAge": null,
+                        "birthData": null,
+                        "playerId": "",
                         "category": "General Player"
                     }
                 ]
@@ -5308,7 +5408,7 @@
                             "Name": "Janhvi Rupesh Kate",
                             "Age__c": 25,
                             "Birthdate": "2000-12-27",
-                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/sobo/janhvi-rupesh-kate-w00166.png",
+                            "Photo_URL_1__c": "https://mca-cdn.ken42.com/players/women/%20Sobo%20Mumbai%20Falcons/janhvi-rupesh-kate-w00166.png",
                             "MCA_Registration_Number__c": "W00166"
                         },
                         "Base_Price_Absolute__c": 200000,

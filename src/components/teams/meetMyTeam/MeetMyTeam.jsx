@@ -51,7 +51,7 @@ const SECTION_CONFIG = [
 ];
 
 const MeetMyTeam = ({ data }) => {
-  const PlayerRecords = data?.Player_Registrations__r?.records || [];
+  const PlayerRecords = (data?.Player_Registrations__r?.records || []).filter((p) => !p.hidden);
   const teamDisplayName = (data?.Name || "")
     .replace(/\s*\(w\)\s*$/i, "")
     .trim()
