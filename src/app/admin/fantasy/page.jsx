@@ -476,15 +476,32 @@ function ReconcilePanel({ result, applied, busy, onApply, onDismiss }) {
     );
   }
 
-  const { dryRun, processed, matchesWithGhosts, totalGhosts, durationMs, results: rows = [] } = result;
-  const tainted = rows.filter((r) => r.ghostCount > 0 || r.error);
-  const cleanCount = processed - tainted.length;
-  // Color-key the header: green when there's nothing to fix or we just
-  // applied; amber when ghosts were detected and still need applying.
+  const {
+    dryRun,
+    processed,
+    scanned = 0,
+    skipped = 0,
+    matchesWithGhosts,
+    totalGhosts,
+    durationMs,
+    results: rows = [],
+  } = result;
+  const tainted = rows.filter((r) => r.ghostCount > 0);
+  const skippedRows = rows.filter((r) => r.skipReason);
+  // The "all skipped" case is the dangerous one — operator sees
+  // "0 ghosts" but the scanner never actually compared anything.
+  // Call that out explicitly.
+  const allSkipped = scanned === 0 && skipped > 0;
+  const cleanCount = scanned - tainted.length;
+
+  // Color-key the header:
+  //   amber when ghosts need applying OR every match was skipped
+  //         (operator should know nothing was checked)
+  //   green when applied OR everything scanned cleanly
   const headerTone =
-    applied || matchesWithGhosts === 0
-      ? "border-emerald-400/30 bg-emerald-400/10 text-emerald-100"
-      : "border-amber-400/30 bg-amber-400/10 text-amber-100";
+    !applied && (matchesWithGhosts > 0 || allSkipped)
+      ? "border-amber-400/30 bg-amber-400/10 text-amber-100"
+      : "border-emerald-400/30 bg-emerald-400/10 text-emerald-100";
 
   return (
     <div className={`mb-6 rounded-xl border px-4 py-3 text-sm ${headerTone}`}>
@@ -493,6 +510,8 @@ function ReconcilePanel({ result, applied, busy, onApply, onDismiss }) {
           <div className="font-semibold">
             {applied
               ? "Reconciliation applied"
+              : allSkipped
+              ? "Scanner couldn’t check any match — squad.js wasn’t fetchable"
               : dryRun
               ? matchesWithGhosts === 0
                 ? "Rosters are clean — no ghosts detected"
@@ -500,8 +519,12 @@ function ReconcilePanel({ result, applied, busy, onApply, onDismiss }) {
               : "Reconciliation complete"}
           </div>
           <div className="mt-1 text-xs text-white/65">
-            Scanned <b className="text-white">{processed}</b> match
+            <b className="text-white">{processed}</b> match
             {processed === 1 ? "" : "es"} in <b className="text-white">{durationMs}ms</b>
+            {" · "}
+            <b className="text-white">{scanned}</b> scanned
+            {" · "}
+            <b className="text-white">{skipped}</b> skipped
             {" · "}
             <b className="text-white">{matchesWithGhosts}</b> with ghosts
             {" · "}
@@ -514,6 +537,17 @@ function ReconcilePanel({ result, applied, busy, onApply, onDismiss }) {
               </>
             ) : null}
           </div>
+          {allSkipped ? (
+            <div className="mt-2 text-xs text-amber-200/85">
+              Likely cause: <code className="rounded bg-black/30 px-1">WIDGET_CDN_BASE</code> doesn’t
+              point at a bucket path that hosts <code className="rounded bg-black/30 px-1">{"{matchId}-squad.js"}</code>.
+              Check the backend env. Try{" "}
+              <code className="rounded bg-black/30 px-1">
+                https://mca-fantasy-bucket.s3.ap-south-1.amazonaws.com/testfeeds
+              </code>{" "}
+              if you’re running against the test bucket.
+            </div>
+          ) : null}
         </div>
         <div className="flex shrink-0 items-center gap-2">
           {dryRun && matchesWithGhosts > 0 && !applied ? (
@@ -538,6 +572,9 @@ function ReconcilePanel({ result, applied, busy, onApply, onDismiss }) {
 
       {tainted.length > 0 ? (
         <div className="mt-3 max-h-64 overflow-y-auto rounded-lg border border-white/10 bg-black/20 p-2">
+          <div className="px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-amber-200/70">
+            Matches with ghost rows
+          </div>
           <table className="w-full text-xs">
             <thead className="text-[10px] uppercase tracking-wider text-white/55">
               <tr>
@@ -556,17 +593,49 @@ function ReconcilePanel({ result, applied, busy, onApply, onDismiss }) {
                     {r.ghostCount}
                   </td>
                   <td className="px-2 py-1.5 text-white/70">
-                    {r.error ? (
-                      <span className="font-mono text-red-300">{r.error}</span>
-                    ) : (
-                      r.ghostSample?.join(", ") || "—"
-                    )}
+                    {r.ghostSample?.join(", ") || "—"}
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
+      ) : null}
+
+      {skippedRows.length > 0 ? (
+        <details className="mt-3 rounded-lg border border-white/10 bg-black/20">
+          <summary className="cursor-pointer px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-white/55 hover:text-white/85">
+            {skippedRows.length} skipped — show details
+          </summary>
+          <div className="max-h-64 overflow-y-auto p-2 pt-0">
+            <table className="w-full text-xs">
+              <thead className="text-[10px] uppercase tracking-wider text-white/55">
+                <tr>
+                  <th className="px-2 py-1.5 text-left">Match</th>
+                  <th className="px-2 py-1.5 text-left">Status</th>
+                  <th className="px-2 py-1.5 text-left">Reason</th>
+                </tr>
+              </thead>
+              <tbody>
+                {skippedRows.map((r) => (
+                  <tr key={r.matchId} className="border-t border-white/5">
+                    <td className="px-2 py-1.5 font-mono text-white">{r.matchId}</td>
+                    <td className="px-2 py-1.5 capitalize text-white/65">{r.status}</td>
+                    <td className="px-2 py-1.5 text-white/70">
+                      {r.skipReason === "squad_not_published"
+                        ? "squad.js not published yet (pre-toss)"
+                        : r.skipReason === "fetch_failed"
+                        ? r.error
+                          ? `fetch failed — ${r.error}`
+                          : "fetch failed (CDN unreachable / 404)"
+                        : r.error || "—"}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </details>
       ) : null}
     </div>
   );
