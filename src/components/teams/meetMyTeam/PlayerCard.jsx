@@ -37,7 +37,9 @@ const PlayerCard = ({
           loading="lazy"
         />
       ) : (
-        <div className="mtt-card-photo-fallback" aria-hidden />
+        <div className="mtt-card-photo-fallback">
+          <span>{player.firstName?.charAt(0)}</span>
+        </div>
       )}
 
       {voteState === "button" && (
