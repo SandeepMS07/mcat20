@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from "react";
 
-const MATCHCENTRE_CSS = "https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/app.css";
-const MATCHCENTRE_SCRIPT = "https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/app_matchcentre.js";
+const MATCHCENTRE_CSS =
+  "https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/app.css";
+const MATCHCENTRE_SCRIPT =
+  "https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/app_matchcentre.js";
 const WIDGET_SCRIPT_ID = "matchcentre-widget-script";
 
 const loadWidgetScript = () => {
@@ -50,7 +52,7 @@ export default function Page() {
         {/* Title Block */}
         <div className="w-full bg-[#091d65] py-10">
           <div className="section-width">
-            <h1 className="flex flex-col text-5xl font-extrabold uppercase italic leading-[0.92] sm:text-6xl lg:text-7xl">
+            <h1 className="flex flex-row gap-2 text-5xl font-extrabold uppercase italic leading-[0.92] sm:text-6xl lg:text-7xl">
               <span
                 className="text-transparent"
                 style={{ WebkitTextStroke: "2px white" }}
@@ -62,7 +64,7 @@ export default function Page() {
           </div>
         </div>
         <div className="section-width pt-10">
-  {/* {iframeSrc ? (
+          {/* {iframeSrc ? (
                     <iframe
                     src={iframeSrc}
                     title="Matchcentre Preview"
@@ -73,13 +75,15 @@ export default function Page() {
                 ) : (x
                     <p>Loading match centre...</p> 
                 )} */}
-            {/* </div> */}
+          {/* </div> */}
           <div className="relative mt-8 overflow-hidden">
             <app-matchcentre
               className={widgetLoaded ? "block" : "opacity-0"}
               style={{ display: "block", position: "relative" }}
             ></app-matchcentre>
-            {!widgetLoaded && <p className="text-white">Loading Match Centre Widget...</p>}
+            {!widgetLoaded && (
+              <p className="text-white">Loading Match Centre Widget...</p>
+            )}
           </div>
         </div>
       </div>

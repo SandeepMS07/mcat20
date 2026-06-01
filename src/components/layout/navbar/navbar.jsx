@@ -161,9 +161,9 @@ const Navbar = () => {
     <div
       className={
         matchesPageBg
-          ? "relative bg-[#081d65] lg:h-[120px] h-[85px]"
+          ? "relative bg-[#081d65] lg:h-[100px] h-[72px]"
           : pathName.includes(routes.yourPhotos)
-          ? "bg-gradient-to-r from-[#060A17] to-[#203376] lg:h-[120px] h-[85px]"
+          ? "bg-gradient-to-r from-[#060A17] to-[#203376] lg:h-[100px] h-[72px]"
           : ""
       }
     >
@@ -181,7 +181,7 @@ const Navbar = () => {
           <div className="pointer-events-none absolute inset-0 bg-[rgba(13,55,169,0.55)]" />
         </>
       )}
-      <div className="absolute top-0 z-50 w-full overflow-hidden bg-[#F68323] py-1">
+      <div className="absolute top-0 z-50 w-full overflow-hidden bg-[#F68323] py-0.5">
         <div className="flex w-max animate-[topMarquee_80s_linear_infinite] items-center whitespace-nowrap">
           {[...Array(2)].map((_, groupIdx) => (
             <div key={groupIdx} className="flex shrink-0 items-center">
@@ -198,30 +198,30 @@ const Navbar = () => {
           ))}
         </div>
       </div>
-      <div className="z-50 absolute top-[40px] w-full flex justify-center ">
+      <div className="z-50 absolute top-[28px] w-full flex justify-center ">
         <div className="relative w-full lg:w-auto">
           {/* Logo Section */}
 
-          <nav className="flex items-center justify-between gap-1.5 lg:gap-2 rounded-full relative overflow-visible w-full lg:w-auto pl-2 pr-2 lg:pl-3 lg:pr-2 py-1.5 border border-white/15 bg-[rgba(8,18,55,0.55)] backdrop-blur-2xl shadow-[0_10px_40px_-12px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.18)]">
+          <nav className="flex items-center justify-between gap-1 lg:gap-2 rounded-full relative overflow-visible w-full lg:w-auto pl-1.5 pr-1.5 lg:pl-3 lg:pr-2 py-1 lg:py-1.5 border border-white/15 bg-[rgba(8,18,55,0.55)] backdrop-blur-2xl shadow-[0_10px_40px_-12px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.18)]">
             <div
-              className="relative shrink-0 mx-auto lg:mx-0 px-2 lg:px-3"
+              className="relative shrink-0 mx-auto lg:mx-0 px-1.5 lg:px-3"
               style={{ zIndex: 9999 }}
             >
               {!menuOpen && (
-                <Link href="/" className="flex items-center justify-center gap-2.5 sm:gap-3 w-full">
+                <Link href="/" className="flex items-center justify-center gap-2 w-full">
                   <Image
                     src={"https://mca-cdn.ken42.com/mca-logos/t20-m.png"}
                     alt="T20 Mumbai logo"
-                    className="h-9 w-auto sm:h-10 md:h-11 lg:h-12 cursor-pointer drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]"
+                    className="h-7 w-auto sm:h-8 md:h-9 lg:h-11 cursor-pointer drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]"
                     width={100}
                     height={100}
                     onClick={() => redirect("/")}
                   />
-                  <span aria-hidden className="h-6 w-px bg-white/30 sm:h-7 md:h-7 lg:h-8" />
+                  <span aria-hidden className="h-5 w-px bg-white/30 sm:h-6 md:h-6 lg:h-8" />
                   <Image
                     src={"/images/home/logo-w.png"}
                     alt="Women's league logo"
-                    className="h-9 w-auto sm:h-10 md:h-11 lg:h-12 cursor-pointer drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]"
+                    className="h-7 w-auto sm:h-8 md:h-9 lg:h-11 cursor-pointer drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]"
                     width={100}
                     height={100}
                   />
@@ -230,7 +230,7 @@ const Navbar = () => {
             </div>
             {/* Navigation Links */}
             <div className="items-center lg:flex hidden">
-              <ul className="flex items-center gap-1 xl:gap-1.5">
+              <ul className="flex items-center gap-0.5 xl:gap-1">
                 {navLinks.map((item, i) => {
                   const isExternal = /^https?:\/\//.test(item.path);
                   const hasChildren =
@@ -245,7 +245,7 @@ const Navbar = () => {
                       <li key={i} className="relative group">
                         <button
                           type="button"
-                          className={`flex cursor-pointer items-center gap-1 whitespace-nowrap rounded-full px-3 xl:px-4 py-2 text-xs md:text-sm xl:text-[14px] font-semibold tracking-wide transition-all duration-200 ${
+                          className={`flex cursor-pointer items-center gap-1 whitespace-nowrap rounded-full px-2 md:px-3 xl:px-4 py-1.5 md:py-2 text-xs xl:text-[13px] font-semibold tracking-wide transition-all duration-200 ${
                             isActive
                               ? "bg-gradient-to-b from-[#F68323] to-[#E07E27] text-white shadow-[0_4px_14px_-4px_rgba(246,131,35,0.65)]"
                               : "text-white/85 hover:text-white hover:bg-white/10"
@@ -302,7 +302,7 @@ const Navbar = () => {
                         <button
                           type="button"
                           onClick={() => handleGatedNavClick(item)}
-                          className={`inline-flex items-center gap-1.5 cursor-pointer whitespace-nowrap rounded-full px-3 xl:px-4 py-2 text-xs md:text-sm xl:text-[14px] font-semibold tracking-wide transition-all duration-200 ${
+                          className={`inline-flex items-center gap-1.5 cursor-pointer whitespace-nowrap rounded-full px-2 md:px-3 xl:px-4 py-1.5 md:py-2 text-xs xl:text-[13px] font-semibold tracking-wide transition-all duration-200 ${
                             isActive
                               ? "bg-gradient-to-b from-[#F68323] to-[#E07E27] text-white shadow-[0_4px_14px_-4px_rgba(246,131,35,0.65)]"
                               : "text-white/85 hover:text-white hover:bg-white/10"
@@ -326,7 +326,7 @@ const Navbar = () => {
                         href={item.path}
                         target={isExternal ? "_blank" : undefined}
                         rel={isExternal ? "noopener noreferrer" : undefined}
-                        className={`inline-flex items-center gap-1.5 cursor-pointer whitespace-nowrap rounded-full px-3 xl:px-4 py-2 text-xs md:text-sm xl:text-[14px] font-semibold tracking-wide transition-all duration-200 ${
+                        className={`inline-flex items-center gap-1.5 cursor-pointer whitespace-nowrap rounded-full px-2 md:px-3 xl:px-4 py-1.5 md:py-2 text-xs xl:text-[13px] font-semibold tracking-wide transition-all duration-200 ${
                           isActive
                             ? "bg-gradient-to-b from-[#F68323] to-[#E07E27] text-white shadow-[0_4px_14px_-4px_rgba(246,131,35,0.65)]"
                             : "text-white/85 hover:text-white hover:bg-white/10"

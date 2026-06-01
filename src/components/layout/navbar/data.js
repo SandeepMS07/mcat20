@@ -30,6 +30,10 @@ export const navLinks = [
     path: `${routes.stats}`,
   },
   {
+    title: "Viewers' Choice",
+    path: `${routes.choice}`,
+  },
+  {
     title: "Buy Tickets",
     path: "https://link.district.in/DSTRKT/t20mumbailandingpagesocials",
   },

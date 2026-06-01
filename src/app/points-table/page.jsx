@@ -17,7 +17,12 @@ const SEASON_OPTIONS = [
 
 const RECENT_FORM_TEMPLATE = ["W", "L", "L", "W", "W"];
 
-const getSeasonData = (season, standingsSeason3, season4Data, season4Gender) => {
+const getSeasonData = (
+  season,
+  standingsSeason3,
+  season4Data,
+  season4Gender,
+) => {
   if (season === "season_4") {
     return season4Data[season4Gender] ?? [];
   }
@@ -30,9 +35,7 @@ const getSeasonData = (season, standingsSeason3, season4Data, season4Gender) => 
 const buildTeamLabel = (team, useSeason3Shape) => {
   const name = useSeason3Shape ? team?.TeamName : team?.team_name || "Unknown";
   const shortName = useSeason3Shape ? name : teamShortName[name] || name;
-  const logo = useSeason3Shape
-    ? team?.TeamLogo
-    : season3TeamLogo[name] || "";
+  const logo = useSeason3Shape ? team?.TeamLogo : season3TeamLogo[name] || "";
   return { name, shortName, logo };
 };
 
@@ -50,7 +53,7 @@ const PointsTablePage = () => {
         const [standingsRes, s4Res] = await Promise.all([
           getStandings(),
           fetch(STANDINGS_S4_URL).then((r) =>
-            r.ok ? r.json() : { men: [], women: [] }
+            r.ok ? r.json() : { men: [], women: [] },
           ),
         ]);
         setStandingsSeason3(standingsRes?.data?.season_3?.points || []);
@@ -76,8 +79,7 @@ const PointsTablePage = () => {
     const sorted =
       activeSeason === "season_4"
         ? [...seasonData].sort(
-            (a, b) =>
-              (b.Points - a.Points) || (b.NetRunRate - a.NetRunRate),
+            (a, b) => b.Points - a.Points || b.NetRunRate - a.NetRunRate,
           )
         : seasonData;
     return sorted.map((team, index) => ({ team, rank: index + 1 }));
@@ -112,7 +114,7 @@ const PointsTablePage = () => {
           {/* Mobile header — Stats-page style */}
           <div className="md:hidden">
             <div className="mb-6 flex flex-col items-center gap-4">
-              <h1 className="flex flex-col text-3xl font-extrabold uppercase italic leading-[0.9] text-white">
+              <h1 className="flex gap-2 text-3xl font-extrabold uppercase italic leading-[0.9] text-white">
                 <span
                   className="text-transparent"
                   style={{ WebkitTextStroke: "1.5px #7E93DB" }}
@@ -152,8 +154,9 @@ const PointsTablePage = () => {
                 options={SEASON_OPTIONS.map((o) => o.value)}
                 onChange={setActiveSeason}
                 formatOption={(v) =>
-                  (SEASON_OPTIONS.find((o) => o.value === v)?.label ||
-                    v).toUpperCase()
+                  (
+                    SEASON_OPTIONS.find((o) => o.value === v)?.label || v
+                  ).toUpperCase()
                 }
               />
             </div>
@@ -161,7 +164,7 @@ const PointsTablePage = () => {
 
           {/* Desktop header — original layout */}
           <div className="mb-8 hidden flex-col gap-5 md:flex md:flex-row md:items-end md:justify-between">
-            <h1 className="flex flex-col text-5xl font-extrabold uppercase italic leading-[0.9] text-white sm:text-6xl">
+            <h1 className="flex flex-row gap-2 text-5xl font-extrabold uppercase italic leading-[0.9] text-white sm:text-6xl">
               <span
                 className="text-transparent [-webkit-text-stroke:2px_#7E93DB]"
                 style={{ WebkitTextStroke: "2px #7E93DB" }}
@@ -202,8 +205,9 @@ const PointsTablePage = () => {
                   options={SEASON_OPTIONS.map((o) => o.value)}
                   onChange={setActiveSeason}
                   formatOption={(v) =>
-                    (SEASON_OPTIONS.find((o) => o.value === v)?.label ||
-                      v).toUpperCase()
+                    (
+                      SEASON_OPTIONS.find((o) => o.value === v)?.label || v
+                    ).toUpperCase()
                   }
                 />
               </div>
@@ -220,7 +224,7 @@ const PointsTablePage = () => {
             </div>
           ) : (
             <div className="overflow-x-auto">
-              <table className="w-full md:min-w-[1100px] text-white border-separate border-spacing-y-3 italic">
+              <table className="w-full min-w-[700px] md:min-w-[1100px] text-white border-separate border-spacing-y-3 italic">
                 <thead>
                   <tr className="text-left text-[10px] sm:text-xs uppercase text-[#FFE24A] bg-[#1F43C5]">
                     {activeSeason !== "season_4" && (
@@ -238,16 +242,21 @@ const PointsTablePage = () => {
                     <th className="px-2 py-2.5 sm:px-4 sm:py-3">P</th>
                     <th className="px-2 py-2.5 sm:px-4 sm:py-3">W</th>
                     <th className="px-2 py-2.5 sm:px-4 sm:py-3">L</th>
-                    <th className="hidden md:table-cell px-4 py-3">T</th>
-                    <th className="hidden md:table-cell px-4 py-3">NRR</th>
-                    <th className="hidden md:table-cell px-4 py-3">For</th>
-                    <th className="hidden md:table-cell px-4 py-3">Against</th>
-                    <th className="rounded-r-full px-2 py-2.5 sm:px-4 sm:py-3">Pts</th>
+                    <th className="px-2 py-2.5 sm:px-4 sm:py-3">T</th>
+                    <th className="px-2 py-2.5 sm:px-4 sm:py-3">NRR</th>
+                    <th className="px-2 py-2.5 sm:px-4 sm:py-3">For</th>
+                    <th className="px-2 py-2.5 sm:px-4 sm:py-3">Against</th>
+                    <th className="rounded-r-full px-2 py-2.5 sm:px-4 sm:py-3">
+                      Pts
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
                   {rows.map((row) => (
-                    <tr key={`${row.name}-${row.rank}`} className="text-xs sm:text-sm">
+                    <tr
+                      key={`${row.name}-${row.rank}`}
+                      className="text-xs sm:text-sm"
+                    >
                       {activeSeason !== "season_4" && (
                         <td
                           className="px-1 sm:px-2 text-3xl sm:text-5xl font-black italic leading-none text-transparent [-webkit-text-stroke:2px_#7E93DB] w-8 sm:w-12"
@@ -260,7 +269,7 @@ const PointsTablePage = () => {
                         <div class="hidden sm:block w-[54.5px] h-[32px] bg-[#D18FDB] rounded-t-full absolute z-10 -rotate-90 -right-[11.5px] top-[11px]"></div>
                         <div class="hidden sm:block w-[54.5px] h-[32px] bg-[#192A66] rounded-t-full absolute z-10 -rotate-90 -right-[12px] top-[11px]"></div>
                         <div className="relative flex items-center gap-1.5 sm:gap-2 overflow-hidden rounded-l-full bg-[#2447C6] pr-3 sm:pr-6">
-                          <div className="z-10 flex h-8 w-8 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-white border border-[#AF313A] m-0.5">
+                          <div className="z-10 flex h-8 w-8 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-full bg-white border border-[#AF313A] m-0.5">
                             {row.logo ? (
                               <img
                                 src={row.logo}
@@ -269,11 +278,12 @@ const PointsTablePage = () => {
                               />
                             ) : null}
                           </div>
-                          <span className="z-10 pr-2 sm:pr-5 text-[10px] sm:text-xs font-extrabold uppercase text-[#FFE150]">
+                          <span className="z-10 pr-2 sm:pr-5 text-[10px] sm:text-xs font-extrabold uppercase text-[#FFE150] truncate">
                             {row.shortName}
                           </span>
                           {activeSeason !== "season_4" &&
-                            row.rank <= (activeSeason === "season_1" ? 2 : 4) && (
+                            row.rank <=
+                              (activeSeason === "season_1" ? 2 : 4) && (
                               <span className="absolute right-[10px] sm:right-[22px] z-10 flex h-4 w-4 items-center justify-center rounded-full bg-[#FFE24A] text-[9px] font-black text-[#1A2C76]">
                                 Q
                               </span>
@@ -292,19 +302,19 @@ const PointsTablePage = () => {
                         <div className="h-3/5 w-[.5px] bg-[#9F3BE3]/70 absolute top-0 bottom-0 my-auto right-0"></div>
                         {row.l}
                       </td>
-                      <td className="hidden md:table-cell px-4 py-2 font-semibold bg-[#192A66] relative">
+                      <td className="px-2 py-2 sm:px-4 font-semibold bg-[#192A66] relative text-center sm:text-left">
                         <div className="h-3/5 w-[.5px] bg-[#9F3BE3]/70 absolute top-0 bottom-0 my-auto right-0"></div>
                         {row.t}
                       </td>
-                      <td className="hidden md:table-cell px-4 py-2 font-semibold bg-[#192A66] relative">
+                      <td className="px-2 py-2 sm:px-4 font-semibold bg-[#192A66] relative text-center sm:text-left">
                         <div className="h-3/5 w-[.5px] bg-[#9F3BE3]/70 absolute top-0 bottom-0 my-auto right-0"></div>
                         {row.nrr}
                       </td>
-                      <td className="hidden md:table-cell px-4 py-2 font-semibold bg-[#192A66] relative">
+                      <td className="px-2 py-2 sm:px-4 font-semibold bg-[#192A66] relative text-center sm:text-left">
                         <div className="h-3/5 w-[.5px] bg-[#9F3BE3]/70 absolute top-0 bottom-0 my-auto right-0"></div>
                         {row.for}
                       </td>
-                      <td className="hidden md:table-cell px-4 py-2 font-semibold bg-[#192A66] relative">
+                      <td className="px-2 py-2 sm:px-4 font-semibold bg-[#192A66] relative text-center sm:text-left">
                         <div className="h-3/5 w-[.5px] bg-[#9F3BE3]/70 absolute top-0 bottom-0 my-auto right-0"></div>
                         {row.against}
                       </td>

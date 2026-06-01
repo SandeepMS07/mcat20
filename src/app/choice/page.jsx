@@ -85,7 +85,7 @@ export default function ChoicePage() {
         <div className="section-width section-padding relative">
           {/* Heading row */}
           <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
-            <h1 className="text-4xl font-extrabold italic uppercase leading-[0.95] tracking-tight sm:text-5xl lg:text-6xl">
+            <h1 className="flex gap-2 text-4xl font-extrabold italic uppercase leading-[0.95] tracking-tight sm:text-5xl lg:text-6xl">
               <span
                 className="block text-transparent"
                 style={{ WebkitTextStroke: "1.5px #ffffff" }}
