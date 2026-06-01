@@ -2,14 +2,11 @@
 
 import { useEffect, useMemo, useState } from "react";
 import standingsData from "@/constant/oldSeason/standings/standings_data_v3.json";
-import { getStandings } from "../api/serverApi";
+import { getStandings } from "../api/clientApi";
 import { season3TeamLogo, teamShortName } from "@/utilis/helper";
 import Sponsorship from "@/components/common/Sponsorship";
 import CustomSelect from "@/components/common/CustomSelect";
-import {
-  SEASON4_TEAM_LOGO_MAP,
-  SEASON4_WOMEN_NAME_TO_LOGO_KEY,
-} from "@/utilis/fixtures/fixtures4";
+const STANDINGS_S4_URL = "/api/standings";
 
 const SEASON_OPTIONS = [
   { label: "Season 4", value: "season_4" },
@@ -20,45 +17,9 @@ const SEASON_OPTIONS = [
 
 const RECENT_FORM_TEMPLATE = ["W", "L", "L", "W", "W"];
 
-const SEASON4_MEN_TEAMS = [
-  "Aakash Tigers MWS",
-  "Arcs Andheri",
-  "Bandra Blasters",
-  "Eagle Thane Strikers",
-  "MSC Maratha Royals",
-  "North Mumbai Panthers",
-  "SoBo Mumbai Falcons",
-  "Triumph Knights Mumbai North East",
-];
-
-const SEASON4_WOMEN_TEAMS = Object.keys(SEASON4_WOMEN_NAME_TO_LOGO_KEY);
-
-const buildSeason4Row = (name, isWomen) => {
-  const logoKey = isWomen
-    ? SEASON4_WOMEN_NAME_TO_LOGO_KEY[name] || name
-    : name;
-  return {
-    TeamName: name,
-    TeamLogo: SEASON4_TEAM_LOGO_MAP[logoKey] || "",
-    Matches: 0,
-    Wins: 0,
-    Loss: 0,
-    Tied: 0,
-    NetRunRate: 0,
-    ForTeams: "0/0.0",
-    AgainstTeam: "0/0.0",
-    Points: 0,
-  };
-};
-
-const getSeason4Data = (gender) =>
-  (gender === "women" ? SEASON4_WOMEN_TEAMS : SEASON4_MEN_TEAMS).map((n) =>
-    buildSeason4Row(n, gender === "women"),
-  );
-
-const getSeasonData = (season, standingsSeason3, season4Gender) => {
+const getSeasonData = (season, standingsSeason3, season4Data, season4Gender) => {
   if (season === "season_4") {
-    return getSeason4Data(season4Gender);
+    return season4Data[season4Gender] ?? [];
   }
   if (season === "season_3") {
     return Array.isArray(standingsSeason3) ? standingsSeason3 : [];
@@ -79,14 +40,24 @@ const PointsTablePage = () => {
   const [activeSeason, setActiveSeason] = useState("season_4");
   const [season4Gender, setSeason4Gender] = useState("men");
   const [standingsSeason3, setStandingsSeason3] = useState([]);
+  const [season4Data, setSeason4Data] = useState({ men: [], women: [] });
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const standingsRes = await getStandings();
+        const [standingsRes, s4Res] = await Promise.all([
+          getStandings(),
+          fetch(STANDINGS_S4_URL).then((r) =>
+            r.ok ? r.json() : { men: [], women: [] }
+          ),
+        ]);
         setStandingsSeason3(standingsRes?.data?.season_3?.points || []);
+        setSeason4Data({
+          men: s4Res?.men ?? [],
+          women: s4Res?.women ?? [],
+        });
       } finally {
         setLoading(false);
       }
@@ -99,10 +70,18 @@ const PointsTablePage = () => {
     const seasonData = getSeasonData(
       activeSeason,
       standingsSeason3,
+      season4Data,
       season4Gender,
     );
-    return seasonData.map((team, index) => ({ team, rank: index + 1 }));
-  }, [activeSeason, standingsSeason3, season4Gender]);
+    const sorted =
+      activeSeason === "season_4"
+        ? [...seasonData].sort(
+            (a, b) =>
+              (b.Points - a.Points) || (b.NetRunRate - a.NetRunRate),
+          )
+        : seasonData;
+    return sorted.map((team, index) => ({ team, rank: index + 1 }));
+  }, [activeSeason, standingsSeason3, season4Data, season4Gender]);
 
   const rows = useMemo(() => {
     const useSeason3Shape =
