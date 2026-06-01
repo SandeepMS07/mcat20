@@ -1,5 +1,5 @@
 import { getAxiosInstance } from "./axiosInstance";
-import teamDetailsStatic from "@/constant/team/teamDetailsDataSeason4.json";
+import { PLAYERS_API_PATH } from "./admin/localPlayers";
 
 const axios = getAxiosInstance();
 const DEFAULT_TTL_MS = 5 * 60 * 1000;
@@ -13,8 +13,6 @@ const withInferredTeamType = (payload) => {
   });
   return { ...payload, data };
 };
-
-const STATIC_TEAM_DETAILS = withInferredTeamType(teamDetailsStatic);
 
 const memoryCache = new Map();
 
@@ -75,7 +73,11 @@ const fetchWithCache = async (key, requestFn, ttlMs = DEFAULT_TTL_MS) => {
   return freshData;
 };
 
-export const getTeamDetailsClient = async () => STATIC_TEAM_DETAILS;
+export const getTeamDetailsClient = async () => {
+  const res = await fetch(PLAYERS_API_PATH);
+  if (!res.ok) throw new Error(`Failed to fetch players: ${res.status}`);
+  return withInferredTeamType(await res.json());
+};
 
 export const getVideosClient = async () => {
   try {

@@ -21,7 +21,7 @@ export default function NewPollPage() {
     listMatches()
       .then((res) => setMatches(res.matches || []))
       .catch(() => setMatches([]));
-    setPlayers(getLocalSquadPlayers());
+    getLocalSquadPlayers().then(setPlayers).catch(() => setPlayers([]));
   }, []);
 
   const handleSubmit = async (body) => {

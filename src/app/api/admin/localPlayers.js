@@ -1,15 +1,21 @@
-import teamData from "@/constant/team/teamDetailsDataSeason4.json";
+// Server-to-CDN fetch — used by server components and API routes only.
+// Client-side code must use /api/players (the Next.js proxy route) to avoid
+// CORS errors, since mca-cdn.ken42.com does not allow browser origins.
+const CDN_URL =
+  "https://mca-cdn.ken42.com/players-list/teamDetailsDataSeason4.json";
 
-// Transforms the local teamDetailsDataSeason4.json into the same flat shape
-// that the /v1/squads/players API returns, so PlayerPicker works without
-// hitting the network.
-//
-// Returned shape per player:
-//   { id, sf_player_id, player_name, photo_url, team_name, category, role, is_icon }
+// Internal proxy route — safe to call from the browser.
+export const PLAYERS_API_PATH = "/api/players";
+
 let _cache = null;
 
-export function getLocalSquadPlayers() {
+// Returns a flat player list. Server-side only.
+export async function getLocalSquadPlayers() {
   if (_cache) return _cache;
+
+  const res = await fetch(CDN_URL, { next: { revalidate: 300 } });
+  if (!res.ok) throw new Error(`Failed to fetch players JSON: ${res.status}`);
+  const teamData = await res.json();
 
   const rows = [];
   const teams = teamData?.data ?? [];
@@ -37,4 +43,11 @@ export function getLocalSquadPlayers() {
 
   _cache = rows;
   return rows;
+}
+
+// Returns the raw JSON shape. Server-side only.
+export async function fetchTeamDetailsData() {
+  const res = await fetch(CDN_URL, { next: { revalidate: 300 } });
+  if (!res.ok) throw new Error(`Failed to fetch players JSON: ${res.status}`);
+  return res.json();
 }
