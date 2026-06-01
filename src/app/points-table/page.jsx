@@ -239,7 +239,7 @@ const PointsTablePage = () => {
                     >
                       Teams
                     </th>
-                    <th className="px-2 py-2.5 sm:px-4 sm:py-3">P</th>
+                    <th className="px-2 py-2.5 sm:px-4 sm:py-3">M</th>
                     <th className="px-2 py-2.5 sm:px-4 sm:py-3">W</th>
                     <th className="px-2 py-2.5 sm:px-4 sm:py-3">L</th>
                     <th className="px-2 py-2.5 sm:px-4 sm:py-3">T</th>

@@ -5,6 +5,17 @@ import "./style.css";
 
 const TOP_N = 4;
 
+const SEASON4_MEN_STATIC = [
+  { TeamName: "Eagle Thane Strikers", TeamLogo: "", Matches: 1, Wins: 1, Loss: 0, Tied: 0, NetRunRate: 3.202, ForTeams: "194/15.2", AgainstTeam: "189/20.0", Points: 2 },
+  { TeamName: "Aakash Tigers MWS",    TeamLogo: "", Matches: 0, Wins: 0, Loss: 0, Tied: 0, NetRunRate: 0,     ForTeams: "0/0.0",    AgainstTeam: "0/0.0",    Points: 0 },
+  { TeamName: "Arcs Andheri",         TeamLogo: "", Matches: 0, Wins: 0, Loss: 0, Tied: 0, NetRunRate: 0,     ForTeams: "0/0.0",    AgainstTeam: "0/0.0",    Points: 0 },
+  { TeamName: "Bandra Blasters",      TeamLogo: "", Matches: 1, Wins: 0, Loss: 1, Tied: 0, NetRunRate: -3.202, ForTeams: "189/20.0", AgainstTeam: "194/15.2", Points: 0 },
+  { TeamName: "MSC Maratha Royals",   TeamLogo: "", Matches: 0, Wins: 0, Loss: 0, Tied: 0, NetRunRate: 0,     ForTeams: "0/0.0",    AgainstTeam: "0/0.0",    Points: 0 },
+  { TeamName: "North Mumbai Panthers",TeamLogo: "", Matches: 0, Wins: 0, Loss: 0, Tied: 0, NetRunRate: 0,     ForTeams: "0/0.0",    AgainstTeam: "0/0.0",    Points: 0 },
+  { TeamName: "SoBo Mumbai Falcons",  TeamLogo: "", Matches: 0, Wins: 0, Loss: 0, Tied: 0, NetRunRate: 0,     ForTeams: "0/0.0",    AgainstTeam: "0/0.0",    Points: 0 },
+  { TeamName: "Triumph Knights Mumbai North East", TeamLogo: "", Matches: 0, Wins: 0, Loss: 0, Tied: 0, NetRunRate: 0, ForTeams: "0/0.0", AgainstTeam: "0/0.0", Points: 0 },
+];
+
 const getTeamAbbreviation = (teamName) => {
   if (!teamName) return "";
   return teamName
@@ -23,8 +34,7 @@ const HomeStandingsSection = () => {
       const standingsRes = await getStandings();
       const points =
         standingsRes?.data?.season_4?.points ||
-        standingsRes?.data?.season_3?.points ||
-        [];
+        SEASON4_MEN_STATIC;
       setStandingsData(points);
       setLoading(false);
     };
@@ -32,6 +42,13 @@ const HomeStandingsSection = () => {
   }, []);
 
   const rows = (Array.isArray(standingsData) ? standingsData : [])
+    .slice()
+    .sort((a, b) => {
+      const pts = (t) => Number(t?.Points ?? t?.points ?? 0);
+      const nrr = (t) => Number(t?.NetRunRate ?? t?.net_run_rate ?? 0);
+      const m = (t) => Number(t?.Matches ?? t?.played ?? 0);
+      return pts(b) - pts(a) || m(b) - m(a) || nrr(b) - nrr(a);
+    })
     .slice(0, TOP_N)
     .map((team, index) => {
       const fullName = team?.TeamName || team?.team_name || "Unknown";
@@ -93,7 +110,7 @@ const HomeStandingsSection = () => {
                   <tr className="bg-[#1F43C5] text-left text-xs uppercase text-[#FFE24A]">
                     <th className="rounded-l-full px-4 py-3">Pos</th>
                     <th className="px-4 py-3">Teams</th>
-                    <th className="px-4 py-3">P</th>
+                    <th className="px-4 py-3">M</th>
                     <th className="px-4 py-3">W</th>
                     <th className="px-4 py-3">L</th>
                     <th className="px-4 py-3">T</th>

@@ -78,8 +78,8 @@ export default function Page() {
           {/* </div> */}
           <div className="relative mt-8 overflow-hidden">
             <app-matchcentre
+              style={{ display: "block", width: "100%", position: "relative" }}
               className={widgetLoaded ? "block" : "opacity-0"}
-              style={{ display: "block", position: "relative" }}
             ></app-matchcentre>
             {!widgetLoaded && (
               <p className="text-white">Loading Match Centre Widget...</p>

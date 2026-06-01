@@ -12,7 +12,7 @@ import { requestSsoHandoff } from "@/app/api/auth";
 import { FANTASY_WEB_BASE } from "@/constant";
 
 const TOP_MARQUEE_TEXT =
-  "T20 Mumbai Men’s & Women’s League | June 1-13 | Wankhede Stadium";
+  "T20 Mumbai Creators League | Your chance to win BIG | Participate Now";
 
 const getInitials = (name) => {
   if (!name) return "";
@@ -186,13 +186,14 @@ const Navbar = () => {
           {[...Array(2)].map((_, groupIdx) => (
             <div key={groupIdx} className="flex shrink-0 items-center">
               {[...Array(8)].map((_, idx) => (
-                <span
+                <Link
                   key={`${groupIdx}-${idx}`}
-                  className="mx-6 inline-flex items-center gap-2 text-xs font-semibold text-white sm:text-xs lg:text-sm"
+                  href="/go/cl"
+                  className="mx-6 inline-flex items-center gap-2 text-xs font-semibold text-white transition-opacity hover:opacity-80 sm:text-xs lg:text-sm"
                 >
                   <span className="h-1.5 w-1.5 rounded-full bg-white" />
                   {TOP_MARQUEE_TEXT}
-                </span>
+                </Link>
               ))}
             </div>
           ))}

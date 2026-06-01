@@ -6,6 +6,8 @@ import FanPollPopupAutoMount from "@/components/home/FanPollPopupAutoMount";
 import MatchFanPollSection from "@/components/fan-poll/MatchFanPollSection";
 import Sponsorship from "@/components/common/Sponsorship";
 
+const COMING_SOON = false;
+
 const TABS = [
   { id: "active", label: "Fan Poll" },
   { id: "history", label: "History" },
@@ -60,6 +62,38 @@ export default function FanPollPage() {
       </div>
     </div>
   );
+
+  if (COMING_SOON) {
+    return (
+      <div className="w-full bg-[#1E2F7D]">
+        <section className="relative overflow-hidden pt-[110px] pb-14 lg:pt-[130px] lg:pb-20 bg-[url('/images/texture-bg.png')] bg-cover bg-center bg-no-repeat">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,88,210,0.35),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(26,40,116,0.65),transparent_45%)]" />
+          <div className="relative flex min-h-[60vh] flex-col items-center justify-center px-4 text-center">
+            <h1 className="flex flex-col text-5xl font-extrabold uppercase italic leading-[0.9] text-white sm:text-6xl lg:text-7xl">
+              <span
+                className="text-transparent"
+                style={{ WebkitTextStroke: "1.5px #7E93DB" }}
+              >
+                Fan
+              </span>
+              <span>Poll</span>
+            </h1>
+            <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#F2A23A]/40 bg-[#F2A23A]/10 px-6 py-2.5">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-[#F2A23A]" />
+              <span className="text-sm font-bold uppercase tracking-widest text-[#F2A23A]">
+                Coming Soon
+              </span>
+            </div>
+            <p className="mt-5 max-w-md text-sm text-white/60">
+              Fan polls are on their way. Stay tuned for your chance to vote and
+              make your voice heard!
+            </p>
+          </div>
+        </section>
+        <Sponsorship />
+      </div>
+    );
+  }
 
   return (
     <div className="w-full bg-[#1E2F7D]">

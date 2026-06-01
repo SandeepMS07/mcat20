@@ -37,6 +37,7 @@ const routes = {
 
   privacyPolicy: "/privacy_policy",
   termsAndConditions: "/creators-league-tc",
+  creatorsLeague: "/creatorsleague",
   // social links
   // linkedin: "https://www.linkedin.com/company/mca-sports/",
   instagram: "https://www.instagram.com/t20mumbai/",
