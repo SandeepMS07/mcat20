@@ -4,9 +4,11 @@ import { useRouter } from "next/navigation";
 import { getTeamDetailsClient } from "@/app/api/clientApi";
 import { teamGradients, teamSubtitles } from "@/utilis/helper";
 import routes from "@/utilis/route";
+import teamDetailsDataSeason4 from "../../constant/team/teamDetailsDataSeason4.json";
+
 const MEN_TAB = "men";
 const WOMEN_TAB = "women";
-const FALLBACK_TEAMS = [];
+const FALLBACK_TEAMS = teamDetailsDataSeason4?.data || [];
 const WOMENS_TEAM_FALLBACK_NAMES = ["Aakash Tigers MWS", "SoBo Mumbai Falcons"];
 
 const getTeamNameKey = (name = "") => name.replace(/\s*\(W\)\s*$/i, "").trim();

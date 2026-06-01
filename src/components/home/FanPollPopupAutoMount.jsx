@@ -35,10 +35,7 @@ const FanPollPopupAutoMount = () => {
     if (!polls || polls.length === 0) return undefined;
     if (open) return undefined;
 
-    const activePolls = polls.filter((p) => p.status === "active");
-    if (activePolls.length === 0) return undefined;
-
-    const latestPoll = activePolls.reduce((max, p) => (p.id > max.id ? p : max), activePolls[0]);
+    const latestPoll = polls.reduce((max, p) => (p.id > max.id ? p : max), polls[0]);
 
     // Server says user already voted on this poll
     if (latestPoll.my_selection != null) return undefined;

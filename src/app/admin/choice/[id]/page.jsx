@@ -44,9 +44,9 @@ export default function AdminChoiceCategoryPage() {
   });
 
   const reload = async () => {
-    const [pollRes, players] = await Promise.all([getPoll(id), getLocalSquadPlayers()]);
+    const pollRes = await getPoll(id);
     setData(pollRes);
-    setPlayers(players);
+    setPlayers(getLocalSquadPlayers());
   };
 
   const reloadVoters = async (pollId) => {
@@ -67,9 +67,8 @@ export default function AdminChoiceCategoryPage() {
       try {
         const pollRes = await getPoll(id);
         if (cancelled) return;
-        const players = await getLocalSquadPlayers();
         setData(pollRes);
-        setPlayers(players);
+        setPlayers(getLocalSquadPlayers());
         if (pollRes?.poll?.id) {
           reloadVoters(pollRes.poll.id);
         }

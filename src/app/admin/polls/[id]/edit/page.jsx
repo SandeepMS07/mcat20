@@ -70,7 +70,7 @@ export default function EditPollPage() {
     setData(pollRes);
     setMatches(matchesRes.matches || []);
     setVoters(votersRes);
-    getLocalSquadPlayers().then((p) => { if (mountedRef.current) setPlayers(p); }).catch(() => {});
+    setPlayers(getLocalSquadPlayers());
   };
 
   const safe = async (fn) => {

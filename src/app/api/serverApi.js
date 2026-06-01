@@ -3,7 +3,7 @@
 import http from "node:http";
 import https from "node:https";
 import { getAxiosInstance } from "./axiosInstance";
-import { fetchTeamDetailsData } from "./admin/localPlayers";
+import teamDetailsStatic from "@/constant/team/teamDetailsDataSeason4.json";
 
 const withInferredTeamType = (payload) => {
   const records = Array.isArray(payload?.data) ? payload.data : [];
@@ -15,6 +15,7 @@ const withInferredTeamType = (payload) => {
   return { ...payload, data };
 };
 
+const STATIC_TEAM_DETAILS = withInferredTeamType(teamDetailsStatic);
 
 const TRANSIENT_HTTP_STATUS = new Set([429, 500, 502, 503, 504]);
 const MAX_RETRIES = 2;
@@ -127,7 +128,7 @@ const requestWithRetry = async (requestFn, logLabel) => {
   return null;
 };
 
-export const getTeamDetails = async () => withInferredTeamType(await fetchTeamDetailsData());
+export const getTeamDetails = async () => STATIC_TEAM_DETAILS;
 
 export const getFixtureSeasonp3 = async () => {
   return requestWithRetry(async () => {
