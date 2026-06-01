@@ -33,24 +33,20 @@ export const navLinks = [
     title: "Buy Tickets",
     path: "https://link.district.in/DSTRKT/t20mumbailandingpagesocials",
   },
-  {
-    // SSO hand-off into the fantasy app. The navbar trades the user's
-    // access JWT for a 30-second one-time code via /v1/auth/sso-handoff,
-    // then redirects to FANTASY_WEB_BASE/?code=<code>. path is unused for
-    // this entry (kept for shape parity with the other nav items).
-    title: "Fantasy",
-    path: "#",
-    requiresAuth: true,
-    ssoHandoff: true,
-  },
-  {
-    title: "Fan Zone",
-    path: `${routes.fanPoll}`,
-    children: [
-      { title: "Fan Poll", path: `${routes.fanPoll}` },
-      { title: "Viewers' Choice", path: `${routes.choice}` },
-    ],
-  },
+  // {
+  //   title: "Fantasy",
+  //   path: "#",
+  //   requiresAuth: true,
+  //   ssoHandoff: true,
+  // },
+  // {
+  //   title: "Fan Zone",
+  //   path: `${routes.fanPoll}`,
+  //   children: [
+  //     { title: "Fan Poll", path: `${routes.fanPoll}` },
+  //     { title: "Viewers' Choice", path: `${routes.choice}` },
+  //   ],
+  // },
   // {
   //   title: "About Us",
   //   path: `${routes.aboutUs}`,
