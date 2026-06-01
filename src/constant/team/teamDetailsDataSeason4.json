@@ -972,40 +972,6 @@
           {
             "attributes": {
               "type": "Player_Registration__c",
-              "url": "/services/data/v62.0/sobjects/Player_Registration__c/a04e200000Fzz9BAAR"
-            },
-            "Id": "a04e200000Fzz9BAAR",
-            "Name": "PR-0004442",
-            "Reserve_Bid_Amount__c": 1000000,
-            "Kitty_Bid_Amount__c": 0,
-            "Primary_Role__c": "Batsman",
-            "Category__c": "Under-19 Player",
-            "Player__c": "003IR00001l8WZgYAM",
-            "Player__r": {
-              "attributes": {
-                "type": "Contact",
-                "url": "/services/data/v62.0/sobjects/Contact/003IR00001l8WZgYAM"
-              },
-              "Name": "Ira Sachin Jadhav",
-              "Age__c": 16,
-              "Birthdate": "2010-02-18",
-              "Photo_URL_1__c": "https://mca-cdn.ken42.com/season4-players/Women_s%20Team/ak/ira-sachin-jadhav-w00572.png",
-              "MCA_Registration_Number__c": "W00572"
-            },
-            "Base_Price_Absolute__c": 100000,
-            "Winning_Bid__c": 1000000,
-            "kitty_allocated__c": 500000,
-            "Recent_Competitive_Level__c": "First class, list A, BCCI Senior Men T20",
-            "Sold_To__c": "001e200000QVJHJAA5",
-            "playerAge": 16,
-            "birthData": "2010-02-18",
-            "playerId": "003IR00001l8WZgYAM",
-            "category": "Under-19 Player",
-            "hidden": true
-          },
-          {
-            "attributes": {
-              "type": "Player_Registration__c",
               "url": "/services/data/v62.0/sobjects/Player_Registration__c/a04e200000G0FInAAN"
             },
             "Id": "a04e200000G0FInAAN",
