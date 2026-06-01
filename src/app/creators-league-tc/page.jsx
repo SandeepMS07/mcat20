@@ -194,7 +194,7 @@ const Page = () => {
                 organizer&apos;s discretion.
               </Bullet>
               <Bullet>
-                Match tickets (up to 3 per game per creator) are issued
+                Match tickets (up to 5 per game per creator) are issued
                 exclusively for the creator. Resale or transfer of tickets for
                 commercial gain is strictly prohibited.
               </Bullet>

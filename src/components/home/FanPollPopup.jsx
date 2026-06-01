@@ -1,75 +1,33 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
-import { listPolls, votePoll } from "@/app/api/polls";
-
-const POPUP_DISMISSED_KEY = "mca_fanpoll_popup_dismissed";
-const POPUP_TIMER_KEY = "mca_fanpoll_popup_timer_start";
-const POPUP_TIMER_DURATION_MS = 60 * 60 * 1000;
-
-const DEFAULT_OPTION_IMAGE = "/images/stats/player-img.svg";
+import { votePoll } from "@/app/api/polls";
+import { useAuth } from "@/components/auth/AuthContext";
+import { usePollsContext } from "@/components/polls/PollsProvider";
 
 const formatCountdown = (ms) => {
   const total = Math.max(0, Math.floor(ms / 1000));
-  const m = Math.floor(total / 60)
-    .toString()
-    .padStart(2, "0");
+  const h = Math.floor(total / 3600);
+  const m = Math.floor((total % 3600) / 60).toString().padStart(2, "0");
   const s = (total % 60).toString().padStart(2, "0");
-  return `${m}:${s}`;
+  return h > 0 ? `${h}:${m}:${s}` : `${m}:${s}`;
 };
 
-const markDismissed = () => {
-  if (typeof window === "undefined") return;
-  try {
-    window.localStorage.setItem(POPUP_DISMISSED_KEY, "1");
-  } catch {
-    /* ignore */
-  }
-};
-
-export const hasFanPollPopupBeenDismissed = () => {
-  if (typeof window === "undefined") return true;
-  try {
-    return window.localStorage.getItem(POPUP_DISMISSED_KEY) === "1";
-  } catch {
-    return true;
-  }
-};
-
-const FanPollPopup = ({ open, onClose }) => {
-  const [poll, setPoll] = useState(null);
-  const [loadError, setLoadError] = useState(false);
+const FanPollPopup = ({ open, onClose, onVoted }) => {
+  const { polls, loadError, updatePoll } = usePollsContext();
+  const activePolls = Array.isArray(polls) ? polls.filter((p) => p.status !== "closed") : [];
+  const poll = activePolls.length > 0
+    ? activePolls.reduce((max, p) => (p.id > max.id ? p : max), activePolls[0])
+    : null;
   const [pendingOptionId, setPendingOptionId] = useState(null);
   const [voteError, setVoteError] = useState(null);
-  const [remainingMs, setRemainingMs] = useState(POPUP_TIMER_DURATION_MS);
+  const [remainingMs, setRemainingMs] = useState(null);
+  const { isAuthed, openLogin } = useAuth();
 
-  useEffect(() => {
-    if (!open) return undefined;
-    let cancelled = false;
-    setLoadError(false);
-    listPolls()
-      .then((data) => {
-        if (cancelled) return;
-        const first = Array.isArray(data) && data.length > 0 ? data[0] : null;
-        if (!first) {
-          setLoadError(true);
-          return;
-        }
-        setPoll(first);
-      })
-      .catch((err) => {
-        if (cancelled) return;
-        console.error("[FanPollPopup] failed to load poll:", err);
-        setLoadError(true);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [open]);
 
   useEffect(() => {
     if (!open) return undefined;
     const onKey = (e) => {
-      if (e.key === "Escape") handleClose();
+      if (e.key === "Escape") onClose?.();
     };
     window.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
@@ -81,32 +39,19 @@ const FanPollPopup = ({ open, onClose }) => {
   }, [open]);
 
   useEffect(() => {
-    if (!open) return undefined;
-    let start;
-    try {
-      const stored = window.localStorage.getItem(POPUP_TIMER_KEY);
-      const parsed = stored ? parseInt(stored, 10) : NaN;
-      if (
-        Number.isFinite(parsed) &&
-        Date.now() - parsed < POPUP_TIMER_DURATION_MS
-      ) {
-        start = parsed;
-      } else {
-        start = Date.now();
-        window.localStorage.setItem(POPUP_TIMER_KEY, String(start));
-      }
-    } catch {
-      start = Date.now();
+    if (!open || !poll?.ends_at) {
+      setRemainingMs(null);
+      return undefined;
     }
-
+    const endsAt = new Date(poll.ends_at).getTime();
     const tick = () => {
-      const remaining = POPUP_TIMER_DURATION_MS - (Date.now() - start);
-      setRemainingMs(remaining > 0 ? remaining : 0);
+      const ms = endsAt - Date.now();
+      setRemainingMs(ms > 0 ? ms : 0);
     };
     tick();
     const id = window.setInterval(tick, 1000);
     return () => window.clearInterval(id);
-  }, [open]);
+  }, [open, poll?.ends_at]);
 
   const hasVoted = poll?.my_selection != null;
   const totalVotes = poll?.total_votes || 0;
@@ -120,13 +65,12 @@ const FanPollPopup = ({ open, onClose }) => {
     )?.id;
   }, [poll]);
 
-  const handleClose = () => {
-    markDismissed();
-    onClose?.();
-  };
-
   const handleVote = async (optionId) => {
     if (!poll || pendingOptionId !== null || hasVoted) return;
+    if (!isAuthed) {
+      openLogin(() => handleVote(optionId));
+      return;
+    }
 
     const prevPoll = poll;
     const optimistic = {
@@ -139,14 +83,14 @@ const FanPollPopup = ({ open, onClose }) => {
     };
     setVoteError(null);
     setPendingOptionId(optionId);
-    setPoll(optimistic);
+    updatePoll(optimistic);
 
     try {
       const res = await votePoll(poll.slug, optionId);
-      if (res && res.poll) setPoll(res.poll);
-      markDismissed();
+      if (res && res.poll) updatePoll(res.poll);
+      onVoted?.(poll.id);
     } catch (err) {
-      setPoll(prevPoll);
+      updatePoll(prevPoll);
       const status = err?.response?.status;
       const code = err?.response?.data?.error || err?.response?.data?.code;
       let msg = "Something went wrong. Please try again.";
@@ -167,7 +111,7 @@ const FanPollPopup = ({ open, onClose }) => {
   return (
     <div
       className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
-      onClick={handleClose}
+      onClick={onClose}
     >
       <div
         className="relative w-full max-w-2xl overflow-hidden rounded-2xl border border-white/15 bg-[#02103D] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.8)]"
@@ -191,32 +135,34 @@ const FanPollPopup = ({ open, onClose }) => {
               <span className="h-1.5 w-1.5 rounded-full bg-[#02103D]" />
               Today's Fan Poll
             </span>
-            <span
-              className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-bold tabular-nums ${
-                remainingMs > 0
-                  ? "border-[#F2A23A]/40 bg-[#F2A23A]/10 text-[#F2A23A]"
-                  : "border-white/15 bg-white/5 text-white/60"
-              }`}
-              aria-live="polite"
-              title={remainingMs > 0 ? "Time left to vote" : "Voting closed"}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-3 w-3"
-                aria-hidden
+            {remainingMs !== null && (
+              <span
+                className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-bold tabular-nums ${
+                  remainingMs > 0
+                    ? "border-[#F2A23A]/40 bg-[#F2A23A]/10 text-[#F2A23A]"
+                    : "border-white/15 bg-white/5 text-white/60"
+                }`}
+                aria-live="polite"
+                title={remainingMs > 0 ? "Time left to vote" : "Voting closed"}
               >
-                <circle cx="12" cy="13" r="8" />
-                <path d="M12 9v4l2.5 2" />
-                <path d="M9 2h6" />
-              </svg>
-              {remainingMs > 0 ? formatCountdown(remainingMs) : "Closed"}
-            </span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-3 w-3"
+                  aria-hidden
+                >
+                  <circle cx="12" cy="13" r="8" />
+                  <path d="M12 9v4l2.5 2" />
+                  <path d="M9 2h6" />
+                </svg>
+                {remainingMs > 0 ? formatCountdown(remainingMs) : "Closed"}
+              </span>
+            )}
             {totalVotes > 0 && (
               <span className="text-xs font-medium text-white/60">
                 {totalVotes.toLocaleString("en-IN")} votes
@@ -224,7 +170,7 @@ const FanPollPopup = ({ open, onClose }) => {
             )}
             <button
               type="button"
-              onClick={handleClose}
+              onClick={onClose}
               aria-label="Close poll"
               className="ml-auto cursor-pointer rounded-full p-1.5 text-white/60 transition hover:bg-white/10 hover:text-white"
             >
@@ -249,7 +195,7 @@ const FanPollPopup = ({ open, onClose }) => {
             <p className="py-10 text-center text-sm italic text-white/70">
               Could not load poll right now. Please try again later.
             </p>
-          ) : !poll ? (
+          ) : polls === null ? (
             <div className="space-y-4">
               <div className="h-6 w-3/4 animate-pulse rounded bg-white/10" />
               <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
@@ -260,6 +206,15 @@ const FanPollPopup = ({ open, onClose }) => {
                   />
                 ))}
               </div>
+            </div>
+          ) : !poll ? (
+            <div className="flex flex-col items-center gap-3 py-10 text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-10 w-10 text-white/20" aria-hidden>
+                <path d="M9 11l3 3L22 4" />
+                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+              </svg>
+              <p className="text-sm font-semibold text-white/50">No active poll right now</p>
+              <p className="text-xs text-white/30">Check back soon for the next fan poll!</p>
             </div>
           ) : (
             <>
@@ -295,12 +250,14 @@ const FanPollPopup = ({ open, onClose }) => {
                           style={{ width: `${pct}%` }}
                         />
                         <div className="relative flex items-center gap-3">
-                          <img
-                            src={opt.image_url || DEFAULT_OPTION_IMAGE}
-                            alt=""
-                            className="h-8 w-8 shrink-0 rounded-full object-cover ring-1 ring-white/20"
-                            loading="lazy"
-                          />
+                          {opt.image_url && (
+                            <img
+                              src={opt.image_url}
+                              alt=""
+                              className="h-8 w-8 shrink-0 rounded-full object-cover ring-1 ring-white/20"
+                              loading="lazy"
+                            />
+                          )}
                           <span
                             className={`min-w-0 flex-1 truncate text-sm ${
                               isMine
@@ -344,16 +301,18 @@ const FanPollPopup = ({ open, onClose }) => {
                         }`}
                         aria-pressed={isPending}
                       >
-                        <img
-                          src={opt.image_url || DEFAULT_OPTION_IMAGE}
-                          alt=""
-                          className={`h-9 w-9 shrink-0 rounded-full object-cover ring-1 transition ${
-                            isPending
-                              ? "ring-[#F2A23A]"
-                              : "ring-white/20 group-hover:ring-[#F2A23A]/40"
-                          }`}
-                          loading="lazy"
-                        />
+                        {opt.image_url && (
+                          <img
+                            src={opt.image_url}
+                            alt=""
+                            className={`h-9 w-9 shrink-0 rounded-full object-cover ring-1 transition ${
+                              isPending
+                                ? "ring-[#F2A23A]"
+                                : "ring-white/20 group-hover:ring-[#F2A23A]/40"
+                            }`}
+                            loading="lazy"
+                          />
+                        )}
                         <span className="min-w-0 flex-1 truncate">
                           {opt.label}
                         </span>

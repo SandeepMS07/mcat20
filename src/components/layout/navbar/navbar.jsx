@@ -3,23 +3,153 @@ import Image from "next/image";
 import Link from "next/link";
 import { navLinks } from "./data";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
-import { FiChevronDown } from "react-icons/fi";
+import { FiChevronDown, FiUser } from "react-icons/fi";
 import { useState } from "react";
 import routes from "@/utilis/route";
 import { redirect, usePathname } from "next/navigation";
+import { useAuth } from "@/components/auth/AuthContext";
+import { requestSsoHandoff } from "@/app/api/auth";
+import { FANTASY_WEB_BASE } from "@/constant";
 
 const TOP_MARQUEE_TEXT =
   "T20 Mumbai Creators League | Your chance to win BIG | Participate Now";
+
+const getInitials = (name) => {
+  if (!name) return "";
+  const parts = name.trim().split(/\s+/).slice(0, 2);
+  return parts.map((p) => p.charAt(0).toUpperCase()).join("");
+};
+
+const firstName = (name) => {
+  if (!name) return "";
+  return name.trim().split(/\s+/)[0];
+};
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [expandedItem, setExpandedItem] = useState(null);
   const pathName = usePathname();
+  // `token` is no longer destructured: with the SSO hand-off pattern, the JWT
+  // never leaves the axios interceptor — we only forward a one-time exchange
+  // code to the fantasy app.
+  const { isAuthed, user, openLogin, logout } = useAuth();
 
   const isPathActive = (path) => {
     if (!path || /^https?:\/\//.test(path)) return false;
     if (path === "/") return pathName === "/";
     return pathName === path || pathName.startsWith(`${path}/`);
+  };
+
+  const openExternal = (url) => {
+    if (typeof window === "undefined") return;
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
+  // Tiny "Opening Fantasy…" splash written into the popup while we wait for
+  // the /sso-handoff round-trip. Beats a blank tab if the network is slow.
+  // Self-contained string — no external assets, no fonts, dies the moment we
+  // navigate the popup to its real destination.
+  const POPUP_SPLASH_HTML = `<!doctype html><html><head><meta charset="utf-8"><title>Opening Fantasy…</title><meta name="viewport" content="width=device-width,initial-scale=1"><style>html,body{margin:0;height:100%;background:#0B1545;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.wrap{display:flex;height:100%;align-items:center;justify-content:center;flex-direction:column;gap:1rem}.spin{width:36px;height:36px;border:2px solid rgba(255,255,255,.12);border-top-color:#F68323;border-radius:50%;animation:r .8s linear infinite}@keyframes r{to{transform:rotate(360deg)}}.lbl{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.7)}</style></head><body><div class="wrap"><div class="spin"></div><div class="lbl">Opening Fantasy…</div></div></body></html>`;
+
+  // SSO hand-off into the fantasy app. Lazy by design (only on click) — codes
+  // expire in 30s, so prefetching is worse than useless. Never logs the code:
+  // it's a single-use credential, same hygiene as any other auth token.
+  //
+  // popup is OPENED synchronously inside the click handler — async work
+  // happens AFTER, navigating the already-open tab. If we awaited first then
+  // tried window.open(), Safari/Chrome would block it as a non-user-gesture
+  // popup.
+  const handoffToFantasy = async (popup) => {
+    try {
+      const { code } = await requestSsoHandoff();
+      if (!code) throw new Error("no_code_in_response");
+      const url = `${FANTASY_WEB_BASE}/?code=${encodeURIComponent(code)}`;
+      if (popup && !popup.closed) {
+        popup.location.replace(url);
+      } else {
+        // Popup blocked or user closed it during the fetch — fall back to a
+        // same-tab navigation so the click still does something.
+        window.location.href = url;
+      }
+    } catch (err) {
+      if (popup && !popup.closed) popup.close();
+      throw err;
+    }
+  };
+
+  const handleGatedNavClick = (item, afterClick) => {
+    // SSO entry, AUTHED path: open a blank tab RIGHT NOW (synchronously,
+    // inside the click handler) so the browser counts it as a user-gesture-
+    // initiated popup. Seed it with a tiny splash so the user doesn't stare
+    // at "about:blank" during the network round-trip.
+    //
+    // UNAUTHED path: we can't open a tab now (no token yet), but we want
+    // the post-login navigation to also land in a new tab — not replace
+    // the t20 web tab. The modal's submit button is itself a user gesture,
+    // so a window.open() inside the post-success callback chain is allowed
+    // by Chrome/Safari. We open the tab there (see `finish` below) instead
+    // of here so we don't sit on an empty about:blank while the user is
+    // still typing their mobile number.
+    let popup = null;
+    if (item.ssoHandoff && isAuthed && typeof window !== "undefined") {
+      popup = window.open("", "_blank");
+      if (popup) {
+        try { popup.document.write(POPUP_SPLASH_HTML); popup.document.close(); }
+        catch { /* cross-origin guard, can't write — fine, we still own it */ }
+      }
+    }
+
+    const finish = async ({ postLogin = false } = {}) => {
+      // Post-login path: try to open the fantasy app in a new tab so the
+      // user's t20 web tab stays put. Done inside the success callback
+      // (which fires from the modal's submit handler) so the browser still
+      // counts the action as a user-initiated popup.
+      if (
+        postLogin &&
+        item.ssoHandoff &&
+        !popup &&
+        typeof window !== "undefined"
+      ) {
+        popup = window.open("", "_blank");
+        if (popup) {
+          try { popup.document.write(POPUP_SPLASH_HTML); popup.document.close(); }
+          catch { /* cross-origin — fine */ }
+        }
+      }
+
+      try {
+        if (item.ssoHandoff) {
+          // popup may still be null if the browser blocked it; handoffToFantasy
+          // falls back to window.location.href in that case.
+          await handoffToFantasy(popup);
+        } else if (/^https?:\/\//.test(item.path)) {
+          openExternal(item.path);
+        } else if (typeof window !== "undefined") {
+          window.location.href = item.path;
+        }
+      } catch (err) {
+        // SSO handoff failed — likely a 401 (session expired between mount and
+        // click) or a 5xx / network blip. Surface to the user instead of
+        // silently doing nothing. Replace with the project's toast system when
+        // one exists; alert() is the lowest-friction stand-in for now.
+        // eslint-disable-next-line no-console
+        console.error("[fantasy] hand-off failed", err?.response?.status, err?.response?.data || err?.message);
+        if (typeof window !== "undefined") {
+          if (err?.response?.status === 401) {
+            window.alert("Your session has expired. Please sign in again.");
+          } else {
+            window.alert("Couldn't open Fantasy right now. Please try again.");
+          }
+        }
+      } finally {
+        afterClick?.();
+      }
+    };
+    if (!isAuthed) {
+      openLogin(() => finish({ postLogin: true }), { variant: "fantasy" });
+      return;
+    }
+    finish();
   };
 
   if (pathName === "/auction-info") return;
@@ -31,7 +161,7 @@ const Navbar = () => {
     <div
       className={
         matchesPageBg
-          ? "relative bg-[#091d65] lg:h-[120px] h-[85px]"
+          ? "relative bg-[#081d65] lg:h-[120px] h-[85px]"
           : pathName.includes(routes.yourPhotos)
           ? "bg-gradient-to-r from-[#060A17] to-[#203376] lg:h-[120px] h-[85px]"
           : ""
@@ -40,17 +170,17 @@ const Navbar = () => {
       {matchesPageBg &&
         !pathName.includes(routes.fixtures) &&
         !pathName.includes(routes.matchcentre) && (
-          <>
-            <div
-              className="pointer-events-none absolute inset-0 bg-no-repeat bg-cover bg-top opacity-90"
-              style={{
-                backgroundImage: "url('/images/fixtures/fixtures-bg.svg')",
-              }}
-              aria-hidden="true"
-            />
-            <div className="pointer-events-none absolute inset-0 bg-[rgba(13,55,169,0.55)]" />
-          </>
-        )}
+        <>
+          <div
+            className="pointer-events-none absolute inset-0 bg-no-repeat bg-cover bg-top opacity-90"
+            style={{
+              backgroundImage: "url('/images/fixtures/fixtures-bg.svg')",
+            }}
+            aria-hidden="true"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-[rgba(13,55,169,0.55)]" />
+        </>
+      )}
       <div className="absolute top-0 z-50 w-full overflow-hidden bg-[#F68323] py-1">
         <div className="flex w-max animate-[topMarquee_80s_linear_infinite] items-center whitespace-nowrap">
           {[...Array(2)].map((_, groupIdx) => (
@@ -167,6 +297,30 @@ const Navbar = () => {
                     );
                   }
 
+                  if (item.requiresAuth) {
+                    return (
+                      <li key={i}>
+                        <button
+                          type="button"
+                          onClick={() => handleGatedNavClick(item)}
+                          className={`inline-flex items-center gap-1.5 cursor-pointer whitespace-nowrap rounded-full px-3 xl:px-4 py-2 text-xs md:text-sm xl:text-[14px] font-semibold tracking-wide transition-all duration-200 ${
+                            isActive
+                              ? "bg-gradient-to-b from-[#F68323] to-[#E07E27] text-white shadow-[0_4px_14px_-4px_rgba(246,131,35,0.65)]"
+                              : "text-white/85 hover:text-white hover:bg-white/10"
+                          }`}
+                        >
+                          {item.title}
+                          {item.comingSoon && (
+                            <span className="inline-flex items-center gap-1 whitespace-nowrap rounded-full bg-gradient-to-r from-[#F2A23A] to-[#FFD166] px-1.5 py-[2px] text-[8px] font-extrabold uppercase tracking-wider text-[#0B1545] shadow-[0_2px_6px_rgba(242,162,58,0.45)]">
+                              <span className="h-1 w-1 rounded-full bg-[#0B1545]" />
+                              Coming Soon
+                            </span>
+                          )}
+                        </button>
+                      </li>
+                    );
+                  }
+
                   return (
                     <li key={i}>
                       <Link
@@ -190,6 +344,83 @@ const Navbar = () => {
                     </li>
                   );
                 })}
+                <li className="relative group ml-1">
+                  {isAuthed ? (
+                    <>
+                      <button
+                        type="button"
+                        className="flex cursor-pointer items-center gap-2 whitespace-nowrap rounded-full border border-white/15 bg-white/[0.06] py-1 pl-1 pr-3 text-xs md:text-sm font-semibold text-white/90 transition hover:border-[#F2A23A]/50 hover:bg-white/[0.1]"
+                        aria-haspopup="menu"
+                      >
+                        <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-b from-[#F68323] to-[#E07E27] text-[10px] font-extrabold text-white shadow-[0_4px_10px_-4px_rgba(246,131,35,0.7)]">
+                          {getInitials(user?.name || user?.team_name) || "U"}
+                        </span>
+                        <span className="max-w-[110px] truncate">
+                          {firstName(user?.name) || "Account"}
+                        </span>
+                        <FiChevronDown
+                          size={14}
+                          className="transition-transform duration-200 group-hover:rotate-180"
+                        />
+                      </button>
+                      <span
+                        aria-hidden
+                        className="absolute right-0 top-full z-40 h-3 w-[220px]"
+                      />
+                      <ul
+                        role="menu"
+                        className="invisible absolute right-0 top-full z-50 mt-3 w-[230px] translate-y-1 overflow-hidden rounded-2xl border border-white/10 bg-[rgba(8,18,55,0.92)] p-1.5 opacity-0 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.6)] backdrop-blur-2xl transition-all duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
+                      >
+                        <li className="px-3 pb-2 pt-1.5">
+                          <p className="truncate text-sm font-bold text-white">
+                            {user?.name || "Signed in"}
+                          </p>
+                          {user?.mobile && (
+                            <p className="truncate text-[11px] text-white/55">
+                              +91 {user.mobile}
+                            </p>
+                          )}
+                        </li>
+                        <li className="my-1 h-px bg-white/10" role="none" />
+                        <li role="none">
+                          <button
+                            type="button"
+                            onClick={() => logout()}
+                            className="flex w-full cursor-pointer items-center gap-2 rounded-xl px-3 py-2.5 text-sm font-semibold text-white/85 transition hover:bg-white/10 hover:text-white"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              className="h-4 w-4"
+                              aria-hidden
+                            >
+                              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                              <polyline points="16 17 21 12 16 7" />
+                              <line x1="21" y1="12" x2="9" y2="12" />
+                            </svg>
+                            Log out
+                          </button>
+                        </li>
+                      </ul>
+                    </>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => openLogin(null, { mode: "signin" })}
+                      className="group/signin inline-flex cursor-pointer items-center gap-2 whitespace-nowrap rounded-full border border-white/25 bg-white/[0.06] px-4 py-1.5 text-xs md:text-sm xl:text-[14px] font-semibold tracking-wide text-white/90 backdrop-blur-sm transition-all duration-200 hover:border-[#F2A23A]/60 hover:bg-white/[0.1] hover:text-white"
+                    >
+                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-white transition-colors group-hover/signin:bg-[#F2A23A]/20 group-hover/signin:text-[#F2A23A]">
+                        <FiUser className="h-3.5 w-3.5" aria-hidden />
+                      </span>
+                      Sign in
+                    </button>
+                  )}
+                </li>
               </ul>
             </div>
 
@@ -295,6 +526,29 @@ const Navbar = () => {
                 );
               }
 
+              if (item.requiresAuth) {
+                return (
+                  <li key={i}>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        handleGatedNavClick(item, () => setMenuOpen(false))
+                      }
+                      className={`inline-flex items-center gap-2 cursor-pointer text-base transition-colors hover:text-orange-400 ${
+                        isActive ? "text-orange-500" : "text-white"
+                      }`}
+                    >
+                      {item.title}
+                      {item.comingSoon && (
+                        <span className="rounded-full bg-[#F2A23A]/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#F2A23A]">
+                          Coming Soon
+                        </span>
+                      )}
+                    </button>
+                  </li>
+                );
+              }
+
               return (
                 <li key={i}>
                   <Link
@@ -317,6 +571,48 @@ const Navbar = () => {
               );
             })}
           </ul>
+          <div className="mt-8 border-t border-white/15 px-6 pt-6">
+            {isAuthed ? (
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-b from-[#F68323] to-[#E07E27] text-sm font-extrabold text-white shadow-[0_4px_10px_-4px_rgba(246,131,35,0.7)]">
+                    {getInitials(user?.name || user?.team_name) || "U"}
+                  </span>
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-bold text-white">
+                      {user?.name || "Signed in"}
+                    </p>
+                    {user?.mobile && (
+                      <p className="truncate text-[11px] text-white/55">
+                        +91 {user.mobile}
+                      </p>
+                    )}
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    logout();
+                    setMenuOpen(false);
+                  }}
+                  className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] py-2.5 text-sm font-semibold text-white/90 transition hover:bg-white/10"
+                >
+                  Log out
+                </button>
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={() => {
+                  setMenuOpen(false);
+                  openLogin(null, { mode: "signin" });
+                }}
+                className="flex w-full cursor-pointer items-center justify-center rounded-full bg-gradient-to-b from-[#F68323] to-[#E07E27] py-2.5 text-sm font-bold uppercase tracking-wide text-white shadow-[0_4px_14px_-4px_rgba(246,131,35,0.65)]"
+              >
+                Sign in
+              </button>
+            )}
+          </div>
           {/* <div className="w-fit p-6">
             <a
               href={"/auction-info"}

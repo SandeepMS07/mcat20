@@ -35,8 +35,9 @@ export const navLinks = [
   },
   // {
   //   title: "Fantasy",
-  //   path: `${routes.fantasy}`,
-  //   comingSoon: true,
+  //   path: "#",
+  //   requiresAuth: true,
+  //   ssoHandoff: true,
   // },
   // {
   //   title: "Fan Zone",

@@ -1,12 +1,15 @@
-import axios from "axios";
-import { FANTASY_API_BASE } from "@/constant";
+import turboverseAxios from "./turboverseAxios";
 
 const VOTER_KEY_STORAGE = "mca_voter_key";
 
-const fantasyAxios = axios.create({
-  baseURL: FANTASY_API_BASE,
-  timeout: 8000,
-});
+export const clearVoterKey = () => {
+  if (typeof window === "undefined") return;
+  try {
+    window.localStorage.removeItem(VOTER_KEY_STORAGE);
+  } catch {
+    /* ignore */
+  }
+};
 
 export const getVoterKey = () => {
   if (typeof window === "undefined") return null;
@@ -27,7 +30,7 @@ export const getVoterKey = () => {
 
 export const listPolls = async () => {
   const voterKey = getVoterKey();
-  const res = await fantasyAxios.get("/v1/polls", {
+  const res = await turboverseAxios.get("/v1/polls", {
     params: voterKey ? { voterKey } : undefined,
   });
   return res.data;
@@ -35,17 +38,73 @@ export const listPolls = async () => {
 
 export const getPoll = async (slug) => {
   const voterKey = getVoterKey();
-  const res = await fantasyAxios.get(`/v1/polls/${encodeURIComponent(slug)}`, {
-    params: voterKey ? { voterKey } : undefined,
-  });
+  const res = await turboverseAxios.get(
+    `/v1/polls/${encodeURIComponent(slug)}`,
+    {
+      params: voterKey ? { voterKey } : undefined,
+    },
+  );
   return res.data;
 };
 
+// Voting always requires an authenticated user (axios attaches the JWT).
+// The voterKey is still passed in the body for backwards compatibility with
+// older builds, but the backend ignores it for new votes.
 export const votePoll = async (slug, optionId) => {
+  const body = { optionId };
   const voterKey = getVoterKey();
-  const res = await fantasyAxios.post(
+  if (voterKey) body.voterKey = voterKey;
+  const res = await turboverseAxios.post(
     `/v1/polls/${encodeURIComponent(slug)}/vote`,
-    { optionId, voterKey }
+    body,
   );
+  return res.data;
+};
+
+// Viewers' Choice categories reuse the fan_poll infra: each category is a poll
+// with slug `vc-<category-slug>` (see backend seed-viewer-choice.ts). These thin
+// wrappers map a category slug (from app/choice/categories.js) onto that poll,
+// so the public Choice page gets real options + tallies + my_selection.
+export const getChoicePoll = (categorySlug) => getPoll(`vc-${categorySlug}`);
+export const voteChoice = (categorySlug, optionId) =>
+  votePoll(`vc-${categorySlug}`, optionId);
+
+// Fetches polls attached to a specific match plus the winner banner payload.
+// Shape: { polls: [...], winner: { firstName, fullName } | null }
+// Passes voterKey when present so the backend can claim any pre-login anon
+// votes from this device for the now-signed-in user.
+export const listMatchPolls = async (matchId) => {
+  const voterKey = getVoterKey();
+  const res = await turboverseAxios.get(
+    `/v1/polls/match/${encodeURIComponent(matchId)}`,
+    { params: voterKey ? { voterKey } : undefined },
+  );
+  return res.data;
+};
+
+// Public payload used by the TV-screen reveal animation (match-level).
+// Shape: { participants: string[], winner: { name } | null }
+export const getRevealPayload = async (matchId) => {
+  const res = await turboverseAxios.get(
+    `/v1/polls/reveal/${encodeURIComponent(matchId)}`,
+  );
+  return res.data;
+};
+
+// Per-poll reveal payload — used by /fan-poll/reveal/[pollId].
+// Shape: { participants: string[], pollQuestion: string, winner: { name, pickedAt } | null }
+export const getPollRevealPayload = async (pollId) => {
+  const res = await turboverseAxios.get(
+    `/v1/polls/${encodeURIComponent(pollId)}/reveal`,
+  );
+  return res.data;
+};
+
+// Public matches list — used by the fan-poll page to identify which match's
+// polls to render at the top of the page.
+export const listMatches = async () => {
+  // const res = await turboverseAxios.get("/v1/admin/matches");
+  // return res.data?.matches ?? res.data;
+  const res = await turboverseAxios.get("/v1/matches");
   return res.data;
 };

@@ -1,9 +1,71 @@
 "use client";
-import { useCallback, useEffect, useState } from "react";
-import { listPolls, votePoll } from "@/app/api/polls";
+import { useEffect, useState } from "react";
+import { votePoll } from "@/app/api/polls";
 import { trackEvent } from "@/utilis/mixpanelClient";
+import { useAuth } from "@/components/auth/AuthContext";
+import { usePollsContext } from "@/components/polls/PollsProvider";
 
-const DEFAULT_OPTION_IMAGE = "/images/stats/player-img.svg";
+function Toast({ message, onDone }) {
+  useEffect(() => {
+    const id = setTimeout(onDone, 3500);
+    return () => clearTimeout(id);
+  }, [onDone]);
+  return (
+    <>
+      <style>{`@keyframes toastSlideUp{from{opacity:0;transform:translate(-50%,12px)}to{opacity:1;transform:translate(-50%,0)}}`}</style>
+      <div
+        role="alert"
+        className="fixed bottom-6 left-1/2 z-[9999] -translate-x-1/2 rounded-xl border border-white/15 bg-[#0E1A47] px-5 py-3 text-sm font-semibold text-white shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+        style={{ whiteSpace: "nowrap", animation: "toastSlideUp 0.25s ease" }}
+      >
+        {message}
+      </div>
+    </>
+  );
+}
+
+const formatCountdown = (ms) => {
+  const total = Math.max(0, Math.floor(ms / 1000));
+  const h = Math.floor(total / 3600);
+  const m = Math.floor((total % 3600) / 60).toString().padStart(2, "0");
+  const s = (total % 60).toString().padStart(2, "0");
+  return h > 0 ? `${h}:${m}:${s}` : `${m}:${s}`;
+};
+
+const PollTimer = ({ endsAt }) => {
+  const [remainingMs, setRemainingMs] = useState(() =>
+    Math.max(0, new Date(endsAt).getTime() - Date.now())
+  );
+
+  useEffect(() => {
+    const tick = () => {
+      const ms = new Date(endsAt).getTime() - Date.now();
+      setRemainingMs(ms > 0 ? ms : 0);
+    };
+    tick();
+    const id = window.setInterval(tick, 1000);
+    return () => window.clearInterval(id);
+  }, [endsAt]);
+
+  return (
+    <span
+      className={`inline-flex w-fit items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-bold tabular-nums ${
+        remainingMs > 0
+          ? "border-[#F2A23A]/40 bg-[#F2A23A]/10 text-[#F2A23A]"
+          : "border-white/15 bg-white/5 text-white/50"
+      }`}
+      aria-live="polite"
+      title={remainingMs > 0 ? "Time left to vote" : "Voting closed"}
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="h-2.5 w-2.5" aria-hidden>
+        <circle cx="12" cy="13" r="8" />
+        <path d="M12 9v4l2.5 2" />
+        <path d="M9 2h6" />
+      </svg>
+      {remainingMs > 0 ? formatCountdown(remainingMs) : "Closed"}
+    </span>
+  );
+};
 
 const CheckIcon = () => (
   <svg
@@ -21,16 +83,14 @@ const CheckIcon = () => (
   </svg>
 );
 
-const PollCard = ({ poll, onPollUpdate, variant = "compact" }) => {
+const PollCard = ({ poll, onPollUpdate, onPollClosed, variant = "compact" }) => {
   const [error, setError] = useState(null);
   const [pendingOptionId, setPendingOptionId] = useState(null);
+  const { isAuthed, openLogin } = useAuth();
 
   const selectedId = poll.my_selection;
 
-  const handleVote = async (optionId) => {
-    if (pendingOptionId !== null) return;
-    if (optionId === selectedId) return;
-
+  const submitVote = async (optionId) => {
     const prevPoll = poll;
     const optimistic = {
       ...poll,
@@ -65,15 +125,28 @@ const PollCard = ({ poll, onPollUpdate, variant = "compact" }) => {
       onPollUpdate(prevPoll);
       const status = err?.response?.status;
       const code = err?.response?.data?.error || err?.response?.data?.code;
-      let msg = "Something went wrong. Please try again.";
-      if (status === 429 || code === "rate_limited")
-        msg = "Too many votes. Please slow down and try again in a minute.";
-      else if (code === "poll_closed") msg = "This poll is no longer accepting votes.";
-      else if (code === "invalid_option") msg = "That option is no longer available.";
-      setError(msg);
+      if (code === "poll_closed") {
+        onPollClosed?.("This poll has closed. Refreshing…");
+      } else {
+        let msg = "Something went wrong. Please try again.";
+        if (status === 429 || code === "rate_limited")
+          msg = "Too many votes. Please slow down and try again in a minute.";
+        else if (code === "invalid_option") msg = "That option is no longer available.";
+        setError(msg);
+      }
     } finally {
       setPendingOptionId(null);
     }
+  };
+
+  const handleVote = (optionId) => {
+    if (pendingOptionId !== null) return;
+    if (optionId === selectedId) return;
+    if (!isAuthed) {
+      openLogin(() => submitVote(optionId));
+      return;
+    }
+    submitVote(optionId);
   };
 
   const hasVoted = selectedId != null;
@@ -88,14 +161,21 @@ const PollCard = ({ poll, onPollUpdate, variant = "compact" }) => {
         className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-[#F68323]/[0.08] blur-3xl"
       />
 
-      <div className="mb-5 flex items-start gap-3">
-        <span
-          aria-hidden
-          className="mt-1 h-5 w-1 shrink-0 rounded-full bg-gradient-to-b from-[#F68323] to-[#F2A23A]"
-        />
-        <h3 className="text-sm font-bold leading-snug text-white sm:text-[15px]">
-          {poll.question}
-        </h3>
+      <div className="mb-5 flex flex-col gap-1.5">
+        {poll.ends_at && poll.status !== "closed" && new Date(poll.ends_at).getTime() > Date.now() && (
+          <div>
+            <PollTimer endsAt={poll.ends_at} />
+          </div>
+        )}
+        <div className="flex items-start gap-3">
+          <span
+            aria-hidden
+            className="mt-1 h-5 w-1 shrink-0 rounded-full bg-gradient-to-b from-[#F68323] to-[#F2A23A]"
+          />
+          <h3 className="text-sm font-bold leading-snug text-white sm:text-[15px]">
+            {poll.question}
+          </h3>
+        </div>
       </div>
 
       {showResults ? (
@@ -108,12 +188,14 @@ const PollCard = ({ poll, onPollUpdate, variant = "compact" }) => {
             return (
               <div key={opt.id}>
                 <div className="mb-1.5 flex items-center gap-2.5">
-                  <img
-                    src={opt.image_url || DEFAULT_OPTION_IMAGE}
-                    alt=""
-                    className="h-7 w-7 shrink-0 rounded-full object-cover ring-1 ring-white/15"
-                    loading="lazy"
-                  />
+                  {opt.image_url && (
+                    <img
+                      src={opt.image_url}
+                      alt=""
+                      className="h-7 w-7 shrink-0 rounded-full object-cover ring-1 ring-white/15"
+                      loading="lazy"
+                    />
+                  )}
                   <p className="flex-1 truncate text-[13px] font-semibold text-white/95">
                     {opt.label}
                   </p>
@@ -163,12 +245,14 @@ const PollCard = ({ poll, onPollUpdate, variant = "compact" }) => {
                   aria-pressed={isSelected}
                 >
                   <div className="relative">
-                    <img
-                      src={opt.image_url || DEFAULT_OPTION_IMAGE}
-                      alt=""
-                      className="h-12 w-12 rounded-full object-cover ring-2 ring-white/15"
-                      loading="lazy"
-                    />
+                    {opt.image_url && (
+                      <img
+                        src={opt.image_url}
+                        alt=""
+                        className="h-12 w-12 rounded-full object-cover ring-2 ring-white/15"
+                        loading="lazy"
+                      />
+                    )}
                     {isSelected && (
                       <span className="absolute -right-0.5 -bottom-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-[#F2A23A] text-white shadow-md">
                         <CheckIcon />
@@ -201,12 +285,14 @@ const PollCard = ({ poll, onPollUpdate, variant = "compact" }) => {
                   } ${isPending ? "opacity-70" : ""}`}
                   aria-pressed={isSelected}
                 >
-                  <img
-                    src={opt.image_url || DEFAULT_OPTION_IMAGE}
-                    alt=""
-                    className="h-8 w-8 shrink-0 rounded-full object-cover ring-1 ring-white/15"
-                    loading="lazy"
-                  />
+                  {opt.image_url && (
+                    <img
+                      src={opt.image_url}
+                      alt=""
+                      className="h-8 w-8 shrink-0 rounded-full object-cover ring-1 ring-white/15"
+                      loading="lazy"
+                    />
+                  )}
                   <span className="flex-1 truncate">{opt.label}</span>
                 </button>
               );
@@ -282,35 +368,15 @@ const FanPoll = ({
   showDefaultHeading = true,
 }) => {
   const usingDefaultGrid = gridClassName === DEFAULT_GRID_CLASS;
-  const cardWrapperClass = usingDefaultGrid ? DEFAULT_CARD_WRAPPER_CLASS : "";
-  const [polls, setPolls] = useState(null);
-  const [loadError, setLoadError] = useState(false);
-  const [reloadKey, setReloadKey] = useState(0);
+  const cardWrapperClass = usingDefaultGrid ? DEFAULT_CARD_WRAPPER_CLASS : "min-w-0";
+  const { polls, loadError, refetch, updatePoll } = usePollsContext();
+  const [toast, setToast] = useState(null);
 
-  useEffect(() => {
-    let cancelled = false;
-    setLoadError(false);
-    setPolls(null);
-    listPolls()
-      .then((data) => {
-        if (cancelled) return;
-        setPolls(Array.isArray(data) ? data : []);
-      })
-      .catch((err) => {
-        if (cancelled) return;
-        console.error("[FanPoll] failed to load polls:", err);
-        setLoadError(true);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [reloadKey]);
+  const handlePollClosed = (msg) => {
+    setToast(msg);
+    refetch(false);
+  };
 
-  const handlePollUpdate = useCallback((updated) => {
-    setPolls((curr) =>
-      curr ? curr.map((p) => (p.id === updated.id ? updated : p)) : curr
-    );
-  }, []);
 
   // On the home page (no headerSlot), keep prior behavior: hide silently on error.
   if (loadError && !headerSlot) return null;
@@ -326,7 +392,7 @@ const FanPoll = ({
         </p>
         <button
           type="button"
-          onClick={() => setReloadKey((k) => k + 1)}
+          onClick={refetch}
           className="rounded-full border border-white/30 bg-white/10 px-5 py-2 text-xs font-semibold text-white transition hover:bg-white/15"
         >
           Retry
@@ -340,17 +406,30 @@ const FanPoll = ({
       </div>
     ));
   } else if (visiblePolls.length === 0) {
+    const isHistory = variant === "results";
     body = (
-      <p className="col-span-full text-center text-sm italic text-white/70">
-        No polls to show.
-      </p>
+      <div className="col-span-full flex flex-col items-center gap-4 py-16 text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-12 w-12 text-white/15" aria-hidden>
+          <path d="M9 11l3 3L22 4" />
+          <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+        </svg>
+        <div>
+          <p className="text-base font-bold text-white/50">
+            {isHistory ? "No closed polls yet" : "No active polls right now"}
+          </p>
+          <p className="mt-1 text-sm text-white/30">
+            {isHistory ? "Closed polls will appear here once a poll ends." : "Check back soon for the next fan poll!"}
+          </p>
+        </div>
+      </div>
     );
   } else {
     body = visiblePolls.map((poll) => (
       <div key={poll.id} className={cardWrapperClass}>
         <PollCard
           poll={poll}
-          onPollUpdate={handlePollUpdate}
+          onPollUpdate={updatePoll}
+          onPollClosed={handlePollClosed}
           variant={variant}
         />
       </div>
@@ -359,6 +438,7 @@ const FanPoll = ({
 
   return (
     <div className="relative">
+      {toast ? <Toast message={toast} onDone={() => setToast(null)} /> : null}
       <div className="section-width pt-14 pb-14 md:pt-16 md:pb-16 lg:pt-20 lg:pb-20">
         {headerSlot
           ? headerSlot
