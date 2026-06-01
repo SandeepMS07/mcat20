@@ -24,30 +24,33 @@ const Navbar = () => {
 
   if (pathName === "/auction-info") return;
   const matchesPageBg =
-    pathName.includes(routes.fixtures) || pathName.startsWith("/scores");
+    pathName.includes(routes.fixtures) ||
+    pathName.startsWith("/scores") ||
+    pathName.includes(routes.matchcentre);
   return (
     <div
       className={
         matchesPageBg
           ? "relative bg-[#091d65] lg:h-[120px] h-[85px]"
-          : pathName.includes(routes.matchcentre) ||
-            pathName.includes(routes.yourPhotos)
+          : pathName.includes(routes.yourPhotos)
           ? "bg-gradient-to-r from-[#060A17] to-[#203376] lg:h-[120px] h-[85px]"
           : ""
       }
     >
-      {matchesPageBg && (
-        <>
-          <div
-            className="pointer-events-none absolute inset-0 bg-no-repeat bg-cover bg-top opacity-90"
-            style={{
-              backgroundImage: "url('/images/fixtures/fixtures-bg.svg')",
-            }}
-            aria-hidden="true"
-          />
-          <div className="pointer-events-none absolute inset-0 bg-[rgba(13,55,169,0.55)]" />
-        </>
-      )}
+      {matchesPageBg &&
+        !pathName.includes(routes.fixtures) &&
+        !pathName.includes(routes.matchcentre) && (
+          <>
+            <div
+              className="pointer-events-none absolute inset-0 bg-no-repeat bg-cover bg-top opacity-90"
+              style={{
+                backgroundImage: "url('/images/fixtures/fixtures-bg.svg')",
+              }}
+              aria-hidden="true"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-[rgba(13,55,169,0.55)]" />
+          </>
+        )}
       <div className="absolute top-0 z-50 w-full overflow-hidden bg-[#F68323] py-1">
         <div className="flex w-max animate-[topMarquee_80s_linear_infinite] items-center whitespace-nowrap">
           {[...Array(2)].map((_, groupIdx) => (
