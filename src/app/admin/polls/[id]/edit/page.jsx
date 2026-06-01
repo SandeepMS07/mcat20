@@ -38,6 +38,9 @@ export default function EditPollPage() {
   });
   const [submitting, setSubmitting] = useState(false);
   const [loading, setLoading] = useState(true);
+  // Each OptionRow registers { isDirty: () => bool, save: () => Promise } here
+  // keyed by option id so handleSubmit can flush unsaved option edits first.
+  const optionSaversRef = useRef({});
   const [optionDraft, setOptionDraft] = useState({
     label: "",
     imageUrl: "",
@@ -101,6 +104,11 @@ export default function EditPollPage() {
     setSubmitting(true);
     setActionError(null);
     try {
+      // Auto-save any option rows the admin edited but didn't click Save on.
+      const dirtyOptions = Object.values(optionSaversRef.current).filter((r) => r.isDirty());
+      if (dirtyOptions.length > 0) {
+        await Promise.all(dirtyOptions.map((r) => r.save()));
+      }
       await updatePoll(id, patch);
       router.replace("/admin/polls?toast=Poll+saved+successfully");
     } catch (err) {
@@ -396,6 +404,8 @@ export default function EditPollPage() {
                     onSave={(patch) => handleUpdateOption(o.id, patch)}
                     onDelete={() => handleDeleteOption(o.id)}
                     onMarkCorrect={() => handleSetCorrect(o.id)}
+                    onRegister={(fns) => { optionSaversRef.current[o.id] = fns; }}
+                    onUnregister={() => { delete optionSaversRef.current[o.id]; }}
                   />
                 ))}
               </div>
@@ -535,6 +545,8 @@ function OptionRow({
   onSave,
   onDelete,
   onMarkCorrect,
+  onRegister,
+  onUnregister,
 }) {
   const [label, setLabel] = useState(option.label);
   const [imageUrl, setImageUrl] = useState(option.image_url ?? "");
@@ -547,6 +559,37 @@ function OptionRow({
     setSubjectType(option.subject_type ?? null);
     setSubjectId(option.subject_id ?? null);
   }, [option.label, option.image_url, option.subject_type, option.subject_id]);
+
+  // Keep a stable ref to current state so the registered callbacks always
+  // read the latest values without needing to re-register on every keystroke.
+  const stateRef = useRef({});
+  stateRef.current = { label, imageUrl, subjectType, subjectId };
+
+  useEffect(() => {
+    onRegister?.({
+      isDirty: () => {
+        const s = stateRef.current;
+        return (
+          s.label !== option.label ||
+          s.imageUrl !== (option.image_url ?? "") ||
+          s.subjectType !== (option.subject_type ?? null) ||
+          s.subjectId !== (option.subject_id ?? null)
+        );
+      },
+      save: () => {
+        const s = stateRef.current;
+        return onSave({
+          label: s.label.trim(),
+          imageUrl: s.imageUrl.trim() || null,
+          subjectType: s.subjectType,
+          subjectId: s.subjectId,
+        });
+      },
+    });
+    return () => onUnregister?.();
+    // Register once on mount; option identity doesn't change per row lifetime.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const dirty =
     label !== option.label ||
