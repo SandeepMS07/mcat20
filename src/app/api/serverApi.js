@@ -3,7 +3,7 @@
 import http from "node:http";
 import https from "node:https";
 import { getAxiosInstance } from "./axiosInstance";
-import teamDetailsStatic from "@/constant/team/teamDetailsDataSeason3.json";
+import teamDetailsStatic from "@/constant/team/teamDetailsDataSeason4.json";
 
 const withInferredTeamType = (payload) => {
   const records = Array.isArray(payload?.data) ? payload.data : [];
