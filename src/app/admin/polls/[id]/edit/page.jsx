@@ -540,6 +540,14 @@ function OptionRow({
   const [imageUrl, setImageUrl] = useState(option.image_url ?? "");
   const [subjectType, setSubjectType] = useState(option.subject_type ?? null);
   const [subjectId, setSubjectId] = useState(option.subject_id ?? null);
+
+  useEffect(() => {
+    setLabel(option.label);
+    setImageUrl(option.image_url ?? "");
+    setSubjectType(option.subject_type ?? null);
+    setSubjectId(option.subject_id ?? null);
+  }, [option.label, option.image_url, option.subject_type, option.subject_id]);
+
   const dirty =
     label !== option.label ||
     imageUrl !== (option.image_url ?? "") ||

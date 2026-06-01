@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import FanPoll from "@/components/home/FanPoll";
+import FanPollPopupAutoMount from "@/components/home/FanPollPopupAutoMount";
 import MatchFanPollSection from "@/components/fan-poll/MatchFanPollSection";
 import Sponsorship from "@/components/common/Sponsorship";
 
@@ -60,6 +61,7 @@ export default function FanPollPage() {
 
   return (
     <div className="w-full bg-[#1E2F7D]">
+      <FanPollPopupAutoMount />
       <section className="relative overflow-hidden pt-[80px] pb-14 lg:pt-[90px] lg:pb-20 bg-[url('/images/texture-bg.png')] bg-cover bg-center bg-no-repeat">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,88,210,0.35),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(26,40,116,0.65),transparent_45%)]" />
         <div className="relative">
