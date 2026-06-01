@@ -652,19 +652,19 @@
           {
             "attributes": {
               "type": "Player_Registration__c",
-              "url": ""
+              "url": "/services/data/v62.0/sobjects/Player_Registration__c/a04DUMMY000M01458AAA"
             },
-            "Id": "",
-            "Name": "",
+            "Id": "a04DUMMY000M01458AAA",
+            "Name": "PR-DUMMY-M01458",
             "Reserve_Bid_Amount__c": 0,
             "Kitty_Bid_Amount__c": 0,
             "Primary_Role__c": "All - rounder",
             "Category__c": "General Player",
-            "Player__c": "",
+            "Player__c": "003DUMMY000M01458AAA",
             "Player__r": {
               "attributes": {
                 "type": "Contact",
-                "url": ""
+                "url": "/services/data/v62.0/sobjects/Contact/003DUMMY000M01458AAA"
               },
               "Name": "Monil Kishor Soni",
               "Age__c": null,
@@ -679,7 +679,7 @@
             "Sold_To__c": "001IR00001xeRnzYAE",
             "playerAge": null,
             "birthData": null,
-            "playerId": "",
+            "playerId": "003DUMMY000M01458AAA",
             "category": "General Player"
           }
         ]
@@ -1237,19 +1237,19 @@
           {
             "attributes": {
               "type": "Player_Registration__c",
-              "url": ""
+              "url": "/services/data/v62.0/sobjects/Player_Registration__c/a04DUMMY000W00448AAA"
             },
-            "Id": "",
-            "Name": "",
+            "Id": "a04DUMMY000W00448AAA",
+            "Name": "PR-DUMMY-W00448",
             "Reserve_Bid_Amount__c": 0,
             "Kitty_Bid_Amount__c": 0,
             "Primary_Role__c": "All - rounder",
             "Category__c": "General Player",
-            "Player__c": "",
+            "Player__c": "003DUMMY000W00448AAA",
             "Player__r": {
               "attributes": {
                 "type": "Contact",
-                "url": ""
+                "url": "/services/data/v62.0/sobjects/Contact/003DUMMY000W00448AAA"
               },
               "Name": "Mahi Thakkar",
               "Age__c": null,
@@ -1264,25 +1264,25 @@
             "Sold_To__c": "001e200000QVJHJAA5",
             "playerAge": null,
             "birthData": null,
-            "playerId": "",
+            "playerId": "003DUMMY000W00448AAA",
             "category": "General Player"
           },
           {
             "attributes": {
               "type": "Player_Registration__c",
-              "url": ""
+              "url": "/services/data/v62.0/sobjects/Player_Registration__c/a04DUMMY000W00189AAA"
             },
-            "Id": "",
-            "Name": "",
+            "Id": "a04DUMMY000W00189AAA",
+            "Name": "PR-DUMMY-W00189",
             "Reserve_Bid_Amount__c": 0,
             "Kitty_Bid_Amount__c": 0,
             "Primary_Role__c": "Batsman",
             "Category__c": "General Player",
-            "Player__c": "",
+            "Player__c": "003DUMMY000W00189AAA",
             "Player__r": {
               "attributes": {
                 "type": "Contact",
-                "url": ""
+                "url": "/services/data/v62.0/sobjects/Contact/003DUMMY000W00189AAA"
               },
               "Name": "Sejal Raut",
               "Age__c": null,
@@ -1297,25 +1297,25 @@
             "Sold_To__c": "001e200000QVJHJAA5",
             "playerAge": null,
             "birthData": null,
-            "playerId": "",
+            "playerId": "003DUMMY000W00189AAA",
             "category": "General Player"
           },
           {
             "attributes": {
               "type": "Player_Registration__c",
-              "url": ""
+              "url": "/services/data/v62.0/sobjects/Player_Registration__c/a04DUMMY000W00343AAA"
             },
-            "Id": "",
-            "Name": "",
+            "Id": "a04DUMMY000W00343AAA",
+            "Name": "PR-DUMMY-W00343",
             "Reserve_Bid_Amount__c": 0,
             "Kitty_Bid_Amount__c": 0,
             "Primary_Role__c": "Wicketkeeper",
             "Category__c": "General Player",
-            "Player__c": "",
+            "Player__c": "003DUMMY000W00343AAA",
             "Player__r": {
               "attributes": {
                 "type": "Contact",
-                "url": ""
+                "url": "/services/data/v62.0/sobjects/Contact/003DUMMY000W00343AAA"
               },
               "Name": "Kimaya Santosh Rane",
               "Age__c": null,
@@ -1330,7 +1330,7 @@
             "Sold_To__c": "001e200000QVJHJAA5",
             "playerAge": null,
             "birthData": null,
-            "playerId": "",
+            "playerId": "003DUMMY000W00343AAA",
             "category": "General Player"
           }
         ]
@@ -1953,19 +1953,19 @@
           {
             "attributes": {
               "type": "Player_Registration__c",
-              "url": ""
+              "url": "/services/data/v62.0/sobjects/Player_Registration__c/a04DUMMY000M01863AAA"
             },
-            "Id": "",
-            "Name": "",
+            "Id": "a04DUMMY000M01863AAA",
+            "Name": "PR-DUMMY-M01863",
             "Reserve_Bid_Amount__c": 0,
             "Kitty_Bid_Amount__c": 0,
             "Primary_Role__c": "Bowler",
             "Category__c": "General Player",
-            "Player__c": "",
+            "Player__c": "003DUMMY000M01863AAA",
             "Player__r": {
               "attributes": {
                 "type": "Contact",
-                "url": ""
+                "url": "/services/data/v62.0/sobjects/Contact/003DUMMY000M01863AAA"
               },
               "Name": "Amol Tanpure",
               "Age__c": null,
@@ -1980,7 +1980,7 @@
             "Sold_To__c": "001IR00001xeRnyYAE",
             "playerAge": null,
             "birthData": null,
-            "playerId": "",
+            "playerId": "003DUMMY000M01863AAA",
             "category": "General Player"
           }
         ]
@@ -7054,19 +7054,19 @@
           {
             "attributes": {
               "type": "Player_Registration__c",
-              "url": ""
+              "url": "/services/data/v62.0/sobjects/Player_Registration__c/a04DUMMY000M01960AAA"
             },
-            "Id": "",
-            "Name": "",
+            "Id": "a04DUMMY000M01960AAA",
+            "Name": "PR-DUMMY-M01960",
             "Reserve_Bid_Amount__c": 0,
             "Kitty_Bid_Amount__c": 0,
             "Primary_Role__c": "All - rounder",
             "Category__c": "Emerging Player",
-            "Player__c": "",
+            "Player__c": "003DUMMY000M01960AAA",
             "Player__r": {
               "attributes": {
                 "type": "Contact",
-                "url": ""
+                "url": "/services/data/v62.0/sobjects/Contact/003DUMMY000M01960AAA"
               },
               "Name": "Yaseen Soudagar",
               "Age__c": null,
@@ -7081,25 +7081,25 @@
             "Sold_To__c": "001IR00001xeRnuYAE",
             "playerAge": null,
             "birthData": null,
-            "playerId": "",
+            "playerId": "003DUMMY000M01960AAA",
             "category": "Emerging Player"
           },
           {
             "attributes": {
               "type": "Player_Registration__c",
-              "url": ""
+              "url": "/services/data/v62.0/sobjects/Player_Registration__c/a04DUMMY000M04161AAA"
             },
-            "Id": "",
-            "Name": "",
+            "Id": "a04DUMMY000M04161AAA",
+            "Name": "PR-DUMMY-M04161",
             "Reserve_Bid_Amount__c": 0,
             "Kitty_Bid_Amount__c": 0,
             "Primary_Role__c": "All - rounder",
             "Category__c": "",
-            "Player__c": "",
+            "Player__c": "003DUMMY000M04161AAA",
             "Player__r": {
               "attributes": {
                 "type": "Contact",
-                "url": ""
+                "url": "/services/data/v62.0/sobjects/Contact/003DUMMY000M04161AAA"
               },
               "Name": "Jayesh Bharat Pokhare",
               "Age__c": null,
@@ -7114,25 +7114,25 @@
             "Sold_To__c": "001IR00001xeRnuYAE",
             "playerAge": null,
             "birthData": null,
-            "playerId": "",
+            "playerId": "003DUMMY000M04161AAA",
             "category": ""
           },
           {
             "attributes": {
               "type": "Player_Registration__c",
-              "url": ""
+              "url": "/services/data/v62.0/sobjects/Player_Registration__c/a04DUMMY000M00510AAA"
             },
-            "Id": "",
-            "Name": "",
+            "Id": "a04DUMMY000M00510AAA",
+            "Name": "PR-DUMMY-M00510",
             "Reserve_Bid_Amount__c": 0,
             "Kitty_Bid_Amount__c": 0,
             "Primary_Role__c": "All - rounder",
             "Category__c": "",
-            "Player__c": "",
+            "Player__c": "003DUMMY000M00510AAA",
             "Player__r": {
               "attributes": {
                 "type": "Contact",
-                "url": ""
+                "url": "/services/data/v62.0/sobjects/Contact/003DUMMY000M00510AAA"
               },
               "Name": "HARSHAL DEEPAK JADHAV",
               "Age__c": null,
@@ -7147,7 +7147,7 @@
             "Sold_To__c": "001IR00001xeRnuYAE",
             "playerAge": null,
             "birthData": null,
-            "playerId": "",
+            "playerId": "003DUMMY000M00510AAA",
             "category": ""
           }
         ]
