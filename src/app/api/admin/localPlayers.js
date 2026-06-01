@@ -6,6 +6,8 @@ const CDN_URL =
 
 // Internal proxy route — safe to call from the browser.
 export const PLAYERS_API_PATH = "/api/players";
+// Flat squad list proxy — same shape as getLocalSquadPlayers(), safe for browser.
+export const SQUAD_API_PATH = "/api/players/squad";
 
 let _cache = null;
 
