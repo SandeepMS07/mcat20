@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useParams } from "next/navigation";
 import {
   getFantasyMatch,
+  previewPlayingXiFromWidget,
   publishPlayingXi,
   pullPlayingXiFromWidget,
   unpublishPlayingXi,
@@ -42,9 +43,17 @@ export default function FantasyPlayingXiPage() {
   const [submitting, setSubmitting] = useState(false);
   const [pulling, setPulling] = useState(false);
   const [unpublishing, setUnpublishing] = useState(false);
+  const [previewing, setPreviewing] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
   const [widgetNotice, setWidgetNotice] = useState(null);
+  // Suggested-XI rows returned by the preview endpoint. Pure read-only display
+  // — the admin uses these as a reference and manually ticks players in the
+  // picker below. Each row carries the matched_player_id when our DB has a
+  // counterpart for the vendor's name (so we can highlight the corresponding
+  // checkbox row), and null when it doesn't (those are surfaced separately).
+  const [suggestedXi, setSuggestedXi] = useState(null);
+  const [suggestedUnmatched, setSuggestedUnmatched] = useState([]);
 
   useEffect(() => {
     let cancelled = false;
@@ -196,8 +205,41 @@ export default function FantasyPlayingXiPage() {
     }
   };
 
-  // Pull the XI from the widget feed. If the widget has nothing yet (toss
-  // not done), surface the soft "try again later" message instead of an error.
+  // Pull-from-widget PREVIEW. Read-only: fetches the vendor's squad.js, runs
+  // name → fmp.player_id resolution server-side, returns the 22 suggested
+  // players grouped by team WITHOUT touching the DB. UI renders them as a
+  // reference card; admin still ticks the picker below manually.
+  const handlePullPlayingXi = async () => {
+    if (!match || previewing) return;
+    setPreviewing(true);
+    setError(null);
+    setSuccess(null);
+    setWidgetNotice(null);
+    setSuggestedXi(null);
+    setSuggestedUnmatched([]);
+    try {
+      const res = await previewPlayingXiFromWidget(match.id);
+      if (!Array.isArray(res?.suggested) || res.suggested.length === 0) {
+        setWidgetNotice(
+          res?.message ??
+            "Widget feed has no Playing XI yet (typically populates ~30 min after toss).",
+        );
+      } else {
+        setSuggestedXi(res.suggested);
+        setSuggestedUnmatched(Array.isArray(res.unmatched) ? res.unmatched : []);
+      }
+    } catch (e) {
+      const code = e?.response?.data?.error;
+      const hint = e?.response?.data?.hint;
+      setError(prettifyWidgetError(code, [], hint) ?? e?.message ?? "preview_failed");
+    } finally {
+      setPreviewing(false);
+    }
+  };
+
+  // LEGACY pull-from-widget path. Kept available behind a disabled button so
+  // operators are nudged toward the preview-then-pick flow above instead of
+  // the auto-publish flow this triggers. Wired in case we ever re-enable it.
   const handlePullFromWidget = async () => {
     if (!match || pulling) return;
     setPulling(true);
@@ -329,22 +371,52 @@ export default function FantasyPlayingXiPage() {
         </div>
       ) : null}
 
-      <Card title="Auto-pull from widget" padding="tight">
-        <div className="flex flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
+      <Card title="Widget assist" padding="tight">
+        <div className="flex flex-col gap-3 px-4 py-4">
           <div className="text-sm text-white/75">
             The widget feed publishes the announced XI about 30 min after toss.
-            If it's there, pull it in with one click — no manual selection
-            needed.
+            Use <strong className="text-white">Pull Playing XI</strong> to see
+            the suggested 22 names team-wise, then tick them in the picker
+            below and publish. Auto-pull is disabled because the vendor's feed
+            sends only names — final selection stays operator-driven and
+            ID-based.
           </div>
-          <Button
-            onClick={handlePullFromWidget}
-            disabled={pulling || submitting}
-            size="md"
-          >
-            {pulling ? "Pulling…" : "Pull from widget"}
-          </Button>
+          <div className="flex flex-wrap items-center gap-3">
+            {/* Legacy auto-pull — visible but non-clickable per BRD update.
+                Preserves muscle memory while routing operators through the
+                preview + manual-pick flow on the right. */}
+            <Button
+              onClick={handlePullFromWidget}
+              disabled
+              size="md"
+              variant="secondary"
+              title="Auto-pull is off — use Pull Playing XI instead"
+            >
+              Pull from widget
+            </Button>
+            <Button
+              onClick={handlePullPlayingXi}
+              disabled={previewing || submitting || pulling || unpublishing}
+              size="md"
+            >
+              {previewing ? "Loading…" : "Pull Playing XI"}
+            </Button>
+          </div>
         </div>
       </Card>
+
+      {suggestedXi ? (
+        <div className="mt-4">
+          <SuggestedXi
+            suggested={suggestedXi}
+            unmatched={suggestedUnmatched}
+            onDismiss={() => {
+              setSuggestedXi(null);
+              setSuggestedUnmatched([]);
+            }}
+          />
+        </div>
+      ) : null}
 
       <div className="mt-6">
         <Card title="Or — pick manually" padding="tight">
@@ -434,6 +506,18 @@ function TeamSquad({ teamId, players, selected, onToggle, disabled, teamAtCap, p
     return teamLabelFor(sample) || `Team ${teamId}`;
   }, [players, teamId, teamLabelFor]);
   const inXi = players.filter((p) => selected.has(p.player_id)).length;
+
+  // Pure alpha sort, case-insensitive. Role labels stay inline on each row
+  // (next to the Icon/U-19/In XI pills) so the admin can still see what each
+  // player is without role groupings breaking up the alphabetical flow.
+  const sorted = useMemo(() => {
+    return [...players].sort((a, b) =>
+      (a.player_name || "").localeCompare(b.player_name || "", undefined, {
+        sensitivity: "base",
+      }),
+    );
+  }, [players]);
+
   return (
     <Card
       title={
@@ -447,7 +531,7 @@ function TeamSquad({ teamId, players, selected, onToggle, disabled, teamAtCap, p
       padding="tight"
     >
       <ul className="divide-y divide-white/5">
-        {players.map((p) => {
+        {sorted.map((p) => {
           const checked = selected.has(p.player_id);
           // Cap is per-team: a row only goes "disabled (full)" once this team
           // has hit 11. The other team's picker keeps accepting clicks.
@@ -489,6 +573,120 @@ function TeamSquad({ teamId, players, selected, onToggle, disabled, teamAtCap, p
           );
         })}
       </ul>
+    </Card>
+  );
+}
+
+// Read-only display of the widget-suggested XI grouped by team. No checkboxes,
+// no auto-selection — the admin reads this and manually ticks corresponding
+// rows in the TeamSquad pickers below. Unmatched names (vendor sent a name
+// that doesn't normalize to any player in our fmp roster for this match) are
+// surfaced in a banner so the admin knows to spell-check / chase the vendor.
+function SuggestedXi({ suggested, unmatched, onDismiss }) {
+  const grouped = useMemo(() => {
+    const out = new Map();
+    for (const row of suggested) {
+      const key = row.teamLabel || row.teamId || "?";
+      if (!out.has(key)) out.set(key, []);
+      out.get(key).push(row);
+    }
+    // Alpha-sort within each team (case-insensitive) so the suggested list
+    // matches the manual picker's ordering — easier to scan one against the
+    // other when ticking checkboxes. Vendor's squad.js sends batting order;
+    // we override that here because the admin reads against an alpha picker.
+    for (const arr of out.values()) {
+      arr.sort((a, b) =>
+        (a.playerName || "").localeCompare(b.playerName || "", undefined, {
+          sensitivity: "base",
+        }),
+      );
+    }
+    return out;
+  }, [suggested]);
+
+  return (
+    <Card
+      title={
+        <span className="flex items-center gap-2">
+          <span>Suggested Playing XI (from widget)</span>
+          <Pill tone="default">Reference only</Pill>
+        </span>
+      }
+      padding="tight"
+    >
+      <div className="px-4 py-3">
+        <div className="mb-3 flex items-center justify-between gap-3">
+          <span className="text-xs text-white/55">
+            Use this as a guide — tick the matching players in the picker
+            below, then click <strong className="text-white">Publish XI</strong>.
+          </span>
+          <button
+            type="button"
+            onClick={onDismiss}
+            className="text-xs text-white/55 hover:text-white"
+          >
+            Dismiss
+          </button>
+        </div>
+
+        {unmatched.length > 0 ? (
+          <div className="mb-3 rounded-xl border border-amber-400/30 bg-amber-400/10 px-3 py-2 text-xs text-amber-200">
+            <strong>Names not found in this match's squad:</strong>{" "}
+            {unmatched.join(", ")}.{" "}
+            <span className="text-amber-300/80">
+              Spelling drift between vendor and our DB — handle via{" "}
+              <code>sync:vendor-names</code> / alias before publishing.
+            </span>
+          </div>
+        ) : null}
+
+        <div className="grid gap-3 md:grid-cols-2">
+          {[...grouped.entries()].map(([label, rows]) => (
+            <div
+              key={label}
+              className="rounded-xl border border-white/10 bg-white/[0.02] px-3 py-2"
+            >
+              <div className="mb-2 flex items-center justify-between">
+                <span className="text-sm font-bold text-white">{label}</span>
+                <Pill tone="default">{rows.length} players</Pill>
+              </div>
+              <ul className="space-y-1">
+                {rows.map((p, i) => (
+                  <li
+                    key={`${label}-${i}-${p.playerName}`}
+                    className="flex items-center justify-between text-sm"
+                  >
+                    <span
+                      className={
+                        p.matchedPlayerId
+                          ? "text-white/90"
+                          : "text-amber-200/90 line-through decoration-amber-300/50"
+                      }
+                    >
+                      {p.playerName}
+                      {p.isCaptain ? (
+                        <span className="ml-1 text-[10px] font-bold uppercase tracking-wider text-[#F68323]">
+                          (C)
+                        </span>
+                      ) : null}
+                      {p.isWicketKeeper ? (
+                        <span className="ml-1 text-[10px] font-bold uppercase tracking-wider text-emerald-300">
+                          (WK)
+                        </span>
+                      ) : null}
+                    </span>
+                    {p.matchedPlayerId ? null : (
+                      <span className="text-[10px] text-amber-300/90">
+                        not in DB
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
     </Card>
   );
 }
@@ -544,6 +742,8 @@ function prettifyWidgetError(code, missing, hint) {
     }
     case "widget_fetch_failed":
       return "Widget feed couldn't be fetched (CDN unreachable or malformed). Try again in a moment, or publish manually below.";
+    case "widget_match_id_missing":
+      return hint || "Match has no widget_match_id mapped. Re-run showcase:seed-s4 to backfill from tournament_fixture.";
     default:
       return null;
   }

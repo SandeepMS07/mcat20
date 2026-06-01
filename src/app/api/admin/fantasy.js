@@ -85,6 +85,32 @@ export const pullPlayingXiFromWidget = async (matchId) => {
   return res.data;
 };
 
+// Preview the widget's Playing XI without writing anything to DB. Used by the
+// admin UI to SHOW the vendor's suggested 22 names team-wise; the admin then
+// manually ticks matching players in the picker below and clicks Publish XI
+// (which is the ID-based PATCH /playing-xi path).
+//
+// Response shape:
+//   {
+//     ok: true,
+//     suggested: [
+//       { teamId: "1", teamLabel: "MSC", playerName: "Shreyas Gurav",
+//         matchedPlayerId: "S4-M1-P5", isCaptain: bool, isWicketKeeper: bool },
+//       ...
+//     ],
+//     unmatched: ["Monil Soni"],   // vendor names without an fmp counterpart
+//     message?: string             // present when the widget feed isn't ready
+//   }
+//
+// Error codes:
+//   404 match_not_found · 409 widget_match_id_missing · 502 widget_fetch_failed
+export const previewPlayingXiFromWidget = async (matchId) => {
+  const res = await turboverseAxios.get(
+    `/v1/admin/matches/${encodeURIComponent(matchId)}/playing-xi/preview-from-widget`,
+  );
+  return res.data;
+};
+
 // ─── Match lifecycle controls ───────────────────────────────────────────────
 // Manually flip a match to live (lock_at clamped to now). Used when the
 // iSportz feed lags or for forced toss-time locks.
