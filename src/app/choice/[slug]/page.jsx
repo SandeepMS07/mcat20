@@ -7,9 +7,11 @@ import { BsArrowLeftCircle } from "react-icons/bs";
 import PlayerCard from "@/components/teams/meetMyTeam/PlayerCard";
 import Sponsorship from "@/components/common/Sponsorship";
 import LoadingPage from "@/app/loading";
+import CustomSelect from "@/components/common/CustomSelect";
 import { useAuth } from "@/components/auth/AuthContext";
 import { getChoicePoll, voteChoice } from "@/app/api/polls";
 import { getCategoryBySlug } from "../categories";
+import { SQUAD_API_PATH } from "@/app/api/admin/localPlayers";
 
 // "RANESH KUMAR SHARMA" -> "Ranesh K. S." for the card's display name.
 const toTitleCaseWithInitials = (str) => {
@@ -49,6 +51,9 @@ export default function ChoiceCategoryPage() {
   const [error, setError] = useState("");
   const [voteError, setVoteError] = useState("");
   const [pendingId, setPendingId] = useState(null);
+  const [squadMap, setSquadMap] = useState({});
+  const [teamFilter, setTeamFilter] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
   // Load the category's poll (slug `vc-<category-slug>`). A 404 just means the
   // category hasn't been seeded yet — show the "coming soon" empty state.
   useEffect(() => {
@@ -78,6 +83,28 @@ export default function ChoiceCategoryPage() {
     };
   }, [slug]);
 
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch(SQUAD_API_PATH);
+        if (!res.ok) return;
+        const json = await res.json();
+        const players = json?.players ?? [];
+        const map = {};
+        for (const p of players) {
+          if (p.player_name) {
+            map[p.player_name.toUpperCase()] = p.team_name ?? "";
+          }
+        }
+        if (!cancelled) setSquadMap(map);
+      } catch {
+        /* silently ignore — team filter just won't group */
+      }
+    })();
+    return () => { cancelled = true; };
+  }, []);
+
   const options = poll?.options ?? [];
   const totalVotes = poll?.total_votes ?? 0;
   const selectedId = poll?.my_selection ?? null;
@@ -95,9 +122,25 @@ export default function ChoiceCategoryPage() {
         restName: getRestOfName(opt.label),
         img: opt.image_url || "",
         votes: opt.votes || 0,
+        team: squadMap[(opt.label || "").toUpperCase()] ?? "",
+        rawName: (opt.label || "").toUpperCase(),
       })),
-    [options],
+    [options, squadMap],
   );
+
+  const teamOptions = useMemo(() => {
+    const teams = [...new Set(players.map((p) => p.team).filter(Boolean))].sort();
+    return [{ value: "all", label: "All Teams" }, ...teams.map((t) => ({ value: t, label: t }))];
+  }, [players]);
+
+  const filteredPlayers = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    return players.filter((p) => {
+      const teamMatch = teamFilter === "all" || p.team === teamFilter;
+      const nameMatch = !q || p.rawName.toLowerCase().includes(q) || p.name.toLowerCase().includes(q);
+      return teamMatch && nameMatch;
+    });
+  }, [players, teamFilter, searchQuery]);
 
   // Optimistic vote, mirroring components/home/FanPoll.jsx, then reconcile with
   // the fresh tallies the backend returns.
@@ -216,21 +259,67 @@ export default function ChoiceCategoryPage() {
                 </p>
               ) : null}
 
-              <div className="mt-6 sm:mt-12 md:mt-20 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-x-3 sm:gap-x-8 md:gap-x-10 lg:gap-x-12 gap-y-8 sm:gap-y-12 md:gap-y-20">
-                {players.map((player) => (
-                  <PlayerCard
-                    key={player.optionId}
-                    player={player}
-                    voteState={showResults ? "progress" : "button"}
-                    showProgress={showResults}
-                    votePercent={
-                      totalVotes > 0 ? (player.votes / totalVotes) * 100 : 0
-                    }
-                    isSelected={selectedId === player.optionId}
-                    onVoteClick={() => handleVote(player.optionId)}
+              {/* Search + Team filter */}
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-end sm:gap-4">
+                <div className="relative sm:w-56">
+                  <span className="px-1 text-[9px] font-bold uppercase tracking-wider text-white/55">
+                    Search Player
+                  </span>
+                  <div className="relative mt-1">
+                    <svg
+                      className="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-white/40"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2.5}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden
+                    >
+                      <circle cx="11" cy="11" r="8" />
+                      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                    <input
+                      type="text"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      placeholder="Player name…"
+                      className="w-full rounded-lg border border-white/15 bg-[#192A66] py-2 pl-8 pr-3 text-xs font-bold uppercase text-white placeholder:font-normal placeholder:normal-case placeholder:text-white/35 outline-none transition focus:border-[#FFE150]/60 sm:text-sm"
+                    />
+                  </div>
+                </div>
+                {teamOptions.length > 2 && (
+                  <CustomSelect
+                    label="Filter by Team"
+                    value={teamFilter}
+                    options={teamOptions}
+                    onChange={setTeamFilter}
+                    className="sm:w-56"
                   />
-                ))}
+                )}
               </div>
+
+              {filteredPlayers.length === 0 ? (
+                <p className="mt-16 text-center italic text-white/50">
+                  No players match your search.
+                </p>
+              ) : (
+                <div className="mt-6 sm:mt-12 md:mt-20 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-x-3 sm:gap-x-8 md:gap-x-10 lg:gap-x-12 gap-y-8 sm:gap-y-12 md:gap-y-20">
+                  {filteredPlayers.map((player) => (
+                    <PlayerCard
+                      key={player.optionId}
+                      player={player}
+                      voteState={showResults ? "progress" : "button"}
+                      showProgress={showResults}
+                      votePercent={
+                        totalVotes > 0 ? (player.votes / totalVotes) * 100 : 0
+                      }
+                      isSelected={selectedId === player.optionId}
+                      onVoteClick={() => handleVote(player.optionId)}
+                    />
+                  ))}
+                </div>
+              )}
 
               {hasVoted && !isClosed ? (
                 <p className="mt-10 text-center text-white/80 italic">
