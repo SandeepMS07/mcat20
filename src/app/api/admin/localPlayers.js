@@ -1,15 +1,17 @@
-import teamData from "@/constant/team/teamDetailsDataSeason4.json";
+const GCS_URL =
+  "https://mca-cdn.ken42.com/players-list/teamDetailsDataSeason4.json";
 
-// Transforms the local teamDetailsDataSeason4.json into the same flat shape
-// that the /v1/squads/players API returns, so PlayerPicker works without
-// hitting the network.
-//
-// Returned shape per player:
-//   { id, sf_player_id, player_name, photo_url, team_name, category, role, is_icon }
+// In-process cache so multiple callers in the same request share one fetch.
+// Reset on each cold start (deploy / server restart), which is the right
+// moment to pick up any JSON changes you've uploaded to GCS.
 let _cache = null;
 
-export function getLocalSquadPlayers() {
+export async function getLocalSquadPlayers() {
   if (_cache) return _cache;
+
+  const res = await fetch(GCS_URL, { next: { revalidate: 300 } });
+  if (!res.ok) throw new Error(`Failed to fetch players JSON: ${res.status}`);
+  const teamData = await res.json();
 
   const rows = [];
   const teams = teamData?.data ?? [];
@@ -37,4 +39,12 @@ export function getLocalSquadPlayers() {
 
   _cache = rows;
   return rows;
+}
+
+// Fetch the raw JSON in the original shape (used by clientApi / serverApi /
+// HomeTeamSection as a drop-in replacement for the static import).
+export async function fetchTeamDetailsData() {
+  const res = await fetch(GCS_URL, { next: { revalidate: 300 } });
+  if (!res.ok) throw new Error(`Failed to fetch players JSON: ${res.status}`);
+  return res.json();
 }
