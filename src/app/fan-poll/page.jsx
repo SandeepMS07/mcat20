@@ -6,7 +6,7 @@ import FanPollPopupAutoMount from "@/components/home/FanPollPopupAutoMount";
 import MatchFanPollSection from "@/components/fan-poll/MatchFanPollSection";
 import Sponsorship from "@/components/common/Sponsorship";
 
-const COMING_SOON = true;
+const COMING_SOON = false;
 
 const TABS = [
   { id: "active", label: "Fan Poll" },
