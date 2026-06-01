@@ -20,41 +20,45 @@ const SEASON_OPTIONS = [
 
 const RECENT_FORM_TEMPLATE = ["W", "L", "L", "W", "W"];
 
-const SEASON4_MEN_TEAMS = [
-  "Aakash Tigers MWS",
-  "Arcs Andheri",
-  "Bandra Blasters",
-  "Eagle Thane Strikers",
-  "MSC Maratha Royals",
-  "North Mumbai Panthers",
-  "SoBo Mumbai Falcons",
-  "Triumph Knights Mumbai North East",
+const SEASON4_MEN_STANDINGS = [
+  { name: "Eagle Thane Strikers", Matches: 1, Wins: 1, Loss: 0, Tied: 0, NR: 0, NetRunRate: 3.202, ForTeams: "194/15.2", AgainstTeam: "189/20.0", Points: 2 },
+  { name: "Aakash Tigers MWS",    Matches: 0, Wins: 0, Loss: 0, Tied: 0, NR: 0, NetRunRate: 0,     ForTeams: "0/0.0",    AgainstTeam: "0/0.0",    Points: 0 },
+  { name: "Arcs Andheri",         Matches: 0, Wins: 0, Loss: 0, Tied: 0, NR: 0, NetRunRate: 0,     ForTeams: "0/0.0",    AgainstTeam: "0/0.0",    Points: 0 },
+  { name: "Bandra Blasters",      Matches: 1, Wins: 0, Loss: 1, Tied: 0, NR: 0, NetRunRate: -3.202, ForTeams: "189/20.0", AgainstTeam: "194/15.2", Points: 0 },
+  { name: "MSC Maratha Royals",   Matches: 0, Wins: 0, Loss: 0, Tied: 0, NR: 0, NetRunRate: 0,     ForTeams: "0/0.0",    AgainstTeam: "0/0.0",    Points: 0 },
+  { name: "North Mumbai Panthers",Matches: 0, Wins: 0, Loss: 0, Tied: 0, NR: 0, NetRunRate: 0,     ForTeams: "0/0.0",    AgainstTeam: "0/0.0",    Points: 0 },
+  { name: "SoBo Mumbai Falcons",  Matches: 0, Wins: 0, Loss: 0, Tied: 0, NR: 0, NetRunRate: 0,     ForTeams: "0/0.0",    AgainstTeam: "0/0.0",    Points: 0 },
+  { name: "Triumph Knights Mumbai North East", Matches: 0, Wins: 0, Loss: 0, Tied: 0, NR: 0, NetRunRate: 0, ForTeams: "0/0.0", AgainstTeam: "0/0.0", Points: 0 },
 ];
 
 const SEASON4_WOMEN_TEAMS = Object.keys(SEASON4_WOMEN_NAME_TO_LOGO_KEY);
 
-const buildSeason4Row = (name, isWomen) => {
+const buildSeason4Row = (name, isWomen, data = {}) => {
   const logoKey = isWomen
     ? SEASON4_WOMEN_NAME_TO_LOGO_KEY[name] || name
     : name;
   return {
     TeamName: name,
     TeamLogo: SEASON4_TEAM_LOGO_MAP[logoKey] || "",
-    Matches: 0,
-    Wins: 0,
-    Loss: 0,
-    Tied: 0,
-    NetRunRate: 0,
-    ForTeams: "0/0.0",
-    AgainstTeam: "0/0.0",
-    Points: 0,
+    Matches: data.Matches ?? 0,
+    Wins: data.Wins ?? 0,
+    Loss: data.Loss ?? 0,
+    Tied: data.Tied ?? 0,
+    NetRunRate: data.NetRunRate ?? 0,
+    ForTeams: data.ForTeams ?? "0/0.0",
+    AgainstTeam: data.AgainstTeam ?? "0/0.0",
+    Points: data.Points ?? 0,
   };
 };
 
-const getSeason4Data = (gender) =>
-  (gender === "women" ? SEASON4_WOMEN_TEAMS : SEASON4_MEN_TEAMS).map((n) =>
-    buildSeason4Row(n, gender === "women"),
+const getSeason4Data = (gender) => {
+  if (gender === "women") {
+    return SEASON4_WOMEN_TEAMS.map((n) => buildSeason4Row(n, true));
+  }
+  return SEASON4_MEN_STANDINGS.map((entry) =>
+    buildSeason4Row(entry.name, false, entry),
   );
+};
 
 const getSeasonData = (season, standingsSeason3, season4Gender) => {
   if (season === "season_4") {
@@ -101,7 +105,14 @@ const PointsTablePage = () => {
       standingsSeason3,
       season4Gender,
     );
-    return seasonData.map((team, index) => ({ team, rank: index + 1 }));
+    return [...seasonData]
+      .sort((a, b) => {
+        const pts = (t) => Number(t?.Points ?? t?.points ?? 0);
+        const nrr = (t) => Number(t?.NetRunRate ?? t?.net_run_rate ?? 0);
+        const m = (t) => Number(t?.Matches ?? t?.played ?? 0);
+        return pts(b) - pts(a) || m(b) - m(a) || nrr(b) - nrr(a);
+      })
+      .map((team, index) => ({ team, rank: index + 1 }));
   }, [activeSeason, standingsSeason3, season4Gender]);
 
   const rows = useMemo(() => {
@@ -256,7 +267,7 @@ const PointsTablePage = () => {
                     >
                       Teams
                     </th>
-                    <th className="px-2 py-2.5 sm:px-4 sm:py-3">P</th>
+                    <th className="px-2 py-2.5 sm:px-4 sm:py-3">M</th>
                     <th className="px-2 py-2.5 sm:px-4 sm:py-3">W</th>
                     <th className="px-2 py-2.5 sm:px-4 sm:py-3">L</th>
                     <th className="hidden md:table-cell px-4 py-3">T</th>
