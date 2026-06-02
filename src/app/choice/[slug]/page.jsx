@@ -235,32 +235,30 @@ export default function ChoiceCategoryPage() {
             </h1>
           </div>
 
-          {/* Category label */}
-          <p className="mt-4 text-sm font-semibold italic text-white/70">
-            {category.label}
-          </p>
-
           {error ? (
-            <p className="mt-16 text-center text-white/70">{error}</p>
+            <>
+              <p className="mt-4 text-2xl font-extrabold uppercase italic tracking-widest text-white/80">
+                {category.label}
+              </p>
+              <p className="mt-16 text-center text-white/70">{error}</p>
+            </>
           ) : players.length === 0 ? (
-            <p className="mt-16 text-center italic text-white/70">
-              Nominees coming soon for this category.
-            </p>
+            <>
+              <p className="mt-4 text-2xl font-extrabold uppercase italic tracking-widest text-white/80">
+                {category.label}
+              </p>
+              <p className="mt-16 text-center italic text-white/70">
+                Nominees coming soon for this category.
+              </p>
+            </>
           ) : (
             <>
-              {isClosed ? (
-                <p className="mt-6 text-center text-sm font-semibold italic text-white/70">
-                  Voting has closed — final results below.
+              {/* Category label + Search + Team filter on the same row */}
+              <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                <p className="text-2xl font-extrabold uppercase italic tracking-widest text-white/80 shrink-0">
+                  {category.label}
                 </p>
-              ) : null}
-              {voteError ? (
-                <p className="mt-6 text-center text-sm font-semibold text-red-300">
-                  {voteError}
-                </p>
-              ) : null}
-
-              {/* Search + Team filter */}
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-end sm:gap-4">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:gap-4">
                 <div className="relative sm:w-56">
                   <span className="px-1 text-[9px] font-bold uppercase tracking-wider text-white/55">
                     Search Player
@@ -297,7 +295,19 @@ export default function ChoiceCategoryPage() {
                     className="sm:w-56"
                   />
                 )}
+                </div>
               </div>
+
+              {isClosed ? (
+                <p className="mt-4 text-center text-sm font-semibold italic text-white/70">
+                  Voting has closed — final results below.
+                </p>
+              ) : null}
+              {voteError ? (
+                <p className="mt-4 text-center text-sm font-semibold text-red-300">
+                  {voteError}
+                </p>
+              ) : null}
 
               {filteredPlayers.length === 0 ? (
                 <p className="mt-16 text-center italic text-white/50">

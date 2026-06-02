@@ -1,6 +1,6 @@
 "use client";
 
-const COMING_SOON = true;
+const COMING_SOON = false;
 
 import Link from "next/link";
 import { FaStar, FaTrophy, FaUserShield, FaBaseballBall } from "react-icons/fa";
@@ -139,10 +139,27 @@ export default function ChoicePage() {
               <span className="block text-white">CHOICE</span>
             </h1>
           </div>
-          <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6 items-stretch">
-            {CHOICE_CATEGORIES.map((category) => (
-              <ChoiceCard key={category.slug} category={category} />
-            ))}
+          <div className="mt-10 space-y-10">
+            <div>
+              <h2 className="mb-5 text-2xl font-extrabold uppercase italic tracking-widest text-white/80">
+                Men
+              </h2>
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6 items-stretch">
+                {CHOICE_CATEGORIES.filter((c) => c.slug.endsWith("-men")).map((category) => (
+                  <ChoiceCard key={category.slug} category={category} />
+                ))}
+              </div>
+            </div>
+            <div>
+              <h2 className="mb-5 text-2xl font-extrabold uppercase italic tracking-widest text-white/80">
+                Women
+              </h2>
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6 items-stretch">
+                {CHOICE_CATEGORIES.filter((c) => c.slug.endsWith("-women")).map((category) => (
+                  <ChoiceCard key={category.slug} category={category} />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
