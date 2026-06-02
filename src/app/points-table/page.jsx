@@ -316,7 +316,7 @@ const PointsTablePage = () => {
                             ) : null}
                           </div>
                           <span className="z-10 pr-2 sm:pr-5 text-[10px] sm:text-xs font-extrabold uppercase text-[#FFE150] truncate">
-                            {row.shortName}
+                            {row.name}
                           </span>
                           {activeSeason !== "season_4" &&
                             row.rank <=
