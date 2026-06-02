@@ -143,7 +143,7 @@ export const getHeroBannerClient = async () => {
 export const getBannersClient = async () => {
   try {
     return await fetchWithCache("api:banners", async () => {
-      const res = await axios.get("/v1/banners");
+      const res = await fantasyAxios.get("/v1/banners");
       return res.data;
     }, DEFAULT_TTL_MS);
   } catch (err) {
