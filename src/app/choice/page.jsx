@@ -3,8 +3,7 @@
 const COMING_SOON = false;
 
 import Link from "next/link";
-import { FaStar, FaTrophy, FaUserShield, FaBaseballBall } from "react-icons/fa";
-import { GiCricketBat } from "react-icons/gi";
+import Image from "next/image";
 import Sponsorship from "@/components/common/Sponsorship";
 import { CHOICE_CATEGORIES } from "./categories";
 
@@ -47,14 +46,14 @@ const ComingSoonSection = () => (
 );
 
 const CATEGORY_ICONS = {
-  "player-of-tournament-men": { Icon: FaTrophy, color: "#FFD166" },
-  "best-batter-men": { Icon: GiCricketBat, color: "#ffffff" },
-  "best-bowler-men": { Icon: FaBaseballBall, color: "#ff5252" },
-  "best-emerging-player-men": { Icon: FaStar, color: "#FFD166" },
-  "best-development-player-men": { Icon: FaUserShield, color: "#4FD1FF" },
-  "player-of-tournament-women": { Icon: FaTrophy, color: "#ff69b4" },
-  "best-batter-women": { Icon: GiCricketBat, color: "#7CFFB2" },
-  "best-bowler-women": { Icon: FaBaseballBall, color: "#ff69b4" },
+  "player-of-tournament-men": "/images/view-scores/icons/i1.svg",
+  "best-batter-men": "/images/view-scores/icons/i2.svg",
+  "best-bowler-men": "/images/view-scores/icons/i3.svg",
+  "best-emerging-player-men": "/images/view-scores/icons/i4.svg",
+  "best-development-player-men": "/images/view-scores/icons/i5.svg",
+  "player-of-tournament-women": "/images/view-scores/icons/i6.svg",
+  "best-batter-women": "/images/view-scores/icons/i7.svg",
+  "best-bowler-women": "/images/view-scores/icons/i8.svg",
 };
 
 const glowPositionClass = {
@@ -67,10 +66,7 @@ const glowPositionClass = {
 
 const ChoiceCard = ({ category }) => {
   const { slug, title, glow } = category;
-  const { Icon, color: iconColor } = CATEGORY_ICONS[slug] || {
-    Icon: FaStar,
-    color: "#fff",
-  };
+  const iconSrc = CATEGORY_ICONS[slug] || "/images/view-scores/icons/i1.svg";
   return (
     <div className="relative flex flex-col items-center justify-between overflow-hidden rounded-3xl border border-white/10 p-7 shadow-[inset_0_0_14px_1px_rgba(255,255,255,0.1)] h-full min-h-[220px]">
       <div
@@ -94,7 +90,7 @@ const ChoiceCard = ({ category }) => {
         }}
       />
       <div className="relative z-10 pt-3">
-        <Icon size={36} color={iconColor} />
+        <Image src={iconSrc} alt="" width={52} height={52} className="object-contain" />
       </div>
       <h3 className="relative z-10 mt-4 text-center text-lg font-bold uppercase tracking-wider text-white sm:text-xl">
         {title.map((line, i) => (
@@ -141,17 +137,19 @@ export default function ChoicePage() {
           </div>
           <div className="mt-10 space-y-10">
             <div>
-              <h2 className="mb-5 text-2xl font-extrabold uppercase italic tracking-widest text-white/80">
+              <h2 className="mb-5 text-2xl font-extrabold uppercase italic tracking-tight text-white/80">
                 Men
               </h2>
-              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6 items-stretch">
-                {CHOICE_CATEGORIES.filter((c) => c.slug.endsWith("-men")).map((category) => (
-                  <ChoiceCard key={category.slug} category={category} />
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-6 lg:gap-6 items-stretch">
+                {CHOICE_CATEGORIES.filter((c) => c.slug.endsWith("-men")).map((category, i) => (
+                  <div key={category.slug} className={i < 3 ? "lg:col-span-2" : "lg:col-span-3"}>
+                    <ChoiceCard category={category} />
+                  </div>
                 ))}
               </div>
             </div>
             <div>
-              <h2 className="mb-5 text-2xl font-extrabold uppercase italic tracking-widest text-white/80">
+              <h2 className="mb-5 text-2xl font-extrabold uppercase italic tracking-tight text-white/80">
                 Women
               </h2>
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6 items-stretch">
