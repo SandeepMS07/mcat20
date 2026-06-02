@@ -266,8 +266,8 @@ const PointsTablePage = () => {
                         </td>
                       )}
                       <td className="bg-[#2447C6] rounded-l-full relative">
-                        <div class="hidden sm:block w-[54.5px] h-[32px] bg-[#D18FDB] rounded-t-full absolute z-10 -rotate-90 -right-[11.5px] top-[11px]"></div>
-                        <div class="hidden sm:block w-[54.5px] h-[32px] bg-[#192A66] rounded-t-full absolute z-10 -rotate-90 -right-[12px] top-[11px]"></div>
+                        {/* <div class="hidden sm:block w-[54.5px] h-[32px] bg-[#D18FDB] rounded-t-full absolute z-10 -rotate-90 -right-[11.5px] top-[11px]"></div>
+                        <div class="hidden sm:block w-[54.5px] h-[32px] bg-[#192A66] rounded-t-full absolute z-10 -rotate-90 -right-[12px] top-[11px]"></div> */}
                         <div className="relative flex items-center gap-1.5 sm:gap-2 overflow-hidden rounded-l-full bg-[#2447C6] pr-3 sm:pr-6">
                           <div className="z-10 flex h-8 w-8 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-full bg-white border border-[#AF313A] m-0.5">
                             {row.logo ? (
