@@ -520,6 +520,9 @@ export default function FantasyMatchDetailPage() {
             as={Link}
             href={`/admin/fantasy/matches/${encodeURIComponent(matchId)}/playing-xi`}
             size="md"
+            title={xiAnnounced
+              ? "EDIT PLAYING XI\n\nWHAT: Re-open the per-match XI picker to amend the announced 11+11. Auto-pull from squad.js or tick manually.\n\nWARNING: Republishing changes the XI for users who already joined. Players newly benched score 0 from this point on.\n\nOUTCOME: UPDATE fantasy_match_player SET is_playing_xi = TRUE for new selection, FALSE otherwise. Re-stamps playing_xi_announced_at."
+              : "PUBLISH PLAYING XI\n\nWHAT: Open the per-match XI picker. Auto-pull from squad.js or tick 11 per team manually.\n\nWARNING: Once published, the XI is visible to all users on the team-card banner.\n\nOUTCOME: UPDATE fantasy_match_player.is_playing_xi for chosen 22 + the rest. Stamps playing_xi_announced_at."}
           >
             {xiAnnounced ? "Edit Playing XI" : "Publish Playing XI"}
           </Button>
@@ -528,6 +531,7 @@ export default function FantasyMatchDetailPage() {
             href={`/admin/fantasy/matches/${encodeURIComponent(matchId)}/contests`}
             variant="secondary"
             size="md"
+            title="MANAGE CONTESTS\n\nWHAT: Navigate to the contests page for this match. Create, edit, or view entries per contest.\n\nWARNING: None — read-only nav. DB writes only happen inside contest actions.\n\nOUTCOME: No DB writes on this click."
           >
             Manage contests ({contests.length})
           </Button>
@@ -542,12 +546,10 @@ export default function FantasyMatchDetailPage() {
               disabled={actionBusy === "schedule" || isAbandoned || match.status === "completed"}
               title={
                 isAbandoned
-                  ? "Match abandoned"
+                  ? "Match abandoned — schedule locked"
                   : match.status === "completed"
                     ? "Match completed — schedule is fixed"
-                    : isLive
-                      ? "Edit schedule (enable Reset to upcoming to reopen team creation)"
-                      : "Edit scheduled / lock time"
+                    : "EDIT SCHEDULE\n\nWHAT: Change scheduled_at and lock_at." + (isLive ? " For LIVE matches, enable 'Reset to upcoming' to reopen team creation (demo use)." : "") + "\n\nWARNING: Users mid-edit may lose access to the lineup form if the lock window shifts under them.\n\nOUTCOME: UPDATE fantasy_match.scheduled_at + lock_at. status-cron re-evaluates on its next pass."
               }
             >
               Edit schedule
@@ -562,7 +564,7 @@ export default function FantasyMatchDetailPage() {
                   ? "Already live"
                   : isAbandoned
                     ? "Match abandoned"
-                    : "Force status → live, clamp lock_at to now"
+                    : "FORCE LOCK\n\nWHAT: Manually flip status from 'upcoming' → 'live' and clamp lock_at to now.\n\nWARNING: Team creation closes immediately. Users mid-edit lose unsaved changes. Use only if status-cron didn't flip the match on time.\n\nOUTCOME: UPDATE fantasy_match SET status='live', lock_at=now(). Withdraw button hides on user-facing match card."
               }
             >
               {actionBusy === "lock" ? "Locking…" : "Force lock"}
@@ -572,7 +574,7 @@ export default function FantasyMatchDetailPage() {
               variant="secondary"
               size="md"
               disabled={actionBusy === "rescore"}
-              title="Re-run scoring from current player_match_stats. Use after a scoring fix."
+              title="FORCE RESCORE\n\nWHAT: Re-run the scoring engine over the current player_match_stats for this match. Re-derives entry_player_points and entry.total_points.\n\nWARNING: Live leaderboard positions WILL shift if any input changed since last tick. Users may see rank jump without a visible event. Run between innings or post-match when possible.\n\nOUTCOME: UPSERT entry_player_points via computeBreakdown(stats). UPDATE entry.total_points sums. Publishes contest:* leaderboard:update WS message."
             >
               {actionBusy === "rescore" ? "Rescoring…" : "Force rescore"}
             </Button>
@@ -581,7 +583,7 @@ export default function FantasyMatchDetailPage() {
               variant="secondary"
               size="md"
               disabled={actionBusy === "rebuild"}
-              title="DESTRUCTIVE: wipe player_event / stats / EPP and rebuild from the vendor feed. Use only when player_event was written with wrong player_ids."
+              title="REBUILD SCORING — DESTRUCTIVE\n\nWHAT: Wipe player_event, player_match_stats, entry_player_points for this match, zero entry.total_points, drop Redis caches, then run ONE ingest tick to repopulate from the vendor feed.\n\nWARNING: The audit trail in player_event is permanently lost for this match. Use ONLY when player_event was written with wrong player_ids (e.g. pre-resolver corruption). For everyday recompute, use Force Rescore instead — it preserves the audit log.\n\nOUTCOME: DELETE 4 tables → flush Redis (widget:idmap, widget:snap, lb:contest:*) → runIngestTick → contests get leaderboard:update WS."
             >
               {actionBusy === "rebuild" ? "Rebuilding…" : "Rebuild scoring"}
             </Button>
@@ -590,7 +592,9 @@ export default function FantasyMatchDetailPage() {
               variant="secondary"
               size="md"
               disabled={actionBusy === "abandon" || isAbandoned}
-              title={isAbandoned ? "Already abandoned" : "Mark as abandoned (optionally void entries)"}
+              title={isAbandoned
+                ? "Already abandoned"
+                : "ABANDON — DESTRUCTIVE\n\nWHAT: Mark match status='abandoned'. Scoring stops; ingest tick skips this match. Optionally void all entries (hides from public leaderboards, keeps DB rows).\n\nWARNING: Once abandoned, future ingest ticks ignore this match. Reversible only by editing fantasy_match.status directly (no admin button). Voiding entries also hide-but-keep — reversible by editing entry row.\n\nOUTCOME: UPDATE fantasy_match SET status='abandoned'. If voiding: UPDATE entry SET status='voided' WHERE contest.match_id=:id."}
             >
               {actionBusy === "abandon" ? "Abandoning…" : "Abandon"}
             </Button>
@@ -694,7 +698,7 @@ export default function FantasyMatchDetailPage() {
                 variant="secondary"
                 size="md"
                 disabled={actionBusy === "clear_cache"}
-                title="Clear all Redis caches scoped to this match"
+                title="CLEAR REDIS CACHES\n\nWHAT: Drop widget:idmap, widget:snap, leaderboard ZSETs, and API response caches scoped to this match. Postgres state is untouched.\n\nWARNING: Next ingest tick treats the entire innings as new — re-emits every cumulative stat into the score_delta_log audit (noisier than usual, no incorrect scoring). Use after fixing a player or widget mapping mid-match so the resolver doesn't keep using the cached wrong mapping for 24h.\n\nOUTCOME: DEL widget:idmap:* widget:snap:* lb:contest:* match:* keys. Forces every downstream lookup to hit Postgres on the next read."
               >
                 {actionBusy === "clear_cache" ? "Clearing…" : "Clear cache"}
               </Button>
@@ -1095,7 +1099,9 @@ function IngestHealthCard({
           onClick={onForceTick}
           size="md"
           disabled={busyKey === "force_tick" || !widgetSet}
-          title={!widgetSet ? "Set widget_match_id first" : "Manually run one ingest tick"}
+          title={!widgetSet
+            ? "Set widget_match_id first — the worker needs it to fetch the vendor feed"
+            : "FORCE TICK\n\nWHAT: Trigger one ingest worker run NOW. Fetches Innings1.js + Innings2.js + squad.js from the vendor CDN, diffs against last snapshot, emits deltas, pushes statsSnapshot to the scoring worker queue.\n\nWARNING: Safe to race against the worker — dedup is on player_event.event_hash. But spamming this won't get scores in faster — bottleneck is usually the vendor feed publishing the update.\n\nOUTCOME: One pass through fetchLatestDeltas → scoring queue. Same path the worker takes on its 30s schedule, just on demand."}
         >
           {busyKey === "force_tick" ? "Ticking…" : "Force tick"}
         </Button>

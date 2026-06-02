@@ -390,7 +390,7 @@ export default function FantasyPlayingXiPage() {
               disabled
               size="md"
               variant="secondary"
-              title="Auto-pull is off — use Pull Playing XI instead"
+              title="PULL FROM WIDGET — DISABLED\n\nWHAT: Reads squad.js, takes 11 names per team, matches against fantasy_match_player by normalized name, flips is_playing_xi=TRUE.\n\nWARNING: ALL-OR-NOTHING — if even one name in squad.js has no fmp row (name drift, missing seed, wrong widget_match_id), the entire pull fails with a 409 squad_mismatch and zero rows update.\n\nDISABLED BY DESIGN: Use 'Pull Playing XI' to preview first, then commit via 'Publish XI'. Routes operators through a safer manual-confirm flow."
             >
               Pull from widget
             </Button>
@@ -398,6 +398,7 @@ export default function FantasyPlayingXiPage() {
               onClick={handlePullPlayingXi}
               disabled={previewing || submitting || pulling || unpublishing}
               size="md"
+              title="PULL PLAYING XI (PREVIEW)\n\nWHAT: Read squad.js for this match's widget_match_id, take 11 names per team, match against fantasy_match_player. PREVIEW only — does not update fmp.\n\nWARNING: None — read-only. If names don't match, the preview shows the missing ones so you can fix them before clicking Publish XI.\n\nOUTCOME: Returns 22 matched names + list of any missing names. No DB writes."
             >
               {previewing ? "Loading…" : "Pull Playing XI"}
             </Button>
@@ -459,13 +460,20 @@ export default function FantasyPlayingXiPage() {
                   type="button"
                   onClick={handleUnpublish}
                   disabled={unpublishing || submitting || pulling}
-                  title="Clear the announced XI and reset every player to undecided"
+                  title="UNPUBLISH XI — DESTRUCTIVE\n\nWHAT: Clear the announced XI. Resets every player's is_playing_xi to NULL.\n\nWARNING: Banner on user-facing match cards disappears immediately. Players who were marked benched return to 'undecided' — scoring resolver treats NULL as eligible. Use only if the announced XI was wrong; otherwise prefer Re-publish XI with corrections.\n\nOUTCOME: UPDATE fantasy_match_player SET is_playing_xi=NULL WHERE match_id=:id. Clears playing_xi_announced_at."
                   className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-rose-300/40 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-rose-200 hover:border-rose-300 hover:bg-rose-400/10 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {unpublishing ? "Unpublishing…" : "Unpublish XI"}
                 </button>
               ) : null}
-              <Button onClick={handlePublish} disabled={!canSubmit || pulling || unpublishing} size="md">
+              <Button
+                onClick={handlePublish}
+                disabled={!canSubmit || pulling || unpublishing}
+                size="md"
+                title={match.playing_xi_announced_at
+                  ? "RE-PUBLISH XI\n\nWHAT: Overwrite the previously announced XI with the current selection (11 per team).\n\nWARNING: Users who picked players newly benched will start scoring 0 from this point on. Past points are NOT reverted — but new events won't be credited to benched players' picks. Visible to all users immediately.\n\nOUTCOME: UPDATE fmp.is_playing_xi=TRUE for selected 22, FALSE otherwise. Updates playing_xi_announced_at."
+                  : "PUBLISH XI\n\nWHAT: Commit the manual XI selection. Writes 11 per team into fantasy_match_player.is_playing_xi.\n\nWARNING: Once published, the XI is visible to all users on the team-card banner. Players left out score 0 from match start.\n\nOUTCOME: UPDATE fmp.is_playing_xi=TRUE for selected 22, FALSE otherwise. Stamps playing_xi_announced_at."}
+              >
                 {submitting
                   ? "Publishing…"
                   : match.playing_xi_announced_at
