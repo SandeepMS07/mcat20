@@ -2,11 +2,10 @@
 
 import { useEffect, useMemo, useState } from "react";
 import standingsData from "@/constant/oldSeason/standings/standings_data_v3.json";
-import { getStandings } from "../api/clientApi";
+import { getStandings, getStandingsV2Client } from "../api/clientApi";
 import { season3TeamLogo, teamShortName } from "@/utilis/helper";
 import Sponsorship from "@/components/common/Sponsorship";
 import CustomSelect from "@/components/common/CustomSelect";
-const STANDINGS_S4_URL = "/api/standings";
 
 const SEASON_OPTIONS = [
   { label: "Season 4", value: "season_4" },
@@ -16,6 +15,21 @@ const SEASON_OPTIONS = [
 ];
 
 const RECENT_FORM_TEMPLATE = ["W", "L", "L", "W", "W"];
+
+const getTeamName = (team) => team?.TeamName || team?.team_name || "Unknown";
+const getTeamLogo = (team) => {
+  const name = getTeamName(team);
+  return team?.TeamLogo || team?.team_logo || season3TeamLogo[name] || "";
+};
+const getMatches = (team) => Number(team?.Matches ?? team?.matches ?? team?.played ?? 0);
+const getWins = (team) => Number(team?.Wins ?? team?.wins ?? team?.won ?? 0);
+const getLosses = (team) => Number(team?.Loss ?? team?.loss ?? team?.lost ?? 0);
+const getTies = (team) => Number(team?.Tied ?? team?.tied ?? team?.draw ?? 0);
+const getNetRunRate = (team) =>
+  Number(team?.NetRunRate ?? team?.net_run_rate ?? 0);
+const getFor = (team) => team?.ForTeams ?? team?.for_teams ?? "-";
+const getAgainst = (team) => team?.AgainstTeam ?? team?.against_team ?? "-";
+const getPoints = (team) => Number(team?.Points ?? team?.points ?? 0);
 
 const getSeasonData = (
   season,
@@ -32,10 +46,10 @@ const getSeasonData = (
   return standingsData[season] || [];
 };
 
-const buildTeamLabel = (team, useSeason3Shape) => {
-  const name = useSeason3Shape ? team?.TeamName : team?.team_name || "Unknown";
-  const shortName = useSeason3Shape ? name : teamShortName[name] || name;
-  const logo = useSeason3Shape ? team?.TeamLogo : season3TeamLogo[name] || "";
+const buildTeamLabel = (team) => {
+  const name = getTeamName(team);
+  const shortName = teamShortName[name] || name;
+  const logo = getTeamLogo(team);
   return { name, shortName, logo };
 };
 
@@ -46,28 +60,50 @@ const PointsTablePage = () => {
   const [season4Data, setSeason4Data] = useState({ men: [], women: [] });
   const [loading, setLoading] = useState(false);
 
+  // Fetch Season 4 data on mount from new API
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchSeason4 = async () => {
       setLoading(true);
       try {
-        const [standingsRes, s4Res] = await Promise.all([
-          getStandings(),
-          fetch(STANDINGS_S4_URL).then((r) =>
-            r.ok ? r.json() : { men: [], women: [] },
-          ),
-        ]);
-        setStandingsSeason3(standingsRes?.data?.season_3?.points || []);
+        const allRes = await getStandingsV2Client("", true);
+        const extractList = (res) =>
+          Array.isArray(res)
+            ? res
+            : Array.isArray(res?.data)
+              ? res.data
+              : Array.isArray(res?.standings)
+                ? res.standings
+                : Array.isArray(res?.season_4?.points)
+                  ? res.season_4.points
+                  : [];
+        const allStandings = extractList(allRes);
+        const normalizeCategory = (team) =>
+          `${team?.Team_Type__c || team?.category || ""}`.toLowerCase();
         setSeason4Data({
-          men: s4Res?.men ?? [],
-          women: s4Res?.women ?? [],
+          men: allStandings.filter((team) => normalizeCategory(team).includes("men")),
+          women: allStandings.filter((team) => normalizeCategory(team).includes("women")),
         });
+        console.info("Season 4 standings loaded", {
+          all: allStandings.length,
+          men: allStandings.filter((team) => normalizeCategory(team).includes("men")).length,
+          women: allStandings.filter((team) => normalizeCategory(team).includes("women")).length,
+        });
+      } catch (err) {
+        console.error("Failed to load season 4 standings", err);
       } finally {
         setLoading(false);
       }
     };
-
-    fetchData();
+    fetchSeason4();
   }, []);
+
+  // Fetch Season 3 data only when that season is selected
+  useEffect(() => {
+    if (activeSeason !== "season_3" || standingsSeason3.length > 0) return;
+    getStandings().then((res) => {
+      setStandingsSeason3(res?.data?.season_3?.points || []);
+    });
+  }, [activeSeason, standingsSeason3.length]);
 
   const rankedSeasonData = useMemo(() => {
     const seasonData = getSeasonData(
@@ -79,28 +115,29 @@ const PointsTablePage = () => {
     const sorted =
       activeSeason === "season_4"
         ? [...seasonData].sort(
-            (a, b) => b.Points - a.Points || b.NetRunRate - a.NetRunRate,
+            (a, b) =>
+              getPoints(b) - getPoints(a) ||
+              getMatches(b) - getMatches(a) ||
+              getNetRunRate(b) - getNetRunRate(a),
           )
         : seasonData;
     return sorted.map((team, index) => ({ team, rank: index + 1 }));
   }, [activeSeason, standingsSeason3, season4Data, season4Gender]);
 
   const rows = useMemo(() => {
-    const useSeason3Shape =
-      activeSeason === "season_3" || activeSeason === "season_4";
     return rankedSeasonData.map(({ team, rank }) => {
-      const teamMeta = buildTeamLabel(team, useSeason3Shape);
+      const teamMeta = buildTeamLabel(team);
       return {
         rank,
         ...teamMeta,
-        p: useSeason3Shape ? team?.Matches : team?.played,
-        w: useSeason3Shape ? team?.Wins : team?.won,
-        l: useSeason3Shape ? team?.Loss : team?.lost,
-        t: useSeason3Shape ? team?.Tied : team?.tied,
-        nrr: useSeason3Shape ? team?.NetRunRate : team?.net_run_rate,
-        for: useSeason3Shape ? team?.ForTeams : "-",
-        against: useSeason3Shape ? team?.AgainstTeam : "-",
-        pts: useSeason3Shape ? team?.Points : team?.points,
+        p: getMatches(team),
+        w: getWins(team),
+        l: getLosses(team),
+        t: getTies(team),
+        nrr: getNetRunRate(team).toFixed(3),
+        for: getFor(team),
+        against: getAgainst(team),
+        pts: getPoints(team),
         recentForm: team?.recentForm || RECENT_FORM_TEMPLATE,
       };
     });
