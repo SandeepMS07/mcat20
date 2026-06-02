@@ -80,13 +80,13 @@ const PointsTablePage = () => {
         const normalizeCategory = (team) =>
           `${team?.Team_Type__c || team?.category || ""}`.toLowerCase();
         setSeason4Data({
-          men: allStandings.filter((team) => normalizeCategory(team).includes("men")),
-          women: allStandings.filter((team) => normalizeCategory(team).includes("women")),
+          men: allStandings.filter((team) => normalizeCategory(team) === "men"),
+          women: allStandings.filter((team) => normalizeCategory(team) === "women"),
         });
         console.info("Season 4 standings loaded", {
           all: allStandings.length,
-          men: allStandings.filter((team) => normalizeCategory(team).includes("men")).length,
-          women: allStandings.filter((team) => normalizeCategory(team).includes("women")).length,
+          men: allStandings.filter((team) => normalizeCategory(team) === "men").length,
+          women: allStandings.filter((team) => normalizeCategory(team) === "women").length,
         });
       } catch (err) {
         console.error("Failed to load season 4 standings", err);
