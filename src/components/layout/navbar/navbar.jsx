@@ -200,10 +200,10 @@ const Navbar = () => {
         </div>
       </div>
       <div className="z-50 absolute top-[28px] w-full flex justify-center ">
-        <div className="relative w-full lg:w-auto">
+        <div className="relative w-[95%] lg:w-auto">
           {/* Logo Section */}
 
-          <nav className="flex items-center justify-between gap-1 lg:gap-2 rounded-full relative overflow-visible w-full lg:w-auto pl-1.5 pr-1.5 lg:pl-3 lg:pr-2 py-1 lg:py-1.5 border border-white/15 bg-[rgba(8,18,55,0.55)] backdrop-blur-2xl shadow-[0_10px_40px_-12px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.18)]">
+          <nav className="flex items-center justify-between gap-1 lg:gap-2 rounded-full relative overflow-visible w-full h-[115%] lg:h-auto lg:w-auto pl-1.5 pr-1.5 lg:pl-3 lg:pr-2 py-1 lg:py-1.5 border border-white/15 bg-[rgba(8,18,55,0.55)] backdrop-blur-2xl shadow-[0_10px_40px_-12px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.18)]">
             <div
               className="relative shrink-0 mx-auto lg:mx-0 px-1.5 lg:px-3"
               style={{ zIndex: 9999 }}
@@ -213,7 +213,7 @@ const Navbar = () => {
                   <Image
                     src={"https://mca-cdn.ken42.com/mca-logos/t20-m.png"}
                     alt="T20 Mumbai logo"
-                    className="h-7 w-auto sm:h-8 md:h-9 lg:h-11 cursor-pointer drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]"
+                    className="h-11 w-auto sm:h-8 md:h-9 lg:h-11 cursor-pointer drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]"
                     width={100}
                     height={100}
                     onClick={() => redirect("/")}
@@ -222,7 +222,7 @@ const Navbar = () => {
                   <Image
                     src={"/images/home/logo-w.png"}
                     alt="Women's league logo"
-                    className="h-7 w-auto sm:h-8 md:h-9 lg:h-11 cursor-pointer drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]"
+                    className="h-11 w-auto sm:h-8 md:h-9 lg:h-11 cursor-pointer drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]"
                     width={100}
                     height={100}
                   />
