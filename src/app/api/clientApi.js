@@ -128,8 +128,10 @@ export const getLatestUpdatesClient = async () => {
 };
 export const getHeroBannerClient = async () => {
   try {
-    return await fetchWithCache("api:hero-banners", async () => {
-      const res = await axios.get("/v1/application/hero/banners");
+    return await fetchWithCache("api:fantasy-banners", async () => {
+      const res = await axios.get(
+        "https://fantasy-api.t20mumbai.com/v1/banners",
+      );
       return res.data;
     });
   } catch (err) {
