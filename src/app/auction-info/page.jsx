@@ -8,7 +8,7 @@ import Image from "next/image";
 // } from "@/utils/helper";
 // import { playerTeamLogo } from "@/assets";
 import { teamDetailsData } from "./data";
-import teamDetailsDataSeason4 from "../../constant/team/teamDetailsDataSeason4.json";
+import { PLAYERS_API_PATH } from "@/app/api/admin/localPlayers";
 import {
   formatToIndianCurrencyWords2,
   mapHighestLevelToCategory,
@@ -21,7 +21,7 @@ const page = () => {
   const teamId = searchParams.get("teamId");
   const setStepValue = searchParams.get("setStepValue");
   const [loading, setLoading] = useState(false);
-  const [teamDetails, setTeamDetails] = useState(teamDetailsDataSeason4.data);
+  const [teamDetails, setTeamDetails] = useState([]);
   const [step, setStep] = useState(setStepValue || 1);
   const [selectedTeamIndex, setSelectedTeamIndex] = useState(0);
 
@@ -32,22 +32,16 @@ const page = () => {
   const [isNameSortedAsc, setIsNameSortedAsc] = useState(true);
   const [sortByName, setSortByName] = useState(false);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       setLoading(true);
-  //       const teamsRes = await getTeamDetails();
-  //       if (teamsRes?.data?.success) {
-  //         setTeamDetails(teamsRes.data.data);
-  //       }
-  //       setLoading(false);
-  //     } catch (error) {
-  //       console.error("Error fetching team details:", error);
-  //       setLoading(false);
-  //     }
-  //   };
-  //   fetchData();
-  // }, []);
+  useEffect(() => {
+    fetch(PLAYERS_API_PATH)
+      .then((r) => r.json())
+      .then((json) => {
+        const teams = json?.data ?? [];
+        setTeamDetails(teams);
+        if (!teamId) setSelectedTeamId(teams[0]?.Id ?? null);
+      })
+      .catch(console.error);
+  }, []);
 
   // const team = teamDetails?.[selectedTeamIndex];
 

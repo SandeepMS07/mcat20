@@ -13,7 +13,7 @@ import {
   updateOption,
   updatePoll,
 } from "@/app/api/admin/polls";
-import { getLocalSquadPlayers } from "@/app/api/admin/localPlayers";
+import { SQUAD_API_PATH } from "@/app/api/admin/localPlayers";
 import PollForm from "@/components/admin/PollForm";
 import PlayerPicker from "@/components/admin/PlayerPicker";
 import {
@@ -70,7 +70,7 @@ export default function EditPollPage() {
     setData(pollRes);
     setMatches(matchesRes.matches || []);
     setVoters(votersRes);
-    setPlayers(getLocalSquadPlayers());
+    fetch(SQUAD_API_PATH).then(r => r.json()).then(json => { if (mountedRef.current) setPlayers(json?.players ?? []); }).catch(() => {});
   };
 
   const safe = async (fn) => {

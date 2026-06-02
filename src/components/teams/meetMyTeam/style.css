@@ -65,6 +65,7 @@
   border-radius: 12px;
   aspect-ratio: 16 / 9;
   isolation: isolate;
+  container-type: size;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
   background: linear-gradient(
     90deg,
@@ -130,19 +131,20 @@
 
 .mtt-card-vote-btn {
   position: absolute;
-  top: 10%;
+  top: 8%;
   right: 6%;
   z-index: 5;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 6px 14px;
+  padding: clamp(4px, 1.2cqh, 8px) clamp(8px, 3cqw, 18px);
   border-radius: 9999px;
   background: linear-gradient(180deg, #142a7c 0%, #1f3aa1 100%);
   color: #fff;
-  font-size: 12px;
+  font-size: clamp(9px, 2.2cqw, 13px);
   font-weight: 700;
   letter-spacing: 0.02em;
+  white-space: nowrap;
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
   cursor: pointer;
@@ -156,13 +158,13 @@
 
 .mtt-card-progress {
   position: absolute;
-  top: 12%;
+  top: 8%;
   right: 6%;
   left: 46%;
   z-index: 5;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: clamp(4px, 1.5cqw, 8px);
 }
 
 .mtt-card-progress-track {
@@ -194,22 +196,6 @@
   outline-offset: 2px;
 }
 
-@media (max-width: 640px) {
-  .mtt-card-vote-btn {
-    top: auto;
-    bottom: 8px;
-    right: 8px;
-    padding: 4px 10px;
-    font-size: 11px;
-  }
-
-  .mtt-card-progress {
-    top: auto;
-    bottom: 8px;
-    left: 8px;
-    right: 8px;
-  }
-}
 
 .mtt-card-photo-fallback span {
   font-size: 5rem;

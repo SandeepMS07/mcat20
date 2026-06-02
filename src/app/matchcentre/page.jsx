@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from "react";
 
-const MATCHCENTRE_CSS = "https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/app.css";
-const MATCHCENTRE_SCRIPT = "https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/app_matchcentre.js";
+const MATCHCENTRE_CSS =
+  "https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/app.css";
+const MATCHCENTRE_SCRIPT =
+  "https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/app_matchcentre.js";
 const WIDGET_SCRIPT_ID = "matchcentre-widget-script";
 
 const loadWidgetScript = () => {
@@ -48,9 +50,9 @@ export default function Page() {
     <div className="w-full bg-[#091d65] pb-24">
       <div className="relative">
         {/* Title Block */}
-        <div className="w-full bg-[#091d65] py-10">
+        <div className="w-full bg-[#091d65]">
           <div className="section-width">
-            <h1 className="flex flex-col text-5xl font-extrabold uppercase italic leading-[0.92] sm:text-6xl lg:text-7xl">
+            <h1 className="flex flex-row gap-2 text-5xl font-extrabold uppercase italic leading-[0.92] sm:text-6xl lg:text-7xl">
               <span
                 className="text-transparent"
                 style={{ WebkitTextStroke: "2px white" }}
@@ -61,13 +63,27 @@ export default function Page() {
             </h1>
           </div>
         </div>
-        <div className="section-width pt-10">
-          <div className="relative mt-8 overflow-hidden">
+        <div className="section-width">
+          {/* {iframeSrc ? (
+                    <iframe
+                    src={iframeSrc}
+                    title="Matchcentre Preview"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 'none' }}
+                    />
+                ) : (x
+                    <p>Loading match centre...</p> 
+                )} */}
+          {/* </div> */}
+          <div className="relative overflow-hidden">
             <app-matchcentre
               style={{ display: "block", width: "100%", position: "relative" }}
               className={widgetLoaded ? "block" : "opacity-0"}
             ></app-matchcentre>
-            {!widgetLoaded && <p className="text-white">Loading Match Centre Widget...</p>}
+            {!widgetLoaded && (
+              <p className="text-white">Loading Match Centre Widget...</p>
+            )}
           </div>
         </div>
       </div>

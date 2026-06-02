@@ -17,12 +17,14 @@ export default function FanPollPage() {
   const [tab, setTab] = useState("active");
 
   const filter =
-    tab === "history" ? (p) => p.status === "closed" : (p) => p.status === "active";
+    tab === "history"
+      ? (p) => p.status === "closed"
+      : (p) => p.status === "active";
   const variant = tab === "history" ? "results" : "compact";
 
   const headerSlot = (
     <div className="mb-8 flex flex-col items-center justify-between gap-4 sm:mb-10 sm:flex-row sm:items-end">
-      <h1 className="flex flex-col text-4xl font-extrabold uppercase italic leading-[0.9] text-white sm:text-5xl lg:text-6xl">
+      <h1 className="flex flex-row gap-2 text-4xl font-extrabold uppercase italic leading-[0.9] text-white sm:text-5xl lg:text-6xl">
         <span
           className="text-transparent"
           style={{ WebkitTextStroke: "1.5px #7E93DB" }}

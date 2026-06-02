@@ -11,7 +11,7 @@ import {
   updateOption,
   updatePoll,
 } from "@/app/api/admin/choice";
-import { getLocalSquadPlayers } from "@/app/api/admin/localPlayers";
+import { SQUAD_API_PATH } from "@/app/api/admin/localPlayers";
 import { CHOICE_CATEGORIES } from "@/app/choice/categories";
 import PlayerPicker from "@/components/admin/PlayerPicker";
 import {
@@ -44,9 +44,10 @@ export default function AdminChoiceCategoryPage() {
   });
 
   const reload = async () => {
-    const pollRes = await getPoll(id);
+    const [pollRes, squadRes] = await Promise.all([getPoll(id), fetch(SQUAD_API_PATH).then(r => r.json())]);
+    const players = squadRes?.players ?? [];
     setData(pollRes);
-    setPlayers(getLocalSquadPlayers());
+    setPlayers(players);
   };
 
   const reloadVoters = async (pollId) => {
@@ -67,8 +68,10 @@ export default function AdminChoiceCategoryPage() {
       try {
         const pollRes = await getPoll(id);
         if (cancelled) return;
+        const squadRes = await fetch(SQUAD_API_PATH).then(r => r.json());
+        const players = squadRes?.players ?? [];
         setData(pollRes);
-        setPlayers(getLocalSquadPlayers());
+        setPlayers(players);
         if (pollRes?.poll?.id) {
           reloadVoters(pollRes.poll.id);
         }

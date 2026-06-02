@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { createPoll, listMatches } from "@/app/api/admin/polls";
-import { getLocalSquadPlayers } from "@/app/api/admin/localPlayers";
+import { SQUAD_API_PATH } from "@/app/api/admin/localPlayers";
 import PollForm from "@/components/admin/PollForm";
 import { Button, Card, PageHeader } from "@/components/admin/ui";
 
@@ -21,7 +21,7 @@ export default function NewPollPage() {
     listMatches()
       .then((res) => setMatches(res.matches || []))
       .catch(() => setMatches([]));
-    setPlayers(getLocalSquadPlayers());
+    fetch(SQUAD_API_PATH).then(r => r.json()).then(json => setPlayers(json?.players ?? [])).catch(() => setPlayers([]));
   }, []);
 
   const handleSubmit = async (body) => {
