@@ -1,7 +1,9 @@
 import { getAxiosInstance } from "./axiosInstance";
 import { PLAYERS_API_PATH } from "./admin/localPlayers";
+import { FANTASY_API_BASE } from "@/constant";
 
 const axios = getAxiosInstance();
+const fantasyAxios = getAxiosInstance({ baseURL: FANTASY_API_BASE });
 const DEFAULT_TTL_MS = 5 * 60 * 1000;
 
 const withInferredTeamType = (payload) => {
@@ -138,6 +140,18 @@ export const getHeroBannerClient = async () => {
   }
 };
 
+export const getBannersClient = async () => {
+  try {
+    return await fetchWithCache("api:banners", async () => {
+      const res = await axios.get("/v1/banners");
+      return res.data;
+    }, DEFAULT_TTL_MS);
+  } catch (err) {
+    console.error("Client error fetching banners:", err);
+    return null;
+  }
+};
+
 export const getStandings = async () => {
   try {
     return await fetchWithCache("api:standings", async () => {
@@ -146,6 +160,25 @@ export const getStandings = async () => {
     });
   } catch (err) {
     console.error("Error in getVideos:", err);
+    return null;
+  }
+};
+
+export const getStandingsV2Client = async (category = "", forceFresh = false) => {
+  const cacheKey = `api:standings-v2${category ? `:${category.toLowerCase()}` : ""}`;
+  try {
+    if (forceFresh) {
+      const url = category ? `/v1/standings?category=${category}` : "/v1/standings";
+      const res = await fantasyAxios.get(url);
+      return res.data;
+    }
+    return await fetchWithCache(cacheKey, async () => {
+      const url = category ? `/v1/standings?category=${category}` : "/v1/standings";
+      const res = await fantasyAxios.get(url);
+      return res.data;
+    });
+  } catch (err) {
+    console.error("Client error fetching standings v2:", err);
     return null;
   }
 };
