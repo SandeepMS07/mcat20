@@ -60,42 +60,23 @@ const PointsTablePage = () => {
   const [season4Data, setSeason4Data] = useState({ men: [], women: [] });
   const [loading, setLoading] = useState(false);
 
-  // Fetch Season 4 data on mount from new API
+  // Fetch Season 4 data whenever the gender tab changes (Men by default)
   useEffect(() => {
-    const fetchSeason4 = async () => {
-      setLoading(true);
-      try {
-        const allRes = await getStandingsV2Client("", true);
-        const extractList = (res) =>
-          Array.isArray(res)
-            ? res
-            : Array.isArray(res?.data)
-              ? res.data
-              : Array.isArray(res?.standings)
-                ? res.standings
-                : Array.isArray(res?.season_4?.points)
-                  ? res.season_4.points
-                  : [];
-        const allStandings = extractList(allRes);
-        const normalizeCategory = (team) =>
-          `${team?.Team_Type__c || team?.category || ""}`.toLowerCase();
-        setSeason4Data({
-          men: allStandings.filter((team) => normalizeCategory(team) === "men"),
-          women: allStandings.filter((team) => normalizeCategory(team) === "women"),
-        });
-        console.info("Season 4 standings loaded", {
-          all: allStandings.length,
-          men: allStandings.filter((team) => normalizeCategory(team) === "men").length,
-          women: allStandings.filter((team) => normalizeCategory(team) === "women").length,
-        });
-      } catch (err) {
-        console.error("Failed to load season 4 standings", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchSeason4();
-  }, []);
+    if (activeSeason !== "season_4") return;
+    const category = season4Gender === "women" ? "Women" : "Men";
+    const extractList = (res) =>
+      Array.isArray(res) ? res
+      : Array.isArray(res?.standings) ? res.standings
+      : Array.isArray(res?.data) ? res.data
+      : [];
+    setLoading(true);
+    getStandingsV2Client(category)
+      .then((res) => {
+        setSeason4Data((prev) => ({ ...prev, [season4Gender]: extractList(res) }));
+      })
+      .catch((err) => console.error("Failed to load season 4 standings", err))
+      .finally(() => setLoading(false));
+  }, [activeSeason, season4Gender]);
 
   // Fetch Season 3 data only when that season is selected
   useEffect(() => {
