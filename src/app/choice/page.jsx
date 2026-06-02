@@ -1,6 +1,6 @@
 "use client";
 
-const COMING_SOON = true;
+const COMING_SOON = false;
 
 import Link from "next/link";
 import { FaStar, FaTrophy, FaUserShield, FaBaseballBall } from "react-icons/fa";
