@@ -13,7 +13,29 @@ const Hero = () => {
   const router = useRouter();
   const swiperRef = useRef(null);
   const [banners, setBanners] = useState([]);
+  const [isMobile, setIsMobile] = useState(false);
   const heroSlidePaddingClass = "pt-8 sm:pt-10 lg:pt-14";
+
+  const isSvgBanner = (url = "") => /\.svg(?:$|\?)/i.test(url);
+  const isRasterBanner = (url = "") => /\.(jpe?g|png)(?:$|\?)/i.test(url);
+  const getBannerImageUrl = (banner) => {
+    if (!banner) return "";
+    const mobileUrl = banner.mobile_banner_url || "";
+    const useMobileBanner = isMobile && isRasterBanner(mobileUrl);
+    return useMobileBanner ? mobileUrl : banner.web_banner_url || mobileUrl || "";
+  };
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 640px)");
+    const updateIsMobile = () => setIsMobile(mediaQuery.matches);
+
+    updateIsMobile();
+    mediaQuery.addEventListener("change", updateIsMobile);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateIsMobile);
+    };
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -53,8 +75,9 @@ const Hero = () => {
       >
         {banners.map((banner) => {
           const titleLines = banner.title ? banner.title.split("\n") : [];
-          const isExternal =
-            !!banner.web_link && /^https?:\/\//i.test(banner.web_link);
+          const bannerImageUrl = getBannerImageUrl(banner);
+          const bannerIsSvg = isSvgBanner(bannerImageUrl);
+          const isExternal = !!banner.web_link && /^https?:\/\//i.test(banner.web_link);
           const handleAction = () => {
             if (!banner.web_link) return;
             if (isExternal) {
@@ -66,11 +89,36 @@ const Hero = () => {
           return (
             <SwiperSlide key={banner.id} className="h-full">
               <div
-                className={`w-full h-full bg-cover bg-center relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center`}
-                style={{ backgroundImage: `url('${banner.web_banner_url}')` }}
+                className={`hero-banner w-full h-full relative ${heroSlidePaddingClass} overflow-hidden flex justify-center items-center ${
+                  bannerIsSvg ? "hero-banner-svg" : "hero-banner-raster"
+                }`}
               >
-                <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
-                <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
+                <img
+                  src={bannerImageUrl}
+                  alt={banner.title || "Hero banner"}
+                  className={`pointer-events-none absolute inset-0 h-full w-full ${
+                    bannerIsSvg
+                      ? "hero-banner-svg-image object-contain scale-[1.08] sm:scale-100"
+                      : "hero-banner-raster-image object-cover object-top sm:object-center"
+                  }`}
+                  loading="eager"
+                />
+                <div
+                  className={`pointer-events-none absolute inset-x-0 top-0 z-[5] ${
+                    bannerIsSvg ? "h-6 sm:h-16" : "h-8 sm:h-20"
+                  } bg-gradient-to-b from-[#09163f]/40 via-[#192A66]/15 to-transparent sm:from-[#09163f] sm:via-[#192A66]/55`}
+                  aria-hidden="true"
+                />
+                <div
+                  className={`absolute bottom-0 left-0 w-full ${
+                    bannerIsSvg ? "h-32 sm:h-80" : "h-56 sm:h-96"
+                  } bg-gradient-to-t from-[#192A66]/70 from-0% to-transparent to-100% sm:from-[#192A66]`}
+                />
+                <div
+                  className={`absolute inset-y-0 left-0 z-[6] ${
+                    bannerIsSvg ? "w-[30%] sm:w-1/2" : "w-[38%] sm:w-2/3"
+                  } bg-gradient-to-r from-[#192A66]/55 from-0% via-[#192A66]/15 via-30% to-transparent to-100% sm:from-[#192A66] sm:via-[#192A66]/60`}
+                />
                 <HeroSlideContent
                   title={
                     titleLines.length > 0
@@ -88,12 +136,12 @@ const Hero = () => {
                         <button
                           type="button"
                           onClick={handleAction}
-                          className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md uppercase"
+                          className="btn-primary flex cursor-pointer items-center justify-center gap-3 rounded-lg px-4 py-2 text-[12px] uppercase sm:gap-4 sm:px-6 sm:py-3 sm:text-md"
                         >
                           {banner.button_title}
                           <span
                             aria-hidden
-                            className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-[#E07E27]"
+                            className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-[#E07E27] sm:h-6 sm:w-6"
                           >
                             <svg viewBox="0 0 24 24" fill="currentColor" className="h-3 w-3">
                               <path d="M8 5v14l11-7z" />
@@ -114,6 +162,12 @@ const Hero = () => {
         .hero-shell .hero-swiper .swiper-pagination {
           bottom: 18px;
           z-index: 30;
+        }
+        @media (max-width: 640px) {
+          .hero-shell .hero-swiper {
+            padding-bottom: 1rem;
+            box-sizing: border-box;
+          }
         }
         .hero-shell .hero-swiper .swiper-pagination-bullet {
           width: 8px;
@@ -147,6 +201,25 @@ const Hero = () => {
         .hero-shell .hero-swiper .swiper-button-prev::after {
           font-size: 16px;
           font-weight: 800;
+        }
+        .hero-shell .hero-banner {
+          background: #192a66;
+        }
+        @media (max-width: 640px) {
+          .hero-shell .hero-banner.hero-banner-svg {
+            background: linear-gradient(180deg, #09163f 0%, #192a66 100%);
+          }
+          .hero-shell .hero-banner.hero-banner-raster {
+            background: linear-gradient(180deg, #09163f 0%, #192a66 100%);
+          }
+          .hero-shell .hero-banner .hero-banner-svg-image {
+            object-fit: contain;
+            object-position: center center;
+          }
+          .hero-shell .hero-banner .hero-banner-raster-image {
+            object-fit: cover;
+            object-position: center center;
+          }
         }
         @media (max-width: 640px) {
           .hero-shell .hero-swiper .swiper-button-next,
