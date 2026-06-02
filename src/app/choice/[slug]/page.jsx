@@ -237,14 +237,14 @@ export default function ChoiceCategoryPage() {
 
           {error ? (
             <>
-              <p className="mt-4 font-semibold italic text-white/70" style={{ fontSize: "clamp(0.72rem, 0.9vw, 0.95rem)" }}>
+              <p className="mt-4 text-2xl font-extrabold uppercase italic tracking-widest text-white/80">
                 {category.label}
               </p>
               <p className="mt-16 text-center text-white/70">{error}</p>
             </>
           ) : players.length === 0 ? (
             <>
-              <p className="mt-4 font-semibold italic text-white/70" style={{ fontSize: "clamp(0.72rem, 0.9vw, 0.95rem)" }}>
+              <p className="mt-4 text-2xl font-extrabold uppercase italic tracking-widest text-white/80">
                 {category.label}
               </p>
               <p className="mt-16 text-center italic text-white/70">
@@ -255,7 +255,7 @@ export default function ChoiceCategoryPage() {
             <>
               {/* Category label + Search + Team filter on the same row */}
               <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-                <p className="font-semibold italic text-white/70 shrink-0" style={{ fontSize: "clamp(0.72rem, 0.9vw, 0.95rem)" }}>
+                <p className="text-2xl font-extrabold uppercase italic tracking-widest text-white/80 shrink-0">
                   {category.label}
                 </p>
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:gap-4">

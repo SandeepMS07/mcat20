@@ -17,8 +17,7 @@ const REGISTRATION_PROMO_CUTOFF_TS = new Date(
 ).getTime();
 const CREATORS_LEAGUE_BANNER_IMAGE_URL =
   "https://mca-cdn.ken42.com/Banner%20Images/creator-league.png";
-const TICKETS_BANNER_IMAGE_URL =
-  "https://mca-cdn.ken42.com/Banner%20Images/ticket-banner.svg";
+const TICKETS_BANNER_IMAGE_URL = "/images/home/hero/banner3.png";
 const TICKETS_BUY_URL =
   "https://www.district.in/events/t20-mumbai-league-2025-finals-jun12-2025-buy-tickets";
 
