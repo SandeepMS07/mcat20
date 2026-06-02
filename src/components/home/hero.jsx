@@ -240,6 +240,50 @@ const Hero = () => {
           <div
             className={`relative flex h-full w-full items-center justify-center overflow-hidden bg-cover bg-center ${heroSlidePaddingClass}`}
             style={{
+              backgroundImage: "url('/images/home/hero/banner6.png')",
+            }}
+          >
+            <div className="absolute bottom-0 left-0 h-96 w-full bg-gradient-to-t from-[#192A66] from-30% to-transparent to-100%"></div>
+            <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-[#192A66] from-0% via-[#192A66]/60 via-40% to-transparent to-100%"></div>
+            <HeroSlideContent
+              title={
+                <>
+                  Mumbai ka asli
+                  <br />
+                  <span className="text-[#E07E27]">cricket expert</span> kaun?
+                </>
+              }
+              subtitle="Pick The Best Of T20 Mumbai 2026. Get It Right, Take Home Signed Merch."
+              action={
+                <div className="flex flex-row gap-2">
+                  <button
+                    type="button"
+                    onClick={() => router.push("/choice")}
+                    className="btn-primary flex gap-4 items-center cursor-pointer justify-center py-3 px-6 rounded-lg text-md uppercase"
+                  >
+                    Pick Your Champions
+                    <span
+                      aria-hidden
+                      className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-[#E07E27]"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        className="h-3 w-3"
+                      >
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              }
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide className="h-full" data-swiper-autoplay={7000}>
+          <div
+            className={`relative flex h-full w-full items-center justify-center overflow-hidden bg-cover bg-center ${heroSlidePaddingClass}`}
+            style={{
               backgroundImage: `url('${TICKETS_BANNER_IMAGE_URL}')`,
             }}
           >
