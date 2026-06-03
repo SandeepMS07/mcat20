@@ -392,8 +392,10 @@ function FilterRow({ label, options, value, onChange }) {
 }
 
 function FantasyMatchCard({ match }) {
-  const teamA = match.team_a_short || match.team_a_name || "TBA";
-  const teamB = match.team_b_short || match.team_b_name || "TBA";
+  const teamAShort = match.team_a_short || "";
+  const teamBShort = match.team_b_short || "";
+  const teamAFull = match.team_a_name || teamAShort || "TBA";
+  const teamBFull = match.team_b_name || teamBShort || "TBA";
   const xiAnnounced = !!match.playing_xi_announced_at;
   // We still detect demo matches to pin them to the top (see the sort in
   // FantasyHubPage), but render them visually identical to real fixtures so
@@ -413,10 +415,12 @@ function FantasyMatchCard({ match }) {
         {match.category ? <Pill tone="default">{match.category}</Pill> : null}
         {xiAnnounced ? <Pill tone="emerald">XI ✓</Pill> : <Pill tone="default">XI pending</Pill>}
       </div>
-      <div className="mt-3 flex items-center gap-3">
-        <TeamBadge label={teamA} />
-        <span className="font-oswald text-sm font-bold italic text-white/55">VS</span>
-        <TeamBadge label={teamB} />
+      <div className="mt-3 flex flex-col gap-2">
+        <TeamBadge short={teamAShort} full={teamAFull} />
+        <span className="self-center px-1 font-oswald text-xs font-bold italic text-white/55">
+          VS
+        </span>
+        <TeamBadge short={teamBShort} full={teamBFull} />
       </div>
       <div className="mt-3 text-xs text-white/55">
         {match.scheduled_at ? new Date(match.scheduled_at).toLocaleString() : ""}
@@ -641,14 +645,20 @@ function ReconcilePanel({ result, applied, busy, onApply, onDismiss }) {
   );
 }
 
-function TeamBadge({ label }) {
+function TeamBadge({ short, full, label }) {
+  // Back-compat: callers still passing `label` get the same single-string
+  // behaviour. New callers pass {short, full} so the avatar keeps the
+  // official 3-letter abbreviation (e.g. "SOB" not "SOU" sliced from
+  // "South Bombay") while the text shows the full team name.
+  const source = full ?? label ?? short ?? "TBA";
+  const abbr = (short || source).slice(0, 3).toUpperCase();
   return (
-    <div className="flex items-center gap-2">
-      <span className="grid h-9 w-9 place-items-center rounded-full bg-white/[0.06] text-xs font-extrabold text-white">
-        {label.slice(0, 3).toUpperCase()}
+    <div className="flex min-w-0 items-center gap-2">
+      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/[0.06] text-xs font-extrabold text-white">
+        {abbr}
       </span>
-      <span className="font-oswald text-base font-extrabold italic uppercase text-white">
-        {label}
+      <span className="truncate font-oswald text-base font-extrabold italic uppercase text-white">
+        {source}
       </span>
     </div>
   );
