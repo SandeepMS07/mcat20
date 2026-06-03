@@ -25,11 +25,11 @@ export default function HptoWidget() {
   return (
     <>
       {/* Background bar sits above the app banner (z-999) */}
-      <div className="fixed bottom-0 left-0 w-full h-[100px] bg-[#000] z-[1001] pointer-events-none" />
+      <div className="fixed bottom-0 left-0 w-full h-[135px] md:h-[100px] bg-[#081d65] z-[1001] pointer-events-none" />
       {/* Close button above both */}
       <button
         onClick={() => setClosed(true)}
-        className="fixed bottom-[95px] right-2 z-[1003] flex h-6 w-6 items-center justify-center rounded-full bg-black text-white text-xs hover:bg-gray-800"
+        className="fixed bottom-[130px] md:bottom-[95px] right-2 z-[1003] flex h-6 w-6 items-center justify-center rounded-full bg-black text-white text-xs hover:bg-gray-800"
         aria-label="Close widget"
       >
         ✕
