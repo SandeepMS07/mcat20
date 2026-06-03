@@ -1,0 +1,40 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+export default function HptoWidget() {
+  const [closed, setClosed] = useState(false);
+
+  useEffect(() => {
+    if (closed) return;
+    const existing = document.querySelector(
+      'script[src="https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/hpto.js"]'
+    );
+    if (existing) existing.remove();
+    const script = document.createElement("script");
+    script.src = "https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/hpto.js";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      script.remove();
+    };
+  }, [closed]);
+
+  if (closed) return null;
+
+  return (
+    <>
+      {/* Background bar behind the widget */}
+      <div className="fixed bottom-0 left-0 w-full h-[100px] bg-[#000] z-40 pointer-events-none" />
+      {/* Close button above the widget */}
+      <button
+        onClick={() => setClosed(true)}
+        className="fixed bottom-[95px] right-2 z-[9999] flex h-6 w-6 items-center justify-center rounded-full bg-black text-white text-xs hover:bg-gray-800"
+        aria-label="Close widget"
+      >
+        ✕
+      </button>
+      <div className="smmumbaihpto hpto-horizontal hpto-fixed"></div>
+    </>
+  );
+}
