@@ -8,6 +8,7 @@ import {
   getPoll,
   getPollWinner,
   pickPollWinner,
+  pickPollWinnerManual,
   pollVoters,
 } from "@/app/api/admin/polls";
 import {
@@ -63,12 +64,16 @@ export default function PollWinnerPage() {
   const { id } = useParams();
   const [poll, setPoll] = useState(null);
   const [winner, setWinner] = useState(null);
+  const [voters, setVoters] = useState([]);
   const [voterCount, setVoterCount] = useState(0);
   const [submitting, setSubmitting] = useState(false);
   const [closing, setClosing] = useState(false);
   const [confirmClose, setConfirmClose] = useState(false);
+  const [confirmManual, setConfirmManual] = useState(null); // voter object or null
+  const [pickingManual, setPickingManual] = useState(null); // user_id being picked
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [voterSearch, setVoterSearch] = useState("");
 
   const mountedRef = useRef(true);
   useEffect(() => {
@@ -84,7 +89,9 @@ export default function PollWinnerPage() {
     ]);
     if (!mountedRef.current) return;
     setPoll(pollRes.poll);
-    setVoterCount(votersRes.totals?.all ?? votersRes.voters?.length ?? 0);
+    const list = votersRes.voters ?? [];
+    setVoters(list);
+    setVoterCount(votersRes.totals?.all ?? list.length ?? 0);
     setWinner(winnerRes.winner ?? null);
   };
 
@@ -125,10 +132,27 @@ export default function PollWinnerPage() {
       if (!mountedRef.current) return;
       const code = err?.response?.data?.error;
       if (code === "no_voters") setError("No eligible voters yet for this poll.");
+      else if (code === "no_correct_voters") setError("No voters with the correct answer — mark a correct option first or draw from all voters.");
       else if (code === "poll_not_closed") setError("Close the poll before picking a winner.");
       else setError("Failed to pick a winner. Try again.");
     } finally {
       if (mountedRef.current) setSubmitting(false);
+    }
+  };
+
+  const handlePickManual = async (voter) => {
+    setConfirmManual(null);
+    setPickingManual(voter.user_id);
+    setError(null);
+    try {
+      const res = await pickPollWinnerManual(id, voter.user_id);
+      if (!mountedRef.current) return;
+      setWinner(res.winner);
+    } catch (err) {
+      if (!mountedRef.current) return;
+      setError(err?.response?.data?.error || "Failed to select winner. Try again.");
+    } finally {
+      if (mountedRef.current) setPickingManual(null);
     }
   };
 
@@ -142,6 +166,16 @@ export default function PollWinnerPage() {
 
   const isClosed = poll?.status === "closed";
 
+  const filteredVoters = voters.filter((v) => {
+    if (!voterSearch.trim()) return true;
+    const q = voterSearch.toLowerCase();
+    return (
+      v.name?.toLowerCase().includes(q) ||
+      v.mobile?.toLowerCase().includes(q) ||
+      v.option_label?.toLowerCase().includes(q)
+    );
+  });
+
   return (
     <>
       <ConfirmDialog
@@ -152,6 +186,16 @@ export default function PollWinnerPage() {
         confirmVariant="danger"
         onConfirm={handleClose}
         onCancel={() => setConfirmClose(false)}
+      />
+
+      <ConfirmDialog
+        open={!!confirmManual}
+        title={`Select ${confirmManual?.name || "this voter"} as winner?`}
+        message="This will override any previously drawn winner. The TV reveal will update immediately."
+        confirmLabel="Select as winner"
+        confirmVariant="primary"
+        onConfirm={() => handlePickManual(confirmManual)}
+        onCancel={() => setConfirmManual(null)}
       />
 
       <PageHeader
@@ -283,6 +327,97 @@ export default function PollWinnerPage() {
           )}
         </Card>
       </div>
+
+      {/* Voters list with manual selection */}
+      {voters.length > 0 && (
+        <div className="mt-8">
+          <Card title={`Voters (${voterCount})`}>
+            <div className="mb-4">
+              <input
+                type="text"
+                value={voterSearch}
+                onChange={(e) => setVoterSearch(e.target.value)}
+                placeholder="Search by name, mobile, or vote…"
+                className="w-full rounded-lg border border-white/10 bg-white/[0.04] px-3 py-2 text-sm text-white placeholder:text-white/30 focus:border-white/25 focus:outline-none"
+              />
+            </div>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-white/10">
+                    <th className="pb-2 text-left text-[10px] font-bold uppercase tracking-[0.18em] text-white/40">#</th>
+                    <th className="pb-2 text-left text-[10px] font-bold uppercase tracking-[0.18em] text-white/40">Name</th>
+                    <th className="pb-2 text-left text-[10px] font-bold uppercase tracking-[0.18em] text-white/40">Mobile</th>
+                    <th className="pb-2 text-left text-[10px] font-bold uppercase tracking-[0.18em] text-white/40">Voted for</th>
+                    <th className="pb-2 text-right text-[10px] font-bold uppercase tracking-[0.18em] text-white/40">Action</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-white/5">
+                  {filteredVoters.map((voter, i) => {
+                    const isCurrentWinner = winner && winner.mobile === voter.mobile && winner.name === voter.name;
+                    const isPicking = pickingManual === voter.user_id;
+                    return (
+                      <tr
+                        key={voter.user_id ?? i}
+                        className={`transition ${isCurrentWinner ? "bg-[#F2A23A]/[0.07]" : "hover:bg-white/[0.02]"}`}
+                      >
+                        <td className="py-2.5 pr-3 font-mono text-xs text-white/30">{i + 1}</td>
+                        <td className="py-2.5 pr-4">
+                          <div className="flex items-center gap-2">
+                            {isCurrentWinner && (
+                              <span className="text-base leading-none">🏆</span>
+                            )}
+                            <span className="font-medium text-white">
+                              {voter.name || <span className="text-white/35 italic">Anonymous</span>}
+                            </span>
+                          </div>
+                        </td>
+                        <td className="py-2.5 pr-4 font-mono text-xs text-white/55">
+                          {voter.mobile || "—"}
+                        </td>
+                        <td className="py-2.5 pr-4">
+                          <span className="rounded bg-white/10 px-2 py-0.5 text-xs text-white/70">
+                            {voter.option_label || "—"}
+                          </span>
+                        </td>
+                        <td className="py-2.5 text-right">
+                          {isCurrentWinner ? (
+                            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#F2A23A]">
+                              Winner
+                            </span>
+                          ) : (
+                            <button
+                              type="button"
+                              disabled={!isClosed || isPicking}
+                              onClick={() => setConfirmManual(voter)}
+                              className="rounded border border-white/15 bg-white/[0.04] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.15em] text-white/60 transition hover:border-[#F2A23A]/50 hover:bg-[#F2A23A]/10 hover:text-[#F2A23A] disabled:cursor-not-allowed disabled:opacity-30"
+                            >
+                              {isPicking ? "Selecting…" : "Select winner"}
+                            </button>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+
+              {filteredVoters.length === 0 && (
+                <div className="py-8 text-center text-sm text-white/40">
+                  No voters match your search.
+                </div>
+              )}
+            </div>
+
+            {!isClosed && (
+              <p className="mt-4 text-center text-xs text-white/35">
+                Close the poll first to enable manual winner selection.
+              </p>
+            )}
+          </Card>
+        </div>
+      )}
     </>
   );
 }
