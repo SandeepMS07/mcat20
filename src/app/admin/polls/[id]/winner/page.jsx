@@ -141,6 +141,11 @@ export default function PollWinnerPage() {
   };
 
   const handlePickManual = async (voter) => {
+    if (!voter?.user_id) {
+      setError("Cannot select this voter — missing user ID.");
+      setConfirmManual(null);
+      return;
+    }
     setConfirmManual(null);
     setPickingManual(voter.user_id);
     setError(null);

@@ -10,10 +10,12 @@ import Socials from "@/components/home/Socials";
 import Sponsorship from "@/components/common/Sponsorship";
 import Gallery from "@/components/home/Gallery";
 import FanWall from "@/components/home/FanWall";
+import HptoWidget from "@/components/home/HptoWidget";
 
 export default async function Home() {
   return (
     <div>
+      <HptoWidget />
       <Hero />
       <AnthemBanner />
       {/* <HomeStandingsSection /> */}
