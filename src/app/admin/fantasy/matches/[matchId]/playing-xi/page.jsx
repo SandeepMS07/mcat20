@@ -1,12 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useParams } from "next/navigation";
 import {
   getFantasyMatch,
   previewPlayingXiFromWidget,
-  publishPlayingXi,
+  publishRoster,
   pullPlayingXiFromWidget,
   unpublishPlayingXi,
 } from "@/app/api/admin/fantasy";
@@ -33,12 +33,23 @@ const ROLE_LABEL = {
 const PER_TEAM = 11;
 const TOTAL_PICKS = PER_TEAM * 2;
 
+// BRD v4.3 MCA Impact Player rule: each side's team-sheet also lists up to 5
+// reserves, any one of which can be substituted in as the IP during the match.
+// Admin enters these alongside the 11 starters; backend stamps
+// is_reserve_player=TRUE on each. Reserves are optional (0..5) — some sheets
+// have fewer.
+const RESERVES_PER_TEAM_MAX = 5;
+
 export default function FantasyPlayingXiPage() {
   const { matchId } = useParams(); // fantasy_match.id (text)
 
   const [match, setMatch] = useState(null);
   const [players, setPlayers] = useState([]);
+  // `selected` holds the 11 STARTERS per side. `reserves` is a separate
+  // disjoint set holding up to 5 reserves per side. The two are mutex by
+  // construction (togglePick / toggleReserve both remove from the other).
   const [selected, setSelected] = useState(new Set());
+  const [reserves, setReserves] = useState(new Set());
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [pulling, setPulling] = useState(false);
@@ -65,10 +76,18 @@ export default function FantasyPlayingXiPage() {
         setPlayers(fm.players ?? []);
         // Pre-select the currently-announced 11 (if any) so re-publishing
         // doesn't force the admin to re-tick everyone.
-        const inXi = (fm.players ?? [])
-          .filter((p) => p.is_playing_xi === true)
+        // is_playing_xi=TRUE && !is_reserve_player → starter
+        // is_reserve_player=TRUE → reserve (regardless of is_playing_xi, which
+        // flips to TRUE after activation — we still want it visually
+        // tracked as a reserve in the picker).
+        const starters = (fm.players ?? [])
+          .filter((p) => p.is_playing_xi === true && !p.is_reserve_player)
           .map((p) => p.player_id);
-        setSelected(new Set(inXi));
+        const reserveIds = (fm.players ?? [])
+          .filter((p) => p.is_reserve_player === true)
+          .map((p) => p.player_id);
+        setSelected(new Set(starters));
+        setReserves(new Set(reserveIds));
       } catch (e) {
         if (!cancelled) {
           setError(e?.response?.data?.error ?? e?.message ?? "load_failed");
@@ -113,6 +132,18 @@ export default function FantasyPlayingXiPage() {
     return counts;
   }, [selected, players]);
 
+  // Same shape, but for reserves. Per-team cap is RESERVES_PER_TEAM_MAX.
+  const reservesByTeam = useMemo(() => {
+    const counts = new Map();
+    for (const p of players) {
+      if (reserves.has(p.player_id)) {
+        const k = String(p.team_id ?? "unknown");
+        counts.set(k, (counts.get(k) ?? 0) + 1);
+      }
+    }
+    return counts;
+  }, [reserves, players]);
+
   // Index player_id → team_id so togglePick can apply the per-team cap
   // without a linear scan of `players` on every click.
   const teamByPlayer = useMemo(() => {
@@ -129,6 +160,14 @@ export default function FantasyPlayingXiPage() {
     !submitting;
 
   const togglePick = (playerId) => {
+    // Mutex with reserves — if this player was marked RP, picking them as
+    // XI unmarks the RP slot.
+    setReserves((prev) => {
+      if (!prev.has(playerId)) return prev;
+      const next = new Set(prev);
+      next.delete(playerId);
+      return next;
+    });
     setSelected((prev) => {
       const next = new Set(prev);
       if (next.has(playerId)) {
@@ -148,6 +187,114 @@ export default function FantasyPlayingXiPage() {
     });
   };
 
+  // ── Search-as-you-type + keyboard shortcuts ────────────────────────────
+  // Single search box up top filters players across BOTH team cards. As the
+  // admin types, the first matching row in either card becomes the
+  // "focused" row (highlighted). Press X → mark focused as XI; R → mark as
+  // RP; Esc → clear search. This is dramatically faster than clicking
+  // because the admin can hold the team-sheet and type 2-3 letters per name
+  // without moving their cursor between rows. Confirmed by Sandeep on
+  // 2026-06-03 as the fastest workflow during post-toss publish.
+  const [search, setSearch] = useState("");
+  const [focusIdx, setFocusIdx] = useState(0);
+  const searchRef = useRef(null);
+  // Tracks whether the user has pressed ↓/↑ since the last search change.
+  // X/R shortcuts only fire when this is true (explicit navigation) OR when
+  // there's exactly 1 match (unambiguous). Otherwise the keypress falls
+  // through to the input so letters like "r" just extend the search string.
+  const arrowUsedRef = useRef(false);
+
+  const matchedPlayers = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    if (!q) return [];
+    return players.filter((p) => (p.player_name || "").toLowerCase().includes(q));
+  }, [players, search]);
+
+  const focusedPlayer = matchedPlayers[focusIdx] ?? null;
+
+  useEffect(() => {
+    // Reset focus and explicit-navigation flag whenever the query changes
+    setFocusIdx(0);
+    arrowUsedRef.current = false;
+  }, [search]);
+
+  // Toggle a player as a reserve (RP). Mutex with starters — clicking RP on
+  // a player who is currently a starter moves them to RP, freeing a starter
+  // slot. Capped at RESERVES_PER_TEAM_MAX per team.
+  const toggleReserve = (playerId) => {
+    setSelected((prev) => {
+      if (!prev.has(playerId)) return prev;
+      const next = new Set(prev);
+      next.delete(playerId);
+      return next;
+    });
+    setReserves((prev) => {
+      const next = new Set(prev);
+      if (next.has(playerId)) {
+        next.delete(playerId);
+        return next;
+      }
+      const tid = teamByPlayer.get(playerId);
+      let countOnTeam = 0;
+      for (const id of next) {
+        if (teamByPlayer.get(id) === tid) countOnTeam += 1;
+      }
+      if (countOnTeam >= RESERVES_PER_TEAM_MAX) return prev;
+      next.add(playerId);
+      return next;
+    });
+  };
+
+  // Search-box keyboard handler. Only fires when the input is focused —
+  // shortcut keys X / R never collide with the rest of the page (admin can
+  // still type X or R into other inputs without triggering a pick).
+  const handleSearchKey = useCallback(
+    (e) => {
+      if (e.key === "Escape") {
+        setSearch("");
+        return;
+      }
+      if (e.key === "ArrowDown" || (e.key === "Tab" && !e.shiftKey)) {
+        e.preventDefault();
+        if (matchedPlayers.length > 0) {
+          arrowUsedRef.current = true;
+          setFocusIdx((i) => (i + 1) % matchedPlayers.length);
+        }
+        return;
+      }
+      if (e.key === "ArrowUp" || (e.key === "Tab" && e.shiftKey)) {
+        e.preventDefault();
+        if (matchedPlayers.length > 0) {
+          arrowUsedRef.current = true;
+          setFocusIdx((i) => (i - 1 + matchedPlayers.length) % matchedPlayers.length);
+        }
+        return;
+      }
+      // X/R shortcuts only fire when:
+      //  (a) exactly 1 match — unambiguous, user is done typing, OR
+      //  (b) user pressed ↓/↑ to explicitly land on a specific row.
+      // In all other cases let the keypress fall through to the input so
+      // letters like "r" just extend the search string normally.
+      if (!focusedPlayer) return;
+      const unambiguous = matchedPlayers.length === 1;
+      if (!unambiguous && !arrowUsedRef.current) return;
+      if (e.key === "?") {
+        e.preventDefault();
+        togglePick(focusedPlayer.player_id);
+        setSearch("");
+      } else if (e.key === ".") {
+        e.preventDefault();
+        toggleReserve(focusedPlayer.player_id);
+        setSearch("");
+      }
+    },
+    // togglePick / toggleReserve are recreated each render but capture
+    // current `selected` / `reserves` via the setState updater pattern,
+    // so they're safe to omit from deps.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [matchedPlayers, focusedPlayer],
+  );
+
   const handlePublish = async () => {
     if (!canSubmit || !match) return;
     setSubmitting(true);
@@ -155,10 +302,20 @@ export default function FantasyPlayingXiPage() {
     setSuccess(null);
     setWidgetNotice(null);
     try {
-      const res = await publishPlayingXi(match.id, Array.from(selected));
+      // Always go through the new roster endpoint — it handles the 0-reserve
+      // case identically to the legacy PATCH /playing-xi (just writes the 22
+      // starters and an empty reserves list). Stamps roster_locked_at, which
+      // makes squad.js ingest stop overriding the admin's choice.
+      const sideOf = (tid) => ({
+        starters: players.filter((p) => selected.has(p.player_id) && String(p.team_id) === tid).map((p) => p.player_id),
+        reserves: players.filter((p) => reserves.has(p.player_id) && String(p.team_id) === tid).map((p) => p.player_id),
+      });
+      const [teamAId, teamBId] = [String(match.team_a_id), String(match.team_b_id)];
+      const body = { teamA: sideOf(teamAId), teamB: sideOf(teamBId) };
+      const res = await publishRoster(match.id, body);
       setSuccess({
-        announcedAt: res.announcedAt,
-        lateChange: res.lateChange,
+        announcedAt: res.playingXiAnnouncedAt,
+        rosterLockedAt: res.rosterLockedAt,
         source: "manual",
       });
       const fm = await getFantasyMatch(match.id);
@@ -282,6 +439,7 @@ export default function FantasyPlayingXiPage() {
     return (
       <>
         <PageHeader
+          compact
           eyebrow="Playing XI"
           title="Loading…"
           actions={
@@ -298,7 +456,7 @@ export default function FantasyPlayingXiPage() {
   if (!match) {
     return (
       <>
-        <PageHeader eyebrow="Playing XI" title="Match not found" />
+        <PageHeader compact eyebrow="Playing XI" title="Match not found" />
         <Card>
           <EmptyState
             title="No fantasy_match for this id"
@@ -313,6 +471,7 @@ export default function FantasyPlayingXiPage() {
   return (
     <>
       <PageHeader
+        compact
         eyebrow={`Playing XI · ${match.series_name || "Match"}`}
         title={`${teamA} vs ${teamB}`}
         subtitle={
@@ -371,8 +530,21 @@ export default function FantasyPlayingXiPage() {
         </div>
       ) : null}
 
-      <Card title="Widget assist" padding="tight">
-        <div className="flex flex-col gap-3 px-4 py-4">
+      {/* Widget assist — collapsed by default so the team-picker stays
+          above the fold on standard 1080p admin laptops. The instructional
+          text is verbose and not needed for every publish. Click the
+          summary to expand the buttons. */}
+      <details className="group rounded-xl border border-white/10 bg-white/[0.02]">
+        <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-2.5 text-sm text-white/75 [&::-webkit-details-marker]:hidden">
+          <span className="flex items-center gap-2">
+            <svg className="h-3 w-3 transition group-open:rotate-90" fill="none" viewBox="0 0 12 12">
+              <path stroke="currentColor" strokeWidth="2" strokeLinecap="round" d="M4 3l4 3-4 3" />
+            </svg>
+            <span className="font-semibold uppercase tracking-wider text-[12px] text-white/85">Widget assist</span>
+            <span className="text-[11px] text-white/45">— pull suggested XI from squad.js</span>
+          </span>
+        </summary>
+        <div className="flex flex-col gap-3 border-t border-white/10 px-4 py-4">
           <div className="text-sm text-white/75">
             The widget feed publishes the announced XI about 30 min after toss.
             Use <strong className="text-white">Pull Playing XI</strong> to see
@@ -404,7 +576,7 @@ export default function FantasyPlayingXiPage() {
             </Button>
           </div>
         </div>
-      </Card>
+      </details>
 
       {suggestedXi ? (
         <div className="mt-4">
@@ -419,10 +591,9 @@ export default function FantasyPlayingXiPage() {
         </div>
       ) : null}
 
-      <div className="mt-6">
-        <Card title="Or — pick manually" padding="tight">
-          <div className="flex flex-col gap-2 px-3 py-3 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-white/75">
+      <div className="mt-3 rounded-lg border border-white/10 bg-[#0A1438]/85 px-3 py-1.5 shadow-[0_18px_44px_-26px_rgba(0,0,0,0.75)] backdrop-blur-sm">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-0.5 text-xs text-white/75">
               <span>
                 Total{" "}
                 <span className="font-extrabold text-white">
@@ -431,25 +602,30 @@ export default function FantasyPlayingXiPage() {
                 / {TOTAL_PICKS}
               </span>
               {teamIds.map((tid) => {
-                const n = selectedByTeam.get(tid) ?? 0;
+                const xi = selectedByTeam.get(tid) ?? 0;
+                const rp = reservesByTeam.get(tid) ?? 0;
                 const label = teamLabelForId(tid, match);
-                const ok = n === PER_TEAM;
+                const xiOk = xi === PER_TEAM;
                 return (
-                  <span
-                    key={tid}
-                    className={ok ? "text-emerald-300" : "text-white/75"}
-                  >
-                    {label}:{" "}
-                    <span className="font-extrabold text-white">{n}</span> /{" "}
-                    {PER_TEAM}
+                  <span key={tid} className="flex items-center gap-2">
+                    <span className={xiOk ? "text-emerald-300" : "text-white/75"}>
+                      {label}:{" "}
+                      <span className="font-extrabold text-white">{xi}</span>
+                      {" / "}{PER_TEAM}{" XI"}
+                    </span>
+                    <span className="text-white/55">·</span>
+                    <span className={rp > 0 ? "text-amber-300" : "text-white/55"}>
+                      <span className="font-extrabold text-white">{rp}</span>
+                      {" / "}{RESERVES_PER_TEAM_MAX}{" RP"}
+                    </span>
                   </span>
                 );
               })}
             </div>
             <div className="flex flex-wrap items-center gap-2">
               <Button
-                onClick={() => setSelected(new Set())}
-                disabled={selected.size === 0 || submitting}
+                onClick={() => { setSelected(new Set()); setReserves(new Set()); }}
+                disabled={(selected.size === 0 && reserves.size === 0) || submitting}
                 variant="secondary"
                 size="sm"
               >
@@ -471,33 +647,98 @@ export default function FantasyPlayingXiPage() {
                 disabled={!canSubmit || pulling || unpublishing}
                 size="md"
                 title={match.playing_xi_announced_at
-                  ? "RE-PUBLISH XI\n\nWHAT: Overwrite the previously announced XI with the current selection (11 per team).\n\nWARNING: Users who picked players newly benched will start scoring 0 from this point on. Past points are NOT reverted — but new events won't be credited to benched players' picks. Visible to all users immediately.\n\nOUTCOME: UPDATE fmp.is_playing_xi=TRUE for selected 22, FALSE otherwise. Updates playing_xi_announced_at."
-                  : "PUBLISH XI\n\nWHAT: Commit the manual XI selection. Writes 11 per team into fantasy_match_player.is_playing_xi.\n\nWARNING: Once published, the XI is visible to all users on the team-card banner. Players left out score 0 from match start.\n\nOUTCOME: UPDATE fmp.is_playing_xi=TRUE for selected 22, FALSE otherwise. Stamps playing_xi_announced_at."}
+                  ? "RE-PUBLISH ROSTER\n\nWHAT: Overwrite the previously published roster with the current selection (11 starters + up to 5 reserves per team).\n\nWARNING: Users who picked players newly benched will start scoring 0 from this point on. Past points are NOT reverted. An already-activated Impact Player is preserved (won't be re-benched). Stamps roster_locked_at — squad.js ingest will stop overriding your selection.\n\nOUTCOME: UPDATE fmp.is_playing_xi for the 22 starters TRUE, the up-to-10 reserves FALSE, all others FALSE. SET is_reserve_player=TRUE for the reserves. Stamps playing_xi_announced_at + roster_locked_at."
+                  : "PUBLISH ROSTER\n\nWHAT: Commit the manual XI selection (11 starters + up to 5 reserves per team — reserves optional).\n\nWARNING: Once published, the XI is visible to all users. Reserves earn 0 points UNTIL substituted in mid-match as the Impact Player (then they earn full scoring + 4 bonus). Stamps roster_locked_at — squad.js ingest will stop overriding.\n\nOUTCOME: UPDATE fmp.is_playing_xi=TRUE for the 22 starters, FALSE for reserves and everyone else. SET is_reserve_player=TRUE for the reserves. Stamps playing_xi_announced_at + roster_locked_at."}
               >
                 {submitting
                   ? "Publishing…"
                   : match.playing_xi_announced_at
-                    ? "Re-publish XI"
-                    : "Publish XI"}
+                    ? `Re-publish XI${reserves.size > 0 ? ` + ${reserves.size} RP` : ""}`
+                    : `Publish XI${reserves.size > 0 ? ` + ${reserves.size} RP` : ""}`}
               </Button>
             </div>
           </div>
-        </Card>
+      </div>
+
+      {/* Search-as-you-type bar — the fastest workflow for admin during the
+          post-toss publish window. Type 2-3 letters of any player's name,
+          press X to mark as starter or R to mark as reserve, then keep
+          typing the next name. Esc clears. Click pills below still work
+          as a fallback if anyone prefers point-and-click. */}
+      <div className="mt-2 rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3">
+        <div className="flex items-start gap-4">
+          <div className="flex-1">
+            <label className="block text-[11px] font-semibold uppercase tracking-wider text-white/65">
+              Quick pick — type a name
+            </label>
+            <input
+              ref={searchRef}
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              onKeyDown={handleSearchKey}
+              placeholder="e.g. bat, fat, mahi, ..."
+              autoFocus
+              className="mt-1 w-full rounded-lg border border-white/15 bg-black/30 px-3 py-2 text-sm text-white placeholder:text-white/35 focus:border-[#F68323] focus:outline-none focus:ring-2 focus:ring-[#F68323]/30"
+            />
+          </div>
+          <div className="mt-5 flex flex-col gap-0.5 text-[11px] leading-snug text-white/55">
+            <div>
+              <kbd className="rounded border border-emerald-400/40 bg-emerald-400/10 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-200">?</kbd>{" "}
+              starter &nbsp;
+              <kbd className="rounded border border-amber-400/40 bg-amber-400/10 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-200">.</kbd>{" "}
+              reserve &nbsp;
+              <kbd className="rounded border border-white/20 bg-white/5 px-1.5 py-0.5 text-[10px] font-mono tracking-wider text-white/55">↓ / ↑</kbd>{" "}
+              cycle &nbsp;·&nbsp;{" "}
+              <kbd className="rounded border border-white/20 bg-white/5 px-1.5 py-0.5 text-[10px] font-mono tracking-wider text-white/55">Esc</kbd>{" "}
+              clear
+            </div>
+          </div>
+        </div>
+        {search ? (
+          <div className="mt-3 border-t border-white/10 pt-2 text-[12.5px]">
+            {matchedPlayers.length === 0 ? (
+              <span className="text-rose-300">No players match &ldquo;{search}&rdquo;</span>
+            ) : (
+              <span className="text-white/70">
+                {matchedPlayers.length === 1 ? "1 match" : `${matchedPlayers.length} matches`} ·{" "}
+                <span className="font-semibold text-white">
+                  {focusedPlayer?.player_name}
+                </span>{" "}
+                {focusedPlayer ? (
+                  <>
+                    <span className="text-white/45">
+                      ({teamLabelForId(String(focusedPlayer.team_id), match)})
+                    </span>{" "}
+                    — press <kbd className="rounded border border-emerald-400/40 bg-emerald-400/10 px-1 text-[10px] font-bold text-emerald-200">?</kbd> or <kbd className="rounded border border-amber-400/40 bg-amber-400/10 px-1 text-[10px] font-bold text-amber-200">.</kbd>
+                  </>
+                ) : null}
+              </span>
+            )}
+          </div>
+        ) : null}
       </div>
 
       <div className="mt-6 grid gap-4 md:grid-cols-2">
         {[...byTeam.entries()].map(([teamId, list]) => {
-          const teamCount = selectedByTeam.get(teamId) ?? 0;
+          const xiCount = selectedByTeam.get(teamId) ?? 0;
+          const rpCount = reservesByTeam.get(teamId) ?? 0;
           return (
             <TeamSquad
               key={teamId}
               teamId={teamId}
               players={list}
               selected={selected}
-              onToggle={togglePick}
+              reserves={reserves}
+              focusedPlayerId={focusedPlayer?.player_id ?? null}
+              searchQuery={search}
+              onTogglePick={togglePick}
+              onToggleReserve={toggleReserve}
               disabled={submitting}
-              teamAtCap={teamCount >= PER_TEAM}
+              xiAtCap={xiCount >= PER_TEAM}
+              rpAtCap={rpCount >= RESERVES_PER_TEAM_MAX}
               perTeam={PER_TEAM}
+              maxReserves={RESERVES_PER_TEAM_MAX}
               teamLabelFor={(p) => squadLabel(p, match)}
             />
           );
@@ -507,76 +748,174 @@ export default function FantasyPlayingXiPage() {
   );
 }
 
-function TeamSquad({ teamId, players, selected, onToggle, disabled, teamAtCap, perTeam, teamLabelFor }) {
+function TeamSquad({
+  teamId, players, selected, reserves,
+  focusedPlayerId, searchQuery,
+  onTogglePick, onToggleReserve,
+  disabled, xiAtCap, rpAtCap, perTeam, maxReserves, teamLabelFor,
+}) {
+  // When the search-by-name input above is non-empty, the focused row in
+  // EITHER team card needs to scroll into view so the admin doesn't have
+  // to hunt for it. We ref each row, find the focused one, and scrollIntoView.
+  const rowRefs = useRef(new Map());
+  useEffect(() => {
+    if (!focusedPlayerId) return;
+    const el = rowRefs.current.get(focusedPlayerId);
+    if (el && typeof el.scrollIntoView === "function") {
+      el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  }, [focusedPlayerId]);
   const teamName = useMemo(() => {
     const sample = players[0];
     if (!sample) return `Team ${teamId}`;
     return teamLabelFor(sample) || `Team ${teamId}`;
   }, [players, teamId, teamLabelFor]);
   const inXi = players.filter((p) => selected.has(p.player_id)).length;
+  const inRp = players.filter((p) => reserves.has(p.player_id)).length;
 
   // Pure alpha sort, case-insensitive. Role labels stay inline on each row
   // (next to the Icon/U-19/In XI pills) so the admin can still see what each
   // player is without role groupings breaking up the alphabetical flow.
+  //
+  // When the search box has a query, we filter this team's list down to ONLY
+  // matching rows — non-matches disappear instead of being shown dimmed.
+  // The matches naturally appear at the top of the card with no scrolling
+  // required. Empty search → full alpha list returns.
   const sorted = useMemo(() => {
-    return [...players].sort((a, b) =>
+    const alphaSorted = [...players].sort((a, b) =>
       (a.player_name || "").localeCompare(b.player_name || "", undefined, {
         sensitivity: "base",
       }),
     );
-  }, [players]);
+    if (!searchQuery) return alphaSorted;
+    const q = searchQuery.toLowerCase();
+    return alphaSorted.filter((p) =>
+      (p.player_name || "").toLowerCase().includes(q),
+    );
+  }, [players, searchQuery]);
 
   return (
     <Card
       title={
         <span className="flex items-center gap-2">
           <span>{teamName}</span>
-          <Pill tone={inXi === perTeam ? "emerald" : inXi > 0 ? "default" : "default"}>
+          <Pill tone={inXi === perTeam ? "emerald" : "default"}>
             {inXi} / {perTeam} in XI
+          </Pill>
+          <Pill tone={inRp > 0 ? "gold" : "default"}>
+            {inRp} / {maxReserves} RP
           </Pill>
         </span>
       }
       padding="tight"
     >
-      <ul className="divide-y divide-white/5">
+      {/* Internal scroll on the list — keeps the page non-scrolling even
+          when each side has 20+ players. max-h-[55vh] keeps both team
+          cards comfortably within a 1080p viewport with the search bar +
+          counter visible above. */}
+      {searchQuery && sorted.length === 0 ? (
+        <div className="px-4 py-6 text-center text-[12.5px] text-white/45">
+          No <span className="font-semibold text-white/70">{teamName}</span> player matches &ldquo;{searchQuery}&rdquo;
+        </div>
+      ) : null}
+      <ul className="max-h-[55vh] divide-y divide-white/5 overflow-y-auto">
         {sorted.map((p) => {
-          const checked = selected.has(p.player_id);
-          // Cap is per-team: a row only goes "disabled (full)" once this team
-          // has hit 11. The other team's picker keeps accepting clicks.
-          const disabledRow = disabled || (!checked && teamAtCap);
+          const isXi = selected.has(p.player_id);
+          const isRp = reserves.has(p.player_id);
+          // Per-bucket cap: a row's XI button greys out once this team has
+          // 11 in XI, RP button greys out at 5. Already-marked rows stay
+          // clickable so the admin can un-mark them.
+          const xiBlocked = disabled || (!isXi && xiAtCap);
+          const rpBlocked = disabled || (!isRp && rpAtCap);
+          // Row-level visual cue when picked — colored left border + faint
+          // background tint, like Excel "this row is selected." Makes it
+          // instantly obvious which players the admin has already chosen
+          // even when scanning a long alphabetical list.
+          const rowAccent = isXi
+            ? "border-l-2 border-l-emerald-400/70 bg-emerald-400/[0.04]"
+            : isRp
+              ? "border-l-2 border-l-amber-400/70 bg-amber-400/[0.04]"
+              : "border-l-2 border-l-transparent";
+          // Search highlight: only matching rows are rendered (see filter
+          // in `sorted` above), so we just ring the focused one in blue.
+          const isFocused = focusedPlayerId === p.player_id;
+          const searchClass = searchQuery && isFocused
+            ? "ring-2 ring-sky-400 ring-offset-2 ring-offset-[#070a14] rounded-md"
+            : "";
           return (
-            <li key={p.player_id} className="px-3 py-2">
-              <label
-                className={`flex cursor-pointer items-center gap-3 ${
-                  disabledRow && !checked ? "opacity-40" : ""
-                }`}
-              >
-                <input
-                  type="checkbox"
-                  className="h-4 w-4 accent-[#F68323]"
-                  checked={checked}
-                  disabled={disabledRow && !checked}
-                  onChange={() => onToggle(p.player_id)}
-                />
-                <span className="min-w-0 flex-1">
-                  <span className="block truncate text-sm font-semibold text-white">
+            <li
+              key={p.player_id}
+              ref={(el) => {
+                if (el) rowRefs.current.set(p.player_id, el);
+                else rowRefs.current.delete(p.player_id);
+              }}
+              className={`px-2 py-1 ${rowAccent} ${searchClass}`}
+            >
+              <div className="flex items-center gap-2">
+                {/* XI / RP toggle pair. Two labeled buttons, fixed min-width
+                    so the row layout doesn't shift when the label changes
+                    from "Add" to "In" / "As" on select. Mutex by handler
+                    — clicking XI auto-removes RP and vice-versa. */}
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <button
+                    type="button"
+                    onClick={() => !xiBlocked && onTogglePick(p.player_id)}
+                    disabled={xiBlocked}
+                    title={xiBlocked && !isXi ? `Team is full (${perTeam} XI). Remove a starter first.` : "Mark as Starter (Playing XI)"}
+                    className={`cursor-pointer min-w-[60px] inline-flex items-center justify-center gap-1 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider border transition select-none ${
+                      isXi
+                        ? "border-emerald-400 bg-emerald-500 text-white shadow-[0_2px_8px_rgba(16,185,129,0.35)]"
+                        : "border-white/20 bg-white/[0.03] text-white/80 hover:border-emerald-400 hover:bg-emerald-400/15 hover:text-emerald-100"
+                    } disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:border-white/20 disabled:hover:bg-white/[0.03] disabled:hover:text-white/80`}
+                  >
+                    <span aria-hidden="true" className="text-[10px] leading-none">
+                      {isXi ? "✓" : "+"}
+                    </span>
+                    {isXi ? "In XI" : "Add XI"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => !rpBlocked && onToggleReserve(p.player_id)}
+                    disabled={rpBlocked}
+                    title={rpBlocked && !isRp ? `${maxReserves} reserves already named. Remove a reserve first.` : "Mark as Reserve (eligible Impact Player)"}
+                    className={`cursor-pointer min-w-[60px] inline-flex items-center justify-center gap-1 px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider border transition select-none ${
+                      isRp
+                        ? "border-amber-400 bg-amber-500 text-white shadow-[0_2px_8px_rgba(245,158,11,0.35)]"
+                        : "border-white/20 bg-white/[0.03] text-white/80 hover:border-amber-400 hover:bg-amber-400/15 hover:text-amber-100"
+                    } disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:border-white/20 disabled:hover:bg-white/[0.03] disabled:hover:text-white/80`}
+                  >
+                    <span aria-hidden="true" className="text-[10px] leading-none">
+                      {isRp ? "✓" : "+"}
+                    </span>
+                    {isRp ? "As RP" : "Add RP"}
+                  </button>
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="block truncate text-xs font-semibold text-white">
                     {p.player_name || p.player_id}
-                  </span>
-                  <span className="mt-0.5 flex flex-wrap items-center gap-1.5 text-[11px] text-white/55">
+                  </div>
+                  <div className="flex flex-wrap items-center gap-1 text-[10px] text-white/55">
                     <span>{ROLE_LABEL[p.role] || p.role}</span>
                     {p.is_icon ? <Pill tone="gold">Icon</Pill> : null}
                     {/* Underlying column is still is_emerging until the
                         0019_u19_flag migration lands; UI surfaces it as U-19
                         per the renamed BRD multiplier. */}
                     {p.is_u19 || p.is_emerging ? <Pill tone="violet">U-19</Pill> : null}
-                    {p.is_playing_xi === true ? (
+                    {/* Live impact-player state from fmp. impact_activated_at
+                        is set by widget.ts once the reserve has been
+                        substituted in mid-match. */}
+                    {p.impact_activated_at ? (
+                      <Pill tone="emerald">IP active</Pill>
+                    ) : p.is_reserve_player ? (
+                      <Pill tone="gold">RP (saved)</Pill>
+                    ) : p.is_playing_xi === true ? (
                       <Pill tone="emerald">In XI</Pill>
                     ) : p.is_playing_xi === false ? (
                       <Pill tone="default">Benched</Pill>
                     ) : null}
-                  </span>
-                </span>
-              </label>
+                  </div>
+                </div>
+              </div>
             </li>
           );
         })}

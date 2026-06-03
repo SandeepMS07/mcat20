@@ -5,7 +5,29 @@ import { forwardRef, useEffect, useRef } from "react";
 // Shared admin-UI primitives. Imported by every /admin/* page so the visual
 // language stays consistent.
 
-export function PageHeader({ eyebrow, title, subtitle, actions }) {
+export function PageHeader({ eyebrow, title, subtitle, actions, compact = false }) {
+  if (compact) {
+    return (
+      <div className="mb-2 flex flex-wrap items-center justify-between gap-1.5">
+        <div className="min-w-0">
+          {eyebrow ? (
+            <div className="text-[8px] font-bold uppercase tracking-[0.28em] text-[#F2A23A] leading-none mb-0.5">
+              {eyebrow}
+            </div>
+          ) : null}
+          <h1 className="font-oswald text-base font-extrabold uppercase italic leading-none text-white sm:text-lg">
+            {title}
+          </h1>
+          {subtitle ? (
+            <div className="mt-0.5 text-[11px] text-white/55">{subtitle}</div>
+          ) : null}
+        </div>
+        {actions ? (
+          <div className="flex flex-wrap items-center gap-2">{actions}</div>
+        ) : null}
+      </div>
+    );
+  }
   return (
     <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
       <div className="min-w-0">

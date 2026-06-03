@@ -52,6 +52,23 @@ export const publishPlayingXi = async (matchId, playerIds) => {
   return res.data;
 };
 
+// Publish a manual roster (BRD v4.3 11+5 MCA Impact Player rule). Body shape:
+//   { teamA: { starters: string[11], reserves: string[≤5] },
+//     teamB: { starters: string[11], reserves: string[≤5] } }
+// Atomically sets is_playing_xi=TRUE for the 22 starters and is_reserve_player
+// =TRUE for the up-to-10 reserves, then stamps playing_xi_announced_at and
+// roster_locked_at so squad.js ingest stops overriding the admin's choice.
+// Re-postable — the existing fmp row for an already-activated Impact Player
+// keeps its is_playing_xi=TRUE on a re-publish, so mid-match corrections
+// don't bench a reserve who has already come on and started scoring.
+export const publishRoster = async (matchId, body) => {
+  const res = await turboverseAxios.post(
+    `/v1/admin/matches/${encodeURIComponent(matchId)}/roster`,
+    body,
+  );
+  return res.data;
+};
+
 // Wipe the announced Playing XI on a match. Clears playing_xi_announced_at +
 // resets every squad row's is_playing_xi flag back to NULL. Used when the
 // admin published the wrong XI or the team sheet changed last-minute.
