@@ -20,6 +20,22 @@ export default function HptoWidget() {
     };
   }, [closed]);
 
+  useEffect(() => {
+    if (closed) return;
+    const handleClick = (e) => {
+      const anchor = e.target.closest("a");
+      if (!anchor) return;
+      const widget = document.querySelector(".smmumbaihpto");
+      if (!widget || !widget.contains(anchor)) return;
+      if (anchor.target === "_blank") {
+        e.preventDefault();
+        window.location.href = anchor.href;
+      }
+    };
+    document.addEventListener("click", handleClick, true);
+    return () => document.removeEventListener("click", handleClick, true);
+  }, [closed]);
+
   if (closed) return null;
 
   return (
