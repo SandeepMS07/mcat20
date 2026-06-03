@@ -432,8 +432,8 @@ export default function FantasyPlayingXiPage() {
     }
   };
 
-  const teamA = match?.team_a_short || match?.team_a_name || "TBA";
-  const teamB = match?.team_b_short || match?.team_b_name || "TBA";
+  const teamA = match?.team_a_name || match?.team_a_short || "TBA";
+  const teamB = match?.team_b_name || match?.team_b_short || "TBA";
 
   if (loading) {
     return (
@@ -1047,10 +1047,10 @@ function teamLabelForId(teamId, match) {
   if (!match || teamId == null) return null;
   const tid = String(teamId);
   if (String(match.team_a_id) === tid) {
-    return match.team_a_short || match.team_a_name || "Team A";
+    return match.team_a_name || match.team_a_short || "Team A";
   }
   if (String(match.team_b_id) === tid) {
-    return match.team_b_short || match.team_b_name || "Team B";
+    return match.team_b_name || match.team_b_short || "Team B";
   }
   return `Team ${tid}`;
 }
