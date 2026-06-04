@@ -189,15 +189,15 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll", initialMode
     e.preventDefault();
     if (state.loading) return;
     if (!isSignIn && !state.name.trim()) {
-      showToast("Please enter your full name.");
+      update({ error: "Please enter your full name." });
       return;
     }
     if (!isSignIn && !EMAIL_REGEX.test(state.email.trim())) {
-      showToast("Please enter a valid email address.");
+      update({ error: "Please enter a valid email address." });
       return;
     }
     if (!MOBILE_REGEX.test(state.mobile)) {
-      showToast("Enter a valid 10-digit mobile number.");
+      update({ error: "Enter a valid 10-digit mobile number." });
       return;
     }
     update({ loading: true, error: null, hint: null });
@@ -214,13 +214,23 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll", initialMode
       const existsResp = await mobileExists(mobile);
       const exists = !!existsResp?.exists;
       if (isSignIn && !exists) {
-        update({ loading: false, mode: MODE_SIGNUP, hint: null });
-        showToast("No account found for this number. Please sign up.");
+        update({
+          loading: false,
+          mode: MODE_SIGNUP,
+          hint: null,
+          error: "No account found for this number. Please sign up.",
+        });
         return;
       }
       if (!isSignIn && exists) {
-        update({ loading: false, mode: MODE_SIGNIN, name: "", email: "", hint: null });
-        showToast("An account already exists for this mobile. Please sign in.");
+        update({
+          loading: false,
+          mode: MODE_SIGNIN,
+          name: "",
+          email: "",
+          hint: null,
+          error: "An account already exists for this mobile. Please sign in.",
+        });
         return;
       }
     } catch {
@@ -245,8 +255,7 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll", initialMode
       if (status === 429 || code === "rate_limited")
         msg = "Too many attempts. Try again in 10 minutes.";
       else if (code === "send_failed") msg = "Couldn't send OTP, retry.";
-      update({ loading: false });
-      showToast(msg);
+      update({ loading: false, error: msg });
     }
   };
 
@@ -349,8 +358,14 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll", initialMode
         // Returning user flow tried to log in on a mobile that has no account
         // yet — flip them to sign-up so they can register.
         if (isSignIn) {
-          update({ loading: false, step: STEP_DETAILS, mode: MODE_SIGNUP, otp: "", hint: null });
-          showToast("No account found for this number. Please sign up.");
+          update({
+            loading: false,
+            step: STEP_DETAILS,
+            mode: MODE_SIGNUP,
+            otp: "",
+            hint: null,
+            error: "No account found for this number. Please sign up.",
+          });
           return;
         }
         msg = "Please go back and enter your name.";
@@ -473,6 +488,21 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll", initialMode
           className="w-full bg-transparent text-base tracking-wider text-white placeholder:text-[#C6C5D1] placeholder:tracking-normal focus:outline-none"
         />
       </div>
+
+      {/* Inline error — surfaces validation + precheck failures (e.g.
+          "An account already exists for this mobile") right next to the
+          fields the user just touched, instead of a bottom-of-viewport
+          toast that often gets cut off by the player carousel. Inputs
+          clear `state.error` on change so the message dismisses itself
+          the moment the user starts editing. */}
+      {state.error && (
+        <p
+          role="alert"
+          className="rounded-2xl border border-red-400/40 bg-red-400/10 px-4 py-2.5 text-center text-sm font-semibold text-red-300"
+        >
+          {state.error}
+        </p>
+      )}
     </>
   );
 
