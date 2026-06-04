@@ -1,40 +1,65 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
+
+const HPTO_JS_SRC = "https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/hpto.js";
+const HPTO_SCRIPT_ID = "mumbai-hpto-script";
+const MATCH_CENTER_PATH = "/matchcentre";
 
 export default function HptoWidget() {
   const [closed, setClosed] = useState(false);
+  const containerRef = useRef(null);
+  const router = useRouter();
 
   useEffect(() => {
     if (closed) return;
-    const existing = document.querySelector(
-      'script[src="https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/hpto.js"]'
-    );
+    const existing = document.getElementById(HPTO_SCRIPT_ID);
     if (existing) existing.remove();
     const script = document.createElement("script");
-    script.src = "https://d3ml9nicy4vh6j.cloudfront.net/t20mumbai/hpto.js";
-    script.async = true;
+    script.src = HPTO_JS_SRC;
+    script.async = false;
+    script.id = HPTO_SCRIPT_ID;
     document.body.appendChild(script);
     return () => {
-      script.remove();
+      const s = document.getElementById(HPTO_SCRIPT_ID);
+      if (s) s.remove();
+      if (containerRef.current) containerRef.current.innerHTML = "";
     };
   }, [closed]);
 
   useEffect(() => {
-    if (closed) return;
+    const container = containerRef.current;
+    if (!container || closed) return;
+
     const handleClick = (e) => {
-      const anchor = e.target.closest("a");
-      if (!anchor) return;
-      const widget = document.querySelector(".smmumbaihpto");
-      if (!widget || !widget.contains(anchor)) return;
-      if (anchor.target === "_blank") {
-        e.preventDefault();
-        window.location.href = anchor.href;
+      const anchor = e.target?.closest("a");
+      if (!anchor?.href) return;
+
+      let parsed;
+      try {
+        parsed = new URL(anchor.href, window.location.origin);
+      } catch {
+        return;
       }
+
+      const hostname = parsed.hostname.replace(/^www\./, "");
+      const isT20Mumbai = hostname === "t20mumbai.com" || hostname === window.location.hostname.replace(/^www\./, "");
+      const isMatchCenter =
+        parsed.pathname === MATCH_CENTER_PATH ||
+        parsed.pathname.startsWith(`${MATCH_CENTER_PATH}/`) ||
+        parsed.pathname.startsWith("/matches/");
+
+      if (!isT20Mumbai || !isMatchCenter) return;
+
+      e.preventDefault();
+      e.stopPropagation();
+      router.push(`${parsed.pathname}${parsed.search}${parsed.hash}`);
     };
-    document.addEventListener("click", handleClick, true);
-    return () => document.removeEventListener("click", handleClick, true);
-  }, [closed]);
+
+    container.addEventListener("click", handleClick, true);
+    return () => container.removeEventListener("click", handleClick, true);
+  }, [closed, router]);
 
   if (closed) return null;
 
@@ -50,7 +75,10 @@ export default function HptoWidget() {
       >
         ✕
       </button>
-      <div className="smmumbaihpto hpto-horizontal hpto-fixed"></div>
+      <div
+        ref={containerRef}
+        className="smmumbaihpto hpto-horizontal hpto-fixed"
+      />
     </>
   );
 }

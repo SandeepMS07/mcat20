@@ -2,7 +2,7 @@ import { getAxiosInstance } from "./axiosInstance";
 import { PLAYERS_API_PATH } from "./admin/localPlayers";
 import { FANTASY_API_BASE } from "@/constant";
 
-const axios = getAxiosInstance();
+const mcaAxios = getAxiosInstance();
 const fantasyAxios = getAxiosInstance({ baseURL: FANTASY_API_BASE });
 const DEFAULT_TTL_MS = 5 * 60 * 1000;
 
@@ -84,7 +84,7 @@ export const getTeamDetailsClient = async () => {
 export const getVideosClient = async () => {
   try {
     return await fetchWithCache("api:videos", async () => {
-      const res = await axios.get("/v1/application/youtube/link");
+      const res = await mcaAxios.get("/v1/application/youtube/link");
       return res.data;
     });
   } catch (err) {
@@ -96,7 +96,7 @@ export const getVideosClient = async () => {
 export const getImagesClient = async () => {
   try {
     return await fetchWithCache("api:images", async () => {
-      const res = await axios.get("/v1/application/web/gallery");
+      const res = await mcaAxios.get("/v1/application/web/gallery");
       return res.data;
     });
   } catch (err) {
@@ -108,7 +108,7 @@ export const getImagesClient = async () => {
 export const getLatestUpdatesClient = async () => {
   try {
     return await fetchWithCache("api:latest-updates", async () => {
-      const res = await axios.get("/v1/live/details/news/announcement");
+      const res = await mcaAxios.get("/v1/live/details/news/announcement");
       const { LocalLatestUpdates } = await import("@/app/news/data");
       const apiItems = Array.isArray(res?.data?.data) ? res.data.data : [];
       const merged = [
@@ -131,7 +131,7 @@ export const getLatestUpdatesClient = async () => {
 export const getHeroBannerClient = async () => {
   try {
     return await fetchWithCache("api:hero-banners", async () => {
-      const res = await axios.get("/v1/application/hero/banners");
+      const res = await mcaAxios.get("/v1/application/hero/banners");
       return res.data;
     });
   } catch (err) {
@@ -155,7 +155,7 @@ export const getBannersClient = async () => {
 export const getStandings = async () => {
   try {
     return await fetchWithCache("api:standings", async () => {
-      const res = await axios.get("/v1/live/season3/standings");
+      const res = await mcaAxios.get("/v1/live/season3/standings");
       return res.data;
     });
   } catch (err) {

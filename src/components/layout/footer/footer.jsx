@@ -59,7 +59,7 @@ const SOCIAL_LINKS = [
 const Footer = () => {
   const pathName = usePathname();
 
-  if (pathName === "/auction-info") return;
+  if (pathName === "/auction-info" || pathName === "/matchcentre" || pathName.startsWith("/matchcentre/")) return;
 
   return (
     <footer className="w-full bg-[#192A66]">

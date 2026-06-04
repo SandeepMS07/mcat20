@@ -244,7 +244,7 @@ const PointsTablePage = () => {
             <div className="overflow-x-auto">
               <table className="w-full min-w-[700px] md:min-w-[1100px] text-white border-separate border-spacing-y-3 italic">
                 <thead>
-                  <tr className="text-left text-[10px] sm:text-xs uppercase text-[#FFE24A] bg-[#1F43C5]">
+                  <tr className="text-left text-[10px] sm:text-xs uppercase text-[#FFE24A] bg-[#243374]">
                     {activeSeason !== "season_4" && (
                       <th className="rounded-l-full px-2 py-2.5 sm:px-4 sm:py-3">
                         Pos
@@ -283,10 +283,10 @@ const PointsTablePage = () => {
                           {row.rank}
                         </td>
                       )}
-                      <td className="bg-[#2447C6] rounded-l-full relative">
+                      <td className="bg-[#243374] rounded-l-full relative">
                         {/* <div class="hidden sm:block w-[54.5px] h-[32px] bg-[#D18FDB] rounded-t-full absolute z-10 -rotate-90 -right-[11.5px] top-[11px]"></div>
                         <div class="hidden sm:block w-[54.5px] h-[32px] bg-[#192A66] rounded-t-full absolute z-10 -rotate-90 -right-[12px] top-[11px]"></div> */}
-                        <div className="relative flex items-center gap-1.5 sm:gap-2 overflow-hidden rounded-l-full bg-[#2447C6] pr-3 sm:pr-6">
+                        <div className="relative flex items-center gap-1.5 sm:gap-2 overflow-hidden rounded-l-full bg-[#243374] pr-3 sm:pr-6">
                           <div className="z-10 flex h-8 w-8 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-full bg-white border border-[#AF313A] m-0.5">
                             {row.logo ? (
                               <img
@@ -302,7 +302,7 @@ const PointsTablePage = () => {
                           {activeSeason !== "season_4" &&
                             row.rank <=
                               (activeSeason === "season_1" ? 2 : 4) && (
-                              <span className="absolute right-[10px] sm:right-[22px] z-10 flex h-4 w-4 items-center justify-center rounded-full bg-[#FFE24A] text-[9px] font-black text-[#1A2C76]">
+                              <span className="absolute right-[10px] sm:right-[22px] z-10 flex h-4 w-4 items-center justify-center rounded-full bg-[#FFE24A] text-[9px] font-black text-[#1d2d70]">
                                 Q
                               </span>
                             )}
@@ -336,7 +336,7 @@ const PointsTablePage = () => {
                         <div className="h-3/5 w-[.5px] bg-[#9F3BE3]/70 absolute top-0 bottom-0 my-auto right-0"></div>
                         {row.against}
                       </td>
-                      <td className="px-2 py-2 sm:px-4 font-semibold bg-[#192A66] rounded-r-full relative z-10 border-r border-[#2447C6] text-center sm:text-left">
+                      <td className="px-2 py-2 sm:px-4 font-semibold bg-[#192A66] rounded-r-full relative z-10 border-r border-[#243374] text-center sm:text-left">
                         {row.pts}
                       </td>
                       {/* <td className="px-2 py-2 bg-[#192A66] rounded-r-full relative">

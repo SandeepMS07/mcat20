@@ -73,7 +73,7 @@ const Hero = () => {
         }}
         className="hero-swiper h-full"
       >
-        {banners.map((banner) => {
+        {banners.map((banner, idx) => {
           const titleLines = banner.title ? banner.title.split("\n") : [];
           const bannerImageUrl = getBannerImageUrl(banner);
           const bannerIsSvg = isSvgBanner(bannerImageUrl);
@@ -101,7 +101,8 @@ const Hero = () => {
                       ? "hero-banner-svg-image object-contain scale-[1.08] sm:scale-100"
                       : "hero-banner-raster-image object-cover object-top sm:object-center"
                   }`}
-                  loading="eager"
+                  loading={idx === 0 ? "eager" : "lazy"}
+                  onError={(e) => { e.currentTarget.style.display = "none"; }}
                 />
                 <div
                   className={`pointer-events-none absolute inset-x-0 top-0 z-[5] ${
