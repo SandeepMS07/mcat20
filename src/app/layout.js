@@ -5,7 +5,7 @@ import AuthProvider from "@/components/auth/AuthProvider";
 import { PollsProvider } from "@/components/polls/PollsProvider";
 export const metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://t20mumbai.in"
+    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
   ),
   title: "T20 Mumbai League - Season 4 2026",
   description:

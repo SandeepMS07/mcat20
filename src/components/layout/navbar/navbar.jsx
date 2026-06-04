@@ -45,12 +45,6 @@ const Navbar = () => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
-  // Tiny "Opening Fantasy…" splash written into the popup while we wait for
-  // the /sso-handoff round-trip. Beats a blank tab if the network is slow.
-  // Self-contained string — no external assets, no fonts, dies the moment we
-  // navigate the popup to its real destination.
-  const POPUP_SPLASH_HTML = `<!doctype html><html><head><meta charset="utf-8"><title>Opening Fantasy…</title><meta name="viewport" content="width=device-width,initial-scale=1"><style>html,body{margin:0;height:100%;background:#0B1545;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.wrap{display:flex;height:100%;align-items:center;justify-content:center;flex-direction:column;gap:1rem}.spin{width:36px;height:36px;border:2px solid rgba(255,255,255,.12);border-top-color:#F68323;border-radius:50%;animation:r .8s linear infinite}@keyframes r{to{transform:rotate(360deg)}}.lbl{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.7)}</style></head><body><div class="wrap"><div class="spin"></div><div class="lbl">Opening Fantasy…</div></div></body></html>`;
-
   // SSO hand-off into the fantasy app. Lazy by design (only on click) — codes
   // expire in 30s, so prefetching is worse than useless. Never logs the code:
   // it's a single-use credential, same hygiene as any other auth token.
@@ -59,11 +53,14 @@ const Navbar = () => {
   // happens AFTER, navigating the already-open tab. If we awaited first then
   // tried window.open(), Safari/Chrome would block it as a non-user-gesture
   // popup.
-  const handoffToFantasy = async (popup) => {
+  const handoffToFantasy = async (popup, destPath = "/") => {
     try {
       const { code } = await requestSsoHandoff();
       if (!code) throw new Error("no_code_in_response");
-      const url = `${FANTASY_WEB_BASE}/?code=${encodeURIComponent(code)}`;
+      // Always start the path with "/" so concatenation is well-formed
+      // regardless of what callers pass in.
+      const safePath = destPath?.startsWith("/") ? destPath : "/";
+      const url = `${FANTASY_WEB_BASE}${safePath}?code=${encodeURIComponent(code)}`;
       if (popup && !popup.closed) {
         popup.location.replace(url);
       } else {
@@ -78,50 +75,16 @@ const Navbar = () => {
   };
 
   const handleGatedNavClick = (item, afterClick) => {
-    // SSO entry, AUTHED path: open a blank tab RIGHT NOW (synchronously,
-    // inside the click handler) so the browser counts it as a user-gesture-
-    // initiated popup. Seed it with a tiny splash so the user doesn't stare
-    // at "about:blank" during the network round-trip.
-    //
-    // UNAUTHED path: we can't open a tab now (no token yet), but we want
-    // the post-login navigation to also land in a new tab — not replace
-    // the t20 web tab. The modal's submit button is itself a user gesture,
-    // so a window.open() inside the post-success callback chain is allowed
-    // by Chrome/Safari. We open the tab there (see `finish` below) instead
-    // of here so we don't sit on an empty about:blank while the user is
-    // still typing their mobile number.
-    let popup = null;
-    if (item.ssoHandoff && isAuthed && typeof window !== "undefined") {
-      popup = window.open("", "_blank");
-      if (popup) {
-        try { popup.document.write(POPUP_SPLASH_HTML); popup.document.close(); }
-        catch { /* cross-origin guard, can't write — fine, we still own it */ }
-      }
-    }
-
-    const finish = async ({ postLogin = false } = {}) => {
-      // Post-login path: try to open the fantasy app in a new tab so the
-      // user's t20 web tab stays put. Done inside the success callback
-      // (which fires from the modal's submit handler) so the browser still
-      // counts the action as a user-initiated popup.
-      if (
-        postLogin &&
-        item.ssoHandoff &&
-        !popup &&
-        typeof window !== "undefined"
-      ) {
-        popup = window.open("", "_blank");
-        if (popup) {
-          try { popup.document.write(POPUP_SPLASH_HTML); popup.document.close(); }
-          catch { /* cross-origin — fine */ }
-        }
-      }
-
+    // SSO hand-off navigates IN-PLACE (same tab) — product decision: the
+    // fantasy app is the natural next step from the t20 web nav, not a
+    // side-by-side companion, so opening a new tab created a stray tab the
+    // user then had to manage. The previous popup logic that seeded a blank
+    // tab with a splash is gone; handoffToFantasy(null, …) takes the
+    // window.location.href fallback path which is exactly what we want now.
+    const finish = async () => {
       try {
         if (item.ssoHandoff) {
-          // popup may still be null if the browser blocked it; handoffToFantasy
-          // falls back to window.location.href in that case.
-          await handoffToFantasy(popup);
+          await handoffToFantasy(null, item.destPath || "/");
         } else if (/^https?:\/\//.test(item.path)) {
           openExternal(item.path);
         } else if (typeof window !== "undefined") {
@@ -146,7 +109,7 @@ const Navbar = () => {
       }
     };
     if (!isAuthed) {
-      openLogin(() => finish({ postLogin: true }), { variant: "fantasy" });
+      openLogin(finish, { variant: "fantasy" });
       return;
     }
     finish();
@@ -270,25 +233,48 @@ const Navbar = () => {
                         >
                           {item.children.map((child, j) => {
                             const childActive = isPathActive(child.path);
+                            const childClass = `flex items-center justify-between gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold capitalize tracking-wide transition-all duration-150 ${
+                              childActive
+                                ? "bg-gradient-to-b from-[#F68323] to-[#E07E27] text-white shadow-[0_4px_14px_-4px_rgba(246,131,35,0.55)]"
+                                : "text-white/85 hover:bg-white/10 hover:text-white"
+                            }`;
+                            const childInner = (
+                              <>
+                                <span>{child.title}</span>
+                                {child.comingSoon && (
+                                  <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-[#F2A23A] to-[#FFD166] px-1.5 py-[2px] text-[8px] font-extrabold uppercase tracking-wider text-[#0B1545] shadow-[0_2px_6px_rgba(242,162,58,0.45)]">
+                                    <span className="h-1 w-1 rounded-full bg-[#0B1545]" />
+                                    Soon
+                                  </span>
+                                )}
+                              </>
+                            );
                             return (
                               <li key={j} role="none">
-                                <Link
-                                  href={child.path}
-                                  role="menuitem"
-                                  className={`flex items-center justify-between gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold capitalize tracking-wide transition-all duration-150 ${
-                                    childActive
-                                      ? "bg-gradient-to-b from-[#F68323] to-[#E07E27] text-white shadow-[0_4px_14px_-4px_rgba(246,131,35,0.55)]"
-                                      : "text-white/85 hover:bg-white/10 hover:text-white"
-                                  }`}
-                                >
-                                  <span>{child.title}</span>
-                                  {child.comingSoon && (
-                                    <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-[#F2A23A] to-[#FFD166] px-1.5 py-[2px] text-[8px] font-extrabold uppercase tracking-wider text-[#0B1545] shadow-[0_2px_6px_rgba(242,162,58,0.45)]">
-                                      <span className="h-1 w-1 rounded-full bg-[#0B1545]" />
-                                      Soon
-                                    </span>
-                                  )}
-                                </Link>
+                                {/* SSO-gated children (e.g. Fantasy → Home /
+                                    Matches / Leaderboard) re-use the parent's
+                                    SSO hand-off path so the dropdown can
+                                    deep-link straight into a fantasy page
+                                    after auth. Plain children fall through
+                                    to a static <Link>. */}
+                                {child.requiresAuth ? (
+                                  <button
+                                    type="button"
+                                    role="menuitem"
+                                    onClick={() => handleGatedNavClick(child)}
+                                    className={`w-full cursor-pointer ${childClass}`}
+                                  >
+                                    {childInner}
+                                  </button>
+                                ) : (
+                                  <Link
+                                    href={child.path}
+                                    role="menuitem"
+                                    className={childClass}
+                                  >
+                                    {childInner}
+                                  </Link>
+                                )}
                               </li>
                             );
                           })}
@@ -496,27 +482,47 @@ const Navbar = () => {
                       <ul className="mt-3 flex flex-col gap-3 border-l border-white/15 pl-4">
                         {item.children.map((child, j) => {
                           const childActive = isPathActive(child.path);
+                          const childClass = `inline-flex items-center gap-2 text-sm transition-colors hover:text-orange-400 ${
+                            childActive ? "text-orange-500" : "text-white/85"
+                          }`;
+                          const closeAfter = () => {
+                            setMenuOpen(false);
+                            setExpandedItem(null);
+                          };
+                          const childInner = (
+                            <>
+                              {child.title}
+                              {child.comingSoon && (
+                                <span className="rounded-full bg-[#F2A23A]/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#F2A23A]">
+                                  Coming Soon
+                                </span>
+                              )}
+                            </>
+                          );
                           return (
                             <li key={j}>
-                              <Link
-                                href={child.path}
-                                className={`inline-flex items-center gap-2 text-sm transition-colors hover:text-orange-400 ${
-                                  childActive
-                                    ? "text-orange-500"
-                                    : "text-white/85"
-                                }`}
-                                onClick={() => {
-                                  setMenuOpen(false);
-                                  setExpandedItem(null);
-                                }}
-                              >
-                                {child.title}
-                                {child.comingSoon && (
-                                  <span className="rounded-full bg-[#F2A23A]/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#F2A23A]">
-                                    Coming Soon
-                                  </span>
-                                )}
-                              </Link>
+                              {/* Same SSO-gated child handling as the desktop
+                                  dropdown above — Fantasy sub-pages deep-link
+                                  into the fantasy app after auth. */}
+                              {child.requiresAuth ? (
+                                <button
+                                  type="button"
+                                  onClick={() =>
+                                    handleGatedNavClick(child, closeAfter)
+                                  }
+                                  className={`cursor-pointer ${childClass}`}
+                                >
+                                  {childInner}
+                                </button>
+                              ) : (
+                                <Link
+                                  href={child.path}
+                                  className={childClass}
+                                  onClick={closeAfter}
+                                >
+                                  {childInner}
+                                </Link>
+                              )}
                             </li>
                           );
                         })}

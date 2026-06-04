@@ -89,7 +89,10 @@ const makeInitialState = (mode = MODE_SIGNIN) => ({
   loading: false,
   error: null,
   hint: null,
+  resendIn: 0,
 });
+
+const RESEND_COOLDOWN_S = 30;
 
 const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll", initialMode = MODE_SIGNIN }) => {
   const [state, setState] = useState(() => makeInitialState(initialMode));
@@ -120,6 +123,14 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll", initialMode
       document.body.style.overflow = "";
     };
   }, [open, onClose, initialMode]);
+
+  useEffect(() => {
+    if (state.step !== STEP_OTP || state.resendIn <= 0) return undefined;
+    const id = setInterval(() => {
+      setState((s) => (s.resendIn > 0 ? { ...s, resendIn: s.resendIn - 1 } : s));
+    }, 1000);
+    return () => clearInterval(id);
+  }, [state.step, state.resendIn]);
 
   useEffect(() => {
     if (!open) return;
@@ -221,6 +232,7 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll", initialMode
       update({
         loading: false,
         step: STEP_OTP,
+        resendIn: RESEND_COOLDOWN_S,
         hint:
           data?.debugOtp != null
             ? `Dev OTP: ${data.debugOtp}`
@@ -233,6 +245,32 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll", initialMode
       if (status === 429 || code === "rate_limited")
         msg = "Too many attempts. Try again in 10 minutes.";
       else if (code === "send_failed") msg = "Couldn't send OTP, retry.";
+      update({ loading: false });
+      showToast(msg);
+    }
+  };
+
+  const handleResendOtp = async () => {
+    if (state.loading || state.resendIn > 0) return;
+    const mobile = state.mobile.trim();
+    if (!MOBILE_REGEX.test(mobile)) return;
+    update({ loading: true, otp: "", error: null });
+    try {
+      const data = await sendOtp(mobile);
+      update({
+        loading: false,
+        resendIn: RESEND_COOLDOWN_S,
+        hint:
+          data?.debugOtp != null
+            ? `Dev OTP: ${data.debugOtp}`
+            : "New OTP sent.",
+      });
+    } catch (err) {
+      const status = err?.response?.status;
+      const code = err?.response?.data?.error;
+      let msg = "Couldn't resend OTP. Please try again.";
+      if (status === 429 || code === "rate_limited")
+        msg = "Too many attempts. Try again in 10 minutes.";
       update({ loading: false });
       showToast(msg);
     }
@@ -317,8 +355,7 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll", initialMode
         }
         msg = "Please go back and enter your name.";
       }
-      update({ loading: false });
-      showToast(msg);
+      update({ loading: false, error: msg });
     }
   };
 
@@ -702,10 +739,22 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll", initialMode
                       error: null,
                     })
                   }
-                  placeholder="------"
-                  className="w-full rounded-full border border-white/20 bg-white/[0.05] px-5 py-[15px] text-center text-lg font-bold tracking-[0.6em] text-white placeholder:tracking-[0.4em] placeholder:text-[#C6C5D1] focus:border-[#F2A23A] focus:outline-none"
+                  placeholder="----"
+                  className={`w-full rounded-full border bg-white/[0.05] px-5 py-[15px] text-center text-lg font-bold tracking-[0.6em] text-white placeholder:tracking-[0.4em] placeholder:text-[#C6C5D1] focus:outline-none ${
+                    state.error
+                      ? "border-red-400/70 focus:border-red-400"
+                      : "border-white/20 focus:border-[#F2A23A]"
+                  }`}
                 />
-                {state.hint && (
+                {state.error && (
+                  <p
+                    className="text-center text-sm font-semibold text-red-400"
+                    role="alert"
+                  >
+                    {state.error}
+                  </p>
+                )}
+                {!state.error && state.hint && (
                   <p className="text-center text-xs text-[#F2A23A]" role="status">
                     {state.hint}
                   </p>
@@ -723,6 +772,16 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll", initialMode
                     {state.loading ? "Verifying..." : "Verify & Continue"}
                   </button>
                 </div>
+                <button
+                  type="button"
+                  onClick={handleResendOtp}
+                  disabled={state.loading || state.resendIn > 0}
+                  className="block w-full cursor-pointer text-center text-xs font-semibold text-[#F2A23A] underline-offset-4 hover:text-[#F9A607] hover:underline disabled:cursor-not-allowed disabled:text-white/50 disabled:no-underline"
+                >
+                  {state.resendIn > 0
+                    ? `Resend OTP in ${state.resendIn}s`
+                    : "Resend OTP"}
+                </button>
                 <button
                   type="button"
                   onClick={() =>
@@ -849,10 +908,22 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll", initialMode
                       error: null,
                     })
                   }
-                  placeholder="------"
-                  className="w-full rounded-full border border-white/20 bg-white/[0.05] px-5 py-[15px] text-center text-lg font-bold tracking-[0.6em] text-white placeholder:tracking-[0.4em] placeholder:text-[#C6C5D1] focus:border-[#F2A23A] focus:outline-none"
+                  placeholder="----"
+                  className={`w-full rounded-full border bg-white/[0.05] px-5 py-[15px] text-center text-lg font-bold tracking-[0.6em] text-white placeholder:tracking-[0.4em] placeholder:text-[#C6C5D1] focus:outline-none ${
+                    state.error
+                      ? "border-red-400/70 focus:border-red-400"
+                      : "border-white/20 focus:border-[#F2A23A]"
+                  }`}
                 />
-                {state.hint && (
+                {state.error && (
+                  <p
+                    className="text-center text-sm font-semibold text-red-400"
+                    role="alert"
+                  >
+                    {state.error}
+                  </p>
+                )}
+                {!state.error && state.hint && (
                   <p className="text-center text-xs text-[#F2A23A]" role="status">
                     {state.hint}
                   </p>
@@ -870,6 +941,16 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll", initialMode
                     {state.loading ? "Verifying..." : "Verify & Continue"}
                   </button>
                 </div>
+                <button
+                  type="button"
+                  onClick={handleResendOtp}
+                  disabled={state.loading || state.resendIn > 0}
+                  className="block w-full cursor-pointer text-center text-xs font-semibold text-[#F2A23A] underline-offset-4 hover:text-[#F9A607] hover:underline disabled:cursor-not-allowed disabled:text-white/50 disabled:no-underline"
+                >
+                  {state.resendIn > 0
+                    ? `Resend OTP in ${state.resendIn}s`
+                    : "Resend OTP"}
+                </button>
                 <button
                   type="button"
                   onClick={() =>
@@ -989,10 +1070,22 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll", initialMode
                     error: null,
                   })
                 }
-                placeholder="------"
-                className="w-full rounded-full border border-white/15 bg-white/[0.04] px-4 py-3.5 text-center text-lg font-bold tracking-[0.6em] text-white placeholder:tracking-[0.4em] placeholder:text-white/30 focus:border-[#F2A23A] focus:outline-none"
+                placeholder="----"
+                className={`w-full rounded-full border bg-white/[0.04] px-4 py-3.5 text-center text-lg font-bold tracking-[0.6em] text-white placeholder:tracking-[0.4em] placeholder:text-white/30 focus:outline-none ${
+                  state.error
+                    ? "border-red-400/70 focus:border-red-400"
+                    : "border-white/15 focus:border-[#F2A23A]"
+                }`}
               />
-              {state.hint && (
+              {state.error && (
+                <p
+                  className="text-center text-sm font-semibold text-red-400"
+                  role="alert"
+                >
+                  {state.error}
+                </p>
+              )}
+              {!state.error && state.hint && (
                 <p className="text-center text-xs text-[#F2A23A]" role="status">
                   {state.hint}
                 </p>
@@ -1003,6 +1096,16 @@ const LoginModal = ({ open, onClose, onSuccess, variant = "fanPoll", initialMode
                 className="flex w-full cursor-pointer items-center justify-center rounded-full bg-gradient-to-b from-[#FFB066] via-[#F68323] to-[#E07E27] px-4 py-3.5 text-sm font-extrabold uppercase tracking-[0.12em] text-white shadow-[0_10px_30px_-8px_rgba(246,131,35,0.7)] transition disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {state.loading ? "Verifying..." : "Verify & Continue"}
+              </button>
+              <button
+                type="button"
+                onClick={handleResendOtp}
+                disabled={state.loading || state.resendIn > 0}
+                className="block w-full cursor-pointer text-center text-xs font-semibold text-[#F2A23A] underline-offset-4 hover:text-[#F9A607] hover:underline disabled:cursor-not-allowed disabled:text-white/40 disabled:no-underline"
+              >
+                {state.resendIn > 0
+                  ? `Resend OTP in ${state.resendIn}s`
+                  : "Resend OTP"}
               </button>
               <button
                 type="button"
