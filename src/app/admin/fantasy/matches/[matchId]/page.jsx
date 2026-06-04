@@ -167,9 +167,19 @@ export default function FantasyMatchDetailPage() {
   };
 
   const openScheduleEditor = () => {
+    // Default lockAt to scheduled_at when they're aligned (the new normal
+    // for matches seeded after the lock = start change) OR when the existing
+    // lock sits within 10 minutes of the start (catches legacy rows with
+    // the old 5-min head-start). Outside that window we honour the admin's
+    // explicit choice and preserve the previously-saved lockAt verbatim.
+    const sched = match?.scheduled_at;
+    const lock  = match?.lock_at;
+    const sameOrCloseToStart =
+      sched && lock &&
+      Math.abs(new Date(sched).getTime() - new Date(lock).getTime()) <= 10 * 60_000;
     setScheduleForm({
-      scheduledAt:  toLocalInputValue(match?.scheduled_at),
-      lockAt:       toLocalInputValue(match?.lock_at),
+      scheduledAt:  toLocalInputValue(sched),
+      lockAt:       toLocalInputValue(sameOrCloseToStart ? sched : lock),
       resetStatus:  false,
     });
     setScheduleOpen(true);
@@ -1177,13 +1187,25 @@ function ScheduleEditor({
                 type="datetime-local"
                 value={form.scheduledAt}
                 onChange={(e) =>
-                  setForm((f) => ({ ...f, scheduledAt: e.target.value }))
+                  // Mirror the new scheduled time straight into lockAt so the
+                  // two values stay aligned by default (per client direction:
+                  // team creation locks AT match start, not 5 min earlier).
+                  // The admin can still manually override lockAt below if
+                  // they need to close team creation earlier for a specific
+                  // match.
+                  setForm((f) => ({
+                    ...f,
+                    scheduledAt: e.target.value,
+                    lockAt: e.target.value,
+                  }))
                 }
                 className={`${inputBase} border-white/15 focus:border-amber-400/60`}
               />
             </label>
             <label className="flex flex-col gap-1.5 text-xs text-white/65">
-              <span className="font-semibold uppercase tracking-wider">Lock at</span>
+              <span className="font-semibold uppercase tracking-wider">
+                Lock at <span className="opacity-60">(defaults to start time)</span>
+              </span>
               <input
                 type="datetime-local"
                 value={form.lockAt}

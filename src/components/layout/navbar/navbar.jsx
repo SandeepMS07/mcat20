@@ -115,6 +115,24 @@ const Navbar = () => {
     finish();
   };
 
+  // Cross-app sign-out. Symmetric with the fantasy-frontend Sign Out flow:
+  // we revoke the local t20-web session first (refresh cookie + mca_user
+  // localStorage cleared via AuthProvider.logout), then redirect the user
+  // through fantasy/?return=… so the fantasy backend session + fantasy
+  // localStorage also get wiped before they land back here. Without this,
+  // a user could log out of t20-web but still be signed into the fantasy
+  // tab they (or the SSO hand-off) opened earlier.
+  const handleLogout = async () => {
+    try {
+      await logout();
+    } catch {
+      /* ignore — best-effort; still navigate to clear the other side */
+    }
+    if (typeof window === "undefined") return;
+    const returnUrl = `${window.location.origin}/`;
+    window.location.href = `${FANTASY_WEB_BASE}/logout?return=${encodeURIComponent(returnUrl)}`;
+  };
+
   if (pathName === "/auction-info") return;
   const matchesPageBg =
     pathName.includes(routes.fixtures) ||
@@ -371,7 +389,7 @@ const Navbar = () => {
                         <li role="none">
                           <button
                             type="button"
-                            onClick={() => logout()}
+                            onClick={handleLogout}
                             className="flex w-full cursor-pointer items-center gap-2 rounded-xl px-3 py-2.5 text-sm font-semibold text-white/85 transition hover:bg-white/10 hover:text-white"
                           >
                             <svg
@@ -598,8 +616,8 @@ const Navbar = () => {
                 <button
                   type="button"
                   onClick={() => {
-                    logout();
                     setMenuOpen(false);
+                    handleLogout();
                   }}
                   className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] py-2.5 text-sm font-semibold text-white/90 transition hover:bg-white/10"
                 >
