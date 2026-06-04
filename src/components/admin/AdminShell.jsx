@@ -69,25 +69,7 @@ const NAV = [
     label: "Viewers' Choice",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-        <path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4z" />
-        <path d="M5 9a3 3 0 0 1-3-3V5h3M19 9a3 3 0 0 0 3-3V5h-3" />
-      </svg>
-    ),
-  },
-  {
-    // Bull Board is hosted on the backend — open in a new tab rather than
-    // routing client-side. external=true skips the Next <Link> wrapper and
-    // adds target/rel for cross-origin safety.
-    href: BULL_BOARD_URL,
-    label: "Queues",
-    external: true,
-    icon: (
-      // Stacked-bars icon (3 layered job rows) — reads as "queue / jobs"
-      // without overlap with the Polls bar-chart icon.
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-        <rect x="3" y="4" width="18" height="4" rx="1" />
-        <rect x="3" y="10" width="18" height="4" rx="1" />
-        <rect x="3" y="16" width="18" height="4" rx="1" />
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
       </svg>
     ),
   },
@@ -95,9 +77,6 @@ const NAV = [
     href: "/admin/support",
     label: "Support",
     icon: (
-      // Life-ring / support badge — distinct from the trophy + chart icons
-      // already in the nav. Used today only for the OTP rate-limit escape
-      // hatch; more support tools will land here.
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         <circle cx="12" cy="12" r="9" />
         <circle cx="12" cy="12" r="4" />

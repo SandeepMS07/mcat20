@@ -17,6 +17,7 @@ const HIDE_FOOTER_PREFIXES = [
   "/live-auction",
   "/admin",
   "/fan-poll/reveal",
+  "/matchcentre",
 ];
 
 const PAGE_BG_COLORS = {

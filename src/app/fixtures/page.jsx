@@ -568,7 +568,9 @@ const Season4Widget = () => {
       e.preventDefault();
       const qIdx = href.indexOf("?");
       const search = qIdx >= 0 ? href.slice(qIdx) : "";
-      router.push(`/matchcentre${search}`);
+      // Full page nav: the matchcentre CDN widget reads URL params at script
+      // load time and won't re-initialize on a client-side router.push.
+      window.location.href = `/matchcentre${search}`;
     };
 
     container.addEventListener("click", onClick);

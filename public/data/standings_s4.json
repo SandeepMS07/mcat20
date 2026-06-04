@@ -1,0 +1,90 @@
+{
+  "men": [
+    {
+      "TeamName": "Eagle Thane Strikers",
+      "TeamLogo": "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778842606667-rsb03v6i3ti-eagle-thane-strikers.png",
+      "Matches": 1,
+      "Wins": 1,
+      "Loss": 0,
+      "Tied": 0,
+      "NetRunRate": 3.202,
+      "ForTeams": "194/15.2",
+      "AgainstTeam": "189/20.0",
+      "Points": 2
+    },
+    {
+      "TeamName": "MSC Maratha Royals",
+      "TeamLogo": "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778842937458-mm7skn7fp9-maratha-royals.png",
+      "Matches": 1,
+      "Wins": 1,
+      "Loss": 0,
+      "Tied": 0,
+      "NetRunRate": 0.000,
+      "ForTeams": "165/20.0",
+      "AgainstTeam": "165/20.0",
+      "Points": 2
+    },
+    {
+      "TeamName": "Aakash Tigers MWS",
+      "TeamLogo": "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778842478566-ezfc2ljp90o-akash-tigers.png",
+      "Matches": 1,
+      "Wins": 0,
+      "Loss": 1,
+      "Tied": 0,
+      "NetRunRate": 0.000,
+      "ForTeams": "165/20.0",
+      "AgainstTeam": "165/20.0",
+      "Points": 0
+    },
+    {
+      "TeamName": "Bandra Blasters",
+      "TeamLogo": "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778842716680-g3173uqh5ht-bandra-blasters.png",
+      "Matches": 1,
+      "Wins": 0,
+      "Loss": 1,
+      "Tied": 0,
+      "NetRunRate": -3.202,
+      "ForTeams": "189/20.0",
+      "AgainstTeam": "194/15.2",
+      "Points": 0
+    }
+  ],
+  "women": [
+    {
+      "TeamName": "Aakash Tigers",
+      "TeamLogo": "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778842478566-ezfc2ljp90o-akash-tigers.png",
+      "Matches": 0,
+      "Wins": 0,
+      "Loss": 0,
+      "Tied": 0,
+      "NetRunRate": 0.0,
+      "ForTeams": "0/0.0",
+      "AgainstTeam": "0/0.0",
+      "Points": 0
+    },
+    {
+      "TeamName": "Sobo Mumbai Falcons",
+      "TeamLogo": "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778842647889-jnbsdkw5go9-sobo-mumbai-falcons.png",
+      "Matches": 0,
+      "Wins": 0,
+      "Loss": 0,
+      "Tied": 0,
+      "NetRunRate": 0.0,
+      "ForTeams": "0/0.0",
+      "AgainstTeam": "0/0.0",
+      "Points": 0
+    },
+    {
+      "TeamName": "Thane Sky Risers",
+      "TeamLogo": "https://storage.googleapis.com/mca-bucket-gcp/Dev%2F1778842743856-v9mzpsye2s-Thane-Skyrises.png",
+      "Matches": 0,
+      "Wins": 0,
+      "Loss": 0,
+      "Tied": 0,
+      "NetRunRate": 0.0,
+      "ForTeams": "0/0.0",
+      "AgainstTeam": "0/0.0",
+      "Points": 0
+    }
+  ]
+}

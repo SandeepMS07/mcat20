@@ -16,7 +16,7 @@ const Page = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,88,210,0.35),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(26,40,116,0.65),transparent_45%)]" />
         <div className="relative section-width">
           <div className="mb-8 flex flex-col gap-3 border-b border-white/15 pb-6">
-            <h1 className="flex flex-col text-5xl font-extrabold uppercase italic leading-[0.9] text-white sm:text-6xl">
+            <h1 className="flex flex-row gap-2 text-5xl font-extrabold uppercase italic leading-[0.9] text-white sm:text-6xl">
               <span
                 className="text-transparent"
                 style={{ WebkitTextStroke: "2px #7E93DB" }}
@@ -49,8 +49,8 @@ const Page = () => {
             </p>
             <p className="mt-3">
               When you register with us and use the Application, you generally
-              provide (a) mobile number; (b) information you provide us when
-              you contact us for help.
+              provide (a) mobile number; (b) information you provide us when you
+              contact us for help.
             </p>
 
             <SectionHeading>Automatically Collected Information</SectionHeading>
@@ -73,14 +73,14 @@ const Page = () => {
             </p>
 
             <SectionHeading>
-              Do third parties see and/or have access to information obtained
-              by the Application?
+              Do third parties see and/or have access to information obtained by
+              the Application?
             </SectionHeading>
             <p>
               Only aggregated, anonymized data is periodically transmitted to
               external services to help us improve the Application and our
-              service. We will share your information with third parties only
-              in the ways that are described in this privacy statement.
+              service. We will share your information with third parties only in
+              the ways that are described in this privacy statement.
             </p>
             <p className="mt-3">
               We may disclose User Provided and Automatically Collected
@@ -93,8 +93,8 @@ const Page = () => {
               </li>
               <li>
                 when we believe in good faith that disclosure is necessary to
-                protect our rights, protect your safety or the safety of
-                others, investigate fraud, or respond to a government request;
+                protect our rights, protect your safety or the safety of others,
+                investigate fraud, or respond to a government request;
               </li>
               <li>
                 with our trusted service providers who work on our behalf, do
@@ -143,8 +143,8 @@ const Page = () => {
               >
                 tech@tsquaredc.com
               </a>{" "}
-              and we will respond in a reasonable time. Please note that some
-              or all of the User Provided Data may be required in order for the
+              and we will respond in a reasonable time. Please note that some or
+              all of the User Provided Data may be required in order for the
               Application to function properly.
             </p>
 
@@ -180,9 +180,9 @@ const Page = () => {
             <SectionHeading>Changes</SectionHeading>
             <p>
               This Privacy Policy may be updated from time to time for any
-              reason. We will notify you of any changes to our Privacy Policy
-              by posting the new Privacy Policy here and informing you via
-              email or text message.
+              reason. We will notify you of any changes to our Privacy Policy by
+              posting the new Privacy Policy here and informing you via email or
+              text message.
             </p>
 
             <SectionHeading>Your Consent</SectionHeading>
@@ -191,16 +191,16 @@ const Page = () => {
               your information as set forth in this Privacy Policy now and as
               amended by us. &quot;Processing&quot; means using cookies on a
               computer/handheld device or using or touching information in any
-              way, including, but not limited to, collecting, storing,
-              deleting, using, combining and disclosing information, all of
-              which activities will take place in India.
+              way, including, but not limited to, collecting, storing, deleting,
+              using, combining and disclosing information, all of which
+              activities will take place in India.
             </p>
 
             <SectionHeading>Contact us</SectionHeading>
             <p>
               If you have any questions regarding privacy while using the
-              Application, or have questions about our practices, please
-              contact us via email at{" "}
+              Application, or have questions about our practices, please contact
+              us via email at{" "}
               <a
                 href="mailto:tech@tsquaredc.com"
                 className="text-[#FFE150] hover:underline"

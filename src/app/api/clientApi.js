@@ -1,7 +1,9 @@
 import { getAxiosInstance } from "./axiosInstance";
-import teamDetailsStatic from "@/constant/team/teamDetailsDataSeason4.json";
+import { PLAYERS_API_PATH } from "./admin/localPlayers";
+import { FANTASY_API_BASE } from "@/constant";
 
-const axios = getAxiosInstance();
+const mcaAxios = getAxiosInstance();
+const fantasyAxios = getAxiosInstance({ baseURL: FANTASY_API_BASE });
 const DEFAULT_TTL_MS = 5 * 60 * 1000;
 
 const withInferredTeamType = (payload) => {
@@ -13,8 +15,6 @@ const withInferredTeamType = (payload) => {
   });
   return { ...payload, data };
 };
-
-const STATIC_TEAM_DETAILS = withInferredTeamType(teamDetailsStatic);
 
 const memoryCache = new Map();
 
@@ -75,12 +75,16 @@ const fetchWithCache = async (key, requestFn, ttlMs = DEFAULT_TTL_MS) => {
   return freshData;
 };
 
-export const getTeamDetailsClient = async () => STATIC_TEAM_DETAILS;
+export const getTeamDetailsClient = async () => {
+  const res = await fetch(PLAYERS_API_PATH);
+  if (!res.ok) throw new Error(`Failed to fetch players: ${res.status}`);
+  return withInferredTeamType(await res.json());
+};
 
 export const getVideosClient = async () => {
   try {
     return await fetchWithCache("api:videos", async () => {
-      const res = await axios.get("/v1/application/youtube/link");
+      const res = await mcaAxios.get("/v1/application/youtube/link");
       return res.data;
     });
   } catch (err) {
@@ -92,7 +96,7 @@ export const getVideosClient = async () => {
 export const getImagesClient = async () => {
   try {
     return await fetchWithCache("api:images", async () => {
-      const res = await axios.get("/v1/application/web/gallery");
+      const res = await mcaAxios.get("/v1/application/web/gallery");
       return res.data;
     });
   } catch (err) {
@@ -104,7 +108,7 @@ export const getImagesClient = async () => {
 export const getLatestUpdatesClient = async () => {
   try {
     return await fetchWithCache("api:latest-updates", async () => {
-      const res = await axios.get("/v1/live/details/news/announcement");
+      const res = await mcaAxios.get("/v1/live/details/news/announcement");
       const { LocalLatestUpdates } = await import("@/app/news/data");
       const apiItems = Array.isArray(res?.data?.data) ? res.data.data : [];
       const merged = [
@@ -127,7 +131,7 @@ export const getLatestUpdatesClient = async () => {
 export const getHeroBannerClient = async () => {
   try {
     return await fetchWithCache("api:hero-banners", async () => {
-      const res = await axios.get("/v1/application/hero/banners");
+      const res = await mcaAxios.get("/v1/application/hero/banners");
       return res.data;
     });
   } catch (err) {
@@ -136,14 +140,45 @@ export const getHeroBannerClient = async () => {
   }
 };
 
+export const getBannersClient = async () => {
+  try {
+    return await fetchWithCache("api:banners", async () => {
+      const res = await fantasyAxios.get("/v1/banners");
+      return res.data;
+    }, DEFAULT_TTL_MS);
+  } catch (err) {
+    console.error("Client error fetching banners:", err);
+    return null;
+  }
+};
+
 export const getStandings = async () => {
   try {
     return await fetchWithCache("api:standings", async () => {
-      const res = await axios.get("/v1/live/season3/standings");
+      const res = await mcaAxios.get("/v1/live/season3/standings");
       return res.data;
     });
   } catch (err) {
-    console.error("Error in getVideos:", err);
+    console.error("Client error fetching standings:", err);
+    return null;
+  }
+};
+
+export const getStandingsV2Client = async (category = "", forceFresh = false) => {
+  const cacheKey = `api:standings-v2${category ? `:${category.toLowerCase()}` : ""}`;
+  try {
+    if (forceFresh) {
+      const url = category ? `/v1/standings?category=${category}` : "/v1/standings";
+      const res = await fantasyAxios.get(url);
+      return res.data;
+    }
+    return await fetchWithCache(cacheKey, async () => {
+      const url = category ? `/v1/standings?category=${category}` : "/v1/standings";
+      const res = await fantasyAxios.get(url);
+      return res.data;
+    });
+  } catch (err) {
+    console.error("Client error fetching standings v2:", err);
     return null;
   }
 };

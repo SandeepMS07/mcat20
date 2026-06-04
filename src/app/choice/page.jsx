@@ -1,150 +1,166 @@
 "use client";
 
+const COMING_SOON = false;
+
 import Link from "next/link";
-import { FaStar, FaTrophy, FaUserShield, FaBaseballBall } from "react-icons/fa";
-import { GiCricketBat, GiBaseballGlove } from "react-icons/gi";
+import Image from "next/image";
 import Sponsorship from "@/components/common/Sponsorship";
 import { CHOICE_CATEGORIES } from "./categories";
 
-const CATEGORY_ICONS = {
-  "emerging-player": {
-    Icon: FaStar,
-    color: "#FFD166",
-    ring: "rgba(255,209,102,0.35)",
-  },
-  "best-batsman": {
-    Icon: GiCricketBat,
-    color: "#ffffff",
-    ring: "rgba(255,255,255,0.35)",
-  },
-  "best-captain": {
-    Icon: FaUserShield,
-    color: "#4FD1FF",
-    ring: "rgba(79,209,255,0.35)",
-  },
-  "best-bowler": {
-    Icon: FaBaseballBall,
-    color: "#FF7A7A",
-    ring: "rgba(255,122,122,0.35)",
-  },
-  "best-wicketkeeper": {
-    Icon: GiBaseballGlove,
-    color: "#7CFFB2",
-    ring: "rgba(124,255,178,0.35)",
-  },
-  "most-valuable-player": {
-    Icon: FaTrophy,
-    color: "#FFD166",
-    ring: "rgba(255,209,102,0.4)",
-  },
-};
-
-const ChoiceCard = ({ category, index }) => {
-  const { slug, title } = category;
-  const { Icon, color: iconColor, ring } = CATEGORY_ICONS[slug] || {
-    Icon: FaStar,
-    color: "#fff",
-    ring: "rgba(255,255,255,0.3)",
-  };
-  return (
-    <Link
-      href={`/choice/${slug}`}
-      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-[#1A2C7A] via-[#142366] to-[#0B1545] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:shadow-[0_18px_44px_-12px_rgba(0,0,0,0.6)]"
-    >
-      {/* Category number watermark */}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute -right-2 -top-4 text-[88px] font-black italic leading-none text-white/[0.04]"
-      >
-        {String(index + 1).padStart(2, "0")}
+const ComingSoonSection = () => (
+  <div className="relative w-full overflow-hidden bg-[#1E2F7D] bg-[url('/images/texture-bg.png')] bg-cover bg-center bg-no-repeat pt-[120px] pb-20 sm:pt-[140px] lg:pt-[160px]">
+    <div
+      aria-hidden
+      className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,88,210,0.35),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(26,40,116,0.65),transparent_45%)]"
+    />
+    <div
+      aria-hidden
+      className="pointer-events-none absolute -top-32 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-[#F2A23A]/[0.12] blur-3xl"
+    />
+    <div className="section-width section-padding relative mx-auto flex max-w-3xl flex-col items-center text-center">
+      <span className="inline-flex items-center gap-2 rounded-full border border-[#F2A23A]/40 bg-[#F2A23A]/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.18em] text-[#FFE150] backdrop-blur-sm">
+        <span className="relative flex h-1.5 w-1.5">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#F2A23A] opacity-75" />
+          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#F2A23A]" />
+        </span>
+        Viewers&apos; Choice
       </span>
 
-      {/* Decorative ring glow */}
+      <h1 className="mt-6 flex flex-col font-extrabold uppercase italic leading-[0.9] text-white">
+        <span
+          className="text-5xl text-transparent sm:text-6xl lg:text-7xl xl:text-8xl"
+          style={{ WebkitTextStroke: "1.5px #ffffff" }}
+        >
+          Coming
+        </span>
+        <span className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl">
+          Soon
+        </span>
+      </h1>
+
+      <p className="mt-6 max-w-xl text-sm text-white/75 sm:text-base lg:text-lg">
+        Vote for your favourite players and decide who wins the T20 Mumbai League 2026 awards.
+      </p>
+    </div>
+  </div>
+);
+
+const CATEGORY_ICONS = {
+  "player-of-tournament-men": "/images/view-scores/icons/i1.svg",
+  "best-batter-men": "/images/view-scores/icons/i2.svg",
+  "best-bowler-men": "/images/view-scores/icons/i3.svg",
+  "best-emerging-player-men": "/images/view-scores/icons/i4.svg",
+  "best-development-player-men": "/images/view-scores/icons/i5.svg",
+  "player-of-tournament-women": "/images/view-scores/icons/i6.svg",
+  "best-batter-women": "/images/view-scores/icons/i7.svg",
+  "best-bowler-women": "/images/view-scores/icons/i8.svg",
+};
+
+const glowPositionClass = {
+  "top-right": "-top-3 -right-3",
+  "top-left": "-top-3 -left-3",
+  "bottom-right": "-bottom-3 -right-3",
+  "bottom-left": "-bottom-3 -left-3",
+  "right-mid": "top-1/2 -right-6 -translate-y-1/2",
+};
+
+const ChoiceCard = ({ category }) => {
+  const { slug, title, glow } = category;
+  const iconSrc = CATEGORY_ICONS[slug] || "/images/view-scores/icons/i1.svg";
+  return (
+    <div className="relative flex flex-col items-center justify-between overflow-hidden rounded-3xl border border-white/10 p-7 shadow-[inset_0_0_14px_1px_rgba(255,255,255,0.1)] h-full min-h-[220px]">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 rounded-3xl"
+        style={{
+          backgroundImage:
+            "linear-gradient(135deg, rgba(16,40,104,0.8) 0%, rgba(10,25,68,0.9) 100%)",
+        }}
+      />
       <span
         aria-hidden
-        className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
-        style={{ backgroundColor: ring }}
+        className={`pointer-events-none absolute rounded-full blur-2xl ${
+          glowPositionClass[glow.placement]
+        }`}
+        style={{
+          backgroundColor: glow.color,
+          opacity: glow.opacity,
+          width: glow.size,
+          height: glow.size,
+        }}
       />
-
-      {/* Icon + accent line */}
-      <div className="relative z-10 flex items-center justify-between">
-        <div
-          className="flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110"
-          style={{
-            backgroundImage: `linear-gradient(135deg, ${ring} 0%, rgba(255,255,255,0.02) 100%)`,
-          }}
-        >
-          <Icon size={26} color={iconColor} />
-        </div>
-        <span
-          aria-hidden
-          className="h-[3px] w-10 rounded-full bg-gradient-to-r from-[#f68323] to-[#d84800]"
-        />
+      <div className="relative z-10 pt-3">
+        <Image src={iconSrc} alt="" width={52} height={52} className="object-contain" />
       </div>
-
-      <h3 className="relative z-10 mt-6 text-base font-extrabold uppercase italic leading-tight tracking-tight text-white sm:text-lg">
+      <h3 className="relative z-10 mt-4 text-center text-lg font-bold uppercase tracking-wider text-white sm:text-xl">
         {title.map((line, i) => (
-          <span key={i} className="block">
+          <span key={i} className="block leading-7">
             {line}
           </span>
         ))}
       </h3>
-
-      <p className="relative z-10 mt-1 text-[11px] font-medium uppercase tracking-[0.15em] text-white/50">
-        Category {String(index + 1).padStart(2, "0")}
-      </p>
-
-      <div className="relative z-10 mt-auto flex items-center justify-between pt-6">
-        <span className="text-xs font-bold uppercase tracking-wider text-white/85 group-hover:text-[#F8A24A]">
-          Vote Now
-        </span>
-        <span
-          aria-hidden
-          className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-b from-[#d84800] to-[#f68323] text-white shadow-[0_4px_14px_rgba(216,72,0,0.45)] transition-transform duration-300 group-hover:translate-x-1"
-        >
-          →
-        </span>
-      </div>
-    </Link>
+      <Link
+        href={`/choice/${slug}`}
+        className="relative z-10 mt-6 flex w-full items-center justify-center rounded-full bg-gradient-to-r from-[#f97316] to-[#ef4444] px-6 py-2.5 text-sm font-bold uppercase tracking-wide text-white shadow-[0_14px_20px_-4px_rgba(0,0,0,0.1),0_5.5px_8px_-5.5px_rgba(0,0,0,0.1)] transition hover:brightness-110"
+      >
+        Vote Now
+      </Link>
+    </div>
   );
 };
 
 export default function ChoicePage() {
+  if (COMING_SOON) {
+    return (
+      <div>
+        <ComingSoonSection />
+        <Sponsorship />
+      </div>
+    );
+  }
+
   return (
-    <div className="w-full bg-[#1E2F7D]">
-      <section className="relative overflow-hidden pt-[100px] pb-16 lg:pt-[130px] md:pb-24 bg-[url('/images/texture-bg.png')] bg-cover bg-center bg-no-repeat">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,88,210,0.35),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(26,40,116,0.65),transparent_45%)]" />
-
-        <div className="section-width section-padding relative">
-          {/* Heading row */}
-          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row sm:items-end">
-            <h1 className="flex flex-col text-4xl font-extrabold uppercase italic leading-[0.9] text-white sm:text-5xl lg:text-6xl">
-              <span
-                className="text-transparent"
-                style={{ WebkitTextStroke: "1.5px #7E93DB" }}
-              >
-                Viewers
+    <div>
+      <div className="relative bg-[#192a66] pt-[120px] lg:pt-[160px] pb-16 md:pb-24 overflow-hidden bg-[url('/images/texture-bg.png')] bg-cover bg-center bg-no-repeat">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 top-0 h-[560px] bg-gradient-to-b from-[rgba(13,55,169,0.44)] to-[rgba(13,55,169,0)]"
+        />
+        <div className="section-width relative">
+          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+            <h1 className="flex gap-2 text-4xl font-extrabold italic uppercase leading-[0.95] tracking-tight sm:text-5xl lg:text-6xl">
+              <span className="block text-transparent" style={{ WebkitTextStroke: "1.5px #ffffff" }}>
+                VIEWERS
               </span>
-              <span>Choice</span>
+              <span className="block text-white">CHOICE</span>
             </h1>
-            <p className="hidden text-sm font-medium uppercase tracking-[0.18em] text-[#FFE150]/80 sm:block">
-              Cast your vote
-            </p>
           </div>
-
-          {/* Cards grid: 3 cols on lg, 2 on md, 1 on mobile */}
-          <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6 max-w-5xl mx-auto">
-            {CHOICE_CATEGORIES.map((category, index) => (
-              <ChoiceCard
-                key={category.slug}
-                category={category}
-                index={index}
-              />
-            ))}
+          <div className="mt-10 space-y-10">
+            <div>
+              <h2 className="mb-5 text-2xl font-extrabold uppercase italic tracking-tight text-white/80">
+                Men
+              </h2>
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-6 lg:gap-6 items-stretch">
+                {CHOICE_CATEGORIES.filter((c) => c.slug.endsWith("-men")).map((category, i) => (
+                  <div key={category.slug} className={i < 3 ? "lg:col-span-2" : "lg:col-span-3"}>
+                    <ChoiceCard category={category} />
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h2 className="mb-5 text-2xl font-extrabold uppercase italic tracking-tight text-white/80">
+                Women
+              </h2>
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6 items-stretch">
+                {CHOICE_CATEGORIES.filter((c) => c.slug.endsWith("-women")).map((category) => (
+                  <ChoiceCard key={category.slug} category={category} />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
-      </section>
-
+      </div>
       <Sponsorship />
     </div>
   );

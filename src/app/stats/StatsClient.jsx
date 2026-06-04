@@ -253,7 +253,7 @@ const PlayerTable = ({ selected, onPlayerSelect, selectedPlayer, data }) => {
       <div className="hidden overflow-x-auto md:block">
       <table className="w-full md:min-w-[1100px] text-white border-separate border-spacing-y-3 italic">
         <thead>
-          <tr className="text-left text-[10px] sm:text-xs uppercase text-[#FFE24A] bg-[#1F43C5]">
+          <tr className="text-left text-[10px] sm:text-xs uppercase text-[#FFE24A] bg-[#243374]">
             {headers.map((h, i) => {
               const isLastHeader = i === headers.length - 1;
               const isLastOnMobile = h === lastMobileKey;
@@ -296,7 +296,7 @@ const PlayerTable = ({ selected, onPlayerSelect, selectedPlayer, data }) => {
                 >
                   {player.pos}
                 </td>
-                <td className="bg-[#2447C6] rounded-l-full">
+                <td className="bg-[#243374] rounded-l-full">
                   <div className="flex items-center gap-2 px-2 py-1.5 sm:gap-3 sm:px-3 sm:py-2">
                     <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-white">
                       {player.teamLogo ? (

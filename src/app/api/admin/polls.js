@@ -93,6 +93,12 @@ export const pickPollWinner = async (pollId) => {
   return res.data;
 };
 
+// Pick a specific voter as the winner by user_id.
+export const pickPollWinnerManual = async (pollId, userId) => {
+  const res = await turboverseAxios.post(`/v1/admin/polls/${pollId}/pick-winner`, { user_id: userId });
+  return res.data;
+};
+
 export const getPollWinner = async (pollId) => {
   const res = await turboverseAxios.get(`/v1/admin/polls/${pollId}/winner`);
   return res.data;
