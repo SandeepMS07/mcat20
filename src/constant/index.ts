@@ -1,5 +1,5 @@
-export const BACKEND_URL =
-  process.env.NEXT_PUBLIC_BACKEND_URL || "https://mca-prod-api.ken42.com";
+export const BACKEND_URL = "https://mca-prod-api.ken42.com";
+// export const BACKEND_URL = "https://mca-dev-api.ken42.com";
 export const PHOTO_SHARE_KEY = "4342";
 export const PHOTO_GALLERY_ID = "116280";
 export const PLAYER_REGISTRATION_SHARE_KEY = "mca-private-2026";
@@ -14,5 +14,4 @@ export const FANTASY_API_BASE =
 // Override via NEXT_PUBLIC_FANTASY_WEB at build time.
 //   prod  : https://fantasy-mvp.turboverse.co
 //   local : http://localhost:3010
-export const FANTASY_WEB_BASE =
-  process.env.NEXT_PUBLIC_FANTASY_WEB || "https://fantasy-mvp.turboverse.co";
+export const FANTASY_WEB_BASE = "https://fantasy.t20mumbai.com";
