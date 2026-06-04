@@ -159,7 +159,7 @@ export const getStandings = async () => {
       return res.data;
     });
   } catch (err) {
-    console.error("Error in getVideos:", err);
+    console.error("Client error fetching standings:", err);
     return null;
   }
 };

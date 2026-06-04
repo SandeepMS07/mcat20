@@ -81,9 +81,11 @@ const PointsTablePage = () => {
   // Fetch Season 3 data only when that season is selected
   useEffect(() => {
     if (activeSeason !== "season_3" || standingsSeason3.length > 0) return;
-    getStandings().then((res) => {
-      setStandingsSeason3(res?.data?.season_3?.points || []);
-    });
+    getStandings()
+      .then((res) => {
+        setStandingsSeason3(res?.data?.season_3?.points || []);
+      })
+      .catch((err) => console.error("Failed to load season 3 standings", err));
   }, [activeSeason, standingsSeason3.length]);
 
   const rankedSeasonData = useMemo(() => {
