@@ -23,6 +23,7 @@ const routes = {
   howToUse: "#",
   roadmap: "#",
   yourPhotos: "your-photos",
+  fanCam: "/fan-cam",
   pointsTable: "/points-table",
 
   videos: "/videos",

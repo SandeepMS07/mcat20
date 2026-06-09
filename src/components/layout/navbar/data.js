@@ -34,10 +34,10 @@ export const navLinks = [
     path: "https://link.district.in/DSTRKT/t20mumbailandingpagesocials",
   },
   {
-    // SSO hand-off into the fantasy app. The navbar trades the user's
-    // access JWT for a 30-second one-time code via /v1/auth/sso-handoff,
-    // then redirects to FANTASY_WEB_BASE/?code=<code>. path is unused for
-    // this entry (kept for shape parity with the other nav items).
+    title: "Fan Cam",
+    path: `${routes.fanCam}`,
+  },
+  {
     title: "Fantasy",
     path: "#",
     requiresAuth: true,
