@@ -137,11 +137,15 @@ export const getHeroBannerClient = async () => {
 };
 
 export const getStandingsV2Client = async (category = "") => {
-  const cacheKey = `api:standings-v2${category ? `:${category.toLowerCase()}` : ""}`;
+  const cacheKey = `api:standings-v3${
+    category ? `:${category.toLowerCase()}` : ""
+  }`;
   try {
     return await fetchWithCache(cacheKey, async () => {
-      const base = process.env.NEXT_PUBLIC_API_BASE || "";
-      const url = category ? `${base}/v1/standings?category=${category}` : `${base}/v1/standings`;
+      const base = "https://fantasy-api.t20mumbai.com";
+      const url = category
+        ? `${base}/v1/standings?category=${category}`
+        : `${base}/v1/standings`;
       const res = await fetch(url);
       if (!res.ok) throw new Error(`Failed to fetch standings: ${res.status}`);
       return res.json();
