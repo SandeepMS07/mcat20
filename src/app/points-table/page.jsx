@@ -18,12 +18,12 @@ const RECENT_FORM_TEMPLATE = ["W", "L", "L", "W", "W"];
 
 const SEASON4_QUALIFIED_NAMES = {
   men: ["north mumbai panthers"],
-  women: ["sobo mumbai falcons"],
+  women: ["sobo mumbai falcons", "aakash tigers mws", "aakash tigers"],
 };
 
 const SEASON4_ELIMINATED_NAMES = {
   men: ["triumph knights mne", "triumph knights mumbai north east", "bandra blasters", "namo bandra blasters"],
-  women: [],
+  women: ["thane sky risers", "thane skyrisers"],
 };
 
 const isQualified = (name, gender) =>
