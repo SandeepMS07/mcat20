@@ -204,6 +204,24 @@ export const teamShortName = {
   "Triumph Knights MNE": "TKM",
 };
 
+export const season4TeamLogo = {
+  "Aakash Tigers MWS":       "https://turbostart.blob.core.windows.net/team-logos/Artboard%201.png",
+  "Aakash Tigers":           "https://turbostart.blob.core.windows.net/team-logos/Artboard%201.png",
+  "Arcs Andheri":            "https://turbostart.blob.core.windows.net/team-logos/2.%20Andheri%20Arcs.jpg",
+  "ARCS Andheri":            "https://turbostart.blob.core.windows.net/team-logos/2.%20Andheri%20Arcs.jpg",
+  "Eagle Thane Strikers":    "https://turbostart.blob.core.windows.net/team-logos/Eagle%20Thane%20Strikers%20-%20LOGO%20NEW%20-%20Final_18ver.png",
+  "Bandra Blasters":         "https://turbostart.blob.core.windows.net/team-logos/image.png",
+  "NaMo Bandra Blasters":    "https://turbostart.blob.core.windows.net/team-logos/image.png",
+  "North Mumbai Panthers":   "https://turbostart.blob.core.windows.net/team-logos/Artboard%201%20(1).png",
+  "MSC Maratha Royals":      "https://turbostart.blob.core.windows.net/team-logos/Maratha%20Logo%20Final_AW-01.png",
+  "SoBo Mumbai Falcons":     "https://turbostart.blob.core.windows.net/team-logos/WhatsApp%20Image%202025-11-11%20at%2013.04.23.jpeg",
+  "SOBO Mumbai Falcons":     "https://turbostart.blob.core.windows.net/team-logos/WhatsApp%20Image%202025-11-11%20at%2013.04.23.jpeg",
+  "Sobo Mumbai Falcons":     "https://turbostart.blob.core.windows.net/team-logos/WhatsApp%20Image%202025-11-11%20at%2013.04.23.jpeg",
+  "Triumph Knights Mumbai North East": "https://turbostart.blob.core.windows.net/team-logos/8.%20Triumph%20Knights%20Mumbai%20North%20East%20PNG%20v2%20(1).png",
+  "Triumph Knights MNE":     "https://turbostart.blob.core.windows.net/team-logos/8.%20Triumph%20Knights%20Mumbai%20North%20East%20PNG%20v2%20(1).png",
+  "Thane Sky Risers":        "https://turbostart.blob.core.windows.net/team-logos/Eagle%20Thane%20Strikers%20-%20LOGO%20NEW%20-%20Final_18ver.png",
+};
+
 export const season3TeamLogo = {
   "Aakash Tigers MWS":
     "https://turbostart.blob.core.windows.net/team-logos/Artboard%201.png",

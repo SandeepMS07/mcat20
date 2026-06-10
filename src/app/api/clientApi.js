@@ -136,6 +136,20 @@ export const getHeroBannerClient = async () => {
   }
 };
 
+export const getStandingsV2Client = async (category = "") => {
+  const cacheKey = `api:standings-v2${category ? `:${category.toLowerCase()}` : ""}`;
+  try {
+    return await fetchWithCache(cacheKey, async () => {
+      const url = category ? `/v1/standings?category=${category}` : "/v1/standings";
+      const res = await axios.get(url);
+      return res.data;
+    });
+  } catch (err) {
+    console.error("Client error fetching standings v2:", err);
+    return null;
+  }
+};
+
 export const getStandings = async () => {
   try {
     return await fetchWithCache("api:standings", async () => {
