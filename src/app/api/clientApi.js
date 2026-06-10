@@ -140,11 +140,11 @@ export const getStandingsV2Client = async (category = "") => {
   const cacheKey = `api:standings-v2${category ? `:${category.toLowerCase()}` : ""}`;
   try {
     return await fetchWithCache(cacheKey, async () => {
-      const res = await fetch("/api/standings", { cache: "no-store" });
+      const base = process.env.NEXT_PUBLIC_API_BASE || "";
+      const url = category ? `${base}/v1/standings?category=${category}` : `${base}/v1/standings`;
+      const res = await fetch(url);
       if (!res.ok) throw new Error(`Failed to fetch standings: ${res.status}`);
-      const data = await res.json();
-      const key = category.toLowerCase() === "women" ? "women" : "men";
-      return data[key] ?? [];
+      return res.json();
     });
   } catch (err) {
     console.error("Client error fetching standings v2:", err);
